@@ -1,14 +1,28 @@
-# Topics
+# Robot Framework basics
 
-List of topics covered by exams.
+List of topics covered by Robot Framework foundation/basic level exams.
 
-## Overview
+Topics starting with `Not` are not to be covered by these exams, but are
+instead in the scope of the advanced exams. Topics with `(?)` after them
+may be better moved to the advanced exam scope as well.
+
+## Overview / Guidelines
 
 - Where can be used
+  - Domains
+  - Testing levels
+  - BDD
+  - RPA
 - Architecture
-- Tests vs. tasks
+  - Framework
+  - Libraries
+  - As part of CI (?)
 - Installation (?)
 - Editors (?)
+- Coding style
+- Creating maintainable tests
+- Dependencies between tests (to be avoided)
+- Avoid sleep (use polling)
 
 ## Test case syntax
 
@@ -20,7 +34,7 @@ List of topics covered by exams.
 - Imports
   - Libraries
   - Resources
-  - Not variables
+  - Not variable files
 
 - Using arguments
   - Positional arguments
@@ -128,10 +142,3 @@ List of topics covered by exams.
 - Generating log and report based on `output.xml`
 - Combining results
 - Merging results
-
-## Guidelines
-
-- Creating maintainable tests
-- Dependencies between tests (to be avoided)
-- Coding style
-- Avoid sleep (use polling)
