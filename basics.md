@@ -4,7 +4,8 @@ List of topics covered by Robot Framework foundation/basic level exams.
 
 Topics starting with `Not` are not to be covered by these exams, but are
 instead in the scope of the advanced exams. Topics with `(?)` after them
-may be better moved to the advanced exam scope as well.
+may be better moved to the advanced exam scope as well. `(~)` Are agreed
+to be moved to Advanced level.
 
 ## Overview / Guidelines
 
@@ -45,8 +46,9 @@ may be better moved to the advanced exam scope as well.
 - Setup and teardown
 - Documentation
 - Tags
-- Timeouts (?)
+- ~Timeouts (?)~
 - Comments
+- Escaping
 
 ## Suite structure
 
@@ -55,19 +57,19 @@ may be better moved to the advanced exam scope as well.
 - Initialization files
 - Setup and teardown
 - Documentation
-- Metadata (?)
+- ~Metadata (?)~
 
 ## User keywords
 
 - Basic structure
 - Arguments
   - "Normal" arguments
-  - Arguments with default values (?)
+  - Arguments with default values
   - Embedded arguments
   - Not varargs or kwargs
 - Documentation
-- Tags (?)
-- Timeouts (?)
+- ~Tags~
+- ~Timeouts~
 - RETURN
 
 ## Resource files
@@ -84,19 +86,21 @@ may be better moved to the advanced exam scope as well.
   - Using arguments
 - BuiltIn (always available)
 - Standard libraries (automatically installed)
-- External libraries (need to be installed)
-- Most important available libraries (?)
+- External libraries
+    - How to find
+    - How to install
 - Understanding Libdoc HTML outputs
 
 ## Control structures
 
 - IF
-  - Evaluating expressions
+  - Evaluating expressions --> variable syntax should be explained 
   - ELSE
   - ELSE IF
   - Inline IF
-- FOR (?)
-- Not TRY, WHILE, CONTINUE, BREAK
+- Recognise the following:
+  - FOR
+  - TRY, WHILE, CONTINUE, BREAK
 
 ## Variables
 
@@ -108,10 +112,10 @@ may be better moved to the advanced exam scope as well.
   - Numbers, Booleans, None
   - `${SPACE}`, `${EMPTY}`
   - `${CURDIR}`, `${EXECDIR}`
-  - `${/}`, `${:}`, `${\n}` (?)
+  - ~`${/}`, `${:}`, `${\n}`~
   - Not automatic variables
-- Extended variable syntax (?)
-- Not `@{list}` and `&{dict}` variables
+- ~Extended variable syntax~
+- Recognise `@{list}` and `&{dict}` variables
 - Not inline Python evaluation
 
 ## Test execution
@@ -120,12 +124,13 @@ may be better moved to the advanced exam scope as well.
 - Executing a directory
 - Test statuses
   - PASS and FAIL
-  - SKIP
+  - recognise SKIP
 - Using command line options
 - Controlling output files
   - `--outputdir`
-  - `--log`, `--report`, `--output`
-  - `--xunit` (?)
+  - `--variable`
+  - ~`--log`, `--report`, `--output`~
+  - recognise `--xunit`
 - Selecting tests
   - `--test`
   - `--suite`
@@ -137,8 +142,10 @@ may be better moved to the advanced exam scope as well.
 - Not continuable failures
 - Not fatal errors
 
-## Rebot
-
-- Generating log and report based on `output.xml`
-- Combining results
-- Merging results
+## Other tools
+recognise the following:
+- Rebot
+  - Generating log and report based on `output.xml`
+  - Combining results
+  - Merging results
+- Libdoc
