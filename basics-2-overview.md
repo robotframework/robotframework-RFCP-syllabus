@@ -1,6 +1,8 @@
 # Robot Framework basics
 
+## Table of contents
 - [Robot Framework basics](#robot-framework-basics)
+  - [Table of contents](#table-of-contents)
   - [Overview / Guidelines](#overview--guidelines)
 
 ## Overview / Guidelines
