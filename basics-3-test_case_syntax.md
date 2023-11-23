@@ -60,7 +60,7 @@
     3. **Remote libraries** does not contains any keyword, but it works as a proxy between Robot Framework and actual test library implementation. These can be run on the other machine and can be implemented using languages not supported by Robot Framework natively.
   
   - [Resources](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#resource-and-variable-files)  
-Resource files provide a mechanism for sharing keywords and variables. These files cannot contain tests or tasks. Resource file is taken in use in _Resource_ settings so that path to the file is given as an argument to the settings.
+Resource files provide a mechanism for sharing keywords and variables. These files cannot contain tests or tasks. Resource file is taken in use with a `Resource` setting where the path to the file is given as an argument to the setting.
 
   - Not variable files  
 Variable files are in the scope of advanced exam.
