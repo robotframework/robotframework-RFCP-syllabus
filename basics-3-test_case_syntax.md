@@ -51,7 +51,7 @@
   All test cases uses keyword from some library. This section explain how to take test libraries into use
 
   - [Libraries](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#using-test-libraries)  
-  Libraries are imported using _Library_ setting. It is possible to import libraries in suite files, resource files and suite initialization files.  
+  Libraries are imported using `Library` setting. It is possible to import libraries in suite files, resource files and suite initialization files.  
 
     1. **Standard libraries** are distributed with Robot Framework. Builtin library is taken into use automatically and thus its keywords are always availabe. Other standard libraries are imported as any other libraries.
 
