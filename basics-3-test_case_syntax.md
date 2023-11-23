@@ -73,7 +73,11 @@ Variable files are in the scope of advanced exam.
   Most keywords have certain number of arguments that must always be given. It is important to have exactly same number of arguments as specified in the keyword documentation. Using too few or too many arguments will result in an error.
 
   - **Named arguments**   
-  The named argument syntax makes using arguments with default values more flexible, and allows explicitly labeling what a certain argument value means. Technically named arguments work exactly like keyword arguments in Python. The relative order of the named arguments does not matter. Using normal positional arguments after named arguments like, for example, | Keyword | arg=value | positional |, does not work.   
+  The named argument syntax makes using arguments with default values more flexible, and allows explicitly labeling what a certain argument value means. Technically named arguments work exactly like keyword arguments in Python. The relative order of the named arguments does not matter. Using normal positional arguments after named arguments like this:
+      ```
+      Keyword    arg=value    positional
+      ```
+ does not work.   
   It is possible to use variables in both named argument names and values. If variables are used in named argument names, variables are resolved before matching them against argument names.  
   Naming arguments is supported by user keywords and by most test libraries. The only exceptions are Python keywords explicitly using positional-only arguments.  
   
