@@ -23,7 +23,7 @@
   - `--suite`
   - `--include` and `--exclude`
   - Using `*` and `?` wildcards
-  - Not Boolean expressions like `tag1ANDtag2`
+  - [Not] Boolean expressions like `tag1ANDtag2`
 - Viewing report and log
 - Log levels
 - Not continuable failures
