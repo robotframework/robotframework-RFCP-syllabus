@@ -67,7 +67,7 @@ Variable files are in the scope of advanced exam.
 
 - Using arguments  
    [User guide: Arguments](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#using-arguments)   
-   Keywords can accept zero or more arguments, and some arguments may have default values.
+   Keywords can accept zero or more arguments. Some arguments may have default values.
 
   - **Positional arguments**  
   Most keywords have certain number of arguments that must always be given. It is important to have exactly same number of arguments as specified in the keyword documentation. Using too few or too many arguments will result in an error.
