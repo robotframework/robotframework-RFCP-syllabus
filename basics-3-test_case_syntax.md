@@ -79,7 +79,7 @@ Variable files are in the scope of advanced exam.
       ```
  does not work.   
   It is possible to use variables in both named argument names and values. If variables are used in named argument names, variables are resolved before matching them against argument names.  
-  Naming arguments is supported by user keywords and by most test libraries. The only exceptions are Python keywords explicitly using positional-only arguments.  
+  Naming arguments is supported by user keywords and by most test libraries. ~The only exceptions are Python keywords explicitly using positional-only arguments~.  
   
   - **Embedded arguments**  
   [Embedding argument into keyword names](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#embedding-arguments-into-keyword-name)  
