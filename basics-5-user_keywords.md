@@ -12,7 +12,7 @@
   - "Normal" arguments
   - Arguments with default values
   - Embedded arguments
-  - Not varargs or kwargs
+  - [Not] varargs or kwargs
 - Documentation
 - ~Tags~
 - ~Timeouts~
