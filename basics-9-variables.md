@@ -16,7 +16,7 @@
   - `${SPACE}`, `${EMPTY}`
   - `${CURDIR}`, `${EXECDIR}`
   - ~`${/}`, `${:}`, `${\n}`~
-  - Not automatic variables
+  - [Not] automatic variables
 - ~Extended variable syntax~
 - Recognise `@{list}` and `&{dict}` variables
 - Not inline Python evaluation
