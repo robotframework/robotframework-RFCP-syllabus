@@ -96,7 +96,7 @@ Test setup is executed before a test case and teardown after test case. They are
 Teardown is used for clean-up activities that must be done regardless of the test case status. It can be also executed when a test case fails. All the keywords in the teardown is executed even if one of them fails. [**Continue on failure**](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#continuing-on-failure) functionality is by default in teardown.
 - Documentation  
 [User guide: Test case naming and documentation](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-name-and-documentation)  
-Test case can be documentated by [_Document_] setting. It allows free form documentation for a test case. Documentation is shown in the command line and in the resulting logs and reports. Documentation can be divided to several rows with syntax (...). [Dividing data to several rows](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#dividing-data-to-several-rows)
+Test case can be documented by `[Document]` setting. It allows free form documentation for a test case. Documentation is shown in the command line and in the resulting logs and reports. Documentation can be divided to several rows with syntax `...`. [Dividing data to several rows](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#dividing-data-to-several-rows)
 
 - Tags  
 [User guide: Tagging test cases](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#tagging-test-cases)  
