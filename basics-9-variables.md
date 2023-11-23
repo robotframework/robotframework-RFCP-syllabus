@@ -19,4 +19,4 @@
   - [Not] automatic variables
 - ~Extended variable syntax~
 - Recognise `@{list}` and `&{dict}` variables
-- Not inline Python evaluation
+- [Not] inline Python evaluation
