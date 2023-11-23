@@ -99,7 +99,7 @@ Test case can be documentated by [_Document_] setting. It allows free form docum
 Tags are a simple, powerful mechanism for classifying test cases and user keywords. Tags are free text and Robot Framework itself has no special meaning for them except for the some [User Guide: reserved tags](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#reserved-tags).  
 They can be used to exclude and include as  well as to skip cases.
 Tags are shown in the test reports, logs and in the test data. Statistic about test cases (total, passed, failed and skipped) are automatically collected based on them.  
-**Robot Framework 7.0** will introduce a new way for tests to indicate they should not get certain globally specified tags. Instead of using a separate setting that tests can override, tests can use the -tag syntax with their [Tags] setting to tell they should not get a tag named tag. 
+**Robot Framework 7.0** will introduce a new way for tests to indicate they should not get certain globally specified tags. Instead of using a separate setting that tests can override, tests can use the -tag syntax with their `[Tags]` setting to tell they should not get a tag named tag. 
 
 - ~~[Not] Timeouts (?)~~  
 Timeouts are in the scope of advanced exam.
