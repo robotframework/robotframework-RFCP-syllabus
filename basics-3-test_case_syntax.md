@@ -88,7 +88,7 @@ Variable files are in the scope of advanced exam.
 
 - Setup and teardown  
 [User guide: Setup and teardown](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-setup-and-teardown)  
-Test setup is executed before a test case and teardown after test case. They are just normal keywords with possible arguments. Setup and teardown can be executed with multiple keywords using the Builtin keyword _Run keywords_.    
+Test setup is executed before a test case and teardown after test case. They are just normal keywords with possible arguments. Setup and teardown can be executed with multiple keywords using the Builtin keyword `Run keywords`.    
 Teardown is used for clean-up activities that must be done regardless of the test case status. It can be also executed when a test case fails. All the keywords in the teardown is executed even if one of them fails. [**Continue on failure**](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#continuing-on-failure) functionality is by default in teardown.
 - Documentation  
 [User guide: Test case naming and documentation](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-name-and-documentation)  
