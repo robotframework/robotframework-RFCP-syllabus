@@ -15,7 +15,7 @@
       - [\[Not\] Variable files](#not-variable-files)
     - [Using arguments](#using-arguments)
       - [Positional arguments](#positional-arguments)
-      - [Named arguments\*\*](#named-arguments)
+      - [Named arguments](#named-arguments)
       - [Embedded arguments](#embedded-arguments)
       - [\[Not\] varargs or kwargs](#not-varargs-or-kwargs)
     - [Setup and teardown](#setup-and-teardown)
@@ -37,15 +37,15 @@ In Robot Framework, test cases are defined using a clear and readable syntax. A 
 
 #### Keyword driven style
 
-Keyword-driven testing is a software testing approach in which test cases are designed and organized based on keywords or commands. These keywords represent specific actions or operations that the testing team wants to perform on an application or system. The keyword-driven style of testing is particularly useful in test automation but can also be applied in manual testing.[[User Guide: Keyword driven style][UG Keyword Driven Style]]
+Keyword-driven testing is a software testing approach in which test cases are designed and organized based on keywords or commands. These keywords represent specific actions or operations that the testing team wants to perform on an application or system. The keyword-driven style of testing is particularly useful in test automation but can also be applied in manual testing. [[User Guide: Keyword driven style][UG Keyword Driven Style]]
 
 #### Data-driven style
 
-Data-driven testing is a software testing approach in which test cases are designed to be executed with multiple sets of input data. Instead of creating individual test cases for each data set, a single test case is designed to be reusable, and the input data is provided separately. This approach allows for thorough testing of various scenarios and combinations of data with minimal duplication of test case logic.[[User Guide: Data driven style][UG Data-driven style]]
+Data-driven testing is a software testing approach in which test cases are designed to be executed with multiple sets of input data. Instead of creating individual test cases for each data set, a single test case is designed to be reusable, and the input data is provided separately. This approach allows for thorough testing of various scenarios and combinations of data with minimal duplication of test case logic. [[User Guide: Data driven style][UG Data-driven style]]
 
 #### Behavior driven style
 
-Behavior Specification: BDD starts with describing the behavior or functionality that the software should exhibit. This is typically done in plain, natural language that is easily understandable by all stakeholders, including non-technical team members. The behavior is often described in the form of scenarios or user stories.[[User Guide: Behavior data driven style][UG BDD style]]
+Behavior Specification: BDD starts with describing the behavior or functionality that the software should exhibit. This is typically done in plain, natural language that is easily understandable by all stakeholders, including non-technical team members. The behavior is often described in the form of scenarios or user stories. [[User Guide: Behavior data driven style][UG BDD style]]
 
 Given-When-Then: BDD often uses a "Given-When-Then" structure to describe the behavior of a feature:
 
@@ -55,7 +55,7 @@ Given-When-Then: BDD often uses a "Given-When-Then" structure to describe the be
 
 ### Imports
 
-All test cases uses keywords from some library.[[User Guide: Using test libraries][UG Using test libraries]]
+All test cases uses keywords from some library. [[User Guide: Using test libraries][UG Using test libraries]]
 
 #### Libraries
 
@@ -67,7 +67,7 @@ Libraries are imported using `Library` setting. It is possible to import librari
 
 #### Resources
 
-Resource files provide a mechanism for sharing keywords and variables. These files cannot contain tests or tasks. Resource file is taken in use in `Resource` settings so that path to the file is given as an argument to the settings.[[User Guide: Using resources and variable files][UG Using resources and variable files]]
+Resource files provide a mechanism for sharing keywords and variables. These files cannot contain tests or tasks. Resource file is taken in use in `Resource` settings so that path to the file is given as an argument to the settings. [[User Guide: Using resources and variable files][UG Using resources and variable files]]
 
 #### [Not] Variable files  
 
@@ -75,13 +75,13 @@ Variable files are not in the scope of this exam.
 
 ### Using arguments
 
-Keywords can accept zero or more arguments, and some arguments may have default values.[[User Guide: Using arguments][UG Using arguments]]
+Keywords can accept zero or more arguments, and some arguments may have default values. [[User Guide: Using arguments][UG Using arguments]]
 
 #### Positional arguments
 
 Most keywords have certain number of arguments that must always be given. It is important to have exactly same number of arguments as specified in the keyword documentation. Using too few or too many arguments will result in an error.
 
-#### Named arguments**
+#### Named arguments
 
 The named argument syntax makes using arguments with default values more flexible, and allows explicitly labeling what a certain argument value means. Technically named arguments work exactly like keyword arguments in Python. The relative order of the named arguments does not matter. Using normal positional arguments after named arguments like, for example
 ```
@@ -120,7 +120,7 @@ Tags are a simple, powerfull mechanism for classifying test cases and user keywo
 They can be used to exclude and include as  well as to skip cases.
 Tags are shown in the test reports, logs and in the test data. Statistic about test cases (total, passed, failed and skipped) are automatically collected based on them.
 
-**Robot Framework 7.0** will introduce a new way for tests to indicate they should not get certain globally specified tags. Instead of using a separate setting that tests can override, tests can use the -tag syntax with their [Tags] setting to tell they should not get a tag named tag.[[User Guide: Tagging test cases][UG Tagging test cases]]
+**Robot Framework 7.0** will introduce a new way for tests to indicate they should not get certain globally specified tags. Instead of using a separate setting that tests can override, tests can use the -tag syntax with their [Tags] setting to tell they should not get a tag named tag. [[User Guide: Tagging test cases][UG Tagging test cases]]
 
 ### [Not] Timeouts
 
