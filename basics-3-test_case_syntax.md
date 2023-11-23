@@ -101,7 +101,7 @@ They can be used to exclude and include as  well as to skip cases.
 Tags are shown in the test reports, logs and in the test data. Statistic about test cases (total, passed, failed and skipped) are automatically collected based on them.  
 **Robot Framework 7.0** will introduce a new way for tests to indicate they should not get certain globally specified tags. Instead of using a separate setting that tests can override, tests can use the -tag syntax with their [Tags] setting to tell they should not get a tag named tag. 
 
-- ~~Timeouts (?)~~  
+- ~~[Not] Timeouts (?)~~  
 Timeouts are in the scope of advanced exam.
 
 - Comments  
