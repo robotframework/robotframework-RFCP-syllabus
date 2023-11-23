@@ -82,7 +82,7 @@ Variable files are in the scope of advanced exam.
   Embedded arguments are specified into keyword names.  
   The arguments used in the name are naturally available inside the keyword and they have different values depending on how the keyword is called.
 
-  - `Not` varargs or kwargs  
+  - `[Not]` varargs or kwargs  
     Varargs and kwargs are in the scope of advanced exam.
 
 
