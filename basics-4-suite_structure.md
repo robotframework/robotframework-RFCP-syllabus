@@ -14,7 +14,7 @@
 
 ## SUITE STRUCTURE
 
-Test cases are created in suite files, which can be organized into directories. These files and directories create a hierarchical test suite structure. Test suite directories can be initialized with initilization files. [[User Guide: Creating test suites][UG Creating test suites]]
+Test cases are created in suite files, which can be organized into directories. These files and directories create a hierarchical test suite structure. Test suite directories can be initialized with initialization files. [[User Guide: Creating test suites][UG Creating test suites]]
 
 Meta data is **Not** in the scope of this exam.
 
@@ -57,4 +57,3 @@ The documentation for a test suite is set using the `Documentation` setting in t
 [UG Suite initialization files]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#suite-initialization-files
 [UG Suite setup and teardown]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#suite-setup-and-teardown
 [UG Suite documentation]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#suite-documentation
-
