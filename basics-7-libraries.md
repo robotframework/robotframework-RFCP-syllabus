@@ -4,7 +4,7 @@
 <!-- This table of contents is created with vscode 'Markdown All in One' plugin automatically. -->
 - [Robot Framework basics](#robot-framework-basics)
   - [Table of contents](#table-of-contents)
-  - [Libraries](#libraries)
+  - [LIBRARIES](#libraries)
     - [Learning objectives](#learning-objectives)
     - [Importing](#importing)
       - [By name](#by-name)
@@ -16,7 +16,7 @@
       - [How to install](#how-to-install)
     - [Understanding Libdoc HTML outputs](#understanding-libdoc-html-outputs)
 
-## Libraries
+## LIBRARIES
 
 Test libraries contain those lowest-level keywords, often called library keywords, which actually interact with the system under test.
 [[User Guide: Using test libraries][UG Using test libraries]]
