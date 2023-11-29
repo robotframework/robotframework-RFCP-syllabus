@@ -99,7 +99,7 @@ Teardown is used for clean-up activities that must be done regardless of the tes
 
 ### Documentation
 
-Test case can be documentated by the `[Document]` setting. It allows free form documentation for a test case. Documentation is shown in the command line and in the resulting logs and reports. Documentation can be divided to several rows with syntax `(...)`. [[User Guide: Test case naming and documentation][UG Test case naming and documentation]], [[User Guide: Dividing data to several rows][UG Dividing data to several rows]]
+Test case can be documented by the `[Document]` setting. It allows free form documentation for a test case. Documentation is shown in the command line and in the resulting logs and reports. Documentation can be divided to several rows with syntax `(...)`. [[User Guide: Test case naming and documentation][UG Test case naming and documentation]], [[User Guide: Dividing data to several rows][UG Dividing data to several rows]]
 
 ### Tags
 
