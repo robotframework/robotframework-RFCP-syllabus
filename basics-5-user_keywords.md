@@ -37,7 +37,7 @@ Varargs and kwargs are **Not** in the scope of this exam.
 
 #### Normal arguments
 
-_Positional arguments_ are the simpliest way to specify arguments. The keyword must be used with as many arguments as there are argument names in its signature. Argument names should be as descriptive as possible.
+_Positional arguments_ are the simplest way to specify arguments. The keyword must be used with as many arguments as there are argument names in its signature. Argument names should be as descriptive as possible.
 
 #### Arguments with default values
 
