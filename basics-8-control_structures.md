@@ -30,7 +30,7 @@ Control structures are familiar from most programming languages and they allow c
 
 With the `IF` statement it is possible to execute keywords conditionally.
 There needs to be condition that is evaluated.
-`IF` statemend ends with `END`.
+`IF` statement ends with `END`.
 [[User Guide: IF/ELSE syntax][UG IF/ELSE syntax]]
 
 #### Evaluating condition
