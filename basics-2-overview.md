@@ -107,7 +107,7 @@ Test case and keyword names should be descriptive and it is acceptable to have q
 
 #### Creating maintainable tests
 
-Maintaining Robot Framework code involves creating test data that is easy to understand, modify, and extend.
+Maintaining Robot Framework code involves creating test data that is easy to understand, modify and extend.
 Organize your project into a clear directory structure, separating resources, test suites, and other assets.
 Providing clear documentation for custom keywords helps to keep them maintainable.
 Reusable keywords helps maintaining common actions or functionalities. 
