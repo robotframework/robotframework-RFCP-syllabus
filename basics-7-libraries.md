@@ -64,7 +64,7 @@ A list of publicly available external libraries can be found from  [[Robot Frame
 
 #### How to install
 
-All external libraries should have clear installation and usage documentation. They may also require some other depencies to be installed separately.
+All external libraries should have clear installation and usage documentation. Some of them may also require some other depencies to function, and these need to be installed separately.
 [[User Guide: External libraries][UG External libraries]]
 
 ### Understanding Libdoc HTML outputs
