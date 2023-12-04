@@ -54,7 +54,7 @@ Some test libraries are distributed with Robot Framework and these libraries are
 
 ### External libraries
 
-_External libraries_ are not packaged with the core network. The Robot Framework open source community has implemented several generic libraries, such as SeleniumLibrary and SwingLibrary.
+_External libraries_ are not packaged with the core framework. The Robot Framework open source community has implemented several generic libraries, such as SeleniumLibrary and SwingLibrary.
 Custom libraries can also be implemented by teams.
 [[User Guide: External libraries][UG External libraries]]
 
