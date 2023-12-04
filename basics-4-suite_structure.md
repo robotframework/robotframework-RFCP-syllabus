@@ -19,7 +19,7 @@ These files and directories create a hierarchical test suite structure.
 Test suite directories can be initialized with initialization files. 
 [[User Guide: Creating test suites][UG Creating test suites]]
 
-Meta data is **Not** in the scope of this exam.
+Metadata is **Not** in the scope of this exam.
 
 ### Learning objectives
 
