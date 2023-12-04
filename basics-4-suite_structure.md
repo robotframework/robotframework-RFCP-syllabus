@@ -55,7 +55,7 @@ Suite setup is ideal for checking preconditions that must be met before running 
 If a suite setup fails, all test cases in it and its child test suites are immediately assigned a fail status and they are not actually executed.  
 
 A suite teardown is normally used for cleaning up test environment after test cases have been executed. 
-All the keywords in suite teardown is executed even one of them fails. 
+All the keywords in suite teardown are executed even if one of them fails. 
 It is even executed if Suite Setup fails.  
 
 If the suite teardown fails, all test cases in the suite are marked failed, regardless of their original execution status. 
