@@ -49,7 +49,7 @@ Path can be either relative or absolute.
 
 ### Standard libraries
 
-Some test libraries are distributed with Robot Framework and these libraries are called as a _Standard libraries_. These libraries need to imported in the same way as any other libraries.
+Some test libraries are distributed with Robot Framework and these libraries are called as a _Standard libraries_. These libraries need to be imported in the same way as any other libraries.
 [[User Guide: Standard libraries][UG Standard libraries]]
 
 ### External libraries
