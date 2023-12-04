@@ -41,7 +41,7 @@ _Positional arguments_ are the simplest way to specify arguments. The keyword mu
 
 #### Arguments with default values
 
-User keyword support arguments with _default values_. Default values are added to arguments with the (`=`) sign. There can be many arguments with default, but they all must given after positional arguments. [[User Guide: Default values with user keywords][UG Default values with user keywords]]
+User keywords support arguments with _default values_. Default values are added to arguments with the (`=`) sign. There can be many arguments with default values, but they all must given after positional arguments. [[User Guide: Default values with user keywords][UG Default values with user keywords]]
 
 #### Embedded arguments
 
