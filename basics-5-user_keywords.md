@@ -59,6 +59,6 @@ User keyword can return one or more values after it has been executed. It can be
 <!-- REFERENCES -->
 [UG User keyword syntax]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#basic-syntax-2  
 [UG Embedding arguments into keyword name]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#embedding-arguments-into-keyword-name
-[UG User keyword return values]: (https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#user-keyword-return-values)
+[UG User keyword return values]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#user-keyword-return-values
 [UG User keyword arguments]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#user-keyword-arguments
 [UG Default values with user keywords]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#default-values-with-user-keywords
