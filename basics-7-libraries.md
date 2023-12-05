@@ -45,7 +45,7 @@ Path can be either relative or absolute.
 ### BuiltIn Libraries
 
 `Builtin` is Robot Framework's standard library that provides a collection of generic keywords. It is imported automatically and always available.
-[[User Guide: Standard libraries][UG Standard libraries]]
+[[BuiltIn Library]]
 
 ### Standard libraries
 
@@ -64,7 +64,7 @@ A list of publicly available external libraries can be found from  [[Robot Frame
 
 #### How to install
 
-All external libraries should have clear installation and usage documentation. Some of them may also require some other depencies to function, and these need to be installed separately.
+All external libraries should have clear installation and usage documentation. Some of them may also require some other dependencies to function, and these need to be installed separately.
 [[User Guide: External libraries][UG External libraries]]
 
 ### Understanding Libdoc HTML outputs
@@ -77,6 +77,7 @@ All external libraries should have clear installation and usage documentation. S
 [UG Importing libraries]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#importing-libraries
 [UG Using library name]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#using-library-name
 [UG Using physical path to library]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#using-physical-path-to-library
+[BuiltIn Library]: https://robotframework.org/robotframework/latest/libraries/BuiltIn.html
 [UG Standard libraries]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#standard-libraries
 [UG External libraries]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#external-libraries
 [RF Org resources]:https://robotframework.org/#resources
