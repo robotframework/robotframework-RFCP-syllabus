@@ -32,10 +32,13 @@ Variable files are **Not** in the scope of this exam.
 
 ### Variable scopes
 
-Depending on where and how they are created, variables can have a global, test suite, test case or local scope. Variables can be set from the command line, variable section in suite files, during execution, or by using `Builtin` variables
+Depending on where and how they are created, variables can have a global, test suite, test case or local scope.
 [[User Guide: Variable priorities and scope][UG Variable priorities and scope]]
 
 ### Creating variables
+
+Variables can be set from the variable section in suite files, during execution, by using `Builtin` variables or command line.
+For command line, see [Setting variables](#setting-variables).
 
 #### Variables section
 
