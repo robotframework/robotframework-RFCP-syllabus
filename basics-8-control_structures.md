@@ -6,8 +6,8 @@
   - [Table of contents](#table-of-contents)
   - [CONTROL STRUCTURES](#control-structures)
     - [Learning objectives](#learning-objectives)
+    - [Evaluating conditional expressions](#evaluating-conditional-expressions)
     - [IF](#if)
-      - [Evaluating condition](#evaluating-condition)
       - [ELSE](#else)
       - [ELSE IF](#else-if)
       - [Inline IF](#inline-if)
@@ -22,9 +22,16 @@
 Control structures are familiar from most programming languages and they allow conditional execution, repeatedly executing a block of keywords and fine-grained error handling.
 [[User Guide: Control structures][UG Control structures]]
 
+Details of 'Evaluating` conditions are **Not** in the scope of this exam.
+
 ### Learning objectives
 
 **TODO** Learning objectives are separately done.
+
+### Evaluating conditional expressions
+  
+Conditional expressions are evaluated using Python's `eval` function and all Python's builtin functions are available.
+[[User Guide: Evaluating expressions][UG Evaluating expressions]]
 
 ### IF
 
@@ -33,11 +40,6 @@ There needs to be condition that is evaluated.
 `IF` statement ends with `END`.
 [[User Guide: IF/ELSE syntax][UG IF/ELSE syntax]]
 
-#### Evaluating condition
-  
-Conditions are evaluated using Python's eval function so that normal Python constructs like `'${x}' == 'expected', ${x} > 0 and '${x}'.upper() not in ('FAIL', 'BAD')` can be used and all builtin functions like `len()` and `int()` are available.
-[[User Guide: Evaluating expressions][UG Evaluating expressions]]
-  
 #### ELSE
   
 `ELSE` branch is executed if the `IF` condition is not true.
@@ -91,9 +93,9 @@ Both are typically used conditionally with `IF`/`ELSE` or `TRY`/`EXCEPT` structu
 [UG IF/ELSE syntax]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#if-else-syntax
 [UG ELSE branches]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#else-branches
 [UG ELSE/IF branches]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#else-if-branches
-[UG FOR loops]:https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#for-loops
+[UG FOR loops]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#for-loops
 [UG While loops]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#while-loops
-[UG Try/Except]:https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#try-except-syntax
+[UG Try/Except]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#try-except-syntax
 [UG Loop control BREAK/CONTINUE]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#loop-control-using-break-and-continue
 [UG Inline if]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#inline-if-1
 [UG Evaluating expressions]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#evaluating-expressions
