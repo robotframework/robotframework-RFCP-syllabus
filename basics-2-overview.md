@@ -59,7 +59,7 @@ Examples of test domains:
 #### Testing levels
 
 Robot Framework is typically used in different levels of _Acceptance Testing_ as it is brings _Abstraction layer_ to test data and complexity can be hidden to lower keyword implementation.
-It can be used also for _System Testing_ and _Regression Testing_. For _Unit Testing_ and _Integration Testing_ are used more suitable unit test frameworks (using typically implementation language). 
+It can be used also for _System Testing_ and _Regression Testing_. For _Unit Testing_ and _Integration Testing_, there are more suitable unit test frameworks (using typically the implementation's language). 
 
 #### Behavior Driven Development
 
