@@ -353,7 +353,7 @@ They can be used to exclude and include as  well as to skip cases.
 Tags are shown in the test reports, logs and in the test data. 
 Statistic about test cases (total, passed, failed and skipped) are automatically collected based on them.
 
-There is the a way for tests to indicate they should not get certain globally specified tags. Instead of using a separate setting that tests can override, tests can use the `-tag` syntax with their `[Tags]` setting to tell they should not get a tag named tag. 
+There is a way for tests to indicate they should not get certain globally specified tags. Instead of using a separate setting that tests can override, tests can use the `-tag` syntax with their `[Tags]` setting to tell they should not get a tag named tag. 
 [[User Guide: Tagging test cases][UG Tagging test cases]]
 
 ### Comments
