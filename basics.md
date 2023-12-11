@@ -2,7 +2,7 @@
 
 List of topics covered by Robot Framework foundation/basic level exams.
 
-Topics starting with `Not` are not to be covered by these exams, but are
+Topics starting with **Not** are not to be covered by these exams, but are
 instead in the scope of the advanced exams.
 
 ## TABLE OF CONTENTS
@@ -40,7 +40,7 @@ instead in the scope of the advanced exams.
     - [Documentation](#documentation)
     - [Tags](#tags)
     - [Comments](#comments)
-    - [](#)
+    - [Escaping](#escaping)
   - [SUITE STRUCTURE](#suite-structure)
     - [Learning objectives](#learning-objectives-2)
     - [Suite files](#suite-files)
@@ -169,6 +169,8 @@ _Behavior Driven Development_ (BDD)  is a software development methodology that 
 #### Robotic Process Automation
 
 _Robotic Process Automation_ (RPA) is a technology that uses software robots (or "bots") to automate repetitive and rule-based tasks in business processes.
+Tasks works same way as test cases when creating test automation.
+Just terminology is different (tasks vs test cases). 
 [[User Guide: Robotic process automation][UG Creating tasks]]
 
 ### Architecture
@@ -358,8 +360,8 @@ There is a way for tests to indicate they should not get certain globally specif
 
 ### Comments
 
-Lines can be commented with `#` for more information. 
-It should be avoided. because test data itself should be descriptive. 
+Lines can be commented with hash (```#```) for more information. 
+It should be avoided because test data itself should be descriptive.
 
 ### Escaping
 
@@ -564,15 +566,16 @@ All external libraries should have clear installation and usage documentation. S
 Control structures are familiar from most programming languages and they allow conditional execution, repeatedly executing a block of keywords and fine-grained error handling.
 [[User Guide: Control structures][UG Control structures]]
 
-Details of 'Evaluating` conditions are **Not** in the scope of this exam.
+Details of how to create `evaluated conditional expressions` are **Not** in the scope of this exam.
 
 ### Learning objectives
 
 **TODO** Learning objectives are separately done.
 
 ### Evaluating conditional expressions
-  
+
 Conditional expressions are evaluated using Python's `eval` function and all Python's builtin functions are available.
+Evaluated condition is either true or false.
 [[User Guide: Evaluating expressions][UG Evaluating expressions]]
 
 ### IF
