@@ -40,7 +40,7 @@ instead in the scope of the advanced exams.
     - [Documentation](#documentation)
     - [Tags](#tags)
     - [Comments](#comments)
-    - [Escaping](#escaping)
+    - [](#)
   - [SUITE STRUCTURE](#suite-structure)
     - [Learning objectives](#learning-objectives-2)
     - [Suite files](#suite-files)
@@ -359,7 +359,7 @@ There is a way for tests to indicate they should not get certain globally specif
 ### Comments
 
 Lines can be commented with `#` for more information. 
-It should be avoided. because test data itself should b be descriptive. 
+It should be avoided. because test data itself should be descriptive. 
 
 ### Escaping
 
