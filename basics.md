@@ -608,7 +608,7 @@ The `ELSE` and `ELSE IF` statements are also supported.
 
 Test libraries can have any kind of _loop constructs_, and most of the time loops should be implemented by using them.
 `FOR` loops can be used with both test cases and user keywords.
-[User Guide: FOR loops][UG FOR loops]
+[[User Guide: FOR loops][UG FOR loops]]
 
 ### Other control structures
 
