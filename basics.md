@@ -653,7 +653,7 @@ Depending on where and how they are created, variables can have a global, test s
 ### Creating variables
 
 Variables can be set from the variable section in suite files, during execution, by using `Builtin` variables or command line.
-For command line, see [Setting variables](#setting-variables).
+For command line, see [[Setting variables](#setting-variables)].
 
 #### Variables section
 
