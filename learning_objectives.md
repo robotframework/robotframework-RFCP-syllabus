@@ -512,11 +512,12 @@ Test libraries contain those lowest-level keywords, often called library keyword
 
 ### Learning objectives
 
-1. Candidate shall understand difference between: BuildIn, Standard and External Libraries (K2)
-2. Canditate shall understand difference between importing libraries by name and by path (K2)
-3. Canditate shall be able to import Libraries in robot code (K4)
-4. Canditate shall be able to search external Libraries (K4)
-5. Canditate shall be able to install external Libraries (K4)
+1. The candidate shall understand difference between: BuildIn, Standard and External Libraries. (K2)
+2. The candidate shall understand difference between importing libraries by name and by path. (K2)
+3. The candidate will be able to use Libdoc html documentation to identify a keyword for a specific purpose. (K3)
+4. The candidate shall be able to import Libraries in robot code. (K4)
+5. The candidate shall be able to search external Libraries. (K4)
+6. The candidate shall be able to install external Libraries- (K4)
 
 ### Importing
 
