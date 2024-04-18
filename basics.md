@@ -643,7 +643,14 @@ Variable files are **Not** in the scope of this exam.
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+The candidate shall know all the types of variables used and work with.
+The candidate shall know builtin variables.
+The candidate shall know the scope of created variables according to where it is created.
+The candidate shall know create global variables via command line.
+The candidate shall know about return values from keywords.
+The candidate shall know about using lists and dictionaries.
+The candidate shall know VAR syntax.
+The candidate shall know how to use Booleans, None, Spaces and Empty variables.
 
 ### Variable scopes
 
