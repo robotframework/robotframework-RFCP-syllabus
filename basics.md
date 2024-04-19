@@ -198,7 +198,7 @@ When Robot Framework is started, it processes the data, executes test cases and 
 
 #### Libraries
 
-Test libraries contain lowest-level keywords, often called library keywords, which actually interact with the system under test.
+Test libraries contain the lowest-level keywords, often referred to as library keywords, that directly interact with the system under test.
 [[User Guide: Using test libraries][UG Using test libraries]]  <!-- Fix me after merge -->
 
 ### Coding style
@@ -209,17 +209,17 @@ Test case and keyword names should be descriptive and it is acceptable to have q
 
 #### Creating maintainable tests
 
-Maintaining Robot Framework code involves creating test data that is easy to understand, modify and extend.
-Organize your project into a clear directory structure, separating resources, test suites, and other assets.
-Providing clear documentation for custom keywords helps to keep them maintainable.
+When maintaining Robot Framework code, prioritize creating test data that is easily understandable, modifiable, and extendable.
+Ensure your project is organized into a well-defined directory structure, with resources, test suites, and other assets kept separate.
+Clear documentation for custom keywords is essential for their maintainability.
 Reusable keywords helps maintaining common actions or functionalities. 
-<!-- FIXME: needs proper reference -->
+[[Robot Framework Style Guide]]
 
 #### Dependencies between tests (to be avoided)
 
-Dependencies between tests arise when the outcome of one test affects the execution or success of another.
-Managing dependencies between tests is crucial for ensuring that your test suite runs smoothly and produces reliable results.
-In Robot Framework, you can handle test dependencies by carefully designing your test suite and utilizing setup/teardown.
+Tests become interdependent when the result of one test influences the execution or outcome of another.
+Effective management of test dependencies is essential to ensure the smooth execution and reliability of your test suite.
+In Robot Framework, you can manage test dependencies by strategically designing your test suite and utilizing setup/teardown mechanisms.
 <!-- FIXME: needs proper reference -->
 
 #### Avoid sleep (use polling)
@@ -507,7 +507,7 @@ All imported keywords and variables in the resource file can be used in the suit
 
 ## LIBRARIES
 
-Test libraries contain those lowest-level keywords, often called library keywords, which actually interact with the system under test.
+Test libraries contain the lowest-level keywords, often referred to as library keywords, that directly interact with the system under test.
 [[User Guide: Using test libraries][UG Using test libraries]]
 
 ### Learning objectives
@@ -517,34 +517,34 @@ Test libraries contain those lowest-level keywords, often called library keyword
 ### Importing
 
 Test libraries are typically imported in the `Library` settings. There exists also `Import Library` keyword which can be also used.
-Libraries can be imported also with specified arguments.
+Libraries can also be imported with specific arguments.
 [[User Guide Importing libraries][UG Importing libraries]]
 
 #### By name
 
-Importing libraries using its name is the most common way. In this approach Robot Framework tries to find the class or module implementing the library from the Python module search path.
+Using the library's name for importing is the most common method. In this approach, Robot Framework attempts to locate the class or module that implements the library from the Python module search path.
 [[User Guide: Using library name][UG Using library name]]
 
 #### By path
 
-Using a path to the library is an another mechanism. This path is considered relative to the directory where current test data file is situated similarly as paths to resource and variable files. The main advance of the this approach us that there is no need to configure the module search path.
-Path can be either relative or absolute.
+Another mechanism involves using a path to the library. This path is relative to the directory where the current test data file is located, similar to paths for resource and variable files. The main advantage of this approach is that there is no need to configure the module search path.
+The path can be either relative or absolute.
 [[User Guide: Using physical path to library][UG Using physical path to library]]
 
 ### BuiltIn Libraries
 
-`Builtin` is Robot Framework's standard library that provides a collection of generic keywords. It is imported automatically and always available.
+The `Builtin` library is Robot Framework's standard library, offering a set of generic keywords. It is automatically imported and consistently accessible.
 [[BuiltIn Library]]
 
 ### Standard libraries
 
-Some test libraries are distributed with Robot Framework and these libraries are called as a _Standard libraries_. These libraries need to be imported in the same way as any other libraries.
+Some test libraries come pre-packaged with Robot Framework, referred to as _Standard libraries_. These libraries must be imported in the same manner as any other libraries.
 [[User Guide: Standard libraries][UG Standard libraries]]
 
 ### External libraries
 
 _External libraries_ are not packaged with the core framework. The Robot Framework open source community has implemented several generic libraries, such as SeleniumLibrary and SwingLibrary.
-Custom libraries can also be implemented by teams.
+Custom libraries can also be implemented by any user.
 [[User Guide: External libraries][UG External libraries]]
 
 #### How to find
@@ -553,17 +553,17 @@ A list of publicly available external libraries can be found from  [[Robot Frame
 
 #### How to install
 
-All external libraries should have clear installation and usage documentation. Some of them may also require some other dependencies to function, and these need to be installed separately.
+All external libraries should have clear installation and usage documentation. Some of them may also require additional dependencies to function, which need to be installed separately.
 [[User Guide: External libraries][UG External libraries]]
 
 ### Understanding Libdoc HTML outputs
 
-`Libdoc` is Robot Framework's built-in tool that can generate documentation for Robot Framework libraries and resource files in HTML (for humans) and XML or JSON (for tools) formats.
+`Libdoc` is Robot Framework's built-in tool capable of generating documentation for Robot Framework libraries and resource files in HTML (for humans) and XML or JSON (for tools) formats.
 [[User Guide: Library documentation tool][UG Library documentation tool]]
 
 ## CONTROL STRUCTURES
 
-Control structures are familiar from most programming languages and they allow conditional execution, repeatedly executing a block of keywords and fine-grained error handling.
+Control structures, common in most programming languages, enable conditional execution, repetitive execution of a block of keywords, and fine-grained error handling.
 [[User Guide: Control structures][UG Control structures]]
 
 Details of how to create `evaluated conditional expressions` are **Not** in the scope of this exam.
@@ -574,50 +574,50 @@ Details of how to create `evaluated conditional expressions` are **Not** in the 
 
 ### Evaluating conditional expressions
 
-Conditional expressions are evaluated using Python's `eval` function and all Python's builtin functions are available.
-Evaluated condition is either true or false.
+Conditional expressions are evaluated using Python's `eval` function, and all Python built-in functions are accessible. 
+The evaluated condition results in either true or false.
 [[User Guide: Evaluating expressions][UG Evaluating expressions]]
 
 ### IF
 
-With the `IF` statement it is possible to execute keywords conditionally.
-There needs to be condition that is evaluated.
-`IF` statement ends with `END`.
+With the `IF` statement, it is possible to execute keywords conditionally. 
+There needs to be a condition that is evaluated. 
+The `IF` statement ends with `END`.
 [[User Guide: IF/ELSE syntax][UG IF/ELSE syntax]]
 
 #### ELSE
   
-`ELSE` branch is executed if the `IF` condition is not true.
+The `ELSE` branch is executed if the `IF` condition is not true.
 [[User Guide: ELSE branches][UG ELSE branches]]
 
 #### ELSE IF
   
-`ELSE IF` branch is executed if the initial condition is not true. 
-There can be multiple `ELSE IF` branches and they are gone through in the order they are specified.
-An optional `ELSE` branch can follow `ELSE IF` branches and it is executed if all conditions are false.
+The `ELSE IF` branch is executed if the initial condition is not true. 
+Multiple `ELSE IF` branches can exist, and they are processed in the order they are specified. 
+An optional `ELSE` branch can follow `ELSE IF` branches, executed if all conditions are false.
 [[User Guide: ELSE/IF branches][UG ELSE/IF branches]]
 
 #### Inline IF
   
-An alternative is using _inline_ `IF` syntax where the statement to execute follows the `IF` marker and condition directly and no `END` marker is needed.
-This can be used if there is a need to execute only single statement.
+An alternative is using _inline_ `IF` syntax, where the statement to execute follows the `IF` marker and condition directly, and no `END` marker is needed. 
+This can be used if there is a need to execute only a single statement. 
 The `ELSE` and `ELSE IF` statements are also supported.
 [[User Guide: Inline if][UG Inline if]]
  
 ### FOR
 
-Test libraries can have any kind of _loop constructs_, and most of the time loops should be implemented by using them.
-`FOR` loops can be used with both test cases and user keywords.
+Test libraries can incorporate various kinds of _loop constructs_, and in most cases, loops should be implemented using them. 
+`FOR` loops can be utilized with both test cases and user keywords.
 [[User Guide: FOR loops][UG FOR loops]]
 
 ### Other control structures
 
 #### TRY
 
-`TRY`/`EXCEPT` syntax is inspired also from Python.
-This approach is for handling failures during execution.
-There can be multiple `EXCEPT` branches.
-In that case they are matched one by one and the first matching branch is executed. 
+The `TRY`/`EXCEPT` syntax is also inspired by Python. 
+This approach is used for handling failures during execution. 
+Multiple `EXCEPT` branches can exist. 
+In such cases, they are matched one by one, and the first matching branch is executed.
 [[User Guide: Try/Except][UG Try/Except]]
 
 #### WHILE
@@ -669,23 +669,23 @@ Any value returned by a keyword can be assigned to a scalar variable.
 
 #### VAR syntax
 
-It is possible to define variable directly in test case or keyword with `VAR` keyword by adding variable name after it and then value separated with spaces.
-<!-- FIXME: add proper link to documentation -->
+It is possible to define a variable directly in a test case or keyword using the VAR keyword by adding the variable name after it and then separating the value with spaces.
+[[User Guide: VAR syntax][UG VAR syntax]]
 
 ### Item access syntax
 
-_Nested subscriptable variables_ can be accessed using this syntax, e.g. `${x}[0][key]`. This is especially useful with JSON data returned from the REST service. 
+_Nested subscriptable variables_ can be accessed using this syntax, for example, _${x}[0][key]_. This is particularly beneficial when dealing with JSON data returned from a REST service.
 
 ### Built-in variables
 
-_Built-in_ have the highest priority of all variables.  These variables are available automatically.
+_Built-in_ variables have the highest priority among all variables. They are automatically available.
 [[User Guide: Built-in variables][UG: Built-in variables]] 
 
 _Operating system_ variables: `${/}`, `${:}`, `${\n}`, Built-in `automatic variables` and `Inline evaluation` are **Not** in the scope of this exam.
 
 #### Numbers, Booleans, None
 
-When a keyword is expecting to get an actual number and not a string, the variable syntax `${10}` can be used.
+When a keyword requires a numeric value instead of a string, you can utilize the variable syntax ${10}.
 [[User Guide: Number variables][UG Number variables]]
 
 Boolean values `True`/`False` and Python `None` can be also created using variable syntax. These are not case-sensitive, so e.g. `${True}` and `${true}` are equivalent.
@@ -698,18 +698,18 @@ It is possible to create spaces and empty strings using variables `${SPACE}` and
 
 #### Current and execution directory
 
-`${CURDIR}` is an absolute path to directory where the test data is located.
+`${CURDIR}` is an absolute path to the directory where the test data is located.
 
 `${EXECDIR}` is an absolute path to the directory where test execution was started from.
 [[User Guide: Operating-system variables][UG Operating-system variables]]
  
 ### List and dictionary variables
 
-_List variables_ are created similar as scalar variables using `@{list}`. Variable name is in the first column and values in the subsequent columns.
+_List variables_ are created similarly to scalar variables using `@{list}`. The variable name is in the first column, and values are in the subsequent columns.
 [[User Guide: List variable syntax][UG List variable syntax]]
 
 _Dictionary variables_ are created with `&{dict}`.
-_Dictionary items_ are created using `name=value` syntax or existing dictionary variables after variable name.
+_Dictionary items_ are created using the `name=value` syntax or existing dictionary variables after the variable name.
 [[User Guide: Dictionary variable syntax][UG Dictionary variable syntax]]
 
 ## TEST EXECUTION
@@ -952,5 +952,6 @@ Libdoc is Robot Framework's built-in tool that can generate documentation for Ro
 [UG High level architecture]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#high-level-architecture
 [UG Installation instructions]:https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#installation-instructions
 [UG Creating tasks]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#creating-tasks
+[UG VAR syntax]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#var-syntax
 [Robot Framework Style Guide]: https://docs.robotframework.org/docs/style_guide/guide
 [How to write good test cases]: https://github.com/robotframework/HowToWriteGoodTestCases/blob/master/HowToWriteGoodTestCases.rst
