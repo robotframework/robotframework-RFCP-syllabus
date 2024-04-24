@@ -643,14 +643,16 @@ Variable files are **Not** in the scope of this exam.
 
 ### Learning objectives
 
-The candidate shall know all the types of variables used and work with.
-The candidate shall know builtin variables.
-The candidate shall know the scope of created variables according to where it is created.
-The candidate shall know create global variables via command line.
-The candidate shall know about return values from keywords.
-The candidate shall know about using lists and dictionaries.
-The candidate shall know VAR syntax.
-The candidate shall know how to use Booleans, None, Spaces and Empty variables.
+The candidate shall know to define and use scalar variables (K3)
+The candidate shall understand the syntax of list variables (K2)
+The candidate shall understand the syntax of dictionary variables (K2)
+The candidate shall recognize the syntax for environment variables (K1)
+The candidate shall know builtin variables. (K1)
+The candidate shall know the scope of created variables according to where it is created. (K2)
+The candidate shall know create global variables via command line. (K3)
+The candidate shall know about return values from keywords. (K3) 
+The candidate shall know VAR syntax. (K2)
+The candidate shall know how to use Booleans, None, Spaces and Empty variables. (K3)
 
 ### Variable scopes
 
