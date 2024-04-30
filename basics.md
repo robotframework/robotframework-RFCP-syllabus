@@ -715,9 +715,9 @@ _Dictionary items_ are created using the `name=value` syntax or existing diction
 ## TEST EXECUTION
 
 Test cases are always executed within a test suite.
-Test execution is started with `robot` command.
+Test execution is started with the `robot` command.
 Test data to be executed is given as an argument after the command.
-The path can be absolute or relative where test are executed from.
+The path can be absolute or relative to where tests are executed from.
 [[User guide: Executing test case][UG Executing test case]]
 
 _Continuable failures_ and _fatal errors_ are **Not** in the scope of this exam.
@@ -728,41 +728,41 @@ _Continuable failures_ and _fatal errors_ are **Not** in the scope of this exam.
 
 ### Executing a single file
 
-A test file is always test suite that consist of one or more test cases.
-A single test file is executed by giving the direct path to test file after `robot` command.
+A test file is always a test suite that consists of one or more test cases.
+A single test file is executed by giving the direct path to the test file after the `robot` command.
 [[User Guide: Executing individual files][UG Executing individual files]]
 
 ### Executing a directory
 
-Test directories can be executed by giving path to directory.
+Test directories can be executed by giving the path to the directory.
 Only files with the `.robot` extension are executed.
 All files and directories starting with a dot (`.`) or an underscore (`_`) are ignored.
 [[User Guide: Specifying test data to be executed][UG Specifying test data to be executed]]  
 
 ### Test statuses
 
-Test can get `PASS`, `FAIL` and `SKIP` statuses.
+Tests can receive `PASS`, `FAIL` or `SKIP` statuses.
 Suite status is determined based on test statuses.
 [[User guide: Test and suite statuses][UG Test and suite statuses]]
 
 #### PASS and FAIL
 
-A test gets the `PASS` status if it is executed and none of the keywords it contains fails.
+A test receives the `PASS` status if it is executed and none of the keywords it contains fail.
 
-If any test case has failed, test and suite status is `FAIL`.
-The most common reason for a test to get the `FAIL` status is that one of the keywords it contains fails.
+If any test case has failed, the test and suite status is `FAIL`.
+The most common reason for a test to receive the `FAIL` status is that one of the keywords it contains fails.
 
 #### SKIP
 
-The command line option `--skip` can be used to skip specified tests without running them at all. It works based on suite or test case tags.
-Test can be also skipped by tagging the test with reserved tag `robot:skip`.
-Tests which are skipped are included in the test suite but not executed and they are shown in logs and reports.
+The command-line option `--skip` can be used to skip specified tests without running them at all. It works based on suite or test case tags.
+Tests can also be skipped by tagging them with the reserved tag `robot:skip`.
+Tests which are skipped are included in the test suite but not executed, and they are shown in logs and reports.
 [[User Guide: Skip][UG Execution flow]]
 
 ### Using command line options
 
-Robot Framework provides a number of command line options that can be used to control how test cases are executed and what outputs are generated.
-Basic option documentation can be got in command line with `--help` option.
+Robot Framework provides a number of command-line options that can be used to control how test cases are executed and what outputs are generated.
+Basic option documentation can be obtained in the command line with the `--help` option.
 [[User Guide: Using command line options][UG Command line options]]
 
 _Boolean expressions_ `AND`/`OR` are **Not** in the scope of this exam.
@@ -771,12 +771,12 @@ _Boolean expressions_ `AND`/`OR` are **Not** in the scope of this exam.
 
 #### Controlling output files
 
-Several output files are created when tests are executed, and all of them are somehow related to test results.
+Several output files are created when tests are executed, and all of them are related to test results.
 [[User Guide: Output files][UG: Output files]]
 
 - `--outputdir`
-  
-  The default output directory is the directory where the execution is started from, but it can be altered with this option. 
+
+  The default output directory is the directory where the execution is started from, but it can be changed with this option.
 
 - `--xunit`
   
@@ -785,41 +785,41 @@ Several output files are created when tests are executed, and all of them are so
 
 #### Selecting tests  
 
-There are several command line options for selecting test cases to execute.
+There are several command-line options for selecting test cases to execute.
 [[User Guide: Selecting test cases][UG Selecting test cases]]
 
   - `--test`
-  
-    This option is the easiest way to run only some tests.
-    The option can used multiple time to match multiple tests.
+
+    This option is the easiest way to run only a specified test.
+    The option can be used multiple times to match multiple tests.
     It is possible to prefix the test name with a suite name.
    
   - `--suite`
 
-    Tests can be selected also by suite names with this option that selects all tests in matching suites.
-    It is possible to prefix the name with the parent suite name
+    Tests can also be selected by suite names with this option, which selects all tests in matching suites.
+    It is possible to prefix the name with the parent suite name.
   
   - `--include` and `--exclude`
-  
-    Tests can be run also with tags. With `--include` option is executed only tests which has matching tag.
 
-    Test can be excluded from suite with `--exclude` option.
-    Excluded tests are not executed and they are not shown in the logs and reports.
+    Tests can also be run using tags. With the `--include` option, only tests that have matching tags are executed.
+    
+    Tests can be excluded from the suite with the `--exclude` option.
+    Excluded tests are not executed and are not shown in the logs and reports.
 
-  - Using `*` and `?` wildcards
+- Using `*` and `?` wildcards
 
-    Command line options can be used also with `*` and `?` wild cards.
+    Command-line options can also be used with `*` and `?` wildcards.
 
 #### Setting variables
 
-Variables can be set from the command line either individually using the `--variable` option
+Variables can be set from the command line using the `--variable` option.
 
 ### Viewing report and log
 
-When both log and report files are generated, the report file has link to log file for easy navigation to more detailed information.
+When both log and report files are generated, the report file contains a link to the log file for easy navigation to more detailed information.
 
 _Log files_ contain details about the executed test cases in HTML format.
-They have a hierarchical structure showing test suite, test case and keyword details.
+They have a hierarchical structure showing test suite, test case, and keyword details.
 [[User Guide: Log file][UG Log file]]
 
 _Report files_ contain an overview of the test execution results in HTML format.
