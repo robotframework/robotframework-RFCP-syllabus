@@ -355,6 +355,8 @@ They can be used to exclude and include as  well as to skip cases.
 Tags are shown in the test reports, logs and in the test data. 
 Statistic about test cases (total, passed, failed and skipped) are automatically collected based on them.
 
+**TODO** Improve wording on following section
+
 There is a way for tests to indicate they should not get certain globally specified tags. Instead of using a separate setting that tests can override, tests can use the `-tag` syntax with their `[Tags]` setting to tell they should not get a tag named tag. 
 [[User Guide: Tagging test cases][UG Tagging test cases]]
 
@@ -364,6 +366,7 @@ Lines can be commented with hash (```#```) for more information.
 It should be avoided because test data itself should be descriptive.
 
 ### Escaping
+**TODO** Improve wording on following section.
 
 The escape character in Robot Framework test data is the backslash (`\`) and additionally built-in variables `${EMPTY}` and  `${SPACE}` can often be used for escaping. 
 [[User Guide: Escaping][UG Escaping]]
@@ -394,6 +397,8 @@ When a test directory is executed, the files and directories it contains are pro
 [[User Guide: Suite directories][UG Suite directories]]
 
 ### Initialization files
+
+**TODO** Improve wording on following section.
 
 A test suite created from a directory can have similar settings as a suite created from a test case file. 
 Suite initialization files cannot have test case section and not all settings are supported otherwise they have same structure as test case files. 
