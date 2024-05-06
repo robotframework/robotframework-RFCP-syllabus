@@ -379,7 +379,14 @@ Metadata is **Not** in the scope of this exam.
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+The candidate shall understand that test suites can be created in multiple ways, using files or directories. (K2)
+The candidate shall be able to modify a test suite by adding a test case to an existing test suite following the existing structure. (K3)
+The candidate shall be aware that initialization files can be used to assist with creating and executing test suites. (K1)
+The candidate shall understand that an initialization file cannot include test cases. (K2)
+The candidate shall understand how to define suite level setup and teardown using Settings. (K2)
+The candidate shall be able to provide examples of how suite level setup and teardown can be used. (K1)
+The candidate shall be able to modify a test suite file Settings section to add or change suite setup and teardown. (K3)
+The candidate shall be able to modify a test suite file Settings section to add documentation. (K3)
 
 ### Suite files
 
