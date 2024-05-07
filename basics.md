@@ -840,11 +840,10 @@ Test framework has tools that can be used for post processing test case reports 
 ### Learning objectives
 
 The candidate shall understand the purpose and usage of the Rebot tool in post-processing test execution outputs (K2).
-The candidate shall be able to generate logs and reports based on output.xml using Rebot (K2).
+The candidate shall be able to generate logs and reports based on output.xml using Rebot (K3).
 The candidate shall understand how to combine outputs from different test execution rounds using Rebot (K2).
 The candidate shall be able to create an overall report from all outputs of several execution runs in different test environments (K3).
 The candidate shall understand the process of merging results of re-executed test cases using the --merge option in Rebot (K2).
-The candidate shall understand how latter test case runs replace tests in the original report when merging results (K2).
 The candidate shall understand the purpose and usage of the Libdoc tool in generating documentation for Robot Framework libraries, resource and suite files (K2).
 The candidate shall be able to generate documentation using Libdoc (K3).
 
