@@ -732,6 +732,14 @@ _Continuable failures_ and _fatal errors_ are **Not** in the scope of this exam.
 ### Learning objectives
 
 **TODO** Learning objectives are separately done.
+- what files i can execute? how to execute more than one file? 
+- what posibility are for the executing tests?
+- what results I can become after executing? what are they meaning? 
+- how to use options in command line? ( at what place shoud stay options)
+- how to select tests? 
+
+- what is the diffference between report and log? 
+- how to write in log file? 
 
 ### Executing a single file
 
