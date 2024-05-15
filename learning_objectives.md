@@ -488,6 +488,12 @@ Resource files are typically created using the plain text format, but also reStr
 
 **TODO** Learning objectives are separately done.
 
+The candidate should understand that resource files are imported under settings.
+The candidate should understand that resource files can contain custom keywords.
+The candidate should understand importing
+
+
+
 ### Importing
 
 Resource files are imported using the `Resource` setting in the `Settings` section so that the path to the resource file is given as an argument to the setting. 
