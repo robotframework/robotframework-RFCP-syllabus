@@ -388,9 +388,8 @@ Metadata is **Not** in the scope of this exam.
 
 ### Suite files
 
-**TODO** Alter the following for RPA, what section to use?
-
-Test cases are created using _Test Cases_ section in suite files. 
+Test cases are created using the _Test Cases_ section in suite files. 
+RPA tasks are created using the _Tasks_ section in suite files.
 Such a file automatically creates a suite from all the test cases/RPA tasks it contains. 
 [[User Guide: Suite files][UG Suite files]]
 
@@ -402,10 +401,10 @@ When a directory is executed, the files and directories it contains are processe
 
 ### Initialization files
 
-**TODO** Add for RPA - which section to use?
-
-A test suite created from a directory, can have similar settings as a suite created from a test case/RPA suite file. 
-Suite initialization files are similar to test case/RPA suite files, though they cannot have a `test case` section and not all settings are supported. 
+A test suite created from a directory, can have similar settings as a suite created from a test case suite file. 
+Suite initialization files are similar to test case suite files, though they cannot have a `test case`section and not all settings are supported. 
+An RPA task suite created from a directory, can have similar settings as a suite created from a task suite file. 
+Suite initialization files are similar to RPA task suite files, though they cannot have a `tasks`section and not all settings are supported. 
 An initialization file name must always be of the format `__init__.ext`, where the extension must be one of the supported file formats (typically `__init__.robot`). 
 [[User Guide: Suite initialization files][UG Suite initialization files]]
 
@@ -646,9 +645,7 @@ Both are typically used conditionally with `IF`/`ELSE` or `TRY`/`EXCEPT` structu
 
 ## VARIABLES
 
-**TODO** Update for RPA - which section?
-
-Variables are an integral feature of Robot Framework, and most commonly they are included as arguments for keywords in a Test case section and Keyword sections.
+Variables are an integral feature of Robot Framework, and most commonly they are included as arguments for keywords in a Test case section/tasks section and Keyword sections.
 Robot frameworks has variables that can be used as _scalar_, _lists_ or _dictionary_.
 [[User Guide: Variables][UG Variables]]
 
