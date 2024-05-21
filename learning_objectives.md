@@ -250,7 +250,7 @@ Timeouts are **Not** in the scope of this exam.
 5. The Candidate shall understand the difference between libraries and resources (K2)
 6. The Candidate shall understand the difference between positional, named and embedded arguments (K2)
 7. The Candidate shall apply the use of test case/RPA task setup and teardown routines (K3)
-8. The Candidate shall be able to apply tags (K3)
+8. The Candidate shall be able to apply tags (K34?)
 
 [comment]: <> (The Candidate shall be able to import Libraries in robot code by name and by path (K4) is already below - not needed here)
 [comment]: <> (The Candidate shall be able to import resource files (K1?) is already below - not needed here)
