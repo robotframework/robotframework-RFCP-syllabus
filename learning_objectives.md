@@ -244,7 +244,7 @@ Timeouts are **Not** in the scope of this exam.
 ### Learning objectives
 
 1. The Candidate can apply the basic structure of a Robot Framework test case/RPA task (K3)
-2. The Candidate shall understand difference between keyword-driven and data-driven approaches (K3?)
+2. The Candidate shall understand difference between keyword-driven and data-driven approaches (K2)
 3. The Candidate shall understand what Behaviour Driven Development (BDD) is and how to apply it in Robot Framework (K3?)
 4. The Candidate shall understand the difference between standard libraries, external library and the builtin library (K1?)
 5. The Candidate shall understand the difference between libraries and resources (K1?)
