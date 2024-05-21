@@ -732,14 +732,22 @@ _Continuable failures_ and _fatal errors_ are **Not** in the scope of this exam.
 ### Learning objectives
 
 **TODO** Learning objectives are separately done.
-- what files i can execute? how to execute more than one file? 
-- what posibility are for the executing tests?
-- what results I can become after executing? what are they meaning? 
-- how to use options in command line? ( at what place shoud stay options)
-- how to select tests? 
+The candidate can
+(K1) ... determine which files can be executed
+(K2) ... give examples of how tests can be executed 
+(K3) ... execute the test from the command line 
+(K3) ... execute a set of tests from the command line 
 
-- what is the diffference between report and log? 
-- how to write in log file? 
+(K1) ... identify and explain the status of test execution
+(K2) ... interpret the difference between test and suite status
+(K2) ... give examples of how the suite state depends on the test state 
+
+(K2) ... understand the purpose of the command line options provided
+(K3) ... use the command line options 
+(K2) ... give examples of the syntax, values and patterns of options 
+
+(K1) ... explain the difference between report files and log files  
+(K2) ... interpret the log levels
 
 ### Executing a single file
 
