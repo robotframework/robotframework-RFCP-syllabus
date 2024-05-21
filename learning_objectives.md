@@ -128,7 +128,8 @@ Continuous Integration (CI), installation and editors are **Not** in the scope o
 
 ### Learning objectives
 
-1. The Candidate shall understand the purpose for Robot Framework and where it can be used (K1?)
+1. The Candidate shall understand the purpose for Robot Framework (K?)
+2. The Candidate shall understand where Robot Framework can be used and some of the most popular libries (K?)
 2. The Candidate can demonstrate knowledge of several of the most popular open source community libraries to interact with different domains (K3?)
 3. The Candidate shall understand the different testing and RPA levels where Robot Framework should and should not be used (K3?)
 4. The Candidate shall understand the different layers of the Robot Framework architecture (K1?)
