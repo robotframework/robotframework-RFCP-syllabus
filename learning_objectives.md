@@ -236,9 +236,15 @@ Timeouts are **Not** in the scope of this exam.
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
-
-1. (K?) Explain the basic structure of a Robot Framework test case.
+1. The Candidate shall be able to explain the basic structure of a Robot Framework test case. (K2)
+2. The Candidate shall be able to explain the difference between Keyword driven, Data-driven and Behavior-driven test case (K2)
+3. The Candidate shall be able to explain the difference between Standard and external libraries (K2)
+4. The Candidate shall be able to explain the difference between Resource and Test Suite file (K2)
+5. The Candidate shall understand the difference between Positional, Named and Embedded arguments. (K2) 
+6. The Candidate shall understand the setup and teardown processes in the test suite. (K2)
+7. The Candidate should be able to write documentation to test suite file. (K3)
+8. The Candidate should be able to apply tags to classify and manage test cases in Robot Framework. (K3)
+9. The Candidate should be able to apply escape character robot framework code. (K3)
 
 ### Test case structure
 
@@ -269,7 +275,7 @@ The behavior is often described in the form of scenarios or user stories.
 
 ### Imports
 
-All test cases uses keywords or resources from some library or file. There are three types of imports: libraries, resources and variable files. 
+All test cases use keywords or resources from some library or file. There are three types of imports: libraries, resources and variable files. 
 
 Variable files are **Not** in the scope of this exam. 
 
@@ -307,7 +313,7 @@ Varargs and kwargs are **Not** in the scope of this exam.
 
 #### Positional arguments
 
-Most keywords have certain number of arguments that must always be given. 
+Most keywords have a certain number of arguments that must always be given. 
 It is important to have exactly same number of arguments as specified in the keyword documentation. 
 Using too few or too many arguments will result in an error. 
 [[User Guide: Positional arguments][UG Positional arguments]]
