@@ -131,7 +131,7 @@ Continuous Integration (CI), installation and editors are **Not** in the scope o
 1. The Candidate shall understand the purpose for Robot Framework (K?)
 2. The Candidate shall understand where Robot Framework can be used (K?)
 3. The Candidate shall understand that external open source community libraries exist (K1)
-4. The Candidate shall understand the different testing and RPA levels where Robot Framework should and should not be used (K3?)
+4. The Candidate shall understand the different testing and RPA levels where Robot Framework should and should not be used (K1)
 5. The Candidate shall understand the different layers of the Robot Framework architecture (K1?)
 6. The Candidate shall demonstate knowledge of popular automation usage code-smells and their best practice fix alternatives (K4-K5?)
 
