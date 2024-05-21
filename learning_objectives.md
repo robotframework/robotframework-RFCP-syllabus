@@ -246,9 +246,9 @@ Timeouts are **Not** in the scope of this exam.
 1. The Candidate can apply the basic structure of a Robot Framework test case/RPA task (K3)
 2. The Candidate shall understand difference between keyword-driven and data-driven approaches (K2)
 3. The Candidate shall understand what Behaviour Driven Development (BDD) (K2)
-4. The Candidate shall understand the difference between standard libraries, external libraries and the builtIn library (K2)
-5. The Candidate shall understand the difference between libraries and resources (K1?)
-6. The Candidate shall understand the difference between positional, named and embedded arguments (K3?)
+4. The Candidate shall understand the difference between standard libraries, external libraries and the BuiltIn library (K2)
+5. The Candidate shall understand the difference between libraries and resources (K2)
+6. The Candidate shall understand the difference between positional, named and embedded arguments (K2)
 7. The Candidate shall understand the use of test case/RPA task setup and teardown routines and be able to implement them in practice (K3?)
 8. The Candidate shall be able to apply tags (K4?)
 
