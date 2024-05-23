@@ -582,7 +582,7 @@ The evaluated condition results in either true or false.
 
 With the `IF` statement, it is possible to execute keywords conditionally. 
 There needs to be a condition that is evaluated. 
-The `IF` statement ends with `END`.
+The `IF` statement ends with `END` (not applicable for inline-IF).
 [[User Guide: IF/ELSE syntax][UG IF/ELSE syntax]]
 
 #### ELSE
@@ -679,7 +679,7 @@ _Nested subscriptable variables_ can be accessed using this syntax, for example,
 
 ### Built-in variables
 
-_Built-in_ variables have the highest priority among all variables. They are automatically available.
+_Built-in_ variables have the highest priority amongst all variables. They are automatically available.
 [[User Guide: Built-in variables][UG: Built-in variables]] 
 
 _Operating system_ variables: `${/}`, `${:}`, `${\n}`, Built-in `automatic variables` and `Inline evaluation` are **Not** in the scope of this exam.
@@ -749,9 +749,8 @@ Suite status is determined based on test statuses.
 #### PASS and FAIL
 
 A test receives the `PASS` status if it is executed and none of the keywords which are directly called from the test case it has, fails.
-
 If any test case has failed, the test and suite status is `FAIL`.
-The most common reason for a test to receive the `FAIL` status is that one of the keywords it contains fails.
+The most common reason for a test to receive the `FAIL` status is that one of the keywords which is directly called from the test case  contains fails.
 
 #### SKIP
 
