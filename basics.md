@@ -209,7 +209,7 @@ Test case and keyword names should be descriptive and it is acceptable to have q
 
 #### Creating maintainable tests
 
-When maintaining Robot Framework code, prioritize creating test data that is easily understandable, modifiable, and extendable.
+When you are maintaining Robot Framework code you should prioritize creating test data that is easily understandable, modifiable, and extendable.
 Ensure your project is organized into a well-defined directory structure, with resources, test suites, and other assets kept separate.
 Clear documentation for custom keywords is essential for their maintainability.
 Reusable keywords helps maintaining common actions or functionalities. 
