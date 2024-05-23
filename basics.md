@@ -522,7 +522,7 @@ Libraries can also be imported with specific arguments.
 
 #### By name
 
-Using the library's name for importing is the most common method. In this approach, Robot Framework attempts to locate the class or module that implements the library from the Python module search path.
+Using the libraries name for importing is the most common method. In this approach, Robot Framework attempts to locate the class or module that implements the library from the Python module search path.
 [[User Guide: Using library name][UG Using library name]]
 
 #### By path
