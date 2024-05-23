@@ -558,7 +558,7 @@ All external libraries should have clear installation and usage documentation. S
 
 ### Understanding Libdoc HTML outputs
 
-`Libdoc` is Robot Framework's built-in tool capable of generating documentation for Robot Framework libraries and resource files in HTML (for humans) and XML or JSON (for tools) formats.
+`Libdoc` is Robot Framework's built-in tool for generating documentation for Robot Framework libraries and resource files in HTML (for humans) and XML or JSON (for tools) formats.
 [[User Guide: Library documentation tool][UG Library documentation tool]]
 
 ## CONTROL STRUCTURES
