@@ -533,7 +533,7 @@ The path can be either relative or absolute.
 
 ### BuiltIn Libraries
 
-The `Builtin` library is Robot Framework's standard library, offering a set of generic keywords. It is automatically imported and consistently accessible.
+The `BuiltIn` library is Robot Framework's standard library, offering a set of generic keywords. It is automatically imported and consistently accessible.
 [[BuiltIn Library]]
 
 ### Standard libraries
