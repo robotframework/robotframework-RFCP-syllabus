@@ -594,6 +594,7 @@ The `ELSE` branch is executed if the `IF` condition is not true.
   
 The `ELSE IF` branch is executed if the initial condition is not true. 
 Multiple `ELSE IF` branches can exist, and they are processed in the order they are specified. 
+The processing of `ELSE IF` branches is stopped once a condition is true.
 An optional `ELSE` branch can follow `ELSE IF` branches, executed if all conditions are false.
 [[User Guide: ELSE/IF branches][UG ELSE/IF branches]]
 
