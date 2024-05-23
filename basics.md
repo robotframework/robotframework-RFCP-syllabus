@@ -829,12 +829,12 @@ They have statistics based on tags and executed test suites, as well as a list o
 ### Log levels
 
 Messages in log files can have different log levels.
-Some of the messages are written by Robot Framework itself, but also executed keywords can log information using different levels.
+Some messages are written by Robot Framework itself, but executed keywords can also log information using different levels.
 [[User Guide: Log levels][UG Log levels]]
 
 ## OTHER TOOLS
 
-Test framework has tools that can be used for post processing test case reports and documentation creation.
+The test framework has tools that can be used for post-processing test case reports and documentation creation.
 [[User Guide: Supporting tools][UG Supporting tools]]
 
 ### Learning objectives
@@ -848,18 +848,18 @@ _XML output files_ that are generated during the test execution can be post-proc
 
 #### Generating log and report based on output.xml
 
-`Rebot` can be used for creating the same reports and logs that are created automatically during the test execution.
+`Rebot` can be used to create the same reports and logs that are generated automatically during the test execution.
 
 #### Combining results
 
 Rebot has ability to combine outputs from different test execution rounds.
-This capability allows creating an overall report from all outputs of several execution runs for example in different test environments.
+This capability allows creating an overall report from all outputs of several execution runs, for example, in different test environments.
 [[User Guide: Combining results][UG Combining results]]
 
 #### Merging results
 
-Results of re-executed test case for example after bug fixing can be combined with `--merge` option.
-Latter test case runs replace test in the original report.
+Results of re-executed test cases, for example, after bug fixing, can be combined using the `--merge` option.
+Latter test case runs replace the test in the original report.
 [[User Guide: Merging outputs][UG Merging outputs]]
 
 ### Libdoc
