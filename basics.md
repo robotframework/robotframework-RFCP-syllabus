@@ -600,7 +600,7 @@ An optional `ELSE` branch can follow `ELSE IF` branches, executed if all conditi
 
 #### Inline IF
   
-An alternative is using _inline_ `IF` syntax, where the statement to execute follows the `IF` marker and condition directly, and no `END` marker is needed. 
+The _inline_ `IF` syntax can be used for short evaluations, where the statement to execute follows the `IF` marker and condition directly, and no `END` marker is needed. 
 This can be used if there is a need to execute only a single statement. 
 The `ELSE` and `ELSE IF` statements are also supported.
 [[User Guide: Inline if][UG Inline if]]
