@@ -742,7 +742,7 @@ All files and directories starting with a dot (`.`) or an underscore (`_`) are i
 
 ### Test statuses
 
-Tests can receive `PASS`, `FAIL` or `SKIP` statuses.
+A Test can receive `PASS`, `FAIL` or `SKIP` statuses.
 Suite status is determined based on test statuses.
 [[User guide: Test and suite statuses][UG Test and suite statuses]]
 
