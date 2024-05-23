@@ -748,7 +748,7 @@ Suite status is determined based on test statuses.
 
 #### PASS and FAIL
 
-A test receives the `PASS` status if it is executed and none of the keywords it contains fail.
+A test receives the `PASS` status if it is executed and none of the keywords which are directly called from the test case it has, fails.
 
 If any test case has failed, the test and suite status is `FAIL`.
 The most common reason for a test to receive the `FAIL` status is that one of the keywords it contains fails.
