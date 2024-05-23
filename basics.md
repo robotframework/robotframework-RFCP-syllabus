@@ -538,7 +538,7 @@ The `BuiltIn` library is Robot Framework's standard library, offering a set of g
 
 ### Standard libraries
 
-Some test libraries come pre-packaged with Robot Framework, referred to as _Standard libraries_. These libraries must be imported in the same manner as any other libraries.
+Some test libraries come pre-packaged with Robot Framework, referred to as _Standard libraries_. _Standard libraries_ must be imported in the same manner as any other library.
 [[User Guide: Standard libraries][UG Standard libraries]]
 
 ### External libraries
