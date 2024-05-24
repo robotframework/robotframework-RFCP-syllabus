@@ -743,7 +743,7 @@ The candidate can
 (K3) ... execute the test from the command line 
 (K3) ... execute a set of tests from the command line 
 
-(K1) ... identify and explain the status of test execution
+(K1) ... The Candidate shall understand difference between PASS, FAIL and SKIP execution statuses
 (K2) ... **understand** the difference between test and suite status
 (K2) ... give examples of how the suite state depends on the test state 
 
