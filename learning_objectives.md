@@ -744,7 +744,7 @@ The candidate can
 (K3) ... execute a set of tests from the command line 
 
 (K1) ... identify and explain the status of test execution
-(K2) ... interpret the difference between test and suite status
+(K2) ... **understand** the difference between test and suite status
 (K2) ... give examples of how the suite state depends on the test state 
 
 (K2) ... understand the purpose of the command line options provided
