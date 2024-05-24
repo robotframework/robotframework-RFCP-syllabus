@@ -748,7 +748,7 @@ The candidate can
 (K3) ... ** Apply** the difference between test and suite status and dependencies between the two
 
 (K2) ... understand the purpose of the command line options provided
-(K3) ... use the command line options 
+(K3) ... ** Apply** the use of the command line options
 (K2) ... give examples of the syntax, values and patterns of options 
 
 (K1) ... explain the difference between report files and log files  
