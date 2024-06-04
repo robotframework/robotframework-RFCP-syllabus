@@ -582,7 +582,15 @@ Details of how to create `evaluated conditional expressions` are **Not** in the 
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+1. The Candidate can apply (not) equal, greater and/or lower evaluations for control structures. (K3)
+2. The Candidate can write a basic IF statement with a single evaluation. (K3)
+3. The Candidate can explain how an 'OR' and 'AND' within control structures would evaluate. (K2)
+4. The Candidate can explain how ELSE IF/ELSE branches with basic evaluations would evaluate. (K2)
+5. The Candidate can recall the correct way or writing a basic Inline IF statement. (K1)
+6. The Candidate can explain how a basic FOR-IN and FOR-IN-RANGE Loop would evaluate. (K2)
+7. The Candidate can explain how a basic WHILE loop would evaluate. (K2)
+8. The Candidate can explain how BREAK and CONTINUE statements in loops would evaluate. (K2)
+9. The Candidate can recall the correct way of writing a TRY/EXCEPT syntax. (K1)
 
 ### Evaluating conditional expressions
 
