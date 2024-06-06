@@ -241,7 +241,7 @@ Timeouts are **Not** in the scope of this exam.
 3. The Candidate shall be able to explain the difference between Standard and external libraries (K2)
 4. The Candidate shall be able to explain the difference between Resource and Test Suite file (K2)
 5. The Candidate shall understand the difference between Positional, Named and Embedded arguments. (K2) 
-6. The Candidate shall understand the setup and teardown processes in the test suite. (K2)
+6. The Candidate shall be able to describe the use of setup and teardown processes in the test suite. (K2)
 7. The Candidate should be able to write documentation to test suite file. (K3)
 8. The Candidate should be able to apply tags to classify and manage test cases in Robot Framework. (K3)
 9. The Candidate should be able to apply escape character robot framework code. (K3)
