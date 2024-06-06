@@ -237,7 +237,7 @@ Timeouts are **Not** in the scope of this exam.
 ### Learning objectives
 
 1. The Candidate shall be able to explain the basic structure of a Robot Framework test case. (K2)
-2. The Candidate shall be able to explain the difference between Keyword driven, Data-driven and Behavior-driven test case (K2)
+2. The Candidate shall be able to identify the difference between Keyword driven, Data-driven and Behavior-driven test case (K1)
 3. The Candidate shall be able to explain the difference between Standard and external libraries (K2)
 4. The Candidate shall be able to explain the difference between Resource and Test Suite file (K2)
 5. The Candidate shall understand the difference between Positional, Named and Embedded arguments. (K2) 
