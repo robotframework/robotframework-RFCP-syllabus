@@ -128,7 +128,19 @@ Continuous Integration (CI), installation and editors are **Not** in the scope o
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+TODO: Review this section for consistency updated User Guide style section
+
+The candidate shall be able to provide examples of domains where Robot Framework can be used. (K1)
+The candidate shall be able to select testing levels Robot Framework is suited to from a list of levels. (K1)
+The candidate shall be able to describe how Robot Framework can support Behavior Driven Development.(K2)
+The candidate shall be able to explain how Robot Framework can be used for Robotic Process Automation. (K2)
+The candidate shall be able to select which elements from Test Data, Test Libraries, Test Tools, and the System Under Test are part of Robot Framework. (K1)
+The candidate shall be aware that there is a Robot Framework style guide with coding guidelines. (K1)
+The candidate shall be able to explain benefits of following coding guidelines. (K2)
+The candidate shall be able to list basic strategies for creating maintainable tests. (K2)
+The candidate shall be able to describe why avoiding use of Sleep is good practice in automated tests. (K2)
+
+
 
 ### Where can be used
 
