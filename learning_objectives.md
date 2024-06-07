@@ -238,13 +238,15 @@ Timeouts are **Not** in the scope of this exam.
 
 1. The Candidate shall be able to explain the basic structure of a Robot Framework test case. (K2)
 2. The Candidate shall be able to identify the difference between Keyword driven, Data-driven and Behavior-driven test case (K1)
-3. The Candidate shall be able to explain the difference between Standard and external libraries (K2)
+3. The Candidate shall be able to explain the difference between Standard and External libraries (K2)
 4. The Candidate shall be able to explain the difference between Resource and Test Suite file (K2)
-5. The Candidate shall understand the difference between Positional, Named and Embedded arguments. (K2) 
-6. The Candidate shall be able to describe the use of setup and teardown processes in the test suite. (K2)
-7. The Candidate should be able to write documentation to test suite file. (K3)
-8. The Candidate should be able to apply tags to classify and manage test cases in Robot Framework. (K3)
-9. The Candidate should be able to apply escape character robot framework code. (K3)
+5. The Candidate shall be able to identify Positional argument (K1)
+6. The Candidate shall be able to identify Named argument (K1)
+7. The Candidate shall be able to identify Embedded argument (K1)
+8. The Candidate shall be able to describe the use of setup and teardown processes in the test suite. (K2)
+9. The Candidate should be able to write documentation to test suite file. (K3)
+10. The Candidate should be able to apply tags to classify and manage test cases in Robot Framework. (K3)
+11. The Candidate should be able to apply escape character robot framework code. (K3)
 
 ### Test case structure
 
