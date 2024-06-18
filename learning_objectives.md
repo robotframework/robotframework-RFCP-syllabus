@@ -745,6 +745,22 @@ _Continuable failures_ and _fatal errors_ are **Not** in the scope of this exam.
 ### Learning objectives
 
 **TODO** Learning objectives are separately done.
+The candidate can
+(K1) ... determine which files can be executed
+(K2) ... give examples of how tests can be executed 
+(K3) ... execute the test from the command line 
+(K3) ... execute a set of tests from the command line 
+
+(K1) ... The Candidate shall understand difference between PASS, FAIL and SKIP execution statuses
+(K2) ... **understand** the difference between test and suite status
+(K3) ... ** Apply** the difference between test and suite status and dependencies between the two
+
+(K2) ... understand the purpose of the command line options provided
+(K3) ... ** Apply** the use of the command line options
+(K2) ... give examples of the syntax, values and patterns of options 
+
+(K1) ... explain the difference between report files and log files  
+(K2) ... interpret the log levels
 
 ### Executing a single file
 
