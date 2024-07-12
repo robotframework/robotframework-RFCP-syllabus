@@ -206,6 +206,7 @@ When Robot Framework is executed, it processes the input data, executes test cas
 Libraries contain lowest-level keywords, often called library keywords, which are responsible for actually performing interaction with the System Under Test (SUT) or RPA systems.
 [[User Guide: Using test libraries][UG Using test libraries]]  **TODO** <!-- Fix me after merge -->
 
+
 ### Coding style
 
 Write code that is easy to read and understand.
@@ -214,11 +215,13 @@ Test case/RPA task and keyword names should be descriptive and it is acceptable 
 
 #### Creating maintainable tests
 
-Maintaining Robot Framework code involves creating input data that is easy to understand, modify and extend.
-Organize your project into a clear directory structure, separating resources, suites and other assets.
-Providing clear documentation for custom keywords helps to keep them maintainable.
-Reusable keywords helps with maintaining common actions or functionalities. 
-**TODO** <!-- FIXME: needs proper reference -->
+
+When you are maintaining Robot Framework code you should prioritize creating input data that is easily understandable, modifiable, and extendable.
+Ensure your project is organized into a well-defined directory structure, with resources, suites, and other assets kept separate.
+Clear documentation for custom keywords is essential for their maintainability.
+Reusable keywords helps maintaining common actions or functionalities. 
+[[Robot Framework Style Guide]]
+
 
 #### Dependencies between tests/RPA tasks (to be avoided)
 
@@ -226,6 +229,7 @@ Dependencies between tests/tasks arise when the outcome of one test/task affects
 Managing dependencies between tests/tasks is crucial for ensuring that your suite runs smoothly and produces reliable results.
 In Robot Framework, you can handle dependencies by carefully designing your suite and utilizing setup and teardown.
 **TODO** <!-- FIXME: needs proper reference -->
+
 
 #### Avoid sleep (use polling)
 
@@ -515,7 +519,7 @@ All imported keywords and variables in the resource file can be used in the suit
 
 ## LIBRARIES
 
-Test libraries contain those lowest-level keywords, often called library keywords, which actually interact with the System Under Test (SUT) or RPA systems.
+Keyword libraries contain those lowest-level keywords, often called library keywords, which actually interact with the System Under Test (SUT) or RPA systems.
 [[User Guide: Using test libraries][UG Using test libraries]]
 
 ### Learning objectives
@@ -524,7 +528,7 @@ Test libraries contain those lowest-level keywords, often called library keyword
 
 ### Importing
 
-Test libraries are typically imported in the `Library` settings. An `Import Library` keyword also exists for use.
+Keyword libraries are typically imported in the `Library` settings. An `Import Library` keyword also exists for use.
 Libraries can be imported with specified arguments also.
 [[User Guide Importing libraries][UG Importing libraries]]
 
@@ -541,12 +545,12 @@ Path can be either relative or absolute.
 
 ### BuiltIn Libraries
 
-`Builtin` is Robot Framework's standard library that provides a collection of generic keywords. It is imported automatically and always available.
+The `BuiltIn` library is Robot Framework's standard library, offering a set of generic keywords. It is automatically imported and consistently accessible.
 [[BuiltIn Library]]
 
 ### Standard libraries
 
-Some test libraries are distributed with Robot Framework and these libraries are called _Standard libraries_. These libraries need to be imported in the same way as any other libraries.
+Some keyword libraries are distributed with Robot Framework and these libraries are called _Standard libraries_. These libraries need to be imported in the same way as any other libraries.
 [[User Guide: Standard libraries][UG Standard libraries]]
 
 ### External libraries
@@ -566,12 +570,12 @@ All external libraries should have clear installation and usage documentation. S
 
 ### Understanding Libdoc HTML outputs
 
-`Libdoc` is Robot Framework's built-in tool that can generate documentation for Robot Framework libraries and resource files in HTML (for humans) and XML or JSON (for tools) formats.
+`Libdoc` is Robot Framework's built-in tool for generating documentation for Robot Framework libraries and resource files in HTML (for humans) and XML or JSON (for tools) formats.
 [[User Guide: Library documentation tool][UG Library documentation tool]]
 
 ## CONTROL STRUCTURES
 
-Control structures are familiar from most programming languages and they allow conditional execution, repeatedly executing a block of keywords and fine-grained error handling.
+Control structures, common in most programming languages, enable conditional execution, repetitive execution of a block of keywords, and fine-grained error handling.
 [[User Guide: Control structures][UG Control structures]]
 
 Details of how to create `evaluated conditional expressions` are **Not** in the scope of this exam.
@@ -600,21 +604,22 @@ The `ELSE` branch is executed if the `IF` condition is not true.
 
 #### ELSE IF
   
-`ELSE IF` branch is executed if the initial condition is not true. 
+`ELSE IF` branch is executed if the prior conditions are not true but its own condition is. 
 There can be multiple `ELSE IF` branches and they are evaluated in the order they are specified.
 An optional `ELSE` branch can follow `ELSE IF` branches and it is executed if all prior branch conditions are false.
 [[User Guide: ELSE/IF branches][UG ELSE/IF branches]]
 
 #### Inline IF
   
-An alternative is using _inline_ `IF` syntax where the statement to execute follows the `IF` marker and condition directly and no `END` marker is needed.
-This can be used if there is a need to execute only single statement.
+The _inline_ `IF` syntax can be used for short evaluations, where the statement to execute follows the `IF` marker and condition directly, and no `END` marker is needed. 
+This can be used if there is a need to execute only a single statement. 
 The `ELSE` and `ELSE IF` statements are also supported.
 [[User Guide: Inline if][UG Inline if]]
  
 ### FOR
 
 Libraries can have any kind of _loop constructs_ and most of the time loops should be implemented by using them.
+**TODO** <!-- Not happy with the message. Is the meaning, that loops shall be used in python? --> 
 `FOR` loops can be used with both test cases/RPA tasks and user keywords.
 `FOR` loops can be nested and also combined with other control structures.
 [[User Guide: FOR loops][UG FOR loops]]
@@ -697,14 +702,14 @@ _Nested subscriptable variables_ can be accessed using this syntax: `${x}[0][key
 
 ### Built-in variables
 
-_Built-in_ have the highest priority of all variables.  These variables are available automatically.
+_Built-in_ variables have the highest priority amongst all variables. They are automatically available.
 [[User Guide: Built-in variables][UG: Built-in variables]] 
 
 _Operating system_ variables: `${/}`, `${:}`, `${\n}`, Built-in `automatic variables` and `Inline evaluation` are **Not** in the scope of this exam.
 
 #### Numbers, Booleans, None
 
-When a keyword is expecting to get an actual number and not a string, the variable syntax `${10}` can be used.
+When a keyword requires a numeric value instead of a string, you can utilize the variable syntax ${10}.
 [[User Guide: Number variables][UG Number variables]]
 
 Boolean values `True`/`False` and Python `None` can be also created using variable syntax. These are not case-sensitive, so i.e. `${True}` and `${true}` are equivalent.
@@ -717,7 +722,7 @@ It is possible to create spaces and empty strings using variables `${SPACE}` and
 
 #### Current and execution directory
 
-`${CURDIR}` is an absolute path to directory where the input data is located.
+`${CURDIR}` is an absolute path to the directory where the input data is located.
 
 `${EXECDIR}` is an absolute path to the directory where test execution was started from.
 [[User Guide: Operating-system variables][UG Operating-system variables]]
@@ -766,9 +771,9 @@ The parent, or outer suite status is determined based on test/task statuses.
 
 #### PASS and FAIL
 
-A test/RPA task gets the `PASS` status if it is executed and none of the keywords it contains fails.
+A test/RPA task gets the `PASS` status if it is executed and none of the high-level keywords which are directly called have the status `FAIL`.
 
-If any test/task case has failed, then both the test/task and suite status will both result in `FAIL`.
+If any test/task case has failed, then both the test/task and suite status will result in `FAIL`.
 The most common reason for a test/task to get the `FAIL` status is that one of the keywords it contains fails.
 
 #### SKIP
@@ -794,8 +799,8 @@ Several output files are created when execution completes, and all of them are s
 [[User Guide: Output files][UG: Output files]]
 
 - `--outputdir`
-  
-  The default output directory is the directory where the execution is started from, but it can be altered with this option. 
+
+  The default output directory is the directory where the execution is started from, but it can be changed with this option.
 
 - `--xunit`
   
@@ -813,6 +818,7 @@ There are several command line options for selecting test cases/tasks to execute
   
     This option is the easiest way to run only specified test cases.
     The option can used multiple times to match multiple tests.
+    
     It is possible to prefix the test name with a suite name.
    
   - `--suite`
@@ -827,7 +833,8 @@ There are several command line options for selecting test cases/tasks to execute
     A test/task can be excluded from the suite with `--exclude` option.
     Excluded tests are not executed, nor are they shown in the logs and reports.
 
-  - Using `*` and `?` wildcards
+
+- Using `*` and `?` wildcards
 
     Command line options can be used also with `*` and `?` wildcard cahracters.
 
@@ -851,6 +858,7 @@ They have statistics based on tags and executed suites, as well as a list of all
 
 Messages in log files can have different log levels.
 Some of the messages are written by Robot Framework itself, but executed keywords can also log information using different levels.
+
 [[User Guide: Log levels][UG Log levels]]
 
 ## OTHER TOOLS
@@ -875,7 +883,7 @@ _XML output files_ that are generated during the test execution can be post-proc
 
 #### Generating log and report based on output.xml
 
-`Rebot` can be used for creating the same reports and logs that are created automatically during the test execution.
+`Rebot` can be used to create the same reports and logs that are generated automatically during the test execution.
 
 #### Combining results
 
@@ -979,5 +987,6 @@ Libdoc is Robot Framework's built-in tool that can generate documentation for Ro
 [UG High level architecture]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#high-level-architecture
 [UG Installation instructions]:https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#installation-instructions
 [UG Creating tasks]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#creating-tasks
+[UG VAR syntax]: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#var-syntax
 [Robot Framework Style Guide]: https://docs.robotframework.org/docs/style_guide/guide
 [How to write good test cases]: https://github.com/robotframework/HowToWriteGoodTestCases/blob/master/HowToWriteGoodTestCases.rst

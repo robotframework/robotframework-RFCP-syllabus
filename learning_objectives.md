@@ -128,7 +128,29 @@ Continuous Integration (CI), installation and editors are **Not** in the scope o
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+<!-- AlexRead_LearningObjectivesInput
+1. The Candidate shall understand the purpose for Robot Framework (K?)
+2. The Candidate shall understand where Robot Framework can be used (K?)
+3. The Candidate shall understand that external open source community libraries exist (K1)
+4. The Candidate shall understand the different testing and RPA levels where Robot Framework should and should not be used (K1)
+5. The Candidate shall understand the different layers of the Robot Framework architecture (K1-2?)
+6. The Candidate shall demonstrate knowledge of popular automation usage code-smells and their best practice fix alternatives (K3)  
+
+**TODO:** For Q6, this chapter will be updated - much moved to user guide
+=======
+TODO: Review this section for consistency updated User Guide style section
+
+The candidate shall be able to provide examples of domains where Robot Framework can be used. (K1)
+The candidate shall be able to select testing levels Robot Framework is suited to from a list of levels. (K1)
+The candidate shall be able to describe how Robot Framework can support Behavior Driven Development.(K2)
+The candidate shall be able to explain how Robot Framework can be used for Robotic Process Automation. (K2)
+The candidate shall be able to select which elements from Test Data, Test Libraries, Test Tools, and the System Under Test are part of Robot Framework. (K1)
+The candidate shall be aware that there is a Robot Framework style guide with coding guidelines. (K1)
+The candidate shall be able to explain benefits of following coding guidelines. (K2)
+The candidate shall be able to list basic strategies for creating maintainable tests. (K2)
+The candidate shall be able to describe why avoiding use of Sleep is good practice in automated tests. (K2)
+
+-->
 
 ### Where can be used
 
@@ -236,9 +258,32 @@ Timeouts are **Not** in the scope of this exam.
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+<!-- AlexRead_LearningObjectivesInput
+1. The Candidate can apply the basic structure of a Robot Framework test case/RPA task (K3)
+2. The Candidate shall understand difference between keyword-driven and data-driven approaches (K2)
+3. The Candidate shall understand what Behaviour Driven Development (BDD) is (K2)
+4. The Candidate shall understand the difference between standard libraries, external libraries and the BuiltIn library (K2)
+5. The Candidate shall understand the difference between libraries and resources (K2)
+6. The Candidate shall understand the difference between positional, named and embedded arguments (K2)
+7. The Candidate shall apply the use of test case/RPA task setup and teardown routines (K3)
+8. The Candidate shall be able to apply tags (K3-4?)
 
-1. (K?) Explain the basic structure of a Robot Framework test case.
+[comment]: <> (The Candidate shall be able to import Libraries in robot code by name and by path (K4) is already below - not needed here)
+[comment]: <> (The Candidate shall be able to import resource files (K1?) is already below - not needed here)
+
+=======
+1. The Candidate shall be able to explain the basic structure of a Robot Framework test case. (K2)
+2. The Candidate shall be able to identify the difference between Keyword driven, Data-driven and Behavior-driven test case (K1)
+3. The Candidate shall be able to explain the difference between Standard and External libraries (K2)
+4. The Candidate shall be able to explain the difference between Resource and Test Suite file (K2)
+5. The Candidate shall be able to identify Positional argument (K1)
+6. The Candidate shall be able to identify Named argument (K1)
+7. The Candidate shall be able to identify Embedded argument (K1)
+8. The Candidate shall be able to describe the use of setup and teardown processes in the test suite. (K2)
+9. The Candidate should be able to write documentation to test suite file. (K3)
+10. The Candidate should be able to apply tags to classify and manage test cases in Robot Framework. (K3)
+11. The Candidate should be able to apply escape character robot framework code. (K3)
+-->
 
 ### Test case structure
 
@@ -269,7 +314,7 @@ The behavior is often described in the form of scenarios or user stories.
 
 ### Imports
 
-All test cases uses keywords or resources from some library or file. There are three types of imports: libraries, resources and variable files. 
+All test cases use keywords or resources from some library or file. There are three types of imports: libraries, resources and variable files. 
 
 Variable files are **Not** in the scope of this exam. 
 
@@ -307,7 +352,7 @@ Varargs and kwargs are **Not** in the scope of this exam.
 
 #### Positional arguments
 
-Most keywords have certain number of arguments that must always be given. 
+Most keywords have a certain number of arguments that must always be given. 
 It is important to have exactly same number of arguments as specified in the keyword documentation. 
 Using too few or too many arguments will result in an error. 
 [[User Guide: Positional arguments][UG Positional arguments]]
@@ -379,14 +424,15 @@ Metadata is **Not** in the scope of this exam.
 
 ### Learning objectives
 
-The candidate shall understand that test suites can be created in multiple ways, using files or directories. (K2)
-The candidate shall be able to modify a test suite by adding a test case to an existing test suite following the existing structure. (K3)
-The candidate shall be aware that initialization files can be used to assist with creating and executing test suites. (K1)
-The candidate shall understand that an initialization file cannot include test cases. (K2)
-The candidate shall understand how to define suite level setup and teardown using Settings. (K2)
-The candidate shall be able to provide examples of how suite level setup and teardown can be used. (K1)
-The candidate shall be able to modify a test suite file Settings section to add or change suite setup and teardown. (K3)
-The candidate shall be able to modify a test suite file Settings section to add documentation. (K3)
+1. The Candidate shall understand that test suites can be created in multiple ways, using files or directories (K2)
+2. The Candidate shall be able to modify a test suite by adding a test case to an existing test suite following the existing structure (K3)
+3. The Candidate shall be aware that initialization files can be used to assist with creating and executing test suites (K1)
+4. The Candidate shall understand that an initialization file cannot include test cases (K2)
+5. The Candidate shall understand how to define suite level setup and teardown using Settings (K2)
+6. The Candidate shall be able to provide examples of how suite level setup and teardown can be used (K1)
+7. The Candidate shall be able to modify a test suite file Settings section to add or change suite setup and teardown (K3)
+8. The Candidate shall be able to modify a test suite file Settings section to add documentation (K3)
+9. The Candidate shall understand the differences between a test case, an RPA task and a suite and implement each (K2-K3?)
 
 ### Suite files
 
@@ -438,7 +484,11 @@ Tags and timeout are **Not** in the scope of this exam.
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+1. The Candidate shall be able to create own keywords and understand their syntax (K2?)
+2. The Candidate shall be able to modify a keyword by adding arguments to it (K2?)
+3. The Candidate shall understand differences between different normal, default-value and embedded keyword arguments (K3?)
+4. The Candidate shall be able to modify a keyword by adding documentation to it (K3?)
+5. The Candidate shall be able to provide examples of how the return statement can be used with keywords (K3?)
 
 ### Basic structure
 
@@ -493,7 +543,18 @@ Resource files are typically created using the plain text format, but also reStr
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+<!-- AlexRead_LearningObjectivesInput
+1. The Candidate shall be able to import resource files (K1?)
+=======
+The candidate should understand that resource files are imported under settings.
+The candidate should understand that resource files can contain custom keywords.
+The candidate should understand importing resource file under settings.
+The candidate should understand about documenting keywords in resource file.
+The candidate should understand that variables can be stored inside resource file.
+The candidate should understand that resource file can be named either .robot or .resource 
+
+
+-->
 
 ### Importing
 
@@ -519,12 +580,13 @@ Test libraries contain those lowest-level keywords, often called library keyword
 
 ### Learning objectives
 
-1. The Candidate shall understand difference between: BuiltIn, Standard and External Libraries. (K2)
-2. The Candidate shall understand difference between importing libraries by name and by path. (K2)
-3. The Candidate can use Libdoc html documentation to identify a keyword for a specific purpose. (K3)
+1. The Candidate shall understand difference between: BuiltIn, Standard and External Libraries (K2)
+2. The Candidate shall understand difference between importing libraries by name and by path (K2)
+3. The Candidate can use Libdoc html documentation to identify a keyword for a specific purpose (K3)
 4. The Candidate shall be able to import Libraries in robot code by name and by path (K4)
-5. The Candidate shall be able to search external Libraries. (K4)
-6. The Candidate shall be able to install external Libraries- (K4)
+5. The Candidate shall be able to search external Libraries (K4)
+6. The Candidate shall be able to install external Libraries (K4)
+7. The Candidate shall understand the purpose of Libdoc (K4?)
 
 ### Importing
 
@@ -582,7 +644,23 @@ Details of how to create `evaluated conditional expressions` are **Not** in the 
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+<!--
+1. The Candidate shall be able to create, and know when to create, an IF statement (K2?)
+2. The Candidate shall understand difference between ELSE and ELSE-IF statements (K2?)
+4. The Candidate shall be able to create, and know when to create TRY and EXCEPT statements (K4?)
+5. The Candidate shall be able to use FOR and WHILE loops (K2?)
+6. The Candidate shall be able to use BREAK and CONTINUE statements (K4?)
+=======
+1. The Candidate can apply (not) equal, greater and/or lower evaluations for control structures. (K3)
+2. The Candidate can write a basic IF statement with a single evaluation. (K3)
+3. The Candidate can explain how an 'OR' and 'AND' within control structures would evaluate. (K2)
+4. The Candidate can explain how ELSE IF/ELSE branches with basic evaluations would evaluate. (K2)
+5. The Candidate can recall the correct way or writing a basic Inline IF statement. (K1)
+6. The Candidate can explain how a basic FOR-IN and FOR-IN-RANGE loop would evaluate. (K2)
+7. The Candidate can explain how a basic WHILE loop would evaluate. (K2)
+8. The Candidate can explain how BREAK and CONTINUE statements in loops would evaluate. (K2)
+9. The Candidate can recall the correct way of writing a TRY/EXCEPT syntax. (K1)
+-->
 
 ### Evaluating conditional expressions
 
@@ -655,7 +733,13 @@ Variable files are **Not** in the scope of this exam.
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+1. The Candidate shall understand difference between global, suite, test case/RPA task and local variable scopes (K2?)
+2. The Candidate shall be able to create variables in suite files and resource files (K1?)
+3. The Candidate shall demonstrate knowledge and use of Number, Booleans and None variable types (K2?)
+4. The Candidate shall demonstrate use of the newer Robot Framework 7.0 VAR syntax (K2?)
+5. The Candidate shall understand adding spaces and empty strings via Robot Framework variables (K4?)
+6. The Candidate shall be able to retrieve the current directory and execution directory via Robot Framework variables (K3?)
+7. The Candidate shall understand the syntax of list and dictionary variables (K4?)
 
 ### Variable scopes
 
@@ -736,7 +820,32 @@ _Continuable failures_ and _fatal errors_ are **Not** in the scope of this exam.
 
 ### Learning objectives
 
+<!-- AlexRead_LearningObjectivesInput
+1. The Candidate shall be able to execute a single file, directory or suite (K1?)
+2. The Candidate shall understand difference between PASS, FAIL and SKIP execution statuses (K1?)
+3. The Candidate shall be able to control output files from a command line (K4?)
+4. The Candidate shall be able to execute only specified, single test case(s)/RPA task(s) (K2?)
+5. The Candidate shall understand difference and use of report and log files (K1?)
+6. The Candidate shall understand there are different log levels possible (K4?)
+=======
 **TODO** Learning objectives are separately done.
+The candidate can
+(K1) ... determine which files can be executed
+(K2) ... give examples of how tests can be executed 
+(K3) ... execute the test from the command line 
+(K3) ... execute a set of tests from the command line 
+
+(K1) ... The Candidate shall understand difference between PASS, FAIL and SKIP execution statuses
+(K2) ... **understand** the difference between test and suite status
+(K3) ... ** Apply** the difference between test and suite status and dependencies between the two
+
+(K2) ... understand the purpose of the command line options provided
+(K3) ... ** Apply** the use of the command line options
+(K2) ... give examples of the syntax, values and patterns of options 
+
+(K1) ... explain the difference between report files and log files  
+(K2) ... interpret the log levels
+-->
 
 ### Executing a single file
 
@@ -851,7 +960,11 @@ Test framework has tools that can be used for post processing test case reports 
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+1. The Candidate shall understand the purpose of Rebot (K2?)
+2. The Candidate shall understand the main capabilities of Rebot (K3?)
+
+[comment]: <> (The Candidate can use Libdoc html documentation to identify a keyword for a specific purpose (K3) is already above - not needed here)
+[comment]: <> (The Candidate shall understand the purpose of Libdoc (K4?) is already above - not needed here)
 
 ### Rebot
 
