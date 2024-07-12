@@ -505,7 +505,7 @@ The user keywords and variables defined in a resource file are available in the 
 ### Structure
 
 The structure of a resource file is the same as a suite file. 
-Resource fileS cannot contain tests/tasks. The `Settings` section can contain only imports, documentation and keyword tags. 
+Resource files cannot contain tests/tasks. The `Settings` section can contain only imports, documentation and keyword tags. 
 There can also be `Variables` section with variables. 
 [[User Guide: Resource file structure][UG Resource file structure]]
 
