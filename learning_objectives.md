@@ -513,7 +513,14 @@ Resource files are typically created using the plain text format, but also reStr
 
 ### Learning objectives
 
-**TODO** Learning objectives are separately done.
+The candidate should understand that resource files are imported under settings.
+The candidate should understand that resource files can contain custom keywords.
+The candidate should understand importing resource file under settings.
+The candidate should understand about documenting keywords in resource file.
+The candidate should understand that variables can be stored inside resource file.
+The candidate should understand that resource file can be named either .robot or .resource 
+
+
 
 ### Importing
 
