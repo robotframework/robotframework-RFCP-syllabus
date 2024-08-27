@@ -164,7 +164,7 @@ Examples of domains:
 
 - _Web Graphical User Interface (GUI)_
 
-  Robot Framework is widely used for interacting with websites and web applications. The primary library for web testing is the `SeleniumLibrary` and `Browser` library.
+  Robot Framework is widely used for interacting with websites and web applications. The primary libraries for web testing are the `SeleniumLibrary` and the `Browser` library.
 
 - _Web Service API_
 
@@ -180,8 +180,8 @@ Examples of domains:
 
 #### Testing levels
 
-Robot Framework is typically used in different levels of _Acceptance Testing_ as it is brings an _Abstraction layer_ to test data and hides complexity to lower keyword implementation.
-It can be used also for _Sanity Testing_, _System Testing_, _System Integration Testing_, _Regression Testing_ and _End-to-End Testing_. For _Unit Testing_ and _Unit Integration Testing_, there are more suitable unit test frameworks (typically using the implementation's language).
+Robot Framework is typically used at various levels of _Acceptance Testing_ as it brings an _Abstraction layer_ to test data, allowing complexity to be hidden in lower-level keyword implementations.
+It can also be used for _System Testing_, _Regression Testing_, _System Integration Testing_ and _End-to-End Testing_. For _Unit Testing_ and _Integration Testing_, there are more suitable unit test frameworks that typically use the implementation's language.
 
 #### Behavior Driven Development
 
@@ -191,10 +191,10 @@ _Behavior Driven Development_ (BDD)  is a software development methodology that 
 #### Robotic Process Automation
 
 _Robotic Process Automation_ (RPA) is a technology that uses software robots (or "bots") to automate repetitive and rule-based tasks in business processes.
-Tasks works same way as test cases when creating test automation.
+Tasks work the same way as test cases when creating test automation.
 The only differences are that:
 1. the terminology is different (tasks vs test cases).
-2. test cases have validation checkpoints to prove whether functionality works, RPA carries out the process with no validation checkpoints.
+2. test cases have by purpose validation checkpoints to prove whether functionality works as expected, while RPA carries out the process and validation checkpoints are typically there to verify if the process was successful till that point.
 [[User Guide: Robotic process automation][UG Creating tasks]]
 
 ### Architecture
@@ -235,8 +235,7 @@ Test case/RPA task and keyword names should be descriptive and it is acceptable 
 
 #### Creating maintainable tests
 
-
-When you are maintaining Robot Framework code you should prioritize creating input data that is easily understandable, modifiable, and extendable.
+When maintaining Robot Framework code, prioritize creating input data that is easy to understand, modify, and extend.
 Ensure your project is organized into a well-defined directory structure, with resources, suites, and other assets kept separate.
 Clear documentation for custom keywords is essential for their maintainability.
 Reusable keywords helps maintaining common actions or functionalities.
@@ -360,9 +359,10 @@ Varargs and kwargs are **Not** in the scope of this exam.
 #### Positional arguments
 
 Most keywords have a certain number of arguments which must always be given.
-It is important to have exactly the same number of arguments as specified in the keyword documentation.
 Using too few, or too many, arguments will result in an error.
 [[User Guide: Positional arguments][UG Positional arguments]]
+
+**TODO** : this is not really correct.
 
 #### Named arguments
 
@@ -389,6 +389,8 @@ All the keywords in the teardown are executed, even if one of them fails.
 Continue on failure functionality is by default in teardown.
 [[User Guide: Setup and teardown][UG Setup and teardown]],
 [[User Guide: Continue on failure][UG Continue on failure]]
+
+**TODO** not correct Setup and Teardown can also have named args
 
 ### Documentation
 
@@ -448,6 +450,8 @@ RPA tasks are created using the _Tasks_ section in suite files.
 Such a file automatically creates a suite from all the test cases/RPA tasks it contains.
 [[User Guide: Suite files][UG Suite files]]
 
+**TODO*** too short
+
 ### Suite directories
 
 Test case/task files can be organized into directories, and these directories create higher-level suites.
@@ -488,7 +492,7 @@ It can be used both in suite files and in suite initialization files.
 
 ## USER KEYWORDS
 
-_User keywords_ are created to combine existing keywords and they are defined in `Keywords` section.
+_User keywords_ are created to combine existing keywords and are defined in the `Keywords` section.
 
 Tags and timeout are **Not** in the scope of this exam.
 
@@ -590,11 +594,11 @@ Keyword libraries contain those lowest-level keywords, often called library keyw
 
 ### Learning objectives
 
-1. The Candidate shall understand difference between: BuiltIn, Standard and External Libraries (K2)
-2. The Candidate shall understand difference between importing libraries by name and by path (K2)
-3. The Candidate can use Libdoc html documentation to identify a keyword for a specific purpose (K3)
+1. The Candidate shall understand the difference between: BuiltIn, Standard and External Libraries (K2)
+2. The Candidate shall understand the difference between importing libraries by name and by path (K2)
+3. The Candidate can use the Libdoc html documentation to identify a keyword for a specific purpose (K3)
 4. The Candidate shall be able to import Libraries in robot code by name and by path (K4)
-5. The Candidate shall be able to search external Libraries (K4)
+5. The Candidate shall be able to search for external Libraries (K4)
 6. The Candidate shall be able to install external Libraries (K4)
 7. The Candidate shall understand the purpose of Libdoc (K4?)
 
@@ -633,7 +637,7 @@ Custom libraries can also be implemented by teams.
 
 #### How to find
 
-A list of publicly available external libraries can be found from  [[Robot Framework Org's website: Resources][RF Org resources]].
+A list of publicly available external libraries can be found here:  [[Robot Framework Org's website: Resources][RF Org resources]].
 
 #### How to install
 
@@ -771,7 +775,7 @@ Depending on where and how they are created, variables can have a global, test s
 
 ### Creating variables
 
-Variables can be set from the variable section in suite files, during execution, by using `Builtin` variables or a command line.
+Variables can be set in the variable section in suite files, during execution, by using `Builtin` variables or command line.
 For command line, see [[Setting variables](#setting-variables)].
 
 #### Variables section
@@ -812,14 +816,14 @@ Boolean values `True`/`False` and Python `None` can be also created using variab
 
 #### Spaces and empty strings
 
-It is possible to create spaces and empty strings using variables `${SPACE}` and `${EMPTY}`, respectively.
+It is possible to create spaces and empty strings using the variables `${SPACE}` and `${EMPTY}`, respectively.
 [[User Guide: Space and empty variables][UG Space and empty variables]]
 
 #### Current and execution directory
 
 `${CURDIR}` is an absolute path to the directory where the input data is located.
 
-`${EXECDIR}` is an absolute path to the directory where test execution was started from.
+`${EXECDIR}` is an absolute path to the directory where the test execution was started from.
 [[User Guide: Operating-system variables][UG Operating-system variables]]
 
 ### List and dictionary variables
@@ -831,12 +835,17 @@ _Dictionary variables_ are created with `&{dict}`, prefixed with a &, or ampersa
 _Dictionary items_ are created using `name=value` syntax or existing dictionary variables after variable name.
 [[User Guide: Dictionary variable syntax][UG Dictionary variable syntax]]
 
+**TODO**: problematic content. read carefully
+
 ## TEST EXECUTION
 
 Test cases/RPA tasks are always executed within a suite.
-Execution is started with `robot` command.
+Execution is started with the `robot` command.
 Input data to be executed, is given as an argument after the command.
 The path can be absolute or relative where these are executed from.
+
+**TODO**: not really not from where they are execute but searched.
+
 [[User guide: Executing test case][UG Executing test case]]
 
 _Continuable failures_ and _fatal errors_ are **Not** in the scope of this exam.
@@ -886,7 +895,7 @@ All files and directories starting with a dot (`.`) or an underscore (`_`) are i
 ### Execution statuses
 
 Tests/RPA tasks can, as a result of execution, complete with `PASS`, `FAIL` and `SKIP` statuses.
-The parent, or outer suite status is determined based on test/task statuses.
+The parent, or outer suite status is determined based on the test/task statuses.
 [[User guide: Test and suite statuses][UG Test and suite statuses]]
 
 #### PASS and FAIL
@@ -915,7 +924,7 @@ _Boolean expressions_ `AND`/`OR` are **Not** in the scope of this exam.
 
 #### Controlling output files
 
-Several output files are created when execution completes, and all of them are somehow related to test/RPA task results.
+Several output files are created when execution completes, and all of them are somehow related to the test/RPA task results.
 [[User Guide: Output files][UG: Output files]]
 
 - `--outputdir`
@@ -953,18 +962,17 @@ There are several command line options for selecting test cases/tasks to execute
     A test/task can be excluded from the suite with `--exclude` option.
     Excluded tests are not executed, nor are they shown in the logs and reports.
 
-
 - Using `*` and `?` wildcards
 
     Command line options can be used also with `*` and `?` wildcard cahracters.
 
 #### Setting variables
 
-Variables can be set from the command line either individually using the `--variable` option.
+Variables can be set from the command line individually using the `--variable` option.
 
 ### Viewing report and log
 
-When both log and report files are generated, the report file has link to the log file for easy navigation to more detailed information.
+When both log and report files are generated, the report file has a link to the log file for easy navigation to more detailed information.
 
 _Log files_ contain details about the executed test cases/RPA tasks in HTML format.
 They have a hierarchical structure showing the suite, test case/task and keyword details.
@@ -998,7 +1006,7 @@ The candidate shall be able to generate documentation using Libdoc (K3)
 
 ### Rebot
 
-_XML output files_ that are generated during the test execution can be post-processed afterwards by the `Rebot` tool, which is an integral part of Robot Framework.
+_XML output files_ that are generated during the test execution can be post-processed afterwards by using the `Rebot` tool, which is an integral part of Robot Framework.
 [[User Guide: Using Rebot][UG Using rebot]]
 
 #### Generating log and report based on output.xml
@@ -1007,8 +1015,8 @@ _XML output files_ that are generated during the test execution can be post-proc
 
 #### Combining results
 
-Rebot has the ability to combine outputs from different execution rounds.
-This capability allows creating an overall report from all outputs of several execution runs - for example in different test environments.
+Rebot has the ability to combine outputs from different test execution rounds.
+This capability allows creating an overall report from all outputs of several execution runs, for example in different test environments.
 [[User Guide: Combining results][UG Combining results]]
 
 #### Merging results
