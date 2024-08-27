@@ -164,7 +164,7 @@ Examples of test domains:
 
 - _Web Testing_
   
-  Robot Framework is widely used for testing web applications. The primary library for web testing is the `SeleniumLibrary` and `Browser` library.
+  Robot Framework is widely used for testing web applications. The primary libraries for web testing are the `SeleniumLibrary` and the `Browser` library.
 
 - _API testing_
 
@@ -180,8 +180,8 @@ Examples of test domains:
   
 #### Testing levels
 
-Robot Framework is typically used in different levels of _Acceptance Testing_ as it is brings _Abstraction layer_ to test data and complexity can be hidden to lower keyword implementation.
-It can be used also for _System Testing_ and _Regression Testing_. For _Unit Testing_ and _Integration Testing_, there are more suitable unit test frameworks (using typically the implementation's language). 
+Robot Framework is typically used in different levels of _Acceptance Testing_ as it brings an _Abstraction layer_ to test data, allowing complexity to be hidden in lower-level keyword implementations.
+It can also be used for _System Testing_ and _Regression Testing_. For _Unit Testing_ and _Integration Testing_, there are more suitable unit test frameworks that typically use the implementation's language. 
 
 #### Behavior Driven Development
 
@@ -191,7 +191,7 @@ _Behavior Driven Development_ (BDD)  is a software development methodology that 
 #### Robotic Process Automation
 
 _Robotic Process Automation_ (RPA) is a technology that uses software robots (or "bots") to automate repetitive and rule-based tasks in business processes.
-Tasks works same way as test cases when creating test automation.
+Tasks work the same way as test cases when creating test automation.
 Just terminology is different (tasks vs test cases). 
 [[User Guide: Robotic process automation][UG Creating tasks]]
 
@@ -233,7 +233,7 @@ Test case and keyword names should be descriptive and it is acceptable to have q
 
 Maintaining Robot Framework code involves creating test data that is easy to understand, modify and extend.
 Organize your project into a clear directory structure, separating resources, test suites, and other assets.
-Providing clear documentation for custom keywords helps to keep them maintainable.
+Providing clear documentation for custom keywords helps keep them maintainable.
 Reusable keywords helps maintaining common actions or functionalities. 
 <!-- FIXME: needs proper reference -->
 
@@ -323,14 +323,14 @@ Variable files are **Not** in the scope of this exam.
 Libraries are imported using the `Library` setting. 
 It is possible to import libraries in suite files, resource files and suite initialization files.
 
- There exist also the `Import library` keyword which can be used in the keyword. 
+ There is also the `Import library` keyword, which can be used in a keyword. 
  Keywords from the imported library are available in the suite where it is used.
 
 _Standard libraries_ are distributed with Robot Framework. 
-`Builtin` library is taken into use automatically and thus its keywords are always available. 
-Other standard libraries are imported as any other libraries. 
-In addition to the normal standard libraries, there is also Remote library that is totally different than the other standard libraries. 
-It does not have any keywords of its own but it works as a proxy between Robot Framework and actual test library implementations.
+The `Builtin` library is taken into use automatically and thus its keywords are always available. 
+Other standard libraries are imported in the same way as any other libraries. 
+In addition to the normal standard libraries, there is also the Remote library, which is completely different from the other standard libraries. 
+It does not have any keywords of its own but it works as a proxy between Robot Framework and the actual test library implementations.
 
 _External libraries_ are not packaged with the core framework. 
 The Robot Framework open source community has implemented several generic libraries, such as SeleniumLibrary and SwingLibrary. 
@@ -341,7 +341,7 @@ Generic and custom libraries can also be implemented by teams using Robot Framew
 
 Resource files provide a mechanism for sharing keywords and variables. 
 These files cannot contain tests or tasks. 
-Resource file is taken in use in the `Resource` settings so that path to the file is given as an argument to the settings. 
+A Resource file is used in the `Resource` settings by providing the path to the file as an argument to the settings. 
 [[User Guide: Using resources and variable files][UG Using resources and variable files]]
 
 ### Arguments
@@ -353,7 +353,7 @@ Varargs and kwargs are **Not** in the scope of this exam.
 #### Positional arguments
 
 Most keywords have a certain number of arguments that must always be given. 
-It is important to have exactly same number of arguments as specified in the keyword documentation. 
+It is important to have exactly the same number of arguments as specified in the keyword documentation. 
 Using too few or too many arguments will result in an error. 
 [[User Guide: Positional arguments][UG Positional arguments]]
 
@@ -374,18 +374,18 @@ The arguments used in the name are naturally available inside the keyword and th
 
 _Test setup_ is executed before a test case and _teardown_ after test case. 
 They are just normal keywords with possible arguments. 
-Setup and teardown can be executed with multiple keywords using the Builtin keyword the `Run keywords`.
+Setup and teardown can be executed with multiple keywords using the `Run keywords` keyword from the BuiltIn library.
 
 Teardown is used for clean-up activities that must be done regardless of the test case status. 
-It can be also executed when a test case fails. 
-All the keywords in the teardown is executed even if one of them fails. 
+It can also be executed when a test case fails. 
+All keywords in the teardown are executed even if one of them fails. 
 Continue on failure functionality is by default in teardown. 
 [[User Guide: Setup and teardown][UG Setup and teardown]], 
 [[User Guide: Continue on failure][UG Continue on failure]]
 
 ### Documentation
 
-Test case can be documented by the `[Document]` setting. 
+A test case can be documented using the `[Document]` setting. 
 It allows free form documentation for a test case. 
 Documentation is shown in the command line and in the resulting logs and reports. Documentation can be divided to several rows with syntax `(...)`. 
 [[User Guide: Test case naming and documentation][UG Test case naming and documentation]],  
@@ -396,7 +396,7 @@ Documentation is shown in the command line and in the resulting logs and reports
 Tags are a simple, powerful mechanism for classifying test cases and user keywords. 
 Tags are free text and Robot Framework itself has no special meaning for them except for the some reserved tags.
 
-They can be used to exclude and include as  well as to skip cases. 
+They can be used to exclude and include as well as to skip cases. 
 Tags are shown in the test reports, logs and in the test data. 
 Statistic about test cases (total, passed, failed and skipped) are automatically collected based on them.
 
@@ -436,20 +436,20 @@ Metadata is **Not** in the scope of this exam.
 
 ### Suite files
 
-Test cases are created using _Test Cases_ section in suite files. 
+Test cases are created using the _Test Cases_ section in suite files. 
 Such a file automatically creates a test suite from all the test cases it contains. 
 [[User Guide: Suite files][UG Suite files]]
 
 ### Suite directories
 
-Test case files can be organized into directories, and these directories create higher-level test suites. 
+Test case files can be organized into directories, which in turn create higher-level test suites. 
 When a test directory is executed, the files and directories it contains are processed recursively. 
 [[User Guide: Suite directories][UG Suite directories]]
 
 ### Initialization files
 
 A test suite created from a directory can have similar settings as a suite created from a test case file. 
-Suite initialization files cannot have test case section and not all settings are supported otherwise they have same structure as test case files. 
+Suite initialization files cannot have a test case section, and not all settings are supported. Otherwise, they have same structure as test case files. 
 An initialization file name must always be of the format `__init__.ext`, where the extension must be one of the supported file formats (typically `__init__.robot`). 
 [[User Guide: Suite initialization files][UG Suite initialization files]]
 
@@ -463,11 +463,11 @@ A `Suite Setup` is executed before running any of the suite's test cases or chil
 Suite setup is ideal for checking preconditions that must be met before running test cases. 
 If a suite setup fails, all test cases in it and its child test suites are immediately assigned a fail status and they are not actually executed.  
 
-A suite teardown is normally used for cleaning up test environment after test cases have been executed. 
-All the keywords in suite teardown are executed even if one of them fails. 
-It is even executed if Suite Setup fails.  
+A suite teardown is normally used for cleaning up the test environment after test cases have been executed. 
+All the keywords in the suite teardown are executed even if one of them fails. 
+The Suite Teardown is executed even if the Suite Setup fails.  
 
-If the suite teardown fails, all test cases in the suite are marked failed, regardless of their original execution status. 
+If the suite teardown fails, all test cases in the suite are marked as failed, regardless of their original execution status. 
 [[User Guide: Suite setup and teardown][UG Suite setup and teardown]]
 
 ### Documentation
@@ -478,7 +478,7 @@ It can be used both in suite files and in suite initialization files.
 
 ## USER KEYWORDS
 
-_User keywords_ are created to combine existing keywords and they are defined in `Keywords` section.
+_User keywords_ are created to combine existing keywords and are defined in the `Keywords` section.
 
 Tags and timeout are **Not** in the scope of this exam.
 
@@ -531,9 +531,9 @@ It supports same formatting, splitting to multiple lines, and other features as 
 
 ### RETURN
 
-User keyword can return one or more values after it has been executed. 
+A user keyword can return one or more values after it is executed. 
 It can be done by using the native `RETURN` statement. 
-Returned values can be assigned to variable in test cases and in the other user keywords. 
+Returned values can be assigned to variables in test cases and in the other user keywords. 
 [[User Guide: User keyword return values][UG User keyword return values]]
 
 ## RESOURCE FILES
@@ -564,9 +564,9 @@ The user keywords and variables defined in a resource file are available in the 
 
 ### Structure
 
-Structure of resource file is the same as in suite files. 
-Resource file cannot contain tests. `Settings` section can contain only imports, documentation and keyword tags. 
-There can also be `Variables` section with variables. 
+The structure of a resource file is the same as that of suite files. 
+Resource file cannot contain tests. The `Settings` section can contain only imports, documentation and keyword tags. 
+There can also be a `Variables` section containing variables. 
 [[User Guide: Resource file structure][UG Resource file structure]]
 
 ### Imports in resource seen in suite file
@@ -580,29 +580,29 @@ Test libraries contain those lowest-level keywords, often called library keyword
 
 ### Learning objectives
 
-1. The Candidate shall understand difference between: BuiltIn, Standard and External Libraries (K2)
-2. The Candidate shall understand difference between importing libraries by name and by path (K2)
-3. The Candidate can use Libdoc html documentation to identify a keyword for a specific purpose (K3)
+1. The Candidate shall understand the difference between: BuiltIn, Standard and External Libraries (K2)
+2. The Candidate shall understand the difference between importing libraries by name and by path (K2)
+3. The Candidate can use the Libdoc html documentation to identify a keyword for a specific purpose (K3)
 4. The Candidate shall be able to import Libraries in robot code by name and by path (K4)
-5. The Candidate shall be able to search external Libraries (K4)
+5. The Candidate shall be able to search for external Libraries (K4)
 6. The Candidate shall be able to install external Libraries (K4)
 7. The Candidate shall understand the purpose of Libdoc (K4?)
 
 ### Importing
 
-Test libraries are typically imported in the `Library` settings. There exists also `Import Library` keyword which can be also used.
-Libraries can be imported also with specified arguments.
+Test libraries are typically imported using the `Library` settings. There is also the `Import Library` keyword, which can be  used in a keyword.
+Libraries can also be imported with specified arguments.
 [[User Guide Importing libraries][UG Importing libraries]]
 
 #### By name
 
-Importing libraries using its name is the most common way. In this approach Robot Framework tries to find the class or module implementing the library from the Python module search path.
+Importing libraries using their name is the most common way. In this approach Robot Framework tries to find the class or module implementing the library from the Python module search path.
 [[User Guide: Using library name][UG Using library name]]
 
 #### By path
 
-Using a path to the library is an another mechanism. This path is considered relative to the directory where current test data file is situated similarly as paths to resource and variable files. The main advance of the this approach us that there is no need to configure the module search path.
-Path can be either relative or absolute.
+Using a path to the library is another mechanism. This path is considered relative to the directory where the current test data file is situated similarly as paths to resource and variable files. The main advance of this approach is that there is no need to configure the module search path.
+The path can be either relative or absolute.
 [[User Guide: Using physical path to library][UG Using physical path to library]]
 
 ### BuiltIn Libraries
@@ -612,7 +612,7 @@ Path can be either relative or absolute.
 
 ### Standard libraries
 
-Some test libraries are distributed with Robot Framework and these libraries are called as a _Standard libraries_. These libraries need to be imported in the same way as any other libraries.
+_Standard libraries_ are test libraries distributed with Robot Framework. These libraries need to be imported in the same way as any other library.
 [[User Guide: Standard libraries][UG Standard libraries]]
 
 ### External libraries
@@ -623,11 +623,11 @@ Custom libraries can also be implemented by teams.
 
 #### How to find
 
-A list of publicly available external libraries can be found from  [[Robot Framework Org's website: Resources][RF Org resources]].
+A list of publicly available external libraries can be found here:  [[Robot Framework Org's website: Resources][RF Org resources]].
 
 #### How to install
 
-All external libraries should have clear installation and usage documentation. Some of them may also require some other dependencies to function, and these need to be installed separately.
+All external libraries should have clear installation and usage documentation. Some of them may also require some other dependencies to function that need to be installed separately.
 [[User Guide: External libraries][UG External libraries]]
 
 ### Understanding Libdoc HTML outputs
@@ -637,7 +637,7 @@ All external libraries should have clear installation and usage documentation. S
 
 ## CONTROL STRUCTURES
 
-Control structures are familiar from most programming languages and they allow conditional execution, repeatedly executing a block of keywords and fine-grained error handling.
+Control structures are familiar from most programming languages and allow conditional execution, repeatedly executing a block of keywords and fine-grained error handling.
 [[User Guide: Control structures][UG Control structures]]
 
 Details of how to create `evaluated conditional expressions` are **Not** in the scope of this exam.
@@ -665,32 +665,32 @@ Details of how to create `evaluated conditional expressions` are **Not** in the 
 ### Evaluating conditional expressions
 
 Conditional expressions are evaluated using Python's `eval` function and all Python's builtin functions are available.
-Evaluated condition is either true or false.
+The evaluated condition is either true or false.
 [[User Guide: Evaluating expressions][UG Evaluating expressions]]
 
 ### IF
 
 With the `IF` statement it is possible to execute keywords conditionally.
-There needs to be condition that is evaluated.
-`IF` statement ends with `END`.
+A condition must be evaluated to determine if the keywords shall be executed.
+The `IF` statement ends with `END`.
 [[User Guide: IF/ELSE syntax][UG IF/ELSE syntax]]
 
 #### ELSE
   
-`ELSE` branch is executed if the `IF` condition is not true.
+The `ELSE` branch is executed if the `IF` condition is false.
 [[User Guide: ELSE branches][UG ELSE branches]]
 
 #### ELSE IF
   
-`ELSE IF` branch is executed if the initial condition is not true. 
-There can be multiple `ELSE IF` branches and they are gone through in the order they are specified.
-An optional `ELSE` branch can follow `ELSE IF` branches and it is executed if all conditions are false.
+The `ELSE IF` branch is executed if the initial condition is not true. 
+There can be multiple `ELSE IF` branches, which are evaluated in the order they are specified.
+An optional `ELSE` branch can follow `ELSE IF` branches and it is executed if all previous conditions are false.
 [[User Guide: ELSE/IF branches][UG ELSE/IF branches]]
 
 #### Inline IF
   
-An alternative is using _inline_ `IF` syntax where the statement to execute follows the `IF` marker and condition directly and no `END` marker is needed.
-This can be used if there is a need to execute only single statement.
+An alternative is using the _inline_ `IF` syntax where the statement to execute follows the `IF` marker and condition directly and no `END` marker is needed.
+This can be used if there is a need to execute only a single statement.
 The `ELSE` and `ELSE IF` statements are also supported.
 [[User Guide: Inline if][UG Inline if]]
  
@@ -704,8 +704,8 @@ Test libraries can have any kind of _loop constructs_, and most of the time loop
 
 #### TRY
 
-`TRY`/`EXCEPT` syntax is inspired also from Python.
-This approach is for handling failures during execution.
+The `TRY`/`EXCEPT` syntax is also inspired from Python.
+This approach can be used for handling failures during the execution.
 There can be multiple `EXCEPT` branches.
 In that case they are matched one by one and the first matching branch is executed. 
 [[User Guide: Try/Except][UG Try/Except]]
@@ -719,21 +719,21 @@ They specify a condition and repeat the loop body as long as the condition remai
 
 #### BREAK and CONTINUE
 
-Both `FOR` and `WHILE` loop execution can be controlled with `BREAK` and `CONTINUE` statements. The former exits the whole loop prematurely and the latter stops executing the current loop iteration and continues to the next one.
-Both are typically used conditionally with `IF`/`ELSE` or `TRY`/`EXCEPT` structures.
+Both `FOR` and `WHILE` loop executions can be controlled with `BREAK` and `CONTINUE` statements. The former exits the whole loop prematurely, whereas the latter stops executing the current loop iteration and continues to the next one.
+Both are typically used conditionally with the `IF`/`ELSE` or the `TRY`/`EXCEPT` structures.
 [[User Guide: Loop control BREAK/CONTINUE][UG Loop control BREAK/CONTINUE]]
 
 ## VARIABLES
 
-Variables are an integral feature of Robot Framework, and most commonly they are in arguments for keywords in Test case section and Keyword sections.
-Robot frameworks has variables that can be used as _scalar_, _lists_ or _dictionary_.
+Variables are an integral feature of Robot Framework. They are most commonly used as arguments for keywords in Test Case and Keyword sections.
+Robot Framework has variables that can be used as _scalar_, _lists_ or _dictionary_.
 [[User Guide: Variables][UG Variables]]
 
 Variable files are **Not** in the scope of this exam.
 
 ### Learning objectives
 
-1. The Candidate shall understand difference between global, suite, test case/RPA task and local variable scopes (K2?)
+1. The Candidate shall understand the difference between global, suite, test case/RPA task and local variable scopes (K2?)
 2. The Candidate shall be able to create variables in suite files and resource files (K1?)
 3. The Candidate shall demonstrate knowledge and use of Number, Booleans and None variable types (K2?)
 4. The Candidate shall demonstrate use of the newer Robot Framework 7.0 VAR syntax (K2?)
@@ -748,12 +748,12 @@ Depending on where and how they are created, variables can have a global, test s
 
 ### Creating variables
 
-Variables can be set from the variable section in suite files, during execution, by using `Builtin` variables or command line.
+Variables can be set in the variable section in suite files, during execution, by using `Builtin` variables or command line.
 For command line, see [[Setting variables](#setting-variables)].
 
 #### Variables section
 
-_Variable sections_ in suite files and resource files are most common source for variables.
+_Variable sections_ in suite files and resource files are the most common source for variables.
 [[User Guide: Creating variables][UG Creating variables]] 
 
 #### Keyword return values
@@ -765,7 +765,7 @@ Any value returned by a keyword can be assigned to a scalar variable.
 
 #### VAR syntax
 
-It is possible to define variable directly in test case or keyword with `VAR` keyword by adding variable name after it and then value separated with spaces.
+It is possible to define a variable directly in test case or keyword using the `VAR` keyword by adding variable name after it and its value separated with spaces.
 <!-- FIXME: add proper link to documentation -->
 
 ### Item access syntax
@@ -774,7 +774,7 @@ _Nested subscriptable variables_ can be accessed using this syntax, e.g. `${x}[0
 
 ### Built-in variables
 
-_Built-in_ have the highest priority of all variables.  These variables are available automatically.
+_Built-in_ variables have the highest priority of all variables. These variables are available automatically.
 [[User Guide: Built-in variables][UG: Built-in variables]] 
 
 _Operating system_ variables: `${/}`, `${:}`, `${\n}`, Built-in `automatic variables` and `Inline evaluation` are **Not** in the scope of this exam.
@@ -784,24 +784,24 @@ _Operating system_ variables: `${/}`, `${:}`, `${\n}`, Built-in `automatic varia
 When a keyword is expecting to get an actual number and not a string, the variable syntax `${10}` can be used.
 [[User Guide: Number variables][UG Number variables]]
 
-Boolean values `True`/`False` and Python `None` can be also created using variable syntax. These are not case-sensitive, so e.g. `${True}` and `${true}` are equivalent.
+Boolean values `True`/`False` and Python `None` can also be created using variable syntax. These are not case-sensitive, so e.g. `${True}` and `${true}` are equivalent.
 [[User Guide: Boolean and None/null variables][UG Boolean and None/null variables]]
   
 #### Spaces and empty strings
 
-It is possible to create spaces and empty strings using variables `${SPACE}` and `${EMPTY}`, respectively.
+It is possible to create spaces and empty strings using the variables `${SPACE}` and `${EMPTY}`, respectively.
 [[User Guide: Space and empty variables][UG Space and empty variables]]
 
 #### Current and execution directory
 
-`${CURDIR}` is an absolute path to directory where the test data is located.
+`${CURDIR}` is an absolute path to the directory where the test data is located.
 
-`${EXECDIR}` is an absolute path to the directory where test execution was started from.
+`${EXECDIR}` is an absolute path to the directory where the test execution was started from.
 [[User Guide: Operating-system variables][UG Operating-system variables]]
  
 ### List and dictionary variables
 
-_List variables_ are created similar as scalar variables using `@{list}`. Variable name is in the first column and values in the subsequent columns.
+_List variables_ are created similary to scalar variables using `@{list}`. The variable name is in the first column and its values are in the subsequent columns.
 [[User Guide: List variable syntax][UG List variable syntax]]
 
 _Dictionary variables_ are created with `&{dict}`.
@@ -811,7 +811,7 @@ _Dictionary items_ are created using `name=value` syntax or existing dictionary 
 ## TEST EXECUTION
 
 Test cases are always executed within a test suite.
-Test execution is started with `robot` command.
+Test execution is started with the `robot` command.
 Test data to be executed is given as an argument after the command.
 The path can be absolute or relative where test are executed from.
 [[User guide: Executing test case][UG Executing test case]]
@@ -849,13 +849,13 @@ The candidate can
 
 ### Executing a single file
 
-A test file is always test suite that consist of one or more test cases.
+A test file is always a test suite that consist of one or more test cases.
 A single test file is executed by giving the direct path to test file after `robot` command.
 [[User Guide: Executing individual files][UG Executing individual files]]
 
 ### Executing a directory
 
-Test directories can be executed by giving path to directory.
+Test directories can be executed by giving the path to the directory.
 Only files with the `.robot` extension are executed.
 All files and directories starting with a dot (`.`) or an underscore (`_`) are ignored.
 [[User Guide: Specifying test data to be executed][UG Specifying test data to be executed]]  
@@ -863,27 +863,27 @@ All files and directories starting with a dot (`.`) or an underscore (`_`) are i
 ### Test statuses
 
 Test can get `PASS`, `FAIL` and `SKIP` statuses.
-Suite status is determined based on test statuses.
+The suite status is determined based on the test statuses.
 [[User guide: Test and suite statuses][UG Test and suite statuses]]
 
 #### PASS and FAIL
 
 A test gets the `PASS` status if it is executed and none of the keywords it contains fails.
 
-If any test case has failed, test and suite status is `FAIL`.
+If any test case has failed, the statuses of both the test and the suite are `FAIL`.
 The most common reason for a test to get the `FAIL` status is that one of the keywords it contains fails.
 
 #### SKIP
 
 The command line option `--skip` can be used to skip specified tests without running them at all. It works based on suite or test case tags.
-Test can be also skipped by tagging the test with reserved tag `robot:skip`.
-Tests which are skipped are included in the test suite but not executed and they are shown in logs and reports.
+A test can also be skipped by tagging it with reserved tag `robot:skip`.
+Skipped tests are included in the test suite but not executed and they are shown in logs and reports.
 [[User Guide: Skip][UG Execution flow]]
 
 ### Using command line options
 
 Robot Framework provides a number of command line options that can be used to control how test cases are executed and what outputs are generated.
-Basic option documentation can be got in command line with `--help` option.
+Basic option documentation can be obtained from the command line using the `--help` option.
 [[User Guide: Using command line options][UG Command line options]]
 
 _Boolean expressions_ `AND`/`OR` are **Not** in the scope of this exam.
@@ -892,7 +892,7 @@ _Boolean expressions_ `AND`/`OR` are **Not** in the scope of this exam.
 
 #### Controlling output files
 
-Several output files are created when tests are executed, and all of them are somehow related to test results.
+Several output files are created when tests are executed, and all of them are somehow related to the test results.
 [[User Guide: Output files][UG: Output files]]
 
 - `--outputdir`
@@ -912,35 +912,35 @@ There are several command line options for selecting test cases to execute.
   - `--test`
   
     This option is the easiest way to run only some tests.
-    The option can used multiple time to match multiple tests.
+    The option can used multiple times to match multiple tests.
     It is possible to prefix the test name with a suite name.
    
   - `--suite`
 
-    Tests can be selected also by suite names with this option that selects all tests in matching suites.
-    It is possible to prefix the name with the parent suite name
+    Tests can also be selected by suite names.
+    This option only selects all tests in the matching suites.
+    It is possible to prefix the name with the parent suite name.
   
   - `--include` and `--exclude`
   
-    Tests can be run also with tags. With `--include` option is executed only tests which has matching tag.
-
-    Test can be excluded from suite with `--exclude` option.
+    Tests can also be run using tags. When using the `--include` option, only tests matching the tag are executed.
+    Test can be excluded from the suite by using the `--exclude` option.
     Excluded tests are not executed and they are not shown in the logs and reports.
 
   - Using `*` and `?` wildcards
 
-    Command line options can be used also with `*` and `?` wild cards.
+    Command line options can also be used with `*` and `?` wild cards.
 
 #### Setting variables
 
-Variables can be set from the command line either individually using the `--variable` option
+Variables can be set from the command line individually using the `--variable` option.
 
 ### Viewing report and log
 
-When both log and report files are generated, the report file has link to log file for easy navigation to more detailed information.
+When both log and report files are generated, the report file has a link to the log file for easy navigation to more detailed information.
 
 _Log files_ contain details about the executed test cases in HTML format.
-They have a hierarchical structure showing test suite, test case and keyword details.
+They have a hierarchical structure showing the test suite, test case and keyword details.
 [[User Guide: Log file][UG Log file]]
 
 _Report files_ contain an overview of the test execution results in HTML format.
@@ -955,7 +955,7 @@ Some of the messages are written by Robot Framework itself, but also executed ke
 
 ## OTHER TOOLS
 
-Test framework has tools that can be used for post processing test case reports and documentation creation.
+The test framework has tools that can be used for post processing test case reports and documentation creation.
 [[User Guide: Supporting tools][UG Supporting tools]]
 
 ### Learning objectives
@@ -968,7 +968,7 @@ Test framework has tools that can be used for post processing test case reports 
 
 ### Rebot
 
-_XML output files_ that are generated during the test execution can be post-processed afterwards by the `Rebot` tool, which is an integral part of Robot Framework.
+_XML output files_ that are generated during the test execution can be post-processed afterwards by using the `Rebot` tool, which is an integral part of Robot Framework.
 [[User Guide: Using Rebot][UG Using rebot]]
 
 #### Generating log and report based on output.xml
@@ -977,14 +977,14 @@ _XML output files_ that are generated during the test execution can be post-proc
 
 #### Combining results
 
-Rebot has ability to combine outputs from different test execution rounds.
-This capability allows creating an overall report from all outputs of several execution runs for example in different test environments.
+Rebot has the ability to combine outputs from different test execution rounds.
+This capability allows creating an overall report from all outputs of several execution runs, for example in different test environments.
 [[User Guide: Combining results][UG Combining results]]
 
 #### Merging results
 
-Results of re-executed test case for example after bug fixing can be combined with `--merge` option.
-Latter test case runs replace test in the original report.
+The results of a re-executed test case, for example after bug fixing, can be combined with the `--merge` option.
+The latter test case run replaces the test in the original report.
 [[User Guide: Merging outputs][UG Merging outputs]]
 
 ### Libdoc
