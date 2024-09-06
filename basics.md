@@ -124,6 +124,8 @@ instead in the scope of the advanced exams.
 Robot Framework is a generic, application and technology-independent framework for _Acceptance Testing_, _Acceptance Test Driven Development_ (ATDD), _Behavior Driven Development_ (BDD) and _Robotic Process Automation_ (RPA).
 [[User Guide: Introduction][UG Introduction]]
 
+<!--Why is that in the syllabus? which questions do we ask here?-->
+
 Continuous Integration (CI), installation and editors (including Integrated Development Environments, IDEs) are **Not** in the scope of this exam.
 
 ### Learning objectives
@@ -149,6 +151,7 @@ The candidate shall be aware that there is a Robot Framework style guide with co
 The candidate shall be able to explain benefits of following coding guidelines. (K2)
 The candidate shall be able to list basic strategies for creating maintainable tests. (K2)
 The candidate shall be able to describe why avoiding use of Sleep is good practice in automated tests. (K2)
+-->
 
 ### Where usable
 
@@ -157,10 +160,12 @@ The candidate shall be able to describe why avoiding use of Sleep is good practi
 #### Domains
 
 Robot Framework can be integrated with virtually any tool and can interact with many different domains.
-The Robot Framework open source community has implemented several generic libraries, such as `SeleniumLibrary` and `SwingLibrary`, which are not packaged with the core framework.
-[[User Guide: External libraries][UG External libraries]] **TODO** <!-- Fix me after merge  -->
+The Robot Framework open source community has implemented several generic keyword-libraries, such as libraries to control user interface in web and other technologies as well API-automation and many more, which are not packaged with the core framework and can be installed separately.
+[[User Guide: External libraries][UG External libraries]]
 
 Examples of domains:
+
+  <!--TODO: are we really sure we want to name libraries in this? Do we want to write exam questions about SL or Browser? If not, remove them! Appium and Swing are not well maintained...-->
 
 - _Web Graphical User Interface (GUI)_
 
@@ -180,13 +185,14 @@ Examples of domains:
 
 #### Testing levels
 
-Robot Framework is typically used at various levels of _Acceptance Testing_ as it brings an _Abstraction layer_ to test data, allowing complexity to be hidden in lower-level keyword implementations.
-It can also be used for _System Testing_, _Regression Testing_, _System Integration Testing_ and _End-to-End Testing_. For _Unit Testing_ and _Integration Testing_, there are more suitable unit test frameworks that typically use the implementation's language.
+Robot Framework is used at various levels of _Testing_ by providing an _Abstraction layer_ to test data, allowing complexity to be managed within lower-level keyword implementations.
+It is typically applied to _Acceptance Testing_, _System Testing_, _Regression Testing_, _System Integration Testing_, and _End-to-End Testing_. For _Component Testing_ and _Integration Testing_, other specialized test frameworks are often preferred due to their focus on these levels and their alignment with the test objects' implementation language.
 
 #### Behavior Driven Development
 
 _Behavior Driven Development_ (BDD)  is a software development methodology that encourages collaboration between technical and non-technical team members to define, understand, and deliver features in a way that focuses on behavior and outcomes.
-[[User Guide: BDD style][UG BDD style]]  **TODO** <!-- Fix me after merge! -->
+[[User Guide: BDD style][UG BDD style]]
+<!-- Why do we explain what BDD is? Why not that Robot Framework supports it by supporting Given/When/Then? -->
 
 #### Robotic Process Automation
 
@@ -196,13 +202,17 @@ The only differences are that:
 1. the terminology is different (tasks vs test cases).
 2. test cases have by purpose validation checkpoints to prove whether functionality works as expected, while RPA carries out the process and validation checkpoints are typically there to verify if the process was successful till that point.
 [[User Guide: Robotic process automation][UG Creating tasks]]
+<!-- Also here i would expect the content How RF supports RPA-->
 
 ### Architecture
 
 Robot Framework is a generic, application and technology-independent framework which has a highly modular architecture.
+<!-- What would be the question about that sentence?-->
 [[User Guide: High level architecture][UG High level architecture]]
 
 It consist of following layers:
+
+<!-- Again. There are applied standards that describe layers of test automation tools such as ISTQB or ISO 29119-5. We should be aligning to them.-->
 
 ```
 Input Data
@@ -228,6 +238,11 @@ Libraries contain lowest-level keywords, often called library keywords, which ar
 
 
 ### Coding style
+<!-- We are suddenly switching to imperative.
+That whole chapter is way too deep in the context.
+I would have expected more about Keyword-Driven Testing and its specialities.
+That can be asked.
+Also BDD specifics. -->
 
 Write code that is easy to read and understand.
 Follow a consistent style throughout your suite.
@@ -255,9 +270,9 @@ In Robot Framework, you can handle dependencies by carefully designing your suit
 Sleeping is a very fragile way to synchronize operations within tests/tasks. Instead, consider using more robust synchronization methods to ensure the stability and efficiency of your suite.
 [[How to write good test cases]]
 
-## TEST CASE/RPA TASK SYNTAX
+## TEST CASE / RPA TASK SYNTAX
 
-Test cases/tasks are constructed in the `Test Case`/`Tasks` sections from the available keywords. Keywords can be imported from libraries or resource files, or created in the keyword section of the test case/task file itself.
+Test cases/tasks are constructed in the `*** Test Cases ***`/`*** Tasks ***` sections from the available keywords. Keywords can be imported from libraries, mostly written in Python, or created in the `*** Keywords ***` section of the suite file itself or of resource files and then imported into the suite.
 Keywords can be parametrized with arguments. Test case/task setup and teardown can be also defined.
 
 Timeouts are **Not** in the scope of this exam.
