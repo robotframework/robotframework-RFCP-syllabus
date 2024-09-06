@@ -23,6 +23,10 @@
 
 
 ## Purpose and Use-Cases
+
+> [!NOTE]
+> (K1) recall the purpose and use-cases of Robot Framework.
+
 <!-- What is Robot Framework used for? Where it is coming from. -->
 ### Test Automation
 <!-- Test Automation does include all levels, but the main use is:
