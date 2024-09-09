@@ -3,7 +3,7 @@
 ## About the Syllabus
 This syllabus serves as the foundation for the "Robot Framework Certified Professional®" (RFCP) exam and training. Its purpose is to outline the structure and content of the course, guiding participants through the essential topics necessary to become proficient in Robot Framework. The syllabus is divided into sections that progress logically from basic concepts to practical applications of automation.
 
-The learning objectives (LOs) specified within this document are binding, meaning they define the specific knowledge and skills participants are expected to acquire by the end of the course. Additionally, the recommended sequence of topics in this syllabus helps guide the order of learning, but the specific teaching methods and pace may be adapted by the instructor based on class dynamics.
+The learning objectives (LOs) specified within this document are binding, meaning they define the specific knowledge and skills participants are expected to acquire by the end of the course. Additionally, the recommended sequence of topics in this syllabus helps guide the order of learning, but the specific teaching methods and pace may be adapted by the instructor based on class dynamics or need.
 
 ## About "Robot Framework Certified Professional®"
 The Robot Framework Certified Professional® (RFCP) certification represents the foundational level of expertise in Robot Framework. It focuses on providing participants with a solid understanding of the core principles and basic syntax required for developing effective automation scripts.

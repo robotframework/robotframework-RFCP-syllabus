@@ -82,21 +82,22 @@ Robot Framework is a script-based interpreter for files that contain textual spe
 
 Key attributes of the syntax include:
 
-- **Space-separated syntax**: Robot Framework uses two spaces as the primary separator (although one space is allowed as a character). This ensures clarity and readability of the tests.
-- **Minimal use of special characters**: The focus is on reducing special characters, making the syntax intuitive and user-friendly.
+- **Space-separated syntax**: Robot Framework uses two spaces as the primary separator (although one space is allowed as a character). A use of **FOUR (4)** spaces is recommended to ensures clarity and readability of the specification.
+- **Minimal use of special characters**: The focus is on reducing special characters, making the syntax human-readable and user-friendly.
+- **Mostly case-insensitive**: Most elemens like keyword or variable names are case insensitive. However, some syntax, like library imports is case-sensitice.
 
-### What are Tests/Tasks?
+### What are Test Cases / Tasks?
 
-In Robot Framework, **Tests** or **Tasks** are executable entities that serve a specific purpose and are organized into suites. A **Test** is synonymous with a **Test Case**, while **Tasks** are used in RPA mode, where the automation is not focused on testing but on automating business processes.
+In Robot Framework, **Test Cases** (**Tests**) or **Tasks** are executable entities that serve a specific purpose and are organized into suites. A **Test** is synonymous with a **Test Case**, while **Tasks**, technically being the same, are used in RPA mode, where the automation is not focused on testing but on automating business processes.
 
-Tests or Tasks have a body made up of **keyword calls**, which represent the actions or steps executed during the test or task. These keywords make the automation modular, reusable, and readable.
+Tests or Tasks have a body made up of **keyword calls** and Robot Framework statements like **IF** or **VAR**, which represent the actions or steps executed during the test or task execution. These keywords make the automation modular, maintainable, reusable, and readable.
 
 ### Files & Folders
 
-Robot Framework organizes tests and tasks into **Suites**, which can be represented as files or folders.
+Robot Framework organizes tests|tasks into **Suites**, which are either files or folders.
 
-- Each folder, starting from the top-level folder (the one executed by Robot Framework), and any subfolder that contains a `*.robot` file, is considered a **Suite**.
-- `*.robot` files are themselves test suites, and suites can contain other suites, forming a hierarchical **suite tree**.
+- Each folder, starting from the top-level folder (the one executed by Robot Framework), and any subfolder that contains a `*.robot` file, is considered a **Suite**. Suites can contain other suites, forming a hierarchical tree, which is by default alphabetically ordered.
+- `*.robot` files are themselves suites, which do contain tests or tasks.
 
 This structure allows for logical grouping and organization of tests and tasks, which can scale as needed.
 
@@ -104,15 +105,18 @@ This structure allows for logical grouping and organization of tests and tasks, 
 
 Tests or Tasks are structured using **Keywords**, which represent specific actions or sequences of actions to be performed.
 
-- **Keywords** in Robot Framework are similar to the concepts used in Behavior-Driven Development (BDD) or Keyword-Driven Testing.
+- **Keywords** in Robot Framework are according to the concepts used in Behavior-Driven Development (BDD) or Keyword-Driven Testing.
 - **Definition**: A keyword is one or more words used as a reference to a specific set of actions intended to be performed during the execution of one or more tests or tasks.
 
 There are two types of keywords in Robot Framework:
 
-1. **User Keywords**: Written in Robot Framework syntax, they are mainly used for structuring test cases. User keywords improve readability and maintainability and allow control over the flow of the tests.
-2. **Library Keywords**: Typically written in Python or other technologies, these keywords interact with the system under test (SUT) or execute specific actions.
+1. **User Keywords**: Written in Robot Framework syntax, they are mainly used for structuring tests|tasks. User keywords improve readability, understandability, maintainability and structure.
+2. **Library Keywords**: Typically written in Python, but may also be implemented in other technologies, these keywords typically interact with the system under test (SUT) or the system to be controlled by RPA or execute specific actions like calculations or conversions.
 
-A **User Keyword** consists of a **name**, **optional arguments**, and a **body** of keyword calls that may invoke other user or library keywords.
+A **User Keyword** consists of a **name**, optional **arguments**, and a **body** of keyword calls that may invoke other user keywords or library keywords or other statements like variable definitions or flow control.
+
+During execution, each keyword call is logged, providing fine-grained detail in the execution logs. This includes all levels of keywords—from those called directly by a test or task to those nested within user keywords, all the way down to the execution of library keywords. This granular logging and detailed execution documentation is one of the key advantages of Robot Framework compared to other automation tools.
+
 
 ### Resource Files & Libraries
 
@@ -121,30 +125,87 @@ While tests and tasks are organized into suites, **keywords** are organized into
 - **Resource Files**: Contain **User Keywords**, and are also used to organize the importing of libraries and defining variables.
 - **Keyword Libraries**: Contain **Library Keywords** that perform the actual actions on the system under test, typically implemented in Python or other technologies.
 
-Resource files and libraries allow the separation of concerns, making the automation more modular and reusable across multiple tests or tasks.
+Central resource files and libraries allow the separation of concerns, making the automation more modular and reusable across multiple suites, tests or tasks.
 
-These concepts are fundamental to working with Robot Framework and contribute to its flexibility and scalability in both test automation and robotic process automation (RPA).
+The concepts of organizing are fundamental to working with Robot Framework and contribute to its flexibility and scalability in both test automation and RPA.
 
 
-## Specification styles
-<!-- Styles are appliable to all kinds of automation use.
-Thise styles may be used for KDT or BDD but are not exclusive for either testing or those specific methods!
- -->
+## Specification Styles
+
+Specification styles define how the automation process or test cases are structured, focusing on how actions and verifications are expressed. These styles can be applied to all types of automation, including both testing and robotic process automation (RPA). While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation.
+
+Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not wildly mix them within the same body.
+So it would be one practical solition to define acceptance test cases that cover users perspective in Behavior-Driven Style, while these Behavior-Style keywords are implemented by calling "normal" Keyword-Style keywords. And other system level test cases, that are not covering acceptance criteria could be written Keyword-Driven.
+
 ### Keyword-Driven Specification
-<!-- maybe ISO? or do we want our own definition -->
+
+In **Keyword-Driven Specification**, automation steps are expressed through a sequence of mostly **imperative commands**. Keywords define the specific actions that must be executed in a particular order, similar to procedural programming. The emphasis is on the **actions performed by the automation/tester**.
+
+For example, in Robot Framework, a keyword-driven test might include steps like:
+- `Open Page   http://robotframework.org`
+- `Click Button    FOUNDATION`
+- `Verify Title    Foundation | Robot Framework`
+- `Verify Url      https://robotframework.org/foundation`
+
+Verifications or assertions can be imperative, though they are often phrased as assertions, such as `Title Should Be    Foundation | Robot Framework`, adding flexibility to how outcomes are checked.
+
+The advantage of this style lies in its **clarity** and **structure**. It provides a straightforward representation of the task flow, making it easy to understand what actions will be executed.
+
+By separating the executed step/keyword and its arguments/data with spaces it improves the readability of tests or tasks.
+Flow and data can be parsed separately by the consumer.
+
 ### Behavior-Driven Specification
-<!-- Embedded Arguments and Given/When/Then -->
+
+**Behavior-Driven Specification** originates from **Behavior-Driven Development (BDD)** and its **Gherkin-Styke**, where steps are written to describe the system's behavior from the user's perspective. This style often incorporates **embedded arguments** into the steps and uses natural language constructs like **Given, When, Then, And & But**.
+
+In Robot Framework, behavior-driven tests may look like:
+- `Given "robotframework.org" is open`
+- `When the user clicks the "FOUNDATION" button`
+- `Then the page title should be "Foundation | Robot Framework"`
+- `And the url should be "https://robotframework.org/foundation"`
+
+A key difference between Robot Framework's behavior-driven style and BDD frameworks like **Cucumber** or most others is the ability in Robot Framework to use **multiple keyword layers**.
+In other BDD frameworks the code that implements a sentence like `Given "robotframework.org" is open.` is referred to as a step definition. Step definitions are written in a programming language (typically Java, JavaScript, Ruby, or Python) and map natural language steps from a Gherkin feature file to code. Therefore there are no multiple layers of keywords that can be logged into execution protocols.
+Robot Framework allows you to create **user keywords** that can further call other user or library keywords, providing greater flexibility, modularity and much more detailed logging.
+
+
+### Comparing Keyword and Behavior Styles
+
+The core difference between **Keyword-Driven** and **Behavior-Driven** styles lies in their focus:
+
+- **Keyword-Driven Style** emphasizes **what actions** need to be performed in a specific order, making it action-centric. It is structured, clear, and optimized for scenarios where the steps are more technical or detailed and where the amount of keywords called within a test or tasks are more. Also is this style better for complex tasks or complex data due to a clear separation between the keyword names and its argument values.
+
+- **Behavior-Driven Style** emphasizes **how the system behaves** from the user's point of view, using more **natural language** and focusing on **expected outcomes**. It is optimized for **business-oriented** descriptions of functionality and is often more suitable for communicating with non-technical stakeholders.
+
+Both styles can be applied within Robot Framework, offering flexibility depending on the context of the automation task. The choice between them often depends on whether you want to focus on **how** actions are executed (keyword-driven) or **why** actions are executed (behavior-driven) and its complexity.
 
 
 ## Organization and Licensing
-### Open Source License
-<!-- About Apache 2.0 and its main concept/advantages.
-- Permissive License!
-- No warrantee
-- Keep Author and Changes visible -->
-### About the Robot Framework Foundation
-<!-- Take Definition and Purpose from the Articles of Association -->
-### Robot Framework Webpages ???
-<!-- Basic knowledge which pages are from robot framework like rf.org -->
 
+### Open Source License
+
+Robot Framework is licensed under the **Apache License 2.0**, a permissive open-source license. The key characteristics of this license include:
+
+- **Permissive**: The license allows users to freely use, modify, and distribute the software, including for commercial purposes, without significant restrictions.
+- **No Warranty**: The software is provided "as-is," without any warranties or guarantees of performance.
+- **Attribution**: Users must keep the original authorship and any changes made to the code visible, ensuring transparency regarding contributions and modifications.
+
+This licensing structure encourages broad usage and contribution while maintaining a legal framework that protects both users and developers.
+
+### About the Robot Framework Foundation
+
+The **Robot Framework Foundation** (officially named **Robot Framework ry**) is a non-profit association based in Helsinki, Finland. Its purpose is to promote the use of the open-source Robot Framework and ensure its continuous development and maintenance. The key objectives of the foundation are:
+
+- **Support the development of Robot Framework**: The foundation funds and enables the core development and maintenance of the tool, keeping it freely available for everyone.
+- **Democratic governance**: The foundation is governed by a **Board of Directors**, elected annually by its members. Members are primarily companies that support the framework's development through membership fees.
+- **Platform maintenance**: The foundation maintains essential infrastructure like the Robot Framework webpage, GitHub repositories, and community platforms, ensuring the ecosystem remains robust and accessible.
+
+The listed foundation members and additional information may be accessed via **[robotframework.org/foundation](https://robotframework.org/foundation)**.
+
+### Robot Framework Webpages
+
+The official pages for Robot Framework and its related resources are maintained by the foundation. These include:
+
+- **[robotframework.org](https://robotframework.org/)**: The main page providing an overview, documentation, and access to resources.
+- **[github.com/robotframework](https://github.com/robotframework)**: The official repository for the framework's source code and other components.
 

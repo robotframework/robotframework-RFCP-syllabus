@@ -160,7 +160,7 @@ I think it is imported to point out the type of arguments in comparison the type
 <!-- Are mandatory arguments as part of the keyword names and must be filled. Used for Behavior-Driven Specification -->
 ### Return Values
 <!-- Keywords may gather information and return these to the caller of that keyword. A Documented Return Value may be present but often it is just written in the docs, due to new feture -->
-### Keyword Types
+### Argument Types
 <!-- Just to understand that they are there and that they may document how values are handled or which are allowed. -->
 ### Keyword Documentation & Examples
 <!-- How to read Keyword Docs and What they shall state -->
