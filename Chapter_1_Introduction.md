@@ -1,5 +1,9 @@
 # Chapter 1: Introduction to Robot Framework
 
+The upcoming chapters provide a concise overview of Robot Framework, including its core structure, use cases in test automation and RPA, and key specification styles like keyword-driven and behavior-driven testing. You'll learn about its architecture, syntax, and how test cases and tasks are organized. Additionally, the chapters explain the open-source licensing under Apache 2.0, the role of the Robot Framework Foundation in maintaining the ecosystem, and the foundational web resources available for further exploration and contributions.
+
+
+
 
 ## Purpose and Use-Cases
 
@@ -7,6 +11,7 @@ Robot Framework is a versatile, open-source automation framework that supports b
 Initially designed for acceptance testing and other types of testing, it has since evolved to cover various automation tasks in both IT and business environments.
 Its keyword-driven approach allows users to create reusable components, making it accessible even to those with minimal programming skills.
 Robot Framework can be extended through a vast array of built-in and third-party libraries, allowing it to automate interactions with APIs, user interfaces, databases, and more.
+
 
 ### Test Automation
 
@@ -41,13 +46,13 @@ By leveraging Robot Framework for RPA, businesses can improve efficiency, reduce
 
 
 
-
 ## Architecture of Robot Framework
 
 Robot Framework is an open-source automation framework that allows you to build automation scripts for testing and RPA (Robotic Process Automation).
 It focuses on providing a keyword-driven or behavior-driven approach, making the automation easy to understand and maintain.
 However, it is not a full-stack solution that encompasses all layers of automation.
 Instead, it provides a flexible platform where different tools, libraries, and integrations handle specific tasks to implement a flexible automation solution.
+
 
 ### Robot Framework and the gTAA (Generic Test Automation Architecture)
 
@@ -64,6 +69,7 @@ The execution is responsible for processing this execution model to execute the 
 - **Adaptation Layer**: This layer provides the connection between Robot Framework and the system under test (SUT).
 In Robot Framework, this is where the keyword libraries, such as those for UI, API, or database interactions, are located.
 These libraries allow interaction with different technologies and interfaces, ensuring the automation is flexible and adaptable to various environments.
+
 
 ### What is Robot Framework & What It Is Not
 
@@ -85,11 +91,14 @@ Robot Framework defines the syntax for test data, but it is the role of external
 
 Additionally, Robot Framework supports integration with CI/CD pipelines, configuration management tools, and test management systems, making it versatile in various automation environments.
 
+
 ### Technology & Prerequisites
 
 Robot Framework is built on **Python** but is adaptable to other languages and technologies through external libraries.
 To run Robot Framework, a **Python interpreter** is required on the machine executing the tests|tasks.
 Typically, Robot Framework and its libraries are installed via [PyPi.org](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
+
+
 
 
 ## Basic Syntax & Structure
@@ -106,6 +115,9 @@ A use of **FOUR (4)** spaces is recommended to ensures clarity and readability o
 - **Mostly case-insensitive**: Most elemens like keyword or variable names are case insensitive.
 However, some syntax, like library imports is case-sensitice.
 
+> [!NOTE]
+> This syllabus does NOT cover other formats like Pipe-Separated ( | ) Format or Restructured Text or JSON!
+
 ### What are Test Cases / Tasks?
 
 In Robot Framework, **Test Cases** (**Tests**) or **Tasks** are executable entities that serve a specific purpose and are organized into suites.
@@ -114,15 +126,17 @@ A **Test** is synonymous with a **Test Case**, while **Tasks**, technically bein
 Tests or Tasks have a body made up of **keyword calls** and Robot Framework statements like **IF** or **VAR**, which represent the actions or steps executed during the test or task execution.
 These keywords make the automation modular, maintainable, reusable, and readable.
 
-### Files & Folders
 
-Robot Framework organizes tests|tasks into **Suites**, which are either files or folders.
+### Files & Directories
 
-- Each folder, starting from the top-level folder (the one executed by Robot Framework), and any subfolder that contains a `*.robot` file, is considered a **Suite**.
+Robot Framework organizes tests|tasks into **Suites**, which are either files or directories.
+
+- `*.robot` files that do contain test cases or tasks are suites.
+- Each directory, starting from the top-level directory (the one executed by Robot Framework), and any sub-directories that contains a `*.robot` suite file, is considered a **Suite** as well.
 Suites can contain other suites, forming a hierarchical tree, which is by default alphabetically ordered.
-- `*.robot` files are themselves suites, which do contain tests or tasks.
 
 This structure allows for logical grouping and organization of tests and tasks, which can scale as needed.
+
 
 ### What are Keywords?
 
@@ -153,6 +167,8 @@ While tests and tasks are organized into suites, **keywords** are organized into
 Central resource files and libraries allow the separation of concerns, making the automation more modular and reusable across multiple suites, tests or tasks.
 
 The concepts of organizing are fundamental to working with Robot Framework and contribute to its flexibility and scalability in both test automation and RPA.
+
+
 
 
 ## Specification Styles
@@ -218,7 +234,10 @@ Both styles can be applied within Robot Framework, offering flexibility dependin
 The choice between them often depends on whether you want to focus on **how** actions are executed (keyword-driven) or **why** actions are executed (behavior-driven) and its complexity.
 
 
+
+
 ## Organization and Licensing
+
 
 ### Open Source License
 
@@ -231,6 +250,7 @@ The key characteristics of this license include:
 
 This licensing structure encourages broad usage and contribution while maintaining a legal framework that protects both users and developers.
 
+
 ### About the Robot Framework Foundation
 
 The **Robot Framework Foundation** (officially named **Robot Framework ry**) is a non-profit association based in Helsinki, Finland.
@@ -242,6 +262,7 @@ The key objectives of the foundation are:
 - **Platform maintenance**: The foundation maintains essential infrastructure like the Robot Framework webpage, GitHub repositories, and community platforms, ensuring the ecosystem remains robust and accessible.
 
 The listed foundation members and additional information may be accessed via **[robotframework.org/foundation](https://robotframework.org/foundation)**.
+
 
 ### Robot Framework Webpages
 
