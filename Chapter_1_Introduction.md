@@ -10,7 +10,7 @@ The upcoming chapters provide a concise overview of Robot Framework, including i
 Robot Framework is a versatile, open-source automation framework that supports both test automation and robotic process automation (RPA).
 Initially designed for acceptance testing and other types of testing, it has since evolved to cover various automation tasks in both IT and business environments.
 Its keyword-driven approach allows users to create reusable components, making it accessible even to those with minimal programming skills.
-Robot Framework can be extended through a vast array of built-in and third-party libraries, allowing it to automate interactions with APIs, user interfaces, databases, and more.
+Robot Framework can be extended through a vast array of third-party or custom made keyword libraries, allowing it to automate interactions with APIs, user interfaces, databases, and many more technologies.
 
 
 ### Test Automation
@@ -23,7 +23,9 @@ Robot Framework is widely used in various stages of test automation, focussing:
 
 - **Acceptance testing**: Validates the system’s readiness for deployment, ensuring it meets business needs. Types include user, operational, and regulatory acceptance testing, often performed by end-users.
 
-Additionally, it is often used for the **testing and verification of live systems in production** environments, ensuring that deployed systems behave as expected and highlighting any issues in real-time.
+### Synthetic Monitoring
+
+Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **Active Monitoring** or **Proactive Monitoring**, is a proactive approach that simulates user interactions with live systems at regular intervals. It detects performance issues or downtime early and often before they affect actual users by continuously monitoring system behavior under simulated conditions.
 
 
 ### Robotic Process Automation (RPA)
@@ -89,7 +91,7 @@ However, Robot Framework **does not** include:
 
 Robot Framework defines the syntax for test data, but it is the role of external libraries and tools to extend its functionality for specific automation needs.
 
-Additionally, Robot Framework supports integration with CI/CD pipelines, configuration management tools, and test management systems, making it versatile in various automation environments.
+Additionally, Robot Framework supports integration with CI/CD pipelines, configuration management tools, test management systems, monitoring systems, and more, making it versatile in various automation environments.
 
 
 ### Technology & Prerequisites
@@ -178,7 +180,7 @@ These styles can be applied to all types of automation, including both testing a
 While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation.
 
 Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not wildly mix them within the same body.
-So it would be one practical solition to define acceptance test cases that cover users perspective in Behavior-Driven Style, while these Behavior-Style keywords are implemented by calling "normal" Keyword-Style keywords.
+So it would be one practical solution to define acceptance test cases that cover users perspective in Behavior-Driven Style, while these Behavior-Style keywords are implemented by calling "normal" Keyword-Style keywords.
 And other system level test cases, that are not covering acceptance criteria could be written Keyword-Driven.
 
 ### Keyword-Driven Specification
@@ -203,7 +205,7 @@ Flow and data can be parsed separately by the consumer.
 
 ### Behavior-Driven Specification
 
-**Behavior-Driven Specification** originates from **Behavior-Driven Development (BDD)** and its **Gherkin-Styke**, where steps are written to describe the system's behavior from the user's perspective.
+**Behavior-Driven Specification** originates from **Behavior-Driven Development (BDD)** and its **Gherkin-Style**, where steps are written to describe the system's behavior from the user's perspective.
 This style often incorporates **embedded arguments** into the steps and uses natural language constructs like **Given, When, Then, And & But**.
 
 In Robot Framework, behavior-driven tests may look like:
@@ -253,15 +255,25 @@ This licensing structure encourages broad usage and contribution while maintaini
 
 ### About the Robot Framework Foundation
 
-The **Robot Framework Foundation** (officially named **Robot Framework ry**) is a non-profit association based in Helsinki, Finland.
-Its purpose is to promote the use of the open-source Robot Framework and ensure its continuous development and maintenance.
-The key objectives of the foundation are:
+The **Robot Framework Foundation** (officially known as **Robot Framework ry**) is a non-profit association based in Helsinki, Finland, dedicated to promoting the use, development, and maintenance of the open-source Robot Framework. The foundation ensures that Robot Framework remains freely available and viable for both test automation and robotic process automation (RPA) in the future.
 
-- **Support the development of Robot Framework**: The foundation funds and enables the core development and maintenance of the tool, keeping it freely available for everyone.
-- **Democratic governance**: The foundation is governed by a **Board of Directors**, elected annually by its members. Members are primarily companies that support the framework's development through membership fees.
-- **Platform maintenance**: The foundation maintains essential infrastructure like the Robot Framework webpage, GitHub repositories, and community platforms, ensuring the ecosystem remains robust and accessible.
+Key objectives of the foundation include:
 
-The listed foundation members and additional information may be accessed via **[robotframework.org/foundation](https://robotframework.org/foundation)**.
+- **Support for Core Development**: The foundation funds and enables the core development, maintenance, and evolution of the Robot Framework, ensuring it is freely available to everyone. It also supports ecosystem and user-contributed projects that further enhance the framework's capabilities.
+
+- **Democratic Governance**: The foundation operates under democratic principles, with a **Board of Directors** elected annually by its members. The board oversees the foundation's operations, and membership primarily consists of companies that contribute financially to support the framework’s ongoing development through membership fees.
+
+- **Platform Maintenance**: The foundation is responsible for maintaining key infrastructure, such as the official website, GitHub repositories, and community platforms. These resources are crucial to sustaining a healthy ecosystem and fostering collaboration among users and contributors.
+
+- **Community Support and Events**: The foundation plays a central role in organizing **RoboCon**, the annual Robot Framework User Conference, which brings together users, developers, and contributors to share knowledge and insights. Additionally, it helps to disseminate knowledge about test automation and RPA through community events and documentation efforts.
+
+- **Funding of Ecosystem Projects**: Whenever possible, the foundation finances open-source projects that are proposed by community members, aiming to support broader ecosystem development and innovation.
+
+As a non-profit, all funds are directed towards the development and promotion of the Robot Framework, ensuring that it remains accessible to all users without commercial restrictions.
+
+More information, including a list of foundation members, is available at **[robotframework.org/foundation](https://robotframework.org/foundation)**.
+
+This structure and mission ensure that Robot Framework continues to grow and serve the needs of its community while maintaining an open and democratic approach to its development and governance.
 
 
 ### Robot Framework Webpages

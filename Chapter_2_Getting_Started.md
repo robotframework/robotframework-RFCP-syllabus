@@ -8,7 +8,7 @@ When executing Robot Framework it either parses directory trees or files, depend
 
 The given path to Robot Framework where it starts parsing is considered the **Root Suite**.
 
-If a the path to a single file is given as **Root Suite** directly to Robot Framework only this file is parsed.
+If the path to a single file is given as **Root Suite** directly to Robot Framework only this file is parsed.
 
 If a directory path is given, starting at this location, Robot Framework will parse all `*.robot`-files and directories within this path.
 Robot Framework analyses all containing files and determines if they do contain test cases or tasks. If they do, they are considered **Suite Files** or **Low-Level Suites**.
@@ -49,37 +49,38 @@ Example:
       ◼︎ 04__FourthSuite.robot           | Fourth Suite
 ```
 
+
 ### Suite Files
 
 By default Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
 
-A parsed file that does contain at least one test case or task is called a **Suite File** and may contain the following sections:
-- `*** Settings ***`
-- `*** Variables ***`
-- `*** Test Cases ***` or `*** Tasks ***` (mandatory)
-- `*** Keywords ***`
-- `*** Comments ***`
+A parsed file that does contain at least one test case or task is called a **Suite File**.
 
 A Suite File does **either** contain `*** Test Cases ***` (in Test Suites) **or** `*** Tasks ***` (in Task Suites), but it CANNOT contain both types simultaneously.
 
-The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***` and `*** Comments ***` are optional and can be omitted if not needed.
 
 ### Sections and Their Artifacts
 
-Robot Framework data files are defined in different sections
+Robot Framework data files are defined in different sections.
+These sections are recognized by their header row.
+The format is `*** <Section Name> ***` with three asterisks before and after the section name.
 
-Different sections are recognized by their header row.
-The recommended header format is `*** Settings ***`, but the header is case-insensitive, surrounding spaces are optional, and the number of asterisk characters can vary as long as there is at least one asterisk in the beginning. For example, also `*settings` would be recognized as a section header.
-<!-- TODO: Should we teach that? or just say. Use *** Settings *** as we do not mention the singular???-->
+The following sections are recognized by Robot Framework and are recommended to be used in the order they are listed:
+- `*** Settings ***`
+- `*** Variables ***`
+- `*** Test Cases ***` or `*** Tasks ***` (mandatory in Suite Files)
+- `*** Keywords ***`
+- `*** Comments ***`
 
-The following order of sections is recommended, but not mandatory.
+The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***` and `*** Comments ***` are optional in suites and can be omitted if not needed.
+
 
 #### `*** Settings ***` Section
 
 This section is used to configure various aspects of the test- or task-suite.
 It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files that are needed for execution in the containing tests|tasks.
 
-It can specify suite metadata (`Metadata`), as well as redefint the suite's name (`Name`), and contain the suite's documentation (`Documentation`).
+It can specify suite metadata (`Metadata`), as well as redefine the suite's name (`Name`), and contain the suite's documentation (`Documentation`).
 
 This section can also define keywords for execution flow control such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run.
 
@@ -101,7 +102,7 @@ Those Settings are prefixed with either `Test` or `Task` according to the type o
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
 The most common and recommended use-case is to use these variables as constants that are not supposed to change during the execution of the suite.
-It can be confusing for readers of a suite if a variable is defined with a fix value in the `*** Variables ***` section and then during execution a different values is stored and read from that variable.
+It can be confusing for readers of a suite if a variable is defined with one static value in the `*** Variables ***` section and then during execution dynamically reassigned with a different values, due to the fact that they may expect the variable to always have the initially defined value.
 
 #### `*** Test Cases ***` or `*** Tasks ***` Section (mandatory)
 
