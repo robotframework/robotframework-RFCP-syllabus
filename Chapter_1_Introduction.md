@@ -114,8 +114,8 @@ Key attributes of the syntax include:
 - **Space-separated syntax**: Robot Framework uses two spaces as the primary separator (although one space is allowed as a character).
 A use of **FOUR (4)** spaces is recommended to ensures clarity and readability of the specification.
 - **Minimal use of special characters**: The focus is on reducing special characters, making the syntax human-readable and user-friendly.
-- **Mostly case-insensitive**: Most elemens like keyword or variable names are case insensitive.
-However, some syntax, like library imports is case-sensitice.
+- **Mostly case-insensitive**: Most elements like keyword or variable names are case insensitive.
+However, some syntax, like library imports is case-sensitive.
 
 > [!NOTE]
 > This syllabus does NOT cover other formats like Pipe-Separated ( | ) Format or Restructured Text or JSON!
@@ -149,8 +149,8 @@ Tests or Tasks are structured using **Keywords**, which represent specific actio
 
 There are two types of keywords in Robot Framework:
 
-1. **User Keywords**: Written in Robot Framework syntax, they are mainly used for structuring tests|tasks. User keywords improve readability, understandability, maintainability and structure.
-2. **Library Keywords**: Typically written in Python, but may also be implemented in other technologies, these keywords typically interact with the system under test (SUT) or the system to be controlled by RPA or execute specific actions like calculations or conversions.
+1. **User Keywords**: Written in Robot Framework syntax, they are mainly used for structuring tests|tasks. User keywords improve readability, understandability, maintainability and structure. These keywords do always call other keywords or commands within their body. That's why they are also called **higher-level keywords**. In other literature these kind of keywords are also called **Business Keywords** or **Composite Keywords**.
+2. **Library Keywords**: Typically written in Python, but may also be implemented in other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by RPA or execute specific actions like calculations or conversions. From the viewpoint of Robot Framework these keywords are not composed of other keywords and do form the lowest level of keywords. Therefore they are also referred to as **lower-level keywords**. In other literature these kind of keywords are also called **Technical Keywords** or **Atomic Keywords**.
 
 A **User Keyword** consists of a **name**, optional **arguments**, and a **body** of keyword calls that may invoke other user keywords or library keywords or other statements like variable definitions or flow control.
 
@@ -164,7 +164,7 @@ This granular logging and detailed execution documentation is one of the key adv
 While tests and tasks are organized into suites, **keywords** are organized into **Resource Files** and **Keyword Libraries**.
 
 - **Resource Files**: Contain **User Keywords**, and are also used to organize the importing of libraries and defining variables.
-- **Keyword Libraries**: Contain **Library Keywords** that perform the actual actions on the system under test, typically implemented in Python or other technologies.
+- **Keyword Libraries**: Contain **Library Keywords** which are typically implemented in Python or other technologies.
 
 Central resource files and libraries allow the separation of concerns, making the automation more modular and reusable across multiple suites, tests or tasks.
 
@@ -182,6 +182,8 @@ While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)**
 Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not wildly mix them within the same body.
 So it would be one practical solution to define acceptance test cases that cover users perspective in Behavior-Driven Style, while these Behavior-Style keywords are implemented by calling "normal" Keyword-Style keywords.
 And other system level test cases, that are not covering acceptance criteria could be written Keyword-Driven.
+
+
 
 ### Keyword-Driven Specification
 

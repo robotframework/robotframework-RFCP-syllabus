@@ -52,7 +52,7 @@ To ensure a clear understanding of these objectives, we apply Knowledge Levels (
 
 - **K4 (Analyze)**: Critical analysis and troubleshooting. At this level, participants will be able to analyze the execution of automation scripts, identify problems, and debug effectively.
 
-<!-- TODO: The examples need better explaination. -->
+<!-- TODO: The examples need better explanation. -->
 
 Throughout the course, participants will progress through these knowledge levels, from basic recall (K1) to applying and analyzing automation tasks (K3, K4), ensuring a deep understanding of Robot Framework essentials.
 
