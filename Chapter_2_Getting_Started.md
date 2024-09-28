@@ -298,7 +298,7 @@ A User Keywords is `FAIL` if one of its Library Keyword is `FAIL`, a test|task i
 There are basically two kinds of logging information in Robot Framework.
 
 - **Console Output**: The console output is the output that is printed to the terminal where the `robot` command was executed. It is typically not persistent but can be already seen during execution.
-- **Log Messages**: Log messages are written to the `output.xml` and therefore also `log.html` file and are persistent. They are typically created by the Library Keywords that are executed and can be used to log information about the execution. Also Robot Framework itself does log information to the `outputxml` like assigned values of arguments or the return values of keywords.
+- **Log Messages**: Log messages are written to the `output.xml` and therefore also `log.html` file and are persistent. They are typically created by the Library Keywords that are executed and can be used to log information about the execution. Also Robot Framework itself does log information to the `output.xml` like assigned values of arguments or the return values of keywords.
 
 Log messages can be written with different levels of severity like i.e. `INFO`, `DEBUG`, `TRACE`, `WARN` or `ERROR`.
 Which levels are written to the log can be controlled by the log level of an execution. Further information in later chapters.
@@ -324,6 +324,8 @@ Further more detailed information about the different types of libraries and are
 
 To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library.
 The name of the library is case-sensitive and should be taken from the library's keyword documentation.
+By default, libraries in Robot Framework are implemented in Python and the name of the library is the name of the Python module that contains the library implementation.
+Alternatively a library can be imported using the path to the Python module file. See [Import Paths](#import-paths).
 
 Example:
 ```robotframework
@@ -340,8 +342,8 @@ Which keywords are available can be seen in the keyword documentation of the lib
 As mentioned before resource files are used to organize and structure keywords and variables that are used in multiple suites.
 They can also other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the file where the resource file is imported. Therefore keywords from a library that has been imported in a resource file is also available in the suite that imports that resource file.
 
-To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file. The path can be either an absolute path or a relative path.
-If a relative path is given, the resource file is searched for relative to the data file that is importing it or relative to the python search path.
+To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
+See [Import Paths](#import-paths) for more information about the path to the resource file.
 
 Resource files shall have the extension `.resource` to make it clear what they are.
 This extension is also recognized beside the `.robot` extension by IDE extensions, supporting Robot Framework.
@@ -354,7 +356,29 @@ Resource    D:/keywords/central_keywords.resource
 ```
 
 
-### Import Paths (\ vs / vs rel vs abs vs -P)
+### Import Paths
+When importing libraries or resource files via a path, the path can be either an absolute path or a relative path.
+If a relative path is given, the path is resolved relative to the data file that is importing the library or resource file.
+
+The path can be either an absolute path or a relative path.
+
+If a **relative path** is given, the resource file or library is searched for relative to the data file that is importing it or relative to the python *module search path*.
+This *module search path* is define by the python interpreter that executes Robot Framework and can be influenced by the environment variables `PYTHONPATH` or using the CLI-Argument `--pythonpath` when executing `robot`.
+
+If an **absolute path** is given, the resource file or library is searched for at the given path.
+
+As **path separator** it is strongly recommended to always use forward slashes `/`, and even on Windows NOT use back-slashes `\`.
+This is due to the fact that back-slashes are used as escape characters in Robot Framework and can lead to issues when used in paths and forwards slashes are supported on all operating systems.
+
+When choosing the location of resource files, it should be taken into that consideration that absolute paths are typically not portable and therefore should typically be avoided.
+Relative paths are portable as long as they are related to the data file that is importing using them, as long as that relative path is part of the project structure.
+
+However the most stable and recommended way is to use the **Python Path/module search path** to import them.
+That path needs to be defined when executing Robot Framework but can lead to more uniform and stable imports, because each suite or resource file can be use the same path to import the same resource file or library, independent of the location of the importing suite or resource file.
+
+<!-- TODO: Discuss the usage of Python Path and the implications of using it. -->
+
+<!-- (\ vs / vs rel vs abs vs -P) -->
 <!-- Use Import Paths ALWAYS with forward /
 Recommendation to use Python Path for central elements
 Use relative path to folder local stuff. ${CURDIR}?
@@ -429,7 +453,23 @@ These arguments are listed first in the argument interface.
 See the argument named `first` and `second` in the `Should Be Equal` keyword documentation.
 
 If too few arguments are provided, the keyword call will fail with an error message.
-Example: `Should Be Equal    1` will fail because the keyword expects two arguments.
+
+Example:
+```robotframework
+*** Test Cases ***
+Tests Will Pass
+    Should Be Equal    One    One
+
+Test Will Fail
+    Should Be Equal    One    Two
+
+Test Will Fail Due to Missing Args
+    Should Be Equal    One
+```
+
+The first Test will pass, because both argument values are equal.
+The second Test will fail, because the argument values are not equal.
+The third Test will fail before the keyword `Should Be Equal` is actually being executed, because the keyword expects at least two arguments.
 The Error Message would be: `Keyword 'BuiltIn.Should Be Equal' expected 2 to 8 arguments, got 1.`
 
 Two arguments are mandatory and additional six arguments are optional in the `Should Be Equal` keyword.
@@ -477,25 +517,28 @@ Library Keywords may define the expected types of their argument values.
 Robot Framework specification is mostly done as a string-based language, therefore most statically defined argument values are strings.
 However, the actual implementation of the keyword may expect a different type of argument, like an integer.
 
-Lets imagine a keyword that clicks on a specific coordinate on the screen, i.e. `Click On Coordinate`.
+Defining type hints for arguments is a recommended way to let Robot Framework convert the given arguments to the expected type.
+Because Python is dynamically typed, and type hints are optional in code and were introduced many years after the Robot Framework was created, the majority of libraries do not define the expected types of their arguments. Some more modern or more complex libraries do define the expected types of their arguments.
+
+Lets imagine a keyword that clicks on a specific coordinate on the screen, i.e. `Click On Coordinates`.
 This keyword would expect two integer arguments, one for the `x`-coordinate and one for the `y`-coordinate.
 
 That keyword can now claim that it expects two integer arguments by defining type hints for these arguments.
 Type hints are show in the keyword documentation at the argument after the optional default value.
 
-Robot Framework in that case tries to convert the given string arguments to the expected type.
-If the conversion fails, the keyword call will fail with an error message.
+Robot Framework in that case tries to convert the given string arguments to the integer type.
+If the conversion fails, the keyword call will fail by Robot Framework with an error message before the actual keyword code is executed.
 
 Example:
 ```robotframework
 *** Test Cases ***
 Test Conversion
-    Click On Coordinate    10    20    # This will work
-    Click On Coordinate    10    Not_A_Number  # This will fail
+    Click On Coordinates    10    20    # This will work
+    Click On Coordinates    10    Not_A_Number  # This will fail
 ```
 
 In the first call the keyword will be called with the integer values `10` and `20` and will work as expected.
-The second keyword call will fail before the actual keyword code is executed, because the second argument is not a number and cannot be converted to an integer.
+The second keyword call will fail, because the second argument is not a number and cannot be converted to an integer.
 The error message would be: `ValueError: Argument 'y' got value 'Not_A_Number' that cannot be converted to integer.`
 
 The advantage of using type hints is that the user get more information about what kind of values are expected and the keyword implementation can be simpler, because it can rely on the arguments being of the expected type.
@@ -503,24 +546,188 @@ The advantage of using type hints is that the user get more information about wh
 <!-- Just to understand that they are there and that they may document how values are handled or which are allowed. -->
 #### Return Types
 Keywords may gather information and return these to the caller of that keyword to be stored in a variable and used in further keyword calls.
+So Keyword can `RETURN` values to the caller as functions do in programming languages.
+
+If the keyword implementation offers a type hint for the return value, this is documented in the keyword documentation.
+Similar to the argument types, return types optional and a more recent feature of Robot Framework and therefore not widely used, yet.
+
+It is important to know that keywords without a return type hint are often still returning values!
+This is typically documented in the *Documentation* part of the keyword documentation.
 
 <!-- Keywords may gather information and return these to the caller of that keyword. A Documented Return Value may be present but often it is just written in the docs, due to new feature -->
 ### Keyword Documentation & Examples
 <!-- How to read Keyword Docs and What they shall state -->
 
+Keyword documentation is an important part of the keyword implementation.
+Good keyword names that clearly communicate what a keyword is doing is even more important,
+but doing that should not give the impression that a descriptive documentation is not needed.
+
+Documentation is sometimes lean and sometimes extensive, depending on the complexity of the keyword.
+The documentation should describe what the keyword does, how it should be used, and what the expected arguments are.
+Depending on the complexity it may also be useful to provide examples of how the keyword can be used.
+
+User Keywords do typically have less extensive documentation, because they are typically used in a more narrower context and can not be configured by arguments that much compared to library keywords of generic external libraries.
+
+Examples in the documentation is commonly either written in table format or as code blocks.
+
+**Table Example of `Should Be Equal`**:
+| | | | | |
+| - | - | - | - | - |
+| Should Be Equal | ${x} | expected | | |
+| Should Be Equal | ${x} | expected | Custom error message | |
+| Should Be Equal | ${x} | expected | Custom message | values=False |
+| Should Be Equal | ${x} | expected | ignore_case=True | formatter=repr |
+
+Code block example:
+```robotframework
+Should Be Equal    ${x}    expected
+Should Be Equal    ${x}    expected    Custom error message
+Should Be Equal    ${x}    expected    Custom message    values=False
+Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
+```
+
 
 ## Calling imported Keywords
-<!-- How to call them, Spaces and Arguments.
--->
-### Positional Args
+
+A typical test case or task is a sequence of keyword calls that are executed in a specific order.
+As learned before these keywords need to be imported into the suite or resource file before they can be used.
+When using keywords in a test|task or User Keyword, it is important to indent the keyword calls correctly.
+With the exception of returning values, which is described in Chapter 3,
+the name of the keywords is the first element of the keyword call followed by the arguments that are separated by two or more spaces.
+
+The following example shows different ways to call imported keywords in a test case based on the `Should Be Equal` keyword from the BuiltIn library.
+
+The keyword name should be written as defined in the keyword documentation and may have single spaces or other special characters in it.
+After the keyword name the arguments are set.
+All arguments are separated by multiple spaces from the keyword name and from each other and can also include single spaces.
+Argument values are stripped from leading and trailing spaces, but spaces within the argument value are preserved.
+
+If an argument shall contain more than one consecutive spaces or start or end with spaces, the spaces must be escaped by a backslash `\` to prevent them from being interpreted as a part of a "multi-space-separator".
+
+Example:
+```robotframework
+*** Test Cases ***
+Mandatory Positional Arguments
+    [Documentation]    Only mandatory arguments are use positional
+    Should Be Equal    1    1
+
+Mixed Positional Arguments
+    [Documentation]    Mandatory and optional arguments are used positional.
+    ...
+    ...    It is hard to figure out what the values are doing and which arguments are filled,
+    ...    without looking into the keyword documentation.
+    ...    Even though the argument `values` is kept at its default value `True` it must be set if later arguments shall be set positional.
+    Should Be Equal    hello    HELLO    Values are case-insensitive NOT equal    True    True
+
+All Named Arguments
+    [Documentation]    Arguments are used named.
+    ...
+    ...    It is clear what the values are doing and which arguments are filled and order is not relevant.
+    ...    The argument `values` can be omitted and the order can be mixed
+    Should Be Equal    first=hello    second=HELLO    ignore_case=True    msg=Values are case-insensitive NOT equal
+
+Mixed Named and Positional Arguments
+    [Documentation]    Arguments are used named and positional.
+    ...
+    ...    The positional arguments must be in order, but the subsequent named arguments may be in an arbitrary order.
+    ...    The first arg has the string value `" hello  spaces "` and the second arg has the string value `"HELLO  SPACE"`.
+    Should Be Equal    \ hello \ spaces \    HELLO \ SPACE   ignore_case=True    strip_spaces=True    msg=Values are case-insensitive NOT equal
+```
+
+
+### Positional Arguments
 <!-- Typical way to call them. All must be set in specific order. -->
-### Named Args
-<!-- Possibility for better read-/understandability.
-Mixing oder, should be avoided.
-Skipping of optional args -->
-### Using Behavior-Driven Specification
-<!--
-- What is BDD
-- Using Embedded (mixed) Arguments
-- Given/When/Then/And/But
- -->
+When calling keywords, except for *keyword-only* arguments, all arguments may be set in the order they are defined in the keyword documentation.
+However that can lead to poor readability as you can see in the `Mixed Positional Arguments` example.
+Specifically optional parameters of library keywords are often not commonly known by all project participants and therefore should better be used named.
+
+Using arguments positionally is very handy for arguments that are obvious and easy to understand.
+In the early login example the following keyword calls exists:
+```robotframework
+    Login User    ironman    1234567890
+```
+In that case it should be obvious that the first argument is the username and the second argument is the password.
+Also the keyword following keyword call should be easy to understand:
+```robotframework
+    Click On Coordinates    82    70
+```
+
+#### Variable Number of Positional Arguments
+A special case of positional arguments are variable number of positional arguments.
+These are also referred to as `*args` or `*varargs` in Python.
+Some keywords need to collect a variable amount of values into one argument, because it is not possible to define the amount of values in advance.
+
+One example for this kind of keyword is [`Run Process`](https://robotframework.org/robotframework/latest/libraries/Process.html#Run%20Process) from the Process Library.
+This keyword executes a `command` with variable amount of `arguments` and waits for the process to finish.
+Depending on the command to be executed different amount of arguments are needed for that command.
+
+This variable argument is marked with a single asterisk `*` before the argument name in the keyword documentation.
+
+Keyword Example:
+
+**[Run Process](https://robotframework.org/robotframework/latest/libraries/Process.html#Run%20Process)**
+
+*Arguments*
+- `command`
+- `* arguments`
+- `** configuration`
+
+This keyword also has a named-only argument `** configuration` that is briefly explained in [Named-Only Arguments](#named-only-arguments).
+
+When calling this keyword one or more positional arguments can be set, while the first positional argument is assigned to the `command` argument and all subsequent positional arguments are assigned to the `arguments` argument and will be available as a list in the keyword implementation.
+They are optional and can be omitted.
+
+Example:
+```robotframework
+*** Test Cases ***
+Send 5 IPv4 Pings On Windows
+    Run Process    ping    -n    5    -4    localhost
+```
+
+### Named Arguments
+Keyword Calls with non-obvious arguments should use named arguments if possible.
+Also setting one optional argument but leaving the others at their default value is an indication to use named arguments.
+
+Named arguments are set by their name followed by an equal sign `=` and the value of the argument.
+Equal signs are valid argument values and could therefore be misinterpreted as named arguments, if the text before the equal sign is a valid argument name.
+To prevent that, an equal sign in argument values can be escaped by a backslash `\`.
+
+Example of escaping conflicting equal signs:
+```robotframework
+    Should Be Equal    second\=2   Second\=2    case_insensitive=True
+```
+The argument `first` did get the value `second=2` and the argument `second` did get the value `Second=2`.
+
+
+#### Named-Only Arguments
+All arguments that are defined after a variable number of positional arguments (`*varargs`) are named-only arguments.
+Those arguments can not be set positionally because all positional values are consumed by the variable number of positional arguments.
+So the must be set by their name followed by an equal sign `=` and the value of the argument.
+
+
+#### Free Named Arguments
+Another special case of named arguments are free named arguments.
+Those arguments are similar to the variable number of positional arguments,
+but collect all named arguments that are not explicitly defined as argument names.
+
+Free named arguments are marked with two asterisks `**` before the argument name in the keyword documentation.
+
+The previous example of the `Run Process` keyword also has a free named argument `** configuration`.
+
+When calling this keyword all named arguments that are not explicitly defined as argument names are collected into the `configuration` argument and will be available as a dictionary in the keyword implementation.
+They are optional and can be omitted.
+With this configuration it is i.e. possible to redirect the output of the process to a file or to set the working directory of the process.
+
+Example redirecting stdout and stderr to a file:
+```robotframework
+*** Test Cases ***
+Send 5 IPv4 Pings On Windows
+    Run Process    ping    -n    5    -4    localhost    stdout=ping_output.txt    stderr=ping_error.txt
+```
+
+
+### Embedded Arguments / Using Behavior-Driven Specification
+Embedded Arguments are mainly used when writing Behavior-Driven Specification.
+Embedded Arguments are part of the keyword name as described in [Embedded Args](#embedded-args).
+
+TODO: Explain more how to use Behavior Driven Specification and how to use Embedded Arguments.
