@@ -288,33 +288,33 @@ These include:
 
 ### 1.1 Purpose and Use-Cases
 
-LO1 List the main Use-Cases of Robot Framework (K1)
-LO2 Recall Robot Framework is open-source (K1)
+- LO1 List the main Use-Cases of Robot Framework (K1)
+- LO2 Recall Robot Framework is open-source (K1)
 
 ### 1.2 Architecture of Robot Framework
 
-LO3 List the three layers of the Generic Test Automation Architecture (gTAA) as applied in Robot Framework (K1)
-LO4 Explain the role of the Definition, Execution, and Adaptation layers in Robot Framework. (K2)
-LO5 Define what Robot Framework is and what it is not (K1)
-LO6 Recall Robot Framework is built on Python (K1)
+- LO3 List the three layers of the Generic Test Automation Architecture (gTAA) as applied in Robot Framework (K1)
+- LO4 Explain the role of the Definition, Execution, and Adaptation layers in Robot Framework. (K2)
+- LO5 Define what Robot Framework is and what it is not (K1)
+- LO6 Recall Robot Framework is built on Python (K1)
 
 ### 1.3. Basic Syntax & Structure
 
-LO7 Recall the four key attributes of the syntax of Robot Framework (K1)
-LO8 Explain the difference between test cases and tasks. (K2)
-LO9 List the types of files and directories used to organize tests and tasks in Robot Framework. (K1)
-LO10 Explain the difference between user keywords and library keywords (K2)
+- LO7 Recall the four key attributes of the syntax of Robot Framework (K1)
+- LO8 Explain the difference between test cases and tasks. (K2)
+- LO9 List the types of files and directories used to organize tests and tasks in Robot Framework. (K1)
+- LO10 Explain the difference between user keywords and library keywords (K2)
 
 ### 1.4. Specification Styles
 
-LO11 Recall te two specification types (K1)
-LO12 Explain the benefits of using keyword-driven specification in test automation. (K2)
-LO13 Explain the benefits of using behavior-driven specification in test automation. (K2)
-LO14 Recall Robot Framework can have multiple keyword layers 
-LO15 Explain how keyword-driven and behavior-driven styles can be used together in a project. (K2)
+- LO11 Recall te two specification types (K1)
+- LO12 Explain the benefits of using keyword-driven specification in test automation. (K2)
+- LO13 Explain the benefits of using behavior-driven specification in test automation. (K2)
+- LO14 Recall Robot Framework can have multiple keyword layers 
+- LO15 Explain how keyword-driven and behavior-driven styles can be used together in a project. (K2)
 
 ### 1.5. Organization and Licensing
 
 
-LO16 Recall the type of open-source license under which Robot Framework is distributed. (K1)
-LO17 List the key objectives of the Robot Framework Foundation. (K1)
+- LO16 Recall the type of open-source license under which Robot Framework is distributed. (K1)
+- LO17 List the key objectives of the Robot Framework Foundation. (K1)
