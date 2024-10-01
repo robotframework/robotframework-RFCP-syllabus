@@ -5,6 +5,9 @@ The upcoming chapters provide a concise overview of Robot Framework, including i
 
 ## Purpose and Use-Cases
 
+> [!IMPORTANT]
+> LO1 List the main Use-Cases of Robot Framework (K1)
+
 Robot Framework is a versatile, open-source automation framework that supports both test automation and robotic process automation (RPA).
 Initially designed for acceptance testing and other types of testing, it has since evolved to cover various automation tasks in both IT and business environments.
 Its keyword-driven approach allows users to create reusable components, making it accessible even to those with minimal programming skills.
@@ -12,6 +15,9 @@ Robot Framework can be extended through a vast array of third-party or custom ma
 
 
 ### Test Automation
+
+> [!IMPORTANT]
+> LXX recall the test levels Robot Framework is mostly used for (K1)
 
 Robot Framework is widely used in various stages of test automation, focussing:
 
@@ -21,7 +27,7 @@ Robot Framework is widely used in various stages of test automation, focussing:
 
 - **Acceptance testing**: Validates the system’s readiness for deployment, ensuring it meets business needs. Types include user, operational, and regulatory acceptance testing, often performed by end-users.
 
-### Synthetic Monitoring
+#### Synthetic Monitoring
 
 Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **Active Monitoring** or **Proactive Monitoring**, is a proactive approach that simulates user interactions with live systems at regular intervals. It detects performance issues or downtime early and often before they affect actual users by continuously monitoring system behavior under simulated conditions.
 
@@ -56,6 +62,9 @@ Instead, it provides a flexible platform where different tools, libraries, and i
 
 ### Robot Framework and the gTAA (Generic Test Automation Architecture)
 
+> [!IMPORTANT]
+> LXX recall the three layers of the Generic Test Automation Architecture (gTAA) as applied in Robot Framework (K1)
+
 The **Generic Test Automation Architecture (gTAA)** described in the ISTQB "Certified Tester Advanced Level Test Automation Engineering" offers a structured approach to test automation, dividing it into different layers for a clear separation of concerns:
 
 - **Definition Layer**: This layer contains the "Test Data" (test cases, tasks, resource files which include user keywords and variables).
@@ -63,7 +72,7 @@ In Robot Framework, the test data is written using the defined syntax and contai
 Also Editors that offer support for Robot Framework's syntax can be part of this layer.
 
 - **Execution Layer**: In Robot Framework, the execution layer consists of the framework itself, including its core components and APIs.
-It parses, interprets and executes the test data syntax to build an execution model.
+It parses and interprets the test data syntax to build an execution model.
 The execution is responsible for processing this execution model to execute the library keywords with their argument values, logging results, and generating reports.
 
 - **Adaptation Layer**: This layer provides the connection between Robot Framework and the system under test (SUT).
@@ -72,6 +81,9 @@ These libraries allow interaction with different technologies and interfaces, en
 
 
 ### What is Robot Framework & What It Is Not
+
+> [!IMPORTANT]
+> LXX Recall what is part of Robot Framework and what is not (K1)
 
 Robot Framework itself focuses primarily on **test execution**.
 It includes:
@@ -94,6 +106,7 @@ Additionally, Robot Framework supports integration with CI/CD pipelines, configu
 
 ### Technology & Prerequisites
 
+
 Robot Framework is built on **Python** but is adaptable to other languages and technologies through external libraries.
 To run Robot Framework, a **Python interpreter** is required on the machine executing the tests|tasks.
 Typically, Robot Framework and its libraries are installed via [PyPi.org](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
@@ -103,15 +116,21 @@ Typically, Robot Framework and its libraries are installed via [PyPi.org](https:
 
 ## Basic Syntax & Structure
 
+> [!IMPORTANT]
+> LXX Recall the key attributes of the syntax that makes Robot Framework simple and human-readable (K1)
+
+
 Robot Framework is a script-based interpreter for files that contain textual specifications.
 These files are typically organized into folders.
 The syntax of Robot Framework is designed to be simple and human-readable, allowing for quick learning and ease of use.
 
-Key attributes of the syntax include:
+Key attributes of the syntax that improves the before mentioned:
 
 - **Space-separated syntax**: Robot Framework uses two spaces as the primary separator (although one space is allowed as a character).
 A use of **FOUR (4)** spaces is recommended to ensures clarity and readability of the specification.
 - **Minimal use of special characters**: The focus is on reducing special characters, making the syntax human-readable and user-friendly.
+- **String first**: Unquoted strings are considered as strings, while variables need special syntax.
+- **Single spaces are valid**: Single spaces are valid as a character in most elements and values without quotation.
 - **Mostly case-insensitive**: Most elements like keyword or variable names are case insensitive.
 However, some syntax, like library imports is case-sensitive.
 
@@ -140,10 +159,14 @@ This structure allows for logical grouping and organization of tests and tasks, 
 
 ### What are Keywords?
 
+> [!IMPORTANT]
+> LXX Explain the difference between User Keywords and Library Keywords (K2)
+
 Tests or Tasks are structured using **Keywords**, which represent specific actions or sequences of actions to be performed.
 
-- **Keywords** in Robot Framework are according to the concepts used in Behavior-Driven Development (BDD) or Keyword-Driven Testing.
-- **Definition**: A keyword is one or more words used as a reference to a specific set of actions intended to be performed during the execution of one or more tests or tasks.
+**Keywords** in Robot Framework are according to the concepts used in Behavior-Driven Development (BDD) and Keyword-Driven Testing.
+
+**Definition**: one or more words used as a reference to a specific set of actions intended to be performed during the execution of one or more tests or tasks.
 
 There are two types of keywords in Robot Framework:
 
@@ -173,6 +196,9 @@ The concepts of organizing are fundamental to working with Robot Framework and c
 
 ## Specification Styles
 
+> [!IMPORTANT]
+> LXX Recall the two specification styles of Robot Framework (K1)
+
 Specification styles define how the automation process or test cases are structured, focusing on how actions and verifications are expressed.
 These styles can be applied to all types of automation, including both testing and robotic process automation (RPA).
 While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation.
@@ -184,6 +210,9 @@ And other system level test cases, that are not covering acceptance criteria cou
 
 
 ### Keyword-Driven Specification
+
+> [!IMPORTANT]
+> LXX Understand the basic concepts of Keyword-Driven Specification (K2)
 
 In **Keyword-Driven Specification**, automation steps are expressed through a sequence of mostly **imperative commands**.
 Keywords define the specific actions that must be executed in a particular order, similar to procedural programming.
@@ -205,6 +234,9 @@ Flow and data can be parsed separately by the consumer.
 
 ### Behavior-Driven Specification
 
+> [!IMPORTANT]
+> LXX Understand the basic concepts of Behavior-Driven Specification (K2)
+
 **Behavior-Driven Specification** originates from **Behavior-Driven Development (BDD)** and its **Gherkin-Style**, where steps are written to describe the system's behavior from the user's perspective.
 This style often incorporates **embedded arguments** into the steps and uses natural language constructs like **Given, When, Then, And & But**.
 
@@ -222,6 +254,9 @@ Robot Framework allows you to create **user keywords** that can further call oth
 
 
 ### Comparing Keyword and Behavior Styles
+
+> [!IMPORTANT]
+> LXX Recall the differences between Keyword-Driven and Behavior-Driven Styles (K1)
 
 The core difference between **Keyword-Driven** and **Behavior-Driven** styles lies in their focus:
 
@@ -243,6 +278,9 @@ The choice between them often depends on whether you want to focus on **how** ac
 
 ### Open Source License
 
+> [!IMPORTANT]
+> LXX Recall the type of open-source license under which Robot Framework is distributed (K1)
+
 Robot Framework is licensed under the **Apache License 2.0**, a permissive open-source license.
 The key characteristics of this license include:
 
@@ -254,6 +292,9 @@ This licensing structure encourages broad usage and contribution while maintaini
 
 
 ### About the Robot Framework Foundation
+
+> [!IMPORTANT]
+> LXX List and recall the key objectives and organizational form of the Robot Framework Foundation (K1)
 
 The **Robot Framework Foundation** (officially known as **Robot Framework ry**) is a non-profit association based in Helsinki, Finland, dedicated to promoting the use, development, and maintenance of the open-source Robot Framework. The foundation ensures that Robot Framework remains freely available and viable for both test automation and robotic process automation (RPA) in the future.
 
@@ -277,6 +318,9 @@ This structure and mission ensure that Robot Framework continues to grow and ser
 
 
 ### Robot Framework Webpages
+
+> [!IMPORTANT]
+> LXX Recall the official webpages for Robot Framework and its resources (K1)
 
 The official pages for Robot Framework and its related resources are maintained by the foundation.
 These include:
@@ -310,7 +354,7 @@ These include:
 - LO11 Recall te two specification types (K1)
 - LO12 Explain the benefits of using keyword-driven specification in test automation. (K2)
 - LO13 Explain the benefits of using behavior-driven specification in test automation. (K2)
-- LO14 Recall Robot Framework can have multiple keyword layers 
+- LO14 Recall Robot Framework can have multiple keyword layers
 - LO15 Explain how keyword-driven and behavior-driven styles can be used together in a project. (K2)
 
 ### 1.5. Organization and Licensing

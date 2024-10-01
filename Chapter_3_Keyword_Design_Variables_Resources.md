@@ -1,4 +1,4 @@
-# Chapter 3: Keyword Design, Variables and Resource Files
+<!-- # Chapter 3: Keyword Design, Variables and Resource Files
 
 
 ## Variables
@@ -28,19 +28,43 @@
 ## Documentation
 ### Basic Syntax
 ### Keyword / Test|Task / Suite / Resource|Library
-### LibDoc
+### LibDoc -->
 
 
 
 <!-- ################## DRAFT ############################## -->
-## Chapter 3: Keyword Design, Variables, and Resource Files
+# Chapter 3: Keyword Design, Variables, and Resource Files
 
 This chapter introduces the essential components of Robot Framework: **Keywords**, **Variables**, and **Resource Files**. These building blocks allow users to create reusable, structured, and maintainable automation scripts. Understanding these concepts is critical for developing efficient automation in both testing and RPA contexts.
 
-### Variables
+TODO: Write more clear
 
-#### Variable Syntax (Scalar & Escaping)
-Variables in Robot Framework are used to store values that can be referenced and reused throughout your test cases, tasks, and keywords. They help manage dynamic data, reducing hardcoding and making your automation flexible.
+
+## Variables
+Variables in Robot Framework are used to store values that can be referenced and reused throughout suites, test cases, tasks, and keywords.
+They help manage dynamic data or centrally maintained data, reducing hardcoding on multiple locations and making automation flexible.
+
+Robot Framework, implemented in Python, can work with any Object stored in variables, and syntactically distinguishes three types of variables:
+- **Scalar Variables**: Store values as single entity and are represented by the dollar-syntax `${variable_name}`. They can store any Python object, including strings, numbers, list, dictionary and more.
+- **List-Like Variables**: Store multiple values in a list-like structure. They are created using the at-syntax `@{list-variable_name}`.
+- **Dictionary-Like Variables**: Store key-value pairs in a dictionary-like structure. They are created using the ampersand-syntax `&{dictionary-variable_name}`.
+
+These three different syntactical access methods allows the users to create and handle lists and dictionaries natively in Robot Framework.
+More details about list-like and dictionary-like variables can be found in the [Advanced Variables](Chapter_5_Exploring_Advanced_Constructs.md) chapter.
+
+Robot Framework also supports access to environment variables, which can be accessed using the syntax `%{ENV_VAR_NAME}` respectively.
+<!-- TODO fix the link -->
+
+
+### Variable Syntax
+
+Variables in Robot Framework are defined by three attributes:
+- **Prefix**: `$`, `@`, or `&` to define the access type to the variable. (`%` for environment variables)
+- **Delimiter**: `{}` to enclose the variable name.
+- **Variable Name**: The name of the variable, which can be any valid string.
+
+
+
 
 - **Scalar Variables**: Store single values and are represented by the syntax `${variable}`. For example: `${USERNAME}` might store a username like "admin."
 - **Escaping**: Special characters, such as `${}`, can be escaped with a backslash `\` when they need to be included as text rather than evaluated as a variable.
@@ -52,46 +76,46 @@ For example:
 ${RESULT} =  Run Keyword  Calculate Sum  ${NUM1}  ${NUM2}
 ```
 
-#### `*** Variables ***` Section
+### `*** Variables ***` Section
 Variables can be defined in the `*** Variables ***` section, which allows you to predefine variables to be reused across the suite. This section is often used to define constants or configurable data.
 
-#### Variable Scope Basics (Suite vs Local)
+### Variable Scope Basics (Suite vs Local)
 Variables in Robot Framework have either **local** or **suite-wide scope**:
 - **Local Variables**: Defined within a test case or keyword and only available within that context.
 - **Suite Variables**: Declared in the `*** Variables ***` section or through resource files and are accessible across the entire test suite.
 
-### Keyword Definition & Arguments
+## Keyword Definition & Arguments
 
-#### `*** Keywords ***` Section
+### `*** Keywords ***` Section
 The `*** Keywords ***` section allows you to define reusable **User Keywords**, which are made from other keywords. These are only available locally within the same suite but help improve the modularity and readability of tests.
 
-#### Names
+### Names
 Keyword names should be descriptive, concise, and follow clear naming conventions. This improves test clarity and maintainability.
 
-#### Documentation
+### Documentation
 Each keyword should have clear documentation explaining its purpose, expected arguments, and behavior. Good documentation is crucial for users and future maintainers.
 
-#### Keyword Arguments
+### Keyword Arguments
 - **Mandatory Arguments**: These must be provided when the keyword is called.
 - **Optional Arguments**: These include default values and can be omitted if unnecessary.
 - **Embedded Arguments**: Keywords can also embed arguments directly in their names, especially in behavior-driven specifications.
 
-#### RETURN Statement
+### RETURN Statement
 The `RETURN` statement in Robot Framework is used to return values from a keyword to be used in further test steps or stored in variables. This allows test execution to pass data between different steps and keywords.
 
-### Resource Files
+## Resource Files
 
-#### File Type & Structure
+### File Type & Structure
 **Resource files** allow you to centralize keywords, variables, and settings across multiple suites. These files have the extension `.resource` and are commonly used to define reusable components.
 
 - **Resource Files**: Include sections like `*** Keywords ***`, `*** Variables ***`, and `*** Settings ***`, similar to suite files but are not parsed for tests or tasks.
 
-#### Designing Reusable Keywords
+### Designing Reusable Keywords
 When designing reusable keywords in resource files, ensure they are generic and parameterized to fit multiple contexts. This promotes reuse and reduces redundancy in automation.
 
-#### Best Practices
+### Best Practices
 Avoid circular imports when organizing resource files and libraries. Ensure resource files are modular, focusing on specific domains or functionalities to make them easier to maintain.
 
-### Documentation
+## Documentation
 
 Robot Framework provides tools to generate keyword documentation using the `libdoc` tool. This automatically generates structured documentation for libraries and resource files, making it easier to reference keyword functionality during development.

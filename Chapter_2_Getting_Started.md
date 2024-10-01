@@ -1,8 +1,22 @@
 # Chapter 2: Getting Started with Robot Framework
 
+This chapter introduces participants to the foundational concepts of Robot Framework.
+It covers the basics of how automation specifications are structured, how suites are organized, and the execution process.
+Participants will learn how Robot Framework is run and explore the generated reports and logs that document test results.
+
+The chapter also provides an overview of suite structures,
+the role of libraries and resource files,
+and how to import them.
+Additionally, it delves into the core syntax of Robot Framework,
+focusing on how keywords are defined and used, the types of keyword arguments,
+and how keyword documentation is interpreted to ensure clarity and maintainability.
+
 
 
 ## Suite File & Tree Structure
+
+> [!IMPORTANT]
+> LXX Understand which files and directories are considered suites and how they are structured in a suite tree. (K2)
 
 When executing Robot Framework it either parses directory trees or files, depending on which paths are given.
 
@@ -52,6 +66,9 @@ Example:
 
 ### Suite Files
 
+> [!IMPORTANT]
+> LXX Recall when a file is considered a suite file. (K2)
+
 By default Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
 
 A parsed file that does contain at least one test case or task is called a **Suite File**.
@@ -60,6 +77,9 @@ A Suite File does **either** contain `*** Test Cases ***` (in Test Suites) **or*
 
 
 ### Sections and Their Artifacts
+
+> [!IMPORTANT]
+> LXX Recognize the possible sections in a suite file. (K2)
 
 Robot Framework data files are defined in different sections.
 These sections are recognized by their header row.
@@ -76,6 +96,9 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***` and `**
 
 
 #### `*** Settings ***` Section
+
+> [!IMPORTANT]
+> LXX Understand the purpose of the `*** Settings ***` section. (K2)
 
 This section is used to configure various aspects of the test- or task-suite.
 It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files that are needed for execution in the containing tests|tasks.
@@ -99,12 +122,18 @@ Those Settings are prefixed with either `Test` or `Task` according to the type o
 
 #### `*** Variables ***` Section
 
+> [!IMPORTANT]
+> LXX Recall the purpose of the `*** Variables ***` section. (K1)
+
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
 The most common and recommended use-case is to use these variables as constants that are not supposed to change during the execution of the suite.
 It can be confusing for readers of a suite if a variable is defined with one static value in the `*** Variables ***` section and then during execution dynamically reassigned with a different values, due to the fact that they may expect the variable to always have the initially defined value.
 
 #### `*** Test Cases ***` or `*** Tasks ***` Section (mandatory)
+
+> [!IMPORTANT]
+> LXX Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. (K2)
 
 This section defines the executable elements of a suite.
 Test cases and task are technically synonym for each other.
@@ -116,12 +145,18 @@ These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be app
 
 #### `*** Keywords ***` Section
 
+> [!IMPORTANT]
+> LXX Understand the purpose of the `*** Keywords ***` section. (K2)
+
 This section allows you to define **locally scoped user keywords** that can only be used within the same suite where they are defined. These keywords are not reusable outside the suite, but they are often used to organize and structure tests or tasks for improved readability and maintainability. This section is particularly useful for defining suite-specific actions, such as a **Suite Setup** keywords or similar kinds, which is relevant only to the suite it belongs to.
 
 While these keywords are not globally accessible, they serve a crucial role in making the suite more modular and understandable by breaking down complex sequences into smaller, manageable parts. Defining keywords locally in this section enhances the maintainability of the tests or tasks within the suite, ensuring that even large and intricate suites remain well-structured and easy to manage.
 
 
 ## Basic Test/Task Syntax
+
+> [!IMPORTANT]
+> LXX Understand the basic syntax of test cases and tasks. (K2)
 
 As mentioned before Robot Framework uses an indentation-based and space separated syntax to structure keywords, test cases and tasks.
 
@@ -186,6 +221,9 @@ Denied Login With Wrong Password
 
 ## Executing Robot
 
+> [!IMPORTANT]
+> LXX Recall the three components of the Robot Framework CLI. (K1)
+
 Robot Framework comes with three executables when being installed which are designed to be used via the command-line interface (CLI).
 
 - `robot` is the main executable that is used to execute suites.
@@ -195,6 +233,9 @@ Robot Framework comes with three executables when being installed which are desi
 
 
 ### `robot` command & help
+
+> [!IMPORTANT]
+> LXX Understand how to run the `robot` command and its basic usage. (K2)
 
 The `robot` command is used to run a Robot Framework execution, which will execute suites and their containing tests or tasks.
 
@@ -240,6 +281,10 @@ The `robot` command can optionally be configured with additional options to cont
 
 
 ### Execution Artifacts
+
+> [!IMPORTANT]
+> LXX Explain the execution artifacts generated by Robot Framework. (K2)
+
 After executing a suite, Robot Framework, by default, generates tree output files in the output directory. These artifacts provide detailed execution results:
 
 - **`output.xml`**: A machine-readable file containing **ALL** logged execution details, limited by the given log-level.
@@ -253,6 +298,10 @@ In case of a failure it is possible to see the exact keyword call that failed an
 
 
 ### Status
+
+> [!IMPORTANT]
+> LXX Recall the four different status labels used by Robot Framework. (K1)
+
 Robot Framework uses different status labels to indicate the result of an execution:
 
 On Suite, Test Case and Task Level:
@@ -270,6 +319,10 @@ Additional Keyword Status:
 **Composite elements** like suites (composed of tests|tasks), tests|tasks (composed of keywords) and User Keywords (composed of Library Keywords and Robot Framework statements) do define their status based on the status of their child elements.
 
 #### PASS
+
+> [!IMPORTANT]
+> LXX Understand when an element is marked as `PASS`. (K2)
+
 This status is used if an element was executed successfully without any errors or exceptions.
 
 **Atomic elements** are `PASS` if they were executed successfully without reporting an error by raising an exception.
@@ -282,6 +335,10 @@ Library Keywords like `Run Keyword And Expect Error`, from BuiltIn Library, do `
 That means that a composite element like suite, test|task or User Keyword may be `PASS` even if some of its deeper child elements are `FAIL`.
 
 #### FAIL
+
+> [!IMPORTANT]
+> LXX Understand when an element is marked as `FAIL`. (K2)
+
 This status is used if an element was executed but encountered an error or exception that was not expected.
 
 A failure typically causes the subsequent keywords to be skipped.
@@ -295,6 +352,10 @@ A User Keywords is `FAIL` if one of its Library Keyword is `FAIL`, a test|task i
 
 
 ### Logging possibilities (Log vs Console)
+
+> [!IMPORTANT]
+> LXX Understand the difference between log messages and console output. (K2)
+
 There are basically two kinds of logging information in Robot Framework.
 
 - **Console Output**: The console output is the output that is printed to the terminal where the `robot` command was executed. It is typically not persistent but can be already seen during execution.
@@ -304,6 +365,7 @@ Log messages can be written with different levels of severity like i.e. `INFO`, 
 Which levels are written to the log can be controlled by the log level of an execution. Further information in later chapters.
 
 ## Keyword Imports
+
 <!-- To use Keywords that are not part of BuiltIn, which is always imported invisibly, you must import keywords into the current scope. Basically Two different sources of keywords.
 - Libraries, which contains low-level keywords actually implementing functionality, typically in Python.
 - Resource Files, which either again import libraries or other Resource Files or they specify User Keywords.  -->
@@ -315,6 +377,11 @@ External keywords can be imported from either libraries or resource files.
 Both types of sources are using different syntax to import their keywords.
 
 ### Libraries
+
+> [!IMPORTANT]
+> LXX Recall the purpose of keyword libraries are and how to import them. (K1)
+> LXX Recall the three types of libraries in Robot Framework. (K1)
+
 From a user perspective there are three different kinds of libraries:
 - **Robot Framework Standard Libraries**: These are libraries that are shipped with Robot Framework and are available without any additional installation.
 - **3rd Party Libraries** / **External Libraries**: These are libraries have been developed and maintained by community members and have to be installed/downloaded separately.
@@ -339,6 +406,10 @@ Once a library is imported, all keywords from that library are available for use
 Which keywords are available can be seen in the keyword documentation of the library or may be visible in the IDE by code completion, depending on the IDE extension being used.
 
 ### Resource Files
+
+> [!IMPORTANT]
+> LXX Recall the purpose of resource files and how to import them. (K1)
+
 As mentioned before resource files are used to organize and structure keywords and variables that are used in multiple suites.
 They can also other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the file where the resource file is imported. Therefore keywords from a library that has been imported in a resource file is also available in the suite that imports that resource file.
 
@@ -357,6 +428,10 @@ Resource    D:/keywords/central_keywords.resource
 
 
 ### Import Paths
+
+> [!IMPORTANT]
+> LXX Understand the different types of paths that can be used to import libraries and resource files. (K2)
+
 When importing libraries or resource files via a path, the path can be either an absolute path or a relative path.
 If a relative path is given, the path is resolved relative to the data file that is importing the library or resource file.
 
@@ -387,6 +462,9 @@ Avoid absolute Paths
 
 ## Keyword Interface and Documentation
 
+> [!IMPORTANT]
+> LXX Understand the structure of keyword interfaces and how to interpret keyword documentation. (K2)
+
 Library Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
 
 Robot Framework is capable of generating a **Keyword Documentation** files that contains a library- or resource-documentation, all keywords, their argument interfaces, and their documentation texts.
@@ -398,6 +476,10 @@ Robot Framework offers the Keyword Documentation of its Standard Libraries at ht
 
 <!-- Keywords from Libraries and Resources can be called and can be documented either as HTML or in IDEs with Robot Support. -->
 ### Understanding Keyword Docs
+
+> [!IMPORTANT]
+> LXX List the information that can be found in a keyword documentation. (K1)
+
 The Keyword Documentation is structured so, that it contains first the library or resource documentation, followed by a list of all keywords that are available in that library or resource file.
 
 Each keyword documented does contain the following information:
@@ -436,6 +518,10 @@ One example of a more extensive keyword documentation is the documentation of Ro
 Open Keywords Docs that are fully typed and lets have a look to some basic things.
 I think it is imported to point out the type of arguments in comparison the type of setting an argument. See next-->
 ### Keyword Arguments
+
+> [!IMPORTANT]
+> LXX Understand the difference between argument kinds and the way of calling them. (K2)
+
 Most library keywords can be parameterized with arguments that are passed to the keyword when it is called to customize its behavior.
 As more business oriented keywords are as less arguments they typically have.
 
@@ -447,6 +533,10 @@ The relevant distinction of usage kinds is between using **Positional Arguments*
 There are other special kinds of arguments like **Named-Only Arguments**, **Keyword Arguments** or **Variable Amount of Arguments** that are not part of that syllabus.
 
 #### Mandatory Args
+
+> [!IMPORTANT]
+> LXX Understand the concept of mandatory arguments and how they are used. (K2)
+
 Arguments that do not have a default value, must be set when the keyword is called.
 These arguments are listed first in the argument interface.
 
@@ -475,6 +565,10 @@ The Error Message would be: `Keyword 'BuiltIn.Should Be Equal' expected 2 to 8 a
 Two arguments are mandatory and additional six arguments are optional in the `Should Be Equal` keyword.
 
 #### Optional Args
+
+> [!IMPORTANT]
+> LXX Understand the concept of optional arguments and how they are used. (K2)
+
 Arguments that have a default value can be omitted when the keyword is called, causing these arguments to be set to their default value.
 These arguments are listed after the mandatory arguments in the argument interface.
 Default values are defined and represented in the docs by the equal sign `=` after the argument name and a value after that.
@@ -486,6 +580,10 @@ In that particular keyword these optional arguments can be used to activate some
 Omitting some optional arguments but still using others is possible independent of their order setting these arguments by their name. See [Calling Imported Keywords](#calling-imported-keywords).
 
 #### Embedded Args
+
+> [!IMPORTANT]
+> LXX Recall the concept of embedded arguments and how they are used. (K1)
+
 Keywords used mostly for Behavior-Driven Specification (BDD) can have arguments embedded into their names.
 
 Example Test Case:
@@ -513,6 +611,10 @@ They can also be defined using regular expressions to allow for more complex arg
 
 <!-- Are mandatory arguments as part of the keyword names and must be filled. Used for Behavior-Driven Specification -->
 #### Argument Types
+
+> [!IMPORTANT]
+> LXX Understand the concept of argument types and automatic type conversion. (K2)
+
 Library Keywords may define the expected types of their argument values.
 Robot Framework specification is mostly done as a string-based language, therefore most statically defined argument values are strings.
 However, the actual implementation of the keyword may expect a different type of argument, like an integer.
@@ -545,6 +647,10 @@ The advantage of using type hints is that the user get more information about wh
 
 <!-- Just to understand that they are there and that they may document how values are handled or which are allowed. -->
 #### Return Types
+
+> [!IMPORTANT]
+> LXX Understand the concept of return type hints. (K2)
+
 Keywords may gather information and return these to the caller of that keyword to be stored in a variable and used in further keyword calls.
 So Keyword can `RETURN` values to the caller as functions do in programming languages.
 
@@ -557,6 +663,9 @@ This is typically documented in the *Documentation* part of the keyword document
 <!-- Keywords may gather information and return these to the caller of that keyword. A Documented Return Value may be present but often it is just written in the docs, due to new feature -->
 ### Keyword Documentation & Examples
 <!-- How to read Keyword Docs and What they shall state -->
+
+> [!IMPORTANT]
+> LXX Understand how to read keyword documentation and how to interpret the examples. (K2)
 
 Keyword documentation is an important part of the keyword implementation.
 Good keyword names that clearly communicate what a keyword is doing is even more important,
@@ -588,6 +697,9 @@ Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 
 
 ## Calling imported Keywords
+
+> [!IMPORTANT]
+> LXX Understand how to call imported keywords and how to structure keyword calls. (K2)
 
 A typical test case or task is a sequence of keyword calls that are executed in a specific order.
 As learned before these keywords need to be imported into the suite or resource file before they can be used.
@@ -636,6 +748,10 @@ Mixed Named and Positional Arguments
 
 
 ### Positional Arguments
+
+> [!IMPORTANT]
+> LXX Understand the concept of how to set argument values positionally. (K2)
+
 <!-- Typical way to call them. All must be set in specific order. -->
 When calling keywords, except for *keyword-only* arguments, all arguments may be set in the order they are defined in the keyword documentation.
 However that can lead to poor readability as you can see in the `Mixed Positional Arguments` example.
@@ -653,6 +769,10 @@ Also the keyword following keyword call should be easy to understand:
 ```
 
 #### Variable Number of Positional Arguments
+
+> [!IMPORTANT]
+> LXX Recall how variable number of positional arguments are marked in the documentation and their use-case. (K1)
+
 A special case of positional arguments are variable number of positional arguments.
 These are also referred to as `*args` or `*varargs` in Python.
 Some keywords need to collect a variable amount of values into one argument, because it is not possible to define the amount of values in advance.
@@ -685,6 +805,10 @@ Send 5 IPv4 Pings On Windows
 ```
 
 ### Named Arguments
+
+> [!IMPORTANT]
+> LXX Understand the concept of how to set argument values named. (K2)
+
 Keyword Calls with non-obvious arguments should use named arguments if possible.
 Also setting one optional argument but leaving the others at their default value is an indication to use named arguments.
 
@@ -700,12 +824,20 @@ The argument `first` did get the value `second=2` and the argument `second` did 
 
 
 #### Named-Only Arguments
+
+> [!IMPORTANT]
+> LXX Recall named-only arguments and when the exist. (K1)
+
 All arguments that are defined after a variable number of positional arguments (`*varargs`) are named-only arguments.
 Those arguments can not be set positionally because all positional values are consumed by the variable number of positional arguments.
 So the must be set by their name followed by an equal sign `=` and the value of the argument.
 
 
 #### Free Named Arguments
+
+> [!IMPORTANT]
+> LXX Recall how ree named arguments are marked in documentation and when they are used. (K1)
+
 Another special case of named arguments are free named arguments.
 Those arguments are similar to the variable number of positional arguments,
 but collect all named arguments that are not explicitly defined as argument names.
@@ -727,6 +859,10 @@ Send 5 IPv4 Pings On Windows
 
 
 ### Embedded Arguments / Using Behavior-Driven Specification
+
+> [!IMPORTANT]
+> LXX Recall the concept of embedded arguments and how they are used. (K1)
+
 Embedded Arguments are mainly used when writing Behavior-Driven Specification.
 Embedded Arguments are part of the keyword name as described in [Embedded Args](#embedded-args).
 
