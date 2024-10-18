@@ -1,8 +1,8 @@
 # Chapter 5: Exploring Advanced Constructs
 
 
-## Advanced Variable
-### Creation & Scopes
+## Advanced Variables
+### Variable Scope
 - VAR
 - Set XXX Variable (Discouraged)
 ### List-Like
