@@ -259,57 +259,50 @@ Multiple Return Example
 ```
 
 
-
-
-
-
-
-
-
-
-
-<!-- The following is not fully ready. Had to stop due to family ;-) -->
-
-
-
-
-
-
 ### `VAR` Statement
 
 The `VAR` statement in Robot Framework is a way to create
-and assign values to variables directly within a test case or keyword during execution.
-While the `*** Variables ***` section allows defining variables for a whole test suite,
-the `VAR` statement is used within the body of a test case or keyword,
+and assign values to variables directly within a test|task case or keyword during execution.
+While the `*** Variables ***` section allows defining variables for a whole suite,
+the `VAR` statement is used within the body of a test|task case or keyword,
 allowing more control over when and where the variable is created.
 
-The use-cases for the `VAR` statement do include:
-- **Combining values during test execution**: Variables that shall have content, that is based on information gathered during test execution.
-- **Conditional assignments**: In some scenarios, it may be necessary to assign different values to a variable based on conditions that occur during test execution. The `VAR` statement can be used to initialize a variable and later update it based on certain conditions.
-- **Default values**: The `VAR` statement can also be used to give variables default values that may be replaced by the return value of a keyword later in the test.
+Example use-cases for the `VAR` statement:
+- **Combining values during test|task execution**: Variables that shall have content, that is based on information gathered during test|task execution.
+- **Conditional assignments**: In some scenarios, it may be necessary to assign different values to a variable based on conditions that occur during test|task execution.
+- **Initialization of variables**: In a FOR-loop (see [FOR-Loops](Chapter_5_Exploring_Advanced_Constructs.md#for-loops)) it may be necessary to collect information and add them to a list. This list can be initialized with the `VAR` statement as an empty list before the loop starts and then filled with values during the loop.
 
-By default, variables created with the `VAR` statement are **local** to the test case, task, or keyword where they are defined. This means that they cannot be accessed outside that specific test or keyword, ensuring that variables do not interfere with other parts of the test suite.
+By default, variables created with the `VAR` statement are **local** to the test|task case, task, or keyword where they are defined. This means that they cannot be accessed outside that specific test|task or keyword, ensuring that variables do not interfere with other parts of the test|task suite.
 
-However, the `VAR` statement can also be used to create variables with a broader scope, such as suite-wide or global variables, when needed. These variables can then be accessed outside of the test case or keyword where they were originally created. For more details on this topic, refer to the section on [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope).
+However, the `VAR` statement can also be used to create variables with a broader scope, such as suite-wide or global variables, when needed. These variables can then be accessed outside of the test|task or keyword where they were originally created.
 
-
-
-
+For more details on this topic, refer to the section on [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope).
 
 
+### Variable Scope
 
-<!-- The following are just notes.. ignore!!! -->
+In Robot Framework, variables have different scopes, which define where they can be accessed and used. Understanding the scope of variables is crucial for managing data within tests and keywords.
+
+1. **Local Scope**: Variables created within a test|task or keyword, by assignment or `VAR` statement, are by default local to that specific test|task or keyword. They cannot be accessed outside of that block and are destroyed once the block is completed. This means that a local variable created in one test|task can not be accessed inside the body of a called keyword or a subsequent test|task.
+
+2. **Test|Task Scope**: Variables with test|task scope are available throughout the execution of a specific test|task. They can be created within the test|task by for example `VAR` statement inside the test|task body or any called keyword. They are accessible in all called keywords during the execution of this particular test|task.
+
+3. **Suite Scope**: Variables defined at the suite level, for example in the `*** Variables ***` section or through resource files, are available to all tests|tasks and keywords called within the suite.
+
+4. **Global Scope**: Variables with global scope are available throughout the entire test execution, across all suites. These variables can be set by command line arguments or `VAR` statement and should be used cautiously to avoid conflicts and ensure test|task independence.
+
+Examples and more details on variable scope can be found in the [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope) section.
 
 
 
 
 
 
+<!-- From here on just notes. IGNORE! -->
 
-### Variable Scope Basics (Suite vs Local)
-Variables in Robot Framework have either **local** or **suite-wide scope**:
-- **Local Variables**: Defined within a test case or keyword and only available within that context.
-- **Suite Variables**: Declared in the `*** Variables ***` section or through resource files and are accessible across the entire test suite.
+
+
+
 
 ## Keyword Definition & Arguments
 
