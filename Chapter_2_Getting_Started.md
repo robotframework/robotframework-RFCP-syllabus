@@ -18,23 +18,23 @@ and how keyword documentation is interpreted to ensure clarity and maintainabili
 > [!IMPORTANT]
 > LXX Understand which files and directories are considered suites and how they are structured in a suite tree. (K2)
 
-When executing Robot Framework it either parses directory trees or files, depending on which paths are given.
+When executing Robot Framework, it either parses directory trees or files, depending on which paths are given.
 
 The given path to Robot Framework where it starts parsing is considered the **Root Suite**.
 
-If the path to a single file is given as **Root Suite** directly to Robot Framework only this file is parsed.
+If the path to a single file is given as **Root Suite** directly to Robot Framework, only this file is parsed.
 
-If a directory path is given, starting at this location, Robot Framework will parse all `*.robot`-files and directories within this path.
-Robot Framework analyses all containing files and determines if they do contain test cases or tasks. If they do, they are considered **Suite Files** or **Low-Level Suites**.
-All directories that do either directly or indirectly do contain a Suite File are considered **Suites Directories** or **Higher-Level Suites**.
+If a directory path is given, starting at this location, Robot Framework will parse all `*.robot` files and directories within this path.
+Robot Framework analyzes all containing files and determines if they contain test cases or tasks. If they do, they are considered **Suite Files** or **Low-Level Suites**.
+All directories that either directly or indirectly contain a Suite File are considered **Suites Directories** or **Higher-Level Suites**.
 
-The ordering of suites during execution is by default defined by their name and hierarchy.
-All files and directories, which are suites, in one directory are considered on the same level and are executed in alphabetical order.
+The ordering of suites during execution is, by default, defined by their name and hierarchy.
+All files and directories, which are suites in one directory, are considered on the same level and are executed in alphabetical order.
 
 It is possible to define the order without influencing the name of the suite by adding a prefix followed by two underscores `__` to the name of the directory or file. This prefix is NOT considered part of the name.
-So `01__First_Suite.robot` is setting the suite name to `First Suite` while `2_Second_Suite.robot` is setting the suite name to `2 Second Suite`.
+So `01__First_Suite.robot` sets the suite name to `First Suite`, while `2_Second_Suite.robot` sets the suite name to `2 Second Suite`.
 
-One or more underscores in file- or directory-names are replaced by space characters as suite names.
+One or more underscores in file or directory names are replaced by space characters as suite names.
 
 Legend:
 ```
@@ -69,11 +69,11 @@ Example:
 > [!IMPORTANT]
 > LXX Recall when a file is considered a suite file. (K2)
 
-By default Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
+By default, Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
 
-A parsed file that does contain at least one test case or task is called a **Suite File**.
+A parsed file that contains at least one test case or task is called a **Suite File**.
 
-A Suite File does **either** contain `*** Test Cases ***` (in Test Suites) **or** `*** Tasks ***` (in Task Suites), but it CANNOT contain both types simultaneously.
+A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*** Tasks ***` (in Task Suites), but it CANNOT contain both types simultaneously.
 
 
 ### Sections and Their Artifacts
@@ -92,7 +92,7 @@ The following sections are recognized by Robot Framework and are recommended to 
 - `*** Keywords ***`
 - `*** Comments ***`
 
-The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***` and `*** Comments ***` are optional in suites and can be omitted if not needed.
+The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are optional in suites and can be omitted if not needed.
 
 
 #### `*** Settings ***` Section
@@ -100,22 +100,22 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***` and `**
 > [!IMPORTANT]
 > LXX Understand the purpose of the `*** Settings ***` section. (K2)
 
-This section is used to configure various aspects of the test- or task-suite.
+This section is used to configure various aspects of the test|task suite.
 It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files that are needed for execution in the containing tests|tasks.
 
-It can specify suite metadata (`Metadata`), as well as redefine the suite's name (`Name`), and contain the suite's documentation (`Documentation`).
+It can specify suite metadata (`Metadata`), redefine the suite's name (`Name`), and contain the suite's documentation (`Documentation`).
 
-This section can also define keywords for execution flow control such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run.
+This section can also define keywords for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run.
 
 Additionally, some settings can define defaults for all tests|tasks in the suite, which can be overwritten in the individual tests|tasks.
-Those Settings are prefixed with either `Test` or `Task` according to the type of suite and the following section type (`*** Test Cases ***` or `*** Tasks ***`) like `Test Timeout` and can be overwritten in the individual tests|tasks with the local setting in square brackets like `[Timeout]`.
+Those settings are prefixed with either `Test` or `Task`, according to the type of suite and the following section type (`*** Test Cases ***` or `*** Tasks ***`), like `Test Timeout`, and can be overwritten in the individual tests|tasks with the local setting in square brackets like `[Timeout]`.
 
 
-- `Test Setup`/`Task Setup` (locally: `[Setup]`) and `Test Teardown`/`Task Teardown` (locally `[Teardown]`) defines which keywords are executed before and after each individual tests|tasks.
+- `Test Setup`/`Task Setup` (locally: `[Setup]`) and `Test Teardown`/`Task Teardown` (locally `[Teardown]`) define which keywords are executed before and after each individual test|task.
 
 - `Test Timeout`/`Task Timeout` (locally `[Timeout]`) defines the maximum time a test|task is allowed to run before it is marked as failed.
 
-- `Test Tags`/`Task Tags` (locally `[Tags]`) defines tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks.
+- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks.
 
 - `Test Template`/`Task Template` (locally `[Template]`) defines a template keyword that defines the test|task body and is typically used for Data-Driven Testing where each test has the same keywords but different argument data.
 
@@ -128,7 +128,8 @@ Those Settings are prefixed with either `Test` or `Task` according to the type o
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
 The most common and recommended use-case is to use these variables as constants that are not supposed to change during the execution of the suite.
-It can be confusing for readers of a suite if a variable is defined with one static value in the `*** Variables ***` section and then during execution dynamically reassigned with a different values, due to the fact that they may expect the variable to always have the initially defined value.
+It can be confusing for readers of a suite if a variable is defined with one static value in the `*** Variables ***` section and then, during execution, dynamically reassigned with different values, as they may expect the variable to always have the initially defined value.
+
 
 #### `*** Test Cases ***` or `*** Tasks ***` Section (mandatory)
 
@@ -136,69 +137,77 @@ It can be confusing for readers of a suite if a variable is defined with one sta
 > LXX Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. (K2)
 
 This section defines the executable elements of a suite.
-Test cases and task are technically synonym for each other.
-However the users have to choose one of the two modes that Robot Framework offers.
-Either
+Test cases and tasks are technically synonyms for each other.
+However, users have to choose one of the two modes that Robot Framework offers.
 
-Each test case or task is structured using an indentation-based format. The first un-indented line specifies the name of the test or task, followed by indented lines containing **keyword calls** and their **arguments** and test|task specific settings.
+Each test case or task is structured using an indentation-based format. The first un-indented line specifies the name of the test|task, followed by indented lines containing **keyword calls** and their **arguments** and test|task-specific settings.
 These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be applied to individual test cases or tasks to control their behavior or provide additional details.
+
 
 #### `*** Keywords ***` Section
 
 > [!IMPORTANT]
 > LXX Understand the purpose of the `*** Keywords ***` section. (K2)
 
-This section allows you to define **locally scoped user keywords** that can only be used within the same suite where they are defined. These keywords are not reusable outside the suite, but they are often used to organize and structure tests or tasks for improved readability and maintainability. This section is particularly useful for defining suite-specific actions, such as a **Suite Setup** keywords or similar kinds, which is relevant only to the suite it belongs to.
+This section allows you to define **locally scoped user keywords** that can only be used within the same suite where they are defined. These keywords are not reusable outside the suite, but they are often used to organize and structure tests|tasks for improved readability and maintainability. This section is particularly useful for defining suite-specific actions, such as **Suite Setup** keywords or similar kinds, which are relevant only to the suite they belong to.
 
-While these keywords are not globally accessible, they serve a crucial role in making the suite more modular and understandable by breaking down complex sequences into smaller, manageable parts. Defining keywords locally in this section enhances the maintainability of the tests or tasks within the suite, ensuring that even large and intricate suites remain well-structured and easy to manage.
+While these keywords are not globally accessible, they serve a crucial role in making the suite more modular and understandable by breaking down complex sequences into smaller, manageable parts. Defining keywords locally in this section enhances the maintainability of the tests|tasks within the suite, ensuring that even large and intricate suites remain well-structured and easy to manage.
+
 
 
 ## Basic Test/Task Syntax
 
+<!--
+TODO:
+I think this section needs a bit more structure and we should introduce the concept of "settings" like [Documentation] already here and reference to Chapter 4.
+
+ -->
+
 > [!IMPORTANT]
 > LXX Understand the basic syntax of test cases and tasks. (K2)
 
-As mentioned before Robot Framework uses an indentation-based and space separated syntax to structure keywords, test cases and tasks.
+As mentioned before, Robot Framework uses an indentation-based and space-separated syntax to structure keywords, test cases, and tasks.
 
-**two or more spaces** are used to separate or indent elements in Robot Framework files, while a single space is a valid character of elements.
-The clear recommendation is to use **four spaces** or more, to unambiguously make it visible to a potential reader where elements are separated or indented.
+**Two or more spaces** are used to separate or indent elements in Robot Framework files, while a single space is a valid character in elements.
+The clear recommendation is to use **four spaces** or more to unambiguously make it visible
+
+ to a potential reader where elements are separated or indented.
 
 All elements themselves in their section should be written without any indentation.
 When defining tests|tasks and keywords, indentation is used to define their body, while their name is still un-indented.
 
-While single tabulators (`\t`) as well as two or more spaces are valid separators, it is recommended to use multiple spaces for indentation to avoid issues with different editors representing the tabulator to the user probably aligning the text to i.e. a 4-space grid.
-This could cause a single tabulator look the same as a single space in the editor, which would lead to confusion about the indentation level.
+While single tabulators (`\t`) as well as two or more spaces are valid separators, it is recommended to use multiple spaces for indentation to avoid issues with different editors representing the tabulator to the user, probably aligning the text to, i.e., a 4-space grid.
+This could cause a single tabulator to look the same as a single space in the editor, which would lead to confusion about the indentation level.
 
 In the following example, two test cases are defined in a suite file.
 Their names are `Login User With Password` and `Denied Login With Wrong Password`.
-Both do test the login functionality of a system by each calling four keywords in their bodies.
+Both test the login functionality of a system by calling four keywords in their bodies.
 
-In the `*** Settings ***` section, the suite is documented and the keywords for connecting to the server, logging in, and verifying the login are imported from a resource file.
-The settings of this section are not indented but their values are separated by four or more spaces.
+In the `*** Settings ***` section, the suite is documented, and the keywords for connecting to the server, logging in, and verifying the login are imported from a resource file.
+The settings of this section are not indented, but their values are separated by four or more spaces.
 
 In the `*** Test Cases ***` section, there are two test cases defined.
-The first test case `Login User With Password` connects to the server, logs in with the username `ironman` and the password `1234567890`, and verifies that the login was successful with the users name of `Tony Stark`.
-In this test the the first called keyword is `Connect To Server` without any arguments while the second called keyword is `Login User` and it has two argument values `ironman` and `1234567890`.
+The first test case, `Login User With Password`, connects to the server, logs in with the username `ironman` and the password `1234567890`, and verifies that the login was successful with the user's name `Tony Stark`.
+In this test, the first called keyword is `Connect To Server` without any arguments, while the second called keyword is `Login User`, and it has two argument values: `ironman` and `1234567890`.
 
-The second test case `Denied Login With Wrong Password` connects to the server, tries to log in with the username `ironman` and the password `123`, and expects an error to be raised and the login to be denied.
+The second test case, `Denied Login With Wrong Password`, connects to the server, tries to log in with the username `ironman` and the password `123`, and expects an error to be raised and the login to be denied.
 
 Clearly visible due to the indentation by four spaces, the body of the test cases contains the keywords that are called to execute the test case.
-In the test case body, some keyword calls do have arguments that are separated by two or more spaces from the keyword name.
+In the test case body, some keyword calls have arguments that are separated by two or more spaces from the keyword name.
 
 Empty lines are allowed and encouraged to structure data files and make them more readable.
-In this example the sections are visibly separated by two empty lines and the tests are separated by one empty line.
-Empty lines are technically not relevant are ignored while parsing the file.
+In this example, the sections are visibly separated by two empty lines, and the tests are separated by one empty line.
+Empty lines are technically not relevant and are ignored while parsing the file.
 
-By default each expression in a suite or resource file is terminated by a line break so that in each line only one expression is possible.
-However, for better readability or in case of documentation for adding line breaks, expressions can expand over multiple lines if they are continued with `...` (three dots) and a separator (multiple spaces) at the beginning of the next line, potentially being indented.
-See the suite documentation as an example.
+By default, each expression in a suite or resource file is terminated by a line break, so that in each line only one expression is possible.
+However, for better readability or in the case of documentation for adding line breaks, expressions can expand over multiple lines if they are continued with `...` (three dots) and a separator (multiple spaces) at the beginning of the next line, potentially being indented. See the suite documentation as an example.
 
 The following tests will be executed in the order they are defined in the suite file. First, the `Login User With Password` test case will be executed, followed by the `Denied Login With Wrong Password` test case.
 
 Example Suite File Content `robot_files/TestSuite.robot`:
 ```robotframework
 *** Settings ***
-Documentation     A suite for valid and invalid login test.
+Documentation     A suite for valid and invalid login tests.
 ...
 ...               Keywords are imported from the resource file.
 Resource          keywords.resource
@@ -237,7 +246,7 @@ Robot Framework comes with three executables when being installed which are desi
 > [!IMPORTANT]
 > LXX Understand how to run the `robot` command and its basic usage. (K2)
 
-The `robot` command is used to run a Robot Framework execution, which will execute suites and their containing tests or tasks.
+The `robot` command is used to run a Robot Framework execution, which will execute suites and their containing tests|tasks.
 
 At a basic level, you can run `robot` by providing the path to a suite file or suite directory containing suite files as last argument.
 ```plaintext
@@ -411,7 +420,7 @@ Which keywords are available can be seen in the keyword documentation of the lib
 > LXX Recall the purpose of resource files and how to import them. (K1)
 
 As mentioned before resource files are used to organize and structure keywords and variables that are used in multiple suites.
-They can also other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the file where the resource file is imported. Therefore keywords from a library that has been imported in a resource file is also available in the suite that imports that resource file.
+They can also contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
 
 To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
 See [Import Paths](#import-paths) for more information about the path to the resource file.
@@ -530,7 +539,8 @@ On the one hand you can group them by their definition kind and on the other han
 The most relevant distinction of definition kinds is between **Mandatory Arguments** and **Optional Arguments** and additionally **Embedded Arguments**.
 The relevant distinction of usage kinds is between using **Positional Arguments** and **Named Arguments**, which is described in [Calling Imported Keywords](#calling-imported-keywords).
 
-There are other special kinds of arguments like **Named-Only Arguments**, **Keyword Arguments** or **Variable Amount of Arguments** that are not part of that syllabus.
+There are also other special kinds of arguments like **Named-Only Arguments**, **Free Named Arguments** or **Variable Number of Positional Arguments** which are less relevant for this syllabus.
+
 
 #### Mandatory Args
 
