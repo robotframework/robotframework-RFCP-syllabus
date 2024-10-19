@@ -46,7 +46,7 @@ they must be escaped by a backslash like `\${` to be treated as text rather than
 
 ### `*** Variables ***` Section
 
-Variables can be defined in the `*** Variables ***` section
+Variables can be defined in the `*** Variables ***` section of a suite file or resource file
 and used across the suite where they were defined, or
 in case they are defined in a Resource File, in any file that has imported that Resource File.
 
@@ -276,7 +276,8 @@ and are defined in the `*** Keywords ***` section of a suite file or resource fi
 
 ### `*** Keywords ***` Section
 
-The `*** Keywords ***` section is indentation-based similar to the `*** Test Cases ***` section.
+The `*** Keywords ***` section of suite and resource files
+is indentation-based similar to the `*** Test Cases ***` section.
 The user keywords defined are unindented, while their body implementation is indented by multiple spaces.
 
 See these sections for more details about
@@ -310,6 +311,12 @@ As a reference for how defined keywords are documented, see [Keyword Interface a
 The names of User Keywords should be descriptive and clear, reflecting the purpose of the keyword.
 Well-named keywords make tests more readable and easier to understand.
 Like test case names, keyword names are case-insensitive and can include spaces.
+Also spaces and underscores will be ignored when matching keyword names.
+
+So the keywords `Login To System`, and `log_into_system` are considered identical.
+By default, if not explicitly defined by the library developers, all Library Keywords are named in **Title Case** with capital letters at the beginning of each word, and spaces between words.
+
+Project may choose a different naming convention for User Keywords, but it is recommended to be consistent across the project for User Keyword names.
 
 They are defined without indentation, and the subsequent lines until the next unindented line are considered the body of the keyword.
 The following topics explain how to structure the body of a keyword.
@@ -410,6 +417,78 @@ Verify File Contains
     Should Contain    ${server_log}    ${expected_content}    ignore_case=${ignore_case}
 ```
 
+
+#### Embedded Arguments
+
+In Robot Framework, **embedded arguments** allow the inclusion
+of arguments directly within the keyword name itself.
+This approach is particularly useful for creating
+**Behavior-Driven Development (BDD)** style test cases or for
+making keyword names more readable and meaningful.
+
+With embedded arguments, placeholders are used within the keyword name,
+which get replaced by actual values when the keyword is executed.
+These arguments are written as scalar variables with dollar and curly braces
+like the following keyword.
+
+```robotframework
+*** Keywords ***
+The file '${file_name}' should contain '${expected_content}'
+    ${file_content} =    Get File    ${file_name}
+    Should Contain    ${file_content}    ${expected_content}
+```
+
+When this keyword is called, the placeholders `${file_name}`
+and `${expected_content}` are replaced by the actual values provided in the keyword call.
+So `${file_name}` = `server.log` and
+`${expected_content}` = `Successfully started` in the following example:
+
+```robotframework
+*** Test Cases ***
+Test File Content
+    Given the server log leve is 'INFO'
+    When the server is started successfully
+    Then the file 'server.log' should contain 'Successfully started'
+```
+
+Quotes around the embedded arguments behave as any other characters
+as part of the keyword name but may help to improve readability
+and bette distinguish the embedded arguments from the rest of the keyword name.
+
+Embedded arguments can be disadvantageous when the keyword name becomes too long or complex.
+Therefore mix of embedded arguments and regular arguments is also possible.
+This can help with more complex data structures or to improve readability.
+
+Example of mixed embedded and regular arguments:
+```robotframework
+*** Test Cases ***
+Embedded and normal arguments
+    Given the user is on the pet selection page
+    When the user adds    2     cat fish
+    And the user set    3     dogs
+    And the user removes    1     dogs
+    Then the number of cat fish should be    2
+    And the number of dogs should be    count=2
+
+*** Keywords ***
+the number of ${animals} should be
+    [Arguments]    ${count}
+    ${current_count}    Get Animal Count    ${animals}
+    Should Be Equal As Numbers    ${current_count}    ${count}
+
+the user ${action}
+    [Arguments]    ${amount}   ${animal}
+    IF    '${action}' == 'adds'
+        Add Items To List    animal_list    ${animal}    ${amount}
+    ELSE IF    '${action}' == 'removes'
+        Remove Items From List    animal_list    ${animal}    ${amount}
+    ELSE IF    '${action}' == 'set'
+        Set Amount To List    animal_list    ${animal}    ${amount}
+    ELSE
+        Skip    Test skipped due to invalid action
+    END
+```
+
 #### Other Argument Kinds
 
 Other argument kinds like **Named-Only Arguments**, **Free Named Arguments**, or
@@ -443,43 +522,65 @@ The `RETURN` statement cannot return a value from a keyword call directly like i
 The return value must be stored in a variable first and then be returned by the `RETURN` statement.
 
 
-
-
-
+### Keyword Conventions
 
 
 <!--
-Ende für Heute ;-)
+TODO:
 
-This is the end for today ;-)
+Should we have that  chapter???
+Opinions?
+And if, is this want we want to ask the participants to know?
 
- -->
+-->
 
+When defining User Keywords, it is recommended to follow conventions to ensure consistency and readability across the project.
+These may be taken from community best practices or defined within the project team.
 
-
-
-
-
-
-
-
-
+Keyword Conventions should contain agreements on:
+- **Naming Case**: Which case shall be used? (i.e. `Title Case`, `camelCase`, `snake_case`, `kebab-case`, or `Sentece case`, etc. ) (from a readability perspective, `Title Case` or `Sentence case` are recommended)
+- **Grammatical Form/Mood**: Which form shall be used for actions and verifications/assertions? (i.e. `Imperative` for both like `Click Button`, `Verify Text`. Or i.e. `Declarative`/`Indicative` for assertions like `Text Should Be`, `Element Should Be Visible`)
+- **Word/Character Count**: How man words or characters shall be used in a keyword name? (i.e. less than 7 words)
+- **Argument Count**: How many arguments shall a keyword have? (i.e. less than 5)
+- **Documentation**: How shall the documentation be structured and which information shall be included or is it required at all?
 
 
 
 ## Resource Files
 
-### File Type & Structure
-**Resource files** allow you to centralize keywords, variables, and settings across multiple suites. These files have the extension `.resource` and are commonly used to define reusable components.
+Resource Files in Robot Framework are used to store reusable keywords, variables, and organize imports of other resource files and libraries.
+See [Resource Files](Chapter_2_Getting_Started.md#resource-files) for an introduction to Resource Files.
 
-- **Resource Files**: Include sections like `*** Keywords ***`, `*** Variables ***`, and `*** Settings ***`, similar to suite files but are not parsed for tests or tasks.
+### Sections in Resource Files
 
-### Designing Reusable Keywords
-When designing reusable keywords in resource files, ensure they are generic and parameterized to fit multiple contexts. This promotes reuse and reduces redundancy in automation.
+See [Sections and Their Artifacts](Chapter_2_Getting_Started.md#sections-and-their-artifacts) for an introduction to sections in suites.
 
-### Best Practices
-Avoid circular imports when organizing resource files and libraries. Ensure resource files are modular, focusing on specific domains or functionalities to make them easier to maintain.
+Other than in suites, resource files do not allow the `*** Test Cases ***` or `*** Tasks ***` sections.
 
-## Documentation
+The sections `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are same as in suites.
+The difference is that variables and keywords defined here can also be used in other suites that import this resource file.
 
-Robot Framework provides tools to generate keyword documentation using the `libdoc` tool. This automatically generates structured documentation for libraries and resource files, making it easier to reference keyword functionality during development.
+The `*** Settings ***` section has common but also different settings available than in suites.
+
+Common settings are:
+- `Library` to import libraries.
+- `Resource` to import other resource files.
+- `Variables` to import variable files.
+- `Documentation` to provide documentation for the resource file.
+
+Additional settings are:
+- `Keyword Tags` (*) to set tags for all keywords in the resource file.
+
+(*) This settings is not part of this syllabus.
+
+Other settings available in suites are not available in resource files.
+
+See [`*** Keywords ***` Section](#keywords-section) for more details about defining keywords in resource files.
+
+See [`*** Variables ***` Section](#variables-section) for more details about defining variables in resource files.
+
+The `*** Comments ***` section is used to store comments and is ignored and not parsed by Robot Framework.
+
+
+
+

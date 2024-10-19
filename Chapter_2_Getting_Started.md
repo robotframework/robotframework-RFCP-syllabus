@@ -154,6 +154,11 @@ This section allows you to define **locally scoped user keywords** that can only
 While these keywords are not globally accessible, they serve a crucial role in making the suite more modular and understandable by breaking down complex sequences into smaller, manageable parts. Defining keywords locally in this section enhances the maintainability of the tests|tasks within the suite, ensuring that even large and intricate suites remain well-structured and easy to manage.
 
 
+#### `*** Comments ***` Section
+
+This section is used to add comments to the suite file or resource file.
+All content in this section is ignored by Robot Framework and is not executed or parsed.
+
 
 ## Basic Test/Task Syntax
 
@@ -417,16 +422,17 @@ Which keywords are available can be seen in the keyword documentation of the lib
 ### Resource Files
 
 > [!IMPORTANT]
-> LXX Recall the purpose of resource files and how to import them. (K1)
+> LXX Recall the purpose of resource files. (K1)
+> LXX Use resource files to import new keywords. (K3)
 
-As mentioned before resource files are used to organize and structure keywords and variables that are used in multiple suites.
+As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
 They can also contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
 
 To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
 See [Import Paths](#import-paths) for more information about the path to the resource file.
 
 Resource files shall have the extension `.resource` to make it clear what they are.
-This extension is also recognized beside the `.robot` extension by IDE extensions, supporting Robot Framework.
+`.resource` and `.robot` extensions are also recognized by IDE extensions, supporting Robot Framework.
 
 Example:
 ```robotframework
@@ -542,7 +548,7 @@ The relevant distinction of usage kinds is between using **Positional Arguments*
 There are also other special kinds of arguments like **Named-Only Arguments**, **Free Named Arguments** or **Variable Number of Positional Arguments** which are less relevant for this syllabus.
 
 
-#### Mandatory Args
+#### Mandatory Arguments
 
 > [!IMPORTANT]
 > LXX Understand the concept of mandatory arguments and how they are used. (K2)
@@ -574,7 +580,7 @@ The Error Message would be: `Keyword 'BuiltIn.Should Be Equal' expected 2 to 8 a
 
 Two arguments are mandatory and additional six arguments are optional in the `Should Be Equal` keyword.
 
-#### Optional Args
+#### Optional Arguments
 
 > [!IMPORTANT]
 > LXX Understand the concept of optional arguments and how they are used. (K2)
@@ -589,12 +595,12 @@ In that particular keyword these optional arguments can be used to activate some
 
 Omitting some optional arguments but still using others is possible independent of their order setting these arguments by their name. See [Calling Imported Keywords](#calling-imported-keywords).
 
-#### Embedded Args
+#### Embedded Arguments
 
 > [!IMPORTANT]
 > LXX Recall the concept of embedded arguments and how they are used. (K1)
 
-Keywords used mostly for Behavior-Driven Specification (BDD) can have arguments embedded into their names.
+Keywords can have arguments embedded into their names, which is used mostly for Behavior-Driven Specification (BDD).
 
 Example Test Case:
 ```robotframework
