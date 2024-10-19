@@ -917,7 +917,7 @@ The parent, or outer suite status is determined based on the test/task statuses.
 
 A test/RPA task gets the `PASS` status if it is executed and none of the high-level keywords which are directly called have the status `FAIL`.
 
-If any test/task case has failed, then both the test/task and suite status will result in `FAIL`.
+If any test/task has failed, then both the test/task and suite status will result in `FAIL`.
 The most common reason for a test/task to get the `FAIL` status is that one of the keywords it contains fails.
 
 #### SKIP

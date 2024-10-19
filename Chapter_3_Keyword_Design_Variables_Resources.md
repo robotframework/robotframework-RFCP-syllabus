@@ -3,15 +3,74 @@
 This chapter introduces the essential components of Robot Framework: **Keywords**, **Variables**, and **Resource Files**. These building blocks allow users to create reusable, structured, and maintainable automation solutions. Understanding these concepts is critical for developing efficient automation in both testing and RPA contexts.
 
 
+
+## Resource Files
+
+Resource Files in Robot Framework are used to store reusable keywords,
+variables, and organize imports of other resource files and libraries.
+See [Resource Files](Chapter_2_Getting_Started.md#resource-files) for an introduction to Resource Files.
+
+Resource Files are typically used in many suites to share common keywords and variables across different tests|tasks.
+Therefore, they should be designed to be modular, reusable, and maintainable.
+Keywords and variables defined in one resource file should therefore
+be related to each other to store similar functionality or data.
+This relation can be based on a common purpose, a common abstraction layer, or a common context.
+
+For example all user keywords and variables that do control
+or test a specific part or dialog of an application could be stored together in one resource file.
+
+Resource files are imported using the `Resource` setting in the
+`*** Settings ***` section so that the path to the resource file
+is given as an argument to the setting.
+The recommended extension for resource files is `.resource`.
+
+If the resource file path is absolute, it is used directly.
+Otherwise, the resource file is first searched relatively to
+the directory where the importing file is located.
+If the file is not found there, it is then searched from the
+directories in Python's module search path.
+
+
+### Sections in Resource Files
+
+See [Sections and Their Artifacts](Chapter_2_Getting_Started.md#sections-and-their-artifacts) for an introduction to sections in suites.
+
+Other than in suites, resource files do not allow the `*** Test Cases ***` or `*** Tasks ***` sections.
+
+The sections `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are same as in suites.
+
+The `*** Settings ***` section has common but also different settings available than in suites.
+
+Common settings are:
+- `Library` to import libraries.
+- `Resource` to import other resource files.
+- `Variables` to import variable files.
+- `Documentation` to provide documentation for the resource file.
+
+Additional settings are:
+- `Keyword Tags` (*) to set tags for all keywords in the resource file.
+
+(*) This settings is not part of this syllabus.
+
+Other settings available in suites are not available in resource files.
+
+See [`*** Keywords ***` Section](#-keywords--section) for more details about defining keywords in resource files.
+
+See [`*** Variables ***` Section](#-variables--section) for more details about defining variables in resource files.
+
+The `*** Comments ***` section is used to store comments and is ignored and not parsed by Robot Framework.
+
+
+
 ## Variables
 Variables in Robot Framework are used to store values that can be referenced and reused throughout suites, test cases, tasks, and keywords.
 They help manage dynamic data or centrally maintained data, reducing hardcoding in multiple locations and making automation flexible.
 
 Variables can be created and assigned in various ways, such as:
-- Definition in the `*** Variables ***` section. (see [`*** Variables ***` Section](#variables-section))
+- Definition in the `*** Variables ***` section in suites or resource files. (see [`*** Variables ***` Section](#variables-section))
 - Capturing return values from keywords. (see [Return values from keywords](#return-values-from-keywords))
 - Inline assignment using the `VAR` statement. (see [`VAR` statement](#var-statement))
-- As arguments passed to keywords. (see [Keyword Arguments](#keyword-arguments))
+- As arguments passed to keywords. (see [User Keyword Arguments](#user-keyword-arguments))
 - (*) By the command line interface of Robot Framework.
 - (*) By internal implementation of library keywords.
 - (*) By importing variables from variable files.
@@ -229,9 +288,9 @@ Multiple Return Example
 ### `VAR` Statement
 
 The `VAR` statement in Robot Framework is a way to create
-and assign values to variables directly within a test|task case or keyword during execution.
+and assign values to variables directly within a test|task or keyword during execution.
 While the `*** Variables ***` section allows defining variables for a whole suite,
-the `VAR` statement is used within the body of a test|task case or keyword,
+the `VAR` statement is used within the body of a test|task or keyword,
 allowing more control over when and where the variable is created.
 
 Example use cases for the `VAR` statement:
@@ -239,7 +298,7 @@ Example use cases for the `VAR` statement:
 - **Conditional assignments**: In some scenarios, it may be necessary to assign different values to a variable based on conditions that occur during test|task execution.
 - **Initialization of variables**: In a FOR-loop (see [FOR-Loops](Chapter_5_Exploring_Advanced_Constructs.md#for-loops)), it may be necessary to collect information and add it to a list. This list can be initialized with the `VAR` statement as an empty list before the loop starts and then filled with values during the loop.
 
-By default, variables created with the `VAR` statement are **local** to the test|task case, task, or keyword where they are defined.
+By default, variables created with the `VAR` statement are **local** to the test|task, task, or keyword where they are defined.
 This means that they cannot be accessed outside that specific test|task or keyword, ensuring that variables do not interfere with other parts of the test|task suite.
 
 However, the `VAR` statement can also be used to create variables with a broader scope, such as suite-wide or global variables, when needed.
@@ -543,44 +602,3 @@ Keyword Conventions should contain agreements on:
 - **Word/Character Count**: How man words or characters shall be used in a keyword name? (i.e. less than 7 words)
 - **Argument Count**: How many arguments shall a keyword have? (i.e. less than 5)
 - **Documentation**: How shall the documentation be structured and which information shall be included or is it required at all?
-
-
-
-## Resource Files
-
-Resource Files in Robot Framework are used to store reusable keywords, variables, and organize imports of other resource files and libraries.
-See [Resource Files](Chapter_2_Getting_Started.md#resource-files) for an introduction to Resource Files.
-
-### Sections in Resource Files
-
-See [Sections and Their Artifacts](Chapter_2_Getting_Started.md#sections-and-their-artifacts) for an introduction to sections in suites.
-
-Other than in suites, resource files do not allow the `*** Test Cases ***` or `*** Tasks ***` sections.
-
-The sections `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are same as in suites.
-The difference is that variables and keywords defined here can also be used in other suites that import this resource file.
-
-The `*** Settings ***` section has common but also different settings available than in suites.
-
-Common settings are:
-- `Library` to import libraries.
-- `Resource` to import other resource files.
-- `Variables` to import variable files.
-- `Documentation` to provide documentation for the resource file.
-
-Additional settings are:
-- `Keyword Tags` (*) to set tags for all keywords in the resource file.
-
-(*) This settings is not part of this syllabus.
-
-Other settings available in suites are not available in resource files.
-
-See [`*** Keywords ***` Section](#keywords-section) for more details about defining keywords in resource files.
-
-See [`*** Variables ***` Section](#variables-section) for more details about defining variables in resource files.
-
-The `*** Comments ***` section is used to store comments and is ignored and not parsed by Robot Framework.
-
-
-
-
