@@ -204,9 +204,20 @@ These styles can be applied to all types of automation, including both testing a
 While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation.
 
 Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not wildly mix them within the same body.
-So it would be one practical solution to define acceptance test cases that cover users perspective in Behavior-Driven Style, while these Behavior-Style keywords are implemented by calling "normal" Keyword-Style keywords.
-And other system level test cases, that are not covering acceptance criteria could be written Keyword-Driven.
+So it would be one practical solution to define acceptance test cases that cover users expectations in *Behavior-Driven Style*, while these declarative Behavior-Driven keywords are implemented by calling imperative Keyword-Driven keywords.
+And other system level test cases, that are not covering acceptance criteria could be written as Keyword-Driven Testing.
 
+The approach of both styles is different in that way,
+that the *Behavior-Driven Style* is a **declarative** specification,
+where the script describe/declare what the system should do or how it should behave,
+while the *Keyword-Driven Style* is an **imperative** specification,
+where the script specifies what the automation should do to control the system.
+
+
+Beside these two different specification approaches how to write/formulate
+your automation script and their step sequences,
+there is also a third specification method, **Data-Driven Specification** that can be combined
+with the other two styles, to define the data that is used in the automation.
 
 
 ### Keyword-Driven Specification
@@ -253,6 +264,7 @@ Therefore there are no multiple layers of keywords that can be logged into execu
 Robot Framework allows you to create **user keywords** that can further call other user or library keywords, providing greater flexibility, modularity and much more detailed logging.
 
 
+
 ### Comparing Keyword and Behavior Styles
 
 > [!IMPORTANT]
@@ -261,14 +273,72 @@ Robot Framework allows you to create **user keywords** that can further call oth
 The core difference between **Keyword-Driven** and **Behavior-Driven** styles lies in their focus:
 
 - **Keyword-Driven Style** emphasizes **what actions** need to be performed in a specific order, making it action-centric.
-It is structured, clear, and optimized for scenarios where the steps are more technical or detailed and where the amount of keywords called within a test or tasks are more.
-Also is this style better for complex tasks or complex data due to a clear separation between the keyword names and its argument values.
+It is an **imperative** style that can be compared to procedural programming.
+It is structured, clear, and optimized for scenarios where the steps are more technical
+or detailed and where the amount of keywords called within a test or tasks are more.
+Also is this style better for complex tasks or complex data
+due to a clear separation between the keyword names and its argument values.
 
-- **Behavior-Driven Style** emphasizes **how the system behaves** from the user's point of view, using more **natural language** and focusing on **expected outcomes**.
-It is optimized for **business-oriented** descriptions of functionality and is often more suitable for communicating with non-technical stakeholders.
+- **Behavior-Driven Style** emphasizes **how the system behaves** from the user's point of view,
+using more natural language and focusing on expected outcomes.
+It is a **declarative** style that can be compared to writing user stories or acceptance criteria.
+It is optimized for **business-oriented** descriptions of functionality
+and is often more suitable for communicating with non-technical stakeholders.
+This style can get less understandable when the amount of steps increases
+or the amount of defined data in the steps increases.
 
 Both styles can be applied within Robot Framework, offering flexibility depending on the context of the automation task.
-The choice between them often depends on whether you want to focus on **how** actions are executed (keyword-driven) or **why** actions are executed (behavior-driven) and its complexity.
+
+
+### Data-Driven Specification
+
+> [!IMPORTANT]
+> LXX Understand the basic concept of Data-Driven Specification (K2)
+
+**Data-Driven Specification** originates from **Data-Driven Testing**
+and is a method where the test data and expected results are
+separated from the test script that controls the flow.
+This approach allows for the reuse of the same test script
+with different data sets, making it easier to maintain and scale tests.
+
+While in **Robotic Process Automation (RPA)** the data that are
+used in an automation workflow are typically dynamically acquired from an external source,
+in testing the data are specifically chosen to cover different scenarios or cases.
+Therefore this method to define data combinations
+statically in the suite files is normally not applicable in RPA.
+
+**Data-Driven Testing** focuses on testing the same workflow
+or scenario with different sets of input and/or output data.
+In this style, a single user keyword, which contains the whole test logic,
+is executed with multiple data variations,
+making it highly effective for repetitive tests,
+where the logic stays the same but the data changes,
+without duplicating the test logic for each case.
+
+Robot Framework offers a convenient feature for this approach through **Test Templates**.
+A Test Template allows specifying the keyword only once and then applying it to multiple test data sets.
+
+For example:
+```robotframework
+*** Settings ***
+Test Template    Login with invalid credentials should fail
+
+*** Test Cases ***                USERNAME         PASSWORD
+Invalid User Name                 invalid          ${VALID PASSWORD}
+Invalid Password                  ${VALID USER}    invalid
+Invalid User Name and Password    invalid          invalid
+Empty User Name                   ${EMPTY}         ${VALID PASSWORD}
+Empty Password                    ${VALID USER}    ${EMPTY}
+Empty User Name and Password      ${EMPTY}         ${EMPTY}
+```
+
+The above example shows six test cases that all use the same
+keyword `Login with invalid credentials should fail` but with different data for username and password.
+
+#### Benefits of Data-Driven Specification:
+- **Efficiency**: Reduces the need to write redundant test cases by reusing the same workflow with different data inputs.
+- **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
+- **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
 
 
 
