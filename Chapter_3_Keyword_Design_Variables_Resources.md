@@ -22,13 +22,14 @@ or test a specific part or dialog of an application could be stored together in 
 Resource files are imported using the `Resource` setting in the
 `*** Settings ***` section so that the path to the resource file
 is given as an argument to the setting.
-The recommended extension for resource files is `.resource`.
+The extension for resource files shall be `.resource`.
 
 If the resource file path is absolute, it is used directly.
 Otherwise, the resource file is first searched relatively to
 the directory where the importing file is located.
 If the file is not found there, it is then searched from the
 directories in Python's module search path.
+See [Import Paths](Chapter_2_Getting_Started.md#import-paths) for more details.
 
 
 ### Sections in Resource Files
@@ -37,28 +38,33 @@ See [Sections and Their Artifacts](Chapter_2_Getting_Started.md#sections-and-the
 
 Other than in suites, resource files do not allow the `*** Test Cases ***` or `*** Tasks ***` sections.
 
-The sections `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are same as in suites.
+The allowed sections in recommended order are:
+- `*** Settings ***` to import libraries and other resource files.
 
-The `*** Settings ***` section has common but also different settings available than in suites.
+  This section has common but also different settings available than in suites.
 
-Common settings are:
-- `Library` to import libraries.
-- `Resource` to import other resource files.
-- `Variables` to import variable files.
-- `Documentation` to provide documentation for the resource file.
+  Common settings are:
+  - `Library` to import libraries.
+  - `Resource` to import other resource files.
+  - `Variables` to import variable files.
+  - `Documentation` to provide documentation for the resource file.
 
-Additional settings are:
-- `Keyword Tags` (*) to set tags for all keywords in the resource file.
+  Additional settings are:
+  - `Keyword Tags` to set tags for all keywords in the resource file.
+    defining and using Keyword tags is not part of this syllabus.
 
-(*) This settings is not part of this syllabus.
+  Other settings available in suites are not available in resource files.
 
-Other settings available in suites are not available in resource files.
+- `*** Variables ***` to define variables.
 
-See [`*** Keywords ***` Section](#-keywords--section) for more details about defining keywords in resource files.
+  See [`*** Variables ***` Section](#-variables--section) for more details about defining variables in resource files.
+  Other than in suites these variables can be used outside this resource file, if it is imported in another file.
+- `*** Keywords ***` to define user keywords.
 
-See [`*** Variables ***` Section](#-variables--section) for more details about defining variables in resource files.
+  See [`*** Keywords ***` Section](#-keywords--section) for more details about defining keywords in resource files.
+  Other than in suites these keywords can be used outside this resource file, if it is imported in another file.
 
-The `*** Comments ***` section is used to store comments and is ignored and not parsed by Robot Framework.
+- `*** Comments ***` is used to store comments and is ignored and not parsed by Robot Framework. (same as in suites)
 
 
 
@@ -358,7 +364,7 @@ Login To System
 
     Input Text    username_field    ${USERNAME}
     Input Text    password_field    ${PASSWORD}
-    Click Button  login_buttom
+    Click Button  login_button
 ```
 -->
 
@@ -505,7 +511,7 @@ So `${file_name}` = `server.log` and
 ```robotframework
 *** Test Cases ***
 Test File Content
-    Given the server log leve is 'INFO'
+    Given the server log level is 'INFO'
     When the server is started successfully
     Then the file 'server.log' should contain 'Successfully started'
 ```
@@ -597,8 +603,157 @@ When defining User Keywords, it is recommended to follow conventions to ensure c
 These may be taken from community best practices or defined within the project team.
 
 Keyword Conventions should contain agreements on:
-- **Naming Case**: Which case shall be used? (i.e. `Title Case`, `camelCase`, `snake_case`, `kebab-case`, or `Sentece case`, etc. ) (from a readability perspective, `Title Case` or `Sentence case` are recommended)
+- **Naming Case**: Which case shall be used? (i.e. `Title Case`, `camelCase`, `snake_case`, `kebab-case`, or `sentence case`, etc. ) (from a readability perspective, `Title Case` or `Sentence case` are recommended)
 - **Grammatical Form/Mood**: Which form shall be used for actions and verifications/assertions? (i.e. `Imperative` for both like `Click Button`, `Verify Text`. Or i.e. `Declarative`/`Indicative` for assertions like `Text Should Be`, `Element Should Be Visible`)
 - **Word/Character Count**: How man words or characters shall be used in a keyword name? (i.e. less than 7 words)
 - **Argument Count**: How many arguments shall a keyword have? (i.e. less than 5)
 - **Documentation**: How shall the documentation be structured and which information shall be included or is it required at all?
+
+
+
+## Advanced Importing of Keywords and Naming Conflicts
+
+As stated before, it is possible to organize imports and available keywords in Robot Framework by using Resource Files.
+By default, all keywords or variables created or imported in a resource file are available to those suites and files that are importing that higher-level resource file.
+
+This can lead to complex import hierarchies or the importing of libraries multiple times, which should be avoided.
+
+Due to this mechanism, the number of keywords available to a suite can be quite large, and naming conflicts, especially with keywords from third-party keyword libraries, can occur. These conflicts need to be resolved.
+
+
+Some keyword libraries have the option to be configured to change their behavior, which may also change the available keywords they offer.
+
+### Importing Hierarchies
+
+Let's assume the following libraries and resource files shall be used:
+- **Library**    `A`
+- **Library**    `B`
+- **Library**    `Operating System`
+- **Resource**    `tech_keywordsA.resource`
+- **Resource**    `tech_keywordsB.resource`
+- **Resource**    `variables.resource`
+- **Resource**    `functional_keywords.resource`
+
+The `*** Settings ***` section of a suite file could look like this:
+
+**tech_keywordsA.resource:**
+```robotframework
+*** Settings ***
+Library    A
+Library    Operating System
+```
+
+**tech_keywordsB.resource:**
+```robotframework
+*** Settings ***
+Library    B
+Resource    variables.resource
+```
+
+**functional_keywords.resource:**
+```robotframework
+*** Settings ***
+Resource    tech_keywordsA.resource
+Resource    tech_keywordsB.resource
+```
+
+**suite.robot:**
+```robotframework
+*** Settings ***
+Resource    functional_keywords.resource
+```
+
+In this case, the suite `suite.robot` has access to all keywords from all keyword libraries, as well as all variables and user keywords from all resource files.
+
+It should be avoided to import the same library in different places multiple times.
+If the exact same library with the same configuration (see the next section) is imported again, it will be ignored because Robot Framework already has it in its catalog.
+However, if the library is imported with different configurations, it may be imported multiple times, but depending on the library’s internal behavior, the new configuration may have no effect on the existing keywords, or other side effects may occur.
+
+
+Therefore, the recommendation is to import libraries only in one resource file with one configuration and use that import file in all places where the library is needed to make its keywords available.
+
+### Library Configuration
+
+Some libraries offer or need additional configuration to change their behavior or make them work.
+This is typically global behavior like internal timeouts, connection settings to systems, or plugins that should be used.
+
+If this is possible, the library documentation will have an `Importing` section directly before the list of keywords.
+It is strongly recommended to have all these possible arguments to the library itself defined with default values;
+however, that is not always possible.
+
+Library importing arguments are used in the same way as keyword calls with arguments.
+If possible, it is recommended to set the arguments as named arguments to make usage more readable and future-proof.
+These arguments follow the Library path or name, separated by multiple spaces.
+
+Example with the [Telnet library](https://robotframework.org/robotframework/latest/libraries/Telnet.html#Importing):
+```robotframework
+*** Settings ***
+Library    Telnet    newline=LF    encoding=ISO-8859-1   # set newline and encoding using named arguments
+```
+
+Another example that cannot be used without configuration is the Remote library.
+Remote libraries are libraries that are connected remotely via a network connection.
+So the actual library is running as a server, and the library `Remote`
+is connecting as a client and connects the keywords of the server to Robot Framework.
+Therefore, it needs the server's address and port to connect to.
+Because there may be more than one Remote Library, we need to define the used library name as well.
+```robotframework
+*** Settings ***
+Library    Remote    uri=http://127.0.0.1:8270       AS    EmbeddedAPI
+Library    Remote    uri=http://remote.devices.local:8270       AS    DeviceAPI
+```
+In this example, two remote libraries are imported.
+The upper-case `AS` statement is used to define the name of the library that shall be used in the suite.
+
+They are now available as `EmbeddedAPI` and `DeviceAPI` in the suite.
+
+### Naming Conflicts
+
+Naming conflicts can occur when two or more keywords have the same name.
+If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate user keyword name.
+
+Project teams may not have this influence over imported third-party libraries that have the same keyword names.
+Due to the global keyword namespace in Robot Framework, it may be unavoidable to have naming conflicts.
+
+One example of these kinds of conflicts is the two libraries
+[`Telnet`](https://robotframework.org/robotframework/latest/libraries/Telnet.html)
+and [`SSHLibrary`](https://marketsquare.github.io/SSHLibrary/SSHLibrary.html),
+which at the current time both have multiple keywords with the same name.
+This is because they both work with network connections and have similar functionality.
+Keywords like `Open Connection`, `Login`, `Read`, `Close Connection`, and many more are common.
+
+These conflicts cannot be resolved by Robot Framework if they are coming from the same kind of source, like two libraries.
+The error message will be like this:
+```plain
+Multiple keywords with name 'Open Connection' found. Give the full name of the keyword you want to use:
+    SSHLibrary.Open Connection
+    Telnet.Open Connection
+```
+
+As proposed by Robot Framework, to resolve naming conflicts,
+the easiest way to mitigate this is to use the full names of the keywords,
+including the library name, when calling them.
+
+Example:
+```robotframework
+*** Test Cases ***
+Using Telnet and SSHLibrary
+    Telnet.Open Connection
+    Telnet.Login    ${username}    ${password}
+    ${telnet_init} =    Telnet.Read Until Prompt
+    Telnet.Close Connection
+
+    SSHLibrary.Open Connection    ${host}    ${port}
+    SSHLibrary.Login    ${username}    ${password}
+    ${ssh_init} =    SSHLibrary.Read Until Prompt
+    SSHLibrary.Close Connection
+```
+
+When using full names for libraries that were imported with the `AS` statement,
+the name of the library is used as a prefix to the keyword name.
+```robotframework
+*** Test Cases ***
+Using Remote Libraries
+    EmbeddedAPI.Close Contact   15
+    DeviceAPI.Verify Contact    15    1
+```
