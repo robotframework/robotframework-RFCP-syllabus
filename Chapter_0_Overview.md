@@ -1,5 +1,8 @@
 # Chapter 0: Course Overview
 
+
+
+
 ## About the Syllabus
 This syllabus serves as the foundation for the "Robot Framework Certified Professional®" (RFCP) exam and training.
 Its purpose is to outline the structure and learning objectives of the training course,
@@ -12,6 +15,9 @@ meaning they define the specific knowledge and skills participants are expected 
 Additionally, the recommended sequence of topics in this syllabus helps guide the order of learning,
 but the specific teaching methods, order and pace may be adapted by the instructor based on class dynamics or need.
 
+
+
+
 ## About "Robot Framework Certified Professional®"
 The Robot Framework Certified Professional® (RFCP) certification represents the foundational level of expertise in Robot Framework.
 It focuses on providing participants with a solid understanding of the core principles and basic syntax required for developing effective automation scripts.
@@ -19,6 +25,9 @@ It focuses on providing participants with a solid understanding of the core prin
 This certification is distinct from the future Robot Framework Certified Engineer® (RFCE) certification, which targets more advanced users.
 While RFCP covers essential concepts such as keyword-driven automation, script execution, and usage of external libraries, RFCE delves into more complex subjects like control structures, advanced variables, custom Python library development and more.
 The RFCP is intended for those seeking proficiency in the core functionality of Robot Framework.
+
+
+
 
 ## Business Outcomes
 Upon completing this course, participants will achieve the following capabilities:
@@ -39,6 +48,9 @@ Upon completing this course, participants will achieve the following capabilitie
 
 - **Understand, analyze, and debug automation results/protocols**: Learn how to interpret automation execution results, identify issues, and debug scripts effectively.
 
+
+
+
 ## About Learning Objectives and Knowledge Levels
 The learning objectives (LOs) are a critical component of this syllabus,
 as they define what participants are expected to know and be able to do by the end of the course.
@@ -56,6 +68,9 @@ To ensure a clear understanding of these objectives, we apply Knowledge Levels (
 
 Throughout the course, participants will progress through these knowledge levels, from basic recall (K1) to applying and analyzing automation tasks (K3, K4), ensuring a deep understanding of Robot Framework essentials.
 
+
+
+
 ## About Professional Training Providers
 
 Professional Training Providers are organizations officially accredited by the Robot Framework Foundation to offer certified training programs.
@@ -66,6 +81,9 @@ and their training materials have been reviewed by independent Robot Framework E
 Only these certified Professional Training Partners are permitted to refer to their courses as "Robot Framework" training or use the term "Robot Framework Certified Professional" in connection with their programs, due to the trademark on these terms.
 
 Training can be exclusively pursued through these partners, but obtaining a certificate is not dependent on completing their courses, allowing flexibility for candidates to self-study if desired.
+
+
+
 
 ## About Exam Providers
 

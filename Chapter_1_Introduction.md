@@ -3,6 +3,8 @@
 The upcoming chapters provide a concise overview of Robot Framework, including its core structure, use cases in test automation and RPA, and key specification styles like keyword-driven and behavior-driven testing. You'll learn about its architecture, syntax, and how test cases and tasks are organized. Additionally, the chapters explain the open-source licensing under Apache 2.0, the role of the Robot Framework Foundation in maintaining the ecosystem, and the foundational web resources available for further exploration and contributions.
 
 
+
+
 ## Purpose and Use-Cases
 
 > [!IMPORTANT]
@@ -12,6 +14,7 @@ Robot Framework is a versatile, open-source automation framework that supports b
 Initially designed for acceptance testing and other types of testing, it has since evolved to cover various automation tasks in both IT and business environments.
 Its keyword-driven approach allows users to create reusable components, making it accessible even to those with minimal programming skills.
 Robot Framework can be extended through a vast array of third-party or custom made keyword libraries, allowing it to automate interactions with APIs, user interfaces, databases, and many more technologies.
+
 
 
 ### Test Automation
@@ -27,9 +30,11 @@ Robot Framework is widely used in various stages of test automation, focussing:
 
 - **Acceptance testing**: Validates the system’s readiness for deployment, ensuring it meets business needs. Types include user, operational, and regulatory acceptance testing, often performed by end-users.
 
+
 #### Synthetic Monitoring
 
 Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **Active Monitoring** or **Proactive Monitoring**, is a proactive approach that simulates user interactions with live systems at regular intervals. It detects performance issues or downtime early and often before they affect actual users by continuously monitoring system behavior under simulated conditions.
+
 
 
 ### Robotic Process Automation (RPA)
@@ -60,6 +65,7 @@ However, it is not a full-stack solution that encompasses all layers of automati
 Instead, it provides a flexible platform where different tools, libraries, and integrations handle specific tasks to implement a flexible automation solution.
 
 
+
 ### Robot Framework and the gTAA (Generic Test Automation Architecture)
 
 > [!IMPORTANT]
@@ -78,6 +84,7 @@ The execution is responsible for processing this execution model to execute the 
 - **Adaptation Layer**: This layer provides the connection between Robot Framework and the system under test (SUT).
 In Robot Framework, this is where the keyword libraries, such as those for UI, API, or database interactions, are located.
 These libraries allow interaction with different technologies and interfaces, ensuring the automation is flexible and adaptable to various environments.
+
 
 
 ### What is Robot Framework & What It Is Not
@@ -104,6 +111,7 @@ Robot Framework defines the syntax for test data, but it is the role of external
 Additionally, Robot Framework supports integration with CI/CD pipelines, configuration management tools, test management systems, monitoring systems, and more, making it versatile in various automation environments.
 
 
+
 ### Technology & Prerequisites
 
 
@@ -126,9 +134,11 @@ The syntax of Robot Framework is designed to be simple and human-readable, allow
 
 Key attributes of the syntax that improves the before mentioned:
 
-- **Space-separated syntax**: Robot Framework uses two spaces as the primary separator (although one space is allowed as a character).
-A use of **FOUR (4)** spaces is recommended to ensures clarity and readability of the specification.
-- **Minimal use of special characters**: The focus is on reducing special characters, making the syntax human-readable and user-friendly.
+- **Space-separated syntax**: Robot Framework uses two or more spaces as the primary separator (although one space is allowed as a character).
+  A use of **FOUR (4)** spaces is recommended to ensures clarity and readability of the specification.
+- **Indentation based blocks**: Code blocks like test, task or keyword bodies are defined by indentation.
+  This makes the structure clear and easy to follow.
+- **Reduced use of special characters**: Compared to programming languages the focus is on reducing special characters, making the syntax human-readable and user-friendly.
 - **String first**: Unquoted strings are considered as strings, while variables need special syntax.
 - **Single spaces are valid**: Single spaces are valid as a character in most elements and values without quotation.
 - **Mostly case-insensitive**: Most elements like keyword or variable names are case insensitive.
@@ -137,6 +147,8 @@ However, some syntax, like library imports is case-sensitive.
 > [!NOTE]
 > This syllabus does NOT cover other formats like Pipe-Separated ( | ) Format or Restructured Text or JSON!
 
+
+
 ### What are Test Cases / Tasks?
 
 In Robot Framework, **Test Cases** (**Tests**) or **Tasks** are executable entities that serve a specific purpose and are organized into suites.
@@ -144,6 +156,7 @@ A **Test** is synonymous with a **Test Case**, while **Tasks**, technically bein
 
 Tests or Tasks have a body made up of **keyword calls** and Robot Framework statements like **IF** or **VAR**, which represent the actions or steps executed during the test or task execution.
 These keywords make the automation modular, maintainable, reusable, and readable.
+
 
 
 ### Files & Directories
@@ -155,6 +168,7 @@ Robot Framework organizes tests|tasks into **Suites**, which are either files or
 Suites can contain other suites, forming a hierarchical tree, which is by default alphabetically ordered.
 
 This structure allows for logical grouping and organization of tests and tasks, which can scale as needed.
+
 
 
 ### What are Keywords?
@@ -178,6 +192,7 @@ A **User Keyword** consists of a **name**, optional **arguments**, and a **body*
 During execution, each keyword call is logged, providing fine-grained detail in the execution logs.
 This includes all levels of keywords—from those called directly by a test or task to those nested within user keywords, all the way down to the execution of library keywords.
 This granular logging and detailed execution documentation is one of the key advantages of Robot Framework compared to other automation tools.
+
 
 
 ### Resource Files & Libraries
@@ -220,6 +235,7 @@ there is also a third specification method, **Data-Driven Specification** that c
 with the other two styles, to define the data that is used in the automation.
 
 
+
 ### Keyword-Driven Specification
 
 > [!IMPORTANT]
@@ -242,6 +258,8 @@ It provides a straightforward representation of the task flow, making it easy to
 
 By separating the executed step/keyword and its arguments/data with spaces it improves the readability of tests or tasks.
 Flow and data can be parsed separately by the consumer.
+
+
 
 ### Behavior-Driven Specification
 
@@ -290,6 +308,7 @@ or the amount of defined data in the steps increases.
 Both styles can be applied within Robot Framework, offering flexibility depending on the context of the automation task.
 
 
+
 ### Data-Driven Specification
 
 > [!IMPORTANT]
@@ -335,6 +354,7 @@ Empty User Name and Password      ${EMPTY}         ${EMPTY}
 The above example shows six test cases that all use the same
 keyword `Login with invalid credentials should fail` but with different data for username and password.
 
+
 #### Benefits of Data-Driven Specification:
 - **Efficiency**: Reduces the need to write redundant test cases by reusing the same workflow with different data inputs.
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
@@ -344,6 +364,7 @@ keyword `Login with invalid credentials should fail` but with different data for
 
 
 ## Organization and Licensing
+
 
 
 ### Open Source License
@@ -359,6 +380,7 @@ The key characteristics of this license include:
 - **Attribution**: Users must keep the original authorship and any changes made to the code visible, ensuring transparency regarding contributions and modifications.
 
 This licensing structure encourages broad usage and contribution while maintaining a legal framework that protects both users and developers.
+
 
 
 ### About the Robot Framework Foundation
@@ -387,6 +409,7 @@ More information, including a list of foundation members, is available at **[rob
 This structure and mission ensure that Robot Framework continues to grow and serve the needs of its community while maintaining an open and democratic approach to its development and governance.
 
 
+
 ### Robot Framework Webpages
 
 > [!IMPORTANT]
@@ -398,12 +421,19 @@ These include:
 - **[robotframework.org](https://robotframework.org/)**: The main page providing an overview, documentation, and access to resources.
 - **[github.com/robotframework](https://github.com/robotframework)**: The official repository for the framework's source code and other components.
 
+
+
+
 ## Learning Objectives for Chapter 1
+
+
 
 ### 1.1 Purpose and Use-Cases
 
 - LO1 List the main Use-Cases of Robot Framework (K1)
 - LO2 Recall Robot Framework is open-source (K1)
+
+
 
 ### 1.2 Architecture of Robot Framework
 
@@ -412,12 +442,16 @@ These include:
 - LO5 Define what Robot Framework is and what it is not (K1)
 - LO6 Recall Robot Framework is built on Python (K1)
 
+
+
 ### 1.3. Basic Syntax & Structure
 
 - LO7 Recall the four key attributes of the syntax of Robot Framework (K1)
 - LO8 Explain the difference between test cases and tasks. (K2)
 - LO9 List the types of files and directories used to organize tests and tasks in Robot Framework. (K1)
 - LO10 Explain the difference between user keywords and library keywords (K2)
+
+
 
 ### 1.4. Specification Styles
 
@@ -426,6 +460,8 @@ These include:
 - LO13 Explain the benefits of using behavior-driven specification in test automation. (K2)
 - LO14 Recall Robot Framework can have multiple keyword layers
 - LO15 Explain how keyword-driven and behavior-driven styles can be used together in a project. (K2)
+
+
 
 ### 1.5. Organization and Licensing
 

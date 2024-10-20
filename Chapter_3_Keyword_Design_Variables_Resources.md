@@ -4,7 +4,8 @@ This chapter introduces the essential components of Robot Framework: **Keywords*
 
 
 
-## Resource Files
+
+## Resource File Structure
 
 Resource Files in Robot Framework are used to store reusable keywords,
 variables, and organize imports of other resource files and libraries.
@@ -24,12 +25,13 @@ Resource files are imported using the `Resource` setting in the
 is given as an argument to the setting.
 The extension for resource files shall be `.resource`.
 
-If the resource file path is absolute, it is used directly.
-Otherwise, the resource file is first searched relatively to
+Unless the resource file is given as an absolute path,
+it is first searched relatively to
 the directory where the importing file is located.
 If the file is not found there, it is then searched from the
 directories in Python's module search path.
 See [Import Paths](Chapter_2_Getting_Started.md#import-paths) for more details.
+
 
 
 ### Sections in Resource Files
@@ -68,20 +70,47 @@ The allowed sections in recommended order are:
 
 
 
+
 ## Variables
+
+<!-- LO: Understand how variables in Robot Framework are used to store and manage data (K2) -->
+> [!IMPORTANT]
+> LXX Understand how variables in Robot Framework are used to store and manage data (K2)
+> LXX Recall the relevant five different ways to create and assign variables(K1)
+
 Variables in Robot Framework are used to store values that can be referenced and reused throughout suites, test cases, tasks, and keywords.
 They help manage dynamic data or centrally maintained data, reducing hardcoding in multiple locations and making automation flexible.
 
 Variables can be created and assigned in various ways, such as:
-- Definition in the `*** Variables ***` section in suites or resource files. (see [`*** Variables ***` Section](#variables-section))
+- Definition in the `*** Variables ***` section in suites or resource files. (see [`*** Variables ***` Section](#-variables--section))
 - Capturing return values from keywords. (see [Return values from keywords](#return-values-from-keywords))
 - Inline assignment using the `VAR` statement. (see [`VAR` statement](#var-statement))
 - As arguments passed to keywords. (see [User Keyword Arguments](#user-keyword-arguments))
-- (*) By the command line interface of Robot Framework.
+- By the command line interface of Robot Framework. (See [Advanced Execution Control](Chapter_4_Advanced_Structuring_and_Execution.md#advanced-execution-control))
 - (*) By internal implementation of library keywords.
 - (*) By importing variables from variable files.
 
 (*) These methods are not part of this syllabus.
+
+Beside variables created by the user, Robot Framework also supports **Built-in Variables** that are explained in the [Built-in Variables](Chapter_5_Exploring_Advanced_Constructs.md#built-in-variables) chapter.
+
+
+
+### Variable Syntax and Access Types
+
+> [!IMPORTANT]
+> LXX Recall the four syntactical access types to variables with their prefixes (K1)
+> LXX Recall the basic syntax of variables (K1)
+
+Variables in Robot Framework are defined by three attributes:
+- **Prefix**: `$`, `@`, or `&` to define the access type to the variable. (`%` for environment variables)
+- **Delimiter**: `{}` to enclose the variable name.
+- **Variable Name**: The string that addresses the variable. i.e. just the `variable_name` or more advanced access ways.
+
+Variable names are case-insensitive and as keywords, containing single spaces and underscores are ignored when matching variable names.
+
+In case these prefixes followed by a curly brace opening (`${`) should be used as characters in a normal string and not as a variable,
+they must be escaped by a backslash like `\${` to be treated as text rather than a variable start.
 
 Robot Framework, implemented in Python, can work with any object stored in variables, and syntactically distinguishes three types of accessing variables:
 - **Scalar Variables**: Store values as a single entity and are represented by the dollar-syntax `${variable_name}`.
@@ -91,25 +120,23 @@ Robot Framework, implemented in Python, can work with any object stored in varia
 These three different syntactical handling methods allow the users to create and handle lists and dictionaries natively in Robot Framework.
 However, these prefixes just define the access type to the variable, and the actual data stored in the variable can be of any type, including strings, numbers, lists, dictionaries, or even objects.
 
-When creating variables, the different syntax is used to define the type of the variable, but when accessing the variable, the scalar variable syntax with dollar `$` as the prefix is used in most cases.
-More details about list-like and dictionary-like variables can be found in the [Advanced Variables](Chapter_5_Exploring_Advanced_Constructs.md#advanced-variables) chapter.
+When creating variables, different syntax is used to define the type of the variable as described in the next sections,
+but when accessing the variable, the scalar variable syntax with a dollar sign `$` as the prefix is used in most cases.
+More details about list-like and dictionary-like variables,
+and when to use `@` or `&` when accessing these variables,
+can be found in the [Advanced Variables](Chapter_5_Exploring_Advanced_Constructs.md#advanced-variables) chapter.
+
 
 Additionally to these variable types, Robot Framework also supports access to environment variables, which can be accessed using the syntax `%{ENV_VAR_NAME}` respectively.
 <!-- TODO fix the link -->
 
 
-### Variable Syntax
-
-Variables in Robot Framework are defined by three attributes:
-- **Prefix**: `$`, `@`, or `&` to define the access type to the variable. (`%` for environment variables)
-- **Delimiter**: `{}` to enclose the variable name.
-- **Variable Name**: The name of the variable, which can be any valid string.
-
-In case these prefixes followed by a curly brace opening (`${`) should be used as characters in a string,
-they must be escaped by a backslash like `\${` to be treated as text rather than a variable start.
-
 
 ### `*** Variables ***` Section
+
+> [!IMPORTANT]
+> LXX Create variables in the Variables section (K3)
+> LXX Use the correct variable prefixes for assigning and accessing variables. (K3)
 
 Variables can be defined in the `*** Variables ***` section of a suite file or resource file
 and used across the suite where they were defined, or
@@ -119,8 +146,8 @@ This section is typically used to define constants or to initialize variables th
 
 Variables created in this section:
 - are not indented,
-- can be followed by an optional equal sign (`=`) to improve readability,
-- can be scalar, list-like, or dictionary-like variables,
+- must be created either as `scalar`, `list-like`, or `dictionary-like` variables,
+- can be followed by an optional single space and equal sign (`=`) to improve readability,
 - are separated from their following value(s) by multiple spaces,
 - can be defined in multiple lines using the `...` syntax.
 
@@ -132,8 +159,12 @@ This means that when a variable is used within another variable's value, the fin
 
 Variables defined in the `*** Variables ***` section are recommended to be named in uppercase to distinguish them from local variables defined in test cases or keywords.
 
+
 #### Scalar Variable Definition
 
+> [!IMPORTANT]
+> LXX Create and assign scalar variables (K3)
+> LXX Understand how multiple lines can be used to define scalar variables (K2)
 
 Example of creating scalar variables:
 ```robotframework
@@ -148,7 +179,7 @@ The variable `${TOOL}` will be resolved to `Robot Framework | version: 8.0` at r
 If the value of a scalar variable is long, you can split it into multiple lines to improve readability using the `...` syntax.
 By default, the lines are concatenated with a space, but a custom separator, defined by lowercase `separator=` followed by the separator value (e.g., newline `separator=\n`), can be used.
 Also, no separator, to join them into one string (`separator=`), is possible.
-If the string `separator=` shall be used as the last part of the value,
+For the rare case that `separator=` should be taken literally as the last part of the variable value,
 it must be escaped by a backslash like `\separator=` to be treated as text rather than the separator definition.
 
 
@@ -170,6 +201,43 @@ ${SEARCH_URL}     https://example.com/search
 ```
 
 `${SEARCH_URL}` will contain `https://example.com/search?query=robot+framework&page=1&filter=recent&lang=en&category=test-automation`.
+
+
+#### Primitive Data Types
+
+> [!IMPORTANT]
+> LXX Understand how to access primitive data types (K2)
+
+Robot Framework does support primitive data types as part of the syntax.
+
+These are:
+- **Strings**: a sequence of unicode characters.
+- **Integers**: whole numbers (negative/positive).
+- **Floats**: numbers with a decimal point (negative/positive).
+- **Booleans**: `${True}` or `${False}`.
+- **None**: a special value representing the absence of a value.
+
+Except for Strings, which are defined without any quotation or enclosure,
+the other primitive data types are defined by using the scalar variable syntax `${variable_value}`.
+
+These values are case-insensitive and can be used in any context where a variable is accepted.
+
+Example:
+```robotframework
+*** Variables ***
+${STRING}            This is a string
+${STILL_STRING}      8270    # These are the four characters 8, 2, 7, and 0
+${INTEGER}           ${42}
+${FLOAT}             ${3.14}   # Dot is used as decimal separator
+${BOOLEAN}           ${True}   # Case-insensitive
+${NOTHING}           ${NONE}
+${EMPTY_STRING}
+${ANSWER}            The answer is ${INTEGER}    # This will be 'The answer is 42'
+```
+
+> [!TIP]
+> When using other types than strings and concatenating them with a string, the other value will be converted to a string before concatenation.
+
 
 #### List Variable Definition
 
@@ -197,6 +265,7 @@ List Example
     Log    Second Name: ${NAMES}[1]   # Logs 'Second Name: Teppo'
 ```
 
+
 #### Dictionary Variable Definition
 
 Dictionary variables store key-value pairs and use the ampersand-syntax `&{variable_name}`.
@@ -211,19 +280,25 @@ Example:
 ```
 You can escape equal signs in keys with a backslash (`\=`) to prevent misinterpretation.
 
-Values of dictionary-like variables can be accessed by the dollar-syntax (`$`) followed by the key in square brackets (`[]`),
+Values of all dictionary-like variables can be accessed by the dollar-syntax (`$`) followed by the key in square brackets (`[]`),
 like `${USER1}[name]` for `Matti` and `${USER1}[address]` for `xxx`.
 No quotes are needed around the key name.
 
-Variables can also be used to set the accessed key dynamically.
+If dictionaries are created in Robot Framework by using the `&{}` syntax, they are **ordered**,
+which means they persist assignment order of the key-value pairs and can be iterated,
+and **support attribute access**, allowing to reference dictionary keys using syntax like `${USER1.name}`.
+Dictionaries or dictionary-like values can also be created by keywords
+and might have a different data type and therefore can not be accessed by attribute access.
+
+Variables can also be used to set the accessed key dynamically by using the variable in the square brackets.
 Assuming `${key}` contains the value `phone`, `${USER1}[${key}]` would resolve to `123`.
 
-Dictionary variables in Robot Framework are **ordered**,
-which means they persist their assignment order and can be iterated,
-and **support attribute access**, allowing you to reference dictionary keys using syntax like `${USER1.name}`.
 
 
-### Return values from keywords
+### Return values from Keywords
+
+> [!IMPORTANT]
+> LXX Be able to assign return values from keywords to variables (K2)
 
 In Robot Framework, values returned by keywords can be assigned to variables,
 enabling data to be passed between different keywords.
@@ -238,6 +313,7 @@ See [Variable Scopes](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope)
 An assignment is always constructed by the variable or variables that shall be assigned to,
 followed by an optional equal sign (`=`) and the keyword call that
 shall be executed and will return the value(s) to be assigned.
+
 
 #### Assigning to Scalar Variables
 
@@ -291,7 +367,11 @@ Multiple Return Example
 ```
 
 
+
 ### `VAR` Statement
+
+> [!IMPORTANT]
+> LXX Understand how to create variables using the VAR statement (K2)
 
 The `VAR` statement in Robot Framework is a way to create
 and assign values to variables directly within a test|task or keyword during execution.
@@ -313,17 +393,22 @@ These variables can then be accessed outside of the test|task or keyword where t
 For more details on this topic, refer to the section on [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope).
 
 
+
 ### Variable Scope
+
+> [!IMPORTANT]
+> LXX Recall the different scopes of variables in Robot Framework (K1)
+> LXX Understand how `local` and `suite` scope variables are created (K2)
 
 In Robot Framework, variables have different scopes, which define where they can be accessed and used. Understanding the scope of variables is crucial for managing data within tests and keywords.
 
 1. **Local Scope**: Variables created within a test|task or keyword, by assignment or `VAR` statement, are by default local to that specific test|task or keyword. They cannot be accessed outside of that block and are destroyed once the block is completed. This means that a local variable created in one test|task cannot be accessed inside the body of a called keyword or a subsequent test|task.
 
-2. **Test|Task Scope**: Variables with test|task scope are available throughout the execution of a specific test|task. They can be created within the test|task by, for example, `VAR` statement inside the test|task body or any called keyword. They are accessible in all called keywords during the execution of this particular test|task.
+2. **Test|Task Scope**: Variables with test|task scope are available throughout the execution of a specific test|task. They can be created within the test|task by, for example, `VAR` statement inside the test|task body with a special `scope=` setting or called library keyword. They are accessible in all called keywords during the execution of this particular test|task.
 
 3. **Suite Scope**: Variables defined at the suite level, for example in the `*** Variables ***` section or through resource files, are available to all tests|tasks and keywords called within the suite.
 
-4. **Global Scope**: Variables with global scope are available throughout the entire test execution, across all suites. These variables can be set by command-line arguments or `VAR` statement and should be used cautiously to avoid conflicts and ensure test|task independence.
+4. **Global Scope**: Variables with global scope are available throughout the entire test execution, across all suites, inside all tests|tasks and keywords. These variables can be set by command-line arguments or `VAR` statement with a special `scope=` setting and should be used cautiously to avoid conflicts and ensure test|task independence.
 
 Examples and more details on variable scope can be found in the [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope) section.
 
@@ -339,6 +424,8 @@ automation by abstracting complex sequences into named actions.
 User Keywords are defined syntactically very similarly to tests|tasks
 and are defined in the `*** Keywords ***` section of a suite file or resource file.
 
+
+
 ### `*** Keywords ***` Section
 
 The `*** Keywords ***` section of suite and resource files
@@ -352,7 +439,6 @@ and [Calling imported Keywords](Chapter_2_Getting_Started.md#calling-imported-ke
 This section can be part of suites or resource files.
 While keywords defined in suites can solely be used in the suite they are defined in,
 keywords defined in resource files can be used in any suite that imports these resource files.
-See [Resource Files](Chapter_2_Getting_Started.md#resource-files) for more details.
 <!--
 TODO: find a better example.
 I do not want to have third-party libraries in the syllabus like SeleniumLibrary or Browser.
@@ -371,6 +457,7 @@ Login To System
 As a reference for how defined keywords are documented, see [Keyword Interface and Documentation](Chapter_2_Getting_Started.md#keyword-interface-and-documentation).
 
 
+
 ### User Keyword Names
 
 The names of User Keywords should be descriptive and clear, reflecting the purpose of the keyword.
@@ -385,6 +472,8 @@ Project may choose a different naming convention for User Keywords, but it is re
 
 They are defined without indentation, and the subsequent lines until the next unindented line are considered the body of the keyword.
 The following topics explain how to structure the body of a keyword.
+
+
 
 ### User Keyword Settings
 
@@ -401,11 +490,13 @@ All available settings are listed below and explained in this section or in sect
 
 (*) These settings are not part of this syllabus.
 
+
+
 ### User Keyword Documentation
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
-The first logical line, until the first empty row, is considered the *short documentation* and is also displayed in the `log.html` test protocol.
+The first logical line, until the first empty row, is used as the *short documentation* of the keyword in the `log.html` test protocol..
 
 Proper documentation helps maintain clarity, especially in larger projects.
 It is a good practice to document what the keyword does,
@@ -420,6 +511,8 @@ Where? Here? or in a separate chapter in Advanced Constructs?
 
 -->
 
+
+
 ### User Keyword Arguments
 
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
@@ -430,6 +523,7 @@ See also Chapter 2 [Keyword Arguments](Chapter_2_Getting_Started.md#keyword-argu
 Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of scalar variables.
 
 Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [Argument Types](Chapter_2_Getting_Started.md#argument-types) section.
+
 
 #### Defining Mandatory Arguments
 
@@ -456,9 +550,10 @@ Check Server Log
 
 In that case, the argument `${file_path}` is assigned the value `server.log`, and `${expected_content}` is assigned the value `Successfully started`.
 
+
 #### Defining Optional Arguments
 
-Optional arguments can be defined by assigning a default value to the argument in the `[Arguments]` setting.
+Optional arguments are defined by assigning default values to them in the `[Arguments]` setting.
 All optional arguments must be defined after all mandatory arguments.
 
 Default values are assigned by the equal sign (`=`)
@@ -520,8 +615,8 @@ Quotes around the embedded arguments behave as any other characters
 as part of the keyword name but may help to improve readability
 and bette distinguish the embedded arguments from the rest of the keyword name.
 
-Embedded arguments can be disadvantageous when the keyword name becomes too long or complex.
-Therefore mix of embedded arguments and regular arguments is also possible.
+Embedded arguments can be problematic when the keyword name becomes overly long or complicated.
+Therefore a mix of embedded arguments and regular arguments is also possible.
 This can help with more complex data structures or to improve readability.
 
 Example of mixed embedded and regular arguments:
@@ -554,11 +649,14 @@ the user ${action}
     END
 ```
 
+
 #### Other Argument Kinds
 
 Other argument kinds like **Named-Only Arguments**, **Free Named Arguments**, or
 **Variable Number of Positional Arguments** should be known,
 but their definition and usage are not part of this syllabus.
+
+
 
 ### RETURN Statement
 
@@ -587,6 +685,7 @@ The `RETURN` statement cannot return a value from a keyword call directly like i
 The return value must be stored in a variable first and then be returned by the `RETURN` statement.
 
 
+
 ### Keyword Conventions
 
 
@@ -611,6 +710,7 @@ Keyword Conventions should contain agreements on:
 
 
 
+
 ## Advanced Importing of Keywords and Naming Conflicts
 
 As stated before, it is possible to organize imports and available keywords in Robot Framework by using Resource Files.
@@ -622,6 +722,8 @@ Due to this mechanism, the number of keywords available to a suite can be quite 
 
 
 Some keyword libraries have the option to be configured to change their behavior, which may also change the available keywords they offer.
+
+
 
 ### Importing Hierarchies
 
@@ -672,6 +774,8 @@ However, if the library is imported with different configurations, it may be imp
 
 Therefore, the recommendation is to import libraries only in one resource file with one configuration and use that import file in all places where the library is needed to make its keywords available.
 
+
+
 ### Library Configuration
 
 Some libraries offer or need additional configuration to change their behavior or make them work.
@@ -706,6 +810,8 @@ In this example, two remote libraries are imported.
 The upper-case `AS` statement is used to define the name of the library that shall be used in the suite.
 
 They are now available as `EmbeddedAPI` and `DeviceAPI` in the suite.
+
+
 
 ### Naming Conflicts
 

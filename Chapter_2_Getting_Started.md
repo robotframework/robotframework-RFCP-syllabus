@@ -13,6 +13,7 @@ and how keyword documentation is interpreted to ensure clarity and maintainabili
 
 
 
+
 ## Suite File & Tree Structure
 
 > [!IMPORTANT]
@@ -64,6 +65,7 @@ Example:
 ```
 
 
+
 ### Suite Files
 
 > [!IMPORTANT]
@@ -74,6 +76,7 @@ By default, Robot Framework parses files with the extension `.robot` and searche
 A parsed file that contains at least one test case or task is called a **Suite File**.
 
 A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*** Tasks ***` (in Task Suites), but it CANNOT contain both types simultaneously.
+
 
 
 ### Sections and Their Artifacts
@@ -130,6 +133,8 @@ This section is used to define suite variables that are used in the suite or its
 The most common and recommended use-case is to use these variables as constants that are not supposed to change during the execution of the suite.
 It can be confusing for readers of a suite if a variable is defined with one static value in the `*** Variables ***` section and then, during execution, dynamically reassigned with different values, as they may expect the variable to always have the initially defined value.
 
+See [`*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-variables--section) for more information about the `*** Variables ***` section.
+
 
 #### `*** Test Cases ***` or `*** Tasks ***` Section (mandatory)
 
@@ -138,7 +143,7 @@ It can be confusing for readers of a suite if a variable is defined with one sta
 
 This section defines the executable elements of a suite.
 Test cases and tasks are technically synonyms for each other.
-However, users have to choose one of the two modes that Robot Framework offers.
+However, users have to choose one of the two modes of suite execution that Robot Framework offers.
 
 Each test case or task is structured using an indentation-based format. The first un-indented line specifies the name of the test|task, followed by indented lines containing **keyword calls** and their **arguments** and test|task-specific settings.
 These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be applied to individual test cases or tasks to control their behavior or provide additional details.
@@ -153,6 +158,8 @@ This section allows you to define **locally scoped user keywords** that can only
 
 While these keywords are not globally accessible, they serve a crucial role in making the suite more modular and understandable by breaking down complex sequences into smaller, manageable parts. Defining keywords locally in this section enhances the maintainability of the tests|tasks within the suite, ensuring that even large and intricate suites remain well-structured and easy to manage.
 
+See [`*** Keywords ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-keywords--section) for more information about the `*** Keywords ***` section.
+
 
 #### `*** Comments ***` Section
 
@@ -160,7 +167,9 @@ This section is used to add comments to the suite file or resource file.
 All content in this section is ignored by Robot Framework and is not executed or parsed.
 
 
-## Basic Test/Task Syntax
+
+
+## Basic Suite File Syntax
 
 <!--
 TODO:
@@ -171,18 +180,75 @@ I think this section needs a bit more structure and we should introduce the conc
 > [!IMPORTANT]
 > LXX Understand the basic syntax of test cases and tasks. (K2)
 
+
+
+### Separation and Indentation
+
+> [!IMPORTANT]
+> LXX Understand and apply the mechanics of indentation and separation in Robot Framework. (K3)
+
 As mentioned before, Robot Framework uses an indentation-based and space-separated syntax to structure keywords, test cases, and tasks.
 
 **Two or more spaces** are used to separate or indent elements in Robot Framework files, while a single space is a valid character in elements.
 The clear recommendation is to use **four spaces** or more to unambiguously make it visible
+to a potential reader where elements are separated or indented.
 
- to a potential reader where elements are separated or indented.
-
-All elements themselves in their section should be written without any indentation.
+All elements themselves in their section are written without any indentation.
 When defining tests|tasks and keywords, indentation is used to define their body, while their name is still un-indented.
+So after i.e. a test case name, all subsequent lines that are part of the test case body are indented by four spaces.
+The body ends when either a new un-indented test case name is defined
+or another section like `*** Keywords ***` starts
+or the end of the file is reached.
 
-While single tabulators (`\t`) as well as two or more spaces are valid separators, it is recommended to use multiple spaces for indentation to avoid issues with different editors representing the tabulator to the user, probably aligning the text to, i.e., a 4-space grid.
-This could cause a single tabulator to look the same as a single space in the editor, which would lead to confusion about the indentation level.
+While single tabulators (`\t`) as well as two or more spaces are valid separators,
+it is recommended to use multiple spaces for indentation and separation and avoid tabulators.
+This can prevent issues where different editors align text to a grid (e.g., 4 spaces) when using tabs,
+making it difficult for users to distinguish between tabs and spaces.
+It could cause a single tabulator to look the same as a single space in the editor,
+which would lead to misinterpretation of the file structure by a human reader.
+
+
+
+### Line Breaks, Continuation and Empty Lines
+
+> [!IMPORTANT]
+> LXX Be able to use line breaks and continuation in Robot Framework properly. (K3)
+
+Empty lines are allowed and encouraged to structure data files and make them more readable.
+In the next example, the sections are visibly separated by two empty lines, and the tests are separated by one empty line.
+Empty lines are technically not relevant and are ignored while parsing the file.
+
+
+By default, each expression in a suite or resource file is terminated by a line break, so that in each line only one expression is possible.
+However, for better readability or in the case of documentation for adding line breaks, expressions can expand over multiple lines if they are continued with `...` (three dots) and a separator (multiple spaces) at the beginning of the next line, potentially being indented. See the suite documentation as an example.
+
+
+
+### In-line Comments
+
+> [!IMPORTANT]
+> LXX Be able to add in-line comments to suites. (K3)
+
+In Robot Framework comments can be added to lines after the content
+by starting the comment with a separator (multiple spaces) and a hash `#`.
+The hash `#` is used to indicate that the rest of the line is a comment and is ignored by Robot Framework.
+Same works at the very start of a line, which makes the whole line a comment.
+
+If an argument value or any other value shall start with a hast (`#`)
+and it is preceded by a separator (multiple spaces),
+the hast must be escaped by a backslash `\` like `Click Element By Css    \#element_id`.
+
+Hashes in the middle of a string are considered normal values and do not need to be escaped.
+
+Block comments are not supported in Robot Framework,
+so each line that shall be a comment must be prefixed with a hash `#`.
+
+
+
+### Example Suite File
+
+> [!IMPORTANT]
+> LXX Understand the structure of a basic suite file. (K2)
 
 In the following example, two test cases are defined in a suite file.
 Their names are `Login User With Password` and `Denied Login With Wrong Password`.
@@ -200,13 +266,6 @@ The second test case, `Denied Login With Wrong Password`, connects to the server
 Clearly visible due to the indentation by four spaces, the body of the test cases contains the keywords that are called to execute the test case.
 In the test case body, some keyword calls have arguments that are separated by two or more spaces from the keyword name.
 
-Empty lines are allowed and encouraged to structure data files and make them more readable.
-In this example, the sections are visibly separated by two empty lines, and the tests are separated by one empty line.
-Empty lines are technically not relevant and are ignored while parsing the file.
-
-By default, each expression in a suite or resource file is terminated by a line break, so that in each line only one expression is possible.
-However, for better readability or in the case of documentation for adding line breaks, expressions can expand over multiple lines if they are continued with `...` (three dots) and a separator (multiple spaces) at the beginning of the next line, potentially being indented. See the suite documentation as an example.
-
 The following tests will be executed in the order they are defined in the suite file. First, the `Login User With Password` test case will be executed, followed by the `Denied Login With Wrong Password` test case.
 
 Example Suite File Content `robot_files/TestSuite.robot`:
@@ -221,16 +280,22 @@ Resource          keywords.resource
 *** Test Cases ***
 Login User With Password
     Connect To Server
-    Login User            ironman    1234567890
-    Verify Valid Login    Tony Stark
+    Login User            ironman    1234567890   # Login with valid credentials
+    Verify Valid Login    Tony Stark   # Verify that the login was successful by checking the user name
     Close Server Connection
 
 Denied Login With Wrong Password
     Connect To Server
-    Run Keyword And Expect Error    *Invalid Password    Login User    ironman    123
+    Run Keyword And Expect Error    # this keyword calls another keyword and expects an error
+    ...        *Invalid Password*   # it expects an error containing `Invalid Password`
+    ...        Login User           # this keyword is called with two arguments
+    ...        ironman
+    ...        123#wrong            # A hash in the middle of a string is not a comment
     Verify Unauthorized Access
     Close Server Connection
 ```
+
+
 
 
 ## Executing Robot
@@ -311,6 +376,7 @@ A unique feature of Robot Framework is, that it logs each keyword call and its a
 In case of a failure it is possible to see the exact keyword call that failed and the arguments that were used, which can be very helpful for debugging or reporting. Furthermore you also get all passed keywords and even the non-executed keywords to protocol the whole execution flow.
 
 
+
 ### Status
 
 > [!IMPORTANT]
@@ -332,6 +398,7 @@ Additional Keyword Status:
 
 **Composite elements** like suites (composed of tests|tasks), tests|tasks (composed of keywords) and User Keywords (composed of Library Keywords and Robot Framework statements) do define their status based on the status of their child elements.
 
+
 #### PASS
 
 > [!IMPORTANT]
@@ -347,6 +414,7 @@ In example for User Keywords this means that if all keywords or Robot Framework 
 Library Keywords like `Run Keyword And Expect Error`, from BuiltIn Library, do `PASS` if the keyword they are internally calling does raise an error with the expected message or type.
 
 That means that a composite element like suite, test|task or User Keyword may be `PASS` even if some of its deeper child elements are `FAIL`.
+
 
 #### FAIL
 
@@ -365,6 +433,7 @@ Therefore a failure typically distributes upwards through the hierarchy of eleme
 A User Keywords is `FAIL` if one of its Library Keyword is `FAIL`, a test|task is `FAIL` if one of its User Keywords is `FAIL` and a suite (file) is `FAIL` if one of its test|task is `FAIL` a suite (directory) is `FAIL` if one of its suite (file) is `FAIL`.
 
 
+
 ### Logging possibilities (Log vs Console)
 
 > [!IMPORTANT]
@@ -378,6 +447,9 @@ There are basically two kinds of logging information in Robot Framework.
 Log messages can be written with different levels of severity like i.e. `INFO`, `DEBUG`, `TRACE`, `WARN` or `ERROR`.
 Which levels are written to the log can be controlled by the log level of an execution. Further information in later chapters.
 
+
+
+
 ## Keyword Imports
 
 <!-- To use Keywords that are not part of BuiltIn, which is always imported invisibly, you must import keywords into the current scope. Basically Two different sources of keywords.
@@ -389,6 +461,8 @@ Also the Robot Framework language statements itself are available for use withou
 
 External keywords can be imported from either libraries or resource files.
 Both types of sources are using different syntax to import their keywords.
+
+
 
 ### Libraries
 
@@ -419,6 +493,8 @@ Library    DatabaseLibrary
 Once a library is imported, all keywords from that library are available for use in that suite or resource file.
 Which keywords are available can be seen in the keyword documentation of the library or may be visible in the IDE by code completion, depending on the IDE extension being used.
 
+
+
 ### Resource Files
 
 > [!IMPORTANT]
@@ -426,7 +502,11 @@ Which keywords are available can be seen in the keyword documentation of the lib
 > LXX Use resource files to import new keywords. (K3)
 
 As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
-They can also contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
+
+They share a similar structure and the same syntax as suite files, but they do not contain test cases or tasks.
+See [Basic Suite File Syntax](#basic-suite-file-syntax) for more information about the structure of suite files.
+
+They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
 
 To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
 See [Import Paths](#import-paths) for more information about the path to the resource file.
@@ -440,6 +520,11 @@ Example:
 Resource    local_keywords.resource
 Resource    D:/keywords/central_keywords.resource
 ```
+
+See more about the structure of resource files in
+[Resource File Structure](Chapter_3_Keyword_Design_Variables_Resources.md#resource-file-structure)
+and how keywords and variables are created in the sections following that.
+
 
 
 ### Import Paths
@@ -475,6 +560,9 @@ Use relative path to folder local stuff. ${CURDIR}?
 Avoid absolute Paths
 !!!!!!! Would like to discuss that with some people !!!!! "Style Guide?"-->
 
+
+
+
 ## Keyword Interface and Documentation
 
 > [!IMPORTANT]
@@ -490,6 +578,9 @@ Basically all standard and external 3rd party libraries offer these Keyword Docu
 Robot Framework offers the Keyword Documentation of its Standard Libraries at https://robotframework.org/robotframework .
 
 <!-- Keywords from Libraries and Resources can be called and can be documented either as HTML or in IDEs with Robot Support. -->
+
+
+
 ### Understanding Keyword Docs
 
 > [!IMPORTANT]
@@ -503,6 +594,7 @@ Each keyword documented does contain the following information:
 - **Return Type** (opt.): The type of the return value of the keyword.
 - **Tags** (opt.): The tags that are assigned to the keyword to categorize keywords.
 - **Documentation** (opt.): The documentation text that describes what the keyword does and how it should be used.
+
 
 #### Example Keyword Documentation
 
@@ -532,6 +624,9 @@ One example of a more extensive keyword documentation is the documentation of Ro
 <!-- I think we should provide a link to a keyword doc that uses types and return types, so that users can see what we are talking about.
 Open Keywords Docs that are fully typed and lets have a look to some basic things.
 I think it is imported to point out the type of arguments in comparison the type of setting an argument. See next-->
+
+
+
 ### Keyword Arguments
 
 > [!IMPORTANT]
@@ -580,6 +675,7 @@ The Error Message would be: `Keyword 'BuiltIn.Should Be Equal' expected 2 to 8 a
 
 Two arguments are mandatory and additional six arguments are optional in the `Should Be Equal` keyword.
 
+
 #### Optional Arguments
 
 > [!IMPORTANT]
@@ -594,6 +690,7 @@ i.e. the argument `msg` in the `Should Be Equal` keyword documentation has the d
 In that particular keyword these optional arguments can be used to activate some special features like ignoring the case of the compared strings or to provide a custom error message.
 
 Omitting some optional arguments but still using others is possible independent of their order setting these arguments by their name. See [Calling Imported Keywords](#calling-imported-keywords).
+
 
 #### Embedded Arguments
 
@@ -626,6 +723,8 @@ Embedded arguments are also mandatory arguments.
 They can also be defined using regular expressions to allow for more complex argument structures, which is not part of that syllabus.
 
 <!-- Are mandatory arguments as part of the keyword names and must be filled. Used for Behavior-Driven Specification -->
+
+
 #### Argument Types
 
 > [!IMPORTANT]
@@ -662,6 +761,8 @@ The error message would be: `ValueError: Argument 'y' got value 'Not_A_Number' t
 The advantage of using type hints is that the user get more information about what kind of values are expected and the keyword implementation can be simpler, because it can rely on the arguments being of the expected type.
 
 <!-- Just to understand that they are there and that they may document how values are handled or which are allowed. -->
+
+
 #### Return Types
 
 > [!IMPORTANT]
@@ -677,6 +778,9 @@ It is important to know that keywords without a return type hint are often still
 This is typically documented in the *Documentation* part of the keyword documentation.
 
 <!-- Keywords may gather information and return these to the caller of that keyword. A Documented Return Value may be present but often it is just written in the docs, due to new feature -->
+
+
+
 ### Keyword Documentation & Examples
 <!-- How to read Keyword Docs and What they shall state -->
 
@@ -710,6 +814,8 @@ Should Be Equal    ${x}    expected    Custom error message
 Should Be Equal    ${x}    expected    Custom message    values=False
 Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 ```
+
+
 
 
 ## Calling imported Keywords
@@ -763,6 +869,7 @@ Mixed Named and Positional Arguments
 ```
 
 
+
 ### Positional Arguments
 
 > [!IMPORTANT]
@@ -770,19 +877,27 @@ Mixed Named and Positional Arguments
 
 <!-- Typical way to call them. All must be set in specific order. -->
 When calling keywords, except for *keyword-only* arguments, all arguments may be set in the order they are defined in the keyword documentation.
+
 However that can lead to poor readability as you can see in the `Mixed Positional Arguments` example.
 Specifically optional parameters of library keywords are often not commonly known by all project participants and therefore should better be used named.
 
 Using arguments positionally is very handy for arguments that are obvious and easy to understand.
 In the early login example the following keyword calls exists:
 ```robotframework
+*** Test Cases ***
+Login User With Password
     Login User    ironman    1234567890
 ```
+
 In that case it should be obvious that the first argument is the username and the second argument is the password.
-Also the keyword following keyword call should be easy to understand:
+Also the keyword following keyword call should be easy to understand but could still be more explicit by using named arguments.:
 ```robotframework
+*** Test Cases ***
+Click on x and y
     Click On Coordinates    82    70
+    Click On Coordinates    x=82    y=70
 ```
+
 
 #### Variable Number of Positional Arguments
 
@@ -820,15 +935,19 @@ Send 5 IPv4 Pings On Windows
     Run Process    ping    -n    5    -4    localhost
 ```
 
+
+
 ### Named Arguments
 
 > [!IMPORTANT]
 > LXX Understand the concept of how to set argument values named. (K2)
 
-Keyword Calls with non-obvious arguments should use named arguments if possible.
+Keyword Calls with non-obvious arguments should use named argument calls if possible.
 Also setting one optional argument but leaving the others at their default value is an indication to use named arguments.
 
 Named arguments are set by their name followed by an equal sign `=` and the value of the argument.
+All named arguments must be set after the positional arguments are set but can be set in any order.
+
 Equal signs are valid argument values and could therefore be misinterpreted as named arguments, if the text before the equal sign is a valid argument name.
 To prevent that, an equal sign in argument values can be escaped by a backslash `\`.
 
@@ -872,6 +991,7 @@ Example redirecting stdout and stderr to a file:
 Send 5 IPv4 Pings On Windows
     Run Process    ping    -n    5    -4    localhost    stdout=ping_output.txt    stderr=ping_error.txt
 ```
+
 
 
 ### Embedded Arguments / Using Behavior-Driven Specification
