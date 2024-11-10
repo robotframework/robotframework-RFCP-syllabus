@@ -69,9 +69,9 @@ Example:
 ### Suite Files
 
 > [!IMPORTANT]
-> LXX Recall when a file is considered a suite file. (K2)
+> LXX Recall the conditions and requirements for a file to be considered a Suite file (K1)
 
-By default, Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
+Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
 
 A parsed file that contains at least one test case or task is called a **Suite File**.
 
@@ -82,11 +82,11 @@ A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*
 ### Sections and Their Artifacts
 
 > [!IMPORTANT]
-> LXX Recognize the possible sections in a suite file. (K2)
+> LXX Recall the available sections in a suite file and their purpose. (K1)
 
 Robot Framework data files are defined in different sections.
 These sections are recognized by their header row.
-The format is `*** <Section Name> ***` with three asterisks before and after the section name.
+The format is `*** <Section Name> ***` with three asterisks before and after the section name and section names in *Title Case* separated by a space.
 
 The following sections are recognized by Robot Framework and are recommended to be used in the order they are listed:
 - `*** Settings ***`
@@ -101,26 +101,34 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*
 #### `*** Settings ***` Section
 
 > [!IMPORTANT]
-> LXX Understand the purpose of the `*** Settings ***` section. (K2)
+> LXX Recall the available settings in a suite file. (K1)
+> LXX Understand the mechanism of default settings and how they can be overwritten. (K2)
 
 This section is used to configure various aspects of the test|task suite.
 It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files that are needed for execution in the containing tests|tasks.
 
-It can specify suite metadata (`Metadata`), redefine the suite's name (`Name`), and contain the suite's documentation (`Documentation`).
+<!-- It can contain specifications for suite metadata (`Metadata`), a redefinition of the suite's name (`Name`), and contain the suite's documentation (`Documentation`). -->
+In this section, the suite name, that is normally derived from the file name, can be redefined with the `Name` setting and its documentation can be defined with the `Documentation` setting.
 
-This section can also define keywords for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run.
+Additional metadata can be defined by multiple `Metadata` entries, which can containd key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
 
-Additionally, some settings can define defaults for all tests|tasks in the suite, which can be overwritten in the individual tests|tasks.
-Those settings are prefixed with either `Test` or `Task`, according to the type of suite and the following section type (`*** Test Cases ***` or `*** Tasks ***`), like `Test Timeout`, and can be overwritten in the individual tests|tasks with the local setting in square brackets like `[Timeout]`.
+This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [Setup (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#setups-suite-testtask) and
+[Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#teardowns-suite-testtask-keyword) for more information.
+
+Additionally, some settings can define defaults for all tests|tasks in the suite, which can be extended or overwritten in the individual tests|tasks.
+Those settings are prefixed with either `Test` or `Task`, according to the type of suite and the following section type (`*** Test Cases ***` or `*** Tasks ***`), like `Test Timeout`, while the local setting is in square brackets and without the prefix like: `[Timeout]`.
 
 
-- `Test Setup`/`Task Setup` (locally: `[Setup]`) and `Test Teardown`/`Task Teardown` (locally `[Teardown]`) define which keywords are executed before and after each individual test|task.
+- `Test Setup`/`Task Setup` (locally: `[Setup]`) and `Test Teardown`/`Task Teardown` (locally `[Teardown]`) define which keywords are executed before and after each individual test|task. The local setting overrides the suite's default. See [Setup (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#setups-suite-testtask) and
+[Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#teardowns-suite-testtask-keyword) for more information.
 
-- `Test Timeout`/`Task Timeout` (locally `[Timeout]`) defines the maximum time a test|task is allowed to run before it is marked as failed.
+- `Test Timeout`/`Task Timeout` (locally `[Timeout]`) defines the maximum time a test|task is allowed to run before it is marked as failed. The local setting overrides the suite's default.
 
-- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks.
+- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks. The local setting appends or removes tags defined by the suite's default. See [Tagging of Test|Tasks](Chapter_4_Advanced_Structuring_and_Execution.md#tagging-of-testtasks) for more information.
 
-- `Test Template`/`Task Template` (locally `[Template]`) defines a template keyword that defines the test|task body and is typically used for Data-Driven Testing where each test has the same keywords but different argument data.
+- `Test Template`/`Task Template` (locally `[Template]`) defines a template keyword that defines the test|task body and is typically used for Data-Driven Testing where each test has the same keywords but different argument data. The local setting overrides the suite's default.
+
+Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The loval setting appends or removes tags defined by the suite's default.
 
 
 #### `*** Variables ***` Section
@@ -154,7 +162,8 @@ These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be app
 > [!IMPORTANT]
 > LXX Understand the purpose of the `*** Keywords ***` section. (K2)
 
-This section allows you to define **locally scoped user keywords** that can only be used within the same suite where they are defined. These keywords are not reusable outside the suite, but they are often used to organize and structure tests|tasks for improved readability and maintainability. This section is particularly useful for defining suite-specific actions, such as **Suite Setup** keywords or similar kinds, which are relevant only to the suite they belong to.
+This section allows you to define **locally scoped user keywords** that can only be used within this suite where they are defined, while keywords defined in resource files can be used in any suite that imports these resource files.
+Keywords defined in a suite are therefore not reusable outside the suite, but they are often used to organize and structure tests|tasks for improved readability and maintainability. This section is particularly useful for defining suite-specific actions, such as **Suite Setup** keywords or similar kinds, which are relevant only to the suite they belong to.
 
 While these keywords are not globally accessible, they serve a crucial role in making the suite more modular and understandable by breaking down complex sequences into smaller, manageable parts. Defining keywords locally in this section enhances the maintainability of the tests|tasks within the suite, ensuring that even large and intricate suites remain well-structured and easy to manage.
 

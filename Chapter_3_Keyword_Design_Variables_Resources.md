@@ -146,10 +146,11 @@ This section is typically used to define constants or to initialize variables th
 
 Variables created in this section:
 - are not indented,
-- must be created either as `scalar`, `list-like`, or `dictionary-like` variables,
+- must be created either as `scalar ($)`, `list-like (@)`, or `dictionary-like (&)` variables,
 - can be followed by an optional single space and equal sign (`=`) to improve readability,
 - are separated from their following value(s) by multiple spaces,
 - can be defined in multiple lines using the `...` syntax.
+- have a **suite scope** in the suite created or imported to.
 
 Because two or more spaces are used to separate elements in a row,
 all values are stripped of leading and trailing spaces, identical to arguments of keyword calls (see [Calling imported Keywords](Chapter_2_Getting_Started.md#calling-imported-keywords)).
@@ -277,6 +278,7 @@ Example:
 &{USER1}        name=Matti     address=xxx         phone=123
 &{USER2}        name=Teppo     address=yyy         phone=456
 &{COMBINED}     first=1        second=${2}         third=third
+&{EMPTY_DICT}
 ```
 You can escape equal signs in keys with a backslash (`\=`) to prevent misinterpretation.
 
@@ -303,11 +305,11 @@ Assuming `${key}` contains the value `phone`, `${USER1}[${key}]` would resolve t
 In Robot Framework, values returned by keywords can be assigned to variables,
 enabling data to be passed between different keywords.
 
-These variables are local to the block where they are created,
+These variables have a **local scope** in the block where they are created,
 i.e., in the test|task or keyword where the assignment is made.
-If a variable has already been defined in the `*** Variables ***` section,
-it will just be locally overwritten by the new value.
-Once the block is left, the original value of the variable is restored.
+If a variable has already been defined in the `*** Variables ***` section and therefore has a **suite scope**,
+it will just be locally overwritten/masked by the new variable with the same name.
+Once the block is left, the original variable with its original value is accessible again.
 See [Variable Scopes](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope) for more information.
 
 An assignment is always constructed by the variable or variables that shall be assigned to,
@@ -384,7 +386,7 @@ Example use cases for the `VAR` statement:
 - **Conditional assignments**: In some scenarios, it may be necessary to assign different values to a variable based on conditions that occur during test|task execution.
 - **Initialization of variables**: In a FOR-loop (see [FOR-Loops](Chapter_5_Exploring_Advanced_Constructs.md#for-loops)), it may be necessary to collect information and add it to a list. This list can be initialized with the `VAR` statement as an empty list before the loop starts and then filled with values during the loop.
 
-By default, variables created with the `VAR` statement are **local** to the test|task, task, or keyword where they are defined.
+By default, variables created with the `VAR` statement have a **local scope** in the test|task, or keyword where they are defined.
 This means that they cannot be accessed outside that specific test|task or keyword, ensuring that variables do not interfere with other parts of the test|task suite.
 
 However, the `VAR` statement can also be used to create variables with a broader scope, such as suite-wide or global variables, when needed.
@@ -394,15 +396,15 @@ For more details on this topic, refer to the section on [Variable Scope](Chapter
 
 
 
-### Variable Scope
+### Variable Scope Introduction
 
 > [!IMPORTANT]
 > LXX Recall the different scopes of variables in Robot Framework (K1)
-> LXX Understand how `local` and `suite` scope variables are created (K2)
+> LXX Understand how `local` and `suite` scope variables are created by default (K2)
 
 In Robot Framework, variables have different scopes, which define where they can be accessed and used. Understanding the scope of variables is crucial for managing data within tests and keywords.
 
-1. **Local Scope**: Variables created within a test|task or keyword, by assignment or `VAR` statement, are by default local to that specific test|task or keyword. They cannot be accessed outside of that block and are destroyed once the block is completed. This means that a local variable created in one test|task cannot be accessed inside the body of a called keyword or a subsequent test|task.
+1. **Local Scope**: Variables created within a test|task or keyword, by assignment of return values or `VAR` statement, are by default local to that specific test|task or keyword. They cannot be accessed outside of that block and are destroyed once the block is completed. This means that a local variable created in one test|task cannot be accessed inside the body of a called keyword or a subsequent test|task.
 
 2. **Test|Task Scope**: Variables with test|task scope are available throughout the execution of a specific test|task. They can be created within the test|task by, for example, `VAR` statement inside the test|task body with a special `scope=` setting or called library keyword. They are accessible in all called keywords during the execution of this particular test|task.
 
@@ -477,6 +479,9 @@ The following topics explain how to structure the body of a keyword.
 
 ### User Keyword Settings
 
+> [!IMPORTANT]
+> LXX Recall all available settings and their purpose for User Keywords (K1)
+
 User keywords can have similar settings as test cases,
 and they have the same square bracket syntax separating them from keyword calls.
 All available settings are listed below and explained in this section or in sections linked below.
@@ -488,7 +493,7 @@ All available settings are listed below and explained in this section or in sect
 - `[Timeout]` (*) Sets the possible user keyword timeout.
 - `[Return]` (*) Deprecated.
 
-(*) These settings are not part of this syllabus.
+(*) The application of these settings are not part of this syllabus.
 
 
 
