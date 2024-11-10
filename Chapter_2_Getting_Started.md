@@ -107,7 +107,6 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*
 This section is used to configure various aspects of the test|task suite.
 It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files that are needed for execution in the containing tests|tasks.
 
-<!-- It can contain specifications for suite metadata (`Metadata`), a redefinition of the suite's name (`Name`), and contain the suite's documentation (`Documentation`). -->
 In this section, the suite name, that is normally derived from the file name, can be redefined with the `Name` setting and its documentation can be defined with the `Documentation` setting.
 
 Additional metadata can be defined by multiple `Metadata` entries, which can containd key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
