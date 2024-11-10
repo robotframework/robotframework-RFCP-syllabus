@@ -137,13 +137,15 @@ Similar to test|task tags, also keyword tags can be defined in the `*** Settings
 
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
-The most common and recommended use-case is to use these variables as constants that are not supposed to change during the execution of the suite.
-It can be confusing for readers of a suite if a variable is defined with one static value in the `*** Variables ***` section and then, during execution, dynamically reassigned with different values, as they may expect the variable to always have the initially defined value.
+The most common use-case is to define these variables as constants that contain a static value during execution.
+This can either be a default value, that may be overwritten by globally defined variables via the Command Line Interface (CLI) or a constant value that is used on multiple places in the suite.
+
+In some cases, these variables are also dynamically reassigned during the execution of the suite, but this is not recommended and should be avoided if possible, because this may lead to test|task runtime dependancies and errors caused by these side-effects that are hard to debug and find.
 
 See [`*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-variables--section) for more information about the `*** Variables ***` section.
 
 
-#### `*** Test Cases ***` or `*** Tasks ***` Section (mandatory)
+#### `*** Test Cases ***` or `*** Tasks ***` Section
 
 > [!IMPORTANT]
 > LXX Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. (K2)
@@ -155,16 +157,30 @@ However, users have to choose one of the two modes of suite execution that Robot
 Each test case or task is structured using an indentation-based format. The first un-indented line specifies the name of the test|task, followed by indented lines containing **keyword calls** and their **arguments** and test|task-specific settings.
 These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be applied to individual test cases or tasks to control their behavior or provide additional details.
 
+One kind of this section is mandatory in suite files but is not allowed in resource files.
+
+See [Writing Test|Task and Calling Imported Keywords](#writing-testtask-and-calling-keywords) for more information about the `*** Test Cases ***` or `*** Tasks ***` section.
+
+<!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
 
 #### `*** Keywords ***` Section
 
 > [!IMPORTANT]
-> LXX Understand the purpose of the `*** Keywords ***` section. (K2)
+> LXX Understand the purpose and limitations of the `*** Keywords ***` section. (K2)
 
-This section allows you to define **locally scoped user keywords** that can only be used within this suite where they are defined, while keywords defined in resource files can be used in any suite that imports these resource files.
-Keywords defined in a suite are therefore not reusable outside the suite, but they are often used to organize and structure tests|tasks for improved readability and maintainability. This section is particularly useful for defining suite-specific actions, such as **Suite Setup** keywords or similar kinds, which are relevant only to the suite they belong to.
+This section allows you to define **locally scoped user keywords** that can only be used within this suite where they are defined,
+while keywords defined in resource files can be used in any suite that imports these resource files.
+Keywords defined in a suite are therefore not reusable outside the suite,
+but they are often used to organize and structure tests|tasks for improved readability and maintainability.
+This section is particularly useful for defining suite-specific actions,
+such as **Suite Setup** keywords or similar kinds,
+which are relevant only to the suite they belong to.
 
-While these keywords are not globally accessible, they serve a crucial role in making the suite more modular and understandable by breaking down complex sequences into smaller, manageable parts. Defining keywords locally in this section enhances the maintainability of the tests|tasks within the suite, ensuring that even large and intricate suites remain well-structured and easy to manage.
+While these keywords are not globally accessible,
+they serve a crucial role in making the suite more modular
+and understandable by breaking down complex sequences into smaller, manageable parts.
+Defining keywords locally in this section enhances the maintainability of the tests|tasks within the suite,
+ensuring that even large and intricate suites remain well-structured and easy to manage.
 
 See [`*** Keywords ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-keywords--section) for more information about the `*** Keywords ***` section.
 
@@ -236,21 +252,58 @@ However, for better readability or in the case of documentation for adding line 
 
 > [!IMPORTANT]
 > LXX Be able to add in-line comments to suites. (K3)
+> LXX Understand how to escape control-characters in Robot Framework. (K2)
 
 In Robot Framework comments can be added to lines after the content
 by starting the comment with a separator (multiple spaces) and a hash `#`.
 The hash `#` is used to indicate that the rest of the line is a comment and is ignored by Robot Framework.
 Same works at the very start of a line, which makes the whole line a comment.
 
-If an argument value or any other value shall start with a hast (`#`)
-and it is preceded by a separator (multiple spaces),
-the hast must be escaped by a backslash `\` like `Click Element By Css    \#element_id`.
+Hashes in the middle of a value are considered normal characters and do not need to be escaped.
 
-Hashes in the middle of a string are considered normal values and do not need to be escaped.
+If an argument value or any other thing shall start with a hash (`#`)
+and it is preceded by a separator (multiple spaces),
+the hash must be escaped by a backslash `\` like `Click Element By Css    \#element_id`.
 
 Block comments are not supported in Robot Framework,
 so each line that shall be a comment must be prefixed with a hash `#`.
+Alternatively the `*** Comments ***` section can be used to add multi-line comments to files.
 
+
+
+### Escaping of Control Characters
+
+> [!IMPORTANT]
+> LXX Understand how to escape control characters in Robot Framework. (K2)
+
+In Robot Framework strings are not quoted which leads to situations where users need to be able to define,
+if a specific character shall be interpreted as part of the value or as a control character.
+
+
+Some examples are:
+- the `#` hash character that is used to start a comment as described above.
+- variables that are started by i.e. `${` (See [Variables](Chapter_3_Keyword_Design_Variables_Resources.md#variables))
+- multiple spaces that are considered as separators
+- equal sign `=` that is used to assign named arguments to keywords
+
+All those characters or character sequences that are interpreted as control characters can be escaped by a backslash `\`.
+This means that the character following the backslash is interpreted as a normal character and not as a control character.
+
+This leads to the fact that a backslash itself must be escaped by another backslash to be interpreted as a normal  backslash character. Therefore it is strongly recommended to use forward slashes `/` as path separators in paths also on windows environments and avoid backslashes `\` when ever possible.
+
+Leading and trailing spaces in values are normally considered being part of the separator surrounding the values.
+If values shall contain leading or trailing spaces they must be either enclosed in backslashes `\` or replaced by the special variable `${SPACE}` that contains a single space character.
+
+Example:
+```robotframework
+*** Test Cases ***
+Test of Escaping
+    Log    \# leading hash.                     # This logs "# leading hash."
+    Log    \ lead & trail \                     # This logs " lead & trail "
+    Log    ${SPACE}and now 5 More: \ \ \ \ \    # This logs " and now 5 More:     "
+    Log    Not a \${variable}                   # This logs "Not a ${variable}"
+    Log    C:\\better\\use\\forward\\slashes    # This logs "C:\better\use\forward\slashes"
+```
 
 
 ### Example Suite File
@@ -646,7 +699,7 @@ As more business oriented keywords are as less arguments they typically have.
 Keyword arguments can be grouped into different kinds.
 On the one hand you can group them by their definition kind and on the other hand by there usage kind.
 The most relevant distinction of definition kinds is between **Mandatory Arguments** and **Optional Arguments** and additionally **Embedded Arguments**.
-The relevant distinction of usage kinds is between using **Positional Arguments** and **Named Arguments**, which is described in [Calling Imported Keywords](#calling-imported-keywords).
+The relevant distinction of usage kinds is between using **Positional Arguments** and **Named Arguments**, which is described in [Writing Test|Task and Calling Imported Keywords](#writing-testtask-and-calling-keywords).
 
 There are also other special kinds of arguments like **Named-Only Arguments**, **Free Named Arguments** or **Variable Number of Positional Arguments** which are less relevant for this syllabus.
 
@@ -697,7 +750,7 @@ i.e. the argument `msg` in the `Should Be Equal` keyword documentation has the d
 
 In that particular keyword these optional arguments can be used to activate some special features like ignoring the case of the compared strings or to provide a custom error message.
 
-Omitting some optional arguments but still using others is possible independent of their order setting these arguments by their name. See [Calling Imported Keywords](#calling-imported-keywords).
+Omitting some optional arguments but still using others is possible independent of their order setting these arguments by their name. See [Writing Test|Task and Calling Imported Keywords](#writing-testtask-and-calling-keywords).
 
 
 #### Embedded Arguments
@@ -826,7 +879,7 @@ Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 
 
 
-## Calling imported Keywords
+## Writing Test|Task and Calling Keywords
 
 > [!IMPORTANT]
 > LXX Understand how to call imported keywords and how to structure keyword calls. (K2)

@@ -153,7 +153,7 @@ Variables created in this section:
 - have a **suite scope** in the suite created or imported to.
 
 Because two or more spaces are used to separate elements in a row,
-all values are stripped of leading and trailing spaces, identical to arguments of keyword calls (see [Calling imported Keywords](Chapter_2_Getting_Started.md#calling-imported-keywords)).
+all values are stripped of leading and trailing spaces, identical to arguments of keyword calls (see [Calling imported Keywords](Chapter_2_Getting_Started.md#writing-testtask-and-calling-keywords)).
 
 Variable values in Robot Framework can include other variables, and their values will be concatenated at runtime when the line is executed.
 This means that when a variable is used within another variable's value, the final value is resolved by replacing the variables with their actual content during execution.
@@ -436,7 +436,7 @@ The user keywords defined are unindented, while their body implementation is ind
 
 See these sections for more details about
 [Basic Test/Task Syntax](Chapter_2_Getting_Started.md#basic-testtask-syntax)
-and [Calling imported Keywords](Chapter_2_Getting_Started.md#calling-imported-keywords).
+and [Calling imported Keywords](Chapter_2_Getting_Started.md#writing-testtask-and-calling-keywords).
 
 This section can be part of suites or resource files.
 While keywords defined in suites can solely be used in the suite they are defined in,
