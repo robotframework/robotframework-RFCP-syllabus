@@ -1,19 +1,494 @@
 # Chapter 4: Advanced Structuring and Execution
 
+As a Robot Framework automation project expands, the increasing number of tests|tasks adds complexity to the project.
+This chapter explores advanced structuring and execution techniques to effectively manage this complexity and control the execution flow.
+
+We will cover methods for error handling and cleaning up after failed tests|tasks using **Teardowns**, as well as preparing individual or multiple suites and tests|tasks for execution with **Setups**.
+Additionally, filtering subsets of tests|tasks based on tags will be discussed, which is essential for managing test|task execution efficiently.
+
+
+
+## Setups (Suite, Test|Task, Keyword)
+
+Setups in Robot Framework are used to prepare the environment or system for execution or verifies that the requirements/preconditions needed to execution are met.
+They can be defined at the suite, test|task, or keyword level and are executed before the respective scope begins execution.
+
+A **Setup** is a keyword with potential argument values that is called before all other keywords.
+
+Examples of typical use cases for Setups are:
+- Establishing connections to databases or services.
+- Initializing test data or configurations.
+- Setting the system under test to a known state.
+- Logging into applications or systems.
+- Navigating to the feature under test.
+
+
+
+### Suite Setup
+
+A **Suite Setup** is executed before any tests|tasks or child suites within the suite are run.
+It is used to prepare the environment or perform actions that need to occur before the entire suite runs.
+
+**Key characteristics of Suite Setup:**
+- Executed before any tests|tasks and child suites in the suite.
+- If the Suite Setup fails, all tests|tasks in the suite and its child suites are marked as failed, and they are not executed.
+- Ideal for checking **preconditions** that must be met before running the tests|tasks.
+- Logged in the execution log as a separate section, indicating the setup status.
+
+**Typical use cases:**
+- Ensures that the environment is ready for execution.
+- Starting services or applications required for the suite.
+- Preparing a system under test to meet the suite's requirements.
+- Loading configurations or resources shared across multiple tests|tasks.
+
+**Example of defining a Suite Setup:**
+
+```robot
+*** Settings ***
+Suite Setup    Initialize Environment   dataset=Config_C3
+```
+
+
+
+### Test|Task Setup
+
+A **Test|Task Setup** is executed before a single test|task runs.
+It is used to prepare the specific conditions required for that test|task.
+
+You can define a default Test|Task Setup in the `*** Settings ***` section of the suite using the `Test Setup`|`Task Setup` setting.
+This setup will be applied to all tests|tasks within the suite unless overridden.
+
+Individual tests|tasks can override the default setup by specifying their own `[Setup]` setting within the test|task.
+To disable the setup for a specific test|task, you can set `[Setup]    NONE`, which means that no setup will be executed for that test|task.
+
+
+**Key characteristics of Test|Task Setup:**
+
+- Executed before the test|task starts.
+- If the Test|Task Setup fails, the test|task is marked as failed, and its body including its main keywords are not executed.
+- Can be set globally for all tests|tasks in a suite and overridden locally.
+- Logged in the execution log as a separate section, indicating the setup status.
+
+**Typical use cases:**
+
+- Logging in with specific user credentials.
+- Setting up test data unique to the test|task.
+- Executing preparation steps to navigate to the feature under test.
+
+**Example of defining a default Test|Task Setup in the suite settings and overriding on test case:**
+
+```robot
+*** Settings ***
+Test Setup    Login As Standard User
+
+
+*** Test Cases ***
+User Action Test With Default Setup
+    Perform User Actions    0815
+
+Another User Action With Default Setup
+    Perform another User Action    4711
+
+Admin Access Test With Local Setup
+    [Setup]    Login As Admin
+    Perform Admin Actions   007
+
+No Setup Test
+    [Setup]    NONE
+    Perform Actions Without Login   000
+```
+
+In the above examples:
+
+- `Admin Access Test With Local Setup` overrides the default setup with `Login As Admin`.
+- `No Setup Test` disables the setup entirely by specifying `NONE`.
+
+
+
+### Keyword Setup
+
+A **Keyword Setup** is executed before the body of a user keyword is executed.
+It allows for preparation steps specific to that keyword or ensures that the keyword's requirements are met before execution
+
+**Key characteristics of Keyword Setup:**
+- Executed before the keyword's body.
+- If the Keyword Setup fails, the keyword's body is not executed.
+- Logged in the execution log as a separate section, indicating the setup status.
+
+**Typical use cases:**
+- Opening connections or files needed by the keyword.
+- Initializing variables or data structures.
+- Ensuring preconditions specific to the keyword are met.
+
+**Example of defining a Keyword Setup:**
+
+```robot
+*** Keywords ***
+Process Data
+    [Setup]    Open Data Connection
+    Process the Data
+```
+
+
 
 
 
 ## Teardowns (Suite, Test|Task, Keyword)
 
+In automation, tests|tasks are typically executed in a linear sequence.
+This linear execution can lead to issues when a preceding test|task fails, potentially affecting subsequent tests|tasks due to an unclean state of the system under test or the automated environment.
+To prevent such issues, Robot Framework provides the **Teardown** functionality, which can be defined at the suite, test|task, or keyword level.
+
+As mentioned before a failure, resulting in a keyword with the status `FAIL`, will cause Robot Framework to not execute all subsequent keywords of the current test|task.
+These not executed keywords will get the status `NOT RUN`.
+
+A **Teardown** is a keyword with potential argument values that is executed after the suite, test|task, or keyword has completed execution, regardless of the outcome, even if previously executed keywords have failed.
+It ensures that necessary cleanup actions are performed, maintaining the integrity of the test environment for subsequent executions.
+
+**Typical use cases for Teardowns include:**
+
+- Cleaning up the system under test after a test|task has been executed.
+- Closing connections to databases, files, or other resources.
+- Resetting the system under test to a known state.
+- Closing user sessions or logging out users.
+
+By utilizing teardowns effectively, you can ensure that each test|task starts with a clean state,
+reducing dependencies between tests|tasks and improving the reliability of your automation project.
 
 
 
-## Setups (Suite, Test|Task)
+### Suite Teardown
+
+A **Suite Teardown** is executed after all tests|tasks and all child suites in a suite have been executed.
+It is used for cleaning up the environment or performing actions that need to occur after the entire suite has finished running.
+The Suite Teardown is executed regardless of the outcome of the tests|tasks within the suite, even if the suite setup fails.
+
+**Key characteristics of Suite Teardown:**
+- Executed after all tests|tasks and child suites have completed.
+- Runs even if the Suite Setup fails or any test|task within the suite fails.
+- If the Suite Teardown fails, all tests|tasks in the suite are marked as failed in reports and logs.
+- All keywords within the Suite Teardown are executed even if one of them fails, ensuring all cleanup actions are attempted.
+
+
+**Example of defining a Suite Teardown:**
+
+```robot
+*** Settings ***
+Suite Teardown    Close All Resources   force=True
+```
+
+
+
+### Test|Task Teardown
+
+A **Test|Task Teardown** is executed after a single test|task body has been executed.
+It is used for cleaning up actions specific to that test|task.
+The Test|Task Teardown is executed regardless of the test|task's outcome, including if the test|task's setup fails.
+
+In Robot Framework, you can define a default Test|Task Teardown in the `*** Settings ***` section of the suite using the `Test Teardown`|`Task Teardown` setting.
+This default teardown will be applied to all tests|tasks within the suite unless overridden.
+
+Individual tests|tasks can override the default teardown by specifying their own `[Teardown]` setting within the test|task.
+If you want to disable the teardown for a specific test|task, you can set `[Teardown]    NONE`, which effectively means that no teardown will be executed for that test|task.
+
+It is recommended to define the local `[Teardown]` setting as last line of the test|task.
+
+**Key characteristics of Test|Task Teardown:**
+
+- Executed after the test|task has been executed, regardless of its status.
+- Runs even if the Test|Task Setup fails.
+- If the Test|Task Teardown fails, the test|task is marked as failed in reports and logs.
+- All keywords within the Test|Task Teardown are executed even if one of them fails.
+- Can be set globally for all tests|tasks in a suite and overridden locally.
+
+**Typical use cases:**
+
+- Logging out of an application after a test|task completes.
+- Deleting test data created during the test|task.
+- Restoring configurations altered during the test|task.
+
+**Example of defining a default Test|Task Teardown in the suite settings:**
+
+```robot
+*** Settings ***
+Test Teardown    Logout User  # Default Teardown for all tests
+
+
+*** Test Cases ***
+Test with Default Teardown
+    Login User
+    Do Some Testing
+
+Another Test with Default Teardown
+    Login User
+    Do Some other Testing
+
+Custom Teardown Test
+    Perform Test Steps
+    [Teardown]    Cleanup Specific Data
+
+No Teardown Test
+    Perform Other Steps
+    [Teardown]    NONE
+```
+
+In the above examples:
+
+- `Custom Teardown Test` overrides the default teardown with `Cleanup Specific Data`.
+- `No Teardown Test` disables the teardown entirely by specifying `NONE`.
+
+
+
+### Keyword Teardown
+
+A **Keyword Teardown** is executed after a user keyword body has been executed.
+It allows for cleanup actions specific to that keyword,
+i.e. ensuring that any resources used within the keyword are properly released independently of failed child keyword calls.
+
+For better readability it should be written as the last line of a keyword.
+
+**Key characteristics of Keyword Teardown:**
+- Executed after the keyword body has been executed, regardless of its status.
+- Runs even if the keyword's setup fails.
+- All keywords within the Keyword Teardown are executed even if one of them fails.
+
+**Typical use cases:**
+- Closing temporary files or connections opened within the keyword.
+- Resetting variables or states altered during keyword execution.
+- Logging additional information after keyword execution.
+
+**Example of defining a Keyword Teardown:**
+
+```robot
+*** Keywords ***
+Process Data
+    Open Data Connection
+    Process the Data
+    [Teardown]    Close Data Connection
+```
 
 
 
 
-## Suite Initialization Files
+## Initialization Files
+
+As Robot Framework automation projects grow, organizing tests|tasks into directories becomes essential for managing complexity and maintaining a clear structure.
+When suites are created from directories, these directories can contain multiple suites and tests|tasks, forming a hierarchical suite structure.
+However, directories alone cannot hold suite-level settings or information.
+To address this, Robot Framework uses **initialization files**, which allow you to define suite-level settings for directories.
+
+An **initialization file** is a file named `__init__.robot` placed inside a directory that acts as a suite.
+This file can contain suite-level settings that apply to the directory suite.
+
+
+
+### Purpose of Initialization Files
+
+Initialization files enable you to:
+
+- Define `Suite Setup` and `Suite Teardown` keywords for the directory suite.
+- Set the name of the suite with the `Name` setting if it shall be different from the directory name.
+- Specify suite-level settings such as `Documentation` and `Metadata`.
+- Set default `Test Setup`, `Test Teardown`, `Test Tags` and `Test Timeout` for all tests|tasks within the directory (these can be overridden/extended in lower-level suites or tests|tasks).
+
+**Important Note**: Variables and keywords defined or imported in the initialization file are **not** available to lower-level suites or tests|tasks.
+They are local to the initialization file itself.
+To share variables or keywords across multiple suites or tests|tasks, you should use resource files and import them where needed.
+
+
+
+### Suite Setup and Suite Teardown of Initialization Files
+
+As previously explained, **Suite Setup** and **Suite Teardown** are used to prepare and clean up the environment before and after a suite's execution.
+Initialization files provide a centralized place to define these setups and teardowns for all sub-suites and their tests|tasks within a directory structure.
+Therefore it is i.e. possible to define one Suite Setup that is executed at the very start of the execution before any other Suite Setup or Test Setup and Test is executed.
+The Suite Teardown of an initialization file is executed after all sub-suites in the directory and their tests|tasks have been executed.
+
+
+
+### Allowed Sections in Initialization Files
+
+Initialization files have the same structure and syntax as regular suite files but with some limitations.
+The following sections are allowed in initialization files:
+
+- **Settings Section (`*** Settings ***`)**:
+  - `Name`: Set a custom name for the suite directory.
+  - `Documentation`: Provide documentation for the suite.
+  - `Metadata`: Add metadata to the suite.
+  - `Suite Setup`: Define a keyword to be executed before any tests|tasks or child suites.
+  - `Suite Teardown`: Define a keyword to be executed after all tests|tasks and child suites have completed.
+  - `Test Setup`|`Task Setup`: Set a default setup keyword for all tests|tasks in the suite (can be overridden in lower-level suites or tests|tasks).
+  - `Test Teardown`|`Task Teardown`: Set a default teardown keyword for all tests|tasks in the suite (can be overridden in lower-level suites or tests|tasks).
+  - `Test Timeout`|`Task Timeout`: Define a default timeout for all tests|tasks in the suite (can be overridden in lower-level suites or tests|tasks).
+  - `Test Tags`|`Task Tags`: Assign tags to all tests|tasks in the suite (applied recursively to all lower-level suites and tests|tasks and can be extended or reduced there).
+  - `Library`, `Resource`, `Variables`: Import necessary libraries, resource files, or variable files.
+  - `Keyword Tags`: Assign tags to all keywords in local `*** Keywords ***` section.
+
+- **Variables Section (`*** Variables ***`)**:
+  - Define variables that are available to the initialization file.
+
+- **Keywords Section (`*** Keywords ***`)**:
+  - Define keywords that are available to the initialization file for Suite Setup, Suite Teardown, Test Setup, or Test Teardown.
+
+The allowed sections in initialization files are:
+- `*** Settings ***` (required)
+- `*** Variables ***` (optional)
+- `*** Keywords ***` (optional)
+- `*** Comments ***` (optional)
+
+
+
+### Example of an Initialization File
+
+```robot
+*** Settings ***
+Documentation    Initialization file for the Sample Suite
+Suite Setup      Initialize Environment
+Suite Teardown   Cleanup Environment
+
+
+*** Variables ***
+${BASE_URL}      http://example.com
+
+
+*** Keywords ***
+Initialize Environment
+    Start Server
+    Set Base URL    ${BASE_URL}
+    Import Dataset     ${BASE_URL}/imports    dataset=Config_C3
+    Verify Server Status    ${BASE_URL}   status=OK
+
+Cleanup Environment
+    Reset Database
+    Stop Server
+```
+
+
+
+
+## Test|Task Tags and Filtering Execution
+
+In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|tasks.
+Tags are free-form text labels that can be assigned to tests|tasks to provide metadata, enable flexible test selection, and organize test results.
+
+**Important Note**: Tags are case-insensitive in Robot Framework but the first appearance of a tag in a test|task is used as the tag name in reports and logs in its current case.
+
+
+
+### Assigning Tags to Tests|Tasks
+
+Tags can be assigned to tests|tasks in several ways:
+
+1. **At the Suite Level** using the `Test Tags` setting in the `*** Settings ***` section or in an initialization file (`__init__.robot`).
+This assigns tags to all tests|tasks within the suite:
+
+    ```robot
+    *** Settings ***
+    Test Tags    smoke    regression
+    ```
+
+    This will assign the tags `smoke` and `regression` to all tests|tasks in the suite.
+
+2. **At the Test|Task Level** using the `[Tags]` setting within individual tests|tasks. These tags are added in addition to any suite-level tags:
+
+    ```robot
+    *** Test Cases ***
+    Valid Login Test|Task
+        [Tags]    login    critical
+        Perform Login Steps
+    ```
+
+    This test|task will have the tags `login`, `critical`, and any tags assigned at the suite level.
+
+3. **Using Variables** in tags to dynamically assign tag values:
+
+    ```robot
+    *** Variables ***
+    ${ENV}    production
+
+    *** Test Cases ***
+    Data Processing Test|Task
+        [Tags]    environment:${ENV}
+        Process Data
+    ```
+
+    This test|task will have a tag `environment:production`.
+
+
+
+### Using Tags to Filter Execution
+
+Tags can be used to select which tests|tasks are executed or skipped when running a suite. This is accomplished using command-line options when executing Robot Framework.
+
+When filtering for tests|tasks with a specific tag, you shall always just use the lowercase version of the tag because possible logical operators are case-sensitive upper-case.
+`AND`, `OR` and `NOT` are the logical operators that can be used to combine tags in the filtering but **they are not part of that syllabus!**
+
+
+#### Including Tests|Tasks by Tags
+
+To include only tests|tasks that have a specific tag, use the `--include` (or `-i`) option followed by the tag name:
+
+```shell
+robot --include smoke path/to/tests
+```
+
+This command will execute only the tests|tasks that have the `smoke` tag.
+
+
+#### Excluding Tests|Tasks by Tags
+
+To exclude tests|tasks that have a specific tag, use the `--exclude` (or `-e`) option followed by the tag name:
+
+```shell
+robot --exclude slow path/to/tests
+```
+
+This command will execute all tests|tasks except those that have the `slow` tag.
+
+
+#### Combining Include and Exclude Options
+
+You can combine `--include` and `--exclude` options to fine-tune which tests|tasks are executed:
+
+```shell
+robot --include regression --exclude unstable path/to/tests
+```
+
+This command will execute tests|tasks that have the `regression` tag but exclude any that also have the `unstable` tag.
+
+
+#### Using Tag Patterns
+
+Tags can include patterns using wildcards `*` and `?` to match multiple tags:
+
+- `*` matches any number of characters.
+- `?` matches any single character.
+
+Examples:
+
+- Include tests|tasks with tags starting with `feature-`:
+
+  ```shell
+  robot --include feature-* path/to/tests
+  ```
+
+- Exclude tests|tasks with tags ending with `-deprecated`:
+
+  ```shell
+  robot --exclude *-deprecated path/to/tests
+  ```
+
+
+
+### Reserved Tags
+
+Tags starting with `robot:` are reserved for internal use by Robot Framework and should not be used in user-defined tags. Using tags with this prefix may lead to unexpected behavior in test execution and reporting.
+
+
+
+
+
+
 
 
 
@@ -22,9 +497,3 @@
 --variable
 --Pythonpath
 etc.
-
-
-
-
-## Tagging of Test|Tasks
-- Test Tags and --include/exclude

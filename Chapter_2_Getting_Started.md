@@ -111,7 +111,7 @@ In this section, the suite name, that is normally derived from the file name, ca
 
 Additional metadata can be defined by multiple `Metadata` entries, which can containd key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
 
-This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [Setup (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#setups-suite-testtask) and
+This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [Setup (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#setups-suite-testtask-keyword) and
 [Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#teardowns-suite-testtask-keyword) for more information.
 
 Additionally, some settings can define defaults for all tests|tasks in the suite, which can be extended or overwritten in the individual tests|tasks.
@@ -252,7 +252,6 @@ However, for better readability or in the case of documentation for adding line 
 
 > [!IMPORTANT]
 > LXX Be able to add in-line comments to suites. (K3)
-> LXX Understand how to escape control-characters in Robot Framework. (K2)
 
 In Robot Framework comments can be added to lines after the content
 by starting the comment with a separator (multiple spaces) and a hash `#`.
@@ -485,13 +484,17 @@ That means that a composite element like suite, test|task or User Keyword may be
 This status is used if an element was executed but encountered an error or exception that was not expected.
 
 A failure typically causes the subsequent keywords to be skipped.
+Exceptions are Teardowns explained in chapter [Advanced Structureing and Execition](Chapter_4_Advanced_Structuring_and_Execution.md).
 
 **Atomic elements** are `FAIL` if they were tried to be executed but raised an exception.
 
 **Composite elements** are `FAIL` if at least one of their executed direct body elements are `FAIL`.
 Therefore a failure typically distributes upwards through the hierarchy of elements until it reaches the root suite.
 
-A User Keywords is `FAIL` if one of its Library Keyword is `FAIL`, a test|task is `FAIL` if one of its User Keywords is `FAIL` and a suite (file) is `FAIL` if one of its test|task is `FAIL` a suite (directory) is `FAIL` if one of its suite (file) is `FAIL`.
+A User Keywords is `FAIL` if one of its called Library Keywords is `FAIL`.
+A test|task is `FAIL` if one of its directly called Keywords is `FAIL`.
+A suite (file) is `FAIL` if one of its test|task is `FAIL` and
+a suite (directory) is `FAIL` if one of its suites (file) is `FAIL`.
 
 
 
@@ -532,16 +535,19 @@ Both types of sources are using different syntax to import their keywords.
 > LXX Recall the three types of libraries in Robot Framework. (K1)
 
 From a user perspective there are three different kinds of libraries:
-- **Robot Framework Standard Libraries**: These are libraries that are shipped with Robot Framework and are available without any additional installation.
+- **Robot Framework Standard Libraries**: These are libraries that are shipped with Robot Framework and are available without any additional installation. See documentation of [ext: Robot Framework Standard Libraries](https://robotframework.org/robotframework/#standard-libraries) for more information.
 - **3rd Party Libraries** / **External Libraries**: These are libraries have been developed and maintained by community members and have to be installed/downloaded separately.
 - **Custom Libraries**: These libraries are developed by the users themselves to solve specific problems or to encapsulate more complex functionality
 
 Further more detailed information about the different types of libraries and are described in later chapters.
+<!-- TODO: Do we fulfill this promise? -->
 
 To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library.
 The name of the library is case-sensitive and should be taken from the library's keyword documentation.
 By default, libraries in Robot Framework are implemented in Python and the name of the library is the name of the Python module that contains the library implementation.
 Alternatively a library can be imported using the path to the Python module file. See [Import Paths](#import-paths).
+
+Be aware that the library [`BuiltIn`](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html) is always imported invisibly and does not need to be imported explicitly.
 
 Example:
 ```robotframework
@@ -642,7 +648,7 @@ Robot Framework offers the Keyword Documentation of its Standard Libraries at ht
 
 
 
-### Understanding Keyword Docs
+### Documented Keyword Information
 
 > [!IMPORTANT]
 > LXX List the information that can be found in a keyword documentation. (K1)
@@ -653,17 +659,19 @@ Each keyword documented does contain the following information:
 - **Name**: The name of the keyword as it is called.
 - **Arguments** (opt.): The argument interface that the keyword expects/offers its types and default values.
 - **Return Type** (opt.): The type of the return value of the keyword.
-- **Tags** (opt.): The tags that are assigned to the keyword to categorize keywords.
+- (*) **Tags** (opt.): The tags that are assigned to the keyword to categorize keywords.
 - **Documentation** (opt.): The documentation text that describes what the keyword does and how it should be used.
 
+(*) Keyword tags are not part of the syllabus.
 
-#### Example Keyword Documentation
+
+#### Example Keyword in Library Documentation
 
 The following keyword `Should Be Equal` is part of the BuiltIn Library and is documented as follows:
 
 **[Should Be Equal](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Should%20Be%20Equal)**
 
-*Arguments*
+<!-- *Arguments*
 - `first`
 - `second`
 - `msg` = `None`
@@ -679,19 +687,46 @@ Fails if the given objects are unequal.
 
 Optional msg, values and formatter arguments specify how to construct the error message if this keyword fails
 ...
-```
+``` -->
+
+![Should Be Equal Keyword Documentation](images/Should_Be_Equal_Docs.png)
+
 
 One example of a more extensive keyword documentation is the documentation of Robot Framework Browser library.
 <!-- I think we should provide a link to a keyword doc that uses types and return types, so that users can see what we are talking about.
 Open Keywords Docs that are fully typed and lets have a look to some basic things.
-I think it is imported to point out the type of arguments in comparison the type of setting an argument. See next-->
+I think it is imported to point out the type of arguments in comparison the type of setting an argument. See next
+
+
+GerwinLaagland
+
+A link towards the "Browser" documentation, is missing. But also mention it's a 3rd party / External Library.
+
+Author
+ Snooz82
+
+that is now a tricky part.
+
+I would on the one hand loosen the connection of RF with SeleniumLibrary and not just move it to Browser.
+
+SL however is not a good example of a well typed library.
+So this one is out of discussion.
+
+I would actually like to see the BuiltIn being typed, so that we wouldn't need to refer to Browser.
+
+I will revisit it.
+
+GerwinLaagland
+
+I think you're correct in that we should maintain neutrality, and be careful on referring to external libraries. It's a good principle to keep in mind for any Foundation documentation. 👍
+-->
 
 
 
 ### Keyword Arguments
 
 > [!IMPORTANT]
-> LXX Understand the difference between argument kinds and the way of calling them. (K2)
+> LXX Understand the difference between argument kinds. (K2)
 
 Most library keywords can be parameterized with arguments that are passed to the keyword when it is called to customize its behavior.
 As more business oriented keywords are as less arguments they typically have.
@@ -707,7 +742,7 @@ There are also other special kinds of arguments like **Named-Only Arguments**, *
 #### Mandatory Arguments
 
 > [!IMPORTANT]
-> LXX Understand the concept of mandatory arguments and how they are used. (K2)
+> LXX Understand the concept of mandatory arguments and how they are documented. (K2)
 
 Arguments that do not have a default value, must be set when the keyword is called.
 These arguments are listed first in the argument interface.
@@ -740,7 +775,7 @@ Two arguments are mandatory and additional six arguments are optional in the `Sh
 #### Optional Arguments
 
 > [!IMPORTANT]
-> LXX Understand the concept of optional arguments and how they are used. (K2)
+> LXX Understand the concept of optional arguments and how they are documented. (K2)
 
 Arguments that have a default value can be omitted when the keyword is called, causing these arguments to be set to their default value.
 These arguments are listed after the mandatory arguments in the argument interface.
@@ -756,7 +791,7 @@ Omitting some optional arguments but still using others is possible independent 
 #### Embedded Arguments
 
 > [!IMPORTANT]
-> LXX Recall the concept of embedded arguments and how they are used. (K1)
+> LXX Recall the concept of embedded arguments and how they are documented. (K1)
 
 Keywords can have arguments embedded into their names, which is used mostly for Behavior-Driven Specification (BDD).
 
@@ -795,8 +830,7 @@ Library Keywords may define the expected types of their argument values.
 Robot Framework specification is mostly done as a string-based language, therefore most statically defined argument values are strings.
 However, the actual implementation of the keyword may expect a different type of argument, like an integer.
 
-Defining type hints for arguments is a recommended way to let Robot Framework convert the given arguments to the expected type.
-Because Python is dynamically typed, and type hints are optional in code and were introduced many years after the Robot Framework was created, the majority of libraries do not define the expected types of their arguments. Some more modern or more complex libraries do define the expected types of their arguments.
+Defining types for arguments is nowadays the recommended way to let Robot Framework convert the given arguments to the expected type, however it is optional.
 
 Lets imagine a keyword that clicks on a specific coordinate on the screen, i.e. `Click On Coordinates`.
 This keyword would expect two integer arguments, one for the `x`-coordinate and one for the `y`-coordinate.
@@ -1001,7 +1035,7 @@ Send 5 IPv4 Pings On Windows
 ### Named Arguments
 
 > [!IMPORTANT]
-> LXX Understand the concept of how to set argument values named. (K2)
+> LXX Understand the concept of named arguments and how to set argument values by their name. (K2)
 
 Keyword Calls with non-obvious arguments should use named argument calls if possible.
 Also setting one optional argument but leaving the others at their default value is an indication to use named arguments.
@@ -1022,17 +1056,17 @@ The argument `first` did get the value `second=2` and the argument `second` did 
 #### Named-Only Arguments
 
 > [!IMPORTANT]
-> LXX Recall named-only arguments and when the exist. (K1)
+> LXX Recall named-only arguments and where they are located. (K1)
 
 All arguments that are defined after a variable number of positional arguments (`*varargs`) are named-only arguments.
 Those arguments can not be set positionally because all positional values are consumed by the variable number of positional arguments.
-So the must be set by their name followed by an equal sign `=` and the value of the argument.
+So they must be set by their name followed by an equal sign `=` and the value of the argument.
 
 
 #### Free Named Arguments
 
 > [!IMPORTANT]
-> LXX Recall how ree named arguments are marked in documentation and when they are used. (K1)
+> LXX Recall how free named arguments are marked in documentation. (K1)
 
 Another special case of named arguments are free named arguments.
 Those arguments are similar to the variable number of positional arguments,
@@ -1058,9 +1092,12 @@ Send 5 IPv4 Pings On Windows
 ### Embedded Arguments / Using Behavior-Driven Specification
 
 > [!IMPORTANT]
-> LXX Recall the concept of embedded arguments and how they are used. (K1)
+> LXX Recall how to use enbedded arguments. (K1)
 
 Embedded Arguments are mainly used when writing Behavior-Driven Specification.
-Embedded Arguments are part of the keyword name as described in [Embedded Args](#embedded-args).
+Embedded Arguments are part of the keyword name as described in [Embedded Arguments](#embedded-arguments).
 
-TODO: Explain more how to use Behavior Driven Specification and how to use Embedded Arguments.
+<!-- TODO: Explain more how to use Behavior Driven Specification and how to use Embedded Arguments.
+
+Review again, if we have to write stuff here that is not already documented somewhere else.
+ -->

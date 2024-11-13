@@ -11,7 +11,8 @@ and it defines the knowledge a participant shall have to pass the exam.
 The syllabus is divided into sections that progress logically from basic concepts to more advanced topics of Robot Framework.
 
 The learning objectives (LOs) specified within this document are binding,
-meaning they define the specific knowledge and skills participants are expected to acquire by the end of the course to pass the exam.
+meaning they define the specific knowledge and skills participants are expected to acquire during the course in order to pass the exam.
+Therefore, trainers are required to effectively cover the syllabus within their course.
 Additionally, the recommended sequence of topics in this syllabus helps guide the order of learning,
 but the specific teaching methods, order and pace may be adapted by the instructor based on class dynamics or need.
 
