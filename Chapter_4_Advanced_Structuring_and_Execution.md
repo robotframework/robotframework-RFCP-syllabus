@@ -10,6 +10,9 @@ Additionally, filtering subsets of tests|tasks based on tags will be discussed, 
 
 ## Setups (Suite, Test|Task, Keyword)
 
+> [!IMPORTANT]
+> LXX Recall the different Setup types (K1)
+
 Setups in Robot Framework are used to prepare the environment or system for execution or verifies that the requirements/preconditions needed to execution are met.
 They can be defined at the suite, test|task, or keyword level and are executed before the respective scope begins execution.
 
@@ -26,8 +29,13 @@ Examples of typical use cases for Setups are:
 
 ### Suite Setup
 
+> [!IMPORTANT]
+> LXX Recall key characteristics and syntax of Suite Setup (K1)
+> LXX Understand when Suite Setup is beneficial (K2)
+
 A **Suite Setup** is executed before any tests|tasks or child suites within the suite are run.
 It is used to prepare the environment or perform actions that need to occur before the entire suite runs.
+Because it is only executed once before all tests|tasks or child suites it can save time, instead of executing the action for each test|task again.
 
 **Key characteristics of Suite Setup:**
 - Executed before any tests|tasks and child suites in the suite.
@@ -52,6 +60,10 @@ Suite Setup    Initialize Environment   dataset=Config_C3
 
 ### Test|Task Setup
 
+> [!IMPORTANT]
+> LXX Recall key characteristics and syntax of Test Setup (K1)
+> LXX Understand when Test Setup is beneficial (K2)
+
 A **Test|Task Setup** is executed before a single test|task runs.
 It is used to prepare the specific conditions required for that test|task.
 
@@ -71,8 +83,8 @@ To disable the setup for a specific test|task, you can set `[Setup]    NONE`, wh
 
 **Typical use cases:**
 
-- Logging in with specific user credentials.
 - Setting up test data unique to the test|task.
+- Distinguishing keywords of a test
 - Executing preparation steps to navigate to the feature under test.
 
 **Example of defining a default Test|Task Setup in the suite settings and overriding on test case:**
@@ -106,6 +118,9 @@ In the above examples:
 
 
 ### Keyword Setup
+
+> [!IMPORTANT]
+> LXX Recall key characteristics and syntax of Keyword Setup (K1)
 
 A **Keyword Setup** is executed before the body of a user keyword is executed.
 It allows for preparation steps specific to that keyword or ensures that the keyword's requirements are met before execution
@@ -159,6 +174,10 @@ reducing dependencies between tests|tasks and improving the reliability of your 
 
 ### Suite Teardown
 
+> [!IMPORTANT]
+> LXX Recall key characteristics and syntax of Suite Teardown (K1)
+> LXX Understand when Suite Teardown is beneficial (K2)
+
 A **Suite Teardown** is executed after all tests|tasks and all child suites in a suite have been executed.
 It is used for cleaning up the environment or performing actions that need to occur after the entire suite has finished running.
 The Suite Teardown is executed regardless of the outcome of the tests|tasks within the suite, even if the suite setup fails.
@@ -180,6 +199,10 @@ Suite Teardown    Close All Resources   force=True
 
 
 ### Test|Task Teardown
+
+> [!IMPORTANT]
+> LXX Recall key characteristics and syntax of Test|Task Teardown (K1)
+> LXX Understand when Test|Task Teardown is beneficial (K2)
 
 A **Test|Task Teardown** is executed after a single test|task body has been executed.
 It is used for cleaning up actions specific to that test|task.
@@ -241,6 +264,9 @@ In the above examples:
 
 ### Keyword Teardown
 
+> [!IMPORTANT]
+> LXX Recall key characteristics and syntax of Keyword Teardown (K1)
+
 A **Keyword Teardown** is executed after a user keyword body has been executed.
 It allows for cleanup actions specific to that keyword,
 i.e. ensuring that any resources used within the keyword are properly released independently of failed child keyword calls.
@@ -284,6 +310,9 @@ This file can contain suite-level settings that apply to the directory suite.
 
 ### Purpose of Initialization Files
 
+> [!IMPORTANT]
+> LXX Recall the purpose and possibilities of Initialization Files (K1)
+
 Initialization files enable you to:
 
 - Define `Suite Setup` and `Suite Teardown` keywords for the directory suite.
@@ -291,13 +320,12 @@ Initialization files enable you to:
 - Specify suite-level settings such as `Documentation` and `Metadata`.
 - Set default `Test Setup`, `Test Teardown`, `Test Tags` and `Test Timeout` for all tests|tasks within the directory (these can be overridden/extended in lower-level suites or tests|tasks).
 
-**Important Note**: Variables and keywords defined or imported in the initialization file are **not** available to lower-level suites or tests|tasks.
-They are local to the initialization file itself.
-To share variables or keywords across multiple suites or tests|tasks, you should use resource files and import them where needed.
-
 
 
 ### Suite Setup and Suite Teardown of Initialization Files
+
+> [!IMPORTANT]
+> LXX Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests|tasks (K2)
 
 As previously explained, **Suite Setup** and **Suite Teardown** are used to prepare and clean up the environment before and after a suite's execution.
 Initialization files provide a centralized place to define these setups and teardowns for all sub-suites and their tests|tasks within a directory structure.
@@ -308,10 +336,13 @@ The Suite Teardown of an initialization file is executed after all sub-suites in
 
 ### Allowed Sections in Initialization Files
 
+> [!IMPORTANT]
+> LXX Recall the allowed sections and their content in Initialization Files (K1)
+
 Initialization files have the same structure and syntax as regular suite files but with some limitations.
 The following sections are allowed in initialization files:
 
-- **Settings Section (`*** Settings ***`)**:
+- **`*** Settings ***` Section (required)**:
   - `Name`: Set a custom name for the suite directory.
   - `Documentation`: Provide documentation for the suite.
   - `Metadata`: Add metadata to the suite.
@@ -324,17 +355,23 @@ The following sections are allowed in initialization files:
   - `Library`, `Resource`, `Variables`: Import necessary libraries, resource files, or variable files.
   - `Keyword Tags`: Assign tags to all keywords in local `*** Keywords ***` section.
 
-- **Variables Section (`*** Variables ***`)**:
-  - Define variables that are available to the initialization file.
+- **`*** Variables ***` Section (optional)**:
 
-- **Keywords Section (`*** Keywords ***`)**:
-  - Define keywords that are available to the initialization file for Suite Setup, Suite Teardown, Test Setup, or Test Teardown.
+  Define variables that are available to the initialization file.
 
-The allowed sections in initialization files are:
-- `*** Settings ***` (required)
-- `*** Variables ***` (optional)
-- `*** Keywords ***` (optional)
-- `*** Comments ***` (optional)
+- **`*** Keywords ***` Section (optional)**:
+
+  Define keywords that are available to the initialization file for Suite Setup, Suite Teardown, Test Setup, or Test Teardown.
+
+- **`*** Comments ***` Section (option)**:
+
+  Add comments to the initialization file.
+
+
+**Important Note**: Variables and keywords defined or imported in the initialization file are **not** available to lower-level suites or tests|tasks.
+They are local to the initialization file itself.
+To share variables or keywords across multiple suites or tests|tasks,
+you should use resource files and import them where needed.
 
 
 
@@ -368,14 +405,22 @@ Cleanup Environment
 
 ## Test|Task Tags and Filtering Execution
 
+> [!IMPORTANT]
+> LXX Recall the purpose of Test|Task Tags in Robot Framework (K1)
+
 In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|tasks.
 Tags are free-form text labels that can be assigned to tests|tasks to provide metadata, enable flexible test selection, and organize test results.
+
+Tags are also used to create a statistical summary of the test|task results in the execution protocols.
 
 **Important Note**: Tags are case-insensitive in Robot Framework but the first appearance of a tag in a test|task is used as the tag name in reports and logs in its current case.
 
 
 
 ### Assigning Tags to Tests|Tasks
+
+> [!IMPORTANT]
+> LXX Recall the syntax and different ways to assign tags to tests|tasks (K1)
 
 Tags can be assigned to tests|tasks in several ways:
 
@@ -417,6 +462,9 @@ This assigns tags to all tests|tasks within the suite:
 
 
 ### Using Tags to Filter Execution
+
+> [!IMPORTANT]
+> LXX Understand how to filter tests|tasks using the command line interface of Robot Framework (K2)
 
 Tags can be used to select which tests|tasks are executed or skipped when running a suite. This is accomplished using command-line options when executing Robot Framework.
 
@@ -487,13 +535,10 @@ Tags starting with `robot:` are reserved for internal use by Robot Framework and
 
 
 
-
-
-
-
-
-
 ## Advanced Execution Control
---variable
---Pythonpath
-etc.
+
+
+
+### Python Path?
+
+<!-- Shall be handled in Importing of Resource Files and Libraries or Chapter 5? -->

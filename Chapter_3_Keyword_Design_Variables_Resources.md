@@ -399,20 +399,19 @@ For more details on this topic, refer to the section on [Variable Scope](Chapter
 ### Variable Scope Introduction
 
 > [!IMPORTANT]
-> LXX Recall the different scopes of variables in Robot Framework (K1)
-> LXX Understand how `local` and `suite` scope variables are created by default (K2)
+> LXX Understand how `local` and `suite` scope variables are created (K2)
 
 In Robot Framework, variables have different scopes, which define where they can be accessed and used. Understanding the scope of variables is crucial for managing data within tests and keywords.
 
-1. **Local Scope**: Variables created within a test|task or keyword, by assignment of return values or `VAR` statement, are by default local to that specific test|task or keyword. They cannot be accessed outside of that block and are destroyed once the block is completed. This means that a local variable created in one test|task cannot be accessed inside the body of a called keyword or a subsequent test|task.
+- **`LOCAL` Scope**: Variables created within a test|task or keyword, by **assignment of return values**, as keyword arguments or **`VAR`** statement, are by default `LOCAL` to that specific test|task or keyword body.
 
-2. **Test|Task Scope**: Variables with test|task scope are available throughout the execution of a specific test|task. They can be created within the test|task by, for example, `VAR` statement inside the test|task body with a special `scope=` setting or called library keyword. They are accessible in all called keywords during the execution of this particular test|task.
+  They cannot be accessed outside of that block and are destroyed once the block is completed. This means that a local variable created in one test|task can neither be accessed inside the body of a called keyword nor in a subsequent test|task or other keywords.
 
-3. **Suite Scope**: Variables defined at the suite level, for example in the `*** Variables ***` section or through resource files, are available to all tests|tasks and keywords called within the suite.
+- **`SUITE` Scope**: Variables defined at the suite level, for example in the `*** Variables ***` section or through importing resource files, are available to all tests|tasks and keywords called within the suite.
 
-4. **Global Scope**: Variables with global scope are available throughout the entire test execution, across all suites, inside all tests|tasks and keywords. These variables can be set by command-line arguments or `VAR` statement with a special `scope=` setting and should be used cautiously to avoid conflicts and ensure test|task independence.
+  That means that they can be accessed inside a keyword, called from a test|task of that suite even, if this variable is not created as part of the argument interface of that keyword.
 
-Examples and more details on variable scope can be found in the [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope) section.
+Examples and more details on variable scope, such as `TEST` and `GLOBAL` scope can be found in the [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope) section.
 
 
 
