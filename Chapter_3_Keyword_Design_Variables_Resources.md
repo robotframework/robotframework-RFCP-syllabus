@@ -73,7 +73,6 @@ The allowed sections in recommended order are:
 
 ## Variables
 
-<!-- LO: Understand how variables in Robot Framework are used to store and manage data (K2) -->
 > [!IMPORTANT]
 > LXX Understand how variables in Robot Framework are used to store and manage data (K2)
 > LXX Recall the relevant five different ways to create and assign variables(K1)
@@ -86,7 +85,7 @@ Variables can be created and assigned in various ways, such as:
 - Capturing return values from keywords. (see [Return values from keywords](#return-values-from-keywords))
 - Inline assignment using the `VAR` statement. (see [`VAR` statement](#var-statement))
 - As arguments passed to keywords. (see [User Keyword Arguments](#user-keyword-arguments))
-- By the command line interface of Robot Framework. (See [Advanced Execution Control](Chapter_4_Advanced_Structuring_and_Execution.md#advanced-execution-control))
+- By the command line interface of Robot Framework. (See [Global Variables via Command Line](Chapter_5_Exploring_Advanced_Constructs.md#global-variables-via-command-line))
 - (*) By internal implementation of library keywords.
 - (*) By importing variables from variable files.
 
@@ -116,8 +115,9 @@ Robot Framework, implemented in Python, can work with any object stored in varia
 - **Scalar Variables**: Store values as a single entity and are represented by the dollar-syntax `${variable_name}`.
 - **List-Like Variables**: Store multiple values in a list-like structure. They are created using the at-syntax `@{list-variable_name}`.
 - **Dictionary-Like Variables**: Store key-value pairs in a dictionary-like structure. They are created using the ampersand-syntax `&{dictionary-variable_name}`.
+- **Environment Variables** (read-only): Read access to environments variables of the operating system unsing the percent-syntax `%{ENV_VAR_NAME}`.
 
-These three different syntactical handling methods allow the users to create and handle lists and dictionaries natively in Robot Framework.
+These different syntactical handling methods allow the users to also create and handle lists and dictionaries natively in Robot Framework.
 However, these prefixes just define the access type to the variable, and the actual data stored in the variable can be of any type, including strings, numbers, lists, dictionaries, or even objects.
 
 When creating variables, different syntax is used to define the type of the variable as described in the next sections,
@@ -126,8 +126,6 @@ More details about list-like and dictionary-like variables,
 and when to use `@` or `&` when accessing these variables,
 can be found in the [Advanced Variables](Chapter_5_Exploring_Advanced_Constructs.md#advanced-variables) chapter.
 
-
-Additionally to these variable types, Robot Framework also supports access to environment variables, which can be accessed using the syntax `%{ENV_VAR_NAME}` respectively.
 <!-- TODO fix the link -->
 
 
@@ -141,6 +139,9 @@ Additionally to these variable types, Robot Framework also supports access to en
 Variables can be defined in the `*** Variables ***` section of a suite file or resource file
 and used across the suite where they were defined, or
 in case they are defined in a Resource File, in any file that has imported that Resource File.
+
+This section is evaluated before any other section in a resource or suite file,
+and therefore variables defined here can be used in any other section of the file.
 
 This section is typically used to define constants or to initialize variables that may be re-assigned during execution and more globally used.
 
