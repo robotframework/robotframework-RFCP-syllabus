@@ -2,7 +2,7 @@
 
 | Term                                            | Definition                                                                                                                          |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Behavior Driven**                             | A testing methodology that encourages collaboration between developers, QA, and non-technical stakeholders to define test cases.    |
+| **Behavior-Driven**                             | A testing methodology that encourages collaboration between developers, QA, and non-technical stakeholders to define test cases.    |
 | **Data-Driven Specification**                   | A testing approach where test cases are executed with multiple sets of data to validate functionality.                              |
 | **Generic Test Automation Architecture (gTAA)** | A framework that provides a structured approach to test automation, promoting reusability and maintainability.                      |
 | **Keywords**                                    | Reusable functions or actions defined in the test automation framework.                                                             |
