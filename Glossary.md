@@ -6,7 +6,7 @@
 | **Data-Driven Specification**                   | A testing approach where test cases are executed with multiple sets of data to validate functionality.                              |
 | **Generic Test Automation Architecture (gTAA)** | A framework that provides a structured approach to test automation, promoting reusability and maintainability.                      |
 | **Keywords**                                    | Reusable functions or actions defined in the test automation framework.                                                             |
-| **Keywords Driven**                             | A testing approach where test cases are defined using keywords that represent actions or operations.                                |
+| **Keyword-Driven**                             | A testing approach where test cases are defined using keywords that represent actions or operations.                                |
 | **Library**                                     | A collection of keywords and functions that can be used in test automation.                                                         |
 | **Libdoc**                                      | A tool used to generate keyword documentation for libraries and resource files.                                                     |
 | **Rebot**                                       | The main executable used to execute suites and post-process execution results to generate reports.                                  |
