@@ -1,4 +1,4 @@
-# Chapter 4: Advanced Structuring and Execution
+# 4 Advanced Structuring and Execution
 
 As a Robot Framework automation project expands, the increasing number of tests|tasks adds complexity to the project.
 This chapter explores advanced structuring and execution techniques to effectively manage this complexity and control the execution flow.
@@ -9,7 +9,7 @@ Additionally, filtering subsets of tests|tasks based on tags will be discussed, 
 
 
 
-## Setups (Suite, Test|Task, Keyword)
+## 4.1 Setups (Suite, Test|Task, Keyword)
 
 > [!IMPORTANT]
 > LXX Recall the different Setup types (K1)
@@ -28,7 +28,7 @@ Examples of typical use cases for Setups are:
 
 
 
-### Suite Setup
+### 4.1.1 Suite Setup
 
 > [!IMPORTANT]
 > LXX Recall key characteristics and syntax of Suite Setup (K1)
@@ -59,7 +59,7 @@ Suite Setup    Initialize Environment   dataset=Config_C3
 
 
 
-### Test|Task Setup
+### 4.1.2 Test|Task Setup
 
 > [!IMPORTANT]
 > LXX Recall key characteristics and syntax of Test Setup (K1)
@@ -114,7 +114,7 @@ In the above examples:
 
 
 
-### Keyword Setup
+### 4.1.3 Keyword Setup
 
 > [!IMPORTANT]
 > LXX Recall key characteristics and syntax of Keyword Setup (K1)
@@ -144,7 +144,7 @@ Process Data
 
 
 
-## Teardowns (Suite, Test|Task, Keyword)
+## 4.2 Teardowns (Suite, Test|Task, Keyword)
 
 In automation, tests|tasks are typically executed in a linear sequence.
 This linear execution can lead to issues when a preceding test|task fails, potentially affecting subsequent tests|tasks due to an unclean state of the system under test or the automated environment.
@@ -167,7 +167,7 @@ reducing dependencies between tests|tasks and improving the reliability of your 
 
 
 
-### Suite Teardown
+### 4.2.1 Suite Teardown
 
 > [!IMPORTANT]
 > LXX Recall key characteristics and syntax of Suite Teardown (K1)
@@ -192,7 +192,7 @@ Suite Teardown    Close All Resources   force=True
 
 
 
-### Test|Task Teardown
+### 4.2.2 Test|Task Teardown
 
 > [!IMPORTANT]
 > LXX Recall key characteristics and syntax of Test|Task Teardown (K1)
@@ -253,7 +253,7 @@ In the above examples:
 
 
 
-### Keyword Teardown
+### 4.2.3 Keyword Teardown
 
 > [!IMPORTANT]
 > LXX Recall key characteristics and syntax of Keyword Teardown (K1)
@@ -287,7 +287,7 @@ Process Data
 
 
 
-## Initialization Files
+## 4.3 Initialization Files
 
 As Robot Framework automation projects grow, organizing tests|tasks into directories becomes essential for managing complexity and maintaining a clear structure.
 When suites are created from directories, these directories can contain multiple suites and tests|tasks, forming a hierarchical suite structure.
@@ -299,7 +299,7 @@ This file can contain suite-level settings that apply to the directory suite.
 
 
 
-### Purpose of Initialization Files
+### 4.3.1 Purpose of Initialization Files
 
 > [!IMPORTANT]
 > LXX Recall the purpose and possibilities of Initialization Files (K1)
@@ -312,7 +312,7 @@ Initialization files enable you to:
 
 
 
-### Suite Setup and Suite Teardown of Initialization Files
+### 4.3.2 Suite Setup and Suite Teardown of Initialization Files
 
 > [!IMPORTANT]
 > LXX Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests|tasks (K2)
@@ -324,7 +324,7 @@ The Suite Teardown of an initialization file is executed after all sub-suites in
 
 
 
-### Allowed Sections in Initialization Files
+### 4.3.3 Allowed Sections in Initialization Files
 
 > [!IMPORTANT]
 > LXX Recall the allowed sections and their content in Initialization Files (K1)
@@ -364,7 +364,7 @@ use resource files and import them where needed.
 
 
 
-### Example of an Initialization File
+### 4.3.4 Example of an Initialization File
 
 ```robotframework
 *** Settings ***
@@ -392,7 +392,7 @@ Cleanup Environment
 
 
 
-## Test|Task Tags and Filtering Execution
+## 4.4 Test|Task Tags and Filtering Execution
 
 > [!IMPORTANT]
 > LXX Recall the purpose of Test|Task Tags in Robot Framework (K1)
@@ -406,7 +406,7 @@ Tags are also used to create a statistical summary of the test|task results in t
 
 
 
-### Assigning Tags to Tests|Tasks
+### 4.4.1 Assigning Tags to Tests|Tasks
 
 > [!IMPORTANT]
 > LXX Recall the syntax and different ways to assign tags to tests|tasks (K1)
@@ -450,7 +450,7 @@ Tags can be assigned to tests|tasks in several ways:
 
 
 
-### Using Tags to Filter Execution
+### 4.4.2 Using Tags to Filter Execution
 
 > [!IMPORTANT]
 > LXX Understand how to filter tests|tasks using the command-line interface of Robot Framework (K2)
@@ -461,7 +461,7 @@ When filtering for tests|tasks with a specific tag, you should always use the lo
 `AND`, `OR`, and `NOT` are the logical operators that can be used to combine tags in the filtering, but **they are not part of this syllabus!**
 
 
-#### Including Tests|Tasks by Tags
+#### 4.4.2.1 Including Tests|Tasks by Tags
 
 To include only tests|tasks that have a specific tag, use the `--include` (or `-i`) option followed by the tag name:
 
@@ -472,7 +472,7 @@ robot --include smoke path/to/tests
 This command will execute only the tests|tasks that have the `smoke` tag.
 
 
-#### Excluding Tests|Tasks by Tags
+#### 4.4.2.2 Excluding Tests|Tasks by Tags
 
 To exclude tests|tasks that have a specific tag, use the `--exclude` (or `-e`) option followed by the tag name:
 
@@ -483,7 +483,7 @@ robot --exclude slow path/to/tests
 This command will execute all tests|tasks except those that have the `slow` tag.
 
 
-#### Combining Include and Exclude Options
+#### 4.4.2.3 Combining Include and Exclude Options
 
 You can combine `--include` and `--exclude` options to fine-tune which tests|tasks are executed:
 
@@ -494,7 +494,7 @@ robot --include regression --exclude unstable path/to/tests
 This command will execute tests|tasks that have the `regression` tag but exclude any that also have the `unstable` tag.
 
 
-#### Using Tag Patterns
+#### 4.4.2.4 Using Tag Patterns
 
 Tags can include patterns using wildcards `*` and `?` to match multiple tags:
 
@@ -516,17 +516,17 @@ Examples:
 
 
 
-### Reserved Tags
+### 4.4.3 Reserved Tags
 
 Tags starting with `robot:` are reserved for internal use by Robot Framework and should not be used in user-defined tags. Using tags with this prefix may lead to unexpected behavior in test execution and reporting.
 
 
 
 
-## Advanced Execution Control
+## 4.5 Advanced Execution Control
 
 
 
-### Python Path?
+### 4.5.1 Python Path?
 
 <!-- Shall be handled in Importing of Resource Files and Libraries or Chapter 5? -->
