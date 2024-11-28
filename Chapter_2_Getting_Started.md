@@ -111,19 +111,19 @@ In this section, the suite name, that is normally derived from the file name, ca
 
 Additional metadata can be defined by multiple `Metadata` entries, which can containd key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
 
-This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [Setup (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#setups-suite-testtask-keyword) and
-[Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#teardowns-suite-testtask-keyword) for more information.
+This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [4.1 Setups (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#41-setups-suite-testtask-keyword) and
+[4.2 Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#42-teardowns-suite-testtask-keyword) for more information.
 
 Additionally, some settings can define defaults for all tests|tasks in the suite, which can be extended or overwritten in the individual tests|tasks.
 Those settings are prefixed with either `Test` or `Task`, according to the type of suite and the following section type (`*** Test Cases ***` or `*** Tasks ***`), like `Test Timeout`, while the local setting is in square brackets and without the prefix like: `[Timeout]`.
 
 
-- `Test Setup`/`Task Setup` (locally: `[Setup]`) and `Test Teardown`/`Task Teardown` (locally `[Teardown]`) define which keywords are executed before and after each individual test|task. The local setting overrides the suite's default. See [Setup (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#setups-suite-testtask) and
-[Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#teardowns-suite-testtask-keyword) for more information.
+- `Test Setup`/`Task Setup` (locally: `[Setup]`) and `Test Teardown`/`Task Teardown` (locally `[Teardown]`) define which keywords are executed before and after each individual test|task. The local setting overrides the suite's default. See [4.1 Setups (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#41-setups-suite-testtask-keyword) and
+[4.2 Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#42-teardowns-suite-testtask-keyword) for more information.
 
 - `Test Timeout`/`Task Timeout` (locally `[Timeout]`) defines the maximum time a test|task is allowed to run before it is marked as failed. The local setting overrides the suite's default.
 
-- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks. The local setting appends or removes tags defined by the suite's default. See [Tagging of Test|Tasks](Chapter_4_Advanced_Structuring_and_Execution.md#tagging-of-testtasks) for more information.
+- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks. The local setting appends or removes tags defined by the suite's default. See [4.4 Test|Task Tags and Filtering Execution](Chapter_4_Advanced_Structuring_and_Execution.md#44-testtask-tags-and-filtering-execution) for more information.
 
 - `Test Template`/`Task Template` (locally `[Template]`) defines a template keyword that defines the test|task body and is typically used for Data-Driven Testing where each test has the same keywords but different argument data. The local setting overrides the suite's default.
 
@@ -142,7 +142,7 @@ This can either be a default value, that may be overwritten by globally defined 
 
 In some cases, these variables are also dynamically reassigned during the execution of the suite, but this is not recommended and should be avoided if possible, because this may lead to test|task runtime dependancies and errors caused by these side-effects that are hard to debug and find.
 
-See [`*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-variables--section) for more information about the `*** Variables ***` section.
+See [3.2.2 `*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#322--variables--section) for more information about the `*** Variables ***` section.
 
 
 #### 2.1.2.3 `*** Test Cases ***` or `*** Tasks ***` Section
@@ -159,7 +159,7 @@ These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be app
 
 One kind of this section is mandatory in suite files but is not allowed in resource files.
 
-See [Writing Test|Task and Calling Imported Keywords](#writing-testtask-and-calling-keywords) for more information about the `*** Test Cases ***` or `*** Tasks ***` section.
+See [2.6 Writing Test|Task and Calling Keywords](Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords) for more information about the `*** Test Cases ***` or `*** Tasks ***` section.
 
 <!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
 
@@ -182,7 +182,7 @@ and understandable by breaking down complex sequences into smaller, manageable p
 Defining keywords locally in this section enhances the maintainability of the tests|tasks within the suite,
 ensuring that even large and intricate suites remain well-structured and easy to manage.
 
-See [`*** Keywords ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-keywords--section) for more information about the `*** Keywords ***` section.
+See [3.3.1 `*** Keywords ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#331--keywords--section) for more information about the `*** Keywords ***` section.
 
 
 #### 2.1.2.5 `*** Comments ***` Section
@@ -281,7 +281,7 @@ if a specific character shall be interpreted as part of the value or as a contro
 
 Some examples are:
 - the `#` hash character that is used to start a comment as described above.
-- variables that are started by i.e. `${` (See [Variables](Chapter_3_Keyword_Design_Variables_Resources.md#variables))
+- variables that are started by i.e. `${` (See [3.2 Variables](Chapter_3_Keyword_Design_Variables_Resources.md#32-variables))
 - multiple spaces that are considered as separators
 - equal sign `=` that is used to assign named arguments to keywords
 
@@ -545,7 +545,7 @@ Further more detailed information about the different types of libraries and are
 To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library.
 The name of the library is case-sensitive and should be taken from the library's keyword documentation.
 By default, libraries in Robot Framework are implemented in Python and the name of the library is the name of the Python module that contains the library implementation.
-Alternatively a library can be imported using the path to the Python module file. See [Import Paths](#import-paths).
+Alternatively a library can be imported using the path to the Python module file. See [2.4.3 Import Paths](Chapter_2_Getting_Started.md#243-import-paths).
 
 Be aware that the library [`BuiltIn`](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html) is always imported invisibly and does not need to be imported explicitly.
 
@@ -571,12 +571,12 @@ Which keywords are available can be seen in the keyword documentation of the lib
 As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
 
 They share a similar structure and the same syntax as suite files, but they do not contain test cases or tasks.
-See [Basic Suite File Syntax](#basic-suite-file-syntax) for more information about the structure of suite files.
+See [2.2 Basic Suite File Syntax](Chapter_2_Getting_Started.md#22-basic-suite-file-syntax) for more information about the structure of suite files.
 
 They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
 
 To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
-See [Import Paths](#import-paths) for more information about the path to the resource file.
+See [2.4.3 Import Paths](Chapter_2_Getting_Started.md#243-import-paths) for more information about the path to the resource file.
 
 Resource files shall have the extension `.resource` to make it clear what they are.
 `.resource` and `.robot` extensions are also recognized by IDE extensions, supporting Robot Framework.
@@ -589,7 +589,7 @@ Resource    D:/keywords/central_keywords.resource
 ```
 
 See more about the structure of resource files in
-[Resource File Structure](Chapter_3_Keyword_Design_Variables_Resources.md#resource-file-structure)
+[3.1 Resource File Structure](Chapter_3_Keyword_Design_Variables_Resources.md#31-resource-file-structure)
 and how keywords and variables are created in the sections following that.
 
 
@@ -734,7 +734,7 @@ As more business oriented keywords are as less arguments they typically have.
 Keyword arguments can be grouped into different kinds.
 On the one hand you can group them by their definition kind and on the other hand by there usage kind.
 The most relevant distinction of definition kinds is between **Mandatory Arguments** and **Optional Arguments** and additionally **Embedded Arguments**.
-The relevant distinction of usage kinds is between using **Positional Arguments** and **Named Arguments**, which is described in [Writing Test|Task and Calling Imported Keywords](#writing-testtask-and-calling-keywords).
+The relevant distinction of usage kinds is between using **Positional Arguments** and **Named Arguments**, which is described in [2.6 Writing Test|Task and Calling Keywords](Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords).
 
 There are also other special kinds of arguments like **Named-Only Arguments**, **Free Named Arguments** or **Variable Number of Positional Arguments** which are less relevant for this syllabus.
 
@@ -785,7 +785,8 @@ i.e. the argument `msg` in the `Should Be Equal` keyword documentation has the d
 
 In that particular keyword these optional arguments can be used to activate some special features like ignoring the case of the compared strings or to provide a custom error message.
 
-Omitting some optional arguments but still using others is possible independent of their order setting these arguments by their name. See [Writing Test|Task and Calling Imported Keywords](#writing-testtask-and-calling-keywords).
+Omitting some optional arguments but still using others is possible independent of their order setting these arguments by their name. See [2.6 Writing Test|Task and Calling Keywords](Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords).
+
 
 
 #### 2.5.2.3 Embedded Arguments
@@ -1018,7 +1019,7 @@ Keyword Example:
 - `* arguments`
 - `** configuration`
 
-This keyword also has a named-only argument `** configuration` that is briefly explained in [Named-Only Arguments](#named-only-arguments).
+This keyword also has a named-only argument `** configuration` that is briefly explained in [2.6.2.1 Named-Only Arguments](Chapter_2_Getting_Started.md#2621-named-only-arguments).
 
 When calling this keyword one or more positional arguments can be set, while the first positional argument is assigned to the `command` argument and all subsequent positional arguments are assigned to the `arguments` argument and will be available as a list in the keyword implementation.
 They are optional and can be omitted.
@@ -1095,7 +1096,7 @@ Send 5 IPv4 Pings On Windows
 > LXX Recall how to use enbedded arguments. (K1)
 
 Embedded Arguments are mainly used when writing Behavior-Driven Specification.
-Embedded Arguments are part of the keyword name as described in [Embedded Arguments](#embedded-arguments).
+Embedded Arguments are part of the keyword name as described in [2.5.2.3 Embedded Arguments](Chapter_2_Getting_Started.md#2523-embedded-arguments).
 
 <!-- TODO: Explain more how to use Behavior Driven Specification and how to use Embedded Arguments.
 

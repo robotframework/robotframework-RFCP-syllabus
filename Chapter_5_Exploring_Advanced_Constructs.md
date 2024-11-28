@@ -11,7 +11,7 @@ Even though it is NOT expected that Robot Framework Certified Professionals will
 
 Variables in Robot Framework and programming languages, in general, can be more complex and store multiple different types of data.
 Robot Framework also offers various ways to create different kinds of values and types.
-However, the built-in language support is limited to the very basic [Primitive Data Types](Chapter_3_Keyword_Design_Variables_Resources.md#primitive-data-types), [Lists](Chapter_3_Keyword_Design_Variables_Resources.md#list-variable-definition), and [Dictionaries](Chapter_3_Keyword_Design_Variables_Resources.md#dictionary-variable-definition).
+However, the built-in language support is limited to the very basic [3.2.2.2 Primitive Data Types](Chapter_3_Keyword_Design_Variables_Resources.md#3222-primitive-data-types), [3.2.2.3 List Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3223-list-variable-definition), and [3.2.2.4 Dictionary Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3224-dictionary-variable-definition).
 
 This chapter provides more advanced knowledge about the different variable scopes, lists, dictionaries, their syntax, and some background on the most important Built-In Variables.
 
@@ -48,11 +48,11 @@ The time of definition has the greatest impact on the priority of these variable
 
 In descending order, the priority is as follows:
 
-1. **Global Command-Line Variables**: Variables defined via command-line options like `--variable` or `--variablefile` have the highest priority. See [Global Variables via Command Line](#global-variables-via-command-line) for more details.
+1. **Global Command-Line Variables**: Variables defined via command-line options like `--variable` or `--variablefile` have the highest priority. See [5.1.3 Global Variables via Command Line](Chapter_5_Exploring_Advanced_Constructs.md#513-global-variables-via-command-line) for more details.
 
-2. **`*** Variables ***` Section**: Variables defined in the `*** Variables ***` section of a suite are set before any resource file from the `*** Settings ***` section is imported. See [`*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-variables--section) for more details.
+2. **`*** Variables ***` Section**: Variables defined in the `*** Variables ***` section of a suite are set before any resource file from the `*** Settings ***` section is imported. See [3.2.2 `*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#322--variables--section) for more details.
 
-3. **Resource Files**: Variables from resource files are imported in the order they are specified in the `*** Settings ***` section. See [Resource Files](Chapter_2_Getting_Started.md#resource-files) for more details.
+3. **Resource Files**: Variables from resource files are imported in the order they are specified in the `*** Settings ***` section. See [2.4.2 Resource Files](Chapter_2_Getting_Started.md#242-resource-files) for more details.
 
    Within a resource file, the same order applies: variables defined in the `*** Variables ***` section of a resource file have higher priority than variables imported from other resource files.
 
@@ -71,7 +71,7 @@ The rule of thumb here is: **"Last one wins!"**
 This is not entirely accurate, as the scope of a variable defines its lifetime and availability.
 As long as a variable is in scope, the last definition takes precedence over the previous ones.
 
-For example, a local variable defined as a [User Keyword Argument](Chapter_3_Keyword_Design_Variables_Resources.md#user-keyword-arguments) has a higher priority than a suite variable defined in the `*** Variables ***` section of the suite file.
+For example, a local variable defined as a [3.3.5 User Keyword Arguments](Chapter_3_Keyword_Design_Variables_Resources.md#335-user-keyword-arguments) has a higher priority than a suite variable defined in the `*** Variables ***` section of the suite file.
 However, once the keyword body scope is exited, the suite variable is back in scope with higher priority.
 
 
@@ -96,7 +96,7 @@ Variables in Robot Framework have different scopes, determining where they can b
 Because global variables set via the command line have the highest priority, they can override other variables defined in the suite or resource files.
 The most common use case for global variables is to define environment-specific or execution configurations, such as URLs, credentials, browser types, API keys, or similar data.
 
-See [Global Variables via Command Line](#global-variables-via-command-line) for more details.
+See [5.1.3 Global Variables via Command Line](Chapter_5_Exploring_Advanced_Constructs.md#513-global-variables-via-command-line) for more details.
 
 **Recommendation**:
 Global variables should always be defined using uppercase letters, like `${GLOBAL_VARIABLE}`, to distinguish them from local variables.
@@ -217,7 +217,7 @@ Only scalar string values are supported.
 
 ### 5.1.4 List-Variables (Advanced)
 
-As explained in the `*** Variables ***` section under [List Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#list-variable-definition), Robot Framework natively supports creating lists.
+As explained in the `*** Variables ***` section under [3.2.2.3 List Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3223-list-variable-definition), Robot Framework natively supports creating lists.
 However, the at-syntax `@{var}` has different meanings when assigning values versus accessing values.
 
 
@@ -271,13 +271,13 @@ Test List Variables
 
 In the first two cases, the keyword `Log Many` is called with three arguments; in the last case, it is called with only one argument, which is a list of three values.
 
-This is particularly needed when using FOR-Loops. See [FOR Loops](#for-loops) for more details.
+This is particularly needed when using FOR-Loops. See [5.2.4 FOR Loops](Chapter_5_Exploring_Advanced_Constructs.md#524-for-loops) for more details.
 
 
 
 ### 5.1.5 Dict-Like
 
-As explained in the `*** Variables ***` section under [Dictionary Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#dictionary-variable-definition), Robot Framework natively supports creating dictionaries.
+As explained in the `*** Variables ***` section under [3.2.2.4 Dictionary Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3224-dictionary-variable-definition), Robot Framework natively supports creating dictionaries.
 However, the ampersand-syntax `&{var}` has different meanings when assigning values and when accessing values.
 
 

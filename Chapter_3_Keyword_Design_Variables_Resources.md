@@ -9,7 +9,7 @@ This chapter introduces the essential components of Robot Framework: **Keywords*
 
 Resource Files in Robot Framework are used to store reusable keywords,
 variables, and organize imports of other resource files and libraries.
-See [Resource Files](Chapter_2_Getting_Started.md#resource-files) for an introduction to Resource Files.
+See [2.4.2 Resource Files](Chapter_2_Getting_Started.md#242-resource-files) for an introduction to Resource Files.
 
 Resource Files are typically used in many suites to share common keywords and variables across different tests|tasks.
 Therefore, they should be designed to be modular, reusable, and maintainable.
@@ -30,13 +30,13 @@ it is first searched relatively to
 the directory where the importing file is located.
 If the file is not found there, it is then searched from the
 directories in Python's module search path.
-See [Import Paths](Chapter_2_Getting_Started.md#import-paths) for more details.
+See [2.4.3 Import Paths](Chapter_2_Getting_Started.md#243-import-paths) for more details.
 
 
 
 ### 3.1.1 Sections in Resource Files
 
-See [Sections and Their Artifacts](Chapter_2_Getting_Started.md#sections-and-their-artifacts) for an introduction to sections in suites.
+See [2.1.2 Sections and Their Artifacts](Chapter_2_Getting_Started.md#212-sections-and-their-artifacts) for an introduction to sections in suites.
 
 Other than in suites, resource files do not allow the `*** Test Cases ***` or `*** Tasks ***` sections.
 
@@ -59,11 +59,11 @@ The allowed sections in recommended order are:
 
 - `*** Variables ***` to define variables.
 
-  See [`*** Variables ***` Section](#-variables--section) for more details about defining variables in resource files.
+  See [3.2.2 `*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#322--variables--section) for more details about defining variables in resource files.
   Other than in suites these variables can be used outside this resource file, if it is imported in another file.
 - `*** Keywords ***` to define user keywords.
 
-  See [`*** Keywords ***` Section](#-keywords--section) for more details about defining keywords in resource files.
+  See [3.3.1 `*** Keywords ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#331--keywords--section) for more details about defining keywords in resource files.
   Other than in suites these keywords can be used outside this resource file, if it is imported in another file.
 
 - `*** Comments ***` is used to store comments and is ignored and not parsed by Robot Framework. (same as in suites)
@@ -81,17 +81,17 @@ Variables in Robot Framework are used to store values that can be referenced and
 They help manage dynamic data or centrally maintained data, reducing hardcoding in multiple locations and making automation flexible.
 
 Variables can be created and assigned in various ways, such as:
-- Definition in the `*** Variables ***` section in suites or resource files. (see [`*** Variables ***` Section](#-variables--section))
-- Capturing return values from keywords. (see [Return values from keywords](#return-values-from-keywords))
-- Inline assignment using the `VAR` statement. (see [`VAR` statement](#var-statement))
-- As arguments passed to keywords. (see [User Keyword Arguments](#user-keyword-arguments))
-- By the command line interface of Robot Framework. (See [Global Variables via Command Line](Chapter_5_Exploring_Advanced_Constructs.md#global-variables-via-command-line))
+- Definition in the `*** Variables ***` section in suites or resource files. (see [3.2.2 `*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#322--variables--section))
+- Capturing return values from keywords. (see [3.2.3 Return values from Keywords](Chapter_3_Keyword_Design_Variables_Resources.md#323-return-values-from-keywords))
+- Inline assignment using the `VAR` statement. (see [3.2.4 `VAR` Statement](Chapter_3_Keyword_Design_Variables_Resources.md#324-var-statement))
+- As arguments passed to keywords. (see [3.3.5 User Keyword Arguments](Chapter_3_Keyword_Design_Variables_Resources.md#335-user-keyword-arguments))
+- By the command line interface of Robot Framework. (See [5.1.3 Global Variables via Command Line](Chapter_5_Exploring_Advanced_Constructs.md#513-global-variables-via-command-line))
 - (*) By internal implementation of library keywords.
 - (*) By importing variables from variable files.
 
 (*) These methods are not part of this syllabus.
 
-Beside variables created by the user, Robot Framework also supports **Built-in Variables** that are explained in the [Built-in Variables](Chapter_5_Exploring_Advanced_Constructs.md#built-in-variables) chapter.
+Beside variables created by the user, Robot Framework also supports **Built-in Variables** that are explained in the [5.1.6 Built-In Variables](Chapter_5_Exploring_Advanced_Constructs.md#516-built-in-variables) chapter.
 
 
 
@@ -124,7 +124,7 @@ When creating variables, different syntax is used to define the type of the vari
 but when accessing the variable, the scalar variable syntax with a dollar sign `$` as the prefix is used in most cases.
 More details about list-like and dictionary-like variables,
 and when to use `@` or `&` when accessing these variables,
-can be found in the [Advanced Variables](Chapter_5_Exploring_Advanced_Constructs.md#advanced-variables) chapter.
+can be found in the [5.1 Advanced Variables](Chapter_5_Exploring_Advanced_Constructs.md#51-advanced-variables) chapter.
 
 <!-- TODO fix the link -->
 
@@ -154,7 +154,7 @@ Variables created in this section:
 - have a **suite scope** in the suite created or imported to.
 
 Because two or more spaces are used to separate elements in a row,
-all values are stripped of leading and trailing spaces, identical to arguments of keyword calls (see [Writing Test|Task and Calling Keywords](Chapter_2_Getting_Started.md#writing-testtask-and-calling-keywords)).
+all values are stripped of leading and trailing spaces, identical to arguments of keyword calls (see [2.6 Writing Test|Task and Calling Keywords](Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords)).
 
 Variable values in Robot Framework can include other variables, and their values will be concatenated at runtime when the line is executed.
 This means that when a variable is used within another variable's value, the final value is resolved by replacing the variables with their actual content during execution.
@@ -311,7 +311,7 @@ i.e., in the test|task or keyword where the assignment is made.
 If a variable has already been defined in the `*** Variables ***` section and therefore has a **suite scope**,
 it will just be locally overwritten/masked by the new variable with the same name.
 Once the block is left, the original variable with its original value is accessible again.
-See [Variable Scopes](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope) for more information.
+See [5.1.2 Variable Scopes](Chapter_5_Exploring_Advanced_Constructs.md#512-variable-scopes) for more information.
 
 An assignment is always constructed by the variable or variables that shall be assigned to,
 followed by an optional equal sign (`=`) and the keyword call that
@@ -340,7 +340,7 @@ In this example, the content of the file `server.log`, which is returned by the 
 Although the `=` sign is optional, its usage makes the assignment visually more explicit.
 
 If keywords return multiple values, still the scalar variable syntax with `${var}` is used.
-All values are assigned to the variable as a list of values and can be accessed as described in the [List Variables](#list-variables) section.
+All values are assigned to the variable as a list of values and can be accessed as described in the [3.2.2.3 List Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3223-list-variable-definition) section.
 
 ```robotframework
 *** Settings ***
@@ -385,7 +385,7 @@ allowing more control over when and where the variable is created.
 Example use cases for the `VAR` statement:
 - **Combining values during test|task execution**: Variables that shall have content based on information gathered during test|task execution.
 - **Conditional assignments**: In some scenarios, it may be necessary to assign different values to a variable based on conditions that occur during test|task execution.
-- **Initialization of variables**: In a FOR-loop (see [FOR-Loops](Chapter_5_Exploring_Advanced_Constructs.md#for-loops)), it may be necessary to collect information and add it to a list. This list can be initialized with the `VAR` statement as an empty list before the loop starts and then filled with values during the loop.
+- **Initialization of variables**: In a FOR-loop (see [5.2.4 FOR Loops](Chapter_5_Exploring_Advanced_Constructs.md#524-for-loops)), it may be necessary to collect information and add it to a list. This list can be initialized with the `VAR` statement as an empty list before the loop starts and then filled with values during the loop.
 
 By default, variables created with the `VAR` statement have a **local scope** in the test|task, or keyword where they are defined.
 This means that they cannot be accessed outside that specific test|task or keyword, ensuring that variables do not interfere with other parts of the test|task suite.
@@ -393,7 +393,7 @@ This means that they cannot be accessed outside that specific test|task or keywo
 However, the `VAR` statement can also be used to create variables with a broader scope, such as suite-wide or global variables, when needed.
 These variables can then be accessed outside of the test|task or keyword where they were originally created.
 
-For more details on this topic, refer to the section on [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope).
+For more details on this topic, refer to the section on [5.1.2 Variable Scopes](Chapter_5_Exploring_Advanced_Constructs.md#512-variable-scopes).
 
 
 
@@ -412,7 +412,7 @@ In Robot Framework, variables have different scopes, which define where they can
 
   That means that they can be accessed inside a keyword, called from a test|task of that suite even, if this variable is not created as part of the argument interface of that keyword.
 
-Examples and more details on variable scope, such as `TEST` and `GLOBAL` scope can be found in the [Variable Scope](Chapter_5_Exploring_Advanced_Constructs.md#variable-scope) section.
+Examples and more details on variable scope, such as `TEST` and `GLOBAL` scope can be found in the [5.1.2 Variable Scopes](Chapter_5_Exploring_Advanced_Constructs.md#512-variable-scopes) section.
 
 
 
@@ -435,8 +435,8 @@ is indentation-based similar to the `*** Test Cases ***` section.
 The user keywords defined are unindented, while their body implementation is indented by multiple spaces.
 
 See these sections for more details about
-[Basic Test/Task Syntax](Chapter_2_Getting_Started.md#basic-testtask-syntax)
-and [Writing Test|Task and Calling Keywords](Chapter_2_Getting_Started.md#writing-testtask-and-calling-keywords).
+[2.2 Basic Suite File Syntax](Chapter_2_Getting_Started.md#22-basic-suite-file-syntax)
+and [2.6 Writing Test|Task and Calling Keywords](Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords).
 
 This section can be part of suites or resource files.
 While keywords defined in suites can solely be used in the suite they are defined in,
@@ -456,7 +456,7 @@ Login To System
 ```
 -->
 
-As a reference for how defined keywords are documented, see [Keyword Interface and Documentation](Chapter_2_Getting_Started.md#keyword-interface-and-documentation).
+As a reference for how defined keywords are documented, see [2.5 Keyword Interface and Documentation](Chapter_2_Getting_Started.md#25-keyword-interface-and-documentation).
 
 
 
@@ -486,9 +486,9 @@ User keywords can have similar settings as test cases,
 and they have the same square bracket syntax separating them from keyword calls.
 All available settings are listed below and explained in this section or in sections linked below.
 
-- `[Documentation]` Used for setting user keyword documentation. (see [Keyword Documentation](#keyword-documentation))
-- `[Arguments]` Specifies user keyword arguments to hand over values to the keyword. (see [Keyword Arguments](#keyword-arguments))
-- `[Setup]`, `[Teardown]` Specify user keyword setup and teardown. (see [Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#teardowns-suite-testtask-keyword))
+- `[Documentation]` Used for setting user keyword documentation. (see [3.3.4 User Keyword Documentation](Chapter_3_Keyword_Design_Variables_Resources.md#334-user-keyword-documentation))
+- `[Arguments]` Specifies user keyword arguments to hand over values to the keyword. (see [3.3.5 User Keyword Arguments](Chapter_3_Keyword_Design_Variables_Resources.md#335-user-keyword-arguments))
+- `[Setup]`, `[Teardown]` Specify user keyword setup and teardown. (see [4.2 Teardowns (Suite, Test|Task, Keyword)](Chapter_4_Advanced_Structuring_and_Execution.md#42-teardowns-suite-testtask-keyword))
 - `[Tags]` (*) Sets tags for the keyword, which can be used for filtering in documentation and attribution for post-processing results.
 - `[Timeout]` (*) Sets the possible user keyword timeout.
 - `[Return]` (*) Deprecated.
@@ -523,11 +523,11 @@ Where? Here? or in a separate chapter in Advanced Constructs?
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
 
-See also Chapter 2 [Keyword Arguments](Chapter_2_Getting_Started.md#keyword-arguments) for an introduction to argument kinds.
+See also Chapter 2 [2.5.2 Keyword Arguments](Chapter_2_Getting_Started.md#252-keyword-arguments) for an introduction to argument kinds.
 
 Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of scalar variables.
 
-Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [Argument Types](Chapter_2_Getting_Started.md#argument-types) section.
+Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [2.5.2.4 Argument Types](Chapter_2_Getting_Started.md#2524-argument-types) section.
 
 
 #### 3.3.5.1 Defining Mandatory Arguments

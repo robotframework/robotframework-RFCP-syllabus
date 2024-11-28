@@ -6,7 +6,12 @@ def update_heading_numbers_and_generate_toc(directory: Path):
     # Regex patterns
     chapter_file_pattern = re.compile(r"Chapter_(\d+)_.*\.md")
     heading_pattern = re.compile(r"(#+)\s*(\d+(?:\.\d+)*)?\s*(.*)")
+    internal_link_pattern = re.compile(r"\[([^\[\]]*?)\]\((Chapter_.*?)?#(?:\d\.?)*-?(.*?)\)")
 
+    # Dictionary to store chapters and their headings for resolving links
+    catalog = {}
+
+    # Step 1: Update headings and generate the catalog of chapters
     toc_entries = []
 
     for file in directory.glob("Chapter_*.md"):
@@ -21,6 +26,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
         updated_lines = []
         numbering_stack = []
         is_first_heading = True
+        headings = []  # Store headings for this chapter
 
         for line in lines:
             heading_match = heading_pattern.match(line)
@@ -44,11 +50,15 @@ def update_heading_numbers_and_generate_toc(directory: Path):
                     numbering = ".".join(map(str, numbering_stack))
 
                 # Update the line with the new numbering
-                updated_line = f"{'#' * level} {numbering} {title}\n"
+                heading = f"{numbering} {title}"
+                updated_line = f"{'#' * level} {heading}\n"
                 updated_lines.append(updated_line)
 
+                # Generate an anchor for this heading
+                anchor = re.sub(r'[^\w\- ]', '', heading).strip().replace(' ', '-').lower()
+                headings.append((numbering, title, anchor))
+
                 # Generate a link for the table of contents
-                anchor = re.sub(r"[^\w\- ]", "", title).strip().replace(" ", "-").lower()
                 toc_entry = (
                     f"{'  ' * (level - 1)}- [`{numbering} {title}`]"
                     f"({file.name}#{anchor})"
@@ -57,6 +67,9 @@ def update_heading_numbers_and_generate_toc(directory: Path):
                 toc_entries.append((list(map(int, numbering.split('.'))), toc_entry))
             else:
                 updated_lines.append(line)  # Preserve non-heading lines
+
+        # Store the chapter's headings in the catalog
+        catalog[file.name] = headings
 
         # Write the updated content back to the file
         with file.open("w", encoding="utf-8") as f:
@@ -71,6 +84,39 @@ def update_heading_numbers_and_generate_toc(directory: Path):
         readme_file.write("# Table of Contents\n\n")
         for _, toc_entry in toc_entries:
             readme_file.write(toc_entry + "\n")
+
+    # Step 2: Resolve and update internal links
+    for file in directory.glob("Chapter_*.md"):
+        with file.open("r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        updated_lines = []
+        for lineno, line in enumerate(lines):
+            def replace_link(match):
+                description, link_file, anchor = match.groups()
+                link_file = link_file or file.name  # If no file is specified, use the current file
+                anchor_name = anchor
+
+                # Find the matching chapter and anchor
+                if link_file in catalog:
+                    for numbering, title, anchor in catalog[link_file]:
+                        if title.strip() == anchor_name.strip() or anchor.endswith(anchor_name):
+                            # Update the link with correct numbering and title
+                            new_anchor = f"#{anchor}"
+                            return f"[{numbering} {title}]({link_file}{new_anchor})"
+                # If no match, leave the link unchanged
+                print(f"Warning: Could not find anchor '{anchor_name}' in '{link_file}'."
+                      "\n "
+                      f"File: {file.name}:{lineno + 1}")
+                return match.group(0)
+
+            # Replace internal links in the line
+            updated_line = re.sub(internal_link_pattern, replace_link, line)
+            updated_lines.append(updated_line)
+
+        # Write the updated content back to the file
+        with file.open("w", encoding="utf-8") as f:
+            f.writelines(updated_lines)
 
 
 if __name__ == "__main__":
