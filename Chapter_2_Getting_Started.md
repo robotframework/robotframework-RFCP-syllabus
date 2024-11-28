@@ -1,4 +1,49 @@
-# Chapter 2: Getting Started with Robot Framework
+- [2. Chapter 2: Getting Started with Robot Framework](#2-chapter-2-getting-started-with-robot-framework)
+  - [2.1. Suite File \& Tree Structure](#21-suite-file--tree-structure)
+    - [2.1.1. Suite Files](#211-suite-files)
+    - [2.1.2. Sections and Their Artifacts](#212-sections-and-their-artifacts)
+      - [2.1.2.1. `*** Settings ***` Section](#2121--settings--section)
+      - [2.1.2.2. `*** Variables ***` Section](#2122--variables--section)
+      - [2.1.2.3. `*** Test Cases ***` or `*** Tasks ***` Section](#2123--test-cases--or--tasks--section)
+      - [2.1.2.4. `*** Keywords ***` Section](#2124--keywords--section)
+      - [2.1.2.5. `*** Comments ***` Section](#2125--comments--section)
+  - [2.2. Basic Suite File Syntax](#22-basic-suite-file-syntax)
+    - [2.2.1. Separation and Indentation](#221-separation-and-indentation)
+    - [2.2.2. Line Breaks, Continuation and Empty Lines](#222-line-breaks-continuation-and-empty-lines)
+    - [2.2.3. In-line Comments](#223-in-line-comments)
+    - [2.2.4. Escaping of Control Characters](#224-escaping-of-control-characters)
+    - [2.2.5. Example Suite File](#225-example-suite-file)
+  - [2.3. Executing Robot](#23-executing-robot)
+    - [2.3.1. `robot` command \& help](#231-robot-command--help)
+    - [2.3.2. Execution Artifacts](#232-execution-artifacts)
+    - [2.3.3. Status](#233-status)
+      - [2.3.3.1. PASS](#2331-pass)
+      - [2.3.3.2. FAIL](#2332-fail)
+    - [2.3.4. Logging possibilities (Log vs Console)](#234-logging-possibilities-log-vs-console)
+  - [2.4. Keyword Imports](#24-keyword-imports)
+    - [2.4.1. Libraries](#241-libraries)
+    - [2.4.2. Resource Files](#242-resource-files)
+    - [2.4.3. Import Paths](#243-import-paths)
+  - [2.5. Keyword Interface and Documentation](#25-keyword-interface-and-documentation)
+    - [2.5.1. Documented Keyword Information](#251-documented-keyword-information)
+      - [2.5.1.1. Example Keyword in Library Documentation](#2511-example-keyword-in-library-documentation)
+    - [2.5.2. Keyword Arguments](#252-keyword-arguments)
+      - [2.5.2.1. Mandatory Arguments](#2521-mandatory-arguments)
+      - [2.5.2.2. Optional Arguments](#2522-optional-arguments)
+      - [2.5.2.3. Embedded Arguments](#2523-embedded-arguments)
+      - [2.5.2.4. Argument Types](#2524-argument-types)
+      - [2.5.2.5. Return Types](#2525-return-types)
+    - [2.5.3. Keyword Documentation \& Examples](#253-keyword-documentation--examples)
+  - [2.6. Writing Test|Task and Calling Keywords](#26-writing-testtask-and-calling-keywords)
+    - [2.6.1. Positional Arguments](#261-positional-arguments)
+      - [2.6.1.1. Variable Number of Positional Arguments](#2611-variable-number-of-positional-arguments)
+    - [2.6.2. Named Arguments](#262-named-arguments)
+      - [2.6.2.1. Named-Only Arguments](#2621-named-only-arguments)
+      - [2.6.2.2. Free Named Arguments](#2622-free-named-arguments)
+    - [2.6.3. Embedded Arguments / Using Behavior-Driven Specification](#263-embedded-arguments--using-behavior-driven-specification)
+
+
+# 2. Chapter 2: Getting Started with Robot Framework
 
 This chapter introduces participants to the foundational concepts of Robot Framework.
 It covers the basics of how automation specifications are structured, how suites are organized, and the execution process.
@@ -14,7 +59,7 @@ and how keyword documentation is interpreted to ensure clarity and maintainabili
 
 
 
-## Suite File & Tree Structure
+## 2.1. Suite File & Tree Structure
 
 > [!IMPORTANT]
 > LXX Understand which files and directories are considered suites and how they are structured in a suite tree. (K2)
@@ -66,7 +111,7 @@ Example:
 
 
 
-### Suite Files
+### 2.1.1. Suite Files
 
 > [!IMPORTANT]
 > LXX Recall the conditions and requirements for a file to be considered a Suite file (K1)
@@ -79,7 +124,7 @@ A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*
 
 
 
-### Sections and Their Artifacts
+### 2.1.2. Sections and Their Artifacts
 
 > [!IMPORTANT]
 > LXX Recall the available sections in a suite file and their purpose. (K1)
@@ -98,7 +143,7 @@ The following sections are recognized by Robot Framework and are recommended to 
 The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are optional in suites and can be omitted if not needed.
 
 
-#### `*** Settings ***` Section
+#### 2.1.2.1. `*** Settings ***` Section
 
 > [!IMPORTANT]
 > LXX Recall the available settings in a suite file. (K1)
@@ -130,7 +175,7 @@ Those settings are prefixed with either `Test` or `Task`, according to the type 
 Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The loval setting appends or removes tags defined by the suite's default.
 
 
-#### `*** Variables ***` Section
+#### 2.1.2.2. `*** Variables ***` Section
 
 > [!IMPORTANT]
 > LXX Recall the purpose of the `*** Variables ***` section. (K1)
@@ -145,7 +190,7 @@ In some cases, these variables are also dynamically reassigned during the execut
 See [`*** Variables ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-variables--section) for more information about the `*** Variables ***` section.
 
 
-#### `*** Test Cases ***` or `*** Tasks ***` Section
+#### 2.1.2.3. `*** Test Cases ***` or `*** Tasks ***` Section
 
 > [!IMPORTANT]
 > LXX Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. (K2)
@@ -163,7 +208,7 @@ See [Writing Test|Task and Calling Imported Keywords](#writing-testtask-and-call
 
 <!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
 
-#### `*** Keywords ***` Section
+#### 2.1.2.4. `*** Keywords ***` Section
 
 > [!IMPORTANT]
 > LXX Understand the purpose and limitations of the `*** Keywords ***` section. (K2)
@@ -185,7 +230,7 @@ ensuring that even large and intricate suites remain well-structured and easy to
 See [`*** Keywords ***` Section](Chapter_3_Keyword_Design_Variables_Resources.md#-keywords--section) for more information about the `*** Keywords ***` section.
 
 
-#### `*** Comments ***` Section
+#### 2.1.2.5. `*** Comments ***` Section
 
 This section is used to add comments to the suite file or resource file.
 All content in this section is ignored by Robot Framework and is not executed or parsed.
@@ -193,7 +238,7 @@ All content in this section is ignored by Robot Framework and is not executed or
 
 
 
-## Basic Suite File Syntax
+## 2.2. Basic Suite File Syntax
 
 <!--
 TODO:
@@ -206,7 +251,7 @@ I think this section needs a bit more structure and we should introduce the conc
 
 
 
-### Separation and Indentation
+### 2.2.1. Separation and Indentation
 
 > [!IMPORTANT]
 > LXX Understand and apply the mechanics of indentation and separation in Robot Framework. (K3)
@@ -233,7 +278,7 @@ which would lead to misinterpretation of the file structure by a human reader.
 
 
 
-### Line Breaks, Continuation and Empty Lines
+### 2.2.2. Line Breaks, Continuation and Empty Lines
 
 > [!IMPORTANT]
 > LXX Be able to use line breaks and continuation in Robot Framework properly. (K3)
@@ -248,7 +293,7 @@ However, for better readability or in the case of documentation for adding line 
 
 
 
-### In-line Comments
+### 2.2.3. In-line Comments
 
 > [!IMPORTANT]
 > LXX Be able to add in-line comments to suites. (K3)
@@ -270,7 +315,7 @@ Alternatively the `*** Comments ***` section can be used to add multi-line comme
 
 
 
-### Escaping of Control Characters
+### 2.2.4. Escaping of Control Characters
 
 > [!IMPORTANT]
 > LXX Understand how to escape control characters in Robot Framework. (K2)
@@ -305,7 +350,7 @@ Test of Escaping
 ```
 
 
-### Example Suite File
+### 2.2.5. Example Suite File
 
 > [!IMPORTANT]
 > LXX Understand the structure of a basic suite file. (K2)
@@ -358,7 +403,7 @@ Denied Login With Wrong Password
 
 
 
-## Executing Robot
+## 2.3. Executing Robot
 
 > [!IMPORTANT]
 > LXX Recall the three components of the Robot Framework CLI. (K1)
@@ -371,7 +416,7 @@ Robot Framework comes with three executables when being installed which are desi
 
 
 
-### `robot` command & help
+### 2.3.1. `robot` command & help
 
 > [!IMPORTANT]
 > LXX Understand how to run the `robot` command and its basic usage. (K2)
@@ -419,7 +464,7 @@ The `robot` command can optionally be configured with additional options to cont
 
 
 
-### Execution Artifacts
+### 2.3.2. Execution Artifacts
 
 > [!IMPORTANT]
 > LXX Explain the execution artifacts generated by Robot Framework. (K2)
@@ -437,7 +482,7 @@ In case of a failure it is possible to see the exact keyword call that failed an
 
 
 
-### Status
+### 2.3.3. Status
 
 > [!IMPORTANT]
 > LXX Recall the four different status labels used by Robot Framework. (K1)
@@ -459,7 +504,7 @@ Additional Keyword Status:
 **Composite elements** like suites (composed of tests|tasks), tests|tasks (composed of keywords) and User Keywords (composed of Library Keywords and Robot Framework statements) do define their status based on the status of their child elements.
 
 
-#### PASS
+#### 2.3.3.1. PASS
 
 > [!IMPORTANT]
 > LXX Understand when an element is marked as `PASS`. (K2)
@@ -476,7 +521,7 @@ Library Keywords like `Run Keyword And Expect Error`, from BuiltIn Library, do `
 That means that a composite element like suite, test|task or User Keyword may be `PASS` even if some of its deeper child elements are `FAIL`.
 
 
-#### FAIL
+#### 2.3.3.2. FAIL
 
 > [!IMPORTANT]
 > LXX Understand when an element is marked as `FAIL`. (K2)
@@ -498,7 +543,7 @@ a suite (directory) is `FAIL` if one of its suites (file) is `FAIL`.
 
 
 
-### Logging possibilities (Log vs Console)
+### 2.3.4. Logging possibilities (Log vs Console)
 
 > [!IMPORTANT]
 > LXX Understand the difference between log messages and console output. (K2)
@@ -514,7 +559,7 @@ Which levels are written to the log can be controlled by the log level of an exe
 
 
 
-## Keyword Imports
+## 2.4. Keyword Imports
 
 <!-- To use Keywords that are not part of BuiltIn, which is always imported invisibly, you must import keywords into the current scope. Basically Two different sources of keywords.
 - Libraries, which contains low-level keywords actually implementing functionality, typically in Python.
@@ -528,7 +573,7 @@ Both types of sources are using different syntax to import their keywords.
 
 
 
-### Libraries
+### 2.4.1. Libraries
 
 > [!IMPORTANT]
 > LXX Recall the purpose of keyword libraries are and how to import them. (K1)
@@ -562,7 +607,7 @@ Which keywords are available can be seen in the keyword documentation of the lib
 
 
 
-### Resource Files
+### 2.4.2. Resource Files
 
 > [!IMPORTANT]
 > LXX Recall the purpose of resource files. (K1)
@@ -594,7 +639,7 @@ and how keywords and variables are created in the sections following that.
 
 
 
-### Import Paths
+### 2.4.3. Import Paths
 
 > [!IMPORTANT]
 > LXX Understand the different types of paths that can be used to import libraries and resource files. (K2)
@@ -630,7 +675,7 @@ Avoid absolute Paths
 
 
 
-## Keyword Interface and Documentation
+## 2.5. Keyword Interface and Documentation
 
 > [!IMPORTANT]
 > LXX Understand the structure of keyword interfaces and how to interpret keyword documentation. (K2)
@@ -648,7 +693,7 @@ Robot Framework offers the Keyword Documentation of its Standard Libraries at ht
 
 
 
-### Documented Keyword Information
+### 2.5.1. Documented Keyword Information
 
 > [!IMPORTANT]
 > LXX List the information that can be found in a keyword documentation. (K1)
@@ -665,7 +710,7 @@ Each keyword documented does contain the following information:
 (*) Keyword tags are not part of the syllabus.
 
 
-#### Example Keyword in Library Documentation
+#### 2.5.1.1. Example Keyword in Library Documentation
 
 The following keyword `Should Be Equal` is part of the BuiltIn Library and is documented as follows:
 
@@ -723,7 +768,7 @@ I think you're correct in that we should maintain neutrality, and be careful on 
 
 
 
-### Keyword Arguments
+### 2.5.2. Keyword Arguments
 
 > [!IMPORTANT]
 > LXX Understand the difference between argument kinds. (K2)
@@ -739,7 +784,7 @@ The relevant distinction of usage kinds is between using **Positional Arguments*
 There are also other special kinds of arguments like **Named-Only Arguments**, **Free Named Arguments** or **Variable Number of Positional Arguments** which are less relevant for this syllabus.
 
 
-#### Mandatory Arguments
+#### 2.5.2.1. Mandatory Arguments
 
 > [!IMPORTANT]
 > LXX Understand the concept of mandatory arguments and how they are documented. (K2)
@@ -772,7 +817,7 @@ The Error Message would be: `Keyword 'BuiltIn.Should Be Equal' expected 2 to 8 a
 Two arguments are mandatory and additional six arguments are optional in the `Should Be Equal` keyword.
 
 
-#### Optional Arguments
+#### 2.5.2.2. Optional Arguments
 
 > [!IMPORTANT]
 > LXX Understand the concept of optional arguments and how they are documented. (K2)
@@ -788,7 +833,7 @@ In that particular keyword these optional arguments can be used to activate some
 Omitting some optional arguments but still using others is possible independent of their order setting these arguments by their name. See [Writing Test|Task and Calling Imported Keywords](#writing-testtask-and-calling-keywords).
 
 
-#### Embedded Arguments
+#### 2.5.2.3. Embedded Arguments
 
 > [!IMPORTANT]
 > LXX Recall the concept of embedded arguments and how they are documented. (K1)
@@ -821,7 +866,7 @@ They can also be defined using regular expressions to allow for more complex arg
 <!-- Are mandatory arguments as part of the keyword names and must be filled. Used for Behavior-Driven Specification -->
 
 
-#### Argument Types
+#### 2.5.2.4. Argument Types
 
 > [!IMPORTANT]
 > LXX Understand the concept of argument types and automatic type conversion. (K2)
@@ -858,7 +903,7 @@ The advantage of using type hints is that the user get more information about wh
 <!-- Just to understand that they are there and that they may document how values are handled or which are allowed. -->
 
 
-#### Return Types
+#### 2.5.2.5. Return Types
 
 > [!IMPORTANT]
 > LXX Understand the concept of return type hints. (K2)
@@ -876,7 +921,7 @@ This is typically documented in the *Documentation* part of the keyword document
 
 
 
-### Keyword Documentation & Examples
+### 2.5.3. Keyword Documentation & Examples
 <!-- How to read Keyword Docs and What they shall state -->
 
 > [!IMPORTANT]
@@ -913,7 +958,7 @@ Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 
 
 
-## Writing Test|Task and Calling Keywords
+## 2.6. Writing Test|Task and Calling Keywords
 
 > [!IMPORTANT]
 > LXX Understand how to call imported keywords and how to structure keyword calls. (K2)
@@ -965,7 +1010,7 @@ Mixed Named and Positional Arguments
 
 
 
-### Positional Arguments
+### 2.6.1. Positional Arguments
 
 > [!IMPORTANT]
 > LXX Understand the concept of how to set argument values positionally. (K2)
@@ -994,7 +1039,7 @@ Click on x and y
 ```
 
 
-#### Variable Number of Positional Arguments
+#### 2.6.1.1. Variable Number of Positional Arguments
 
 > [!IMPORTANT]
 > LXX Recall how variable number of positional arguments are marked in the documentation and their use-case. (K1)
@@ -1032,7 +1077,7 @@ Send 5 IPv4 Pings On Windows
 
 
 
-### Named Arguments
+### 2.6.2. Named Arguments
 
 > [!IMPORTANT]
 > LXX Understand the concept of named arguments and how to set argument values by their name. (K2)
@@ -1053,7 +1098,7 @@ Example of escaping conflicting equal signs:
 The argument `first` did get the value `second=2` and the argument `second` did get the value `Second=2`.
 
 
-#### Named-Only Arguments
+#### 2.6.2.1. Named-Only Arguments
 
 > [!IMPORTANT]
 > LXX Recall named-only arguments and where they are located. (K1)
@@ -1063,7 +1108,7 @@ Those arguments can not be set positionally because all positional values are co
 So they must be set by their name followed by an equal sign `=` and the value of the argument.
 
 
-#### Free Named Arguments
+#### 2.6.2.2. Free Named Arguments
 
 > [!IMPORTANT]
 > LXX Recall how free named arguments are marked in documentation. (K1)
@@ -1089,7 +1134,7 @@ Send 5 IPv4 Pings On Windows
 
 
 
-### Embedded Arguments / Using Behavior-Driven Specification
+### 2.6.3. Embedded Arguments / Using Behavior-Driven Specification
 
 > [!IMPORTANT]
 > LXX Recall how to use enbedded arguments. (K1)

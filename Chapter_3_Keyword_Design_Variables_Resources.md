@@ -1,11 +1,43 @@
-# Chapter 3: Keyword Design, Variables, and Resource Files
+- [3. Chapter 3: Keyword Design, Variables, and Resource Files](#3-chapter-3-keyword-design-variables-and-resource-files)
+  - [3.1. Resource File Structure](#31-resource-file-structure)
+    - [3.1.1. Sections in Resource Files](#311-sections-in-resource-files)
+  - [3.2. Variables](#32-variables)
+    - [3.2.1. Variable Syntax and Access Types](#321-variable-syntax-and-access-types)
+    - [3.2.2. `*** Variables ***` Section](#322--variables--section)
+      - [3.2.2.1. Scalar Variable Definition](#3221-scalar-variable-definition)
+      - [3.2.2.2. Primitive Data Types](#3222-primitive-data-types)
+      - [3.2.2.3. List Variable Definition](#3223-list-variable-definition)
+      - [3.2.2.4. Dictionary Variable Definition](#3224-dictionary-variable-definition)
+    - [3.2.3. Return values from Keywords](#323-return-values-from-keywords)
+      - [3.2.3.1. Assigning to Scalar Variables](#3231-assigning-to-scalar-variables)
+    - [3.2.4. `VAR` Statement](#324-var-statement)
+    - [3.2.5. Variable Scope Introduction](#325-variable-scope-introduction)
+  - [3.3. User Keyword Definition \& Arguments](#33-user-keyword-definition--arguments)
+    - [3.3.1. `*** Keywords ***` Section](#331--keywords--section)
+    - [3.3.2. User Keyword Names](#332-user-keyword-names)
+    - [3.3.3. User Keyword Settings](#333-user-keyword-settings)
+    - [3.3.4. User Keyword Documentation](#334-user-keyword-documentation)
+    - [3.3.5. User Keyword Arguments](#335-user-keyword-arguments)
+      - [3.3.5.1. Defining Mandatory Arguments](#3351-defining-mandatory-arguments)
+      - [3.3.5.2. Defining Optional Arguments](#3352-defining-optional-arguments)
+      - [3.3.5.3. Embedded Arguments](#3353-embedded-arguments)
+      - [3.3.5.4. Other Argument Kinds](#3354-other-argument-kinds)
+    - [3.3.6. RETURN Statement](#336-return-statement)
+    - [3.3.7. Keyword Conventions](#337-keyword-conventions)
+  - [3.4. Advanced Importing of Keywords and Naming Conflicts](#34-advanced-importing-of-keywords-and-naming-conflicts)
+    - [3.4.1. Importing Hierarchies](#341-importing-hierarchies)
+    - [3.4.2. Library Configuration](#342-library-configuration)
+    - [3.4.3. Naming Conflicts](#343-naming-conflicts)
+
+
+# 3. Chapter 3: Keyword Design, Variables, and Resource Files
 
 This chapter introduces the essential components of Robot Framework: **Keywords**, **Variables**, and **Resource Files**. These building blocks allow users to create reusable, structured, and maintainable automation solutions. Understanding these concepts is critical for developing efficient automation in both testing and RPA contexts.
 
 
 
 
-## Resource File Structure
+## 3.1. Resource File Structure
 
 Resource Files in Robot Framework are used to store reusable keywords,
 variables, and organize imports of other resource files and libraries.
@@ -34,7 +66,7 @@ See [Import Paths](Chapter_2_Getting_Started.md#import-paths) for more details.
 
 
 
-### Sections in Resource Files
+### 3.1.1. Sections in Resource Files
 
 See [Sections and Their Artifacts](Chapter_2_Getting_Started.md#sections-and-their-artifacts) for an introduction to sections in suites.
 
@@ -71,7 +103,7 @@ The allowed sections in recommended order are:
 
 
 
-## Variables
+## 3.2. Variables
 
 > [!IMPORTANT]
 > LXX Understand how variables in Robot Framework are used to store and manage data (K2)
@@ -95,7 +127,7 @@ Beside variables created by the user, Robot Framework also supports **Built-in V
 
 
 
-### Variable Syntax and Access Types
+### 3.2.1. Variable Syntax and Access Types
 
 > [!IMPORTANT]
 > LXX Recall the four syntactical access types to variables with their prefixes (K1)
@@ -130,7 +162,7 @@ can be found in the [Advanced Variables](Chapter_5_Exploring_Advanced_Constructs
 
 
 
-### `*** Variables ***` Section
+### 3.2.2. `*** Variables ***` Section
 
 > [!IMPORTANT]
 > LXX Create variables in the Variables section (K3)
@@ -162,7 +194,7 @@ This means that when a variable is used within another variable's value, the fin
 Variables defined in the `*** Variables ***` section are recommended to be named in uppercase to distinguish them from local variables defined in test cases or keywords.
 
 
-#### Scalar Variable Definition
+#### 3.2.2.1. Scalar Variable Definition
 
 > [!IMPORTANT]
 > LXX Create and assign scalar variables (K3)
@@ -205,7 +237,7 @@ ${SEARCH_URL}     https://example.com/search
 `${SEARCH_URL}` will contain `https://example.com/search?query=robot+framework&page=1&filter=recent&lang=en&category=test-automation`.
 
 
-#### Primitive Data Types
+#### 3.2.2.2. Primitive Data Types
 
 > [!IMPORTANT]
 > LXX Understand how to access primitive data types (K2)
@@ -241,7 +273,7 @@ ${ANSWER}            The answer is ${INTEGER}    # This will be 'The answer is 4
 > When using other types than strings and concatenating them with a string, the other value will be converted to a string before concatenation.
 
 
-#### List Variable Definition
+#### 3.2.2.3. List Variable Definition
 
 List variables store multiple values and are defined using the at-syntax `@{variable_name}`.
 You can define as many values as needed, with each additional value
@@ -268,7 +300,7 @@ List Example
 ```
 
 
-#### Dictionary Variable Definition
+#### 3.2.2.4. Dictionary Variable Definition
 
 Dictionary variables store key-value pairs and use the ampersand-syntax `&{variable_name}`.
 Key-value pairs are assigned using the `key=value` format.
@@ -298,7 +330,7 @@ Assuming `${key}` contains the value `phone`, `${USER1}[${key}]` would resolve t
 
 
 
-### Return values from Keywords
+### 3.2.3. Return values from Keywords
 
 > [!IMPORTANT]
 > LXX Be able to assign return values from keywords to variables (K2)
@@ -318,7 +350,7 @@ followed by an optional equal sign (`=`) and the keyword call that
 shall be executed and will return the value(s) to be assigned.
 
 
-#### Assigning to Scalar Variables
+#### 3.2.3.1. Assigning to Scalar Variables
 
 In the simplest case, a keyword returns exactly one value,
 which can be assigned to a scalar variable using the dollar-syntax `${variable_name}`.
@@ -371,7 +403,7 @@ Multiple Return Example
 
 
 
-### `VAR` Statement
+### 3.2.4. `VAR` Statement
 
 > [!IMPORTANT]
 > LXX Understand how to create variables using the VAR statement (K2)
@@ -397,7 +429,7 @@ For more details on this topic, refer to the section on [Variable Scope](Chapter
 
 
 
-### Variable Scope Introduction
+### 3.2.5. Variable Scope Introduction
 
 > [!IMPORTANT]
 > LXX Understand how `local` and `suite` scope variables are created (K2)
@@ -417,7 +449,7 @@ Examples and more details on variable scope, such as `TEST` and `GLOBAL` scope c
 
 
 
-## User Keyword Definition & Arguments
+## 3.3. User Keyword Definition & Arguments
 
 User Keywords in Robot Framework allow users to create their own
 keywords by combining existing keywords into reusable higher-level actions.
@@ -428,7 +460,7 @@ and are defined in the `*** Keywords ***` section of a suite file or resource fi
 
 
 
-### `*** Keywords ***` Section
+### 3.3.1. `*** Keywords ***` Section
 
 The `*** Keywords ***` section of suite and resource files
 is indentation-based similar to the `*** Test Cases ***` section.
@@ -460,7 +492,7 @@ As a reference for how defined keywords are documented, see [Keyword Interface a
 
 
 
-### User Keyword Names
+### 3.3.2. User Keyword Names
 
 The names of User Keywords should be descriptive and clear, reflecting the purpose of the keyword.
 Well-named keywords make tests more readable and easier to understand.
@@ -477,7 +509,7 @@ The following topics explain how to structure the body of a keyword.
 
 
 
-### User Keyword Settings
+### 3.3.3. User Keyword Settings
 
 > [!IMPORTANT]
 > LXX Recall all available settings and their purpose for User Keywords (K1)
@@ -497,7 +529,7 @@ All available settings are listed below and explained in this section or in sect
 
 
 
-### User Keyword Documentation
+### 3.3.4. User Keyword Documentation
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
@@ -518,7 +550,7 @@ Where? Here? or in a separate chapter in Advanced Constructs?
 
 
 
-### User Keyword Arguments
+### 3.3.5. User Keyword Arguments
 
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
@@ -530,7 +562,7 @@ Arguments are defined by `[Arguments]` followed by the argument names separated 
 Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [Argument Types](Chapter_2_Getting_Started.md#argument-types) section.
 
 
-#### Defining Mandatory Arguments
+#### 3.3.5.1. Defining Mandatory Arguments
 
 Example that defines a keyword with two arguments:
 ```robotframework
@@ -556,7 +588,7 @@ Check Server Log
 In that case, the argument `${file_path}` is assigned the value `server.log`, and `${expected_content}` is assigned the value `Successfully started`.
 
 
-#### Defining Optional Arguments
+#### 3.3.5.2. Defining Optional Arguments
 
 Optional arguments are defined by assigning default values to them in the `[Arguments]` setting.
 All optional arguments must be defined after all mandatory arguments.
@@ -583,7 +615,7 @@ Verify File Contains
 ```
 
 
-#### Embedded Arguments
+#### 3.3.5.3. Embedded Arguments
 
 In Robot Framework, **embedded arguments** allow the inclusion
 of arguments directly within the keyword name itself.
@@ -655,7 +687,7 @@ the user ${action}
 ```
 
 
-#### Other Argument Kinds
+#### 3.3.5.4. Other Argument Kinds
 
 Other argument kinds like **Named-Only Arguments**, **Free Named Arguments**, or
 **Variable Number of Positional Arguments** should be known,
@@ -663,7 +695,7 @@ but their definition and usage are not part of this syllabus.
 
 
 
-### RETURN Statement
+### 3.3.6. RETURN Statement
 
 The `RETURN` statement (case-sensitive) in Robot Framework is used to return values from a User Keyword
 to be used in further test steps or stored in variables.
@@ -691,7 +723,7 @@ The return value must be stored in a variable first and then be returned by the 
 
 
 
-### Keyword Conventions
+### 3.3.7. Keyword Conventions
 
 
 <!--
@@ -716,7 +748,7 @@ Keyword Conventions should contain agreements on:
 
 
 
-## Advanced Importing of Keywords and Naming Conflicts
+## 3.4. Advanced Importing of Keywords and Naming Conflicts
 
 As stated before, it is possible to organize imports and available keywords in Robot Framework by using Resource Files.
 By default, all keywords or variables created or imported in a resource file are available to those suites and files that are importing that higher-level resource file.
@@ -730,7 +762,7 @@ Some keyword libraries have the option to be configured to change their behavior
 
 
 
-### Importing Hierarchies
+### 3.4.1. Importing Hierarchies
 
 Let's assume the following libraries and resource files shall be used:
 - **Library**    `A`
@@ -781,7 +813,7 @@ Therefore, the recommendation is to import libraries only in one resource file w
 
 
 
-### Library Configuration
+### 3.4.2. Library Configuration
 
 Some libraries offer or need additional configuration to change their behavior or make them work.
 This is typically global behavior like internal timeouts, connection settings to systems, or plugins that should be used.
@@ -818,7 +850,7 @@ They are now available as `EmbeddedAPI` and `DeviceAPI` in the suite.
 
 
 
-### Naming Conflicts
+### 3.4.3. Naming Conflicts
 
 Naming conflicts can occur when two or more keywords have the same name.
 If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate user keyword name.
