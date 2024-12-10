@@ -242,7 +242,8 @@ ${ANSWER}            The answer is ${INTEGER}    # This will be 'The answer is 4
 
 
 #### 3.2.2.3 List Variable Definition
-
+> [!IMPORTANT]
+> LXX Understand how to set and access data in list variables (K2)
 List variables store multiple values and are defined using the at-syntax `@{variable_name}`.
 You can define as many values as needed, with each additional value
 separated by multiple spaces or line continuation using the `...` syntax.
