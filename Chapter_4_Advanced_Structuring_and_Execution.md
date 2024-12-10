@@ -256,7 +256,7 @@ In the above examples:
 ### 4.2.3 Keyword Teardown
 
 > [!IMPORTANT]
-> LXX Recall key characteristics and syntax of Keyword Teardown (K1)
+> LXX Recall key characteristics, use cases and syntax of Keyword Teardown (K1)
 
 A **Keyword Teardown** is executed after a user keyword body has been executed.
 It allows for cleanup actions specific to that keyword,
