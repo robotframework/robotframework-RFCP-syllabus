@@ -20,12 +20,16 @@ but the specific teaching methods, order and pace may be adapted by the instruct
 
 
 ## 0.2 About "Robot Framework Certified Professional®"
-The Robot Framework Certified Professional® (RFCP) certification represents the foundational level of expertise in Robot Framework.
-It focuses on providing participants with a solid understanding of the core principles and basic syntax required for developing effective automation scripts.
+The Robot Framework Certified Professional® (RFCP) certification represents the foundational level of expertise in Robot Framework. It provides participants with a strong understanding of the core principles, syntax, and basic control structures needed to develop effective automation scripts.
 
-This certification is distinct from the future Robot Framework Certified Engineer® (RFCE) certification, which targets more advanced users.
-While RFCP covers essential concepts such as keyword-driven automation, script execution, and usage of external libraries, RFCE delves into more complex subjects like control structures, advanced variables, custom Python library development and more.
-The RFCP is intended for those seeking proficiency in the core functionality of Robot Framework.
+While the RFCP includes an introduction to advanced features like FOR-Loops and IF statements,
+the focus is primarily on awareness rather than in-depth mastery,
+leaving detailed exploration of these topics to the more advanced Robot Framework Certified Engineer® (RFCE) certification.
+
+Unlike RFCE, which targets advanced users and covers topics such as advanced variable mechanics and complex control structures,
+RFCP concentrates on essential concepts such as keyword-driven automation, script execution, and integrating external libraries.
+It is designed for those seeking proficiency in Robot Framework’s core functionalities while gaining an overview of its broader capabilities.
+This certification does not require or teach domain-specific automation knowledge, such as web, API, or database automation.
 
 
 
@@ -41,7 +45,7 @@ Upon completing this course, participants will achieve the following capabilitie
 
 - **Write documentation**: Learn best practices for documenting keywords, suites and tests or tasks to ensure clarity and ease of use for future script maintenance or collaboration.
 
-- **Integrate external automation libraries**: Leverage external libraries to enable Robot Framework to interact with a wide range of technologies, such as APIs, user interfaces, databases, and more.
+- **Integrate external automation libraries**: Leverage external libraries to enable Robot Framework to interact with a wide range of technologies, such as APIs, user interfaces (Web, Mobile, others), databases, and more.
 
 - **Understand the flow of more complex automation scripts**: Gain insights into how to structure and manage automation scripts that involve flow control, conditional executions or more intricate workflows.
 
@@ -56,6 +60,7 @@ Upon completing this course, participants will achieve the following capabilitie
 The learning objectives (LOs) are a critical component of this syllabus,
 as they define what participants are expected to know and be able to do by the end of the course.
 To ensure a clear understanding of these objectives, we apply Knowledge Levels (K-Levels) as a framework for assessing learning progress.
+These levels are based on Bloom's Taxonomy of Educational Objectives. See [Bloom's taxonomy](https://en.wikipedia.org/wiki/Bloom%27s_taxonomy)
 
 - **K1 (Remember)**: Basic knowledge of terminology and facts. At this level, participants are expected to recall essential terms, concepts, and definitions.
 
@@ -63,23 +68,18 @@ To ensure a clear understanding of these objectives, we apply Knowledge Levels (
 
 - **K3 (Apply)**: Practical application of knowledge. Participants are expected to be able to write and execute automation scripts, develop keywords, and interact with external libraries.
 
-- **K4 (Analyze)**: Critical analysis and troubleshooting. At this level, participants will be able to analyze the execution of automation scripts, identify problems, and debug effectively.
-
-<!-- TODO: The examples need better explanation. -->
-
-Throughout the course, participants will progress through these knowledge levels, from basic recall (K1) to applying and analyzing automation tasks (K3, K4), ensuring a deep understanding of Robot Framework essentials.
-
+Throughout this syllabus, participants will progress through these knowledge levels—from basic recall (K1) to understanding and explaining concepts (K2), and ultimately applying their knowledge to practical automation tasks (K3). This structured approach ensures participants gain a comprehensive and practical understanding of Robot Framework fundamentals and their application in real-world scenarios.
 
 
 
 ## 0.5 About Professional Training Providers
 
-Professional Training Providers are organizations officially accredited by the Robot Framework Foundation to offer certified training programs.
+Professional Training Providers are organizations officially accredited by the Robot Framework Foundation to offer certified training programs for a specific certification level.
 These partners shall deliver high-quality, structured courses designed to prepare candidates for the Robot Framework Certified Professional (RFCP) exam and other future certifications.
 
 All training providers are members of the Robot Framework Foundation,
 and their training materials have been reviewed by independent Robot Framework Experts chosen by the Robot Framework Foundation to ensure the Foundation's quality standards.
-Only these certified Professional Training Partners are permitted to refer to their courses as "Robot Framework" training or use the term "Robot Framework Certified Professional" in connection with their programs, due to the trademark on these terms.
+Only these certified Professional Training Partners are permitted to refer to their courses as "Robot Framework" training or use the term "Robot Framework Certified Professional" or "RFP" in connection with their programs, due to the trademark on these terms.
 
 Training can be exclusively pursued through these partners, but obtaining a certificate is not dependent on completing their courses, allowing flexibility for candidates to self-study if desired.
 

@@ -30,7 +30,8 @@ Robot Framework analyzes all containing files and determines if they contain tes
 All directories that either directly or indirectly contain a Suite File are considered **Suites Directories** or **Higher-Level Suites**.
 
 The ordering of suites during execution is, by default, defined by their name and hierarchy.
-All files and directories, which are suites in one directory, are considered on the same level and are executed in alphabetical order.
+All files and directories, which are suites in one directory, are considered on the same level and are executed in case-insensitive alphabetical order.
+
 
 It is possible to define the order without influencing the name of the suite by adding a prefix followed by two underscores `__` to the name of the directory or file. This prefix is NOT considered part of the name.
 So `01__First_Suite.robot` sets the suite name to `First Suite`, while `2_Second_Suite.robot` sets the suite name to `2 Second Suite`.
@@ -102,10 +103,10 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*
 
 > [!IMPORTANT]
 > LXX Recall the available settings in a suite file. (K1)
-> LXX Understand the mechanism of default settings and how they can be overwritten. (K2)
+> LXX Understand the concepts of suite settings and how to define them. (K2)
 
 This section is used to configure various aspects of the test|task suite.
-It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files that are needed for execution in the containing tests|tasks.
+It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files (Not part of this syllabus) that are needed for execution in the containing tests|tasks.
 
 In this section, the suite name, that is normally derived from the file name, can be redefined with the `Name` setting and its documentation can be defined with the `Documentation` setting.
 
@@ -127,7 +128,7 @@ Those settings are prefixed with either `Test` or `Task`, according to the type 
 
 - `Test Template`/`Task Template` (locally `[Template]`) defines a template keyword that defines the test|task body and is typically used for Data-Driven Testing where each test has the same keywords but different argument data. The local setting overrides the suite's default.
 
-Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The loval setting appends or removes tags defined by the suite's default.
+Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The local setting appends or removes tags defined by the suite's default.
 
 
 #### 2.1.2.2 `*** Variables ***` Section
@@ -219,10 +220,12 @@ to a potential reader where elements are separated or indented.
 
 All elements themselves in their section are written without any indentation.
 When defining tests|tasks and keywords, indentation is used to define their body, while their name is still un-indented.
-So after i.e. a test case name, all subsequent lines that are part of the test case body are indented by four spaces.
+So after i.e. a test case name, all subsequent lines that are part of the test case body are indented by four or more spaces.
 The body ends when either a new un-indented test case name is defined
 or another section like `*** Keywords ***` starts
 or the end of the file is reached.
+
+Within the body of tests|tasks and keywords, control structures like loops or conditions can be used. Their content should be indented by additional four spaces to make it clear that they are part of the control structure. However, this is not mandatory and only a recommendation to make the file more readable.
 
 While single tabulators (`\t`) as well as two or more spaces are valid separators,
 it is recommended to use multiple spaces for indentation and separation and avoid tabulators.
@@ -311,7 +314,9 @@ Test of Escaping
 > LXX Understand the structure of a basic suite file. (K2)
 
 In the following example, two test cases are defined in a suite file.
-Their names are `Login User With Password` and `Denied Login With Wrong Password`.
+- `Login User With Password`
+- `Denied Login With Wrong Password`
+
 Both test the login functionality of a system by calling four keywords in their bodies.
 
 In the `*** Settings ***` section, the suite is documented, and the keywords for connecting to the server, logging in, and verifying the login are imported from a resource file.
@@ -531,21 +536,22 @@ Both types of sources are using different syntax to import their keywords.
 ### 2.4.1 Libraries
 
 > [!IMPORTANT]
-> LXX Recall the purpose of keyword libraries are and how to import them. (K1)
+> LXX Recall the purpose of keyword libraries and how to import them. (K1)
 > LXX Recall the three types of libraries in Robot Framework. (K1)
 
 From a user perspective there are three different kinds of libraries:
 - **Robot Framework Standard Libraries**: These are libraries that are shipped with Robot Framework and are available without any additional installation. See documentation of [ext: Robot Framework Standard Libraries](https://robotframework.org/robotframework/#standard-libraries) for more information.
 - **3rd Party Libraries** / **External Libraries**: These are libraries have been developed and maintained by community members and have to be installed/downloaded separately.
-- **Custom Libraries**: These libraries are developed by the users themselves to solve specific problems or to encapsulate more complex functionality
+- **Custom Libraries**: These libraries are developed by the users themselves to solve specific problems or to encapsulate more complex functionality.
 
 Further more detailed information about the different types of libraries and are described in later chapters.
 <!-- TODO: Do we fulfill this promise? -->
 
-To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library.
+To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library as long as they are located in the Python module search path, which automatically happens if they are installed via `pip`.
 The name of the library is case-sensitive and should be taken from the library's keyword documentation.
 By default, libraries in Robot Framework are implemented in Python and the name of the library is the name of the Python module that contains the library implementation.
-Alternatively a library can be imported using the path to the Python module file. See [2.4.3 Import Paths](Chapter_2_Getting_Started.md#243-import-paths).
+
+Alternatively, if a library is not in Python module search path, a library can be imported using the path to the Python module. See [2.4.3 Import Paths](Chapter_2_Getting_Started.md#243-import-paths).
 
 Be aware that the library [`BuiltIn`](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html) is always imported invisibly and does not need to be imported explicitly.
 
@@ -573,7 +579,8 @@ As mentioned before resource files are used to organize and store keywords and v
 They share a similar structure and the same syntax as suite files, but they do not contain test cases or tasks.
 See [2.2 Basic Suite File Syntax](Chapter_2_Getting_Started.md#22-basic-suite-file-syntax) for more information about the structure of suite files.
 
-They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
+They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Same counts for variables that are defined and imported from other resource files.
+Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
 
 To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
 See [2.4.3 Import Paths](Chapter_2_Getting_Started.md#243-import-paths) for more information about the path to the resource file.
@@ -602,30 +609,19 @@ and how keywords and variables are created in the sections following that.
 When importing libraries or resource files via a path, the path can be either an absolute path or a relative path.
 If a relative path is given, the path is resolved relative to the data file that is importing the library or resource file.
 
-The path can be either an absolute path or a relative path.
-
-If a **relative path** is given, the resource file or library is searched for relative to the data file that is importing it or relative to the python *module search path*.
-This *module search path* is define by the python interpreter that executes Robot Framework and can be influenced by the environment variables `PYTHONPATH` or using the CLI-Argument `--pythonpath` when executing `robot`.
-
 If an **absolute path** is given, the resource file or library is searched for at the given path.
+
+If a **relative path** is given, the resource file or library is searched for relative to the data file that is importing it and then relative to the Python *module search path*.
+This *module search path* is define by the Python interpreter that executes Robot Framework and can be influenced by the environment variables `PYTHONPATH` or using the CLI-Argument `--pythonpath` when executing `robot`.
 
 As **path separator** it is strongly recommended to always use forward slashes `/`, and even on Windows NOT use back-slashes `\`.
 This is due to the fact that back-slashes are used as escape characters in Robot Framework and can lead to issues when used in paths and forwards slashes are supported on all operating systems.
 
-When choosing the location of resource files, it should be taken into that consideration that absolute paths are typically not portable and therefore should typically be avoided.
+When choosing the location of resource files or libraries, it should be taken into that consideration that absolute paths are typically not portable and therefore should be avoided.
 Relative paths are portable as long as they are related to the data file that is importing using them, as long as that relative path is part of the project structure.
 
 However the most stable and recommended way is to use the **Python Path/module search path** to import them.
 That path needs to be defined when executing Robot Framework but can lead to more uniform and stable imports, because each suite or resource file can be use the same path to import the same resource file or library, independent of the location of the importing suite or resource file.
-
-<!-- TODO: Discuss the usage of Python Path and the implications of using it. -->
-
-<!-- (\ vs / vs rel vs abs vs -P) -->
-<!-- Use Import Paths ALWAYS with forward /
-Recommendation to use Python Path for central elements
-Use relative path to folder local stuff. ${CURDIR}?
-Avoid absolute Paths
-!!!!!!! Would like to discuss that with some people !!!!! "Style Guide?"-->
 
 
 
@@ -651,7 +647,7 @@ Robot Framework offers the Keyword Documentation of its Standard Libraries at ht
 ### 2.5.1 Documented Keyword Information
 
 > [!IMPORTANT]
-> LXX List the information that can be found in a keyword documentation. (K1)
+> LXX Recall the information that can be found in a keyword documentation. (K1)
 
 The Keyword Documentation is structured so, that it contains first the library or resource documentation, followed by a list of all keywords that are available in that library or resource file.
 
@@ -662,7 +658,7 @@ Each keyword documented does contain the following information:
 - (*) **Tags** (opt.): The tags that are assigned to the keyword to categorize keywords.
 - **Documentation** (opt.): The documentation text that describes what the keyword does and how it should be used.
 
-(*) Keyword tags are not part of the syllabus.
+(*) Understanding keyword tags is not part of the syllabus.
 
 
 #### 2.5.1.1 Example Keyword in Library Documentation

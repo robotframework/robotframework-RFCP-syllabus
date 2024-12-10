@@ -68,11 +68,11 @@ Variables created or modified during execution have a higher priority than stati
 
 The rule of thumb here is: **"Last one wins!"**
 
-This is not entirely accurate, as the scope of a variable defines its lifetime and availability.
+The scope of a variable defines its lifetime and availability.
 As long as a variable is in scope, the last definition takes precedence over the previous ones.
 
 For example, a local variable defined as a [3.3.5 User Keyword Arguments](Chapter_3_Keyword_Design_Variables_Resources.md#335-user-keyword-arguments) has a higher priority than a suite variable defined in the `*** Variables ***` section of the suite file.
-However, once the keyword body scope is exited, the suite variable is back in scope with higher priority.
+However, once the keyword body scope is exited, the suite variable is back in scope with higher priority and the local variable is no longer existent.
 
 
 ### 5.1.2 Variable Scopes
@@ -115,7 +115,7 @@ Every global variable should have a corresponding default value defined either i
   - Set during the execution of a suite using the `VAR` syntax with the `scope=SUITE` argument. (dynamic)
 - **Usage**: Useful for sharing data among tests/tasks within the same suite or configuring suite-specific settings or setting default values for global variables.
 
-Suite scope is not recursive; variables in a higher-level suite are not available in lower-level suites. Use resource files to share variables across suites.
+Suite scope is not recursive; variables in a higher-level suite, i.e. defined in [4.3 Initialization Files](Chapter_4_Advanced_Structuring_and_Execution.md#43-initialization-files), are not available in lower-level suites. Use resource files to share variables across suites.
 
 Variables with a suite scope are generally statically defined or imported variables, but they can also be created dynamically during the execution of a suite. In this latter case, they have a higher priority than statically defined variables and can shadow or overwrite them.
 
@@ -187,8 +187,7 @@ Additionally, `${result}` is only available within `Calculate Sum`, and only its
 
 ### 5.1.3 Global Variables via Command Line
 
-As described earlier, Global Variables can be statically defined via command line options or variable files.
-While variable files are not part of this syllabus, it is important to be aware of the option to define global variables via command line.
+As described earlier, Global Variables can be statically defined via command line options.
 
 The command line option `--variable` or `-v` can be used to define global variables.
 This option can be used multiple times to define multiple variables.
@@ -344,9 +343,12 @@ Robot Framework has a set of built-in variables that can be used in test cases, 
 
 | Variable         | Description                                                                                                                                                    |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ${EMPTY}         | An empty string.                                                                                                                                               |
+| ${SPACE}         | A single space character.                                                                                                                                      |
 | ${CURDIR}        | An absolute path to the directory where the current suite or resource file is located. This variable is case-sensitive.                                       |
-| ${TEMPDIR}       | An absolute path to the system temporary directory. In UNIX-like systems, this is typically /tmp, and in Windows, it is c:\Documents and Settings\<user>\Local Settings\Temp. |
 | ${EXECDIR}       | An absolute path to the directory where test execution was started from.                                                                                       |
+| ${OUTPUT_DIR}    | An absolute path to the directory where output files, like `output.xml`, `log.html`, and `report.html`, are written.                                           |
+| ${TEMPDIR}       | An absolute path to the system temporary directory. In UNIX-like systems, this is typically /tmp, and in Windows, it is c:\Documents and Settings\<user>\Local Settings\Temp. |
 
 Additionally, suite-related or test|task-related variables are available. These variables can have different values during test execution, and some are not available at all times. Altering the value of these variables does not affect the original values.
 

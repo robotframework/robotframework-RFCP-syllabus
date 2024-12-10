@@ -5,12 +5,12 @@ The upcoming chapters provide a concise overview of Robot Framework, including i
 
 
 
-## 1.1 Purpose and Use-Cases
+## 1.1 Purpose / Use-Cases
 
 > [!IMPORTANT]
-> LXX List the main Use-Cases of Robot Framework (K1)
+> LXX Recall the two main Use-Cases of Robot Framework (K1)
 
-Robot Framework is a versatile, open-source automation framework that supports both test automation and robotic process automation (RPA).
+Robot Framework is a versatile, open-source automation framework that supports both **test automation** and **robotic process automation (RPA)**.
 Initially designed for acceptance testing and other types of testing, it has since evolved to cover various automation tasks in both IT and business environments.
 Its keyword-driven approach allows users to create reusable components, making it accessible even to those with minimal programming skills.
 Robot Framework can be extended through a vast array of third-party or custom made keyword libraries, allowing it to automate interactions with APIs, user interfaces, databases, and many more technologies.
@@ -22,14 +22,19 @@ Robot Framework can be extended through a vast array of third-party or custom ma
 > [!IMPORTANT]
 > LXX recall the test levels Robot Framework is mostly used for (K1)
 
-Robot Framework is widely used in various stages of test automation, focussing:
+Robot Framework is widely used at various levels of testing, primarily focusing on:
 
-- **System testing**: Verifies the complete system’s behavior and capabilities, often including functional and non-functional aspects like usability. It may use simulations and is typically performed in a representative test environment.
+- **System Testing**: Involves verifying the complete, integrated system’s behavior and capabilities. It often includes both functional and non-functional aspects (e.g., performance, usability) and may use simulated components.
 
-- **System integration testing**: Focuses on testing the interaction between the system and external services, ensuring proper communication. This is done in a test environment similar to the real operational setup.
+- **System Integration Testing**: Concentrates on the interaction between the system under test and external services, ensuring that all integrated parts communicate and function together as expected.
 
-- **Acceptance testing**: Validates the system’s readiness for deployment, ensuring it meets business needs. Types include user, operational, and regulatory acceptance testing, often performed by end-users.
+- **Acceptance Testing**: Aims to validate that the system meets business requirements and is ready for deployment or release. This often includes different forms of acceptance testing (e.g., user acceptance, operational acceptance, regulatory acceptance) and is frequently written or conducted by end-users or stakeholders to confirm the system’s readiness for use. Acceptance tests, often defined by business stakeholders in approaches like Acceptance Test-Driven Development (ATDD), can be automated and executed earlier in the development process. This ensures that the solution aligns with business requirements from the start and provides immediate feedback, reducing costly changes later.
 
+- **End-to-End Testing**: Verifies that a complete workflow or process within the system operates as intended, covering all interconnected subsystems, interfaces, and external components. End-to-end tests ensure the correct functioning of the application in real-world scenarios by simulating user interactions from start to finish.
+
+Robot Framework's flexibility and support for external libraries make it an excellent tool for automating these comprehensive test cases, ensuring seamless interaction between components and validating the system's behavior also in production or production-like conditions.
+
+Robot Framework is typically not used for **component testing** and **integration testing** because its primary strength lies in higher-level testing, such as system, acceptance, and end-to-end testing, where behavior-driven and keyword-based approaches excel. Component testing requires low-level, granular tests focusing on individual units of code, often necessitating direct interaction with the codebase, mocking, or stubbing, which are better handled by unit testing frameworks like JUnit, pytest, or NUnit. Similarly, integration testing at a low level often requires precise control over service interactions, such as API stubs or protocol-level testing, which may not align with Robot Framework's abstraction-oriented design. While Robot Framework can technically handle these cases through custom libraries, its overhead and design philosophy make it less efficient compared to tools specifically tailored for low-level and tightly scoped testing tasks.
 
 #### 1.1.1.1 Synthetic Monitoring
 
@@ -39,21 +44,15 @@ Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **
 
 ### 1.1.2 Robotic Process Automation (RPA)
 
-Robotic Process Automation (RPA) refers to the automation of repetitive, rule-based tasks using software bots that mimic human actions, such as interacting with user interfaces, APIs, and other system elements.
-Unlike traditional automation, RPA does not require changes to the underlying systems, making it a flexible solution for automating processes across various applications.
+Robotic Process Automation (RPA) uses software bots to perform tasks and interactions normally done by humans, without requiring changes to the underlying applications.
 
-Robot Framework, with its keyword-driven approach and vast ecosystem of libraries, is widely adopted for RPA tasks due to its simplicity and scalability.
-It allows users to automate workflows using readable commands, while still enabling powerful customizations through Python.
+Robot Framework, with its keyword-driven approach, vast ecosystem of libraries, simplicity, and scalability, is widely adopted for RPA tasks.
+Robot Framework allows users to automate most workflows using ready-made keyword libraries that provide a wide range of functionalities. These libraries can be combined and reused in user-defined keywords, making automation simple and efficient. For custom functionalities or more complex tasks, Robot Framework also offers the flexibility to create custom keyword libraries using Python, enabling advanced use cases and seamless integration with unique systems.
 
 Common use cases of RPA with Robot Framework include:
 
 - **Data extraction and manipulation**: Automating data transfers and processing between systems.
 - **Application interaction**: Automating tasks such as form submissions, clicks, and file operations across web or desktop applications.
-- **Customer service automation**: Implementing bots to handle routine inquiries via chatbots or email processing.
-- **Back-office automation**: Streamlining administrative tasks like invoice processing, report generation, and inventory management.
-
-By leveraging Robot Framework for RPA, businesses can improve efficiency, reduce manual errors, and allow human workers to focus on more complex, strategic activities.
-
 
 
 
@@ -69,7 +68,7 @@ Instead, it provides a flexible platform where different tools, libraries, and i
 ### 1.2.1 Robot Framework and the gTAA (Generic Test Automation Architecture)
 
 > [!IMPORTANT]
-> LXX recall the three layers of the Generic Test Automation Architecture (gTAA) as applied in Robot Framework (K1)
+> LXX Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework (K1)
 
 The **Generic Test Automation Architecture (gTAA)** described in the ISTQB "Certified Tester Advanced Level Test Automation Engineering" offers a structured approach to test automation, dividing it into different layers for a clear separation of concerns:
 
@@ -82,42 +81,53 @@ It parses and interprets the test data syntax to build an execution model.
 The execution is responsible for processing this execution model to execute the library keywords with their argument values, logging results, and generating reports.
 
 - **Adaptation Layer**: This layer provides the connection between Robot Framework and the system under test (SUT).
-In Robot Framework, this is where the keyword libraries, such as those for UI, API, or database interactions, are located.
+In Robot Framework, this is where the keyword libraries, such as those for UI, API, database interactions, or others, are located.
 These libraries allow interaction with different technologies and interfaces, ensuring the automation is flexible and adaptable to various environments.
 
-
+<!-- TODO: add a graphic here -->
 
 ### 1.2.2 What is Robot Framework & What It Is Not
 
 > [!IMPORTANT]
 > LXX Recall what is part of Robot Framework and what is not (K1)
 
-Robot Framework itself focuses primarily on **test execution**.
+Robot Framework itself focuses primarily on **test|task execution**.
 It includes:
 
-- A parser to read test data.
+- A parser to read test|task data and build an execution model.
+- An execution engine to process model and execute the keywords.
 - A result generation mechanism to provide logs and reports.
 - A collection of generic standard libraries to process and handle data or interact with files and processes.
 - Defined APIs for extensions and customizations.
 
 However, Robot Framework **does not** include:
 
-- Specific keyword libraries to control systems under test/RPA.
-- UI or API automation libraries
+- Keyword libraries to control systems under test/RPA.
+
+  Such as:
+  - Web front-end automation libraries.
+  - API interaction libraries.
+  - Mobile automation libraries.
+  - Database interaction libraries.
+  - RPA libraries.
+  - etc.
+
 - Code editors or IDEs.
+- CI/CD Integration.
 
-Robot Framework defines the syntax for test data, but it is the role of external libraries and tools to extend its functionality for specific automation needs.
-
-Additionally, Robot Framework supports integration with CI/CD pipelines, configuration management tools, test management systems, monitoring systems, and more, making it versatile in various automation environments.
+Robot Framework defines the syntax for test|task data, but it is the role of external libraries and tools to extend its functionality for specific automation needs.
 
 
 
 ### 1.2.3 Technology & Prerequisites
 
+> [!IMPORTANT]
+> LXX Recall the technology Robot Framework is built on and the prerequisites for running it (K1)
 
 Robot Framework is built on **Python** but is adaptable to other languages and technologies through external libraries.
-To run Robot Framework, a **Python interpreter** is required on the machine executing the tests|tasks.
-Typically, Robot Framework and its libraries are installed via [PyPi.org](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
+To run Robot Framework, an [officially supported version](https://devguide.python.org/versions/) of the **Python interpreter** is required on the machine executing the tests|tasks.
+Typically, Robot Framework and its libraries are installed via the "package installer for Python" (`pip`) from [PyPi.org](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
+Robot Framework itself does not have any external dependencies, but additional third party tools or keyword libraries may require additional installations.
 
 
 
@@ -166,6 +176,7 @@ Robot Framework organizes tests|tasks into **Suites**, which are either files or
 - `*.robot` files that do contain test cases or tasks are suites.
 - Each directory, starting from the top-level directory (the one executed by Robot Framework), and any sub-directories that contains a `*.robot` suite file, is considered a **Suite** as well.
 Suites can contain other suites, forming a hierarchical tree, which is by default alphabetically ordered.
+See [2.1 Suite File & Tree Structure](Chapter_2_Getting_Started.md#21-suite-file--tree-structure) for more details.
 
 This structure allows for logical grouping and organization of tests and tasks, which can scale as needed.
 
@@ -185,7 +196,7 @@ Tests or Tasks are structured using **Keywords**, which represent specific actio
 There are two types of keywords in Robot Framework:
 
 1. **User Keywords**: Written in Robot Framework syntax, they are mainly used for structuring tests|tasks. User keywords improve readability, understandability, maintainability and structure. These keywords do always call other keywords or commands within their body. That's why they are also called **higher-level keywords**. In other literature these kind of keywords are also called **Business Keywords** or **Composite Keywords**.
-2. **Library Keywords**: Typically written in Python, but may also be implemented in other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by RPA or execute specific actions like calculations or conversions. From the viewpoint of Robot Framework these keywords are not composed of other keywords and do form the lowest level of keywords. Therefore they are also referred to as **lower-level keywords**. In other literature these kind of keywords are also called **Technical Keywords** or **Atomic Keywords**.
+2. **Library Keywords**: Typically written in Python, but may also be implemented in other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by RPA or execute specific actions like calculations or conversions. From the viewpoint of Robot Framework these keywords are not composed of other keywords and do form the lowest level of keywords. Therefore they are also referred to as **low-level keywords**. In other literature these kind of keywords are also called **Technical Keywords** or **Atomic Keywords**.
 
 A **User Keyword** consists of a **name**, optional **arguments**, and a **body** of keyword calls that may invoke other user keywords or library keywords or other statements like variable definitions or flow control.
 
@@ -197,10 +208,13 @@ This granular logging and detailed execution documentation is one of the key adv
 
 ### 1.3.4 Resource Files & Libraries
 
+> [!IMPORTANT]
+> LXX Recall the difference between Resource Files and Libraries and their artefacts (K1)
+
 While tests and tasks are organized into suites, **keywords** are organized into **Resource Files** and **Keyword Libraries**.
 
-- **Resource Files**: Contain **User Keywords**, and are also used to organize the importing of libraries and defining variables.
-- **Keyword Libraries**: Contain **Library Keywords** which are typically implemented in Python or other technologies.
+- **Resource Files**: Contain **User Keywords**, and are also used to organize the importing of libraries and defining variables. These are considered to be part of the test|task data in the *Definition Layer*.
+- **Keyword Libraries**: Contain **Library Keywords**, which are typically implemented in Python or other technologies and except of the standard libraries are not part of Robot Framework itself and can be either custom-made or third-party libraries implemented by the Robot Framework community. These are considered to be part of the *Adaptation Layer*.
 
 Central resource files and libraries allow the separation of concerns, making the automation more modular and reusable across multiple suites, tests or tasks.
 
@@ -212,7 +226,7 @@ The concepts of organizing are fundamental to working with Robot Framework and c
 ## 1.4 Specification Styles
 
 > [!IMPORTANT]
-> LXX Recall the two specification styles of Robot Framework (K1)
+> LXX Recall the three specification styles of Robot Framework (K1)
 
 Specification styles define how the automation process or test cases are structured, focusing on how actions and verifications are expressed.
 These styles can be applied to all types of automation, including both testing and robotic process automation (RPA).
@@ -283,10 +297,10 @@ Robot Framework allows you to create **user keywords** that can further call oth
 
 
 
-### 1.4.3 Comparing Keyword and Behavior Styles
+### 1.4.3 Comparing Keyword-Driven and Behavior-Driven Specification
 
 > [!IMPORTANT]
-> LXX Recall the differences between Keyword-Driven and Behavior-Driven Styles (K1)
+> LXX Recall the differences between Keyword-Driven and Behavior-Driven Specification (K1)
 
 The core difference between **Keyword-Driven** and **Behavior-Driven** styles lies in their focus:
 
@@ -420,51 +434,3 @@ These include:
 
 - **[robotframework.org](https://robotframework.org/)**: The main page providing an overview, documentation, and access to resources.
 - **[github.com/robotframework](https://github.com/robotframework)**: The official repository for the framework's source code and other components.
-
-
-<!--
-
-## 1.6 Learning Objectives for Chapter 1
-
-
-
-### 1.6.1 Purpose and Use-Cases
-
-- LO1 List the main Use-Cases of Robot Framework (K1)
-- LO2 Recall Robot Framework is open-source (K1)
-
-
-
-### 1.6.2 Architecture of Robot Framework
-
-- LO3 List the three layers of the Generic Test Automation Architecture (gTAA) as applied in Robot Framework (K1)
-- LO4 Explain the role of the Definition, Execution, and Adaptation layers in Robot Framework. (K2)
-- LO5 Define what Robot Framework is and what it is not (K1)
-- LO6 Recall Robot Framework is built on Python (K1)
-
-
-
-### 1.6.3 . Basic Syntax & Structure
-
-- LO7 Recall the four key attributes of the syntax of Robot Framework (K1)
-- LO8 Explain the difference between test cases and tasks. (K2)
-- LO9 List the types of files and directories used to organize tests and tasks in Robot Framework. (K1)
-- LO10 Explain the difference between user keywords and library keywords (K2)
-
-
-
-### 1.6.4 . Specification Styles
-
-- LO11 Recall te two specification types (K1)
-- LO12 Explain the benefits of using keyword-driven specification in test automation. (K2)
-- LO13 Explain the benefits of using behavior-driven specification in test automation. (K2)
-- LO14 Recall Robot Framework can have multiple keyword layers
-- LO15 Explain how keyword-driven and behavior-driven styles can be used together in a project. (K2)
-
-
-
-### 1.6.5 . Organization and Licensing
-
-
-- LO16 Recall the type of open-source license under which Robot Framework is distributed. (K1)
-- LO17 List the key objectives of the Robot Framework Foundation. (K1) -->

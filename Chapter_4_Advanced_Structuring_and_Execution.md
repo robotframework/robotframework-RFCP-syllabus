@@ -93,24 +93,20 @@ Test Setup    Login As Standard User
 
 
 *** Test Cases ***
-User Action Test With Default Setup
+User Action Test With Default Setup    # Default Test Setup is applied
     Perform User Actions    0815
 
-Another User Action With Default Setup
+Another User Action With Default Setup    # Default Test Setup is applied
     Perform another User Action    4711
 
 Admin Access Test With Local Setup
-    [Setup]    Login As Admin
+    [Setup]    Login As Admin    # Override the default setup
     Perform Admin Actions   007
 
 No Setup Test
-    [Setup]    NONE
+    [Setup]    NONE    # Override and disable the setup by case-sensitive NONE
     Perform Actions Without Login   000
 ```
-
-In the above examples:
-- `Admin Access Test With Local Setup` overrides the default setup with `Login As Admin`.
-- `No Setup Test` disables the setup entirely by specifying `NONE`.
 
 
 
@@ -226,37 +222,33 @@ Example of defining a default Test|Task Teardown in the suite settings:
 
 ```robotframework
 *** Settings ***
-Test Teardown    Logout User  # Default Teardown for all tests
+Test Teardown    Logout User    # Default Teardown for all tests
 
 
 *** Test Cases ***
-Test with Default Teardown
+Test with Default Teardown    # Default Teardown is applied
     Login User
     Do Some Testing
 
-Another Test with Default Teardown
+Another Test with Default Teardown    # Default Teardown is applied
     Login User
     Do Some other Testing
 
 Custom Teardown Test
     Perform Test Steps
-    [Teardown]    Cleanup Specific Data
+    [Teardown]    Cleanup Specific Data    # Override the default teardown
 
 No Teardown Test
     Perform Other Steps
-    [Teardown]    NONE
+    [Teardown]    NONE    # Override and disable the teardown by case-sensitive NONE
 ```
-
-In the above examples:
-- `Custom Teardown Test` overrides the default teardown with `Cleanup Specific Data`.
-- `No Teardown Test` disables the teardown entirely by specifying `NONE`.
 
 
 
 ### 4.2.3 Keyword Teardown
 
 > [!IMPORTANT]
-> LXX Recall key characteristics, use cases and syntax of Keyword Teardown (K1)
+> LXX Recall key characteristics and syntax of Keyword Teardown (K1)
 
 A **Keyword Teardown** is executed after a user keyword body has been executed.
 It allows for cleanup actions specific to that keyword,
@@ -428,11 +420,12 @@ Tags can be assigned to tests|tasks in several ways:
     ```robotframework
     *** Test Cases ***
     Valid Login Test|Task
-        [Tags]    login    critical
+        [Tags]    login    critical    -smoke
         Perform Login Steps
     ```
 
-    This test|task will have the tags `login`, `critical`, and any tags assigned at the suite level.
+    This test|task will have the tags `login`, `critical`, and any tags assigned at the suite level, except `smoke`.
+    Adding a minus sign (`-`) before a tag removes it from the test|task's tags.
 
 3. **Using Variables** in tags to dynamically assign tag values:
 
@@ -447,6 +440,10 @@ Tags can be assigned to tests|tasks in several ways:
     ```
 
     This test|task will have a tag `environment:production`.
+
+4. **By Keyword `Set Tags` or `Remove Tags`** to dynamically assign or remove tags during test|task execution:
+
+    See [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Set%20Tags) library documentation for more information.
 
 
 
