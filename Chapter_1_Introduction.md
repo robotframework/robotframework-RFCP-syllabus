@@ -352,18 +352,6 @@ Robot Framework offers a convenient feature for this approach through **Test Tem
 A Test Template allows specifying the keyword only once and then applying it to multiple test data sets.
 
 For example:
-```robotframework
-*** Settings ***
-Test Template    Login with invalid credentials should fail
-
-*** Test Cases ***                USERNAME         PASSWORD
-Invalid User Name                 invalid          ${VALID PASSWORD}
-Invalid Password                  ${VALID USER}    invalid
-Invalid User Name and Password    invalid          invalid
-Empty User Name                   ${EMPTY}         ${VALID PASSWORD}
-Empty Password                    ${VALID USER}    ${EMPTY}
-Empty User Name and Password      ${EMPTY}         ${EMPTY}
-```
 
 The above example shows six test cases that all use the same
 keyword `Login with invalid credentials should fail` but with different data for username and password.

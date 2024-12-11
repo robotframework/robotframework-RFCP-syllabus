@@ -75,6 +75,7 @@ The allowed sections in recommended order are:
 
 > [!IMPORTANT]
 > LXX Understand how variables in Robot Framework are used to store and manage data (K2)
+>
 > LXX Recall the relevant five different ways to create and assign variables(K1)
 
 Variables in Robot Framework are used to store values that can be referenced and reused throughout suites, test cases, tasks, and keywords.
@@ -99,6 +100,7 @@ Beside variables created by the user, Robot Framework also supports **Built-in V
 
 > [!IMPORTANT]
 > LXX Recall the four syntactical access types to variables with their prefixes (K1)
+>
 > LXX Recall the basic syntax of variables (K1)
 
 Variables in Robot Framework are defined by three attributes:
@@ -132,6 +134,7 @@ can be found in the [5.1 Advanced Variables](Chapter_5_Exploring_Advanced_Constr
 
 > [!IMPORTANT]
 > LXX Create variables in the Variables section (K3)
+>
 > LXX Use the correct variable prefixes for assigning and accessing variables. (K3)
 
 Variables can be defined in the `*** Variables ***` section within both suite files and resource files.
@@ -165,15 +168,10 @@ Variables defined in the `*** Variables ***` section are recommended to be named
 
 > [!IMPORTANT]
 > LXX Create and assign scalar variables (K3)
+>
 > LXX Understand how multiple lines can be used to define scalar variables (K2)
 
 Example of creating scalar variables:
-```robotframework
-*** Variables ***
-${NAME}       Robot Framework
-${VERSION}    8.0
-${TOOL}       ${NAME}, version: ${VERSION}
-```
 
 The variable `${TOOL}` will be resolved to `Robot Framework, version: 8.0` at runtime.
 
@@ -185,21 +183,6 @@ In the rare case that `separator=` should be taken literally as part of the vari
 
 
 Example:
-```robotframework
-*** Variables ***
-${EXAMPLE}        This value is joined
-...               together with a space.
-${MULTILINE}      First line.
-...               Second line.
-...               separator=\n
-${SEARCH_URL}     https://example.com/search
-...               ?query=robot+framework
-...               &page=1
-...               &filter=recent
-...               &lang=en
-...               &category=test-automation
-...               separator=
-```
 
 `${SEARCH_URL}` will contain `https://example.com/search?query=robot+framework&page=1&filter=recent&lang=en&category=test-automation`.
 
@@ -224,17 +207,6 @@ the other primitive data types are defined by using the scalar variable syntax `
 These values are case-insensitive and can be used in any context where a variable is accepted.
 
 Example:
-```robotframework
-*** Variables ***
-${STRING}            This is a string
-${STILL_STRING}      8270    # These are the four characters 8, 2, 7, and 0
-${INTEGER}           ${42}
-${FLOAT}             ${3.14}   # Dot is used as decimal separator
-${BOOLEAN}           ${True}   # Case-insensitive
-${NOTHING}           ${NONE}
-${EMPTY_STRING}
-${ANSWER}            The answer is ${INTEGER}    # This will be 'The answer is 42'
-```
 
 > [!TIP]
 > When using other types than strings and concatenating them with a string, the other value will be converted to a string before concatenation.
@@ -248,24 +220,11 @@ You can define as many values as needed, with each additional value
 separated by multiple spaces or line continuation using the `...` syntax.
 
 Example:
-```robotframework
-*** Variables ***
-@{NAMES}        Matti       Teppo
-@{EMPTY_LIST}
-@{NUMBERS}      one         two      three
-...             four        five     six
-```
 
 Single values of list-like variables can be accessed by the dollar-syntax (`$`) followed by their index in square brackets (`[]`),
 starting with 0, like `${NAMES}[0]` for `Matti` and `${NAMES}[1]` for `Teppo`.
 
 Example:
-```robotframework
-*** Test Cases ***
-List Example
-    Log    First Name: ${NAMES}[0]    # Logs 'First Name: Matti'
-    Log    Second Name: ${NAMES}[1]   # Logs 'Second Name: Teppo'
-```
 
 
 #### 3.2.2.4 Dictionary Variable Definition
@@ -277,13 +236,6 @@ Dictionary variables store key-value pairs and use the ampersand-syntax `&{varia
 Key-value pairs are assigned using the `key=value` format.
 
 Example:
-```robotframework
-*** Variables ***
-&{USER1}        name=Matti     address=xxx         phone=123
-&{USER2}        name=Teppo     address=yyy         phone=456
-&{COMBINED}     first=1        second=${2}         third=third
-&{EMPTY_DICT}
-```
 You can escape equal signs in keys with a backslash (`\=`) to prevent misinterpretation.
 
 Values of all dictionary-like variables can be accessed by the dollar-syntax (`$`) followed by the key in square brackets (`[]`),
@@ -326,18 +278,6 @@ shall be executed and will return the value(s) to be assigned.
 In the simplest case, a keyword returns exactly one value,
 which can be assigned to a scalar variable using the dollar-syntax `${variable_name}`.
 
-```robotframework
-*** Settings ***
-Library    OperatingSystem
-
-
-
-
-*** Test Cases ***
-Returning Example
-    ${server_log} =    Get File    server.log
-    Should Contain    ${server_log}    Successfully started
-```
 
 In this example, the content of the file `server.log`, which is returned by the `Get File` keyword, is stored in the `${server_log}` variable and later verified by the `Should Contain` keyword.
 Although the `=` sign is optional, its usage makes the assignment visually more explicit.
@@ -345,32 +285,10 @@ Although the `=` sign is optional, its usage makes the assignment visually more 
 If keywords return multiple values, still the scalar variable syntax with `${var}` is used.
 All values are assigned to the variable as a list of values and can be accessed as described in the [3.2.2.3 List Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3223-list-variable-definition) section.
 
-```robotframework
-*** Settings ***
-Library    OperatingSystem
-
-
-*** Test Cases ***
-Returning a List Example
-    ${files}    List Files In Directory    server/logs
-    Log    First File: ${files}[0]
-    Log    Last File: ${files}[-1]
-```
 
 In cases where a keyword returns a defined number of values, they can be assigned to multiple scalar variables in one assignment.
 In the following example, the keyword `Split Path` returns two values, the path and the file name.
 
-```robotframework
-*** Settings ***
-Library    OperatingSystem
-
-
-*** Test Cases ***
-Multiple Return Example
-    ${path}    ${file} =    Split Path    server/logs/server.log
-    Should Be Equal    ${path}    server/logs
-    Should Be Equal    ${file}    server.log
-```
 
 
 
@@ -447,15 +365,6 @@ keywords defined in resource files can be used in any suite that imports these r
 
 Example definition of a user keyword:
 
-```robotframework
-*** Keywords ***
-Verify Valid Login
-    [Arguments]    ${exp_full_name}
-    ${version}=    Get Server Version
-    Should Not Be Empty    ${version}
-    ${name}=    Get User Name
-    Should Be Equal    ${name}    ${exp_full_name}
-```
 
 As a reference for how defined keywords are documented, see [2.5 Keyword Interface and Documentation](Chapter_2_Getting_Started.md#25-keyword-interface-and-documentation).
 
@@ -555,25 +464,10 @@ Unlike Library Keywords, User Keywords cannot define argument types like `string
 Arguments defined as scalar variable (`${arg}`) without a default value are mandatory and must be provided when calling the keyword.
 
 Example that defines a keyword with two arguments:
-```robotframework
-*** Keywords ***
-Verify File Contains
-    [Documentation]    Verifies that a file contains a specific text.
-    ...
-    ...    The keyword opens the file specified by the file path and checks if it contains the expected content.
-    [Arguments]    ${file_path}    ${expected_content}
-    ${server_log} =    Get File    ${file_path}
-    Should Contain    ${server_log}    ${expected_content}
-```
 
 All variables defined in the `[Arguments]` are local to the keyword body and do not exist outside of the keyword.
 
 This keyword may be called in a test case like this:
-```robotframework
-*** Test Cases ***
-Check Server Log
-    Verify File Contains    server.log    Successfully started
-```
 
 In that case, the argument `${file_path}` is assigned the value `server.log`, and `${expected_content}` is assigned the value `Successfully started`.
 
@@ -594,20 +488,6 @@ followed by the default value without any spaces like `${ignore_case}=True`.
 The assigned default values may also contain or be earlier defined variables, i.e., in the `*** Variables ***` section.
 
 Example:
-```robotframework
-*** Keywords ***
-Verify File Contains
-    [Documentation]    Verifies that a file contains a specific text.
-    ...
-    ...    The keyword opens the file specified by the ``file_path``
-    ...    and checks if it contains the ``expected_content``.
-    ...
-    ...    By default, the verification is case-insensitive
-    ...    but can be changed with the optional argument ``ignore_case``.
-    [Arguments]    ${file_path}    ${expected_content}    ${ignore_case}=True   # ignore_case has the string 'True' as default value
-    ${server_log} =    Get File    ${file_path}
-    Should Contain    ${server_log}    ${expected_content}    ignore_case=${ignore_case}
-```
 
 
 #### 3.3.5.3 Embedded Arguments
@@ -629,25 +509,12 @@ which get replaced by actual values when the keyword is executed.
 These arguments are written as scalar variables with dollar and curly braces
 like the following keyword.
 
-```robotframework
-*** Keywords ***
-The file '${file_name}' should contain '${expected_content}'
-    ${file_content} =    Get File    ${file_name}
-    Should Contain    ${file_content}    ${expected_content}
-```
 
 When this keyword is called, the placeholders `${file_name}`
 and `${expected_content}` are replaced by the actual values provided in the keyword call.
 So `${file_name}` = `server.log` and
 `${expected_content}` = `Successfully started` in the following example:
 
-```robotframework
-*** Test Cases ***
-Test File Content
-    Given the server log level is 'INFO'
-    When the server is started successfully
-    Then the file 'server.log' should contain 'Successfully started'
-```
 
 Quotes around the embedded arguments behave as any other characters
 as part of the keyword name but may help to improve readability
@@ -658,34 +525,6 @@ Therefore a mix of embedded arguments and regular arguments is also possible.
 This can help with more complex data structures or to improve readability.
 
 Example of mixed embedded and regular arguments:
-```robotframework
-*** Test Cases ***
-Embedded and normal arguments
-    Given the user is on the pet selection page
-    When the user adds    2     cat fish
-    And the user set    3     dogs
-    And the user removes    1     dogs
-    Then the number of cat fish should be    2
-    And the number of dogs should be    count=2
-
-*** Keywords ***
-the number of ${animals} should be
-    [Arguments]    ${count}
-    ${current_count}    Get Animal Count    ${animals}
-    Should Be Equal As Numbers    ${current_count}    ${count}
-
-the user ${action}
-    [Arguments]    ${amount}   ${animal}
-    IF    '${action}' == 'adds'
-        Add Items To List    animal_list    ${animal}    ${amount}
-    ELSE IF    '${action}' == 'removes'
-        Remove Items From List    animal_list    ${animal}    ${amount}
-    ELSE IF    '${action}' == 'set'
-        Set Amount To List    animal_list    ${animal}    ${amount}
-    ELSE
-        Skip    Test skipped due to invalid action
-    END
-```
 
 
 #### 3.3.5.4 Other Argument Kinds
@@ -712,13 +551,6 @@ If more than one value is returned, they can either be assigned
 to multiple variables or stored as a list in a single variable.
 
 Example:
-```robotframework
-*** Keywords ***
-Get File Name From Path
-    [Arguments]    ${file_path}
-    ${path}    ${file} =    Split Path    ${file_path}
-    RETURN    ${file}
-```
 
 The `RETURN` statement is normally used at the end of a keyword definition,
 because it will end the keyword execution at that point and return to the caller.
@@ -790,31 +622,12 @@ Let's assume the following libraries and resource files shall be used:
 The respective files could look like this:
 
 **tech_keywordsA.resource:**
-```robotframework
-*** Settings ***
-Library    A
-Library    Operating System
-```
 
 **tech_keywordsB.resource:**
-```robotframework
-*** Settings ***
-Library    B
-Resource    variables.resource
-```
 
 **functional_keywords.resource:**
-```robotframework
-*** Settings ***
-Resource    tech_keywordsA.resource
-Resource    tech_keywordsB.resource
-```
 
 **suite.robot:**
-```robotframework
-*** Settings ***
-Resource    functional_keywords.resource
-```
 
 In this case, the suite `suite.robot` has access to all keywords from all keyword libraries, as well as all variables and user keywords from all resource files.
 
@@ -846,10 +659,6 @@ If possible, it is recommended to set the arguments as named arguments to make u
 These arguments follow the Library path or name, separated by multiple spaces.
 
 Example with the [Telnet library](https://robotframework.org/robotframework/latest/libraries/Telnet.html#Importing):
-```robotframework
-*** Settings ***
-Library    Telnet    newline=LF    encoding=ISO-8859-1   # set newline and encoding using named arguments
-```
 
 Another example that cannot be used without configuration is the Remote library.
 Remote libraries are libraries that are connected remotely via a network connection.
@@ -857,11 +666,6 @@ So the actual library is running as a server, and the library `Remote`
 is connecting as a client and connects the keywords of the server to Robot Framework.
 Therefore, it needs the server's address and port to connect to.
 Because there may be more than one Remote Library, we need to define the used library name as well.
-```robotframework
-*** Settings ***
-Library    Remote    uri=http://127.0.0.1:8270       AS    EmbeddedAPI
-Library    Remote    uri=http://remote.devices.local:8270       AS    DeviceAPI
-```
 In this example, two remote libraries are imported.
 The upper-case `AS` statement is used to define the name of the library that shall be used in the suite.
 
@@ -889,7 +693,7 @@ Keywords like `Open Connection`, `Login`, `Read`, `Close Connection`, and many m
 
 These conflicts cannot be resolved by Robot Framework if they are coming from the same kind of source, like two libraries.
 The error message will be like this:
-```plain
+```plaintext
 Multiple keywords with name 'Open Connection' found. Give the full name of the keyword you want to use:
     SSHLibrary.Open Connection
     Telnet.Open Connection
@@ -900,25 +704,6 @@ the easiest way to mitigate this is to use the full names of the keywords,
 including the library name, when calling them.
 
 Example:
-```robotframework
-*** Test Cases ***
-Using Telnet and SSHLibrary
-    Telnet.Open Connection
-    Telnet.Login    ${username}    ${password}
-    ${telnet_init} =    Telnet.Read Until Prompt
-    Telnet.Close Connection
-
-    SSHLibrary.Open Connection    ${host}    ${port}
-    SSHLibrary.Login    ${username}    ${password}
-    ${ssh_init} =    SSHLibrary.Read Until Prompt
-    SSHLibrary.Close Connection
-```
 
 When using full names for libraries that were imported with the `AS` statement,
 the name of the library is used as a prefix to the keyword name.
-```robotframework
-*** Test Cases ***
-Using Remote Libraries
-    EmbeddedAPI.Close Contact   15
-    DeviceAPI.Verify Contact    15    1
-```

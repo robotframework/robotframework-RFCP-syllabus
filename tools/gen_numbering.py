@@ -27,8 +27,16 @@ def update_heading_numbers_and_generate_toc(directory: Path):
         numbering_stack = []
         is_first_heading = True
         headings = []  # Store headings for this chapter
-
+        code_block = False
         for line in lines:
+            if line.strip().startswith("```robot"):
+                code_block = True
+                continue
+            if code_block:
+                if line.strip() == "```":
+                    code_block = False
+                continue
+
             heading_match = heading_pattern.match(line)
             if heading_match:
                 level = len(heading_match.group(1))  # Number of '#' indicates heading level

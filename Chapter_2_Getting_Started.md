@@ -39,7 +39,7 @@ So `01__First_Suite.robot` sets the suite name to `First Suite`, while `2_Second
 One or more underscores in file or directory names are replaced by space characters as suite names.
 
 Legend:
-```
+```plaintext
 ▷ Directory (No Suite)
 ▶︎ Suite Directory
 ◻︎ File (No Suite)
@@ -103,6 +103,7 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*
 
 > [!IMPORTANT]
 > LXX Recall the available settings in a suite file. (K1)
+>
 > LXX Understand the concepts of suite settings and how to define them. (K2)
 
 This section is used to configure various aspects of the test|task suite.
@@ -214,13 +215,28 @@ I think this section needs a bit more structure and we should introduce the conc
 
 As mentioned before, Robot Framework uses an indentation-based and space-separated syntax to structure keywords, test cases, and tasks.
 
-**Two or more spaces** are used to separate or indent elements in Robot Framework files, while a single space is a valid character in elements.
-The clear recommendation is to use **four spaces** or more to unambiguously make it visible
+**Two or more spaces** are used to separate or indent statements in Robot Framework files, while a single space is a valid character in tokens (i.e. keyword names, argument values, variables, etc.).
+The clear recommendation for separators is to use **four spaces** or more to unambiguously make it visible
 to a potential reader where elements are separated or indented.
 
+A statement in Robot Framework is a logical line that contains specific data tokens which are separated by multiple spaces (separator token) from each other.
+
+**Example 1**: A keyword call is a statement that consists of a keyword name and its arguments, which are separated by two or more spaces from the keyword name and from each other.
+An optional assignment of the return value can be possible as well.
+The line comments starting with a hash `#` show the tokens in the statement.
+
+
+**Example 2**: In the `*** Settings ***` section, the settings are separated from their values by four or more spaces.
+
+
 All elements themselves in their section are written without any indentation.
-When defining tests|tasks and keywords, indentation is used to define their body, while their name is still un-indented.
-So after i.e. a test case name, all subsequent lines that are part of the test case body are indented by four or more spaces.
+So settings in the `*** Settings ***` section, test cases in the `*** Test Cases ***` section,
+and keywords in the `*** Keywords ***` section are written without any indentation.
+However, when defining tests|tasks and keywords, indentation is used to define their body, while their name is still un-indented.
+So after i.e. a test case name, all subsequent lines that are part of the test case body are indented by two or more spaces.
+
+That means that a body statement always starts with a separator token, followed by a data token, like i.e. variable or keyword as seen in the examples above.
+
 The body ends when either a new un-indented test case name is defined
 or another section like `*** Keywords ***` starts
 or the end of the file is reached.
@@ -239,17 +255,22 @@ which would lead to misinterpretation of the file structure by a human reader.
 ### 2.2.2 Line Breaks, Continuation and Empty Lines
 
 > [!IMPORTANT]
-> LXX Be able to use line breaks and continuation in Robot Framework properly. (K3)
+> LXX Be able to use line breaks and continuation in a statement. (K3)
 
 Empty lines are allowed and encouraged to structure data files and make them more readable.
 In the next example, the sections are visibly separated by two empty lines, and the tests are separated by one empty line.
 Empty lines are technically not relevant and are ignored while parsing the file.
 
 
-By default, each expression in a suite or resource file is terminated by a line break, so that in each line only one expression is possible.
-However, for better readability or in the case of documentation for adding line breaks, expressions can expand over multiple lines if they are continued with `...` (three dots) and a separator (multiple spaces) at the beginning of the next line, potentially being indented. See the suite documentation as an example.
+By default, each statement in a suite or resource file is terminated by a line break, so that in each literal line only one statement is possible.
+However, for better readability or in the case of documentation for adding line breaks, expressions can expand over multiple literal lines if they are continued with `...` (three dots) and a separator (multiple spaces) at the beginning of the next line, potentially being indented. See the suite documentation as an example.
 
+With this line continuation between two data tokens, the two literal lines are interpreted as one logical line and do result in one statement.
 
+A line continuation can only be performed where a separator is expected, like between a keyword name and its arguments or between two arguments or between a setting and its value(s).
+In the following example the two keyword calls are logically identical, even though the second one is split over three literal lines.
+
+**Example**:
 
 ### 2.2.3 In-line Comments
 
@@ -297,15 +318,6 @@ Leading and trailing spaces in values are normally considered being part of the 
 If values shall contain leading or trailing spaces they must be either enclosed in backslashes `\` or replaced by the special variable `${SPACE}` that contains a single space character.
 
 Example:
-```robotframework
-*** Test Cases ***
-Test of Escaping
-    Log    \# leading hash.                     # This logs "# leading hash."
-    Log    \ lead & trail \                     # This logs " lead & trail "
-    Log    ${SPACE}and now 5 More: \ \ \ \ \    # This logs " and now 5 More:     "
-    Log    Not a \${variable}                   # This logs "Not a ${variable}"
-    Log    C:\\better\\use\\forward\\slashes    # This logs "C:\better\use\forward\slashes"
-```
 
 
 ### 2.2.5 Example Suite File
@@ -334,31 +346,6 @@ In the test case body, some keyword calls have arguments that are separated by t
 The following tests will be executed in the order they are defined in the suite file. First, the `Login User With Password` test case will be executed, followed by the `Denied Login With Wrong Password` test case.
 
 Example Suite File Content `robot_files/TestSuite.robot`:
-```robotframework
-*** Settings ***
-Documentation     A suite for valid and invalid login tests.
-...
-...               Keywords are imported from the resource file.
-Resource          keywords.resource
-
-
-*** Test Cases ***
-Login User With Password
-    Connect To Server
-    Login User            ironman    1234567890   # Login with valid credentials
-    Verify Valid Login    Tony Stark   # Verify that the login was successful by checking the user name
-    Close Server Connection
-
-Denied Login With Wrong Password
-    Connect To Server
-    Run Keyword And Expect Error    # this keyword calls another keyword and expects an error
-    ...        *Invalid Password*   # it expects an error containing `Invalid Password`
-    ...        Login User           # this keyword is called with two arguments
-    ...        ironman
-    ...        123#wrong            # A hash in the middle of a string is not a comment
-    Verify Unauthorized Access
-    Close Server Connection
-```
 
 
 
@@ -537,6 +524,7 @@ Both types of sources are using different syntax to import their keywords.
 
 > [!IMPORTANT]
 > LXX Recall the purpose of keyword libraries and how to import them. (K1)
+>
 > LXX Recall the three types of libraries in Robot Framework. (K1)
 
 From a user perspective there are three different kinds of libraries:
@@ -556,12 +544,6 @@ Alternatively, if a library is not in Python module search path, a library can b
 Be aware that the library [`BuiltIn`](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html) is always imported invisibly and does not need to be imported explicitly.
 
 Example:
-```robotframework
-*** Settings ***
-Library    OperatingSystem
-Library    Browser
-Library    DatabaseLibrary
-```
 
 Once a library is imported, all keywords from that library are available for use in that suite or resource file.
 Which keywords are available can be seen in the keyword documentation of the library or may be visible in the IDE by code completion, depending on the IDE extension being used.
@@ -572,6 +554,7 @@ Which keywords are available can be seen in the keyword documentation of the lib
 
 > [!IMPORTANT]
 > LXX Recall the purpose of resource files. (K1)
+>
 > LXX Use resource files to import new keywords. (K3)
 
 As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
@@ -589,11 +572,6 @@ Resource files shall have the extension `.resource` to make it clear what they a
 `.resource` and `.robot` extensions are also recognized by IDE extensions, supporting Robot Framework.
 
 Example:
-```robotframework
-*** Settings ***
-Resource    local_keywords.resource
-Resource    D:/keywords/central_keywords.resource
-```
 
 See more about the structure of resource files in
 [3.1 Resource File Structure](Chapter_3_Keyword_Design_Variables_Resources.md#31-resource-file-structure)
@@ -667,24 +645,6 @@ The following keyword `Should Be Equal` is part of the BuiltIn Library and is do
 
 **[Should Be Equal](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Should%20Be%20Equal)**
 
-<!-- *Arguments*
-- `first`
-- `second`
-- `msg` = `None`
-- `values` = `True`
-- `ignore_case` = `False`
-- `formatter` = `str`
-- `strip_spaces` = `False`
-- `collapse_spaces` = `False`
-
-*Documentation*
-```
-Fails if the given objects are unequal.
-
-Optional msg, values and formatter arguments specify how to construct the error message if this keyword fails
-...
-``` -->
-
 ![Should Be Equal Keyword Documentation](images/Should_Be_Equal_Docs.png)
 
 
@@ -748,17 +708,6 @@ See the argument named `first` and `second` in the `Should Be Equal` keyword doc
 If too few arguments are provided, the keyword call will fail with an error message.
 
 Example:
-```robotframework
-*** Test Cases ***
-Tests Will Pass
-    Should Be Equal    One    One
-
-Test Will Fail
-    Should Be Equal    One    Two
-
-Test Will Fail Due to Missing Args
-    Should Be Equal    One
-```
 
 The first Test will pass, because both argument values are equal.
 The second Test will fail, because the argument values are not equal.
@@ -793,14 +742,6 @@ Omitting some optional arguments but still using others is possible independent 
 Keywords can have arguments embedded into their names, which is used mostly for Behavior-Driven Specification (BDD).
 
 Example Test Case:
-```robotframework
-*** Test Cases ***
-Foundation Page should be Accessible
-    Given "robotframework.org" is open
-    When the user clicks the "FOUNDATION" button
-    Then the page title should be "Foundation | Robot Framework"
-    And the url should be "https://robotframework.org/foundation"
-```
 The prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name.
 In the before given example the keywords are designed so that the arguments are surrounded by double quotes `"` for better visibility.
 
@@ -839,12 +780,6 @@ Robot Framework in that case tries to convert the given string arguments to the 
 If the conversion fails, the keyword call will fail by Robot Framework with an error message before the actual keyword code is executed.
 
 Example:
-```robotframework
-*** Test Cases ***
-Test Conversion
-    Click On Coordinates    10    20    # This will work
-    Click On Coordinates    10    Not_A_Number  # This will fail
-```
 
 In the first call the keyword will be called with the integer values `10` and `20` and will work as expected.
 The second keyword call will fail, because the second argument is not a number and cannot be converted to an integer.
@@ -900,12 +835,6 @@ Examples in the documentation is commonly either written in table format or as c
 | Should Be Equal | ${x} | expected | ignore_case=True | formatter=repr |
 
 Code block example:
-```robotframework
-Should Be Equal    ${x}    expected
-Should Be Equal    ${x}    expected    Custom error message
-Should Be Equal    ${x}    expected    Custom message    values=False
-Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
-```
 
 
 
@@ -931,34 +860,6 @@ Argument values are stripped from leading and trailing spaces, but spaces within
 If an argument shall contain more than one consecutive spaces or start or end with spaces, the spaces must be escaped by a backslash `\` to prevent them from being interpreted as a part of a "multi-space-separator".
 
 Example:
-```robotframework
-*** Test Cases ***
-Mandatory Positional Arguments
-    [Documentation]    Only mandatory arguments are use positional
-    Should Be Equal    1    1
-
-Mixed Positional Arguments
-    [Documentation]    Mandatory and optional arguments are used positional.
-    ...
-    ...    It is hard to figure out what the values are doing and which arguments are filled,
-    ...    without looking into the keyword documentation.
-    ...    Even though the argument `values` is kept at its default value `True` it must be set if later arguments shall be set positional.
-    Should Be Equal    hello    HELLO    Values are case-insensitive NOT equal    True    True
-
-All Named Arguments
-    [Documentation]    Arguments are used named.
-    ...
-    ...    It is clear what the values are doing and which arguments are filled and order is not relevant.
-    ...    The argument `values` can be omitted and the order can be mixed
-    Should Be Equal    first=hello    second=HELLO    ignore_case=True    msg=Values are case-insensitive NOT equal
-
-Mixed Named and Positional Arguments
-    [Documentation]    Arguments are used named and positional.
-    ...
-    ...    The positional arguments must be in order, but the subsequent named arguments may be in an arbitrary order.
-    ...    The first arg has the string value `" hello  spaces "` and the second arg has the string value `"HELLO  SPACE"`.
-    Should Be Equal    \ hello \ spaces \    HELLO \ SPACE   ignore_case=True    strip_spaces=True    msg=Values are case-insensitive NOT equal
-```
 
 
 
@@ -975,20 +876,9 @@ Specifically optional parameters of library keywords are often not commonly know
 
 Using arguments positionally is very handy for arguments that are obvious and easy to understand.
 In the early login example the following keyword calls exists:
-```robotframework
-*** Test Cases ***
-Login User With Password
-    Login User    ironman    1234567890
-```
 
 In that case it should be obvious that the first argument is the username and the second argument is the password.
 Also the keyword following keyword call should be easy to understand but could still be more explicit by using named arguments.:
-```robotframework
-*** Test Cases ***
-Click on x and y
-    Click On Coordinates    82    70
-    Click On Coordinates    x=82    y=70
-```
 
 
 #### 2.6.1.1 Variable Number of Positional Arguments
@@ -1021,11 +911,6 @@ When calling this keyword one or more positional arguments can be set, while the
 They are optional and can be omitted.
 
 Example:
-```robotframework
-*** Test Cases ***
-Send 5 IPv4 Pings On Windows
-    Run Process    ping    -n    5    -4    localhost
-```
 
 
 
@@ -1044,9 +929,6 @@ Equal signs are valid argument values and could therefore be misinterpreted as n
 To prevent that, an equal sign in argument values can be escaped by a backslash `\`.
 
 Example of escaping conflicting equal signs:
-```robotframework
-    Should Be Equal    second\=2   Second\=2    case_insensitive=True
-```
 The argument `first` did get the value `second=2` and the argument `second` did get the value `Second=2`.
 
 
@@ -1078,11 +960,6 @@ They are optional and can be omitted.
 With this configuration it is i.e. possible to redirect the output of the process to a file or to set the working directory of the process.
 
 Example redirecting stdout and stderr to a file:
-```robotframework
-*** Test Cases ***
-Send 5 IPv4 Pings On Windows
-    Run Process    ping    -n    5    -4    localhost    stdout=ping_output.txt    stderr=ping_error.txt
-```
 
 
 
