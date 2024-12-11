@@ -588,7 +588,73 @@ Keyword Conventions should contain agreements on:
 
 
 
-## 3.4 Advanced Importing of Keywords and Naming Conflicts
+
+
+## 3.4 Data-Driven Specification
+
+> [!IMPORTANT]
+> LXX Understand the basic concept and syntax of Data-Driven Specification (K2)
+
+The **Data-Driven Specification** style in Robot Framework separates test|task logic from data, enabling tests|tasks to be executed with multiple data sets efficiently. This approach involves using a single higher-level keyword to represent the entire workflow, while the test data is defined as rows of input and expected output values.
+
+### 3.4.1 Test|Task Templates
+
+> [!IMPORTANT]
+> LXX Understand how to define and use test|task templates (K2)
+>
+> LXX Recall the differences between the two different approaches to define Data-Driven Specification (K1)
+
+For each test|task, a template keyword can be defined that contains the workflow logic.
+
+At the suite level, the `Test Template` or `Task Template` setting can be used to specify that keyword.
+All tests|tasks in the suite will reuse this keyword for execution with different data sets.
+
+Alternatively, the `[Template]` setting can be used at the test|task level.
+The tests|tasks would not have any other keyword calls but would instead define the data rows to be passed to the template keyword.
+
+`Test Setup`|`Test Teardown` and `Task Setup`|`Task Teardown` can be used together with templates.
+
+
+#### 3.4.1.1 Multiple Named Test|Task With One Template
+
+> [!IMPORTANT]
+> LXX Recall the syntax and properties of multiple named test|task with one template (K1)
+
+The following example has six different test|task, each with different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
+
+The advantage of this approach is that each test|task is executed separately with its own name and data set.
+Each test|task appears in the statistics and reports.
+Single tests|tasks can be filtered and re-executed or tagged.
+
+It is possible to add header names to the data columns in the line of `*** Test Cases ***` or `*** Tasks ***` to describe the data columns to improve readability.
+
+
+#### 3.4.1.2 Named Test|Task With Multiple Data Rows:
+
+> [!IMPORTANT]
+> LXX Recall the syntax and properties of named test|task with multiple data rows (K1)
+
+A slightly different approach is to define multiple data rows for a single test|task.
+
+This is still possible with a single template defined in the `*** Settings ***` section, but in this case it would also make sense to define the template locally for each test|task with the `[Template]` setting.
+With this approach, it is possible to define different scenarios in the same suite file, which can be useful for testing different aspects of the same functionality.
+
+If one data row fails, this template execution is marked FAIL and the test|task is marked FAIL, but **the other data rows are still executed**.
+
+This approach creates only a single tests|tasks for multiple data rows in the logs and reports, which can be beneficial statistically.
+
+However, this approach has also its drawbacks:
+
+- Test|task setup and teardown are executed only once for all data rows of one test|task.
+  If there is a setup and teardown needed for each data row, a keyword setup or teardown is needed.
+- The test|task name is not unique for each data row, which can make it harder to understand the failing data row in the logs.
+- Filtering and re-execution of some or single data rows is not possible.
+
+
+
+
+
+## 3.5 Advanced Importing of Keywords and Naming Conflicts
 
 > [!IMPORTANT]
 > LXX Recall that naming conflicts can arise from the import of multiple resource files (K1).
@@ -605,7 +671,7 @@ Some keyword libraries have the option to be configured to change their behavior
 
 
 
-### 3.4.1 Importing Hierarchies
+### 3.5.1 Importing Hierarchies
 
 > [!IMPORTANT]
 > LXX Understand how recursive imports of resource files and libraries work (K2).
@@ -640,7 +706,7 @@ Therefore, the recommendation is to import libraries only in one resource file w
 
 
 
-### 3.4.2 Library Configuration
+### 3.5.2 Library Configuration
 
 > [!IMPORTANT]
 > LXX Recall the purpose of the `Importing` section in library documentation (K1).
@@ -673,7 +739,7 @@ They are now available as `EmbeddedAPI` and `DeviceAPI` in the suite.
 
 
 
-### 3.4.3 Naming Conflicts
+### 3.5.3 Naming Conflicts
 
 > [!IMPORTANT]
 > LXX Explain how naming conflicts can happen and how to mitigate them (K2).

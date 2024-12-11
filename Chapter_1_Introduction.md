@@ -357,7 +357,7 @@ The above example shows six test cases that all use the same
 keyword `Login with invalid credentials should fail` but with different data for username and password.
 
 
-#### 1.4.4.1 Benefits of Data-Driven Specification:
+**Benefits of Data-Driven Specification**:
 - **Efficiency**: Reduces the need to write redundant test cases by reusing the same workflow with different data inputs.
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
 - **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
