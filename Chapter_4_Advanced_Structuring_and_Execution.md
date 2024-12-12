@@ -12,12 +12,15 @@ Additionally, filtering subsets of tests|tasks based on tags will be discussed, 
 ## 4.1 Setups (Suite, Test|Task, Keyword)
 
 > [!IMPORTANT]
-> LXX Recall the different Setup types (K1)
+> LO-XX Recall the purpose and benefits of Setups in Robot Framework (K1)
+>
+> LO-XX Understand the different levels where and how a Setup can be defined (K2)
+
 
 Setups in Robot Framework are used to prepare the environment or system for execution or to verify that the requirements/preconditions needed for execution are met.
 They can be defined at the suite, test|task, or keyword level and are executed before the respective scope begins execution.
 
-A **Setup** is a keyword with potential argument values that is called before all other keywords.
+A **Setup** is a single keyword with potential argument values that is called before all other keywords; or before tests|tasks in Suite Setup.
 
 Examples of typical use cases for Setups are:
 - Establishing connections to databases or services.
@@ -31,8 +34,9 @@ Examples of typical use cases for Setups are:
 ### 4.1.1 Suite Setup
 
 > [!IMPORTANT]
-> LXX Recall key characteristics and syntax of Suite Setup (K1)
-> LXX Understand when Suite Setup is beneficial (K2)
+> LO-XX Recall key characteristics, benefits, and syntax of Suite Setup (K1)
+>
+> LO-XX Understand when Suite Setup is executed and used (K2)
 
 A **Suite Setup** is executed before any tests|tasks or child suites within the suite are run.
 It is used to prepare the environment or perform actions that need to occur before the entire suite runs.
@@ -62,8 +66,9 @@ Suite Setup    Initialize Environment   dataset=Config_C3
 ### 4.1.2 Test|Task Setup
 
 > [!IMPORTANT]
-> LXX Recall key characteristics and syntax of Test Setup (K1)
-> LXX Understand when Test Setup is beneficial (K2)
+> LO-XX Recall key characteristics, benefits, and syntax of Test Setup (K1)
+>
+> LO-XX Understand when Test|Task Setup is executed and used (K2)
 
 A **Test|Task Setup** is executed before a single test|task runs.
 It is used to prepare the specific conditions required for that test|task.
@@ -113,7 +118,7 @@ No Setup Test
 ### 4.1.3 Keyword Setup
 
 > [!IMPORTANT]
-> LXX Recall key characteristics and syntax of Keyword Setup (K1)
+> LO-XX Recall key characteristics and syntax of Keyword Setup (K1)
 
 A **Keyword Setup** is executed before the body of a user keyword is executed.
 It allows for preparation steps specific to that keyword or ensures that the keyword's requirements are met before execution.
@@ -142,6 +147,11 @@ Process Data
 
 ## 4.2 Teardowns (Suite, Test|Task, Keyword)
 
+> [!IMPORTANT]
+> LO-XX Understand the different levels where and how a Teardowns can be defined and when they are executed (K2)
+>
+> LO-XX Recall the typical use cases for using a Teardowns (K1)
+
 In automation, tests|tasks are typically executed in a linear sequence.
 This linear execution can lead to issues when a preceding test|task fails, potentially affecting subsequent tests|tasks due to an unclean state of the system under test or the automated environment.
 To prevent such issues, Robot Framework provides the **Teardown** functionality, which can be defined at the suite, test|task, or keyword level.
@@ -149,7 +159,7 @@ To prevent such issues, Robot Framework provides the **Teardown** functionality,
 As mentioned before, a failure resulting in a keyword with the status `FAIL` will cause Robot Framework not to execute all subsequent keywords of the current test|task.
 These not-executed keywords will receive the status `NOT RUN`.
 
-A **Teardown** is a keyword with potential argument values that is executed after the suite, test|task, or keyword has completed execution, regardless of the outcome, even if previously executed keywords have failed.
+A **Teardown** is a single keyword call with potential argument values that is executed after the child suites, test|tasks, and keywords have completed execution, regardless of the outcome, even if previously executed elements have failed.
 It ensures that necessary cleanup actions are performed, maintaining the integrity of the test environment for subsequent executions.
 
 **Typical use cases for Teardowns include:**
@@ -166,11 +176,12 @@ reducing dependencies between tests|tasks and improving the reliability of your 
 ### 4.2.1 Suite Teardown
 
 > [!IMPORTANT]
-> LXX Recall key characteristics and syntax of Suite Teardown (K1)
-> LXX Understand when Suite Teardown is beneficial (K2)
+> LO-XX Recall key characteristics, benefits, and syntax of Suite Teardown (K1)
+>
+> LO-XX Understand when Suite Teardown is executed and used (K2)
 
 A **Suite Teardown** is executed after all tests|tasks and all child suites in a suite have been executed.
-It is used for cleaning up the environment or performing actions that need to occur after the entire suite has finished running.
+
 The Suite Teardown is executed regardless of the outcome of the tests|tasks within the suite, even if the suite setup fails.
 
 **Key characteristics of Suite Teardown:**
@@ -178,6 +189,10 @@ The Suite Teardown is executed regardless of the outcome of the tests|tasks with
 - Runs even if the Suite Setup fails or any test|task within the suite fails.
 - If the Suite Teardown fails, all tests|tasks in the suite are marked as failed in reports and logs.
 - All keywords within the Suite Teardown are executed, even if one of them fails, ensuring all cleanup actions are attempted.
+
+**Typical use cases:**
+- Cleaning up the environment after all test|task executions.
+- Performing actions that need to occur after the entire suite has finished running.
 
 Example of defining a Suite Teardown:
 
@@ -191,8 +206,9 @@ Suite Teardown    Close All Resources   force=True
 ### 4.2.2 Test|Task Teardown
 
 > [!IMPORTANT]
-> LXX Recall key characteristics and syntax of Test|Task Teardown (K1)
-> LXX Understand when Test|Task Teardown is beneficial (K2)
+> LO-XX Recall key characteristics, benefits, and syntax of Test|Task Teardown (K1)
+>
+> LO-XX Understand when Test|Task Teardown is executed and used (K2)
 
 A **Test|Task Teardown** is executed after a single test|task body has been executed.
 It is used for cleaning up actions specific to that test|task.
@@ -248,7 +264,7 @@ No Teardown Test
 ### 4.2.3 Keyword Teardown
 
 > [!IMPORTANT]
-> LXX Recall key characteristics and syntax of Keyword Teardown (K1)
+> LO-XX Recall key characteristics, benefits, and syntax of Keyword Teardown (K1)
 
 A **Keyword Teardown** is executed after a user keyword body has been executed.
 It allows for cleanup actions specific to that keyword,
@@ -294,7 +310,7 @@ This file can contain suite-level settings that apply to the directory suite.
 ### 4.3.1 Purpose of Initialization Files
 
 > [!IMPORTANT]
-> LXX Recall the purpose and possibilities of Initialization Files (K1)
+> LO-XX Recall the purpose and possibilities of Initialization Files (K1)
 
 Initialization files enable you to:
 - Define `Suite Setup` and `Suite Teardown` keywords for the directory suite.
@@ -307,7 +323,7 @@ Initialization files enable you to:
 ### 4.3.2 Suite Setup and Suite Teardown of Initialization Files
 
 > [!IMPORTANT]
-> LXX Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests|tasks (K2)
+> LO-XX Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests|tasks (K2)
 
 As previously explained, **Suite Setup** and **Suite Teardown** are used to prepare and clean up the environment before and after a suite's execution.
 Initialization files provide a centralized place to define these setups and teardowns for all sub-suites and their tests|tasks within a directory structure.
@@ -319,7 +335,7 @@ The Suite Teardown of an initialization file is executed after all sub-suites in
 ### 4.3.3 Allowed Sections in Initialization Files
 
 > [!IMPORTANT]
-> LXX Recall the allowed sections and their content in Initialization Files (K1)
+> LO-XX Recall the allowed sections and their content in Initialization Files (K1)
 
 Initialization files have the same structure and syntax as regular suite files but with some limitations.
 The following sections are allowed in initialization files:
@@ -387,7 +403,7 @@ Cleanup Environment
 ## 4.4 Test|Task Tags and Filtering Execution
 
 > [!IMPORTANT]
-> LXX Recall the purpose of Test|Task Tags in Robot Framework (K1)
+> LO-XX Recall the purpose of Test|Task Tags in Robot Framework (K1)
 
 In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|tasks.
 Tags are free-form text labels that can be assigned to tests|tasks to provide metadata, enable flexible test selection, and organize test results.
@@ -401,7 +417,7 @@ Tags are also used to create a statistical summary of the test|task results in t
 ### 4.4.1 Assigning Tags to Tests|Tasks
 
 > [!IMPORTANT]
-> LXX Recall the syntax and different ways to assign tags to tests|tasks (K1)
+> LO-XX Recall the syntax and different ways to assign tags to tests|tasks (K1)
 
 Tags can be assigned to tests|tasks in several ways:
 
@@ -450,7 +466,7 @@ Tags can be assigned to tests|tasks in several ways:
 ### 4.4.2 Using Tags to Filter Execution
 
 > [!IMPORTANT]
-> LXX Understand how to filter tests|tasks using the command-line interface of Robot Framework (K2)
+> LO-XX Understand how to filter tests|tasks using the command-line interface of Robot Framework (K2)
 
 Tags can be used to select which tests|tasks are executed or skipped when running a suite. This is accomplished using command-line options when executing Robot Framework.
 
@@ -478,6 +494,8 @@ robot --exclude slow path/to/tests
 ```
 
 This command will execute all tests|tasks except those that have the `slow` tag.
+The excluded tests|tasks will not be executed or logged at all.
+Use `--skip` to not execute tests|tasks but include them in the logs as skipped. See [4.5.1 Skipping By Tags Selection (CLI)](Chapter_4_Advanced_Structuring_and_Execution.md#451-skipping-by-tags-selection-cli) for more information.
 
 
 #### 4.4.2.3 Combining Include and Exclude Options
@@ -515,15 +533,67 @@ Examples:
 
 ### 4.4.3 Reserved Tags
 
-Tags starting with `robot:` are reserved for internal use by Robot Framework and should not be used in user-defined tags. Using tags with this prefix may lead to unexpected behavior in test execution and reporting.
+Tags starting with `robot:` are reserved for internal use by Robot Framework and should not be used in user-defined tags.
+Using own tags with this prefix may lead to unexpected behavior in test execution and reporting.
+
+- `robot:exclude`: Marks tests|tasks that should be excluded from execution similar to `--exclude`.
+- `robot:skip`: Marks tests|tasks that should be skipped during execution similar to `--skip`.
 
 
 
 
-## 4.5 Advanced Execution Control
+## 4.5 SKIP Test|Task Status
+
+> [!IMPORTANT]
+> LO-XX Recall the use-case and purpose of skipping tests|tasks in Robot Framework (K1)
+>
+> LO-XX Recall the different ways to skip tests|tasks in Robot Framework (K1)
+
+In addition to `PASS` and `FAIL`, Robot Framework introduces a `SKIP` status to indicate that a test|task was explicitly skipped **during** execution. The `SKIP` status is useful when certain tests|tasks should not be executed, for example, due to unfulfilled preconditions, unfinished test logic, or unsupported environments. Skipped tests|tasks appear in logs and reports, clearly marked as skipped.
+
+**Reasons to Use SKIP**
+
+- **Temporal Exclusion of Tests|Tasks**: To prevent failing tests|tasks for known issues to run until the issue is resolved.
+- **Conditional Execution**: Skip tests|tasks dynamically based on runtime conditions, i.e. if Suite Setup detected an issue.
+- **Unsupported Scenarios**: Mark tests|tasks as skipped in environments where they cannot run, but shall be in logs.
 
 
+### 4.5.1 Skipping By Tags Selection (CLI)
 
-### 4.5.1 Python Path?
+> [!IMPORTANT]
+> LO-XX Recall the differences between skip and exclude (K1)
 
-<!-- Shall be handled in Importing of Resource Files and Libraries or Chapter 5? -->
+Tests|tasks can be skipped with `--skip` by tags when executing Robot Framework similar to `--exclude`.
+The difference between `--skip` and `--exclude` is that `--skip` will mark the tests|tasks as skipped in the report and log, while `--exclude` will not execute them at all.
+Therefore skip is better for documenting that a specific test|task was not executed for a specific reason.
+
+**Example**: If there is a defect in the System under Test (SUT) and a test|task has been written to reproduce the defect and tests its resolution, but the defect is not yet resolved, the test|task can be tagged with the defect-number and skipped until the defect should be resolved.
+
+**Example**: Assuming there are different test environments and some tests can only be executed on specific environments, the tests can be tagged with the environment name and skipped on all other environments.
+
+- **Command Line Option**: Use the `--skip` option to skip tests|tasks based on tags or tag patterns:
+  ```shell
+  robot --skip BUG-42 --skip mobile path/to/tests
+  ```
+
+- **Reserved Tag `robot:skip`**: Add the `robot:skip` tag to tests|tasks to mark them as skipped:
+  This ensures the test|task appears in reports as skipped but is not executed.
+
+### 4.5.2 Skipping Dynamically During Execution
+
+Tests|tasks can be skipped dynamically within their execution with the `Skip` keyword based on runtime conditions.
+
+The `Skip` keyword does stop the execution of a test|task and mark it as skipped with a custom message.
+If a Test|Task Teardown exists, it will be executed.
+
+
+### 4.5.3 Automatically Skipping Failed Tests
+
+Tests|tasks can be automatically marked as skipped if they fail:
+
+- **Command Line Option**: Use `--skiponfailure` with tags or tag patterns:
+  ```shell
+  robot --skiponfailure flaky path/to/tests
+  ```
+
+- **Reserved Tag `robot:skip-on-failure`**: Tag tests|tasks to skip automatically on failure:

@@ -23,7 +23,7 @@ Variables can be defined in multiple places and ways, and their availability and
 ### 5.1.1 Variable Priorities
 
 > [!IMPORTANT]
-> LXX Understand the difference between statically defined and dynamically created variables in Robot Framework (K2)
+> LO-XX Understand the difference between statically defined and dynamically created variables in Robot Framework (K2)
 
 Variables can originate from various sources, and when variables with the same name exist,
 Robot Framework resolves them based on their priority.
@@ -40,7 +40,7 @@ Built-in variables cannot generally be sorted into one of these categories, as s
 #### 5.1.1.1 Statically Defined or Imported Variables
 
 > [!IMPORTANT]
-> LXX Recall the priority of statically defined or imported variables in Robot Framework (K1)
+> LO-XX Recall the priority of statically defined or imported variables in Robot Framework (K1)
 
 The rule of thumb here is: **"First come, first served!"**
 
@@ -62,7 +62,7 @@ However, variables defined during Robot Framework execution can overwrite or sha
 #### 5.1.1.2 Dynamically Created Variables
 
 > [!IMPORTANT]
-> LXX Recall the priority of dynamically created variables in Robot Framework (K1)
+> LO-XX Recall the priority of dynamically created variables in Robot Framework (K1)
 
 Variables created or modified during execution have a higher priority than statically defined or imported variables.
 
@@ -78,14 +78,14 @@ However, once the keyword body scope is exited, the suite variable is back in sc
 ### 5.1.2 Variable Scopes
 
 > [!IMPORTANT]
-> LXX Recall the different variable scopes in Robot Framework (K1)
+> LO-XX Recall the different variable scopes in Robot Framework (K1)
 
 Variables in Robot Framework have different scopes, determining where they can be accessed and how long they are available.
 
 #### 5.1.2.1 . Global Scope
 
 > [!IMPORTANT]
-> LXX Recall how to define global variables and where they can be accessed (K1)
+> LO-XX Recall how to define global variables and where they can be accessed (K1)
 
 - **Definition**: Variables accessible everywhere during the test execution.
 - **Creation**:
@@ -106,7 +106,7 @@ Every global variable should have a corresponding default value defined either i
 #### 5.1.2.2 . Suite Scope
 
 > [!IMPORTANT]
-> LXX Recall how to define suite variables and where they can be accessed (K1)
+> LO-XX Recall how to define suite variables and where they can be accessed (K1)
 
 - **Definition**: Variables accessible within the test suite where they are defined, including all its tests|tasks and keywords.
 - **Creation**:
@@ -129,7 +129,7 @@ Suite variables should be defined using uppercase letters, like `${SUITE_VARIABL
 #### 5.1.2.3 . Test|Task Scope
 
 > [!IMPORTANT]
-> LXX Recall how to define test|task variables and where they can be accessed (K1)
+> LO-XX Recall how to define test|task variables and where they can be accessed (K1)
 
 - **Definition**: Variables accessible within a single test|task and within all keywords it calls.
 - **Creation**:
@@ -148,7 +148,7 @@ Otherwise, it is better to use local variables. Editor and IDE support for these
 #### 5.1.2.4 . Local Scope
 
 > [!IMPORTANT]
-> LXX Recall how to define local variables and where they can be accessed (K1)
+> LO-XX Recall how to define local variables and where they can be accessed (K1)
 
 - **Definition**: Variables accessible only within the keyword or test|task where they are defined.
 - **Creation**:
@@ -223,7 +223,7 @@ However, the at-syntax `@{var}` has different meanings when assigning values ver
 #### 5.1.4.1 Assigning List Variables
 
 > [!IMPORTANT]
-> LXX Recall that assignments to `@{list}` variables convert values to lists automatically (K1)
+> LO-XX Recall that assignments to `@{list}` variables convert values to lists automatically (K1)
 
 Using the at-syntax (`@{}`) is required to define a list variable with `VAR` syntax or in the `*** Variables ***` section, but it is optional when assigning return values, which are list-like, from keywords to a variable.
 
@@ -247,7 +247,7 @@ As long as a value is iterable, it can be assigned to a list variable using the 
 #### 5.1.4.2 Accessing List Variables
 
 > [!IMPORTANT]
-> LXX Recall that `@{list}` unpacks the values of a list variable when accessed (K1)
+> LO-XX Recall that `@{list}` unpacks the values of a list variable when accessed (K1)
 
 Variables containing a list are generally accessed with the normal dollar-syntax `${var}`.
 You can also access single values within a list using `${var}[0]` or `${var}[-1]`, and Robot Framework supports slicing, similar to Python, with `${var}[1:3]` or `${var}[1:]`.
@@ -283,7 +283,7 @@ However, the ampersand-syntax `&{var}` has different meanings when assigning val
 #### 5.1.5.1 Assigning Dictionary Variables
 
 > [!IMPORTANT]
-> LXX Recall that assignments to `&{dict}` variables automatically convert values to Robot Framework Dictionaries and enable dot-access (K1)
+> LO-XX Recall that assignments to `&{dict}` variables automatically convert values to Robot Framework Dictionaries and enable dot-access (K1)
 
 Using the ampersand-syntax (`&{}`) is required to define a dictionary variable with `VAR` syntax or in the `*** Variables ***` section, but it is optional when assigning return values from keywords to a variable that returns dictionaries.
 
@@ -302,7 +302,7 @@ In the following example, the first assignment to `&{participant}` causes an aut
 #### 5.1.5.2 Accessing Dictionary Variables
 
 > [!IMPORTANT]
-> LXX Recall that `&{dict}` unpacks to multiple key=value pairs when accessed (K1)
+> LO-XX Recall that `&{dict}` unpacks to multiple key=value pairs when accessed (K1)
 
 Variables containing dictionaries are typically accessed using the normal dollar-syntax `${var}`.
 You can also access individual values by their keys using `${var}[key]` or `${var.key}` for Robot Framework Dictionaries.
@@ -337,7 +337,7 @@ The dictionary keys act as the argument names and the values as the argument val
 ### 5.1.6 Built-In Variables
 
 > [!IMPORTANT]
-> LXX Recall that Robot Framework provides access to execution information via Built-In variables (K1)
+> LO-XX Recall that Robot Framework provides access to execution information via Built-In variables (K1)
 
 Robot Framework has a set of built-in variables that can be used in test cases, keywords, and other places. Some examples are:
 
@@ -368,7 +368,7 @@ These variables can be used in test cases, keywords, and other places to access 
 
 ## 5.2 Control Structures
 
-Robot Framework is a Turing-complete language and supports all common control structures, including IF-Statements, FOR-Loops, WHILE-Loops, and TRY/EXCEPT blocks
+Robot Framework is a Turing-complete language and supports all common control structures, including IF-Statements, FOR-Loops, WHILE-Loops and more.
 While it is not expected that RCFPs can write complex control structures, they should understand their purpose.
 
 In some cases, it is necessary to use control structures to handle different cases, iterate over a list of values, or execute an action until a condition is met.
@@ -377,7 +377,7 @@ In some cases, it is necessary to use control structures to handle different cas
 ### 5.2.1 IF Statements
 
 > [!IMPORTANT]
-> LXX Understand the purpose and basic concept of IF-Statements (K2)
+> LO-XX Understand the purpose and basic concept of IF-Statements (K2)
 
 The **IF/ELSE** syntax in Robot Framework is used to control the flow
 
@@ -457,7 +457,7 @@ For single conditional keywords, the simplified inline IF statement can be used.
 ### 5.2.4 FOR Loops
 
 > [!IMPORTANT]
-> LXX Understand the purpose and basic concept of FOR Loops (K2)
+> LO-XX Understand the purpose and basic concept of FOR Loops (K2)
 
 The `FOR` loop in Robot Framework repeats a set of keywords multiple times, iterating over a sequence of values.
 This allows you to perform the same actions for different items without duplicating code, enhancing the efficiency and readability of your keyword logic.
@@ -518,7 +518,7 @@ When you need to execute the same keywords for each item in a list or sequence, 
 ### 5.2.5 WHILE Loops
 
 > [!IMPORTANT]
-> LXX Understand the purpose and basic concept of WHILE Loops (K2)
+> LO-XX Understand the purpose and basic concept of WHILE Loops (K2)
 
 While the `FOR` loop iterates over a known amount of values, `WHILE` loops repeat their body as long as a condition is met.
 This is typically used in cases where the number of iterations is not known in advance or depends on a dynamic condition.
@@ -558,7 +558,7 @@ This prevents infinite loops and ensures that tests|tasks do not hang indefinite
 ### 5.2.6 BREAK and CONTINUE
 
 > [!IMPORTANT]
-> LXX Understand the purpose and basic concept of the BREAK and CONTINUE statements (K2)
+> LO-XX Understand the purpose and basic concept of the BREAK and CONTINUE statements (K2)
 
 In some cases, it is helpful to stop a loop or skip the remaining part of a loop and continue with the next iteration.
 This can be achieved with the `BREAK` and `CONTINUE` statements.

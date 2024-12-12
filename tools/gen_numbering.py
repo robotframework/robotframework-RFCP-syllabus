@@ -2,6 +2,20 @@ from pathlib import Path
 import re
 
 
+introduction = """# Public Review of the Robot Framework Certified Professional® Syllabus
+
+Welcome to the public review of the Robot Framework® Certified Professional certification syllabus.
+
+We are seeking feedback from the community to ensure this syllabus meets the highest standards and addresses the needs of Robot Framework professionals. While the topics have been largely finalized internally, we welcome suggestions and insights to refine and improve the content.
+
+If you have feedback or ideas, please participate by opening an issue or commenting directly on the pull request linked below:
+[Comment on the Pull Request](https://github.com/robotframework/robotframework-RFCP-syllabus/pull/39/files)
+
+When providing feedback, please be as detailed as possible and explain your suggestions clearly. If you have a specific proposal, we encourage you to use GitHub’s proposal features to submit it directly. Your input is invaluable to making this certification syllabus comprehensive and effective.
+
+
+"""
+
 def update_heading_numbers_and_generate_toc(directory: Path):
     # Regex patterns
     chapter_file_pattern = re.compile(r"Chapter_(\d+)_.*\.md")
@@ -27,8 +41,19 @@ def update_heading_numbers_and_generate_toc(directory: Path):
         numbering_stack = []
         is_first_heading = True
         headings = []  # Store headings for this chapter
-
+        code_block = False
+        current_chapter_number = []
         for line in lines:
+            if line.strip().startswith("```robot"):
+                code_block = True
+                updated_lines.append(line)
+                continue
+            if code_block:
+                if line.strip() == "```":
+                    code_block = False
+                updated_lines.append(line)
+                continue
+
             heading_match = heading_pattern.match(line)
             if heading_match:
                 level = len(heading_match.group(1))  # Number of '#' indicates heading level
@@ -64,7 +89,15 @@ def update_heading_numbers_and_generate_toc(directory: Path):
                     f"({file.name}#{anchor})"
                 )
                 # Add entry with a sort key for sorting later
-                toc_entries.append((list(map(int, numbering.split('.'))), toc_entry))
+                current_chapter_number = list(map(int, numbering.split('.')))
+                toc_entries.append((current_chapter_number, toc_entry))
+            elif line.startswith("> LO-"):
+                # Add learning objective to the table of contents
+                toc_entry = (
+                    f"{'  ' * (level)}- {line[2:].strip()}"
+                )
+                toc_entries.append((current_chapter_number, toc_entry))
+                updated_lines.append(line)  # Preserve non-heading lines
             else:
                 updated_lines.append(line)  # Preserve non-heading lines
 
@@ -81,6 +114,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
     # Write the table of contents to README.md
     readme_path = directory / "README.md"
     with readme_path.open("w", encoding="utf-8") as readme_file:
+        readme_file.write(introduction)
         readme_file.write("# Table of Contents\n\n")
         for _, toc_entry in toc_entries:
             readme_file.write(toc_entry + "\n")
