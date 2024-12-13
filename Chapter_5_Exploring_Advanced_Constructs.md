@@ -1,17 +1,18 @@
 # 5 Exploring Advanced Constructs
 
 This chapter introduces more advanced constructs of Robot Framework.
-These topics are often unnecessary for simple automation cases but can be very useful in more complex situations.
-Even though it is NOT expected that Robot Framework Certified Professionals will be able to use them, it is important to be aware of the possibilities and understand the basic concepts.
+These topics are often not needed for simple automation cases but can be very useful in more complex situations.
+Although it is not expected that Robot Framework Certified Professionals will be able to use them, it is important to be aware of the possibilities and to understand the basic concepts.
 
 
 
 
 ## 5.1 Advanced Variables
 
-Variables in Robot Framework and programming languages, in general, can be more complex and store multiple different types of data.
-Robot Framework also offers various ways to create different kinds of values and types.
-However, the built-in language support is limited to the very basic [3.2.2.2 Primitive Data Types](Chapter_3_Keyword_Design_Variables_Resources.md#3222-primitive-data-types), [3.2.2.3 List Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3223-list-variable-definition), and [3.2.2.4 Dictionary Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3224-dictionary-variable-definition).
+Variables in Robot Framework, and in programming languages in general, can be more complex and can store various types of data.
+Robot Framework also offers multiple ways to create different kinds of values and types.
+However, the built-in language support is limited to the basic [3.2.2.2 Primitive Data Types](Chapter_3_Keyword_Design_Variables_Resources.md#3222-primitive-data-types), [3.2.2.3 List Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3223-list-variable-definition), and [3.2.2.4 Dictionary Variable Definition](Chapter_3_Keyword_Design_Variables_Resources.md#3224-dictionary-variable-definition).
+
 
 This chapter provides more advanced knowledge about the different variable scopes, lists, dictionaries, their syntax, and some background on the most important Built-In Variables.
 
@@ -121,7 +122,7 @@ Variables with a suite scope are generally statically defined or imported variab
 
 If a variable is defined in the `*** Variables ***` section of a suite file and is dynamically defined using the `VAR` syntax at the suite level, the variable value is overwritten with the new value.
 
-If a global variable is defined using the command line, and a suite-level variable with the same name is dynamically defined, the suite variable now shadows the global variable and has higher priority as long as the suite is in scope. As soon as the suite is finished or a sub-suite is executed, the global variable is again in scope with higher priority.
+If a global variable is defined using the command line, and a suite-level variable with the same name is dynamically defined, the suite variable now shadows the global variable and has higher priority as long as the suite is in scope. Once the suite is finished or a sub-suite is executed, the global variable returns to scope with higher priority.
 
 **Recommendation**:
 Suite variables should be defined using uppercase letters, like `${SUITE_VARIABLE}`, to distinguish them from local variables. These variables should be defined in the `*** Variables ***` section of the suite file, even if they are dynamically overwritten during execution, so they are visible in the editor or IDE and can be used for auto-completion and static code analysis.
@@ -187,7 +188,7 @@ Additionally, `${result}` is only available within `Calculate Sum`, and only its
 
 ### 5.1.3 Global Variables via Command Line
 
-As described earlier, Global Variables can be statically defined via command line options.
+As described earlier, global variables can be statically defined via command-line options.
 
 The command line option `--variable` or `-v` can be used to define global variables.
 This option can be used multiple times to define multiple variables.
@@ -379,10 +380,8 @@ In some cases, it is necessary to use control structures to handle different cas
 > [!IMPORTANT]
 > LO-XX Understand the purpose and basic concept of IF-Statements (K2)
 
-The **IF/ELSE** syntax in Robot Framework is used to control the flow
-
- of test|task execution by allowing certain keywords to run only when specific conditions are met.
- This is achieved by evaluating conditions written as Python expressions, enabling dynamic decision-making within your tests|tasks.
+The `IF/ELSE` syntax in Robot Framework is used to control the flow of test|task execution by allowing certain keywords to run only when specific conditions are met.
+This is achieved by evaluating conditions written as Python expressions, enabling dynamic decision-making within your tests|tasks.
 
 The `IF` statement begins with the `IF` token and ends with an `END`, enclosing the keywords executed when the condition is true.
 An optional `ELSE` or `ELSE IF` can specify alternative actions when the initial condition is false.
@@ -465,7 +464,7 @@ This allows you to perform the same actions for different items without duplicat
 Robot Framework has four types of FOR loops; this chapter focuses on the basic `FOR-IN` loop.
 - `FOR-IN` is used to iterate over a list of values.
 
-The other types are `FOR-IN-RANGE`, `FOR-IN-ENUMERATE`, and `FOR-IN-ZIP`, which are more advanced and less commonly used.
+The other types are `FOR-IN-RANGE`, `FOR-IN-ENUMERATE`, and `FOR-IN-ZIP`, which are more advanced and less commonly required.
 - `FOR-IN-RANGE` iterates over a range of numbers.
 - `FOR-IN-ENUMERATE` iterates over a list of values and their indexes.
 - `FOR-IN-ZIP` iterates over multiple lists simultaneously.

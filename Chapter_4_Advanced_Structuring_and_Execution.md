@@ -43,15 +43,16 @@ It is used to prepare the environment or perform actions that need to occur befo
 Since it is only executed once before all tests|tasks or child suites, it can save time, rather than executing the action for each test|task individually.
 
 **Key characteristics of Suite Setup:**
+- Suite Setup is a single keyword call with potential argument values.
 - Executed before any tests|tasks and child suites in the suite.
 - If the Suite Setup fails, all tests|tasks in the suite and its child suites are marked as failed, and they are not executed.
-- Ideal for checking **preconditions** that must be met before running the tests|tasks.
 - Logged in the execution log as a separate section, indicating the setup status.
 
 **Typical use cases:**
+- Ideal for checking **preconditions** that must be met before running the tests|tasks.
 - Ensuring that the environment is ready for execution.
 - Starting services or applications required for the suite.
-- Preparing a system to meet the suite's requirements.
+- Preparing a system under automation to meet the suite's requirements.
 - Loading configurations or resources shared across multiple tests|tasks.
 
 Example of defining a Suite Setup:
@@ -80,14 +81,15 @@ Individual tests|tasks can override the default setup by specifying their own `[
 To disable the setup for a specific test|task, you can set `[Setup]    NONE`, which means that no setup will be executed for that test|task.
 
 **Key characteristics of Test|Task Setup:**
+- Test|Task Setup is a single keyword call with potential argument values.
 - Executed before the test|task starts.
 - If the Test|Task Setup fails, the test|task is marked as failed, and its body, including its main keywords, is not executed.
 - Can be set globally for all tests|tasks in a suite and overridden locally.
 - Logged in the execution log as a separate section, indicating the setup status.
 
 **Typical use cases:**
-- Setting up test data unique to the test|task.
-- Distinguishing keywords of a test.
+- Setting up data unique to the test|task.
+- Distinguishing phases of a test|task in *setup* (aka *preparation* or *precondition checking*), *steps*, and *teardown* (aka *clean up* or *postconditions*).
 - Executing preparation steps to navigate to the feature under test.
 
 Example of defining a default Test|Task Setup in the suite settings and overriding it on a test case:
@@ -124,6 +126,7 @@ A **Keyword Setup** is executed before the body of a user keyword is executed.
 It allows for preparation steps specific to that keyword or ensures that the keyword's requirements are met before execution.
 
 **Key characteristics of Keyword Setup:**
+- Keyword Setup is a single keyword call with potential argument values.
 - Executed before the keyword's body.
 - If the Keyword Setup fails, the keyword's body is not executed.
 - Logged in the execution log as a separate section, indicating the setup status.
@@ -185,6 +188,7 @@ A **Suite Teardown** is executed after all tests|tasks and all child suites in a
 The Suite Teardown is executed regardless of the outcome of the tests|tasks within the suite, even if the suite setup fails.
 
 **Key characteristics of Suite Teardown:**
+- Suite Teardown is a single keyword call with potential argument values.
 - Executed after all tests|tasks and child suites have completed.
 - Runs even if the Suite Setup fails or any test|task within the suite fails.
 - If the Suite Teardown fails, all tests|tasks in the suite are marked as failed in reports and logs.
@@ -223,6 +227,7 @@ If you want to disable the teardown for a specific test|task, you can set `[Tear
 It is recommended to define the local `[Teardown]` setting as the last line of the test|task.
 
 **Key characteristics of Test|Task Teardown:**
+- Test|Task Teardown is a single keyword call with potential argument values.
 - Executed after the test|task has been executed, regardless of its status.
 - Runs even if the Test|Task Setup fails.
 - If the Test|Task Teardown fails, the test|task is marked as failed in reports and logs.
@@ -233,6 +238,8 @@ It is recommended to define the local `[Teardown]` setting as the last line of t
 - Logging out of an application after a test|task completes.
 - Deleting test data created during the test|task.
 - Restoring configurations altered during the test|task.
+- Distinguishing phases of a test|task in *setup* (aka *preparation* or *precondition checking*), *steps*, and *teardown* (aka *clean up* or *postconditions*).
+
 
 Example of defining a default Test|Task Teardown in the suite settings:
 
@@ -273,6 +280,7 @@ ensuring that any resources used within the keyword are properly released indepe
 For better readability, it should be written as the last line of a keyword.
 
 **Key characteristics of Keyword Teardown:**
+- Keyword Teardown is a single keyword call with potential argument values.
 - Executed after the keyword body has been executed, regardless of its status.
 - Runs even if the keyword's setup fails.
 - All keywords within the Keyword Teardown are executed, even if one of them fails.
@@ -327,7 +335,7 @@ Initialization files enable you to:
 
 As previously explained, **Suite Setup** and **Suite Teardown** are used to prepare and clean up the environment before and after a suite's execution.
 Initialization files provide a centralized place to define these setups and teardowns for all sub-suites and their tests|tasks within a directory structure.
-Thus, it is possible to define one Suite Setup that is executed at the very start of the execution before any other Suite Setup or Test Setup and Test is executed.
+Thus, it is possible to define one Suite Setup that is executed at the very start of the execution before any other Suite Setup, Test|Task Setup, and Test|Task is executed.
 The Suite Teardown of an initialization file is executed after all sub-suites in the directory and their tests|tasks have been completed.
 
 
@@ -563,7 +571,7 @@ In addition to `PASS` and `FAIL`, Robot Framework introduces a `SKIP` status to 
 > [!IMPORTANT]
 > LO-XX Recall the differences between skip and exclude (K1)
 
-Tests|tasks can be skipped with `--skip` by tags when executing Robot Framework similar to `--exclude`.
+Tests|tasks can be skipped with `--skip` by tags when executing Robot Framework, similar to `--exclude`.
 The difference between `--skip` and `--exclude` is that `--skip` will mark the tests|tasks as skipped in the report and log, while `--exclude` will not execute them at all.
 Therefore skip is better for documenting that a specific test|task was not executed for a specific reason.
 
@@ -596,4 +604,4 @@ Tests|tasks can be automatically marked as skipped if they fail:
   robot --skiponfailure flaky path/to/tests
   ```
 
-- **Reserved Tag `robot:skip-on-failure`**: Tag tests|tasks to skip automatically on failure:
+- **Reserved Tag `robot:skip-on-failure`**: Tag tests|tasks to skip automatically on failure.
