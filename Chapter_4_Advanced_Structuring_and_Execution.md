@@ -160,7 +160,7 @@ As mentioned before, a failure resulting in a keyword with the status `FAIL` wil
 These not-executed keywords will receive the status `NOT RUN`.
 
 A **Teardown** is a single keyword call with potential argument values that is executed after the child suites, test|tasks, and keywords have completed execution, regardless of the outcome, even if previously executed elements have failed.
-It ensures that necessary cleanup actions are performed, maintaining the integrity of the test environment for subsequent executions.
+It ensures that necessary cleanup actions are performed, maintaining the integrity of the environment for subsequent executions.
 
 **Typical use cases for Teardowns include:**
 - Cleaning up the system under test after a test|task has been executed.
