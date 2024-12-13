@@ -51,7 +51,7 @@ Since it is only executed once before all tests|tasks or child suites, it can sa
 **Typical use cases:**
 - Ensuring that the environment is ready for execution.
 - Starting services or applications required for the suite.
-- Preparing a system under test to meet the suite's requirements.
+- Preparing a system to meet the suite's requirements.
 - Loading configurations or resources shared across multiple tests|tasks.
 
 Example of defining a Suite Setup:
