@@ -89,8 +89,8 @@ To disable the setup for a specific test|task, you can set `[Setup]    NONE`, wh
 
 **Typical use cases:**
 - Setting up data unique to the test|task.
+- Executing preparation steps to navigate to the automated task or feature under test.
 - Distinguishing phases of a test|task in *setup* (aka *preparation* or *precondition checking*), *steps*, and *teardown* (aka *clean up* or *postconditions*).
-- Executing preparation steps to navigate to the feature under test.
 
 Example of defining a default Test|Task Setup in the suite settings and overriding it on a test case:
 
