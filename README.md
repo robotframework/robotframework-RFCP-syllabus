@@ -50,7 +50,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
     - [`1.4.3 Comparing Keyword-Driven and Behavior-Driven Specification`](Chapter_1_Introduction.md#143-comparing-keyword-driven-and-behavior-driven-specification)
       - LO-XX Recall the differences between Keyword-Driven and Behavior-Driven Specification (K1)
     - [`1.4.4 Data-Driven Specification`](Chapter_1_Introduction.md#144-data-driven-specification)
-      - LO-XX Understand the basic concept of Data-Driven Specification (K2)
+      - LO-XX Recall the purpose of Data-Driven Specification (K1)
   - [`1.5 Organization and Licensing`](Chapter_1_Introduction.md#15-organization-and-licensing)
     - [`1.5.1 Open Source License`](Chapter_1_Introduction.md#151-open-source-license)
       - LO-XX Recall the type of open-source license under which Robot Framework is distributed (K1)

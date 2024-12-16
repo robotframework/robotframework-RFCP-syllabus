@@ -326,13 +326,11 @@ Both styles can be applied within Robot Framework, offering flexibility dependin
 ### 1.4.4 Data-Driven Specification
 
 > [!IMPORTANT]
-> LO-XX Understand the basic concept of Data-Driven Specification (K2)
+> LO-XX Recall the purpose of Data-Driven Specification (K1)
 
 **Data-Driven Specification** originates from **Data-Driven Testing**
 and is a method where the test data and expected results are
 separated from the test script that controls the flow.
-This approach allows for the reuse of the same test script
-with different data sets, making it easier to maintain and scale tests.
 
 While in **Robotic Process Automation (RPA)** the data that are
 used in an automation workflow are typically dynamically acquired from an external source,
@@ -340,28 +338,23 @@ in testing the data are specifically chosen to cover different scenarios or case
 Therefore this method to define data combinations
 statically in the suite files is normally not applicable in RPA.
 
-**Data-Driven Testing** focuses on testing the same workflow
-or scenario with different sets of input and/or output data.
-In this style, a single user keyword, which contains the whole test logic,
+The purpose of **Data-Driven Testing** is to automate the same sequence of actions
+or scenario with different sets of input and/or expected output data.
+
+In this style, a single user keyword, which contains the whole test logic or sequence of actions,
 is executed with multiple data variations,
 making it highly effective for repetitive tests,
 where the logic stays the same but the data changes,
 without duplicating the test logic for each case.
 
 Robot Framework offers a convenient feature for this approach through **Test Templates**.
-A Test Template allows specifying the keyword only once and then applying it to multiple test data sets.
-
-For example:
-
-The above example shows six test cases that all use the same
-keyword `Login with invalid credentials should fail` but with different data for username and password.
-
 
 **Benefits of Data-Driven Specification**:
 - **Efficiency**: Reduces the need to write redundant test cases by reusing the same workflow with different data inputs.
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
 - **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
 
+See [3.4 Data-Driven Specification](Chapter_3_Keyword_Design_Variables_Resources.md#34-data-driven-specification) for more details and examples on Data-Driven Specification.
 
 
 
