@@ -74,9 +74,9 @@ The allowed sections in recommended order are:
 ## 3.2 Variables
 
 > [!IMPORTANT]
-> LO-XX Understand how variables in Robot Framework are used to store and manage data (K2)
+> LO-var-what Understand how variables in Robot Framework are used to store and manage data (K2)
 >
-> LO-XX Recall the relevant five different ways to create and assign variables(K1)
+> LO-var-diff Recall the relevant five different ways to create and assign variables(K1)
 
 Variables in Robot Framework are used to store values that can be referenced and reused throughout suites, test cases, tasks, and keywords.
 They help manage dynamic data or centrally maintained data, reducing hardcoding in multiple locations and making automation flexible.
@@ -99,9 +99,9 @@ Beside variables created by the user, Robot Framework also supports **Built-in V
 ### 3.2.1 Variable Syntax and Access Types
 
 > [!IMPORTANT]
-> LO-XX Recall the four syntactical access types to variables with their prefixes (K1)
+> LO-var-acc-type Recall the four syntactical access types to variables with their prefixes (K1)
 >
-> LO-XX Recall the basic syntax of variables (K1)
+> LO-var-stx Recall the basic syntax of variables (K1)
 
 Variables in Robot Framework are defined by three attributes:
 - **Prefix**: `$`, `@`, or `&` to define the access type to the variable. (`%` for environment variables)
@@ -133,9 +133,9 @@ can be found in the [5.1 Advanced Variables](Chapter_5_Exploring_Advanced_Constr
 ### 3.2.2 `*** Variables ***` Section
 
 > [!IMPORTANT]
-> LO-XX Create variables in the Variables section (K3)
+> LO-var-sect-create Create variables in the Variables section (K3)
 >
-> LO-XX Use the correct variable prefixes for assigning and accessing variables. (K3)
+> LO-var-prefix Use the correct variable prefixes for assigning and accessing variables. (K3)
 
 Variables can be defined in the `*** Variables ***` section within both suite files and resource files.
 
@@ -167,9 +167,9 @@ Variables defined in the `*** Variables ***` section are recommended to be named
 #### 3.2.2.1 Scalar Variable Definition
 
 > [!IMPORTANT]
-> LO-XX Create and assign scalar variables (K3)
+> LO-var-scalar-use Create and assign scalar variables (K3)
 >
-> LO-XX Understand how multiple lines can be used to define scalar variables (K2)
+> LO-var-scalar-mult Understand how multiple lines can be used to define scalar variables (K2)
 
 Example of creating scalar variables:
 ```robotframework
@@ -211,7 +211,7 @@ ${SEARCH_URL}     https://example.com/search
 #### 3.2.2.2 Primitive Data Types
 
 > [!IMPORTANT]
-> LO-XX Understand how to access primitive data types (K2)
+> LO-data-primitive Understand how to access primitive data types (K2)
 
 Robot Framework does support primitive data types as part of the syntax.
 
@@ -246,7 +246,7 @@ ${ANSWER}            The answer is ${INTEGER}    # This will be 'The answer is 4
 
 #### 3.2.2.3 List Variable Definition
 > [!IMPORTANT]
-> LO-XX Understand how to set and access data in list variables (K2)
+> LO-var-list-use Understand how to set and access data in list variables (K2)
 List variables store multiple values and are defined using the at-syntax `@{variable_name}`.
 You can define as many values as needed, with each additional value
 separated by multiple spaces or line continuation using the `...` syntax.
@@ -275,7 +275,7 @@ List Example
 #### 3.2.2.4 Dictionary Variable Definition
 
 > [!IMPORTANT]
-> LO-XX Understand how to set and access data in dict variables (K2)
+> LO-var-dict-use Understand how to set and access data in dict variables (K2)
 
 Dictionary variables store key-value pairs and use the ampersand-syntax `&{variable_name}`.
 Key-value pairs are assigned using the `key=value` format.
@@ -308,7 +308,7 @@ Assuming `${key}` contains the value `phone`, `${USER1}[${key}]` would resolve t
 ### 3.2.3 Return values from Keywords
 
 > [!IMPORTANT]
-> LO-XX Be able to assign return values from keywords to variables (K3)
+> LO-kw-rval-asg Be able to assign return values from keywords to variables (K3)
 
 In Robot Framework, values returned by keywords can be assigned to variables,
 enabling data to be passed between different keywords.
@@ -381,7 +381,7 @@ Multiple Return Example
 ### 3.2.4 `VAR` Statement
 
 > [!IMPORTANT]
-> LO-XX Understand how to create variables using the VAR statement (K2)
+> LO-var-statement Understand how to create variables using the VAR statement (K2)
 
 The `VAR` statement in Robot Framework is a way to create
 and assign values to variables directly within a test|task or keyword during execution.
@@ -407,7 +407,7 @@ For more details on this topic, refer to the section on [5.1.2 Variable Scopes](
 ### 3.2.5 Variable Scope Introduction
 
 > [!IMPORTANT]
-> LO-XX Understand how `local` and `suite` scope variables are created (K2)
+> LO-var-scope Understand how `local` and `suite` scope variables are created (K2)
 
 In Robot Framework, variables have different scopes, which define where they can be accessed and used. Understanding the scope of variables is crucial for managing data within tests and keywords.
 
@@ -468,7 +468,7 @@ As a reference for how defined keywords are documented, see [2.5 Keyword Interfa
 ### 3.3.2 User Keyword Names
 
 > [!IMPORTANT]
-> LO-XX Recall the rules how keyword names are matched. (K1)
+> LO-kw-match Recall the rules how keyword names are matched. (K1)
 
 The names of User Keywords should be descriptive and clear, reflecting the purpose of the keyword.
 Well-named keywords make tests more readable and easier to understand.
@@ -488,7 +488,7 @@ The following topics explain how to structure the body of a keyword.
 ### 3.3.3 User Keyword Settings
 
 > [!IMPORTANT]
-> LO-XX Recall all available settings and their purpose for User Keywords (K1)
+> LO-kw-stgs Recall all available settings and their purpose for User Keywords (K1)
 
 User keywords can have similar settings as test cases,
 and they have the same square bracket syntax separating them from keyword calls.
@@ -508,7 +508,7 @@ All available settings are listed below and explained in this section or in sect
 ### 3.3.4 User Keyword Documentation
 
 > [!IMPORTANT]
-> LO-XX Recall the significance of the first logical line and in keyword documentation for the log file (K1).
+> LO-kw-logic-line Recall the significance of the first logical line and in keyword documentation for the log file (K1).
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
@@ -537,7 +537,7 @@ This format includes:
 ### 3.3.5 User Keyword Arguments
 
 > [!IMPORTANT]
-> LO-XX Understand the purpose and syntax of the [Arguments] setting in User Keywords (K2).
+> LO-kw-arg-stx Understand the purpose and syntax of the [Arguments] setting in User Keywords (K2).
 
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
@@ -552,9 +552,9 @@ Unlike Library Keywords, User Keywords cannot define argument types like `string
 #### 3.3.5.1 Defining Mandatory Arguments
 
 > [!IMPORTANT]
-> LO-XX Recall what makes an argument mandatory in a user keyword. (K1)
+> LO-kw-arg-mand-what Recall what makes an argument mandatory in a user keyword. (K1)
 >
-> LO-XX Define User Keywords with mandatory arguments. (K3)
+> LO-kw-arg-mand-use Define User Keywords with mandatory arguments. (K3)
 
 Arguments defined as scalar variable (`${arg}`) without a default value are mandatory and must be provided when calling the keyword.
 
@@ -585,9 +585,9 @@ In that case, the argument `${file_path}` is assigned the value `server.log`, an
 #### 3.3.5.2 Defining Optional Arguments
 
 > [!IMPORTANT]
-> LO-XX Recall how to define optional arguments in a user keyword. (K1)
+> LO-kw-arg-opt-what Recall how to define optional arguments in a user keyword. (K1)
 >
-> LO-XX Define User Keywords with optional arguments. (K3)
+> LO-kw-arg-opt-use Define User Keywords with optional arguments. (K3)
 
 Optional arguments are defined by assigning default values to them in the `[Arguments]` setting.
 All optional arguments must be defined after all mandatory arguments.
@@ -617,9 +617,9 @@ Verify File Contains
 #### 3.3.5.3 Embedded Arguments
 
 > [!IMPORTANT]
-> LO-XX Describe how embedded arguments are replaced by actual values during keyword execution (K2).
+> LO-kw-arg-emb-how Describe how embedded arguments are replaced by actual values during keyword execution (K2).
 >
-> LO-XX Understand the role of embedded arguments in Behavior-Driven Development (BDD) style. (K2)
+> LO-kw-arg-emb-bdd Understand the role of embedded arguments in Behavior-Driven Development (BDD) style. (K2)
 
 
 In Robot Framework, **embedded arguments** allow the inclusion
@@ -703,9 +703,9 @@ but their definition and usage are not part of this syllabus.
 ### 3.3.6 RETURN Statement
 
 > [!IMPORTANT]
-> LO-XX Understand how the `RETURN` statement passes data between different keywords. (K2)
+> LO-ret-how Understand how the `RETURN` statement passes data between different keywords. (K2)
 >
-> LO-XX Use the `RETURN` statement to return values from a user keyword and assign it to a variable. (K3)
+> LO-ret-use Use the `RETURN` statement to return values from a user keyword and assign it to a variable. (K3)
 
 The `RETURN` statement (case-sensitive) in Robot Framework is used to return values from a User Keyword
 to be used in further test steps or stored in variables.
@@ -745,7 +745,7 @@ And if, is this want we want to ask the participants to know?
 -->
 
 > [!IMPORTANT]
-> LO-XX Recall the naming conventions for user keywords (K1).
+> LO-name-conv Recall the naming conventions for user keywords (K1).
 
 When defining User Keywords, it is recommended to follow conventions to ensure consistency and readability across the project.
 These may be taken from community best practices or defined within the project team.
@@ -765,16 +765,16 @@ Keyword Conventions should contain agreements on:
 ## 3.4 Data-Driven Specification
 
 > [!IMPORTANT]
-> LO-XX Understand the basic concept and syntax of Data-Driven Specification (K2)
+> LO-dd-conc Understand the basic concept and syntax of Data-Driven Specification (K2)
 
 The **Data-Driven Specification** style in Robot Framework separates test|task logic from data, enabling tests|tasks to be executed with multiple data sets efficiently. This approach involves using a single higher-level keyword to represent the entire workflow, while the test data is defined as rows of input and expected output values.
 
 ### 3.4.1 Test|Task Templates
 
 > [!IMPORTANT]
-> LO-XX Understand how to define and use test|task templates (K2)
+> LO-templ-use Understand how to define and use test|task templates (K2)
 >
-> LO-XX Recall the differences between the two different approaches to define Data-Driven Specification (K1)
+> LO-templ-diff Recall the differences between the two different approaches to define Data-Driven Specification (K1)
 
 For each test|task, a template keyword can be defined that contains the workflow logic.
 
@@ -790,7 +790,7 @@ The tests|tasks would not have any other keyword calls but would instead define 
 #### 3.4.1.1 Multiple Named Test|Task With One Template
 
 > [!IMPORTANT]
-> LO-XX Recall the syntax and properties of multiple named test|task with one template (K1)
+> LO-templ-mult-tc Recall the syntax and properties of multiple named test|task with one template (K1)
 
 The following example has six different test|task, each with different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
 
@@ -819,7 +819,7 @@ It is possible to add header names to the data columns in the line of `*** Test 
 #### 3.4.1.2 Named Test|Task With Multiple Data Rows:
 
 > [!IMPORTANT]
-> LO-XX Recall the syntax and properties of named test|task with multiple data rows (K1)
+> LO-templ-mult-row Recall the syntax and properties of named test|task with multiple data rows (K1)
 
 A slightly different approach is to define multiple data rows for a single test|task.
 
@@ -862,7 +862,7 @@ However, this approach has also its drawbacks:
 ## 3.5 Advanced Importing of Keywords and Naming Conflicts
 
 > [!IMPORTANT]
-> LO-XX Recall that naming conflicts can arise from the import of multiple resource files (K1).
+> LO-name-conflict Recall that naming conflicts can arise from the import of multiple resource files (K1).
 
 As stated before, it is possible to organize imports and available keywords in Robot Framework by using Resource Files.
 By default, all keywords or variables created or imported in a resource file are available to those suites and files that are importing that higher-level resource file.
@@ -879,7 +879,7 @@ Some keyword libraries have the option to be configured to change their behavior
 ### 3.5.1 Importing Hierarchies
 
 > [!IMPORTANT]
-> LO-XX Understand how recursive imports of resource files and libraries work (K2).
+> LO-imp-rec-how Understand how recursive imports of resource files and libraries work (K2).
 
 Let's assume the following libraries and resource files shall be used:
 - **Library**    `A`
@@ -933,9 +933,9 @@ Therefore, the recommendation is to import libraries only in one resource file w
 ### 3.5.2 Library Configuration
 
 > [!IMPORTANT]
-> LO-XX Recall the purpose of the `Importing` section in library documentation (K1).
+> LO-lib-doc Recall the purpose of the `Importing` section in library documentation (K1).
 >
-> LO-XX Be able to configure a library import using arguments (K3).
+> LO-lib-arg Be able to configure a library import using arguments (K3).
 
 Some libraries offer or need additional configuration to change their behavior or make them work.
 This is typically global behavior like internal timeouts, connection settings to systems, or plugins that should be used.
@@ -975,7 +975,7 @@ They are now available as `EmbeddedAPI` and `DeviceAPI` in the suite.
 ### 3.5.3 Naming Conflicts
 
 > [!IMPORTANT]
-> LO-XX Explain how naming conflicts can happen and how to mitigate them (K2).
+> LO-name-confl-mit Explain how naming conflicts can happen and how to mitigate them (K2).
 
 Naming conflicts can occur when two or more keywords have the same name.
 If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate user keyword name.
