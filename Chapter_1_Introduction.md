@@ -8,7 +8,7 @@ The upcoming chapters provide a concise overview of Robot Framework, including i
 ## 1.1 Purpose / Use-Cases
 
 > [!IMPORTANT]
-> LO-XX Recall the two main Use-Cases of Robot Framework (K1)
+> LO-use-case Recall the two main Use-Cases of Robot Framework (K1)
 
 Robot Framework is a versatile, open-source automation framework that supports both **test automation** and **robotic process automation (RPA)**.
 Initially designed for acceptance testing and other types of testing, it has since evolved to cover various automation tasks in both IT and business environments.
@@ -20,7 +20,7 @@ Robot Framework can be extended through a vast array of third-party or custom ma
 ### 1.1.1 Test Automation
 
 > [!IMPORTANT]
-> LO-XX recall the test levels Robot Framework is mostly used for (K1)
+> LO-test-level  recall the test levels Robot Framework is mostly used for (K1)
 
 Robot Framework is widely used at various levels of testing, primarily focusing on:
 
@@ -68,7 +68,7 @@ Instead, it provides a flexible platform where different tools, libraries, and i
 ### 1.2.1 Robot Framework and the gTAA (Generic Test Automation Architecture)
 
 > [!IMPORTANT]
-> LO-XX Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework (K1)
+> LO-gtaa Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework (K1)
 
 The **Generic Test Automation Architecture (gTAA)** described in the ISTQB "Certified Tester Advanced Level Test Automation Engineering" offers a structured approach to test automation, dividing it into different layers for a clear separation of concerns:
 
@@ -89,7 +89,7 @@ These libraries allow interaction with different technologies and interfaces, en
 ### 1.2.2 What is Robot Framework & What It Is Not
 
 > [!IMPORTANT]
-> LO-XX Recall what is part of Robot Framework and what is not (K1)
+> LO-rf-part Recall what is part of Robot Framework and what is not (K1)
 
 Robot Framework itself focuses primarily on **test|task execution**.
 It includes:
@@ -122,7 +122,7 @@ Robot Framework defines the syntax for test|task data, but it is the role of ext
 ### 1.2.3 Technology & Prerequisites
 
 > [!IMPORTANT]
-> LO-XX Recall the technology Robot Framework is built on and the prerequisites for running it (K1)
+> LO-rf-tech Recall the technology Robot Framework is built on and the prerequisites for running it (K1)
 
 Robot Framework is built on **Python** but is adaptable to other languages and technologies through external libraries.
 To run Robot Framework, an [officially supported version](https://devguide.python.org/versions/) of the **Python interpreter** is required on the machine executing the tests|tasks.
@@ -135,7 +135,7 @@ Robot Framework itself does not have any external dependencies, but additional t
 ## 1.3 Basic Syntax & Structure
 
 > [!IMPORTANT]
-> LO-XX Recall the key attributes of the syntax that makes Robot Framework simple and human-readable (K1)
+> LO-human-stx Recall the key attributes of the syntax that makes Robot Framework simple and human-readable (K1)
 
 
 Robot Framework is a script-based interpreter for files that contain textual specifications.
@@ -185,7 +185,7 @@ This structure allows for logical grouping and organization of tests and tasks, 
 ### 1.3.3 What are Keywords?
 
 > [!IMPORTANT]
-> LO-XX Explain the difference between User Keywords and Library Keywords (K2)
+> LO-userkw-libkw-diff Explain the difference between User Keywords and Library Keywords (K2)
 
 Tests or Tasks are structured using **Keywords**, which represent specific actions or sequences of actions to be performed.
 
@@ -209,7 +209,7 @@ This granular logging and detailed execution documentation is one of the key adv
 ### 1.3.4 Resource Files & Libraries
 
 > [!IMPORTANT]
-> LO-XX Recall the difference between Resource Files and Libraries and their artefacts (K1)
+> LO-res-lib-arf-diff Recall the difference between Resource Files and Libraries and their artefacts (K1)
 
 While tests and tasks are organized into suites, **keywords** are organized into **Resource Files** and **Keyword Libraries**.
 
@@ -226,7 +226,7 @@ The concepts of organizing are fundamental to working with Robot Framework and c
 ## 1.4 Specification Styles
 
 > [!IMPORTANT]
-> LO-XX Recall the three specification styles of Robot Framework (K1)
+> LO-spec-style Recall the three specification styles of Robot Framework (K1)
 
 Specification styles define how the automation process or test cases are structured, focusing on how actions and verifications are expressed.
 These styles can be applied to all types of automation, including both testing and robotic process automation (RPA).
@@ -253,7 +253,7 @@ with the other two styles, to define the data that is used in the automation.
 ### 1.4.1 Keyword-Driven Specification
 
 > [!IMPORTANT]
-> LO-XX Understand the basic concepts of Keyword-Driven Specification (K2)
+> LO-kw-spec Understand the basic concepts of Keyword-Driven Specification (K2)
 
 In **Keyword-Driven Specification**, automation steps are expressed through a sequence of mostly **imperative commands**.
 Keywords define the specific actions that must be executed in a particular order, similar to procedural programming.
@@ -278,7 +278,7 @@ Flow and data can be parsed separately by the consumer.
 ### 1.4.2 Behavior-Driven Specification
 
 > [!IMPORTANT]
-> LO-XX Understand the basic concepts of Behavior-Driven Specification (K2)
+> LO-bdd-spec Understand the basic concepts of Behavior-Driven Specification (K2)
 
 **Behavior-Driven Specification** originates from **Behavior-Driven Development (BDD)** and its **Gherkin-Style**, where steps are written to describe the system's behavior from the user's perspective.
 This style often incorporates **embedded arguments** into the steps and uses natural language constructs like **Given, When, Then, And & But**.
@@ -300,7 +300,7 @@ Robot Framework allows you to create **user keywords** that can further call oth
 ### 1.4.3 Comparing Keyword-Driven and Behavior-Driven Specification
 
 > [!IMPORTANT]
-> LO-XX Recall the differences between Keyword-Driven and Behavior-Driven Specification (K1)
+> LO-kw-bdd-diff Recall the differences between Keyword-Driven and Behavior-Driven Specification (K1)
 
 The core difference between **Keyword-Driven** and **Behavior-Driven** styles lies in their focus:
 
@@ -326,7 +326,7 @@ Both styles can be applied within Robot Framework, offering flexibility dependin
 ### 1.4.4 Data-Driven Specification
 
 > [!IMPORTANT]
-> LO-XX Recall the purpose of Data-Driven Specification (K1)
+> LO-dd-spec Recall the purpose of Data-Driven Specification (K1)
 
 **Data-Driven Specification** originates from **Data-Driven Testing**
 and is a method where the test data and expected results are
@@ -365,7 +365,7 @@ See [3.4 Data-Driven Specification](Chapter_3_Keyword_Design_Variables_Resources
 ### 1.5.1 Open Source License
 
 > [!IMPORTANT]
-> LO-XX Recall the type of open-source license under which Robot Framework is distributed (K1)
+> LO-os-license Recall the type of open-source license under which Robot Framework is distributed (K1)
 
 Robot Framework is licensed under the **Apache License 2.0**, a permissive open-source license.
 The key characteristics of this license include:
@@ -381,7 +381,7 @@ This licensing structure encourages broad usage and contribution while maintaini
 ### 1.5.2 About the Robot Framework Foundation
 
 > [!IMPORTANT]
-> LO-XX List and recall the key objectives and organizational form of the Robot Framework Foundation (K1)
+> LO-foundation List and recall the key objectives and organizational form of the Robot Framework Foundation (K1)
 
 The **Robot Framework Foundation** (officially known as **Robot Framework ry**) is a non-profit association based in Helsinki, Finland, dedicated to promoting the use, development, and maintenance of the open-source Robot Framework. The foundation ensures that Robot Framework remains freely available and viable for both test automation and robotic process automation (RPA) in the future.
 
@@ -408,7 +408,7 @@ This structure and mission ensure that Robot Framework continues to grow and ser
 ### 1.5.3 Robot Framework Webpages
 
 > [!IMPORTANT]
-> LO-XX Recall the official webpages for Robot Framework and its resources (K1)
+> LO-rf-res Recall the official webpages for Robot Framework and its resources (K1)
 
 The official pages for Robot Framework and its related resources are maintained by the foundation.
 These include:
