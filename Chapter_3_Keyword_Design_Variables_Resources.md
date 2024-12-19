@@ -617,7 +617,7 @@ Verify File Contains
 #### 3.3.5.3 Embedded Arguments
 
 > [!IMPORTANT]
-> LO-kw-arg-emb-how Describe how embedded arguments are replaced by actual values during keyword execution (K2).
+> LO-kw-arg-emb-val Describe how embedded arguments are replaced by actual values during keyword execution (K2).
 >
 > LO-kw-arg-emb-bdd Understand the role of embedded arguments in Behavior-Driven Development (BDD) style. (K2)
 

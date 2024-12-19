@@ -1139,7 +1139,7 @@ Send 5 IPv4 Pings On Windows
 ### 2.6.3 Embedded Arguments / Using Behavior-Driven Specification
 
 > [!IMPORTANT]
-> LO-kw-arg-emb-how Recall how to use enbedded arguments. (K1)
+> LO-kw-arg-emb-how Recall how to use embedded arguments. (K1)
 
 Embedded Arguments are mainly used when writing Behavior-Driven Specification.
 Embedded Arguments are part of the keyword name as described in [2.5.2.3 Embedded Arguments](Chapter_2_Getting_Started.md#2523-embedded-arguments).

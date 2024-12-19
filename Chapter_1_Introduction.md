@@ -20,7 +20,7 @@ Robot Framework can be extended through a vast array of third-party or custom ma
 ### 1.1.1 Test Automation
 
 > [!IMPORTANT]
-> LO-test-level  recall the test levels Robot Framework is mostly used for (K1)
+> LO-test-level Recall the test levels Robot Framework is mostly used for (K1)
 
 Robot Framework is widely used at various levels of testing, primarily focusing on:
 

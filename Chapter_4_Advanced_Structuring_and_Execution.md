@@ -425,7 +425,7 @@ Tags are also used to create a statistical summary of the test|task results in t
 ### 4.4.1 Assigning Tags to Tests|Tasks
 
 > [!IMPORTANT]
-> LO-tag-assign Recall the syntax and different ways to assign tags to tests|tasks (K1)
+> LO-tag-asg Recall the syntax and different ways to assign tags to tests|tasks (K1)
 
 Tags can be assigned to tests|tasks in several ways:
 

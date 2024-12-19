@@ -27,6 +27,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
 
     # Step 1: Update headings and generate the catalog of chapters
     toc_entries = []
+    lo_tags = []
 
     for file in directory.glob("Chapter_*.md"):
         match = chapter_file_pattern.match(file.name)
@@ -96,6 +97,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
                 toc_entry = (
                     f"{'  ' * (level)}- {line[2:].strip()}"
                 )
+                lo_tags.append((line.split()[1], current_chapter_number))
                 toc_entries.append((current_chapter_number, toc_entry))
                 updated_lines.append(line)  # Preserve non-heading lines
             else:
@@ -110,6 +112,22 @@ def update_heading_numbers_and_generate_toc(directory: Path):
 
     # Sort the TOC entries by their numerical keys
     toc_entries.sort(key=lambda x: x[0])
+
+    # check if there's duplicate use of tags
+    duplicate_tags = []
+    for index, tag1 in enumerate(lo_tags):
+        duplicates = []
+        for tag2 in lo_tags[index+1:]:
+            if tag1[0] == tag2[0]:
+                duplicates.append(tag2)
+        if len(duplicates) > 0:
+            duplicates.insert(0, tag1)
+            duplicate_tags.append(duplicates)
+    for line_tags in duplicate_tags:
+        msg = f"Warning: LO-tag '{line_tags[0][0]}' found at multiple chapters:"
+        for item in line_tags:
+            msg += f"\n\t{'.'.join((str(n) for n in item[1]))}"
+        print(msg)
 
     # Write the table of contents to README.md
     readme_path = directory / "README.md"
