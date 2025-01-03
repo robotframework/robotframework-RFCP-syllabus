@@ -22,7 +22,7 @@ but the specific teaching methods, order and pace may be adapted by the instruct
 ## 0.2 About "Robot Framework Certified Professional®"
 The Robot Framework Certified Professional® (RFCP) certification represents the foundational level of expertise in Robot Framework. It provides participants with a strong understanding of the core principles, syntax, and basic control structures needed to develop effective automation scripts.
 
-While the RFCP includes an introduction to advanced features like FOR-Loops and IF statements,
+While the RFCP includes an introduction to advanced features such as FOR-Loops and IF statements,
 the focus is primarily on awareness rather than in-depth mastery,
 leaving detailed exploration of these topics to the more advanced Robot Framework Certified Engineer® (RFCE) certification.
 
@@ -75,11 +75,11 @@ Throughout this syllabus, participants will progress through these knowledge lev
 ## 0.5 About Professional Training Providers
 
 Professional Training Providers are organizations officially accredited by the Robot Framework Foundation to offer certified training programs for a specific certification level.
-These partners shall deliver high-quality, structured courses designed to prepare candidates for the Robot Framework Certified Professional (RFCP) exam and other future certifications.
+These partners shall deliver high-quality, structured courses designed to prepare candidates for the Robot Framework® Certified Professional (RFCP) exam and other future Robot Framework certifications.
 
 All training providers are members of the Robot Framework Foundation,
 and their training materials have been reviewed by independent Robot Framework Experts chosen by the Robot Framework Foundation to ensure the Foundation's quality standards.
-Only these certified Professional Training Partners are permitted to refer to their courses as "Robot Framework" training or use the term "Robot Framework Certified Professional" or "RFP" in connection with their programs, due to the trademark on these terms.
+Only these certified Professional Training Partners are permitted to refer to their courses as "Robot Framework®" training or use the term "Robot Framework® Certified Professional" or "RFCP®" in connection with their programs, due to the trademark on these terms.
 
 Training can be exclusively pursued through these partners, but obtaining a certificate is not dependent on completing their courses, allowing flexibility for candidates to self-study if desired.
 

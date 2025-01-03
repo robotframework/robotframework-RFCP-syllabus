@@ -879,7 +879,7 @@ Some keyword libraries have the option to be configured to change their behavior
 ### 3.5.1 Importing Hierarchies
 
 > [!IMPORTANT]
-> LO-XX Understand how recursive imports of resource files and libraries work (K2).
+> LO-XX Understand how transitive imports of resource files and libraries work (K2).
 
 Let's assume the following libraries and resource files shall be used:
 - **Library**    `A`
@@ -920,6 +920,9 @@ Resource    functional_keywords.resource
 ```
 
 In this case, the suite `suite.robot` has access to all keywords from all keyword libraries, as well as all variables and user keywords from all resource files.
+With this transitive importing it is possible to organize user keywords and imports of libraries in a hierarchical way.
+
+It shall be avoided to create circular imports, where `A.resource` imports `B.resource` and `B.resource` imports `A.resource`.
 
 It should be avoided to import the same library in different places multiple times.
 If the exact same library with the same configuration (see the next section) is imported again, it will be ignored because Robot Framework already has it in its catalog.

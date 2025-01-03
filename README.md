@@ -142,7 +142,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
       - [`2.6.2.2 Free Named Arguments`](Chapter_2_Getting_Started.md#2622-free-named-arguments)
         - LO-XX Recall how free named arguments are marked in documentation. (K1)
     - [`2.6.3 Embedded Arguments / Using Behavior-Driven Specification`](Chapter_2_Getting_Started.md#263-embedded-arguments--using-behavior-driven-specification)
-      - LO-XX Recall how to use enbedded arguments. (K1)
+      - LO-XX Recall how to use embedded arguments. (K1)
 - [`3 Keyword Design, Variables, and Resource Files`](Chapter_3_Keyword_Design_Variables_Resources.md#3-keyword-design-variables-and-resource-files)
   - [`3.1 Resource File Structure`](Chapter_3_Keyword_Design_Variables_Resources.md#31-resource-file-structure)
     - [`3.1.1 Sections in Resource Files`](Chapter_3_Keyword_Design_Variables_Resources.md#311-sections-in-resource-files)
@@ -208,7 +208,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
   - [`3.5 Advanced Importing of Keywords and Naming Conflicts`](Chapter_3_Keyword_Design_Variables_Resources.md#35-advanced-importing-of-keywords-and-naming-conflicts)
     - LO-XX Recall that naming conflicts can arise from the import of multiple resource files (K1).
     - [`3.5.1 Importing Hierarchies`](Chapter_3_Keyword_Design_Variables_Resources.md#351-importing-hierarchies)
-      - LO-XX Understand how recursive imports of resource files and libraries work (K2).
+      - LO-XX Understand how transitive imports of resource files and libraries work (K2).
     - [`3.5.2 Library Configuration`](Chapter_3_Keyword_Design_Variables_Resources.md#352-library-configuration)
       - LO-XX Recall the purpose of the `Importing` section in library documentation (K1).
       - LO-XX Be able to configure a library import using arguments (K3).
@@ -227,8 +227,8 @@ When providing feedback, please be as detailed as possible and explain your sugg
     - [`4.1.3 Keyword Setup`](Chapter_4_Advanced_Structuring_and_Execution.md#413-keyword-setup)
       - LO-XX Recall key characteristics and syntax of Keyword Setup (K1)
   - [`4.2 Teardowns (Suite, Test|Task, Keyword)`](Chapter_4_Advanced_Structuring_and_Execution.md#42-teardowns-suite-testtask-keyword)
-    - LO-XX Understand the different levels where and how a Teardowns can be defined and when they are executed (K2)
-    - LO-XX Recall the typical use cases for using a Teardowns (K1)
+    - LO-XX Understand the different levels where and how Teardowns can be defined and when they are executed (K2)
+    - LO-XX Recall the typical use cases for using Teardowns (K1)
     - [`4.2.1 Suite Teardown`](Chapter_4_Advanced_Structuring_and_Execution.md#421-suite-teardown)
       - LO-XX Recall key characteristics, benefits, and syntax of Suite Teardown (K1)
       - LO-XX Understand when Suite Teardown is executed and used (K2)

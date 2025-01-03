@@ -151,9 +151,9 @@ Process Data
 ## 4.2 Teardowns (Suite, Test|Task, Keyword)
 
 > [!IMPORTANT]
-> LO-XX Understand the different levels where and how a Teardowns can be defined and when they are executed (K2)
+> LO-XX Understand the different levels where and how Teardowns can be defined and when they are executed (K2)
 >
-> LO-XX Recall the typical use cases for using a Teardowns (K1)
+> LO-XX Recall the typical use cases for using Teardowns (K1)
 
 In automation, tests|tasks are typically executed in a linear sequence.
 This linear execution can lead to issues when a preceding test|task fails, potentially affecting subsequent tests|tasks due to an unclean state of the system under test or the automated environment.

@@ -1,6 +1,6 @@
 # 1 Introduction to Robot Framework
 
-The upcoming chapters provide a concise overview of Robot Framework, including its core structure, use cases in test automation and RPA, and key specification styles like keyword-driven and behavior-driven testing. You'll learn about its architecture, syntax, and how test cases and tasks are organized. Additionally, the chapters explain the open-source licensing under Apache 2.0, the role of the Robot Framework Foundation in maintaining the ecosystem, and the foundational web resources available for further exploration and contributions.
+The upcoming chapters provide a concise overview of Robot Framework, including its core structure, use cases in test automation and Robotic Process Automation (RPA), and key specification styles like keyword-driven and behavior-driven testing. You'll learn about its architecture, syntax, and how test cases and tasks are organized. Additionally, the chapters explain the open-source licensing under Apache 2.0, the role of the Robot Framework Foundation in maintaining the ecosystem, and the foundational web resources available for further exploration and contributions.
 
 
 
@@ -11,7 +11,7 @@ The upcoming chapters provide a concise overview of Robot Framework, including i
 > LO-XX Recall the two main Use-Cases of Robot Framework (K1)
 
 Robot Framework is a versatile, open-source automation framework that supports both **test automation** and **robotic process automation (RPA)**.
-Initially designed for acceptance testing and other types of testing, it has since evolved to cover various automation tasks in both IT and business environments.
+Initially designed for acceptance testing, it has since evolved to cover other types of testing and various automation tasks in both IT and business environments.
 Its keyword-driven approach allows users to create reusable components, making it accessible even to those with minimal programming skills.
 Robot Framework can be extended through a vast array of third-party or custom made keyword libraries, allowing it to automate interactions with APIs, user interfaces, databases, and many more technologies.
 
@@ -24,9 +24,9 @@ Robot Framework can be extended through a vast array of third-party or custom ma
 
 Robot Framework is widely used at various levels of testing, primarily focusing on:
 
-- **System Testing**: Involves verifying the complete, integrated system’s behavior and capabilities. It often includes both functional and non-functional aspects (e.g., performance, usability) and may use simulated components.
+- **System Testing**: Involves verifying the complete system’s behavior and capabilities. It often includes both functional and non-functional aspects (e.g., accessibility, security) and may use simulated components.
 
-- **System Integration Testing**: Concentrates on the interaction between the system under test and external services, ensuring that all integrated parts communicate and function together as expected.
+- **System Integration Testing**: Focuses on the interaction between the system under test and external services, as well as on the integration of multiple systems into a larger system, ensuring that all integrated components communicate and function together as expected.
 
 - **Acceptance Testing**: Aims to validate that the system meets business requirements and is ready for deployment or release. This often includes different forms of acceptance testing (e.g., user acceptance, operational acceptance, regulatory acceptance) and is frequently written or conducted by end-users or stakeholders to confirm the system’s readiness for use. Acceptance tests, often defined by business stakeholders in approaches like Acceptance Test-Driven Development (ATDD), can be automated and executed earlier in the development process. This ensures that the solution aligns with business requirements from the start and provides immediate feedback, reducing costly changes later.
 
@@ -38,13 +38,13 @@ Robot Framework is typically not used for **component testing** and **integratio
 
 #### 1.1.1.1 Synthetic Monitoring
 
-Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **Active Monitoring** or **Proactive Monitoring**, is a proactive approach that simulates user interactions with live systems at regular intervals. It detects performance issues or downtime early and often before they affect actual users by continuously monitoring system behavior under simulated conditions.
+Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **Active Monitoring** or **Proactive Monitoring**, is a proactive approach that simulates user interactions with live systems at regular intervals. It detects performance issues or downtime early with the goal of to detect such failure before they affect actual users.
 
 
 
 ### 1.1.2 Robotic Process Automation (RPA)
 
-Robotic Process Automation (RPA) uses software bots to perform tasks and interactions normally done by humans, without requiring changes to the underlying applications.
+Robotic Process Automation (RPA) uses software bots to perform tasks and interactions normally performed by humans, without requiring changes to the underlying applications.
 
 Robot Framework, with its keyword-driven approach, vast ecosystem of libraries, simplicity, and scalability, is widely adopted for RPA tasks.
 Robot Framework allows users to automate most workflows using ready-made keyword libraries that provide a wide range of functionalities. These libraries can be combined and reused in user-defined keywords, making automation simple and efficient. For custom functionalities or more complex tasks, Robot Framework also offers the flexibility to create custom keyword libraries using Python, enabling advanced use cases and seamless integration with unique systems.
@@ -52,7 +52,7 @@ Robot Framework allows users to automate most workflows using ready-made keyword
 Common use cases of RPA with Robot Framework include:
 
 - **Data extraction and manipulation**: Automating data transfers and processing between systems.
-- **Application interaction**: Automating tasks such as form submissions, clicks, and file operations across web or desktop applications.
+- **Task/proces automation**: Automating tasks such as form submissions, clicks, and file operations across web or desktop applications.
 
 
 
@@ -74,15 +74,21 @@ The **Generic Test Automation Architecture (gTAA)** described in the ISTQB "Cert
 
 - **Definition Layer**: This layer contains the "Test Data" (test cases, tasks, resource files which include user keywords and variables).
 In Robot Framework, the test data is written using the defined syntax and contains keyword calls and argument values that make the test case or task definitions structured in suites.
-Also Editors that offer support for Robot Framework's syntax can be part of this layer.
 
 - **Execution Layer**: In Robot Framework, the execution layer consists of the framework itself, including its core components and APIs.
 It parses and interprets the test data syntax to build an execution model.
 The execution is responsible for processing this execution model to execute the library keywords with their argument values, logging results, and generating reports.
 
 - **Adaptation Layer**: This layer provides the connection between Robot Framework and the system under test (SUT).
-In Robot Framework, this is where the keyword libraries, such as those for UI, API, database interactions, or others, are located.
-These libraries allow interaction with different technologies and interfaces, ensuring the automation is flexible and adaptable to various environments.
+In Robot Framework, this is where the keyword libraries, which contain code responsible for interacting with different technologies and interfaces,
+such as those for UI, API, database interactions, or others, are located.
+These keyword libraries enable interaction with different technologies and interfaces, ensuring the automation is flexible and adaptable to various environments.
+
+Editors/IDEs that offer support for Robot Framework's syntax are tools that support or integrate in these layers.
+When writing tests|tasks or keywords, the editor supports the definition layer.
+When executing or debugging tests|tasks, the editor supports the execution layer.
+When writing keywords in i.e. Python for keyword libraries, the editor supports the adaptation layer.
+Therefore also other additional extensions of Robot Framework can be categorized into these layers.
 
 <!-- TODO: add a graphic here -->
 
@@ -145,7 +151,7 @@ The syntax of Robot Framework is designed to be simple and human-readable, allow
 Key attributes of the syntax that improves the before mentioned:
 
 - **Space-separated syntax**: Robot Framework uses two or more spaces as the primary separator (although one space is allowed as a character).
-  A use of **FOUR (4)** spaces is recommended to ensures clarity and readability of the specification.
+  A use of **FOUR (4)** spaces is recommended to ensure clarity and readability of the specification.
 - **Indentation based blocks**: Code blocks like test, task or keyword bodies are defined by indentation.
   This makes the structure clear and easy to follow.
 - **Reduced use of special characters**: Compared to programming languages the focus is on reducing special characters, making the syntax human-readable and user-friendly.
@@ -162,7 +168,7 @@ However, some syntax, like library imports is case-sensitive.
 ### 1.3.1 What are Test Cases / Tasks?
 
 In Robot Framework, **Test Cases** (**Tests**) or **Tasks** are executable entities that serve a specific purpose and are organized into suites.
-A **Test** is synonymous with a **Test Case**, while **Tasks**, technically being the same, are used in RPA mode, where the automation is not focused on testing but on automating business processes.
+A **Test** is synonymous with a **Test Case**, while **Task**, technically being the same, is used in RPA mode, where the automation is not focused on testing but on automating business processes.
 
 Tests or Tasks have a body made up of **keyword calls** and Robot Framework statements like **IF** or **VAR**, which represent the actions or steps executed during the test or task execution.
 These keywords make the automation modular, maintainable, reusable, and readable.
@@ -332,11 +338,11 @@ Both styles can be applied within Robot Framework, offering flexibility dependin
 and is a method where the test data and expected results are
 separated from the test script that controls the flow.
 
-While in **Robotic Process Automation (RPA)** the data that are
-used in an automation workflow are typically dynamically acquired from an external source,
-in testing the data are specifically chosen to cover different scenarios or cases.
-Therefore this method to define data combinations
-statically in the suite files is normally not applicable in RPA.
+While in **Robotic Process Automation (RPA)**, the data
+used in an automation workflow is typically acquired dynamically from an external source,
+in testing, the data is specifically chosen to cover different scenarios or cases.
+Therefore, this method of defining data combinations
+statically in the suite files is normally not applicable to RPA.
 
 The purpose of **Data-Driven Testing** is to automate the same sequence of actions
 or scenario with different sets of input and/or expected output data.
