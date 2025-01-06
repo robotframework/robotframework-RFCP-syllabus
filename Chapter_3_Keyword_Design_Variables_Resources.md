@@ -247,6 +247,7 @@ ${ANSWER}            The answer is ${INTEGER}    # This will be 'The answer is 4
 #### 3.2.2.3 List Variable Definition
 > [!IMPORTANT]
 > LO-3.2.2.3 Understand how to set and access data in list variables (K2)
+
 List variables store multiple values and are defined using the at-syntax `@{variable_name}`.
 You can define as many values as needed, with each additional value
 separated by multiple spaces or line continuation using the `...` syntax.
@@ -389,6 +390,31 @@ While the `*** Variables ***` section allows defining variables for a whole suit
 the `VAR` statement is used within the body of a test|task or keyword,
 allowing more control over when and where the variable is created.
 
+The `VAR` statement is case-sensitive and is followed by the variable name and an optional equal sign (`=`) and the value(s) to be assigned.
+The syntax is very similar to the `*** Variables ***` section.
+Scalar variables, lists, and dictionaries are created the same way and multiple values can also be assigned in multiple lines using the `...` syntax.
+Strings can be concatenated with the `separator=` syntax as well.
+
+Example:
+```robotframework
+*** Test Cases ***
+Test with VAR
+    VAR    ${filename}    test.log
+    ${file}    Get File    ${filename}
+    ${time}    Get Time
+    ${length}    Get Length    ${file}
+    VAR    &{file_info}
+    ...    name=${filename}
+    ...    content=${file}
+    ...    time=${time}
+    ...    length=${length}
+    IF    $login == "matti"
+        VAR    &{USER}    name=Matti    address=xxx    phone=123
+    ELSE
+        VAR    &{USER}    name=Teppo    address=yyy    phone=456
+    END
+```
+
 Example use cases for the `VAR` statement:
 - **Combining values during test|task execution**: Variables that shall have content based on information gathered during test|task execution.
 - **Conditional assignments**: In some scenarios, it may be necessary to assign different values to a variable based on conditions that occur during test|task execution.
@@ -397,7 +423,7 @@ Example use cases for the `VAR` statement:
 By default, variables created with the `VAR` statement have a **local scope** in the test|task, or keyword where they are defined.
 This means that they cannot be accessed outside that specific test|task or keyword, ensuring that variables do not interfere with other parts of the test|task suite.
 
-However, the `VAR` statement can also be used to create variables with a broader scope, such as suite-wide or global variables, when needed.
+However, the `VAR` statement can also be used to create variables with a broader scope, using `scope=`, such as suite-wide or global variables, when needed.
 These variables can then be accessed outside of the test|task or keyword where they were originally created.
 
 For more details on this topic, refer to the section on [5.1.2 Variable Scopes](Chapter_5_Exploring_Advanced_Constructs.md#512-variable-scopes).
