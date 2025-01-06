@@ -145,7 +145,7 @@ Robot Framework itself does not have any external dependencies, but additional t
 
 
 Robot Framework is a script-based interpreter for files that contain textual specifications.
-These files are typically organized into folders.
+These files are typically organized into directories.
 The syntax of Robot Framework is designed to be simple and human-readable, allowing for quick learning and ease of use.
 
 Key attributes of the syntax that improves the before mentioned:

@@ -216,7 +216,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
 - [`4 Advanced Structuring and Execution`](Chapter_4_Advanced_Structuring_and_Execution.md#4-advanced-structuring-and-execution)
   - [`4.1 Setups (Suite, Test|Task, Keyword)`](Chapter_4_Advanced_Structuring_and_Execution.md#41-setups-suite-testtask-keyword)
     - LO-4.1-1 (K1) Recall the purpose and benefits of Setups in Robot Framework
-    - LO-4.1-2 (K2) Understand the different levels where and how a Setup can be defined
+    - LO-4.1-2 (K1) Recall the different levels where a Setup can be defined
     - [`4.1.1 Suite Setup`](Chapter_4_Advanced_Structuring_and_Execution.md#411-suite-setup)
       - LO-4.1.1-1 (K1) Recall key characteristics, benefits, and syntax of Suite Setup
       - LO-4.1.1-2 (K2) Understand when Suite Setup is executed and used

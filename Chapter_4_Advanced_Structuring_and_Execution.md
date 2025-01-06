@@ -14,7 +14,7 @@ Additionally, filtering subsets of tests|tasks based on tags will be discussed, 
 > [!IMPORTANT]
 > LO-4.1-1 Recall the purpose and benefits of Setups in Robot Framework (K1)
 >
-> LO-4.1-2 Understand the different levels where and how a Setup can be defined (K2)
+> LO-4.1-2 Recall the different levels where a Setup can be defined (K1)
 
 
 Setups in Robot Framework are used to prepare the environment or system for execution or to verify that the requirements/preconditions needed for execution are met.

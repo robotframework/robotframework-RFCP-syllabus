@@ -651,13 +651,13 @@ Verify File Contains
 In Robot Framework, **embedded arguments** allow the inclusion
 of arguments directly within the keyword name itself.
 This approach is particularly useful for creating
-**Behavior-Driven Development (BDD)** style test cases or for
+**Behavior-Driven Development (BDD)**-style test cases or for
 making keyword names more readable and meaningful.
 
 With embedded arguments, placeholders are used within the keyword name,
-which get replaced by actual values when the keyword is executed.
-These arguments are written as scalar variables with dollar and curly braces
-like the following keyword.
+which are replaced by actual values when the keyword is executed.
+These arguments are written as scalar variables with dollar signs and curly braces,
+as shown in the following example:
 
 ```robotframework
 *** Keywords ***
@@ -668,8 +668,9 @@ The file '${file_name}' should contain '${expected_content}'
 
 When this keyword is called, the placeholders `${file_name}`
 and `${expected_content}` are replaced by the actual values provided in the keyword call.
-So `${file_name}` = `server.log` and
-`${expected_content}` = `Successfully started` in the following example:
+For instance, in the following example,
+`${file_name}` is replaced with `server.log`
+and `${expected_content}` with `Successfully started`:
 
 ```robotframework
 *** Test Cases ***
@@ -679,21 +680,22 @@ Test File Content
     Then the file 'server.log' should contain 'Successfully started'
 ```
 
-Quotes around the embedded arguments behave as any other characters
-as part of the keyword name but may help to improve readability
-and bette distinguish the embedded arguments from the rest of the keyword name.
+Quotes around the embedded arguments are treated as regular characters
+within the keyword name but can improve readability
+and help distinguish embedded arguments from the rest of the keyword name.
 
-Embedded arguments can be problematic when the keyword name becomes overly long or complicated.
-Therefore a mix of embedded arguments and regular arguments is also possible.
-This can help with more complex data structures or to improve readability.
+Embedded arguments can become problematic when the keyword name becomes overly long or complicated.
+To address this, a mix of embedded arguments and regular arguments can be used.
+This approach can help manage more complex data structures and enhance readability.
 
 Example of mixed embedded and regular arguments:
+
 ```robotframework
 *** Test Cases ***
 Embedded and normal arguments
     Given the user is on the pet selection page
     When the user adds    2     cat fish
-    And the user set    3     dogs
+    And the user sets    3     dogs
     And the user removes    1     dogs
     Then the number of cat fish should be    2
     And the number of dogs should be    count=2
@@ -710,7 +712,7 @@ the user ${action}
         Add Items To List    animal_list    ${animal}    ${amount}
     ELSE IF    '${action}' == 'removes'
         Remove Items From List    animal_list    ${animal}    ${amount}
-    ELSE IF    '${action}' == 'set'
+    ELSE IF    '${action}' == 'sets'
         Set Amount To List    animal_list    ${animal}    ${amount}
     ELSE
         Skip    Test skipped due to invalid action
@@ -752,7 +754,7 @@ Get File Name From Path
 
 The `RETURN` statement is normally used at the end of a keyword definition,
 because it will end the keyword execution at that point and return to the caller.
-This behavior can be used to conditionally end a keyword execution early together with an `IF` or `TRY-EXCEPT` statement.
+However, this behavior can be used to conditionally end a keyword execution early together with an `IF` or `TRY-EXCEPT` statement.
 
 The `RETURN` statement cannot return a value from a keyword call directly like in other programming languages.
 The return value must be stored in a variable first and then be returned by the `RETURN` statement.
