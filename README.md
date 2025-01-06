@@ -179,6 +179,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
       - LO-3.3.3 (K1) Recall all available settings and their purpose for User Keywords
     - [`3.3.4 User Keyword Documentation`](Chapter_3_Keyword_Design_Variables_Resources.md#334-user-keyword-documentation)
     - [`3.3.5 User Keyword Arguments`](Chapter_3_Keyword_Design_Variables_Resources.md#335-user-keyword-arguments)
+      - LO-3.3.5 (K2) Understand the purpose and syntax of the [Arguments] setting in User Keywords.
       - [`3.3.5.1 Defining Mandatory Arguments`](Chapter_3_Keyword_Design_Variables_Resources.md#3351-defining-mandatory-arguments)
         - LO-3.3.5.1-1 (K1) Recall what makes an argument mandatory in a user keyword.
         - LO-3.3.5.1-2 (K3) Define User Keywords with mandatory arguments.
@@ -186,12 +187,14 @@ When providing feedback, please be as detailed as possible and explain your sugg
         - LO-3.3.5.2-1 (K1) Recall how to define optional arguments in a user keyword.
         - LO-3.3.5.2-2 (K3) Define User Keywords with optional arguments.
       - [`3.3.5.3 Embedded Arguments`](Chapter_3_Keyword_Design_Variables_Resources.md#3353-embedded-arguments)
-        - LO-3.3.5.3 (K2) Understand the role of embedded arguments in Behavior-Driven Development (BDD) style.
+        - LO-3.3.5.3-1 (K2) Describe how embedded arguments are replaced by actual values during keyword execution.
+        - LO-3.3.5.3-2 (K2) Understand the role of embedded arguments in Behavior-Driven Development (BDD) style.
       - [`3.3.5.4 Other Argument Kinds`](Chapter_3_Keyword_Design_Variables_Resources.md#3354-other-argument-kinds)
     - [`3.3.6 RETURN Statement`](Chapter_3_Keyword_Design_Variables_Resources.md#336-return-statement)
       - LO-3.3.6-1 (K2) Understand how the `RETURN` statement passes data between different keywords.
       - LO-3.3.6-2 (K3) Use the `RETURN` statement to return values from a user keyword and assign it to a variable.
     - [`3.3.7 Keyword Conventions`](Chapter_3_Keyword_Design_Variables_Resources.md#337-keyword-conventions)
+      - LO-3.3.7 (K1) Recall the naming conventions for user keywords.
   - [`3.4 Data-Driven Specification`](Chapter_3_Keyword_Design_Variables_Resources.md#34-data-driven-specification)
     - LO-3.4 (K2) Understand the basic concept and syntax of Data-Driven Specification
     - [`3.4.1 Test|Task Templates`](Chapter_3_Keyword_Design_Variables_Resources.md#341-testtask-templates)
@@ -202,9 +205,14 @@ When providing feedback, please be as detailed as possible and explain your sugg
       - [`3.4.1.2 Named Test|Task With Multiple Data Rows:`](Chapter_3_Keyword_Design_Variables_Resources.md#3412-named-testtask-with-multiple-data-rows)
         - LO-3.4.1.2 (K1) Recall the syntax and properties of named test|task with multiple data rows
   - [`3.5 Advanced Importing of Keywords and Naming Conflicts`](Chapter_3_Keyword_Design_Variables_Resources.md#35-advanced-importing-of-keywords-and-naming-conflicts)
+    - LO-3.5 (K1) Recall that naming conflicts can arise from the import of multiple resource files.
     - [`3.5.1 Importing Hierarchies`](Chapter_3_Keyword_Design_Variables_Resources.md#351-importing-hierarchies)
+      - LO-3.5.1 (K2) Understand how transitive imports of resource files and libraries work.
     - [`3.5.2 Library Configuration`](Chapter_3_Keyword_Design_Variables_Resources.md#352-library-configuration)
+      - LO-3.5.2-1 (K1) Recall the purpose of the `Importing` section in library documentation.
+      - LO-3.5.2-2 (K3) Be able to configure a library import using arguments.
     - [`3.5.3 Naming Conflicts`](Chapter_3_Keyword_Design_Variables_Resources.md#353-naming-conflicts)
+      - LO-3.5.3 (K2) Explain how naming conflicts can happen and how to mitigate them.
 - [`4 Advanced Structuring and Execution`](Chapter_4_Advanced_Structuring_and_Execution.md#4-advanced-structuring-and-execution)
   - [`4.1 Setups (Suite, Test|Task, Keyword)`](Chapter_4_Advanced_Structuring_and_Execution.md#41-setups-suite-testtask-keyword)
     - LO-4.1-1 (K1) Recall the purpose and benefits of Setups in Robot Framework

@@ -534,7 +534,7 @@ All available settings are listed below and explained in this section or in sect
 ### 3.3.4 User Keyword Documentation
 
 > [!IMPORTANT]
-> LO-XX Recall the significance of the first logical line and in keyword documentation for the log file (K1).
+> LO-3.3.4 Recall the significance of the first logical line and in keyword documentation for the log file (K1).
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
@@ -563,7 +563,7 @@ This format includes:
 ### 3.3.5 User Keyword Arguments
 
 > [!IMPORTANT]
-> LO-XX Understand the purpose and syntax of the [Arguments] setting in User Keywords (K2).
+> LO-3.3.5 Understand the purpose and syntax of the [Arguments] setting in User Keywords. (K2)
 
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
@@ -643,9 +643,9 @@ Verify File Contains
 #### 3.3.5.3 Embedded Arguments
 
 > [!IMPORTANT]
-> LO-XX Describe how embedded arguments are replaced by actual values during keyword execution (K2).
+> LO-3.3.5.3-1 Describe how embedded arguments are replaced by actual values during keyword execution. (K2)
 >
-> LO-3.3.5.3 Understand the role of embedded arguments in Behavior-Driven Development (BDD) style. (K2)
+> LO-3.3.5.3-2 Understand the role of embedded arguments in Behavior-Driven Development (BDD) style. (K2)
 
 
 In Robot Framework, **embedded arguments** allow the inclusion
@@ -771,7 +771,7 @@ And if, is this want we want to ask the participants to know?
 -->
 
 > [!IMPORTANT]
-> LO-XX Recall the naming conventions for user keywords (K1).
+> LO-3.3.7 Recall the naming conventions for user keywords. (K1)
 
 When defining User Keywords, it is recommended to follow conventions to ensure consistency and readability across the project.
 These may be taken from community best practices or defined within the project team.
@@ -888,7 +888,7 @@ However, this approach has also its drawbacks:
 ## 3.5 Advanced Importing of Keywords and Naming Conflicts
 
 > [!IMPORTANT]
-> LO-XX Recall that naming conflicts can arise from the import of multiple resource files (K1).
+> LO-3.5 Recall that naming conflicts can arise from the import of multiple resource files. (K1)
 
 As stated before, it is possible to organize imports and available keywords in Robot Framework by using Resource Files.
 By default, all keywords or variables created or imported in a resource file are available to those suites and files that are importing that higher-level resource file.
@@ -905,7 +905,7 @@ Some keyword libraries have the option to be configured to change their behavior
 ### 3.5.1 Importing Hierarchies
 
 > [!IMPORTANT]
-> LO-XX Understand how transitive imports of resource files and libraries work (K2).
+> LO-3.5.1 Understand how transitive imports of resource files and libraries work. (K2)
 
 Let's assume the following libraries and resource files shall be used:
 - **Library**    `A`
@@ -962,9 +962,9 @@ Therefore, the recommendation is to import libraries only in one resource file w
 ### 3.5.2 Library Configuration
 
 > [!IMPORTANT]
-> LO-XX Recall the purpose of the `Importing` section in library documentation (K1).
+> LO-3.5.2-1 Recall the purpose of the `Importing` section in library documentation. (K1)
 >
-> LO-XX Be able to configure a library import using arguments (K3).
+> LO-3.5.2-2 Be able to configure a library import using arguments. (K3)
 
 Some libraries offer or need additional configuration to change their behavior or make them work.
 This is typically global behavior like internal timeouts, connection settings to systems, or plugins that should be used.
@@ -1004,7 +1004,7 @@ They are now available as `EmbeddedAPI` and `DeviceAPI` in the suite.
 ### 3.5.3 Naming Conflicts
 
 > [!IMPORTANT]
-> LO-XX Explain how naming conflicts can happen and how to mitigate them (K2).
+> LO-3.5.3 Explain how naming conflicts can happen and how to mitigate them. (K2)
 
 Naming conflicts can occur when two or more keywords have the same name.
 If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate user keyword name.
