@@ -178,6 +178,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
     - [`3.3.3 User Keyword Settings`](Chapter_3_Keyword_Design_Variables_Resources.md#333-user-keyword-settings)
       - LO-3.3.3 (K1) Recall all available settings and their purpose for User Keywords
     - [`3.3.4 User Keyword Documentation`](Chapter_3_Keyword_Design_Variables_Resources.md#334-user-keyword-documentation)
+      - LO-3.3.4 (K1) Recall the significance of the first logical line and in keyword documentation for the log file.
     - [`3.3.5 User Keyword Arguments`](Chapter_3_Keyword_Design_Variables_Resources.md#335-user-keyword-arguments)
       - LO-3.3.5 (K2) Understand the purpose and syntax of the [Arguments] setting in User Keywords.
       - [`3.3.5.1 Defining Mandatory Arguments`](Chapter_3_Keyword_Design_Variables_Resources.md#3351-defining-mandatory-arguments)
