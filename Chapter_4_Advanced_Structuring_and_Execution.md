@@ -305,6 +305,9 @@ Process Data
 
 ## 4.3 Initialization Files
 
+> [!IMPORTANT]
+> LO-4.3 Recall how to define an Initialization Files and its purpose (K1)
+
 As Robot Framework automation projects grow, organizing tests|tasks into directories becomes essential for managing complexity and maintaining a clear structure.
 When suites are created from directories, these directories can contain multiple suites and tests|tasks, forming a hierarchical suite structure.
 However, directories alone cannot hold suite-level settings or information.
@@ -316,9 +319,6 @@ This file can contain suite-level settings that apply to the directory suite.
 
 
 ### 4.3.1 Purpose of Initialization Files
-
-> [!IMPORTANT]
-> LO-4.3.1 Recall the purpose and possibilities of Initialization Files (K1)
 
 Initialization files enable you to:
 - Define `Suite Setup` and `Suite Teardown` keywords for the directory suite.

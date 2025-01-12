@@ -114,7 +114,9 @@ When providing feedback, please be as detailed as possible and explain your sugg
     - LO-2.5 (K2) Understand the structure of keyword interfaces and how to interpret keyword documentation.
     - [`2.5.1 Documented Keyword Information`](Chapter_2_Getting_Started.md#251-documented-keyword-information)
       - LO-2.5.1 (K1) Recall the information that can be found in a keyword documentation.
-      - [`2.5.1.1 Example Keyword in Library Documentation`](Chapter_2_Getting_Started.md#2511-example-keyword-in-library-documentation)
+      - [`2.5.1.1 Example Keyword `Should Be Equal``](Chapter_2_Getting_Started.md#2511-example-keyword-should-be-equal)
+      - [`2.5.1.2 Example Keyword `Run Process``](Chapter_2_Getting_Started.md#2512-example-keyword-run-process)
+      - [`2.5.1.3 Example Keyword `Get Regexp Matches``](Chapter_2_Getting_Started.md#2513-example-keyword-get-regexp-matches)
     - [`2.5.2 Keyword Arguments`](Chapter_2_Getting_Started.md#252-keyword-arguments)
       - LO-2.5.2 (K2) Understand the difference between argument kinds.
       - [`2.5.2.1 Mandatory Arguments`](Chapter_2_Getting_Started.md#2521-mandatory-arguments)
@@ -122,25 +124,25 @@ When providing feedback, please be as detailed as possible and explain your sugg
       - [`2.5.2.2 Optional Arguments`](Chapter_2_Getting_Started.md#2522-optional-arguments)
         - LO-2.5.2.2 (K2) Understand the concept of optional arguments and how they are documented.
       - [`2.5.2.3 Embedded Arguments`](Chapter_2_Getting_Started.md#2523-embedded-arguments)
-        - LO-2.5.2.3 (K1) Recall the concept of embedded arguments and how they are documented.
-      - [`2.5.2.4 Argument Types`](Chapter_2_Getting_Started.md#2524-argument-types)
-        - LO-2.5.2.4 (K2) Understand the concept of argument types and automatic type conversion.
-      - [`2.5.2.5 Return Types`](Chapter_2_Getting_Started.md#2525-return-types)
-        - LO-2.5.2.5 (K2) Understand the concept of return type hints.
+        - LO-2.5.2.3 (K1) Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented.
+      - [`2.5.2.4 Variable Number of Positional Arguments`](Chapter_2_Getting_Started.md#2524-variable-number-of-positional-arguments)
+        - LO-2.5.2.4 (K1) Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case.
+      - [`2.5.2.5 Named-Only Arguments`](Chapter_2_Getting_Started.md#2525-named-only-arguments)
+        - LO-2.5.2.5 (K1) Recall what properties "Named-Only Arguments" have and how they are documented.
+      - [`2.5.2.6 Free Named Arguments`](Chapter_2_Getting_Started.md#2526-free-named-arguments)
+        - LO-2.5.2.6 (K1) Recall how free named arguments are marked in documentation.
+      - [`2.5.2.7 Argument Types`](Chapter_2_Getting_Started.md#2527-argument-types)
+        - LO-2.5.2.7 (K2) Understand the concept of argument types and automatic type conversion.
+      - [`2.5.2.8 Return Types`](Chapter_2_Getting_Started.md#2528-return-types)
+        - LO-2.5.2.8 (K2) Understand the concept of return type hints.
     - [`2.5.3 Keyword Documentation & Examples`](Chapter_2_Getting_Started.md#253-keyword-documentation--examples)
       - LO-2.5.3 (K2) Understand how to read keyword documentation and how to interpret the examples.
   - [`2.6 Writing Test|Task and Calling Keywords`](Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords)
     - LO-2.6 (K2) Understand how to call imported keywords and how to structure keyword calls.
     - [`2.6.1 Positional Arguments`](Chapter_2_Getting_Started.md#261-positional-arguments)
       - LO-2.6.1 (K2) Understand the concept of how to set argument values positionally.
-      - [`2.6.1.1 Variable Number of Positional Arguments`](Chapter_2_Getting_Started.md#2611-variable-number-of-positional-arguments)
-        - LO-2.6.1.1 (K1) Recall how variable number of positional arguments are marked in the documentation and their use case.
     - [`2.6.2 Named Arguments`](Chapter_2_Getting_Started.md#262-named-arguments)
       - LO-2.6.2 (K2) Understand the concept of named arguments and how to set argument values by their name.
-      - [`2.6.2.1 Named-Only Arguments`](Chapter_2_Getting_Started.md#2621-named-only-arguments)
-        - LO-2.6.2.1 (K1) Recall named-only arguments and where they are located.
-      - [`2.6.2.2 Free Named Arguments`](Chapter_2_Getting_Started.md#2622-free-named-arguments)
-        - LO-2.6.2.2 (K1) Recall how free named arguments are marked in documentation.
     - [`2.6.3 Embedded Arguments / Using Behavior-Driven Specification`](Chapter_2_Getting_Started.md#263-embedded-arguments--using-behavior-driven-specification)
       - LO-2.6.3 (K1) Recall how to use embedded arguments.
 - [`3 Keyword Design, Variables, and Resource Files`](Chapter_3_Keyword_Design_Variables_Resources.md#3-keyword-design-variables-and-resource-files)
@@ -236,8 +238,8 @@ When providing feedback, please be as detailed as possible and explain your sugg
     - [`4.2.3 Keyword Teardown`](Chapter_4_Advanced_Structuring_and_Execution.md#423-keyword-teardown)
       - LO-4.2.3 (K1) Recall key characteristics, benefits, and syntax of Keyword Teardown
   - [`4.3 Initialization Files`](Chapter_4_Advanced_Structuring_and_Execution.md#43-initialization-files)
+    - LO-4.3 (K1) Recall how to define an Initialization Files and its purpose
     - [`4.3.1 Purpose of Initialization Files`](Chapter_4_Advanced_Structuring_and_Execution.md#431-purpose-of-initialization-files)
-      - LO-4.3.1 (K1) Recall the purpose and possibilities of Initialization Files
     - [`4.3.2 Suite Setup and Suite Teardown of Initialization Files`](Chapter_4_Advanced_Structuring_and_Execution.md#432-suite-setup-and-suite-teardown-of-initialization-files)
       - LO-4.3.2 (K2) Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests|tasks
     - [`4.3.3 Allowed Sections in Initialization Files`](Chapter_4_Advanced_Structuring_and_Execution.md#433-allowed-sections-in-initialization-files)
