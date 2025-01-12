@@ -139,7 +139,7 @@ Similar to test|task tags, also keyword tags can be defined in the `*** Settings
 
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
-The most common use-case is to define these variables as constants that contain a static value during execution.
+The most common use case is to define these variables as constants that contain a static value during execution.
 This can either be a default value, that may be overwritten by globally defined variables via the Command Line Interface (CLI) or a constant value that is used on multiple places in the suite.
 
 In some cases, these variables are also dynamically reassigned during the execution of the suite, but this is not recommended and should be avoided if possible, because this may lead to test|task runtime dependancies and errors caused by these side-effects that are hard to debug and find.
@@ -1044,7 +1044,7 @@ Click on x and y
 #### 2.6.1.1 Variable Number of Positional Arguments
 
 > [!IMPORTANT]
-> LO-2.6.1.1 Recall how variable number of positional arguments are marked in the documentation and their use-case. (K1)
+> LO-2.6.1.1 Recall how variable number of positional arguments are marked in the documentation and their use case. (K1)
 
 A special case of positional arguments are variable number of positional arguments.
 These are also referred to as `*args` or `*varargs` in Python.

@@ -553,7 +553,7 @@ Using own tags with this prefix may lead to unexpected behavior in test executio
 ## 4.5 SKIP Test|Task Status
 
 > [!IMPORTANT]
-> LO-4.5-1 Recall the use-case and purpose of skipping tests|tasks in Robot Framework (K1)
+> LO-4.5-1 Recall the use case and purpose of skipping tests|tasks in Robot Framework (K1)
 >
 > LO-4.5-2 Recall the different ways to skip tests|tasks in Robot Framework (K1)
 

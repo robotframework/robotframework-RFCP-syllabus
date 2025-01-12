@@ -5,10 +5,10 @@ The upcoming chapters provide a concise overview of Robot Framework, including i
 
 
 
-## 1.1 Purpose / Use-Cases
+## 1.1 Purpose / Use Cases
 
 > [!IMPORTANT]
-> LO-1.1 Recall the two main Use-Cases of Robot Framework (K1)
+> LO-1.1 Recall the two main use cases of Robot Framework (K1)
 
 Robot Framework is a versatile, open-source automation framework that supports both **test automation** and **robotic process automation (RPA)**.
 Initially designed for acceptance testing, it has since evolved to cover other types of testing and various automation tasks in both IT and business environments.

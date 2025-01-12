@@ -20,8 +20,8 @@ When providing feedback, please be as detailed as possible and explain your sugg
   - [`0.5 About Professional Training Providers`](Chapter_0_Overview.md#05-about-professional-training-providers)
   - [`0.6 About Exam Providers`](Chapter_0_Overview.md#06-about-exam-providers)
 - [`1 Introduction to Robot Framework`](Chapter_1_Introduction.md#1-introduction-to-robot-framework)
-  - [`1.1 Purpose / Use-Cases`](Chapter_1_Introduction.md#11-purpose--use-cases)
-    - LO-1.1 (K1) Recall the two main Use-Cases of Robot Framework
+  - [`1.1 Purpose / Use Cases`](Chapter_1_Introduction.md#11-purpose--use-cases)
+    - LO-1.1 (K1) Recall the two main use cases of Robot Framework
     - [`1.1.1 Test Automation`](Chapter_1_Introduction.md#111-test-automation)
       - LO-1.1.1 (K1) recall the test levels Robot Framework is mostly used for
       - [`1.1.1.1 Synthetic Monitoring`](Chapter_1_Introduction.md#1111-synthetic-monitoring)
@@ -134,7 +134,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
     - [`2.6.1 Positional Arguments`](Chapter_2_Getting_Started.md#261-positional-arguments)
       - LO-2.6.1 (K2) Understand the concept of how to set argument values positionally.
       - [`2.6.1.1 Variable Number of Positional Arguments`](Chapter_2_Getting_Started.md#2611-variable-number-of-positional-arguments)
-        - LO-2.6.1.1 (K1) Recall how variable number of positional arguments are marked in the documentation and their use-case.
+        - LO-2.6.1.1 (K1) Recall how variable number of positional arguments are marked in the documentation and their use case.
     - [`2.6.2 Named Arguments`](Chapter_2_Getting_Started.md#262-named-arguments)
       - LO-2.6.2 (K2) Understand the concept of named arguments and how to set argument values by their name.
       - [`2.6.2.1 Named-Only Arguments`](Chapter_2_Getting_Started.md#2621-named-only-arguments)
@@ -255,7 +255,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
       - [`4.4.2.4 Using Tag Patterns`](Chapter_4_Advanced_Structuring_and_Execution.md#4424-using-tag-patterns)
     - [`4.4.3 Reserved Tags`](Chapter_4_Advanced_Structuring_and_Execution.md#443-reserved-tags)
   - [`4.5 SKIP Test|Task Status`](Chapter_4_Advanced_Structuring_and_Execution.md#45-skip-testtask-status)
-    - LO-4.5-1 (K1) Recall the use-case and purpose of skipping tests|tasks in Robot Framework
+    - LO-4.5-1 (K1) Recall the use case and purpose of skipping tests|tasks in Robot Framework
     - LO-4.5-2 (K1) Recall the different ways to skip tests|tasks in Robot Framework
     - [`4.5.1 Skipping By Tags Selection (CLI)`](Chapter_4_Advanced_Structuring_and_Execution.md#451-skipping-by-tags-selection-cli)
       - LO-4.5.1 (K1) Recall the differences between skip and exclude
