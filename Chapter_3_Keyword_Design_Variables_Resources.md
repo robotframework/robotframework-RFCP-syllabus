@@ -113,7 +113,7 @@ Variable names are case-insensitive and as keywords, containing single spaces an
 In case these prefixes followed by a curly brace opening (`${`) should be used as characters in a normal string and not as a variable,
 they must be escaped by a backslash like `\${` to be treated as text rather than a variable start.
 
-Robot Framework, implemented in Python, can work with any object stored in variables, and syntactically distinguishes three types of accessing variables:
+Robot Framework, implemented in Python, can work with any object stored in variables, and syntactically distinguishes four types of accessing variables:
 - **Scalar Variables**: Store values as a single entity and are represented by the dollar-syntax `${variable_name}`.
 - **List Variables**: Store multiple values in a list structure. They are created using the at-syntax `@{list_variable_name}`.
 - **Dictionary Variables**: Store key-value pairs in a dictionary structure. They are created using the ampersand-syntax `&{dictionary_variable_name}`.
