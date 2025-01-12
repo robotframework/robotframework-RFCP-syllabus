@@ -534,7 +534,7 @@ All available settings are listed below and explained in this section or in sect
 ### 3.3.4 User Keyword Documentation
 
 > [!IMPORTANT]
-> LO-3.3.4 Recall the significance of the first logical line and in keyword documentation for the log file (K1).
+> LO-3.3.4 Recall the significance of the first logical line and in keyword documentation for the log file. (K1)
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
