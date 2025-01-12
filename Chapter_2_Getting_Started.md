@@ -719,7 +719,7 @@ Robot Framework offers the Keyword Documentation of its Standard Libraries at ht
 
 The Keyword Documentation is structured so, that it contains first the library or resource documentation, followed by a list of all keywords that are available in that library or resource file.
 
-Each keyword documented does contain the following information:
+Each library or resource documentation can contain the following information sections for keywords:
 - **Name**: The name of the keyword as it is called.
 - **Arguments** (opt.): The argument interface that the keyword expects/offers its types and default values.
 - **Return Type** (opt.): The type of the return value of the keyword.
@@ -756,10 +756,10 @@ The latter two arguments are optional.
 
 The argument `arguments` is a "Variable Number of Positional Arguments" and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
-See [2.5.2.4 Variable Number of Positional Arguments](Chapter_2_Getting_Started.md#2524-variable-number-of-positional-arguments) for more information about this kind of argument.
+See [2.5.2.5 Variable Number of Positional Arguments](Chapter_2_Getting_Started.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
 The argument `configuration` is a "Free Named Argument" and can only be set by names.
-See [2.5.2.6 Free Named Arguments](Chapter_2_Getting_Started.md#2526-free-named-arguments) for more information about this kind of argument.
+See [2.5.2.7 Free Named Arguments](Chapter_2_Getting_Started.md#2527-free-named-arguments) for more information about this kind of argument.
 
 
 #### 2.5.1.3 Example Keyword `Get Regexp Matches`
@@ -775,10 +775,10 @@ The last two arguments are optional.
 
 The argument `groups` is a "Variable Number of Positional Arguments" and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
-See [2.5.2.4 Variable Number of Positional Arguments](Chapter_2_Getting_Started.md#2524-variable-number-of-positional-arguments) for more information about this kind of argument.
+See [2.5.2.5 Variable Number of Positional Arguments](Chapter_2_Getting_Started.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
 The argument `flags` is a "Named-Only Argument" and can only be set by name.
-See [2.5.2.5 Named-Only Arguments](Chapter_2_Getting_Started.md#2525-named-only-arguments) for more information about this kind of argument.
+See [2.5.2.6 Named-Only Arguments](Chapter_2_Getting_Started.md#2526-named-only-arguments) for more information about this kind of argument.
 
 
 ### 2.5.2 Keyword Arguments
@@ -801,6 +801,11 @@ See the next two sections for more information about these two kinds of argument
 The most arguments can either be set by their position or by their name.
 But there some kind of keywords that can only be set positional, like **Variable Number of Positional Arguments**, or only be set named, like **Named-Only Arguments** or **Free Named Arguments**.
 
+The order is as follows:
+1. **Positional or Named Arguments** (can be mandatory or optional)
+2. **Variable Number of Positional Arguments** (optional)
+3. **Named-Only Arguments** (can be mandatory or optional)
+4. **Free Named Arguments** (optional)
 
 #### 2.5.2.1 Mandatory Arguments
 
@@ -808,7 +813,7 @@ But there some kind of keywords that can only be set positional, like **Variable
 > LO-2.5.2.1 Understand the concept of mandatory arguments and how they are documented. (K2)
 
 Arguments that do not have a default value, must be set when the keyword is called.
-These arguments are listed first in the argument interface.
+These arguments have to be before arguments with default values in the argument interface of the keywords.
 
 See the argument named `first` and `second` in the `Should Be Equal` keyword documentation in the beginning of this section.
 
@@ -833,8 +838,6 @@ The third Test will fail before the keyword `Should Be Equal` is actually being 
 The Error Message would be: `Keyword 'BuiltIn.Should Be Equal' expected 2 to 8 arguments, got 1.`
 
 Two arguments are mandatory and additional six arguments are optional in the `Should Be Equal` keyword.
-
-All of them can be used positionally or by their name.
 
 
 #### 2.5.2.2 Optional Arguments
@@ -864,6 +867,13 @@ Omitting some optional arguments but still using others is possible independent 
 Keywords can have arguments embedded into their names, which is used mostly for Behavior-Driven Specification (BDD).
 Embedded arguments are also mandatory and can only be set by their position in the keyword name.
 
+The keyword names do contain arguments in variable syntax with dollar-curly-braces (`${var_name}`) to indicate that they are not part of the keyword name but are arguments.
+
+Example keyword names are:
+- `"${url}" is open`
+- `the user clicks the "${button}" button`
+- `the page title should be ${exp_title}`
+- `the url should be ${exp_url}`
 
 Example Test Case:
 ```robotframework
@@ -871,27 +881,36 @@ Example Test Case:
 Foundation Page should be Accessible
     Given "robotframework.org" is open
     When the user clicks the "FOUNDATION" button
-    Then the page title should be "Foundation | Robot Framework"
-    And the url should be "https://robotframework.org/foundation"
+    Then the page title should be Foundation | Robot Framework
+    And the url should be https://robotframework.org/foundation
 ```
 The optional prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name including the embedded arguments.
 In the before given example the keywords are designed so that the arguments are surrounded by double quotes `"` for better visibility.
-
-The actual keywords are:
-- `"${url}" is open`
-- `the user clicks the "${button}" button`
-- `the page title should be "${exp_title}"`
-- `the url should be "${exp_url}"`
 
 A mix of embedded arguments and "normal" arguments is possible to fully support BDD.
 In the keyword documentation the embedded arguments are written in variable syntax with dollar-curly-braces (`${var_name}`) to indicate that they are not part of the keyword name but are arguments.
 They can also be defined using regular expressions to allow for more complex argument structures, which is not part of that syllabus.
 
 
-#### 2.5.2.4 Variable Number of Positional Arguments
+#### 2.5.2.4 Positional or Named Arguments
 
 > [!IMPORTANT]
-> LO-2.5.2.4 Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case. (K1)
+> LO-2.5.2.4 Recall how "Positional or Named Arguments" are marked in the documentation and their use case. (K1)
+
+Except of "Positional-Only Arguments", that are not part of this syllabus,
+all arguments that are positioned before "Variable Number of Positional Arguments", "Named-Only Arguments", or "Free Named Arguments" in the argument interface of keywords are "Positional or Named Arguments".
+As their name states, they can be set either by their position or by their name, but not by both at the same time for one argument.
+If an argument shall be set by its position, all preceding arguments must be set by their position as well.
+
+These arguments can either be mandatory or optional with a default value.
+
+They are not specially marked in the keyword documentation with any prefix, because they are the default kind of arguments in Robot Framework.
+
+
+#### 2.5.2.5 Variable Number of Positional Arguments
+
+> [!IMPORTANT]
+> LO-2.5.2.5 Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case. (K1)
 
 A special case of optional arguments that can only be set by their position are "Variable Number of Positional Arguments".
 These are also referred to as `*args` or `*varargs` in Python.
@@ -908,10 +927,10 @@ When calling this keyword, the first positional argument is assigned to `command
 Also see [2.5.1.3 Example Keyword `Get Regexp Matches`](Chapter_2_Getting_Started.md#2513-example-keyword-get-regexp-matches).
 
 
-#### 2.5.2.5 Named-Only Arguments
+#### 2.5.2.6 Named-Only Arguments
 
 > [!IMPORTANT]
-> LO-2.5.2.5 Recall what properties "Named-Only Arguments" have and how they are documented. (K1)
+> LO-2.5.2.6 Recall what properties "Named-Only Arguments" have and how they are documented. (K1)
 
 All arguments that are defined after a "Variable Number of Positional Arguments" (`*varargs`) are "Named-Only Arguments".
 However it is also possible to create "Named-Only Arguments without a preceding "Variable Number of Positional Arguments".
@@ -923,10 +942,10 @@ So they must be called by their name followed by an equal sign `=` and the value
 
 "Named-Only Arguments" can be mandatory or optional with a default value.
 
-#### 2.5.2.6 Free Named Arguments
+#### 2.5.2.7 Free Named Arguments
 
 > [!IMPORTANT]
-> LO-2.5.2.6 Recall how free named arguments are marked in documentation. (K1)
+> LO-2.5.2.7 Recall how free named arguments are marked in documentation. (K1)
 
 Another special case of "Named-Only Arguments" is "Free Named Arguments."
 These arguments are similar to the "Variable Number of Positional Arguments" in that they can collect multiple values.
@@ -951,15 +970,19 @@ Send 5 IPv4 Pings On Windows
 ```
 
 
-
-#### 2.5.2.7 Argument Types
+#### 2.5.2.8 Argument Types
 
 > [!IMPORTANT]
-> LO-2.5.2.7 Understand the concept of argument types and automatic type conversion. (K2)
+> LO-2.5.2.8 Understand the concept of argument types and automatic type conversion. (K2)
 
 Library Keywords may define the expected types of their argument values.
 Robot Framework specification is mostly done as a string-based language, therefore most statically defined argument values are strings.
 However, the actual implementation of the keyword may expect a different type of argument, like an integer.
+
+If an argument type is defined and Robot Framework has a matching converter function available, that can convert the given type to the expected type, the conversion is tried automatically.
+If the conversion fails, the keyword call will fail with an error message before the actual keyword code is executed.
+Robot Framework brings some built-in converters for common types like integer, float, boolean, list, dictionary, etc.
+Library developers can also register their own converters for not-supported types.
 
 Defining types for arguments is nowadays the recommended way to let Robot Framework convert the given arguments to the expected type, however it is optional.
 
@@ -970,7 +993,6 @@ That keyword can now claim that it expects two integer arguments by defining typ
 Type hints are show in the keyword documentation at the argument after the optional default value.
 
 Robot Framework in that case tries to convert the given string arguments to the integer type.
-If the conversion fails, the keyword call will fail by Robot Framework with an error message before the actual keyword code is executed.
 
 Example:
 ```robotframework
@@ -989,10 +1011,10 @@ The advantage of using type hints is that the user get more information about wh
 <!-- Just to understand that they are there and that they may document how values are handled or which are allowed. -->
 
 
-#### 2.5.2.8 Return Types
+#### 2.5.2.9 Return Types
 
 > [!IMPORTANT]
-> LO-2.5.2.8 Understand the concept of return type hints. (K2)
+> LO-2.5.2.9 Understand the concept of return type hints. (K2)
 
 Keywords may gather information and return these to the caller of that keyword to be stored in a variable and used in further keyword calls.
 So Keyword can `RETURN` values to the caller as functions do in programming languages.

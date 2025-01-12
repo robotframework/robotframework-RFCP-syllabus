@@ -572,7 +572,7 @@ See also Chapter 2 [2.5.2 Keyword Arguments](Chapter_2_Getting_Started.md#252-ke
 
 Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of scalar variables.
 
-Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [2.5.2.7 Argument Types](Chapter_2_Getting_Started.md#2527-argument-types) section.
+Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [2.5.2.8 Argument Types](Chapter_2_Getting_Started.md#2528-argument-types) section.
 
 
 #### 3.3.5.1 Defining Mandatory Arguments

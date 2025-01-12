@@ -125,16 +125,18 @@ When providing feedback, please be as detailed as possible and explain your sugg
         - LO-2.5.2.2 (K2) Understand the concept of optional arguments and how they are documented.
       - [`2.5.2.3 Embedded Arguments`](Chapter_2_Getting_Started.md#2523-embedded-arguments)
         - LO-2.5.2.3 (K1) Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented.
-      - [`2.5.2.4 Variable Number of Positional Arguments`](Chapter_2_Getting_Started.md#2524-variable-number-of-positional-arguments)
-        - LO-2.5.2.4 (K1) Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case.
-      - [`2.5.2.5 Named-Only Arguments`](Chapter_2_Getting_Started.md#2525-named-only-arguments)
-        - LO-2.5.2.5 (K1) Recall what properties "Named-Only Arguments" have and how they are documented.
-      - [`2.5.2.6 Free Named Arguments`](Chapter_2_Getting_Started.md#2526-free-named-arguments)
-        - LO-2.5.2.6 (K1) Recall how free named arguments are marked in documentation.
-      - [`2.5.2.7 Argument Types`](Chapter_2_Getting_Started.md#2527-argument-types)
-        - LO-2.5.2.7 (K2) Understand the concept of argument types and automatic type conversion.
-      - [`2.5.2.8 Return Types`](Chapter_2_Getting_Started.md#2528-return-types)
-        - LO-2.5.2.8 (K2) Understand the concept of return type hints.
+      - [`2.5.2.4 Positional or Named Arguments`](Chapter_2_Getting_Started.md#2524-positional-or-named-arguments)
+        - LO-2.5.2.4 (K1) Recall how "Positional or Named Arguments" are marked in the documentation and their use case.
+      - [`2.5.2.5 Variable Number of Positional Arguments`](Chapter_2_Getting_Started.md#2525-variable-number-of-positional-arguments)
+        - LO-2.5.2.5 (K1) Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case.
+      - [`2.5.2.6 Named-Only Arguments`](Chapter_2_Getting_Started.md#2526-named-only-arguments)
+        - LO-2.5.2.6 (K1) Recall what properties "Named-Only Arguments" have and how they are documented.
+      - [`2.5.2.7 Free Named Arguments`](Chapter_2_Getting_Started.md#2527-free-named-arguments)
+        - LO-2.5.2.7 (K1) Recall how free named arguments are marked in documentation.
+      - [`2.5.2.8 Argument Types`](Chapter_2_Getting_Started.md#2528-argument-types)
+        - LO-2.5.2.8 (K2) Understand the concept of argument types and automatic type conversion.
+      - [`2.5.2.9 Return Types`](Chapter_2_Getting_Started.md#2529-return-types)
+        - LO-2.5.2.9 (K2) Understand the concept of return type hints.
     - [`2.5.3 Keyword Documentation & Examples`](Chapter_2_Getting_Started.md#253-keyword-documentation--examples)
       - LO-2.5.3 (K2) Understand how to read keyword documentation and how to interpret the examples.
   - [`2.6 Writing Test|Task and Calling Keywords`](Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords)
