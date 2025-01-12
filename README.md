@@ -209,8 +209,7 @@ When providing feedback, please be as detailed as possible and explain your sugg
     - [`3.5.1 Importing Hierarchies`](Chapter_3_Keyword_Design_Variables_Resources.md#351-importing-hierarchies)
       - LO-3.5.1 (K2) Understand how transitive imports of resource files and libraries work.
     - [`3.5.2 Library Configuration`](Chapter_3_Keyword_Design_Variables_Resources.md#352-library-configuration)
-      - LO-3.5.2-1 (K1) Recall the purpose of the `Importing` section in library documentation.
-      - LO-3.5.2-2 (K3) Be able to configure a library import using arguments.
+      - LO-3.5.2 (K3) Be able to configure a library import using arguments.
     - [`3.5.3 Naming Conflicts`](Chapter_3_Keyword_Design_Variables_Resources.md#353-naming-conflicts)
       - LO-3.5.3 (K2) Explain how naming conflicts can happen and how to mitigate them.
 - [`4 Advanced Structuring and Execution`](Chapter_4_Advanced_Structuring_and_Execution.md#4-advanced-structuring-and-execution)

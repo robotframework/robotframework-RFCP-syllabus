@@ -964,9 +964,7 @@ Therefore, the recommendation is to import libraries only in one resource file w
 ### 3.5.2 Library Configuration
 
 > [!IMPORTANT]
-> LO-3.5.2-1 Recall the purpose of the `Importing` section in library documentation. (K1)
->
-> LO-3.5.2-2 Be able to configure a library import using arguments. (K3)
+> LO-3.5.2 Be able to configure a library import using arguments. (K3)
 
 Some libraries offer or need additional configuration to change their behavior or make them work.
 This is typically global behavior like internal timeouts, connection settings to systems, or plugins that should be used.
