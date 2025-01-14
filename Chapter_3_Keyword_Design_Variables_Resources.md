@@ -109,6 +109,7 @@ Variables in Robot Framework are defined by three attributes:
 - **Variable Name**: The string that addresses the variable. i.e. just the `variable_name` or more advanced access ways.
 
 Variable names are case-insensitive and as keywords, containing single spaces and underscores are ignored when matching variable names.
+Robot Framework supports Unicode and allows the use of special characters and even Emojis in variable names.
 
 In case these prefixes followed by a curly brace opening (`${`) should be used as characters in a normal string and not as a variable,
 they must be escaped by a backslash like `\${` to be treated as text rather than a variable start.
@@ -498,10 +499,17 @@ As a reference for how defined keywords are documented, see [2.5 Keyword Interfa
 
 The names of User Keywords should be descriptive and clear, reflecting the purpose of the keyword.
 Well-named keywords make tests more readable and easier to understand.
+Robot Framework supports Unicode and allows the use of special characters and even Emojis in keyword names.
 
 Keyword names are case-insensitive and can include spaces.
 Also spaces and underscores will be ignored when matching keyword names.
 So the keywords `Login To System`, and `log_into_system` are considered identical.
+
+To identify keywords that shall be executed, Robot Framework uses a matching algorithm that is case-insensitive and ignores spaces and underscores.
+If then a full match is found, that keyword is used.
+If no full match is found, the prefixes `Given`, `When`, `Then`, `And`, and `But` (case-insensitive), which are used in Behavior-Driven Specification style, are removed from the called keyword name to find a match.
+If still no match is found, Robot Framework tries to match the name with keywords that have embedded arguments.
+
 By default, if not explicitly defined by the library developers, all Library Keywords are named in **Title Case** with capital letters at the beginning of each word, and spaces between words.
 
 Project may choose a different naming convention for User Keywords, but it is recommended to be consistent across the project for User Keyword names.
@@ -618,10 +626,12 @@ In that case, the argument `${file_path}` is assigned the value `server.log`, an
 Optional arguments are defined by assigning default values to them in the `[Arguments]` setting.
 All optional arguments must be defined after all mandatory arguments.
 
-Default values are assigned by the equal sign (`=`)
-followed by the default value without any spaces like `${ignore_case}=True`.
+Default values are assigned using an equal sign (`=`),
+followed by the default value without any spaces, such as `${ignore_case}=True`,
+which would set the string `True` as default.
 
-The assigned default values may also contain or be earlier defined variables, i.e., in the `*** Variables ***` section.
+The assigned default values can also include previously defined variables,
+such as `${ignore_case}=${True}`, where `${True}` represents the boolean value `True`.
 
 Example:
 ```robotframework
@@ -634,8 +644,8 @@ Verify File Contains
     ...
     ...    By default, the verification is case-insensitive
     ...    but can be changed with the optional argument ``ignore_case``.
-    [Arguments]    ${file_path}    ${expected_content}    ${ignore_case}=True   # ignore_case has the string 'True' as default value
-    ${server_log} =    Get File    ${file_path}
+    [Arguments]    ${file_path}    ${expected_content}    ${encoding}=utf-8   ${ignore_case}=${True}
+    ${server_log} =    Get File    ${file_path}    ${encoding}
     Should Contain    ${server_log}    ${expected_content}    ignore_case=${ignore_case}
 ```
 

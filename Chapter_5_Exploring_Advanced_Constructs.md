@@ -91,7 +91,7 @@ Variables in Robot Framework have different scopes, determining where they can b
 - **Definition**: Variables accessible everywhere during the test execution.
 - **Creation**:
   - Set from the command line using `--variable` or `--variablefile` options. (static)
-  - Created during execution using the `VAR` syntax with the `scope=GLOBAL` argument at any point. (dynamic)
+  - Created during execution using the `VAR` syntax with the `scope=GLOBAL` argument. (dynamic)
 - **Usage**: Ideal for configuration parameters that need to be consistent across the entire test run.
 
 Because global variables set via the command line have the highest priority, they can override other variables defined in the suite or resource files.
@@ -254,6 +254,7 @@ Variables containing a list are generally accessed with the normal dollar-syntax
 You can also access single values within a list using `${var}[0]` or `${var}[-1]`, and Robot Framework supports slicing, similar to Python, with `${var}[1:3]` or `${var}[1:]`.
 
 However, in some cases, it is necessary to unpack the values of a list variable to use them as a sequence of multiple individual values. This is done using the at-syntax `@{var}` when accessing the variable.
+Unpacking works for iterable values, but is NOT possible with strings!
 
 Example:
 
