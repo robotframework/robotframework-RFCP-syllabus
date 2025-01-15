@@ -182,7 +182,7 @@ Robot Framework organizes tests|tasks into **Suites**, which are either files or
 - `*.robot` files that do contain test cases or tasks are suites.
 - Each directory, starting from the top-level directory (the one executed by Robot Framework), and any sub-directories that contains a `*.robot` suite file, is considered a **Suite** as well.
 Suites can contain other suites, forming a hierarchical tree, which is by default alphabetically ordered.
-See [2.1 Suite File & Tree Structure](/docs/chapter-02/Chapter_2_Getting_Started.md#21-suite-file--tree-structure) for more details.
+See [2.1 Suite File & Tree Structure](../chapter-02/Chapter_2_Getting_Started.md#21-suite-file--tree-structure) for more details.
 
 This structure allows for logical grouping and organization of tests and tasks, which can scale as needed.
 
@@ -361,7 +361,7 @@ Robot Framework offers a convenient feature for this approach through **Test Tem
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
 - **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
 
-See [3.4 Data-Driven Specification](/docs/chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#34-data-driven-specification) for more details and examples on Data-Driven Specification.
+See [3.4 Data-Driven Specification](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#34-data-driven-specification) for more details and examples on Data-Driven Specification.
 
 
 
