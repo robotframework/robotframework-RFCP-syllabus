@@ -1,8 +1,11 @@
 
 # 2.5 Keyword Interface and Documentation
 
-> [!IMPORTANT]
-> LO-2.5 Understand the structure of keyword interfaces and how to interpret keyword documentation. (K2)
+:::tip Learning Objective
+
+LO-2.5 Understand the structure of keyword interfaces and how to interpret keyword documentation. (K2)
+
+:::
 
 Library Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
 
@@ -19,8 +22,11 @@ Robot Framework offers the Keyword Documentation of its Standard Libraries at ht
 
 ## 2.5.1 Documented Keyword Information
 
-> [!IMPORTANT]
-> LO-2.5.1 Recall the information that can be found in a keyword documentation. (K1)
+:::tip Learning Objective
+
+LO-2.5.1 Recall the information that can be found in a keyword documentation. (K1)
+
+:::
 
 The Keyword Documentation is structured so, that it contains first the library or resource documentation, followed by a list of all keywords that are available in that library or resource file.
 
@@ -88,8 +94,11 @@ See [2.5.2.6 Named-Only Arguments](../chapter-02/Chapter_2_Getting_Started.md#25
 
 ## 2.5.2 Keyword Arguments
 
-> [!IMPORTANT]
-> LO-2.5.2 Understand the difference between argument kinds. (K2)
+:::tip Learning Objective
+
+LO-2.5.2 Understand the difference between argument kinds. (K2)
+
+:::
 
 Most library keywords can be parameterized with arguments that are passed to the keyword when it is called to customize its behavior.
 As more business oriented keywords are as less arguments they typically have.
@@ -114,8 +123,11 @@ The order is as follows:
 
 ## 2.5.2.1 Mandatory Arguments
 
-> [!IMPORTANT]
-> LO-2.5.2.1 Understand the concept of mandatory arguments and how they are documented. (K2)
+:::tip Learning Objective
+
+LO-2.5.2.1 Understand the concept of mandatory arguments and how they are documented. (K2)
+
+:::
 
 Arguments that do not have a default value, must be set when the keyword is called.
 These arguments have to be before arguments with default values in the argument interface of the keywords.
@@ -147,8 +159,11 @@ Two arguments are mandatory and additional six arguments are optional in the `Sh
 
 ## 2.5.2.2 Optional Arguments
 
-> [!IMPORTANT]
-> LO-2.5.2.2 Understand the concept of optional arguments and how they are documented. (K2)
+:::tip Learning Objective
+
+LO-2.5.2.2 Understand the concept of optional arguments and how they are documented. (K2)
+
+:::
 
 Arguments that have a default value can be omitted when the keyword is called, causing these arguments to be set to their default value.
 These arguments are listed after the mandatory arguments in the argument interface.
@@ -166,8 +181,11 @@ Omitting some optional arguments but still using others is possible independent 
 
 ## 2.5.2.3 Embedded Arguments
 
-> [!IMPORTANT]
-> LO-2.5.2.3 Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented. (K1)
+:::tip Learning Objective
+
+LO-2.5.2.3 Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented. (K1)
+
+:::
 
 Keywords can have arguments embedded into their names, which is used mostly for Behavior-Driven Specification (BDD).
 Embedded arguments are also mandatory and can only be set by their position in the keyword name.
@@ -199,8 +217,11 @@ They can also be defined using regular expressions to allow for more complex arg
 
 ## 2.5.2.4 Positional or Named Arguments
 
-> [!IMPORTANT]
-> LO-2.5.2.4 Recall how "Positional or Named Arguments" are marked in the documentation and their use case. (K1)
+:::tip Learning Objective
+
+LO-2.5.2.4 Recall how "Positional or Named Arguments" are marked in the documentation and their use case. (K1)
+
+:::
 
 Except of "Positional-Only Arguments", that are not part of this syllabus,
 all arguments that are positioned before "Variable Number of Positional Arguments", "Named-Only Arguments", or "Free Named Arguments" in the argument interface of keywords are "Positional or Named Arguments".
@@ -214,8 +235,11 @@ They are not specially marked in the keyword documentation with any prefix, beca
 
 ## 2.5.2.5 Variable Number of Positional Arguments
 
-> [!IMPORTANT]
-> LO-2.5.2.5 Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case. (K1)
+:::tip Learning Objective
+
+LO-2.5.2.5 Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case. (K1)
+
+:::
 
 A special case of optional arguments that can only be set by their position are "Variable Number of Positional Arguments".
 These are also referred to as `*args` or `*varargs` in Python.
@@ -234,8 +258,11 @@ Also see [2.5.1.3 Example Keyword `Get Regexp Matches`](../chapter-02/Chapter_2_
 
 ## 2.5.2.6 Named-Only Arguments
 
-> [!IMPORTANT]
-> LO-2.5.2.6 Recall what properties "Named-Only Arguments" have and how they are documented. (K1)
+:::tip Learning Objective
+
+LO-2.5.2.6 Recall what properties "Named-Only Arguments" have and how they are documented. (K1)
+
+:::
 
 All arguments that are defined after a "Variable Number of Positional Arguments" (`*varargs`) are "Named-Only Arguments".
 However it is also possible to create "Named-Only Arguments without a preceding "Variable Number of Positional Arguments".
@@ -249,8 +276,11 @@ So they must be called by their name followed by an equal sign `=` and the value
 
 ## 2.5.2.7 Free Named Arguments
 
-> [!IMPORTANT]
-> LO-2.5.2.7 Recall how free named arguments are marked in documentation. (K1)
+:::tip Learning Objective
+
+LO-2.5.2.7 Recall how free named arguments are marked in documentation. (K1)
+
+:::
 
 Another special case of "Named-Only Arguments" is "Free Named Arguments."
 These arguments are similar to the "Variable Number of Positional Arguments" in that they can collect multiple values.
@@ -277,8 +307,11 @@ Send 5 IPv4 Pings On Windows
 
 ## 2.5.2.8 Argument Types
 
-> [!IMPORTANT]
-> LO-2.5.2.8 Understand the concept of argument types and automatic type conversion. (K2)
+:::tip Learning Objective
+
+LO-2.5.2.8 Understand the concept of argument types and automatic type conversion. (K2)
+
+:::
 
 Library Keywords may define the expected types of their argument values.
 Robot Framework specification is mostly done as a string-based language, therefore most statically defined argument values are strings.
@@ -318,8 +351,11 @@ The advantage of using type hints is that the user get more information about wh
 
 ## 2.5.2.9 Return Types
 
-> [!IMPORTANT]
-> LO-2.5.2.9 Understand the concept of return type hints. (K2)
+:::tip Learning Objective
+
+LO-2.5.2.9 Understand the concept of return type hints. (K2)
+
+:::
 
 Keywords may gather information and return these to the caller of that keyword to be stored in a variable and used in further keyword calls.
 So Keyword can `RETURN` values to the caller as functions do in programming languages.
@@ -336,8 +372,11 @@ This is typically documented in the *Documentation* part of the keyword document
 
 ## 2.5.3 Keyword Documentation & Examples
 
-> [!IMPORTANT]
-> LO-2.5.3 Understand how to read keyword documentation and how to interpret the examples. (K2)
+:::tip Learning Objective
+
+LO-2.5.3 Understand how to read keyword documentation and how to interpret the examples. (K2)
+
+:::
 
 Keyword documentation is an important part of the keyword implementation.
 Good keyword names that clearly communicate what a keyword is doing is even more important,

@@ -1,10 +1,12 @@
 
 # 4.1 Setups (Suite, Test|Task, Keyword)
 
-> [!IMPORTANT]
-> LO-4.1-1 Recall the purpose and benefits of Setups in Robot Framework (K1)
->
-> LO-4.1-2 Recall the different levels where a Setup can be defined (K1)
+:::tip Learning Objective
+
+LO-4.1-1 Recall the purpose and benefits of Setups in Robot Framework (K1)
+LO-4.1-2 Recall the different levels where a Setup can be defined (K1)
+
+:::
 
 
 Setups in Robot Framework are used to prepare the environment or system for execution or to verify that the requirements/preconditions needed for execution are met.
@@ -23,10 +25,12 @@ Examples of typical use cases for Setups are:
 
 ## 4.1.1 Suite Setup
 
-> [!IMPORTANT]
-> LO-4.1.1-1 Recall key characteristics, benefits, and syntax of Suite Setup (K1)
->
-> LO-4.1.1-2 Understand when Suite Setup is executed and used (K2)
+:::tip Learning Objective
+
+LO-4.1.1-1 Recall key characteristics, benefits, and syntax of Suite Setup (K1)
+LO-4.1.1-2 Understand when Suite Setup is executed and used (K2)
+
+:::
 
 A **Suite Setup** is executed before any tests|tasks or child suites within the suite are run.
 It is used to prepare the environment or perform actions that need to occur before the entire suite runs.
@@ -56,10 +60,12 @@ Suite Setup    Initialize Environment   dataset=Config_C3
 
 ## 4.1.2 Test|Task Setup
 
-> [!IMPORTANT]
-> LO-4.1.2-1 Recall key characteristics, benefits, and syntax of Test Setup (K1)
->
-> LO-4.1.2-2 Understand when Test|Task Setup is executed and used (K2)
+:::tip Learning Objective
+
+LO-4.1.2-1 Recall key characteristics, benefits, and syntax of Test Setup (K1)
+LO-4.1.2-2 Understand when Test|Task Setup is executed and used (K2)
+
+:::
 
 A **Test|Task Setup** is executed before a single test|task runs.
 It is used to prepare the specific conditions required for that test|task.
@@ -109,8 +115,11 @@ No Setup Test
 
 ## 4.1.3 Keyword Setup
 
-> [!IMPORTANT]
-> LO-4.1.3 Recall key characteristics and syntax of Keyword Setup (K1)
+:::tip Learning Objective
+
+LO-4.1.3 Recall key characteristics and syntax of Keyword Setup (K1)
+
+:::
 
 A **Keyword Setup** is executed before the body of a user keyword is executed.
 It allows for preparation steps specific to that keyword or ensures that the keyword's requirements are met before execution.

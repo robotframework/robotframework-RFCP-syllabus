@@ -1,8 +1,11 @@
 
 # 1.4 Specification Styles
 
-> [!IMPORTANT]
-> LO-1.4 Recall the three specification styles of Robot Framework (K1)
+:::tip Learning Objective
+
+LO-1.4 Recall the three specification styles of Robot Framework (K1)
+
+:::
 
 Specification styles define how the automation process or test cases are structured, focusing on how actions and verifications are expressed.
 These styles can be applied to all types of automation, including both testing and robotic process automation (RPA).
@@ -28,8 +31,11 @@ with the other two styles, to define the data that is used in the automation.
 
 ## 1.4.1 Keyword-Driven Specification
 
-> [!IMPORTANT]
-> LO-1.4.1 Understand the basic concepts of Keyword-Driven Specification (K2)
+:::tip Learning Objective
+
+LO-1.4.1 Understand the basic concepts of Keyword-Driven Specification (K2)
+
+:::
 
 In **Keyword-Driven Specification**, automation steps are expressed through a sequence of mostly **imperative commands**.
 Keywords define the specific actions that must be executed in a particular order, similar to procedural programming.
@@ -53,8 +59,11 @@ Flow and data can be parsed separately by the consumer.
 
 ## 1.4.2 Behavior-Driven Specification
 
-> [!IMPORTANT]
-> LO-1.4.2 Understand the basic concepts of Behavior-Driven Specification (K2)
+:::tip Learning Objective
+
+LO-1.4.2 Understand the basic concepts of Behavior-Driven Specification (K2)
+
+:::
 
 **Behavior-Driven Specification** originates from **Behavior-Driven Development (BDD)** and its **Gherkin-Style**, where steps are written to describe the system's behavior from the user's perspective.
 This style often incorporates **embedded arguments** into the steps and uses natural language constructs like **Given, When, Then, And & But**.
@@ -76,8 +85,11 @@ Robot Framework allows you to create **user keywords** that can further call oth
 
 ## 1.4.3 Comparing Keyword-Driven and Behavior-Driven Specification
 
-> [!IMPORTANT]
-> LO-1.4.3 Recall the differences between Keyword-Driven and Behavior-Driven Specification (K1)
+:::tip Learning Objective
+
+LO-1.4.3 Recall the differences between Keyword-Driven and Behavior-Driven Specification (K1)
+
+:::
 
 The core difference between **Keyword-Driven** and **Behavior-Driven** styles lies in their focus:
 
@@ -102,8 +114,11 @@ Both styles can be applied within Robot Framework, offering flexibility dependin
 
 ## 1.4.4 Data-Driven Specification
 
-> [!IMPORTANT]
-> LO-1.4.4 Recall the purpose of Data-Driven Specification (K1)
+:::tip Learning Objective
+
+LO-1.4.4 Recall the purpose of Data-Driven Specification (K1)
+
+:::
 
 **Data-Driven Specification** originates from **Data-Driven Testing**
 and is a method where the test data and expected results are

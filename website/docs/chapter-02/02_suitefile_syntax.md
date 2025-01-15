@@ -7,15 +7,20 @@ I think this section needs a bit more structure and we should introduce the conc
 
  -->
 
-> [!IMPORTANT]
-> LO-2.2 Understand the basic syntax of test cases and tasks. (K2)
+:::tip Learning Objective
 
+LO-2.2 Understand the basic syntax of test cases and tasks. (K2)
+
+:::
 
 
 ## 2.2.1 Separation and Indentation
 
-> [!IMPORTANT]
-> LO-2.2.1 Understand and apply the mechanics of indentation and separation in Robot Framework. (K3)
+:::tip Learning Objective
+
+LO-2.2.1 Understand and apply the mechanics of indentation and separation in Robot Framework. (K3)
+
+:::
 
 As mentioned before, Robot Framework uses an indentation-based and space-separated syntax to structure keywords, test cases, and tasks.
 
@@ -103,8 +108,11 @@ which would lead to misinterpretation of the file structure by a human reader.
 
 ## 2.2.2 Line Breaks, Continuation and Empty Lines
 
-> [!IMPORTANT]
-> LO-2.2.2 Be able to use line breaks and continuation in a statement. (K3)
+:::tip Learning Objective
+
+LO-2.2.2 Be able to use line breaks and continuation in a statement. (K3)
+
+:::
 
 Empty lines are allowed and encouraged to structure data files and make them more readable.
 In the next example, the sections are visibly separated by two empty lines, and the tests are separated by one empty line.
@@ -123,8 +131,11 @@ In the following example the two keyword calls are logically identical, even tho
 
 ## 2.2.3 In-line Comments
 
-> [!IMPORTANT]
-> LO-2.2.3 Be able to add in-line comments to suites. (K3)
+:::tip Learning Objective
+
+LO-2.2.3 Be able to add in-line comments to suites. (K3)
+
+:::
 
 In Robot Framework comments can be added to lines after the content
 by starting the comment with a separator (multiple spaces) and a hash `#`.
@@ -145,8 +156,11 @@ Alternatively the `*** Comments ***` section can be used to add multi-line comme
 
 ## 2.2.4 Escaping of Control Characters
 
-> [!IMPORTANT]
-> LO-2.2.4 Understand how to escape control characters in Robot Framework. (K2)
+:::tip Learning Objective
+
+LO-2.2.4 Understand how to escape control characters in Robot Framework. (K2)
+
+:::
 
 In Robot Framework strings are not quoted which leads to situations where users need to be able to define,
 if a specific character shall be interpreted as part of the value or as a control character.
@@ -180,8 +194,11 @@ Test of Escaping
 
 ## 2.2.5 Example Suite File
 
-> [!IMPORTANT]
-> LO-2.2.5 Understand the structure of a basic suite file. (K2)
+:::tip Learning Objective
+
+LO-2.2.5 Understand the structure of a basic suite file. (K2)
+
+:::
 
 In the following example, two test cases are defined in a suite file.
 - `Login User With Password`

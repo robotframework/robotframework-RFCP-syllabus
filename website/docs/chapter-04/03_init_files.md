@@ -1,8 +1,11 @@
 
 # 4.3 Initialization Files
 
-> [!IMPORTANT]
-> LO-4.3 Recall how to define an Initialization Files and its purpose (K1)
+:::tip Learning Objective
+
+LO-4.3 Recall how to define an Initialization Files and its purpose (K1)
+
+:::
 
 As Robot Framework automation projects grow, organizing tests|tasks into directories becomes essential for managing complexity and maintaining a clear structure.
 When suites are created from directories, these directories can contain multiple suites and tests|tasks, forming a hierarchical suite structure.
@@ -26,8 +29,11 @@ Initialization files enable you to:
 
 ## 4.3.2 Suite Setup and Suite Teardown of Initialization Files
 
-> [!IMPORTANT]
-> LO-4.3.2 Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests|tasks (K2)
+:::tip Learning Objective
+
+LO-4.3.2 Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests|tasks (K2)
+
+:::
 
 As previously explained, **Suite Setup** and **Suite Teardown** are used to prepare and clean up the environment before and after a suite's execution.
 Initialization files provide a centralized place to define these setups and teardowns for all sub-suites and their tests|tasks within a directory structure.
@@ -38,8 +44,11 @@ The Suite Teardown of an initialization file is executed after all sub-suites in
 
 ## 4.3.3 Allowed Sections in Initialization Files
 
-> [!IMPORTANT]
-> LO-4.3.3 Recall the allowed sections and their content in Initialization Files (K1)
+:::tip Learning Objective
+
+LO-4.3.3 Recall the allowed sections and their content in Initialization Files (K1)
+
+:::
 
 Initialization files have the same structure and syntax as regular suite files but with some limitations.
 The following sections are allowed in initialization files:

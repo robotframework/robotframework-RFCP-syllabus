@@ -1,10 +1,12 @@
 
 # 4.5 SKIP Test|Task Status
 
-> [!IMPORTANT]
-> LO-4.5-1 Recall the use case and purpose of skipping tests|tasks in Robot Framework (K1)
->
-> LO-4.5-2 Recall the different ways to skip tests|tasks in Robot Framework (K1)
+:::tip Learning Objective
+
+LO-4.5-1 Recall the use case and purpose of skipping tests|tasks in Robot Framework (K1)
+LO-4.5-2 Recall the different ways to skip tests|tasks in Robot Framework (K1)
+
+:::
 
 In addition to `PASS` and `FAIL`, Robot Framework introduces a `SKIP` status to indicate that a test|task was explicitly skipped **during** execution. The `SKIP` status is useful when certain tests|tasks should not be executed, for example, due to unfulfilled preconditions, unfinished test logic, or unsupported environments. Skipped tests|tasks appear in logs and reports, clearly marked as skipped.
 
@@ -17,8 +19,11 @@ In addition to `PASS` and `FAIL`, Robot Framework introduces a `SKIP` status to 
 
 ## 4.5.1 Skipping By Tags Selection (CLI)
 
-> [!IMPORTANT]
-> LO-4.5.1 Recall the differences between skip and exclude (K1)
+:::tip Learning Objective
+
+LO-4.5.1 Recall the differences between skip and exclude (K1)
+
+:::
 
 Tests|tasks can be skipped with `--skip` by tags when executing Robot Framework, similar to `--exclude`.
 The difference between `--skip` and `--exclude` is that `--skip` will mark the tests|tasks as skipped in the report and log, while `--exclude` will not execute them at all.

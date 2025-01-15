@@ -9,8 +9,11 @@ In some cases, it is necessary to use control structures to handle different cas
 
 ## 5.2.1 IF Statements
 
-> [!IMPORTANT]
-> LO-5.2.1 Understand the purpose and basic concept of IF-Statements (K2)
+:::tip Learning Objective
+
+LO-5.2.1 Understand the purpose and basic concept of IF-Statements (K2)
+
+:::
 
 The `IF/ELSE` syntax in Robot Framework is used to control the flow of test|task execution by allowing certain keywords to run only when specific conditions are met.
 This is achieved by evaluating conditions written as Python expressions, enabling dynamic decision-making within your tests|tasks.
@@ -87,8 +90,11 @@ For single conditional keywords, the simplified inline IF statement can be used.
 
 ## 5.2.4 FOR Loops
 
-> [!IMPORTANT]
-> LO-5.2.4 Understand the purpose and basic concept of FOR Loops (K2)
+:::tip Learning Objective
+
+LO-5.2.4 Understand the purpose and basic concept of FOR Loops (K2)
+
+:::
 
 The `FOR` loop in Robot Framework repeats a set of keywords multiple times, iterating over a sequence of values.
 This allows you to perform the same actions for different items without duplicating code, enhancing the efficiency and readability of your keyword logic.
@@ -148,8 +154,11 @@ When you need to execute the same keywords for each item in a list or sequence, 
 
 ## 5.2.5 WHILE Loops
 
-> [!IMPORTANT]
-> LO-5.2.5 Understand the purpose and basic concept of WHILE Loops (K2)
+:::tip Learning Objective
+
+LO-5.2.5 Understand the purpose and basic concept of WHILE Loops (K2)
+
+:::
 
 While the `FOR` loop iterates over a known amount of values, `WHILE` loops repeat their body as long as a condition is met.
 This is typically used in cases where the number of iterations is not known in advance or depends on a dynamic condition.
@@ -188,8 +197,11 @@ This prevents infinite loops and ensures that tests|tasks do not hang indefinite
 
 ## 5.2.6 BREAK and CONTINUE
 
-> [!IMPORTANT]
-> LO-5.2.6 Understand the purpose and basic concept of the BREAK and CONTINUE statements (K2)
+:::tip Learning Objective
+
+LO-5.2.6 Understand the purpose and basic concept of the BREAK and CONTINUE statements (K2)
+
+:::
 
 In some cases, it is helpful to stop a loop or skip the remaining part of a loop and continue with the next iteration.
 This can be achieved with the `BREAK` and `CONTINUE` statements.

@@ -15,10 +15,13 @@ Both types of sources are using different syntax to import their keywords.
 
 ## 2.4.1 Libraries
 
-> [!IMPORTANT]
-> LO-2.4.1-1 Recall the purpose of keyword libraries and how to import them. (K1)
->
-> LO-2.4.1-2 Recall the three types of libraries in Robot Framework. (K1)
+:::tip Learning Objective
+
+LO-2.4.1-1 Recall the purpose of keyword libraries and how to import them. (K1)
+LO-2.4.1-2 Recall the three types of libraries in Robot Framework. (K1)
+
+:::
+
 
 From a user perspective there are three different kinds of libraries:
 - **Robot Framework Standard Libraries**: These are libraries that are shipped with Robot Framework and are available without any additional installation. See documentation of [ext: Robot Framework Standard Libraries](https://robotframework.org/robotframework/#standard-libraries) for more information.
@@ -51,10 +54,12 @@ Which keywords are available can be seen in the keyword documentation of the lib
 
 ## 2.4.2 Resource Files
 
-> [!IMPORTANT]
-> LO-2.4.2-1 Recall the purpose of resource files. (K1)
->
-> LO-2.4.2-2 Use resource files to import new keywords. (K3)
+:::tip Learning Objective
+
+LO-2.4.2-1 Recall the purpose of resource files. (K1)
+LO-2.4.2-2 Use resource files to import new keywords. (K3)
+
+:::
 
 As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
 
@@ -85,8 +90,11 @@ and how keywords and variables are created in the sections following that.
 
 ## 2.4.3 Import Paths
 
-> [!IMPORTANT]
-> LO-2.4.3 Understand the different types of paths that can be used to import libraries and resource files. (K2)
+:::tip Learning Objective
+
+LO-2.4.3 Understand the different types of paths that can be used to import libraries and resource files. (K2)
+
+:::
 
 When importing libraries or resource files via a path, the path can be either an absolute path or a relative path.
 If a relative path is given, the path is resolved relative to the data file that is importing the library or resource file.

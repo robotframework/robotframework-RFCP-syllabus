@@ -1,8 +1,11 @@
 
 # 2.1 Suite File & Tree Structure
 
-> [!IMPORTANT]
-> LO-2.1 Understand which files and directories are considered suites and how they are structured in a suite tree. (K2)
+:::tip Learning Objective
+
+LO-2.1 Understand which files and directories are considered suites and how they are structured in a suite tree. (K2)
+
+:::
 
 When executing Robot Framework, it either parses directory trees or files, depending on which paths are given.
 
@@ -54,8 +57,11 @@ Example:
 
 ## 2.1.1 Suite Files
 
-> [!IMPORTANT]
-> LO-2.1.1 Recall the conditions and requirements for a file to be considered a Suite file (K1)
+:::tip Learning Objective
+
+LO-2.1.1 Recall the conditions and requirements for a file to be considered a Suite file (K1)
+
+:::
 
 Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
 
@@ -67,8 +73,11 @@ A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*
 
 ## 2.1.2 Sections and Their Artifacts
 
-> [!IMPORTANT]
-> LO-2.1.2 Recall the available sections in a suite file and their purpose. (K1)
+:::tip Learning Objective
+
+LO-2.1.2 Recall the available sections in a suite file and their purpose. (K1)
+
+:::
 
 Robot Framework data files are defined in different sections.
 These sections are recognized by their header row.
@@ -86,10 +95,12 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*
 
 ## 2.1.2.1 `*** Settings ***` Section
 
-> [!IMPORTANT]
-> LO-2.1.2.1-1 Recall the available settings in a suite file. (K1)
->
-> LO-2.1.2.1-2 Understand the concepts of suite settings and how to define them. (K2)
+:::tip Learning Objective
+
+LO-2.1.2.1-1 Recall the available settings in a suite file. (K1)
+LO-2.1.2.1-2 Understand the concepts of suite settings and how to define them. (K2)
+
+:::
 
 This section is used to configure various aspects of the test|task suite.
 It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files (Not part of this syllabus) that are needed for execution in the containing tests|tasks.
@@ -119,8 +130,11 @@ Similar to test|task tags, also keyword tags can be defined in the `*** Settings
 
 ## 2.1.2.2 `*** Variables ***` Section
 
-> [!IMPORTANT]
-> LO-2.1.2.2 Recall the purpose of the `*** Variables ***` section. (K1)
+:::tip Learning Objective
+
+LO-2.1.2.2 Recall the purpose of the `*** Variables ***` section. (K1)
+
+:::
 
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
@@ -134,8 +148,11 @@ See [3.2.2 `*** Variables ***` Section](../chapter-03/Chapter_3_Keyword_Design_V
 
 ## 2.1.2.3 `*** Test Cases ***` or `*** Tasks ***` Section
 
-> [!IMPORTANT]
-> LO-2.1.2.3 Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. (K2)
+:::tip Learning Objective
+
+LO-2.1.2.3 Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. (K2)
+
+:::
 
 This section defines the executable elements of a suite.
 Test cases and tasks are technically synonyms for each other.
@@ -152,8 +169,11 @@ See [2.6 Writing Test|Task and Calling Keywords](../chapter-02/Chapter_2_Getting
 
 ## 2.1.2.4 `*** Keywords ***` Section
 
-> [!IMPORTANT]
-> LO-2.1.2.4 Understand the purpose and limitations of the `*** Keywords ***` section. (K2)
+:::tip Learning Objective
+
+LO-2.1.2.4 Understand the purpose and limitations of the `*** Keywords ***` section. (K2)
+
+:::
 
 This section allows you to define **locally scoped user keywords** that can only be used within this suite where they are defined,
 while keywords defined in resource files can be used in any suite that imports these resource files.

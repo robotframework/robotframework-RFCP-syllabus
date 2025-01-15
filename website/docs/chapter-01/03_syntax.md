@@ -1,9 +1,11 @@
 
 # 1.3 Basic Syntax & Structure
 
-> [!IMPORTANT]
-> LO-1.3 Recall the key attributes of the syntax that makes Robot Framework simple and human-readable (K1)
+:::tip Learning Objective
 
+LO-1.3 Recall the key attributes of the syntax that makes Robot Framework simple and human-readable (K1)
+
+:::
 
 Robot Framework is a script-based interpreter for files that contain textual specifications.
 These files are typically organized into directories.
@@ -51,8 +53,11 @@ This structure allows for logical grouping and organization of tests and tasks, 
 
 ## 1.3.3 What are Keywords?
 
-> [!IMPORTANT]
-> LO-1.3.3 Explain the difference between User Keywords and Library Keywords (K2)
+:::tip Learning Objective
+
+LO-1.3.3 Explain the difference between User Keywords and Library Keywords (K2)
+
+:::
 
 Tests or Tasks are structured using **Keywords**, which represent specific actions or sequences of actions to be performed.
 
@@ -75,8 +80,11 @@ This granular logging and detailed execution documentation is one of the key adv
 
 ## 1.3.4 Resource Files & Libraries
 
-> [!IMPORTANT]
-> LO-1.3.4 Recall the difference between Resource Files and Libraries and their artefacts (K1)
+:::tip Learning Objective
+
+LO-1.3.4 Recall the difference between Resource Files and Libraries and their artefacts (K1)
+
+:::
 
 While tests and tasks are organized into suites, **keywords** are organized into **Resource Files** and **Keyword Libraries**.
 

@@ -1,8 +1,11 @@
 
 # 4.4 Test|Task Tags and Filtering Execution
 
-> [!IMPORTANT]
-> LO-4.4 Recall the purpose of Test|Task Tags in Robot Framework (K1)
+:::tip Learning Objective
+
+LO-4.4 Recall the purpose of Test|Task Tags in Robot Framework (K1)
+
+:::
 
 In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|tasks.
 Tags are free-form text labels that can be assigned to tests|tasks to provide metadata, enable flexible test selection, and organize test results.
@@ -15,8 +18,11 @@ Tags are also used to create a statistical summary of the test|task results in t
 
 ## 4.4.1 Assigning Tags to Tests|Tasks
 
-> [!IMPORTANT]
-> LO-4.4.1 Recall the syntax and different ways to assign tags to tests|tasks (K1)
+:::tip Learning Objective
+
+LO-4.4.1 Recall the syntax and different ways to assign tags to tests|tasks (K1)
+
+:::
 
 Tags can be assigned to tests|tasks in several ways:
 
@@ -64,8 +70,11 @@ Tags can be assigned to tests|tasks in several ways:
 
 ## 4.4.2 Using Tags to Filter Execution
 
-> [!IMPORTANT]
-> LO-4.4.2 Understand how to filter tests|tasks using the command-line interface of Robot Framework (K2)
+:::tip Learning Objective
+
+LO-4.4.2 Understand how to filter tests|tasks using the command-line interface of Robot Framework (K2)
+
+:::
 
 Tags can be used to select which tests|tasks are executed or skipped when running a suite. This is accomplished using command-line options when executing Robot Framework.
 

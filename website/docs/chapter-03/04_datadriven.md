@@ -1,17 +1,22 @@
 
 # 3.4 Data-Driven Specification
 
-> [!IMPORTANT]
-> LO-3.4 Understand the basic concept and syntax of Data-Driven Specification (K2)
+:::tip Learning Objective
+
+LO-3.4 Understand the basic concept and syntax of Data-Driven Specification (K2)
+
+:::
 
 The **Data-Driven Specification** style in Robot Framework separates test|task logic from data, enabling tests|tasks to be executed with multiple data sets efficiently. This approach involves using a single higher-level keyword to represent the entire workflow, while the test data is defined as rows of input and expected output values.
 
 ## 3.4.1 Test|Task Templates
 
-> [!IMPORTANT]
-> LO-3.4.1-1 Understand how to define and use test|task templates (K2)
->
-> LO-3.4.1-2 Recall the differences between the two different approaches to define Data-Driven Specification (K1)
+:::tip Learning Objective
+
+LO-3.4.1-1 Understand how to define and use test|task templates (K2)
+LO-3.4.1-2 Recall the differences between the two different approaches to define Data-Driven Specification (K1)
+
+:::
 
 For each test|task, a template keyword can be defined that contains the workflow logic.
 
@@ -26,8 +31,11 @@ The tests|tasks would not have any other keyword calls but would instead define 
 
 ## 3.4.1.1 Multiple Named Test|Task With One Template
 
-> [!IMPORTANT]
-> LO-3.4.1.1 Recall the syntax and properties of multiple named test|task with one template (K1)
+:::tip Learning Objective
+
+LO-3.4.1.1 Recall the syntax and properties of multiple named test|task with one template (K1)
+
+:::
 
 The following example has six different test|task, each with different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
 
@@ -55,8 +63,11 @@ It is possible to add header names to the data columns in the line of `*** Test 
 
 ## 3.4.1.2 Named Test|Task With Multiple Data Rows:
 
-> [!IMPORTANT]
-> LO-3.4.1.2 Recall the syntax and properties of named test|task with multiple data rows (K1)
+:::tip Learning Objective
+
+LO-3.4.1.2 Recall the syntax and properties of named test|task with multiple data rows (K1)
+
+:::
 
 A slightly different approach is to define multiple data rows for a single test|task.
 

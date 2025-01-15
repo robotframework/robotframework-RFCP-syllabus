@@ -3,8 +3,11 @@
 
 ## 1.5.1 Open Source License
 
-> [!IMPORTANT]
-> LO-1.5.1 Recall the type of open-source license under which Robot Framework is distributed (K1)
+:::tip Learning Objective
+
+LO-1.5.1 Recall the type of open-source license under which Robot Framework is distributed (K1)
+
+:::
 
 Robot Framework is licensed under the **Apache License 2.0**, a permissive open-source license.
 The key characteristics of this license include:
@@ -19,8 +22,11 @@ This licensing structure encourages broad usage and contribution while maintaini
 
 ## 1.5.2 About the Robot Framework Foundation
 
-> [!IMPORTANT]
-> LO-1.5.2 List and recall the key objectives and organizational form of the Robot Framework Foundation (K1)
+:::tip Learning Objective
+
+LO-1.5.2 List and recall the key objectives and organizational form of the Robot Framework Foundation (K1)
+
+:::
 
 The **Robot Framework Foundation** (officially known as **Robot Framework ry**) is a non-profit association based in Helsinki, Finland, dedicated to promoting the use, development, and maintenance of the open-source Robot Framework. The foundation ensures that Robot Framework remains freely available and viable for both test automation and robotic process automation (RPA) in the future.
 
@@ -46,8 +52,11 @@ This structure and mission ensure that Robot Framework continues to grow and ser
 
 ## 1.5.3 Robot Framework Webpages
 
-> [!IMPORTANT]
-> LO-1.5.3 Recall the official webpages for Robot Framework and its resources (K1)
+:::tip Learning Objective
+
+LO-1.5.3 Recall the official webpages for Robot Framework and its resources (K1)
+
+:::
 
 The official pages for Robot Framework and its related resources are maintained by the foundation.
 These include:

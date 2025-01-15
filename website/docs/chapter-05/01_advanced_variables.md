@@ -15,8 +15,11 @@ Variables can be defined in multiple places and ways, and their availability and
 
 ## 5.1.1 Variable Priorities
 
-> [!IMPORTANT]
-> LO-5.1.1 Understand the difference between statically defined and dynamically created variables in Robot Framework (K2)
+:::tip Learning Objective
+
+LO-5.1.1 Understand the difference between statically defined and dynamically created variables in Robot Framework (K2)
+
+:::
 
 Variables can originate from various sources, and when variables with the same name exist,
 Robot Framework resolves them based on their priority.
@@ -32,8 +35,11 @@ Built-in variables cannot generally be sorted into one of these categories, as s
 
 ## 5.1.1.1 Statically Defined or Imported Variables
 
-> [!IMPORTANT]
-> LO-5.1.1.1 Recall the priority of statically defined or imported variables in Robot Framework (K1)
+:::tip Learning Objective
+
+LO-5.1.1.1 Recall the priority of statically defined or imported variables in Robot Framework (K1)
+
+:::
 
 The rule of thumb here is: **"First come, first served!"**
 
@@ -54,8 +60,11 @@ However, variables defined during Robot Framework execution can overwrite or sha
 
 ## 5.1.1.2 Dynamically Created Variables
 
-> [!IMPORTANT]
-> LO-5.1.1.2 Recall the priority of dynamically created variables in Robot Framework (K1)
+:::tip Learning Objective
+
+LO-5.1.1.2 Recall the priority of dynamically created variables in Robot Framework (K1)
+
+:::
 
 Variables created or modified during execution have a higher priority than statically defined or imported variables.
 
@@ -70,15 +79,21 @@ However, once the keyword body scope is exited, the suite variable is back in sc
 
 ## 5.1.2 Variable Scopes
 
-> [!IMPORTANT]
-> LO-5.1.2 Recall the different variable scopes in Robot Framework (K1)
+:::tip Learning Objective
+
+LO-5.1.2 Recall the different variable scopes in Robot Framework (K1)
+
+:::
 
 Variables in Robot Framework have different scopes, determining where they can be accessed and how long they are available.
 
 ## 5.1.2.1 . Global Scope
 
-> [!IMPORTANT]
-> LO-5.1.2.1 Recall how to define global variables and where they can be accessed (K1)
+:::tip Learning Objective
+
+LO-5.1.2.1 Recall how to define global variables and where they can be accessed (K1)
+
+:::
 
 - **Definition**: Variables accessible everywhere during the test execution.
 - **Creation**:
@@ -98,8 +113,11 @@ Every global variable should have a corresponding default value defined either i
 
 ## 5.1.2.2 . Suite Scope
 
-> [!IMPORTANT]
-> LO-5.1.2.2 Recall how to define suite variables and where they can be accessed (K1)
+:::tip Learning Objective
+
+LO-5.1.2.2 Recall how to define suite variables and where they can be accessed (K1)
+
+:::
 
 - **Definition**: Variables accessible within the test suite where they are defined, including all its tests|tasks and keywords.
 - **Creation**:
@@ -121,8 +139,11 @@ Suite variables should be defined using uppercase letters, like `${SUITE_VARIABL
 
 ## 5.1.2.3 . Test|Task Scope
 
-> [!IMPORTANT]
-> LO-5.1.2.3 Recall how to define test|task variables and where they can be accessed (K1)
+:::tip Learning Objective
+
+LO-5.1.2.3 Recall how to define test|task variables and where they can be accessed (K1)
+
+:::
 
 - **Definition**: Variables accessible within a single test|task and within all keywords it calls.
 - **Creation**:
@@ -140,8 +161,11 @@ Otherwise, it is better to use local variables. Editor and IDE support for these
 
 ## 5.1.2.4 . Local Scope
 
-> [!IMPORTANT]
-> LO-5.1.2.4 Recall how to define local variables and where they can be accessed (K1)
+:::tip Learning Objective
+
+LO-5.1.2.4 Recall how to define local variables and where they can be accessed (K1)
+
+:::
 
 - **Definition**: Variables accessible only within the keyword or test|task where they are defined.
 - **Creation**:
@@ -215,8 +239,11 @@ However, the at-syntax `@{var}` has different meanings when assigning values ver
 
 ## 5.1.4.1 Assigning List Variables
 
-> [!IMPORTANT]
-> LO-5.1.4.1 Recall that assignments to `@{list}` variables convert values to lists automatically (K1)
+:::tip Learning Objective
+
+LO-5.1.4.1 Recall that assignments to `@{list}` variables convert values to lists automatically (K1)
+
+:::
 
 Using the at-syntax (`@{}`) is required to define a list variable with `VAR` syntax or in the `*** Variables ***` section, but it is optional when assigning return values, which are list-like, from keywords to a variable.
 
@@ -239,8 +266,11 @@ As long as a value is iterable, it can be assigned to a list variable using the 
 
 ## 5.1.4.2 Accessing List Variables
 
-> [!IMPORTANT]
-> LO-5.1.4.2 Recall that `@{list}` unpacks the values of a list variable when accessed (K1)
+:::tip Learning Objective
+
+LO-5.1.4.2 Recall that `@{list}` unpacks the values of a list variable when accessed (K1)
+
+:::
 
 Variables containing a list are generally accessed with the normal dollar-syntax `${var}`.
 You can also access single values within a list using `${var}[0]` or `${var}[-1]`, and Robot Framework supports slicing, similar to Python, with `${var}[1:3]` or `${var}[1:]`.
@@ -276,8 +306,11 @@ However, the ampersand-syntax `&{var}` has different meanings when assigning val
 
 ## 5.1.5.1 Assigning Dictionary Variables
 
-> [!IMPORTANT]
-> LO-5.1.5.1 Recall that assignments to `&{dict}` variables automatically convert values to Robot Framework Dictionaries and enable dot-access (K1)
+:::tip Learning Objective
+
+LO-5.1.5.1 Recall that assignments to `&{dict}` variables automatically convert values to Robot Framework Dictionaries and enable dot-access (K1)
+
+:::
 
 Using the ampersand-syntax (`&{}`) is required to define a dictionary variable with `VAR` syntax or in the `*** Variables ***` section, but it is optional when assigning return values from keywords to a variable that returns dictionaries.
 
@@ -295,8 +328,11 @@ In the following example, the first assignment to `&{participant}` causes an aut
 
 ## 5.1.5.2 Accessing Dictionary Variables
 
-> [!IMPORTANT]
-> LO-5.1.5.2 Recall that `&{dict}` unpacks to multiple key=value pairs when accessed (K1)
+:::tip Learning Objective
+
+LO-5.1.5.2 Recall that `&{dict}` unpacks to multiple key=value pairs when accessed (K1)
+
+:::
 
 Variables containing dictionaries are typically accessed using the normal dollar-syntax `${var}`.
 You can also access individual values by their keys using `${var}[key]` or `${var.key}` for Robot Framework Dictionaries.
@@ -330,8 +366,11 @@ The dictionary keys act as the argument names and the values as the argument val
 
 ## 5.1.6 Built-In Variables
 
-> [!IMPORTANT]
-> LO-5.1.6 Recall that Robot Framework provides access to execution information via Built-In variables (K1)
+:::tip Learning Objective
+
+LO-5.1.6 Recall that Robot Framework provides access to execution information via Built-In variables (K1)
+
+:::
 
 Robot Framework has a set of built-in variables that can be used in test cases, keywords, and other places. Some examples are:
 

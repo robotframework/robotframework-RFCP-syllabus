@@ -1,10 +1,12 @@
 
 # 4.2 Teardowns (Suite, Test|Task, Keyword)
 
-> [!IMPORTANT]
-> LO-4.2-1 Understand the different levels where and how Teardowns can be defined and when they are executed (K2)
->
-> LO-4.2-2 Recall the typical use cases for using Teardowns (K1)
+:::tip Learning Objective
+
+LO-4.2-1 Understand the different levels where and how Teardowns can be defined and when they are executed (K2)
+LO-4.2-2 Recall the typical use cases for using Teardowns (K1)
+
+:::
 
 In automation, tests|tasks are typically executed in a linear sequence.
 This linear execution can lead to issues when a preceding test|task fails, potentially affecting subsequent tests|tasks due to an unclean state of the system under test or the automated environment.
@@ -29,10 +31,12 @@ reducing dependencies between tests|tasks and improving the reliability of your 
 
 ## 4.2.1 Suite Teardown
 
-> [!IMPORTANT]
-> LO-4.2.1-1 Recall key characteristics, benefits, and syntax of Suite Teardown (K1)
->
-> LO-4.2.1-2 Understand when Suite Teardown is executed and used (K2)
+:::tip Learning Objective
+
+LO-4.2.1-1 Recall key characteristics, benefits, and syntax of Suite Teardown (K1)
+LO-4.2.1-2 Understand when Suite Teardown is executed and used (K2)
+
+:::
 
 A **Suite Teardown** is executed after all tests|tasks and all child suites in a suite have been executed.
 
@@ -60,10 +64,12 @@ Suite Teardown    Close All Resources   force=True
 
 ## 4.2.2 Test|Task Teardown
 
-> [!IMPORTANT]
-> LO-4.2.2-1 Recall key characteristics, benefits, and syntax of Test|Task Teardown (K1)
->
-> LO-4.2.2-2 Understand when Test|Task Teardown is executed and used (K2)
+:::tip Learning Objective
+
+LO-4.2.2-1 Recall key characteristics, benefits, and syntax of Test|Task Teardown (K1)
+LO-4.2.2-2 Understand when Test|Task Teardown is executed and used (K2)
+
+:::
 
 A **Test|Task Teardown** is executed after a single test|task body has been executed.
 It is used for cleaning up actions specific to that test|task.
@@ -121,8 +127,11 @@ No Teardown Test
 
 ## 4.2.3 Keyword Teardown
 
-> [!IMPORTANT]
-> LO-4.2.3 Recall key characteristics, benefits, and syntax of Keyword Teardown (K1)
+:::tip Learning Objective
+
+LO-4.2.3 Recall key characteristics, benefits, and syntax of Keyword Teardown (K1)
+
+:::
 
 A **Keyword Teardown** is executed after a user keyword body has been executed.
 It allows for cleanup actions specific to that keyword,
