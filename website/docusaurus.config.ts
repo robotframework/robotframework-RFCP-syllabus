@@ -52,7 +52,7 @@ const config = {
         items: [
           {
             label: 'Syllabus',
-            to: '/docs',
+            to: '/docs/overview',
             position: 'right',
           },
           {
