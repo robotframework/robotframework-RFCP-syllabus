@@ -13,7 +13,7 @@ The **Data-Driven Specification** style in Robot Framework separates test|task l
 
 :::tip Learning Objective
 
-LO-3.4.1-1 Understand how to define and use test|task templates (K2)
+LO-3.4.1-1 Understand how to define and use test|task templates (K2)  
 LO-3.4.1-2 Recall the differences between the two different approaches to define Data-Driven Specification (K1)
 
 :::

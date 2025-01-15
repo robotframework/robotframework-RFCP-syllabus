@@ -97,7 +97,7 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*
 
 :::tip Learning Objective
 
-LO-2.1.2.1-1 Recall the available settings in a suite file. (K1)
+LO-2.1.2.1-1 Recall the available settings in a suite file. (K1)  
 LO-2.1.2.1-2 Understand the concepts of suite settings and how to define them. (K2)
 
 :::

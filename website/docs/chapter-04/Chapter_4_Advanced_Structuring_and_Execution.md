@@ -13,7 +13,7 @@ Additionally, filtering subsets of tests|tasks based on tags will be discussed, 
 
 :::tip Learning Objective
 
-LO-4.1-1 Recall the purpose and benefits of Setups in Robot Framework (K1)
+LO-4.1-1 Recall the purpose and benefits of Setups in Robot Framework (K1)  
 LO-4.1-2 Recall the different levels where a Setup can be defined (K1)
 
 :::
@@ -37,7 +37,7 @@ Examples of typical use cases for Setups are:
 
 :::tip Learning Objective
 
-LO-4.1.1-1 Recall key characteristics, benefits, and syntax of Suite Setup (K1)
+LO-4.1.1-1 Recall key characteristics, benefits, and syntax of Suite Setup (K1)  
 LO-4.1.1-2 Understand when Suite Setup is executed and used (K2)
 
 :::
@@ -72,7 +72,7 @@ Suite Setup    Initialize Environment   dataset=Config_C3
 
 :::tip Learning Objective
 
-LO-4.1.2-1 Recall key characteristics, benefits, and syntax of Test Setup (K1)
+LO-4.1.2-1 Recall key characteristics, benefits, and syntax of Test Setup (K1)  
 LO-4.1.2-2 Understand when Test|Task Setup is executed and used (K2)
 
 :::
@@ -161,7 +161,7 @@ Process Data
 
 :::tip Learning Objective
 
-LO-4.2-1 Understand the different levels where and how Teardowns can be defined and when they are executed (K2)
+LO-4.2-1 Understand the different levels where and how Teardowns can be defined and when they are executed (K2)  
 LO-4.2-2 Recall the typical use cases for using Teardowns (K1)
 
 :::
@@ -191,7 +191,7 @@ reducing dependencies between tests|tasks and improving the reliability of your 
 
 :::tip Learning Objective
 
-LO-4.2.1-1 Recall key characteristics, benefits, and syntax of Suite Teardown (K1)
+LO-4.2.1-1 Recall key characteristics, benefits, and syntax of Suite Teardown (K1)  
 LO-4.2.1-2 Understand when Suite Teardown is executed and used (K2)
 
 :::
@@ -224,7 +224,7 @@ Suite Teardown    Close All Resources   force=True
 
 :::tip Learning Objective
 
-LO-4.2.2-1 Recall key characteristics, benefits, and syntax of Test|Task Teardown (K1)
+LO-4.2.2-1 Recall key characteristics, benefits, and syntax of Test|Task Teardown (K1)  
 LO-4.2.2-2 Understand when Test|Task Teardown is executed and used (K2)
 
 :::
@@ -590,7 +590,7 @@ Using own tags with this prefix may lead to unexpected behavior in test executio
 
 :::tip Learning Objective
 
-LO-4.5-1 Recall the use case and purpose of skipping tests|tasks in Robot Framework (K1)
+LO-4.5-1 Recall the use case and purpose of skipping tests|tasks in Robot Framework (K1)  
 LO-4.5-2 Recall the different ways to skip tests|tasks in Robot Framework (K1)
 
 :::

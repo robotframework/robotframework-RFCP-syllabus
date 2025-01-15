@@ -3,7 +3,7 @@
 
 :::tip Learning Objective
 
-LO-4.1-1 Recall the purpose and benefits of Setups in Robot Framework (K1)
+LO-4.1-1 Recall the purpose and benefits of Setups in Robot Framework (K1)  
 LO-4.1-2 Recall the different levels where a Setup can be defined (K1)
 
 :::
@@ -27,7 +27,7 @@ Examples of typical use cases for Setups are:
 
 :::tip Learning Objective
 
-LO-4.1.1-1 Recall key characteristics, benefits, and syntax of Suite Setup (K1)
+LO-4.1.1-1 Recall key characteristics, benefits, and syntax of Suite Setup (K1)  
 LO-4.1.1-2 Understand when Suite Setup is executed and used (K2)
 
 :::
@@ -62,7 +62,7 @@ Suite Setup    Initialize Environment   dataset=Config_C3
 
 :::tip Learning Objective
 
-LO-4.1.2-1 Recall key characteristics, benefits, and syntax of Test Setup (K1)
+LO-4.1.2-1 Recall key characteristics, benefits, and syntax of Test Setup (K1)  
 LO-4.1.2-2 Understand when Test|Task Setup is executed and used (K2)
 
 :::

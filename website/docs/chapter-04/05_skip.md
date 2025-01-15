@@ -3,7 +3,7 @@
 
 :::tip Learning Objective
 
-LO-4.5-1 Recall the use case and purpose of skipping tests|tasks in Robot Framework (K1)
+LO-4.5-1 Recall the use case and purpose of skipping tests|tasks in Robot Framework (K1)  
 LO-4.5-2 Recall the different ways to skip tests|tasks in Robot Framework (K1)
 
 :::

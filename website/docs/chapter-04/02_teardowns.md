@@ -3,7 +3,7 @@
 
 :::tip Learning Objective
 
-LO-4.2-1 Understand the different levels where and how Teardowns can be defined and when they are executed (K2)
+LO-4.2-1 Understand the different levels where and how Teardowns can be defined and when they are executed (K2)  
 LO-4.2-2 Recall the typical use cases for using Teardowns (K1)
 
 :::
@@ -33,7 +33,7 @@ reducing dependencies between tests|tasks and improving the reliability of your 
 
 :::tip Learning Objective
 
-LO-4.2.1-1 Recall key characteristics, benefits, and syntax of Suite Teardown (K1)
+LO-4.2.1-1 Recall key characteristics, benefits, and syntax of Suite Teardown (K1)  
 LO-4.2.1-2 Understand when Suite Teardown is executed and used (K2)
 
 :::
@@ -66,7 +66,7 @@ Suite Teardown    Close All Resources   force=True
 
 :::tip Learning Objective
 
-LO-4.2.2-1 Recall key characteristics, benefits, and syntax of Test|Task Teardown (K1)
+LO-4.2.2-1 Recall key characteristics, benefits, and syntax of Test|Task Teardown (K1)  
 LO-4.2.2-2 Understand when Test|Task Teardown is executed and used (K2)
 
 :::

@@ -147,7 +147,7 @@ Unlike Library Keywords, User Keywords cannot define argument types like `string
 
 :::tip Learning Objective
 
-LO-3.3.5.1-1 Recall what makes an argument mandatory in a user keyword. (K1)
+LO-3.3.5.1-1 Recall what makes an argument mandatory in a user keyword. (K1)  
 LO-3.3.5.1-2 Define User Keywords with mandatory arguments. (K3)
 
 :::
@@ -182,7 +182,7 @@ In that case, the argument `${file_path}` is assigned the value `server.log`, an
 
 :::tip Learning Objective
 
-LO-3.3.5.2-1 Recall how to define optional arguments in a user keyword. (K1)
+LO-3.3.5.2-1 Recall how to define optional arguments in a user keyword. (K1)  
 LO-3.3.5.2-2 Define User Keywords with optional arguments. (K3)
 
 :::
@@ -218,7 +218,7 @@ Verify File Contains
 
 :::tip Learning Objective
 
-LO-3.3.5.3-1 Describe how embedded arguments are replaced by actual values during keyword execution. (K2)
+LO-3.3.5.3-1 Describe how embedded arguments are replaced by actual values during keyword execution. (K2)  
 LO-3.3.5.3-2 Understand the role of embedded arguments in Behavior-Driven Development (BDD) style. (K2)
 
 :::
@@ -308,7 +308,7 @@ but their definition and usage are not part of this syllabus.
 
 :::tip Learning Objective
 
-LO-3.3.6-1 Understand how the `RETURN` statement passes data between different keywords. (K2)
+LO-3.3.6-1 Understand how the `RETURN` statement passes data between different keywords. (K2)  
 LO-3.3.6-2 Use the `RETURN` statement to return values from a user keyword and assign it to a variable. (K3)
 
 :::

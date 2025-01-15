@@ -3,7 +3,7 @@
 
 :::tip Learning Objective
 
-LO-3.2-1 Understand how variables in Robot Framework are used to store and manage data (K2)
+LO-3.2-1 Understand how variables in Robot Framework are used to store and manage data (K2)  
 LO-3.2-2 Recall the relevant five different ways to create and assign variables (K1)
 
 :::
@@ -30,7 +30,7 @@ Beside variables created by the user, Robot Framework also supports **Built-in V
 
 :::tip Learning Objective
 
-LO-3.2.1-1 Recall the four syntactical access types to variables with their prefixes (K1)
+LO-3.2.1-1 Recall the four syntactical access types to variables with their prefixes (K1)  
 LO-3.2.1-2 Recall the basic syntax of variables (K1)
 
 :::
@@ -67,7 +67,7 @@ can be found in the [5.1 Advanced Variables](../chapter-05/Chapter_5_Exploring_A
 
 :::tip Learning Objective
 
-LO-3.2.2-1 Create variables in the Variables section (K3)
+LO-3.2.2-1 Create variables in the Variables section (K3)  
 LO-3.2.2-2 Use the correct variable prefixes for assigning and accessing variables. (K3)
 
 :::
@@ -103,7 +103,7 @@ Variables defined in the `*** Variables ***` section are recommended to be named
 
 :::tip Learning Objective
 
-LO-3.2.2.1-1 Create and assign scalar variables (K3)
+LO-3.2.2.1-1 Create and assign scalar variables (K3)  
 LO-3.2.2.1-2 Understand how multiple lines can be used to define scalar variables (K2)
 
 :::

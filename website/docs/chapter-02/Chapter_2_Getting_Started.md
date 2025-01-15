@@ -112,7 +112,7 @@ The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*
 
 :::tip Learning Objective
 
-LO-2.1.2.1-1 Recall the available settings in a suite file. (K1)
+LO-2.1.2.1-1 Recall the available settings in a suite file. (K1)  
 LO-2.1.2.1-2 Understand the concepts of suite settings and how to define them. (K2)
 
 :::
@@ -660,7 +660,7 @@ Both types of sources are using different syntax to import their keywords.
 
 :::tip Learning Objective
 
-LO-2.4.1-1 Recall the purpose of keyword libraries and how to import them. (K1)
+LO-2.4.1-1 Recall the purpose of keyword libraries and how to import them. (K1)  
 LO-2.4.1-2 Recall the three types of libraries in Robot Framework. (K1)
 
 :::
@@ -698,7 +698,7 @@ Which keywords are available can be seen in the keyword documentation of the lib
 
 :::tip Learning Objective
 
-LO-2.4.2-1 Recall the purpose of resource files. (K1)
+LO-2.4.2-1 Recall the purpose of resource files. (K1)  
 LO-2.4.2-2 Use resource files to import new keywords. (K3)
 
 :::
