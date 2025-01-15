@@ -91,7 +91,7 @@ const config = {
             items: [
               {
                 label: 'Syllabus',
-                to: '/docs',
+                to: '/docs/overview',
               },
               {
                 href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
