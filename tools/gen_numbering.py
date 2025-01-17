@@ -3,24 +3,9 @@ from pathlib import Path
 import re
 
 
-introduction = """# Public Review of the Robot Framework Certified Professional® Syllabus
-
-Welcome to the public review of the Robot Framework® Certified Professional certification syllabus.
-
-We are seeking feedback from the community to ensure this syllabus meets the highest standards and addresses the needs of Robot Framework professionals. While the topics have been largely finalized internally, we welcome suggestions and insights to refine and improve the content.
-
-If you have feedback or ideas, please participate by opening an issue or commenting directly on the pull request linked below:
-[Comment on the Pull Request](https://github.com/robotframework/robotframework-RFCP-syllabus/pull/39/files)
-
-When providing feedback, please be as detailed as possible and explain your suggestions clearly. If you have a specific proposal, we encourage you to use GitHub’s proposal features to submit it directly. Your input is invaluable to making this certification syllabus comprehensive and effective.
-
-
-"""
-
 def update_heading_numbers_and_generate_toc(directory: Path):
-    # Regex patterns
-    chapter_file_pattern = re.compile(r"Chapter_(\d+)_.*\.md")
-    heading_pattern = re.compile(r"(#+)\s*(\d+(?:\.\d+)*)?\s*(.*)")
+    chapter_file_pattern = re.compile(r".*/docs/chapter-(?P<chapter>\d+)/(?P<file_idx>\d+)_(?P<file>.*?)\.md")
+    heading_pattern = re.compile(r"^(?P<level>#+)\s*(?P<number>\d+(?:\.\d+)*)?\s*(?P<name>.*)")
     internal_link_pattern = re.compile(r"\[([^\[\]]*?)\]\((Chapter_.*?)?#(?:\d\.?)*-?(.*?)\)")
     lo_pattern = re.compile(r"> LO-(?P<id>[X\d\.-]+) ?(?P<content>.*?) ?(?P<k_level>\(K[123]\))\n?")
 
@@ -30,60 +15,69 @@ def update_heading_numbers_and_generate_toc(directory: Path):
     # Step 1: Update headings and generate the catalog of chapters
     toc_entries = []
     all_learning_objectives = []
+    Path().as_posix()
+    chapters = {}
 
-    for file in directory.glob("Chapter_*.md"):
-        match = chapter_file_pattern.match(file.name)
+
+    for file in sorted(directory.glob("website/docs/**/*.md")):
+        match = chapter_file_pattern.fullmatch(file.as_posix())
         if not match:
             continue
 
-        chapter_number = int(match.group(1))  # Extract chapter number
+        chapter_nr = int(match.group('chapter'))
+        numbering_stack = [chapter_nr]
+        file_nr = int(match.group('file_idx'))
+        file_title = match.group('file')
+        file_name = f'{file_nr}_{file_title}.md'
+        if file_title == 'overview':
+            continue
         with file.open("r", encoding="utf-8") as f:
             lines = f.readlines()
+            if chapter_nr not in chapters:
+                chapters[chapter_nr] = {}
+            chapters[chapter_nr][file_name] = lines
 
         updated_lines = []
         numbering_stack = []
-        is_first_heading = True
-        headings = []  # Store headings for this chapter
-        learning_objectives = []  # Store learning objectives for this chapter
+        headings = []  # Store headings for this file
+        learning_objectives = []  # Store learning objectives for this file
         code_block = False
+        learning_objectives_container_open = False
+        learning_objective_open = False
         current_chapter_number = []
         current_level = 0
         for lineno, line in enumerate(lines):
-            if line.strip().startswith("```robot"):
-                code_block = True
-                updated_lines.append(line)
-                continue
             if code_block:
                 if line.strip() == "```":
                     code_block = False
                 updated_lines.append(line)
                 continue
+            if line.strip().startswith("```") and not code_block:
+                code_block = True
+                updated_lines.append(line)
+                continue
 
             heading_match = heading_pattern.match(line)
             if heading_match:
-                current_level = len(heading_match.group(1))  # Number of '#' indicates heading level
-                title = heading_match.group(3).strip()  # Extract the title
+                current_level = len(heading_match.group('level')) - 1
+                title = heading_match.group('name').strip()
 
-                if is_first_heading and current_level == 1:
-                    # Special handling for the first h1
-                    numbering = f"{chapter_number}"
-                    is_first_heading = False
-                    numbering_stack = [chapter_number]  # Initialize the stack for this file
+                if current_level == 0:
+                    updated_line = f"# {chapter_nr}.{file_nr} {title}"
                 else:
                     if len(numbering_stack) < current_level:
-                        numbering_stack.append(1)  # Add a new level
+                        numbering_stack.append(1)
                     else:
-                        numbering_stack[current_level - 1] += 1  # Increment the current level
-                        numbering_stack = numbering_stack[:current_level]  # Trim excess levels
+                        numbering_stack[current_level - 1] += 1
+                        numbering_stack = numbering_stack[:current_level]
 
                     # Generate the hierarchical numbering
-                    numbering = ".".join(map(str, numbering_stack))
+                    numbering = f"{chapter_nr}.{file_nr}." + ".".join(map(str, numbering_stack))
 
-                # Update the line with the new numbering
-                heading = f"{numbering} {title}"
-                updated_line = f"{'#' * current_level} {heading}\n"
+                    # Update the line with the new numbering
+                    heading = f"{numbering} {title}"
+                    updated_line = f"#{'#' * current_level} {heading}\n"
                 updated_lines.append(updated_line)
-
                 # Generate an anchor for this heading
                 anchor = re.sub(r'[^\w\- ]', '', heading).strip().replace(' ', '-').lower()
                 headings.append((numbering, title, anchor))
@@ -143,7 +137,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
     # Write the table of contents to README.md
     readme_path = directory / "README.md"
     with readme_path.open("w", encoding="utf-8") as readme_file:
-        readme_file.write(introduction)
+        # readme_file.write(introduction)
         readme_file.write("# Table of Contents\n\n")
         for _, toc_entry in toc_entries:
             readme_file.write(toc_entry + "\n")

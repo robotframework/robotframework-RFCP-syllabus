@@ -1,4 +1,3 @@
-
 # 1.2 Architecture of Robot Framework
 
 Robot Framework is an open-source automation framework that allows you to build automation scripts for testing and RPA (Robotic Process Automation).
@@ -10,11 +9,15 @@ Instead, it provides a flexible platform where different tools, libraries, and i
 
 ## 1.2.1 Robot Framework and the gTAA (Generic Test Automation Architecture)
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-1.2.1 Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework (K1)
+:::K1[LO-1.2.1]
+
+Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework
 
 :::
+
+::::
 
 The **Generic Test Automation Architecture (gTAA)** described in the ISTQB "Certified Tester Advanced Level Test Automation Engineering" offers a structured approach to test automation, dividing it into different layers for a clear separation of concerns:
 
@@ -40,11 +43,15 @@ Therefore also other additional extensions of Robot Framework can be categorized
 
 ## 1.2.2 What is Robot Framework & What It Is Not
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-1.2.2 Recall what is part of Robot Framework and what is not (K1)
+:::K1[LO-1.2.2]
+
+Recall what is part of Robot Framework and what is not
 
 :::
+
+::::
 
 
 Robot Framework itself focuses primarily on **test|task execution**.
@@ -77,11 +84,15 @@ Robot Framework defines the syntax for test|task data, but it is the role of ext
 
 ## 1.2.3 Technology & Prerequisites
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-1.2.3 Recall the technology Robot Framework is built on and the prerequisites for running it (K1)
+:::K1[LO-1.2.3]
+
+Recall the technology Robot Framework is built on and the prerequisites for running it
 
 :::
+
+::::
 
 
 Robot Framework is built on **Python** but is adaptable to other languages and technologies through external libraries.

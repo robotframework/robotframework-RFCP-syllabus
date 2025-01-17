@@ -42,11 +42,15 @@ As a reference for how defined keywords are documented, see [2.5 Keyword Interfa
 
 ## 3.3.2 User Keyword Names
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.2 Recall the rules how keyword names are matched. (K1)
+:::K1[LO-3.3.2]
+
+Recall the rules how keyword names are matched.
 
 :::
+
+::::
 
 The names of User Keywords should be descriptive and clear, reflecting the purpose of the keyword.
 Well-named keywords make tests more readable and easier to understand.
@@ -72,11 +76,15 @@ The following topics explain how to structure the body of a keyword.
 
 ## 3.3.3 User Keyword Settings
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.3 Recall all available settings and their purpose for User Keywords (K1)
+:::K1[LO-3.3.3]
+
+Recall all available settings and their purpose for User Keywords
 
 :::
+
+::::
 
 User keywords can have similar settings as test cases,
 and they have the same square bracket syntax separating them from keyword calls.
@@ -95,11 +103,15 @@ All available settings are listed below and explained in this section or in sect
 
 ## 3.3.4 User Keyword Documentation
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.4 Recall the significance of the first logical line and in keyword documentation for the log file. (K1)
+:::K1[LO-3.3.4]
+
+Recall the significance of the first logical line and in keyword documentation for the log file.
 
 :::
+
+::::
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
@@ -127,11 +139,15 @@ This format includes:
 
 ## 3.3.5 User Keyword Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.5 Understand the purpose and syntax of the [Arguments] setting in User Keywords. (K2)
+:::K2[LO-3.3.5]
+
+Understand the purpose and syntax of the [Arguments] setting in User Keywords.
 
 :::
+
+::::
 
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
@@ -143,14 +159,23 @@ Arguments are defined by `[Arguments]` followed by the argument names separated 
 Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [2.5.2.8 Argument Types](../chapter-02/Chapter_2_Getting_Started.md#2528-argument-types) section.
 
 
-## 3.3.5.1 Defining Mandatory Arguments
+### 3.3.5.1 Defining Mandatory Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.5.1-1 Recall what makes an argument mandatory in a user keyword. (K1)  
-LO-3.3.5.1-2 Define User Keywords with mandatory arguments. (K3)
+:::K1[LO-3.3.5.1-1]
+
+Recall what makes an argument mandatory in a user keyword.
 
 :::
+
+:::K3[LO-3.3.5.1-2]
+
+Define User Keywords with mandatory arguments.
+
+:::
+
+::::
 
 Arguments defined as scalar variable (`${arg}`) without a default value are mandatory and must be provided when calling the keyword.
 
@@ -178,14 +203,23 @@ Check Server Log
 In that case, the argument `${file_path}` is assigned the value `server.log`, and `${expected_content}` is assigned the value `Successfully started`.
 
 
-## 3.3.5.2 Defining Optional Arguments
+### 3.3.5.2 Defining Optional Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.5.2-1 Recall how to define optional arguments in a user keyword. (K1)  
-LO-3.3.5.2-2 Define User Keywords with optional arguments. (K3)
+:::K1[LO-3.3.5.2-1]
+
+Recall how to define optional arguments in a user keyword.
 
 :::
+
+:::K3[LO-3.3.5.2-2]
+
+Define User Keywords with optional arguments.
+
+:::
+
+::::
 
 Optional arguments are defined by assigning default values to them in the `[Arguments]` setting.
 All optional arguments must be defined after all mandatory arguments.
@@ -214,14 +248,23 @@ Verify File Contains
 ```
 
 
-## 3.3.5.3 Embedded Arguments
+### 3.3.5.3 Embedded Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.5.3-1 Describe how embedded arguments are replaced by actual values during keyword execution. (K2)  
-LO-3.3.5.3-2 Understand the role of embedded arguments in Behavior-Driven Development (BDD) style. (K2)
+:::K2[LO-3.3.5.3-1]
+
+Describe how embedded arguments are replaced by actual values during keyword execution.
 
 :::
+
+:::K2[LO-3.3.5.3-2]
+
+Understand the role of embedded arguments in Behavior-Driven Development (BDD) style.
+
+:::
+
+::::
 
 
 In Robot Framework, **embedded arguments** allow the inclusion
@@ -296,7 +339,7 @@ the user ${action}
 ```
 
 
-## 3.3.5.4 Other Argument Kinds
+### 3.3.5.4 Other Argument Kinds
 
 Other argument kinds like **Named-Only Arguments**, **Free Named Arguments**, or
 **Variable Number of Positional Arguments** should be known,
@@ -306,12 +349,21 @@ but their definition and usage are not part of this syllabus.
 
 ## 3.3.6 RETURN Statement
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.6-1 Understand how the `RETURN` statement passes data between different keywords. (K2)  
-LO-3.3.6-2 Use the `RETURN` statement to return values from a user keyword and assign it to a variable. (K3)
+:::K2[LO-3.3.6-1]
+
+Understand how the `RETURN` statement passes data between different keywords.
 
 :::
+
+:::K3[LO-3.3.6-2]
+
+Use the `RETURN` statement to return values from a user keyword and assign it to a variable.
+
+:::
+
+::::
 
 The `RETURN` statement (case-sensitive) in Robot Framework is used to return values from a User Keyword
 to be used in further test steps or stored in variables.
@@ -350,11 +402,15 @@ Opinions?
 And if, is this want we want to ask the participants to know?
 -->
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.7 Recall the naming conventions for user keywords. (K1)
+:::K1[LO-3.3.7]
+
+Recall the naming conventions for user keywords.
 
 :::
+
+::::
 
 When defining User Keywords, it is recommended to follow conventions to ensure consistency and readability across the project.
 These may be taken from community best practices or defined within the project team.

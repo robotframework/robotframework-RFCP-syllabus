@@ -5,7 +5,7 @@ This chapter introduces the essential components of Robot Framework: **Keywords*
 
 
 
-## 3.1 Resource File Structure
+# 3.1 Resource File Structure
 
 Resource Files in Robot Framework are used to store reusable keywords,
 variables, and organize imports of other resource files and libraries.
@@ -34,7 +34,7 @@ See [2.4.3 Import Paths](../chapter-02/Chapter_2_Getting_Started.md#243-import-p
 
 
 
-### 3.1.1 Sections in Resource Files
+## 3.1.1 Sections in Resource Files
 
 See [2.1.2 Sections and Their Artifacts](../chapter-02/Chapter_2_Getting_Started.md#212-sections-and-their-artifacts) for an introduction to sections in suites.
 
@@ -71,14 +71,23 @@ The allowed sections in recommended order are:
 
 
 
-## 3.2 Variables
+# 3.2 Variables
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2-1 Understand how variables in Robot Framework are used to store and manage data (K2)  
-LO-3.2-2 Recall the relevant five different ways to create and assign variables (K1)
+:::K2[LO-3.2-1]
+
+Understand how variables in Robot Framework are used to store and manage data
 
 :::
+
+:::K1[LO-3.2-2]
+
+Recall the relevant five different ways to create and assign variables
+
+:::
+
+::::
 
 Variables in Robot Framework are used to store values that can be referenced and reused throughout suites, test cases, tasks, and keywords.
 They help manage dynamic data or centrally maintained data, reducing hardcoding in multiple locations and making automation flexible.
@@ -98,14 +107,23 @@ Beside variables created by the user, Robot Framework also supports **Built-in V
 
 
 
-### 3.2.1 Variable Syntax and Access Types
+## 3.2.1 Variable Syntax and Access Types
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.1-1 Recall the four syntactical access types to variables with their prefixes (K1)  
-LO-3.2.1-2 Recall the basic syntax of variables (K1)
+:::K1[LO-3.2.1-1]
+
+Recall the four syntactical access types to variables with their prefixes
 
 :::
+
+:::K1[LO-3.2.1-2]
+
+Recall the basic syntax of variables
+
+:::
+
+::::
 
 Variables in Robot Framework are defined by three attributes:
 - **Prefix**: `$`, `@`, or `&` to define the access type to the variable. (`%` for environment variables)
@@ -135,14 +153,23 @@ can be found in the [5.1 Advanced Variables](../chapter-05/Chapter_5_Exploring_A
 
 
 
-### 3.2.2 `*** Variables ***` Section
+## 3.2.2 `*** Variables ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.2-1 Create variables in the Variables section (K3)  
-LO-3.2.2-2 Use the correct variable prefixes for assigning and accessing variables. (K3)
+:::K3[LO-3.2.2-1]
+
+Create variables in the Variables section
 
 :::
+
+:::K3[LO-3.2.2-2]
+
+Use the correct variable prefixes for assigning and accessing variables.
+
+:::
+
+::::
 
 Variables can be defined in the `*** Variables ***` section within both suite files and resource files.
 
@@ -171,14 +198,23 @@ This means that when a variable is used within another variable's value, the fin
 Variables defined in the `*** Variables ***` section are recommended to be named in uppercase to distinguish them from local variables defined in test cases or keywords.
 
 
-#### 3.2.2.1 Scalar Variable Definition
+### 3.2.2.1 Scalar Variable Definition
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.2.1-1 Create and assign scalar variables (K3)  
-LO-3.2.2.1-2 Understand how multiple lines can be used to define scalar variables (K2)
+:::K3[LO-3.2.2.1-1]
+
+Create and assign scalar variables
 
 :::
+
+:::K2[LO-3.2.2.1-2]
+
+Understand how multiple lines can be used to define scalar variables
+
+:::
+
+::::
 
 Example of creating scalar variables:
 ```robotframework
@@ -217,13 +253,17 @@ ${SEARCH_URL}     https://example.com/search
 `${SEARCH_URL}` will contain `https://example.com/search?query=robot+framework&page=1&filter=recent&lang=en&category=test-automation`.
 
 
-#### 3.2.2.2 Primitive Data Types
+### 3.2.2.2 Primitive Data Types
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.2.2 Understand how to access primitive data types (K2)
+:::K2[LO-3.2.2.2]
+
+Understand how to access primitive data types
 
 :::
+
+::::
 
 Robot Framework does support primitive data types as part of the syntax.
 
@@ -256,12 +296,16 @@ ${ANSWER}            The answer is ${INTEGER}    # This will be 'The answer is 4
 > When using other types than strings and concatenating them with a string, the other value will be converted to a string before concatenation.
 
 
-#### 3.2.2.3 List Variable Definition
-:::tip Learning Objective
+### 3.2.2.3 List Variable Definition
+::::lo[Learning Objectives]
 
-LO-3.2.2.3 Understand how to set and access data in list variables (K2)
+:::K2[LO-3.2.2.3]
+
+Understand how to set and access data in list variables
 
 :::
+
+::::
 
 List variables store multiple values and are defined using the at-syntax `@{variable_name}`.
 You can define as many values as needed, with each additional value
@@ -288,13 +332,17 @@ List Example
 ```
 
 
-#### 3.2.2.4 Dictionary Variable Definition
+### 3.2.2.4 Dictionary Variable Definition
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.2.4 Understand how to set and access data in dict variables (K2)
+:::K2[LO-3.2.2.4]
+
+Understand how to set and access data in dict variables
 
 :::
+
+::::
 
 Dictionary variables store key-value pairs and use the ampersand-syntax `&{variable_name}`.
 Key-value pairs are assigned using the `key=value` format.
@@ -324,13 +372,17 @@ Assuming `${key}` contains the value `phone`, `${USER1}[${key}]` would resolve t
 
 
 
-### 3.2.3 Return values from Keywords
+## 3.2.3 Return values from Keywords
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.3 Be able to assign return values from keywords to variables (K3)
+:::K3[LO-3.2.3]
+
+Be able to assign return values from keywords to variables
 
 :::
+
+::::
 
 In Robot Framework, values returned by keywords can be assigned to variables,
 enabling data to be passed between different keywords.
@@ -347,7 +399,7 @@ followed by an optional equal sign (`=`) and the keyword call that
 shall be executed and will return the value(s) to be assigned.
 
 
-#### 3.2.3.1 Assigning to Scalar Variables
+### 3.2.3.1 Assigning to Scalar Variables
 
 In the simplest case, a keyword returns exactly one value,
 which can be assigned to a scalar variable using the dollar-syntax `${variable_name}`.
@@ -400,13 +452,17 @@ Multiple Return Example
 
 
 
-### 3.2.4 `VAR` Statement
+## 3.2.4 `VAR` Statement
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.4 Understand how to create variables using the VAR statement (K2)
+:::K2[LO-3.2.4]
+
+Understand how to create variables using the VAR statement
 
 :::
+
+::::
 
 The `VAR` statement in Robot Framework is a way to create
 and assign values to variables directly within a test|task or keyword during execution.
@@ -454,13 +510,17 @@ For more details on this topic, refer to the section on [5.1.2 Variable Scopes](
 
 
 
-### 3.2.5 Variable Scope Introduction
+## 3.2.5 Variable Scope Introduction
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.5 Understand how `local` and `suite` scope variables are created (K2)
+:::K2[LO-3.2.5]
+
+Understand how `local` and `suite` scope variables are created
 
 :::
+
+::::
 
 In Robot Framework, variables have different scopes, which define where they can be accessed and used. Understanding the scope of variables is crucial for managing data within tests and keywords.
 
@@ -477,7 +537,7 @@ Examples and more details on variable scope, such as `TEST` and `GLOBAL` scope c
 
 
 
-## 3.3 User Keyword Definition & Arguments
+# 3.3 User Keyword Definition & Arguments
 
 User Keywords in Robot Framework allow users to create their own
 keywords by combining existing keywords into reusable higher-level actions.
@@ -488,7 +548,7 @@ and are defined in the `*** Keywords ***` section of a suite file or resource fi
 
 
 
-### 3.3.1 `*** Keywords ***` Section
+## 3.3.1 `*** Keywords ***` Section
 
 The `*** Keywords ***` section of suite and resource files
 is indentation-based similar to the `*** Test Cases ***` section.
@@ -518,13 +578,17 @@ As a reference for how defined keywords are documented, see [2.5 Keyword Interfa
 
 
 
-### 3.3.2 User Keyword Names
+## 3.3.2 User Keyword Names
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.2 Recall the rules how keyword names are matched. (K1)
+:::K1[LO-3.3.2]
+
+Recall the rules how keyword names are matched.
 
 :::
+
+::::
 
 The names of User Keywords should be descriptive and clear, reflecting the purpose of the keyword.
 Well-named keywords make tests more readable and easier to understand.
@@ -548,13 +612,17 @@ The following topics explain how to structure the body of a keyword.
 
 
 
-### 3.3.3 User Keyword Settings
+## 3.3.3 User Keyword Settings
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.3 Recall all available settings and their purpose for User Keywords (K1)
+:::K1[LO-3.3.3]
+
+Recall all available settings and their purpose for User Keywords
 
 :::
+
+::::
 
 User keywords can have similar settings as test cases,
 and they have the same square bracket syntax separating them from keyword calls.
@@ -571,13 +639,17 @@ All available settings are listed below and explained in this section or in sect
 
 
 
-### 3.3.4 User Keyword Documentation
+## 3.3.4 User Keyword Documentation
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.4 Recall the significance of the first logical line and in keyword documentation for the log file. (K1)
+:::K1[LO-3.3.4]
+
+Recall the significance of the first logical line and in keyword documentation for the log file.
 
 :::
+
+::::
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
@@ -603,13 +675,17 @@ This format includes:
 - Heading levels
 
 
-### 3.3.5 User Keyword Arguments
+## 3.3.5 User Keyword Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.5 Understand the purpose and syntax of the [Arguments] setting in User Keywords. (K2)
+:::K2[LO-3.3.5]
+
+Understand the purpose and syntax of the [Arguments] setting in User Keywords.
 
 :::
+
+::::
 
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
@@ -621,14 +697,23 @@ Arguments are defined by `[Arguments]` followed by the argument names separated 
 Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [2.5.2.8 Argument Types](../chapter-02/Chapter_2_Getting_Started.md#2528-argument-types) section.
 
 
-#### 3.3.5.1 Defining Mandatory Arguments
+### 3.3.5.1 Defining Mandatory Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.5.1-1 Recall what makes an argument mandatory in a user keyword. (K1)  
-LO-3.3.5.1-2 Define User Keywords with mandatory arguments. (K3)
+:::K1[LO-3.3.5.1-1]
+
+Recall what makes an argument mandatory in a user keyword.
 
 :::
+
+:::K3[LO-3.3.5.1-2]
+
+Define User Keywords with mandatory arguments.
+
+:::
+
+::::
 
 Arguments defined as scalar variable (`${arg}`) without a default value are mandatory and must be provided when calling the keyword.
 
@@ -656,14 +741,23 @@ Check Server Log
 In that case, the argument `${file_path}` is assigned the value `server.log`, and `${expected_content}` is assigned the value `Successfully started`.
 
 
-#### 3.3.5.2 Defining Optional Arguments
+### 3.3.5.2 Defining Optional Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.5.2-1 Recall how to define optional arguments in a user keyword. (K1)  
-LO-3.3.5.2-2 Define User Keywords with optional arguments. (K3)
+:::K1[LO-3.3.5.2-1]
+
+Recall how to define optional arguments in a user keyword.
 
 :::
+
+:::K3[LO-3.3.5.2-2]
+
+Define User Keywords with optional arguments.
+
+:::
+
+::::
 
 Optional arguments are defined by assigning default values to them in the `[Arguments]` setting.
 All optional arguments must be defined after all mandatory arguments.
@@ -692,14 +786,23 @@ Verify File Contains
 ```
 
 
-#### 3.3.5.3 Embedded Arguments
+### 3.3.5.3 Embedded Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.5.3-1 Describe how embedded arguments are replaced by actual values during keyword execution. (K2)  
-LO-3.3.5.3-2 Understand the role of embedded arguments in Behavior-Driven Development (BDD) style. (K2)
+:::K2[LO-3.3.5.3-1]
+
+Describe how embedded arguments are replaced by actual values during keyword execution.
 
 :::
+
+:::K2[LO-3.3.5.3-2]
+
+Understand the role of embedded arguments in Behavior-Driven Development (BDD) style.
+
+:::
+
+::::
 
 
 In Robot Framework, **embedded arguments** allow the inclusion
@@ -774,7 +877,7 @@ the user ${action}
 ```
 
 
-#### 3.3.5.4 Other Argument Kinds
+### 3.3.5.4 Other Argument Kinds
 
 Other argument kinds like **Named-Only Arguments**, **Free Named Arguments**, or
 **Variable Number of Positional Arguments** should be known,
@@ -782,14 +885,23 @@ but their definition and usage are not part of this syllabus.
 
 
 
-### 3.3.6 RETURN Statement
+## 3.3.6 RETURN Statement
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.6-1 Understand how the `RETURN` statement passes data between different keywords. (K2)  
-LO-3.3.6-2 Use the `RETURN` statement to return values from a user keyword and assign it to a variable. (K3)
+:::K2[LO-3.3.6-1]
+
+Understand how the `RETURN` statement passes data between different keywords.
 
 :::
+
+:::K3[LO-3.3.6-2]
+
+Use the `RETURN` statement to return values from a user keyword and assign it to a variable.
+
+:::
+
+::::
 
 The `RETURN` statement (case-sensitive) in Robot Framework is used to return values from a User Keyword
 to be used in further test steps or stored in variables.
@@ -817,7 +929,7 @@ The return value must be stored in a variable first and then be returned by the 
 
 
 
-### 3.3.7 Keyword Conventions
+## 3.3.7 Keyword Conventions
 
 
 <!--
@@ -828,11 +940,15 @@ Opinions?
 And if, is this want we want to ask the participants to know?
 -->
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.3.7 Recall the naming conventions for user keywords. (K1)
+:::K1[LO-3.3.7]
+
+Recall the naming conventions for user keywords.
 
 :::
+
+::::
 
 When defining User Keywords, it is recommended to follow conventions to ensure consistency and readability across the project.
 These may be taken from community best practices or defined within the project team.
@@ -849,24 +965,37 @@ Keyword Conventions should contain agreements on:
 
 
 
-## 3.4 Data-Driven Specification
+# 3.4 Data-Driven Specification
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.4 Understand the basic concept and syntax of Data-Driven Specification (K2)
+:::K2[LO-3.4]
+
+Understand the basic concept and syntax of Data-Driven Specification
 
 :::
+
+::::
 
 The **Data-Driven Specification** style in Robot Framework separates test|task logic from data, enabling tests|tasks to be executed with multiple data sets efficiently. This approach involves using a single higher-level keyword to represent the entire workflow, while the test data is defined as rows of input and expected output values.
 
-### 3.4.1 Test|Task Templates
+## 3.4.1 Test|Task Templates
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.4.1-1 Understand how to define and use test|task templates (K2)  
-LO-3.4.1-2 Recall the differences between the two different approaches to define Data-Driven Specification (K1)
+:::K2[LO-3.4.1-1]
+
+Understand how to define and use test|task templates
 
 :::
+
+:::K1[LO-3.4.1-2]
+
+Recall the differences between the two different approaches to define Data-Driven Specification
+
+:::
+
+::::
 
 For each test|task, a template keyword can be defined that contains the workflow logic.
 
@@ -879,13 +1008,17 @@ The tests|tasks would not have any other keyword calls but would instead define 
 `Test Setup`|`Test Teardown` and `Task Setup`|`Task Teardown` can be used together with templates.
 
 
-#### 3.4.1.1 Multiple Named Test|Task With One Template
+### 3.4.1.1 Multiple Named Test|Task With One Template
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.4.1.1 Recall the syntax and properties of multiple named test|task with one template (K1)
+:::K1[LO-3.4.1.1]
+
+Recall the syntax and properties of multiple named test|task with one template
 
 :::
+
+::::
 
 The following example has six different test|task, each with different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
 
@@ -911,13 +1044,17 @@ Single tests|tasks can be filtered and re-executed or tagged.
 It is possible to add header names to the data columns in the line of `*** Test Cases ***` or `*** Tasks ***` to describe the data columns to improve readability.
 
 
-#### 3.4.1.2 Named Test|Task With Multiple Data Rows:
+### 3.4.1.2 Named Test|Task With Multiple Data Rows:
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.4.1.2 Recall the syntax and properties of named test|task with multiple data rows (K1)
+:::K1[LO-3.4.1.2]
+
+Recall the syntax and properties of named test|task with multiple data rows
 
 :::
+
+::::
 
 A slightly different approach is to define multiple data rows for a single test|task.
 
@@ -957,13 +1094,17 @@ However, this approach has also its drawbacks:
 
 
 
-## 3.5 Advanced Importing of Keywords and Naming Conflicts
+# 3.5 Advanced Importing of Keywords and Naming Conflicts
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.5 Recall that naming conflicts can arise from the import of multiple resource files. (K1)
+:::K1[LO-3.5]
+
+Recall that naming conflicts can arise from the import of multiple resource files.
 
 :::
+
+::::
 
 As stated before, it is possible to organize imports and available keywords in Robot Framework by using Resource Files.
 By default, all keywords or variables created or imported in a resource file are available to those suites and files that are importing that higher-level resource file.
@@ -977,13 +1118,17 @@ Some keyword libraries have the option to be configured to change their behavior
 
 
 
-### 3.5.1 Importing Hierarchies
+## 3.5.1 Importing Hierarchies
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.5.1 Understand how transitive imports of resource files and libraries work. (K2)
+:::K2[LO-3.5.1]
+
+Understand how transitive imports of resource files and libraries work.
 
 :::
+
+::::
 
 Let's assume the following libraries and resource files shall be used:
 - **Library**    `A`
@@ -1037,13 +1182,17 @@ Therefore, the recommendation is to import libraries only in one resource file w
 
 
 
-### 3.5.2 Library Configuration
+## 3.5.2 Library Configuration
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.5.2 Be able to configure a library import using arguments. (K3)
+:::K3[LO-3.5.2]
+
+Be able to configure a library import using arguments.
 
 :::
+
+::::
 
 Some libraries offer or need additional configuration to change their behavior or make them work.
 This is typically global behavior like internal timeouts, connection settings to systems, or plugins that should be used.
@@ -1080,13 +1229,17 @@ They are now available as `EmbeddedAPI` and `DeviceAPI` in the suite.
 
 
 
-### 3.5.3 Naming Conflicts
+## 3.5.3 Naming Conflicts
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.5.3 Explain how naming conflicts can happen and how to mitigate them. (K2)
+:::K2[LO-3.5.3]
+
+Explain how naming conflicts can happen and how to mitigate them.
 
 :::
+
+::::
 
 Naming conflicts can occur when two or more keywords have the same name.
 If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate user keyword name.

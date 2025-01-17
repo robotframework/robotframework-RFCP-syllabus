@@ -14,13 +14,17 @@ and how keyword documentation is interpreted to ensure clarity and maintainabili
 
 
 
-## 2.1 Suite File & Tree Structure
+# 2.1 Suite File & Tree Structure
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1 Understand which files and directories are considered suites and how they are structured in a suite tree. (K2)
+:::K2[LO-2.1]
+
+Understand which files and directories are considered suites and how they are structured in a suite tree.
 
 :::
+
+::::
 
 When executing Robot Framework, it either parses directory trees or files, depending on which paths are given.
 
@@ -70,13 +74,17 @@ Example:
 
 
 
-### 2.1.1 Suite Files
+## 2.1.1 Suite Files
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.1 Recall the conditions and requirements for a file to be considered a Suite file (K1)
+:::K1[LO-2.1.1]
+
+Recall the conditions and requirements for a file to be considered a Suite file
 
 :::
+
+::::
 
 Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
 
@@ -86,13 +94,17 @@ A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*
 
 
 
-### 2.1.2 Sections and Their Artifacts
+## 2.1.2 Sections and Their Artifacts
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2 Recall the available sections in a suite file and their purpose. (K1)
+:::K1[LO-2.1.2]
+
+Recall the available sections in a suite file and their purpose.
 
 :::
+
+::::
 
 Robot Framework data files are defined in different sections.
 These sections are recognized by their header row.
@@ -108,14 +120,23 @@ The following sections are recognized by Robot Framework and are recommended to 
 The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are optional in suites and can be omitted if not needed.
 
 
-#### 2.1.2.1 `*** Settings ***` Section
+### 2.1.2.1 `*** Settings ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2.1-1 Recall the available settings in a suite file. (K1)  
-LO-2.1.2.1-2 Understand the concepts of suite settings and how to define them. (K2)
+:::K1[LO-2.1.2.1-1]
+
+Recall the available settings in a suite file.
 
 :::
+
+:::K2[LO-2.1.2.1-2]
+
+Understand the concepts of suite settings and how to define them.
+
+:::
+
+::::
 
 This section is used to configure various aspects of the test|task suite.
 It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files (Not part of this syllabus) that are needed for execution in the containing tests|tasks.
@@ -143,13 +164,17 @@ Those settings are prefixed with either `Test` or `Task`, according to the type 
 Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The local setting appends or removes tags defined by the suite's default.
 
 
-#### 2.1.2.2 `*** Variables ***` Section
+### 2.1.2.2 `*** Variables ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2.2 Recall the purpose of the `*** Variables ***` section. (K1)
+:::K1[LO-2.1.2.2]
+
+Recall the purpose of the `*** Variables ***` section.
 
 :::
+
+::::
 
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
@@ -161,13 +186,17 @@ In some cases, these variables are also dynamically reassigned during the execut
 See [3.2.2 `*** Variables ***` Section](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#322--variables--section) for more information about the `*** Variables ***` section.
 
 
-#### 2.1.2.3 `*** Test Cases ***` or `*** Tasks ***` Section
+### 2.1.2.3 `*** Test Cases ***` or `*** Tasks ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2.3 Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. (K2)
+:::K2[LO-2.1.2.3]
+
+Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section.
 
 :::
+
+::::
 
 This section defines the executable elements of a suite.
 Test cases and tasks are technically synonyms for each other.
@@ -182,13 +211,17 @@ See [2.6 Writing Test|Task and Calling Keywords](../chapter-02/Chapter_2_Getting
 
 <!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
 
-#### 2.1.2.4 `*** Keywords ***` Section
+### 2.1.2.4 `*** Keywords ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2.4 Understand the purpose and limitations of the `*** Keywords ***` section. (K2)
+:::K2[LO-2.1.2.4]
+
+Understand the purpose and limitations of the `*** Keywords ***` section.
 
 :::
+
+::::
 
 This section allows you to define **locally scoped user keywords** that can only be used within this suite where they are defined,
 while keywords defined in resource files can be used in any suite that imports these resource files.
@@ -207,7 +240,7 @@ ensuring that even large and intricate suites remain well-structured and easy to
 See [3.3.1 `*** Keywords ***` Section](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#331--keywords--section) for more information about the `*** Keywords ***` section.
 
 
-#### 2.1.2.5 `*** Comments ***` Section
+### 2.1.2.5 `*** Comments ***` Section
 
 This section is used to add comments to the suite file or resource file.
 All content in this section is ignored by Robot Framework and is not executed or parsed.
@@ -215,7 +248,7 @@ All content in this section is ignored by Robot Framework and is not executed or
 
 
 
-## 2.2 Basic Suite File Syntax
+# 2.2 Basic Suite File Syntax
 
 <!--
 TODO:
@@ -223,19 +256,29 @@ I think this section needs a bit more structure and we should introduce the conc
 
  -->
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.2 Understand the basic syntax of test cases and tasks. (K2)
+:::K2[LO-2.2]
+
+Understand the basic syntax of test cases and tasks.
+
+:::
+
+::::
+
+
+
+## 2.2.1 Separation and Indentation
+
+::::lo[Learning Objectives]
+
+:::K3[LO-2.2.1]
+
+Understand and apply the mechanics of indentation and separation in Robot Framework.
 
 :::
 
-### 2.2.1 Separation and Indentation
-
-:::tip Learning Objective
-
-LO-2.2.1 Understand and apply the mechanics of indentation and separation in Robot Framework. (K3)
-
-:::
+::::
 
 As mentioned before, Robot Framework uses an indentation-based and space-separated syntax to structure keywords, test cases, and tasks.
 
@@ -321,13 +364,17 @@ which would lead to misinterpretation of the file structure by a human reader.
 
 
 
-### 2.2.2 Line Breaks, Continuation and Empty Lines
+## 2.2.2 Line Breaks, Continuation and Empty Lines
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.2.2 Be able to use line breaks and continuation in a statement. (K3)
+:::K3[LO-2.2.2]
+
+Be able to use line breaks and continuation in a statement.
 
 :::
+
+::::
 
 Empty lines are allowed and encouraged to structure data files and make them more readable.
 In the next example, the sections are visibly separated by two empty lines, and the tests are separated by one empty line.
@@ -344,13 +391,17 @@ In the following example the two keyword calls are logically identical, even tho
 
 **Example**:
 
-### 2.2.3 In-line Comments
+## 2.2.3 In-line Comments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.2.3 Be able to add in-line comments to suites. (K3)
+:::K3[LO-2.2.3]
+
+Be able to add in-line comments to suites.
 
 :::
+
+::::
 
 In Robot Framework comments can be added to lines after the content
 by starting the comment with a separator (multiple spaces) and a hash `#`.
@@ -369,13 +420,17 @@ Alternatively the `*** Comments ***` section can be used to add multi-line comme
 
 
 
-### 2.2.4 Escaping of Control Characters
+## 2.2.4 Escaping of Control Characters
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.2.4 Understand how to escape control characters in Robot Framework. (K2)
+:::K2[LO-2.2.4]
+
+Understand how to escape control characters in Robot Framework.
 
 :::
+
+::::
 
 In Robot Framework strings are not quoted which leads to situations where users need to be able to define,
 if a specific character shall be interpreted as part of the value or as a control character.
@@ -407,13 +462,17 @@ Test of Escaping
 ```
 
 
-### 2.2.5 Example Suite File
+## 2.2.5 Example Suite File
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.2.5 Understand the structure of a basic suite file. (K2)
+:::K2[LO-2.2.5]
+
+Understand the structure of a basic suite file.
 
 :::
+
+::::
 
 In the following example, two test cases are defined in a suite file.
 - `Login User With Password`
@@ -465,13 +524,17 @@ Denied Login With Wrong Password
 
 
 
-## 2.3 Executing Robot
+# 2.3 Executing Robot
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.3 Recall the three components of the Robot Framework CLI. (K1)
+:::K1[LO-2.3]
+
+Recall the three components of the Robot Framework CLI.
 
 :::
+
+::::
 
 Robot Framework comes with three executables when being installed which are designed to be used via the command-line interface (CLI).
 
@@ -481,13 +544,17 @@ Robot Framework comes with three executables when being installed which are desi
 
 
 
-### 2.3.1 `robot` command & help
+## 2.3.1 `robot` command & help
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.3.1 Understand how to run the `robot` command and its basic usage. (K2)
+:::K2[LO-2.3.1]
+
+Understand how to run the `robot` command and its basic usage.
 
 :::
+
+::::
 
 The `robot` command is used to run a Robot Framework execution, which will execute suites and their containing tests|tasks.
 
@@ -532,13 +599,17 @@ The `robot` command can optionally be configured with additional options to cont
 
 
 
-### 2.3.2 Execution Artifacts
+## 2.3.2 Execution Artifacts
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.3.2 Explain the execution artifacts generated by Robot Framework. (K2)
+:::K2[LO-2.3.2]
+
+Explain the execution artifacts generated by Robot Framework.
 
 :::
+
+::::
 
 After executing a suite, Robot Framework, by default, generates tree output files in the output directory. These artifacts provide detailed execution results:
 
@@ -553,13 +624,17 @@ In case of a failure it is possible to see the exact keyword call that failed an
 
 
 
-### 2.3.3 Status
+## 2.3.3 Status
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.3.3 Recall the four different status labels used by Robot Framework. (K1)
+:::K1[LO-2.3.3]
+
+Recall the four different status labels used by Robot Framework.
 
 :::
+
+::::
 
 Robot Framework uses different status labels to indicate the result of an execution:
 
@@ -578,13 +653,17 @@ Additional Keyword Status:
 **Composite elements** like suites (composed of tests|tasks), tests|tasks (composed of keywords) and User Keywords (composed of Library Keywords and Robot Framework statements) do define their status based on the status of their child elements.
 
 
-#### 2.3.3.1 PASS
+### 2.3.3.1 PASS
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.3.3.1 Understand when an element is marked as `PASS`. (K2)
+:::K2[LO-2.3.3.1]
+
+Understand when an element is marked as `PASS`.
 
 :::
+
+::::
 
 This status is used if an element was executed successfully without any errors or exceptions.
 
@@ -598,13 +677,17 @@ Library Keywords like `Run Keyword And Expect Error`, from BuiltIn Library, do `
 That means that a composite element like suite, test|task or User Keyword may be `PASS` even if some of its deeper child elements are `FAIL`.
 
 
-#### 2.3.3.2 FAIL
+### 2.3.3.2 FAIL
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.3.3.2 Understand when an element is marked as `FAIL`. (K2)
+:::K2[LO-2.3.3.2]
+
+Understand when an element is marked as `FAIL`.
 
 :::
+
+::::
 
 This status is used if an element was executed but encountered an error or exception that was not expected.
 
@@ -623,13 +706,17 @@ a suite (directory) is `FAIL` if one of its suites (file) is `FAIL`.
 
 
 
-### 2.3.4 Logging possibilities (Log vs Console)
+## 2.3.4 Logging possibilities (Log vs Console)
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.3.4 Understand the difference between log messages and console output. (K2)
+:::K2[LO-2.3.4]
+
+Understand the difference between log messages and console output.
 
 :::
+
+::::
 
 There are basically two kinds of logging information in Robot Framework.
 
@@ -642,7 +729,7 @@ Which levels are written to the log can be controlled by the log level of an exe
 
 
 
-## 2.4 Keyword Imports
+# 2.4 Keyword Imports
 
 <!-- To use Keywords that are not part of BuiltIn, which is always imported invisibly, you must import keywords into the current scope. Basically Two different sources of keywords.
 - Libraries, which contains low-level keywords actually implementing functionality, typically in Python.
@@ -656,14 +743,23 @@ Both types of sources are using different syntax to import their keywords.
 
 
 
-### 2.4.1 Libraries
+## 2.4.1 Libraries
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.4.1-1 Recall the purpose of keyword libraries and how to import them. (K1)  
-LO-2.4.1-2 Recall the three types of libraries in Robot Framework. (K1)
+:::K1[LO-2.4.1-1]
+
+Recall the purpose of keyword libraries and how to import them.
 
 :::
+
+:::K1[LO-2.4.1-2]
+
+Recall the three types of libraries in Robot Framework.
+
+:::
+
+::::
 
 From a user perspective there are three different kinds of libraries:
 - **Robot Framework Standard Libraries**: These are libraries that are shipped with Robot Framework and are available without any additional installation. See documentation of [ext: Robot Framework Standard Libraries](https://robotframework.org/robotframework/#standard-libraries) for more information.
@@ -694,14 +790,23 @@ Which keywords are available can be seen in the keyword documentation of the lib
 
 
 
-### 2.4.2 Resource Files
+## 2.4.2 Resource Files
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.4.2-1 Recall the purpose of resource files. (K1)  
-LO-2.4.2-2 Use resource files to import new keywords. (K3)
+:::K1[LO-2.4.2-1]
+
+Recall the purpose of resource files.
 
 :::
+
+:::K3[LO-2.4.2-2]
+
+Use resource files to import new keywords.
+
+:::
+
+::::
 
 As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
 
@@ -730,13 +835,17 @@ and how keywords and variables are created in the sections following that.
 
 
 
-### 2.4.3 Import Paths
+## 2.4.3 Import Paths
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.4.3 Understand the different types of paths that can be used to import libraries and resource files. (K2)
+:::K2[LO-2.4.3]
+
+Understand the different types of paths that can be used to import libraries and resource files.
 
 :::
+
+::::
 
 When importing libraries or resource files via a path, the path can be either an absolute path or a relative path.
 If a relative path is given, the path is resolved relative to the data file that is importing the library or resource file.
@@ -758,13 +867,17 @@ That path needs to be defined when executing Robot Framework but can lead to mor
 
 
 
-## 2.5 Keyword Interface and Documentation
+# 2.5 Keyword Interface and Documentation
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5 Understand the structure of keyword interfaces and how to interpret keyword documentation. (K2)
+:::K2[LO-2.5]
+
+Understand the structure of keyword interfaces and how to interpret keyword documentation.
 
 :::
+
+::::
 
 Library Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
 
@@ -779,13 +892,17 @@ Robot Framework offers the Keyword Documentation of its Standard Libraries at ht
 
 
 
-### 2.5.1 Documented Keyword Information
+## 2.5.1 Documented Keyword Information
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.1 Recall the information that can be found in a keyword documentation. (K1)
+:::K1[LO-2.5.1]
+
+Recall the information that can be found in a keyword documentation.
 
 :::
+
+::::
 
 The Keyword Documentation is structured so, that it contains first the library or resource documentation, followed by a list of all keywords that are available in that library or resource file.
 
@@ -801,7 +918,7 @@ Each library or resource documentation can contain the following information sec
 The following keywords are part of the Standard Libraries of Robot Framework.
 Their documentation has been generated by the Robot Framework tool `libdoc` which is included in Robot Framework.
 
-#### 2.5.1.1 Example Keyword `Should Be Equal`
+### 2.5.1.1 Example Keyword `Should Be Equal`
 
 [Documentation of `Should Be Equal` from `BuiltIn` library](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Should%20Be%20Equal)
 
@@ -813,7 +930,7 @@ This keyword has 2 "Mandatory Arguments" and 6 "Optional Arguments".
 All of them can be called positionally or by name.
 
 
-#### 2.5.1.2 Example Keyword `Run Process`
+### 2.5.1.2 Example Keyword `Run Process`
 
 [Documentation of `Run Process` from `Process` library](https://robotframework.org/robotframework/latest/libraries/Process.html#Run%20Process)
 
@@ -832,7 +949,7 @@ The argument `configuration` is a "Free Named Argument" and can only be set by n
 See [2.5.2.7 Free Named Arguments](../chapter-02/Chapter_2_Getting_Started.md#2527-free-named-arguments) for more information about this kind of argument.
 
 
-#### 2.5.1.3 Example Keyword `Get Regexp Matches`
+### 2.5.1.3 Example Keyword `Get Regexp Matches`
 
 [Documentation of `Get Regexp Matches` from `String` library](https://robotframework.org/robotframework/latest/libraries/String.html#Get%20Regexp%20Matches)
 
@@ -851,13 +968,17 @@ The argument `flags` is a "Named-Only Argument" and can only be set by name.
 See [2.5.2.6 Named-Only Arguments](../chapter-02/Chapter_2_Getting_Started.md#2526-named-only-arguments) for more information about this kind of argument.
 
 
-### 2.5.2 Keyword Arguments
+## 2.5.2 Keyword Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2 Understand the difference between argument kinds. (K2)
+:::K2[LO-2.5.2]
+
+Understand the difference between argument kinds.
 
 :::
+
+::::
 
 Most library keywords can be parameterized with arguments that are passed to the keyword when it is called to customize its behavior.
 As more business oriented keywords are as less arguments they typically have.
@@ -880,13 +1001,17 @@ The order is as follows:
 3. **Named-Only Arguments** (can be mandatory or optional)
 4. **Free Named Arguments** (optional)
 
-#### 2.5.2.1 Mandatory Arguments
+### 2.5.2.1 Mandatory Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.1 Understand the concept of mandatory arguments and how they are documented. (K2)
+:::K2[LO-2.5.2.1]
+
+Understand the concept of mandatory arguments and how they are documented.
 
 :::
+
+::::
 
 Arguments that do not have a default value, must be set when the keyword is called.
 These arguments have to be before arguments with default values in the argument interface of the keywords.
@@ -916,13 +1041,17 @@ The Error Message would be: `Keyword 'BuiltIn.Should Be Equal' expected 2 to 8 a
 Two arguments are mandatory and additional six arguments are optional in the `Should Be Equal` keyword.
 
 
-#### 2.5.2.2 Optional Arguments
+### 2.5.2.2 Optional Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.2 Understand the concept of optional arguments and how they are documented. (K2)
+:::K2[LO-2.5.2.2]
+
+Understand the concept of optional arguments and how they are documented.
 
 :::
+
+::::
 
 Arguments that have a default value can be omitted when the keyword is called, causing these arguments to be set to their default value.
 These arguments are listed after the mandatory arguments in the argument interface.
@@ -938,13 +1067,17 @@ Omitting some optional arguments but still using others is possible independent 
 
 
 
-#### 2.5.2.3 Embedded Arguments
+### 2.5.2.3 Embedded Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.3 Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented. (K1)
+:::K1[LO-2.5.2.3]
+
+Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented.
 
 :::
+
+::::
 
 Keywords can have arguments embedded into their names, which is used mostly for Behavior-Driven Specification (BDD).
 Embedded arguments are also mandatory and can only be set by their position in the keyword name.
@@ -974,13 +1107,17 @@ In the keyword documentation the embedded arguments are written in variable synt
 They can also be defined using regular expressions to allow for more complex argument structures, which is not part of that syllabus.
 
 
-#### 2.5.2.4 Positional or Named Arguments
+### 2.5.2.4 Positional or Named Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.4 Recall how "Positional or Named Arguments" are marked in the documentation and their use case. (K1)
+:::K1[LO-2.5.2.4]
+
+Recall how "Positional or Named Arguments" are marked in the documentation and their use case.
 
 :::
+
+::::
 
 Except of "Positional-Only Arguments", that are not part of this syllabus,
 all arguments that are positioned before "Variable Number of Positional Arguments", "Named-Only Arguments", or "Free Named Arguments" in the argument interface of keywords are "Positional or Named Arguments".
@@ -992,13 +1129,17 @@ These arguments can either be mandatory or optional with a default value.
 They are not specially marked in the keyword documentation with any prefix, because they are the default kind of arguments in Robot Framework.
 
 
-#### 2.5.2.5 Variable Number of Positional Arguments
+### 2.5.2.5 Variable Number of Positional Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.5 Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case. (K1)
+:::K1[LO-2.5.2.5]
+
+Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case.
 
 :::
+
+::::
 
 A special case of optional arguments that can only be set by their position are "Variable Number of Positional Arguments".
 These are also referred to as `*args` or `*varargs` in Python.
@@ -1015,13 +1156,17 @@ When calling this keyword, the first positional argument is assigned to `command
 Also see [2.5.1.3 Example Keyword `Get Regexp Matches`](../chapter-02/Chapter_2_Getting_Started.md#2513-example-keyword-get-regexp-matches).
 
 
-#### 2.5.2.6 Named-Only Arguments
+### 2.5.2.6 Named-Only Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.6 Recall what properties "Named-Only Arguments" have and how they are documented. (K1)
+:::K1[LO-2.5.2.6]
+
+Recall what properties "Named-Only Arguments" have and how they are documented.
 
 :::
+
+::::
 
 All arguments that are defined after a "Variable Number of Positional Arguments" (`*varargs`) are "Named-Only Arguments".
 However it is also possible to create "Named-Only Arguments without a preceding "Variable Number of Positional Arguments".
@@ -1033,13 +1178,17 @@ So they must be called by their name followed by an equal sign `=` and the value
 
 "Named-Only Arguments" can be mandatory or optional with a default value.
 
-#### 2.5.2.7 Free Named Arguments
+### 2.5.2.7 Free Named Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.7 Recall how free named arguments are marked in documentation. (K1)
+:::K1[LO-2.5.2.7]
+
+Recall how free named arguments are marked in documentation.
 
 :::
+
+::::
 
 Another special case of "Named-Only Arguments" is "Free Named Arguments."
 These arguments are similar to the "Variable Number of Positional Arguments" in that they can collect multiple values.
@@ -1064,13 +1213,17 @@ Send 5 IPv4 Pings On Windows
 ```
 
 
-#### 2.5.2.8 Argument Types
+### 2.5.2.8 Argument Types
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.8 Understand the concept of argument types and automatic type conversion. (K2)
+:::K2[LO-2.5.2.8]
+
+Understand the concept of argument types and automatic type conversion.
 
 :::
+
+::::
 
 Library Keywords may define the expected types of their argument values.
 Robot Framework specification is mostly done as a string-based language, therefore most statically defined argument values are strings.
@@ -1108,13 +1261,17 @@ The advantage of using type hints is that the user get more information about wh
 <!-- Just to understand that they are there and that they may document how values are handled or which are allowed. -->
 
 
-#### 2.5.2.9 Return Types
+### 2.5.2.9 Return Types
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.2.9 Understand the concept of return type hints. (K2)
+:::K2[LO-2.5.2.9]
+
+Understand the concept of return type hints.
 
 :::
+
+::::
 
 Keywords may gather information and return these to the caller of that keyword to be stored in a variable and used in further keyword calls.
 So Keyword can `RETURN` values to the caller as functions do in programming languages.
@@ -1129,13 +1286,17 @@ This is typically documented in the *Documentation* part of the keyword document
 
 
 
-### 2.5.3 Keyword Documentation & Examples
+## 2.5.3 Keyword Documentation & Examples
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.5.3 Understand how to read keyword documentation and how to interpret the examples. (K2)
+:::K2[LO-2.5.3]
+
+Understand how to read keyword documentation and how to interpret the examples.
 
 :::
+
+::::
 
 Keyword documentation is an important part of the keyword implementation.
 Good keyword names that clearly communicate what a keyword is doing is even more important,
@@ -1168,13 +1329,17 @@ Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 
 
 
-## 2.6 Writing Test|Task and Calling Keywords
+# 2.6 Writing Test|Task and Calling Keywords
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.6 Understand how to call imported keywords and how to structure keyword calls. (K2)
+:::K2[LO-2.6]
+
+Understand how to call imported keywords and how to structure keyword calls.
 
 :::
+
+::::
 
 A typical test case or task is a sequence of keyword calls that are executed in a specific order.
 As learned before these keywords need to be imported into the suite or resource file before they can be used.
@@ -1223,13 +1388,17 @@ Mixed Named and Positional Arguments
 
 
 
-### 2.6.1 Positional Arguments
+## 2.6.1 Positional Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.6.1 Understand the concept of how to set argument values positionally. (K2)
+:::K2[LO-2.6.1]
+
+Understand the concept of how to set argument values positionally.
 
 :::
+
+::::
 
 When calling keywords, arguments can often be set positionally in the order they are defined in the keyword documentation.
 An exception to this are "Named-Only Arguments" and "Free Named Arguments" that can only be set by their name.
@@ -1272,13 +1441,17 @@ Run Process With Arguments
 
 In the second test `Run Process With Arguments` the first given value `ping` is assigned to the argument `command` and all following values are collected into the `arguments` argument of the keyword `Run Process` as a list of values.
 
-### 2.6.2 Named Arguments
+## 2.6.2 Named Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.6.2 Understand the concept of named arguments and how to set argument values by their name. (K2)
+:::K2[LO-2.6.2]
+
+Understand the concept of named arguments and how to set argument values by their name.
 
 :::
+
+::::
 
 Keyword Calls with non-obvious arguments should use named argument calls if possible.
 Also setting one optional argument but leaving the others at their default value is an indication to use named arguments.
@@ -1301,13 +1474,17 @@ The argument `first` does get the value `second=2` and the argument `second` doe
 
 
 
-### 2.6.3 Embedded Arguments / Using Behavior-Driven Specification
+## 2.6.3 Embedded Arguments / Using Behavior-Driven Specification
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.6.3 Recall how to use embedded arguments. (K1)
+:::K1[LO-2.6.3]
+
+Recall how to use embedded arguments.
 
 :::
+
+::::
 
 Embedded Arguments are mostly used in Behavior-Driven Development (BDD) using Robot Frameworks Behavior-Driven Specification style.
 

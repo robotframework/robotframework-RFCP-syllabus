@@ -1,11 +1,15 @@
 
 # 4.4 Test|Task Tags and Filtering Execution
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-4.4 Recall the purpose of Test|Task Tags in Robot Framework (K1)
+:::K1[LO-4.4]
+
+Recall the purpose of Test|Task Tags in Robot Framework
 
 :::
+
+::::
 
 In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|tasks.
 Tags are free-form text labels that can be assigned to tests|tasks to provide metadata, enable flexible test selection, and organize test results.
@@ -18,11 +22,15 @@ Tags are also used to create a statistical summary of the test|task results in t
 
 ## 4.4.1 Assigning Tags to Tests|Tasks
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-4.4.1 Recall the syntax and different ways to assign tags to tests|tasks (K1)
+:::K1[LO-4.4.1]
+
+Recall the syntax and different ways to assign tags to tests|tasks
 
 :::
+
+::::
 
 Tags can be assigned to tests|tasks in several ways:
 
@@ -70,11 +78,15 @@ Tags can be assigned to tests|tasks in several ways:
 
 ## 4.4.2 Using Tags to Filter Execution
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-4.4.2 Understand how to filter tests|tasks using the command-line interface of Robot Framework (K2)
+:::K2[LO-4.4.2]
+
+Understand how to filter tests|tasks using the command-line interface of Robot Framework
 
 :::
+
+::::
 
 Tags can be used to select which tests|tasks are executed or skipped when running a suite. This is accomplished using command-line options when executing Robot Framework.
 
@@ -82,7 +94,7 @@ When filtering for tests|tasks with a specific tag, you should always use the lo
 `AND`, `OR`, and `NOT` are the logical operators that can be used to combine tags in the filtering, but **they are not part of this syllabus!**
 
 
-## 4.4.2.1 Including Tests|Tasks by Tags
+### 4.4.2.1 Including Tests|Tasks by Tags
 
 To include only tests|tasks that have a specific tag, use the `--include` (or `-i`) option followed by the tag name:
 
@@ -93,7 +105,7 @@ robot --include smoke path/to/tests
 This command will execute only the tests|tasks that have the `smoke` tag.
 
 
-## 4.4.2.2 Excluding Tests|Tasks by Tags
+### 4.4.2.2 Excluding Tests|Tasks by Tags
 
 To exclude tests|tasks that have a specific tag, use the `--exclude` (or `-e`) option followed by the tag name:
 
@@ -106,7 +118,7 @@ The excluded tests|tasks will not be executed or logged at all.
 Use `--skip` to not execute tests|tasks but include them in the logs as skipped. See [4.5.1 Skipping By Tags Selection (CLI)](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md#451-skipping-by-tags-selection-cli) for more information.
 
 
-## 4.4.2.3 Combining Include and Exclude Options
+### 4.4.2.3 Combining Include and Exclude Options
 
 You can combine `--include` and `--exclude` options to fine-tune which tests|tasks are executed:
 
@@ -117,7 +129,7 @@ robot --include regression --exclude unstable path/to/tests
 This command will execute tests|tasks that have the `regression` tag but exclude any that also have the `unstable` tag.
 
 
-## 4.4.2.4 Using Tag Patterns
+### 4.4.2.4 Using Tag Patterns
 
 Tags can include patterns using wildcards `*` and `?` to match multiple tags:
 

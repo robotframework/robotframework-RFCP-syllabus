@@ -1,10 +1,14 @@
 # 1.1 Purpose / Use Cases
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-1.1 Recall the two main use cases of Robot Framework (K1)
+:::K1[LO-1.1]
+
+Recall the two main use cases of Robot Framework
 
 :::
+
+::::
 
 Robot Framework is a versatile, open-source automation framework that supports both **test automation** and **robotic process automation (RPA)**.
 Initially designed for acceptance testing, it has since evolved to cover other types of testing and various automation tasks in both IT and business environments.
@@ -15,11 +19,15 @@ Robot Framework can be extended through a vast array of third-party or custom ma
 
 ## 1.1.1 Test Automation
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-1.1.1 recall the test levels Robot Framework is mostly used for (K1)
+:::K1[LO-1.1.1]
+
+recall the test levels Robot Framework is mostly used for
 
 :::
+
+::::
 
 Robot Framework is widely used at various levels of testing, primarily focusing on:
 
@@ -35,7 +43,7 @@ Robot Framework's flexibility and support for external libraries make it an exce
 
 Robot Framework is typically not used for **component testing** and **integration testing** because its primary strength lies in higher-level testing, such as system, acceptance, and end-to-end testing, where behavior-driven and keyword-based approaches excel. Component testing requires low-level, granular tests focusing on individual units of code, often necessitating direct interaction with the codebase, mocking, or stubbing, which are better handled by unit testing frameworks like JUnit, pytest, or NUnit. Similarly, integration testing at a low level often requires precise control over service interactions, such as API stubs or protocol-level testing, which may not align with Robot Framework's abstraction-oriented design. While Robot Framework can technically handle these cases through custom libraries, its overhead and design philosophy make it less efficient compared to tools specifically tailored for low-level and tightly scoped testing tasks.
 
-## 1.1.1.1 Synthetic Monitoring
+### 1.1.1.1 Synthetic Monitoring
 
 Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **Active Monitoring** or **Proactive Monitoring**, is a proactive approach that simulates user interactions with live systems at regular intervals. It detects performance issues or downtime early with the goal of to detect such failure before they affect actual users.
 

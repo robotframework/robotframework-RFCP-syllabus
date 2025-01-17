@@ -7,7 +7,7 @@ Although it is not expected that Robot Framework Certified Professionals will be
 
 
 
-## 5.1 Advanced Variables
+# 5.1 Advanced Variables
 
 Variables in Robot Framework, and in programming languages in general, can be more complex and can store various types of data.
 Robot Framework also offers multiple ways to create different kinds of values and types.
@@ -21,13 +21,17 @@ Variables can be defined in multiple places and ways, and their availability and
 
 
 
-### 5.1.1 Variable Priorities
+## 5.1.1 Variable Priorities
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.1 Understand the difference between statically defined and dynamically created variables in Robot Framework (K2)
+:::K2[LO-5.1.1]
+
+Understand the difference between statically defined and dynamically created variables in Robot Framework
 
 :::
+
+::::
 
 Variables can originate from various sources, and when variables with the same name exist,
 Robot Framework resolves them based on their priority.
@@ -41,13 +45,17 @@ In general, there are two types of variables regarding how they are created:
 Built-in variables cannot generally be sorted into one of these categories, as some are predefined globally while others are created during execution with a `SUITE` or `TEST` scope.
 
 
-#### 5.1.1.1 Statically Defined or Imported Variables
+### 5.1.1.1 Statically Defined or Imported Variables
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.1.1 Recall the priority of statically defined or imported variables in Robot Framework (K1)
+:::K1[LO-5.1.1.1]
+
+Recall the priority of statically defined or imported variables in Robot Framework
 
 :::
+
+::::
 
 The rule of thumb here is: **"First come, first served!"**
 
@@ -66,13 +74,17 @@ In descending order, the priority is as follows:
 However, variables defined during Robot Framework execution can overwrite or shadow these variables.
 
 
-#### 5.1.1.2 Dynamically Created Variables
+### 5.1.1.2 Dynamically Created Variables
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.1.2 Recall the priority of dynamically created variables in Robot Framework (K1)
+:::K1[LO-5.1.1.2]
+
+Recall the priority of dynamically created variables in Robot Framework
 
 :::
+
+::::
 
 Variables created or modified during execution have a higher priority than statically defined or imported variables.
 
@@ -85,23 +97,31 @@ For example, a local variable defined as a [3.3.5 User Keyword Arguments](../cha
 However, once the keyword body scope is exited, the suite variable is back in scope with higher priority and the local variable is no longer existent.
 
 
-### 5.1.2 Variable Scopes
+## 5.1.2 Variable Scopes
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.2 Recall the different variable scopes in Robot Framework (K1)
+:::K1[LO-5.1.2]
+
+Recall the different variable scopes in Robot Framework
 
 :::
+
+::::
 
 Variables in Robot Framework have different scopes, determining where they can be accessed and how long they are available.
 
-#### 5.1.2.1 . Global Scope
+### 5.1.2.1 . Global Scope
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.2.1 Recall how to define global variables and where they can be accessed (K1)
+:::K1[LO-5.1.2.1]
+
+Recall how to define global variables and where they can be accessed
 
 :::
+
+::::
 
 - **Definition**: Variables accessible everywhere during the test execution.
 - **Creation**:
@@ -119,13 +139,17 @@ Global variables should always be defined using uppercase letters, like `${GLOBA
 Every global variable should have a corresponding default value defined either in a `*** Variables ***` section or imported from variable files, so that editors and IDEs can provide auto-completion and static code analysis.
 
 
-#### 5.1.2.2 . Suite Scope
+### 5.1.2.2 . Suite Scope
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.2.2 Recall how to define suite variables and where they can be accessed (K1)
+:::K1[LO-5.1.2.2]
+
+Recall how to define suite variables and where they can be accessed
 
 :::
+
+::::
 
 - **Definition**: Variables accessible within the test suite where they are defined, including all its tests|tasks and keywords.
 - **Creation**:
@@ -145,13 +169,17 @@ If a global variable is defined using the command line, and a suite-level variab
 **Recommendation**:
 Suite variables should be defined using uppercase letters, like `${SUITE_VARIABLE}`, to distinguish them from local variables. These variables should be defined in the `*** Variables ***` section of the suite file, even if they are dynamically overwritten during execution, so they are visible in the editor or IDE and can be used for auto-completion and static code analysis.
 
-#### 5.1.2.3 . Test|Task Scope
+### 5.1.2.3 . Test|Task Scope
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.2.3 Recall how to define test|task variables and where they can be accessed (K1)
+:::K1[LO-5.1.2.3]
+
+Recall how to define test|task variables and where they can be accessed
 
 :::
+
+::::
 
 - **Definition**: Variables accessible within a single test|task and within all keywords it calls.
 - **Creation**:
@@ -167,13 +195,17 @@ Test|Task variables should be used only when there is a clear need to share data
 Otherwise, it is better to use local variables. Editor and IDE support for these variables is limited, so they should be used with caution.
 
 
-#### 5.1.2.4 . Local Scope
+### 5.1.2.4 . Local Scope
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.2.4 Recall how to define local variables and where they can be accessed (K1)
+:::K1[LO-5.1.2.4]
+
+Recall how to define local variables and where they can be accessed
 
 :::
+
+::::
 
 - **Definition**: Variables accessible only within the keyword or test|task where they are defined.
 - **Creation**:
@@ -210,7 +242,7 @@ Additionally, `${result}` is only available within `Calculate Sum`, and only its
 
 
 
-### 5.1.3 Global Variables via Command Line
+## 5.1.3 Global Variables via Command Line
 
 As described earlier, global variables can be statically defined via command-line options.
 
@@ -239,19 +271,23 @@ Only scalar string values are supported.
 
 
 
-### 5.1.4 List-Variables (Advanced)
+## 5.1.4 List-Variables (Advanced)
 
 As explained in the `*** Variables ***` section under [3.2.2.3 List Variable Definition](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#3223-list-variable-definition), Robot Framework natively supports creating lists.
 However, the at-syntax `@{var}` has different meanings when assigning values versus accessing values.
 
 
-#### 5.1.4.1 Assigning List Variables
+### 5.1.4.1 Assigning List Variables
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.4.1 Recall that assignments to `@{list}` variables convert values to lists automatically (K1)
+:::K1[LO-5.1.4.1]
+
+Recall that assignments to `@{list}` variables convert values to lists automatically
 
 :::
+
+::::
 
 Using the at-syntax (`@{}`) is required to define a list variable with `VAR` syntax or in the `*** Variables ***` section, but it is optional when assigning return values, which are list-like, from keywords to a variable.
 
@@ -272,13 +308,17 @@ As long as a value is iterable, it can be assigned to a list variable using the 
 
 **Note**: Strings are iterable in Python; however, they are explicitly **NOT** converted to a list when assigned to a list variable to prevent mistakes.
 
-#### 5.1.4.2 Accessing List Variables
+### 5.1.4.2 Accessing List Variables
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.4.2 Recall that `@{list}` unpacks the values of a list variable when accessed (K1)
+:::K1[LO-5.1.4.2]
+
+Recall that `@{list}` unpacks the values of a list variable when accessed
 
 :::
+
+::::
 
 Variables containing a list are generally accessed with the normal dollar-syntax `${var}`.
 You can also access single values within a list using `${var}[0]` or `${var}[-1]`, and Robot Framework supports slicing, similar to Python, with `${var}[1:3]` or `${var}[1:]`.
@@ -306,19 +346,23 @@ This is particularly needed when using FOR-Loops. See [5.2.4 FOR Loops](../chapt
 
 
 
-### 5.1.5 Dict-Like
+## 5.1.5 Dict-Like
 
 As explained in the `*** Variables ***` section under [3.2.2.4 Dictionary Variable Definition](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#3224-dictionary-variable-definition), Robot Framework natively supports creating dictionaries.
 However, the ampersand-syntax `&{var}` has different meanings when assigning values and when accessing values.
 
 
-#### 5.1.5.1 Assigning Dictionary Variables
+### 5.1.5.1 Assigning Dictionary Variables
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.5.1 Recall that assignments to `&{dict}` variables automatically convert values to Robot Framework Dictionaries and enable dot-access (K1)
+:::K1[LO-5.1.5.1]
+
+Recall that assignments to `&{dict}` variables automatically convert values to Robot Framework Dictionaries and enable dot-access
 
 :::
+
+::::
 
 Using the ampersand-syntax (`&{}`) is required to define a dictionary variable with `VAR` syntax or in the `*** Variables ***` section, but it is optional when assigning return values from keywords to a variable that returns dictionaries.
 
@@ -334,13 +378,17 @@ Test Dictionary Variables
 In the following example, the first assignment to `&{participant}` causes an automatic conversion to a Robot Framework Dictionary, also known as DotDict. These special dictionary types can be accessed using dot-access like `${participant.name}` or `${participant.age}`, instead of the usual dictionary access like `${trainer}[name]` or `${trainer}[age]`.
 
 
-#### 5.1.5.2 Accessing Dictionary Variables
+### 5.1.5.2 Accessing Dictionary Variables
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.5.2 Recall that `&{dict}` unpacks to multiple key=value pairs when accessed (K1)
+:::K1[LO-5.1.5.2]
+
+Recall that `&{dict}` unpacks to multiple key=value pairs when accessed
 
 :::
+
+::::
 
 Variables containing dictionaries are typically accessed using the normal dollar-syntax `${var}`.
 You can also access individual values by their keys using `${var}[key]` or `${var.key}` for Robot Framework Dictionaries.
@@ -372,13 +420,17 @@ The dictionary keys act as the argument names and the values as the argument val
 
 
 
-### 5.1.6 Built-In Variables
+## 5.1.6 Built-In Variables
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.1.6 Recall that Robot Framework provides access to execution information via Built-In variables (K1)
+:::K1[LO-5.1.6]
+
+Recall that Robot Framework provides access to execution information via Built-In variables
 
 :::
+
+::::
 
 Robot Framework has a set of built-in variables that can be used in test cases, keywords, and other places. Some examples are:
 
@@ -407,7 +459,7 @@ These variables can be used in test cases, keywords, and other places to access 
 
 
 
-## 5.2 Control Structures
+# 5.2 Control Structures
 
 Robot Framework is a Turing-complete language and supports all common control structures, including IF-Statements, FOR-Loops, WHILE-Loops and more.
 While it is not expected that RCFPs can write complex control structures, they should understand their purpose.
@@ -415,13 +467,17 @@ While it is not expected that RCFPs can write complex control structures, they s
 In some cases, it is necessary to use control structures to handle different cases, iterate over a list of values, or execute an action until a condition is met.
 
 
-### 5.2.1 IF Statements
+## 5.2.1 IF Statements
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.2.1 Understand the purpose and basic concept of IF-Statements (K2)
+:::K2[LO-5.2.1]
+
+Understand the purpose and basic concept of IF-Statements
 
 :::
+
+::::
 
 The `IF/ELSE` syntax in Robot Framework is used to control the flow of test|task execution by allowing certain keywords to run only when specific conditions are met.
 This is achieved by evaluating conditions written as Python expressions, enabling dynamic decision-making within your tests|tasks.
@@ -431,7 +487,7 @@ An optional `ELSE` or `ELSE IF` can specify alternative actions when the initial
 This structure enhances the flexibility and responsiveness of your tests|tasks, allowing them to adapt based on variables and outcomes encountered during execution.
 
 
-#### 5.2.1.1 Basic IF Syntax
+### 5.2.1.1 Basic IF Syntax
 
 When certain keywords should be executed only if a condition is met, the IF statement can be used.
 
@@ -452,7 +508,7 @@ When certain keywords should be executed only if a condition is met, the IF stat
   ```
   - Executes the `Log` keyword if `${status}` is the string `SUCCESS`.
 
-### 5.2.2 IF/ELSE IF/ELSE Structure
+## 5.2.2 IF/ELSE IF/ELSE Structure
 
 To execute different alternative actions based on various conditions, use the IF/ELSE IF/ELSE structure.
 
@@ -479,7 +535,7 @@ To execute different alternative actions based on various conditions, use the IF
       END
   ```
 
-### 5.2.3 Inline IF Statement
+## 5.2.3 Inline IF Statement
 
 For single conditional keywords, the simplified inline IF statement can be used.
 
@@ -496,13 +552,17 @@ For single conditional keywords, the simplified inline IF statement can be used.
   - Executes the `Log` keyword if `${user}` equals `'Admin'`.
   - No `END` is needed for inline IF.
 
-### 5.2.4 FOR Loops
+## 5.2.4 FOR Loops
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.2.4 Understand the purpose and basic concept of FOR Loops (K2)
+:::K2[LO-5.2.4]
+
+Understand the purpose and basic concept of FOR Loops
 
 :::
+
+::::
 
 The `FOR` loop in Robot Framework repeats a set of keywords multiple times, iterating over a sequence of values.
 This allows you to perform the same actions for different items without duplicating code, enhancing the efficiency and readability of your keyword logic.
@@ -519,7 +579,7 @@ The `FOR` loop begins with the `FOR` token, followed by a loop variable, the `IN
 The loop variable takes on each value in the sequence one at a time, executing the enclosed keywords for each value.
 
 
-#### 5.2.4.1 Basic FOR Loop Syntax
+### 5.2.4.1 Basic FOR Loop Syntax
 
 When you need to execute the same keywords for each item in a list or sequence, you can use the FOR-IN loop.
 
@@ -560,13 +620,17 @@ When you need to execute the same keywords for each item in a list or sequence, 
 
 
 
-### 5.2.5 WHILE Loops
+## 5.2.5 WHILE Loops
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.2.5 Understand the purpose and basic concept of WHILE Loops (K2)
+:::K2[LO-5.2.5]
+
+Understand the purpose and basic concept of WHILE Loops
 
 :::
+
+::::
 
 While the `FOR` loop iterates over a known amount of values, `WHILE` loops repeat their body as long as a condition is met.
 This is typically used in cases where the number of iterations is not known in advance or depends on a dynamic condition.
@@ -603,13 +667,17 @@ This prevents infinite loops and ensures that tests|tasks do not hang indefinite
 
 
 
-### 5.2.6 BREAK and CONTINUE
+## 5.2.6 BREAK and CONTINUE
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.2.6 Understand the purpose and basic concept of the BREAK and CONTINUE statements (K2)
+:::K2[LO-5.2.6]
+
+Understand the purpose and basic concept of the BREAK and CONTINUE statements
 
 :::
+
+::::
 
 In some cases, it is helpful to stop a loop or skip the remaining part of a loop and continue with the next iteration.
 This can be achieved with the `BREAK` and `CONTINUE` statements.

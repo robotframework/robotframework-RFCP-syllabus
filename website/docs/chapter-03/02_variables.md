@@ -1,12 +1,23 @@
 
 # 3.2 Variables
 
-:::tip Learning Objective
 
-LO-3.2-1 Understand how variables in Robot Framework are used to store and manage data (K2)  
-LO-3.2-2 Recall the relevant five different ways to create and assign variables (K1)
+::::lo[Learning Objectives]
+
+:::K2[LO-3.2-1]
+
+Understand how variables in Robot Framework are used to store and manage data
 
 :::
+
+:::K1[LO-3.2-2]
+
+Recall the relevant five different ways to create and assign variables
+
+:::
+
+::::
+
 
 Variables in Robot Framework are used to store values that can be referenced and reused throughout suites, test cases, tasks, and keywords.
 They help manage dynamic data or centrally maintained data, reducing hardcoding in multiple locations and making automation flexible.
@@ -28,12 +39,21 @@ Beside variables created by the user, Robot Framework also supports **Built-in V
 
 ## 3.2.1 Variable Syntax and Access Types
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.1-1 Recall the four syntactical access types to variables with their prefixes (K1)  
-LO-3.2.1-2 Recall the basic syntax of variables (K1)
+:::K1[LO-3.2.1-1]
+
+Recall the four syntactical access types to variables with their prefixes
 
 :::
+
+:::K1[LO-3.2.1-2]
+
+Recall the basic syntax of variables
+
+:::
+
+::::
 
 Variables in Robot Framework are defined by three attributes:
 - **Prefix**: `$`, `@`, or `&` to define the access type to the variable. (`%` for environment variables)
@@ -65,12 +85,21 @@ can be found in the [5.1 Advanced Variables](../chapter-05/Chapter_5_Exploring_A
 
 ## 3.2.2 `*** Variables ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.2-1 Create variables in the Variables section (K3)  
-LO-3.2.2-2 Use the correct variable prefixes for assigning and accessing variables. (K3)
+:::K3[LO-3.2.2-1]
+
+Create variables in the Variables section
 
 :::
+
+:::K3[LO-3.2.2-2]
+
+Use the correct variable prefixes for assigning and accessing variables
+
+:::
+
+::::
 
 Variables can be defined in the `*** Variables ***` section within both suite files and resource files.
 
@@ -99,14 +128,23 @@ This means that when a variable is used within another variable's value, the fin
 Variables defined in the `*** Variables ***` section are recommended to be named in uppercase to distinguish them from local variables defined in test cases or keywords.
 
 
-## 3.2.2.1 Scalar Variable Definition
+### 3.2.2.1 Scalar Variable Definition
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.2.1-1 Create and assign scalar variables (K3)  
-LO-3.2.2.1-2 Understand how multiple lines can be used to define scalar variables (K2)
+:::K3[LO-3.2.2.1-1]
+
+Create and assign scalar variables
 
 :::
+
+:::K2[LO-3.2.2.1-2]
+
+Understand how multiple lines can be used to define scalar variables
+
+:::
+
+::::
 
 Example of creating scalar variables:
 ```robotframework
@@ -145,13 +183,17 @@ ${SEARCH_URL}     https://example.com/search
 `${SEARCH_URL}` will contain `https://example.com/search?query=robot+framework&page=1&filter=recent&lang=en&category=test-automation`.
 
 
-## 3.2.2.2 Primitive Data Types
+### 3.2.2.2 Primitive Data Types
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.2.2 Understand how to access primitive data types (K2)
+:::K2[LO-3.2.2.2]
+
+Understand how to access primitive data types
 
 :::
+
+::::
 
 Robot Framework does support primitive data types as part of the syntax.
 
@@ -184,12 +226,16 @@ ${ANSWER}            The answer is ${INTEGER}    # This will be 'The answer is 4
 > When using other types than strings and concatenating them with a string, the other value will be converted to a string before concatenation.
 
 
-## 3.2.2.3 List Variable Definition
-:::tip Learning Objective
+### 3.2.2.3 List Variable Definition
+::::lo[Learning Objectives]
 
-LO-3.2.2.3 Understand how to set and access data in list variables (K2)
+:::K2[LO-3.2.2.3]
+
+Understand how to set and access data in list variables
 
 :::
+
+::::
 
 List variables store multiple values and are defined using the at-syntax `@{variable_name}`.
 You can define as many values as needed, with each additional value
@@ -216,13 +262,17 @@ List Example
 ```
 
 
-## 3.2.2.4 Dictionary Variable Definition
+### 3.2.2.4 Dictionary Variable Definition
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.2.4 Understand how to set and access data in dict variables (K2)
+:::K2[LO-3.2.2.4]
+
+Understand how to set and access data in dict variables
 
 :::
+
+::::
 
 Dictionary variables store key-value pairs and use the ampersand-syntax `&{variable_name}`.
 Key-value pairs are assigned using the `key=value` format.
@@ -254,11 +304,15 @@ Assuming `${key}` contains the value `phone`, `${USER1}[${key}]` would resolve t
 
 ## 3.2.3 Return values from Keywords
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.3 Be able to assign return values from keywords to variables (K3)
+:::K3[LO-3.2.3]
+
+Be able to assign return values from keywords to variables
 
 :::
+
+::::
 
 In Robot Framework, values returned by keywords can be assigned to variables,
 enabling data to be passed between different keywords.
@@ -275,7 +329,7 @@ followed by an optional equal sign (`=`) and the keyword call that
 shall be executed and will return the value(s) to be assigned.
 
 
-## 3.2.3.1 Assigning to Scalar Variables
+### 3.2.3.1 Assigning to Scalar Variables
 
 In the simplest case, a keyword returns exactly one value,
 which can be assigned to a scalar variable using the dollar-syntax `${variable_name}`.
@@ -330,11 +384,15 @@ Multiple Return Example
 
 ## 3.2.4 `VAR` Statement
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.4 Understand how to create variables using the VAR statement (K2)
+:::K2[LO-3.2.4]
+
+Understand how to create variables using the VAR statement
 
 :::
+
+::::
 
 The `VAR` statement in Robot Framework is a way to create
 and assign values to variables directly within a test|task or keyword during execution.
@@ -384,11 +442,15 @@ For more details on this topic, refer to the section on [5.1.2 Variable Scopes](
 
 ## 3.2.5 Variable Scope Introduction
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.2.5 Understand how `local` and `suite` scope variables are created (K2)
+:::K2[LO-3.2.5]
+
+Understand how `local` and `suite` scope variables are created
 
 :::
+
+::::
 
 In Robot Framework, variables have different scopes, which define where they can be accessed and used. Understanding the scope of variables is crucial for managing data within tests and keywords.
 

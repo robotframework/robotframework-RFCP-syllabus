@@ -9,11 +9,15 @@ In some cases, it is necessary to use control structures to handle different cas
 
 ## 5.2.1 IF Statements
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.2.1 Understand the purpose and basic concept of IF-Statements (K2)
+:::K2[LO-5.2.1]
+
+Understand the purpose and basic concept of IF-Statements
 
 :::
+
+::::
 
 The `IF/ELSE` syntax in Robot Framework is used to control the flow of test|task execution by allowing certain keywords to run only when specific conditions are met.
 This is achieved by evaluating conditions written as Python expressions, enabling dynamic decision-making within your tests|tasks.
@@ -23,7 +27,7 @@ An optional `ELSE` or `ELSE IF` can specify alternative actions when the initial
 This structure enhances the flexibility and responsiveness of your tests|tasks, allowing them to adapt based on variables and outcomes encountered during execution.
 
 
-## 5.2.1.1 Basic IF Syntax
+### 5.2.1.1 Basic IF Syntax
 
 When certain keywords should be executed only if a condition is met, the IF statement can be used.
 
@@ -90,11 +94,15 @@ For single conditional keywords, the simplified inline IF statement can be used.
 
 ## 5.2.4 FOR Loops
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.2.4 Understand the purpose and basic concept of FOR Loops (K2)
+:::K2[LO-5.2.4]
+
+Understand the purpose and basic concept of FOR Loops
 
 :::
+
+::::
 
 The `FOR` loop in Robot Framework repeats a set of keywords multiple times, iterating over a sequence of values.
 This allows you to perform the same actions for different items without duplicating code, enhancing the efficiency and readability of your keyword logic.
@@ -111,7 +119,7 @@ The `FOR` loop begins with the `FOR` token, followed by a loop variable, the `IN
 The loop variable takes on each value in the sequence one at a time, executing the enclosed keywords for each value.
 
 
-## 5.2.4.1 Basic FOR Loop Syntax
+### 5.2.4.1 Basic FOR Loop Syntax
 
 When you need to execute the same keywords for each item in a list or sequence, you can use the FOR-IN loop.
 
@@ -154,11 +162,15 @@ When you need to execute the same keywords for each item in a list or sequence, 
 
 ## 5.2.5 WHILE Loops
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.2.5 Understand the purpose and basic concept of WHILE Loops (K2)
+:::K2[LO-5.2.5]
+
+Understand the purpose and basic concept of WHILE Loops
 
 :::
+
+::::
 
 While the `FOR` loop iterates over a known amount of values, `WHILE` loops repeat their body as long as a condition is met.
 This is typically used in cases where the number of iterations is not known in advance or depends on a dynamic condition.
@@ -197,11 +209,15 @@ This prevents infinite loops and ensures that tests|tasks do not hang indefinite
 
 ## 5.2.6 BREAK and CONTINUE
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-5.2.6 Understand the purpose and basic concept of the BREAK and CONTINUE statements (K2)
+:::K2[LO-5.2.6]
+
+Understand the purpose and basic concept of the BREAK and CONTINUE statements
 
 :::
+
+::::
 
 In some cases, it is helpful to stop a loop or skip the remaining part of a loop and continue with the next iteration.
 This can be achieved with the `BREAK` and `CONTINUE` statements.

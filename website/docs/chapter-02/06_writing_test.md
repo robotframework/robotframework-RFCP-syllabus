@@ -1,10 +1,14 @@
 # 2.6 Writing Test|Task and Calling Keywords
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.6 Understand how to call imported keywords and how to structure keyword calls. (K2)
+:::K2[LO-2.6]
+
+Understand how to call imported keywords and how to structure keyword calls.
 
 :::
+
+::::
 
 A typical test case or task is a sequence of keyword calls that are executed in a specific order.
 As learned before these keywords need to be imported into the suite or resource file before they can be used.
@@ -55,11 +59,15 @@ Mixed Named and Positional Arguments
 
 ## 2.6.1 Positional Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.6.1 Understand the concept of how to set argument values positionally. (K2)
+:::K2[LO-2.6.1]
+
+Understand the concept of how to set argument values positionally.
 
 :::
+
+::::
 
 When calling keywords, arguments can often be set positionally in the order they are defined in the keyword documentation.
 An exception to this are "Named-Only Arguments" and "Free Named Arguments" that can only be set by their name.
@@ -104,11 +112,15 @@ In the second test `Run Process With Arguments` the first given value `ping` is 
 
 ## 2.6.2 Named Arguments
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.6.2 Understand the concept of named arguments and how to set argument values by their name. (K2)
+:::K2[LO-2.6.2]
+
+Understand the concept of named arguments and how to set argument values by their name.
 
 :::
+
+::::
 
 Keyword Calls with non-obvious arguments should use named argument calls if possible.
 Also setting one optional argument but leaving the others at their default value is an indication to use named arguments.
@@ -133,11 +145,15 @@ The argument `first` does get the value `second=2` and the argument `second` doe
 
 ## 2.6.3 Embedded Arguments / Using Behavior-Driven Specification
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.6.3 Recall how to use embedded arguments. (K1)
+:::K1[LO-2.6.3]
+
+Recall how to use embedded arguments.
 
 :::
+
+::::
 
 Embedded Arguments are mostly used in Behavior-Driven Development (BDD) using Robot Frameworks Behavior-Driven Specification style.
 

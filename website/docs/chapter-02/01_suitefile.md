@@ -1,11 +1,15 @@
 
 # 2.1 Suite File & Tree Structure
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1 Understand which files and directories are considered suites and how they are structured in a suite tree. (K2)
+:::K2[LO-2.1]
+
+Understand which files and directories are considered suites and how they are structured in a suite tree.
 
 :::
+
+::::
 
 When executing Robot Framework, it either parses directory trees or files, depending on which paths are given.
 
@@ -57,11 +61,15 @@ Example:
 
 ## 2.1.1 Suite Files
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.1 Recall the conditions and requirements for a file to be considered a Suite file (K1)
+:::K1[LO-2.1.1]
+
+Recall the conditions and requirements for a file to be considered a Suite file
 
 :::
+
+::::
 
 Robot Framework parses files with the extension `.robot` and searches for test cases or tasks within these files.
 
@@ -73,11 +81,15 @@ A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*
 
 ## 2.1.2 Sections and Their Artifacts
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2 Recall the available sections in a suite file and their purpose. (K1)
+:::K1[LO-2.1.2]
+
+Recall the available sections in a suite file and their purpose.
 
 :::
+
+::::
 
 Robot Framework data files are defined in different sections.
 These sections are recognized by their header row.
@@ -93,14 +105,23 @@ The following sections are recognized by Robot Framework and are recommended to 
 The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are optional in suites and can be omitted if not needed.
 
 
-## 2.1.2.1 `*** Settings ***` Section
+### 2.1.2.1 `*** Settings ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2.1-1 Recall the available settings in a suite file. (K1)  
-LO-2.1.2.1-2 Understand the concepts of suite settings and how to define them. (K2)
+:::K1[LO-2.1.2.1-1]
+
+Recall the available settings in a suite file.
 
 :::
+
+:::K2[LO-2.1.2.1-2]
+
+Understand the concepts of suite settings and how to define them.
+
+:::
+
+::::
 
 This section is used to configure various aspects of the test|task suite.
 It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files (Not part of this syllabus) that are needed for execution in the containing tests|tasks.
@@ -128,13 +149,17 @@ Those settings are prefixed with either `Test` or `Task`, according to the type 
 Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The local setting appends or removes tags defined by the suite's default.
 
 
-## 2.1.2.2 `*** Variables ***` Section
+### 2.1.2.2 `*** Variables ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2.2 Recall the purpose of the `*** Variables ***` section. (K1)
+:::K1[LO-2.1.2.2]
+
+Recall the purpose of the `*** Variables ***` section.
 
 :::
+
+::::
 
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
@@ -146,13 +171,17 @@ In some cases, these variables are also dynamically reassigned during the execut
 See [3.2.2 `*** Variables ***` Section](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#322--variables--section) for more information about the `*** Variables ***` section.
 
 
-## 2.1.2.3 `*** Test Cases ***` or `*** Tasks ***` Section
+### 2.1.2.3 `*** Test Cases ***` or `*** Tasks ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2.3 Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. (K2)
+:::K2[LO-2.1.2.3]
+
+Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section.
 
 :::
+
+::::
 
 This section defines the executable elements of a suite.
 Test cases and tasks are technically synonyms for each other.
@@ -167,13 +196,17 @@ See [2.6 Writing Test|Task and Calling Keywords](../chapter-02/Chapter_2_Getting
 
 <!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
 
-## 2.1.2.4 `*** Keywords ***` Section
+### 2.1.2.4 `*** Keywords ***` Section
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-2.1.2.4 Understand the purpose and limitations of the `*** Keywords ***` section. (K2)
+:::K2[LO-2.1.2.4]
+
+Understand the purpose and limitations of the `*** Keywords ***` section.
 
 :::
+
+::::
 
 This section allows you to define **locally scoped user keywords** that can only be used within this suite where they are defined,
 while keywords defined in resource files can be used in any suite that imports these resource files.
@@ -192,7 +225,7 @@ ensuring that even large and intricate suites remain well-structured and easy to
 See [3.3.1 `*** Keywords ***` Section](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#331--keywords--section) for more information about the `*** Keywords ***` section.
 
 
-## 2.1.2.5 `*** Comments ***` Section
+### 2.1.2.5 `*** Comments ***` Section
 
 This section is used to add comments to the suite file or resource file.
 All content in this section is ignored by Robot Framework and is not executed or parsed.

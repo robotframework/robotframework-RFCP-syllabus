@@ -22,6 +22,10 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          admonitions: {
+            keywords: ['lo', 'K1', 'K2', 'K3', 'note', 'tip', 'info', 'warning', 'danger'],
+            extendDefaults: true,
+          },
           routeBasePath: '/docs',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
@@ -55,32 +59,32 @@ const config = {
             to: '/docs/overview',
             position: 'right',
           },
-          {
-            href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
-            label: 'User Guide',
-            position: 'right',
-          },
-          {
-            href: 'https://robotframework.org/robotframework/#standard-libraries',
-            label: 'Standard Library',
-            position: 'right',
-          },
-          {
-            href: 'https://robot-framework.readthedocs.io/en/stable/',
-            label: 'API Documentation',
-            position: 'right',
-          },
+          // {
+          //   href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
+          //   label: 'User Guide',
+          //   position: 'right',
+          // },
+          // {
+          //   href: 'https://robotframework.org/robotframework/#standard-libraries',
+          //   label: 'Standard Library',
+          //   position: 'right',
+          // },
+          // {
+          //   href: 'https://robot-framework.readthedocs.io/en/stable/',
+          //   label: 'API Documentation',
+          //   position: 'right',
+          // },
 
-          {
-            href: 'https://slack.robotframework.org/',
-            label: 'Slack',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/robotframework/robotframework-RFCP-syllabus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          // {
+          //   href: 'https://slack.robotframework.org/',
+          //   label: 'Slack',
+          //   position: 'right',
+          // },
+          // {
+          //   href: 'https://github.com/robotframework/robotframework-RFCP-syllabus',
+          //   label: 'GitHub',
+          //   position: 'right',
+          // },
         ],
       },
       footer: {
@@ -93,29 +97,29 @@ const config = {
                 label: 'Syllabus',
                 to: '/docs/overview',
               },
-              {
-                href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
-                label: 'User Guide',
-              },
-              {
-                href: 'https://robotframework.org/robotframework/#standard-libraries',
-                label: 'Standard Library',
-              },
-              {
-                href: 'https://robot-framework.readthedocs.io/en/stable/',
-                label: 'API Documentation',
-              },
+              // {
+              //   href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
+              //   label: 'User Guide',
+              // },
+              // {
+              //   href: 'https://robotframework.org/robotframework/#standard-libraries',
+              //   label: 'Standard Library',
+              // },
+              // {
+              //   href: 'https://robot-framework.readthedocs.io/en/stable/',
+              //   label: 'API Documentation',
+              // },
             ],
           },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/robotframework/robotframework-RFCP-syllabus',
-              },
-            ],
-          },
+          // {
+          //   title: 'More',
+          //   items: [
+          //     {
+          //       label: 'GitHub',
+          //       href: 'https://github.com/robotframework/robotframework-RFCP-syllabus',
+          //     },
+          //   ],
+          // },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Robot Framework Certified Professional® Syllabus Built with Docusaurus.`,
       },

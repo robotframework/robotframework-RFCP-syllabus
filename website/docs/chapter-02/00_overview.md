@@ -1,4 +1,4 @@
-# Overview
+# 2 Getting Started with Robot Framework
 
 This chapter introduces participants to the foundational concepts of Robot Framework.
 It covers the basics of how automation specifications are structured, how suites are organized, and the execution process.

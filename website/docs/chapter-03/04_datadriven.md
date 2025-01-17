@@ -1,22 +1,35 @@
 
 # 3.4 Data-Driven Specification
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.4 Understand the basic concept and syntax of Data-Driven Specification (K2)
+:::K2[LO-3.4]
+
+Understand the basic concept and syntax of Data-Driven Specification
 
 :::
+
+::::
 
 The **Data-Driven Specification** style in Robot Framework separates test|task logic from data, enabling tests|tasks to be executed with multiple data sets efficiently. This approach involves using a single higher-level keyword to represent the entire workflow, while the test data is defined as rows of input and expected output values.
 
 ## 3.4.1 Test|Task Templates
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.4.1-1 Understand how to define and use test|task templates (K2)  
-LO-3.4.1-2 Recall the differences between the two different approaches to define Data-Driven Specification (K1)
+:::K2[LO-3.4.1-1]
+
+Understand how to define and use test|task templates
 
 :::
+
+:::K1[LO-3.4.1-2]
+
+Recall the differences between the two different approaches to define Data-Driven Specification
+
+:::
+
+::::
 
 For each test|task, a template keyword can be defined that contains the workflow logic.
 
@@ -29,13 +42,17 @@ The tests|tasks would not have any other keyword calls but would instead define 
 `Test Setup`|`Test Teardown` and `Task Setup`|`Task Teardown` can be used together with templates.
 
 
-## 3.4.1.1 Multiple Named Test|Task With One Template
+### 3.4.1.1 Multiple Named Test|Task With One Template
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.4.1.1 Recall the syntax and properties of multiple named test|task with one template (K1)
+:::K1[LO-3.4.1.1]
+
+Recall the syntax and properties of multiple named test|task with one template
 
 :::
+
+::::
 
 The following example has six different test|task, each with different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
 
@@ -61,13 +78,17 @@ Single tests|tasks can be filtered and re-executed or tagged.
 It is possible to add header names to the data columns in the line of `*** Test Cases ***` or `*** Tasks ***` to describe the data columns to improve readability.
 
 
-## 3.4.1.2 Named Test|Task With Multiple Data Rows:
+### 3.4.1.2 Named Test|Task With Multiple Data Rows:
 
-:::tip Learning Objective
+::::lo[Learning Objectives]
 
-LO-3.4.1.2 Recall the syntax and properties of named test|task with multiple data rows (K1)
+:::K1[LO-3.4.1.2]
+
+Recall the syntax and properties of named test|task with multiple data rows
 
 :::
+
+::::
 
 A slightly different approach is to define multiple data rows for a single test|task.
 
