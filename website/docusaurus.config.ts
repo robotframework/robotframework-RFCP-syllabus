@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const config = {
   title: 'Robot Framework Certified Professional® Syllabus',
   tagline: 'The foundation for the "Robot Framework Certified Professional®" (RFCP) exam and training',
-  url: 'https://syllabus.robotframework.org',
-  baseUrl: '/',
+  url: 'https://robotframework.org',
+  baseUrl: '/robotframework-RFCP-syllabus/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/rf_favicon.png',
