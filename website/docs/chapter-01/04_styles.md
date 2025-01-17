@@ -166,6 +166,6 @@ Robot Framework offers a convenient feature for this approach through **Test Tem
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
 - **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
 
-See [3.4 Data-Driven Specification](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#34-data-driven-specification) for more details and examples on Data-Driven Specification.
+See [3.4 Data-Driven Specification](chapter-03/04_datadriven.md#34-data-driven-specification) for more details and examples on Data-Driven Specification.
 
 

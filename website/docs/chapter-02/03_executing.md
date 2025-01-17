@@ -167,7 +167,7 @@ Understand when an element is marked as `FAIL`.
 This status is used if an element was executed but encountered an error or exception that was not expected.
 
 A failure typically causes the subsequent keywords to be skipped.
-Exceptions are Teardowns explained in chapter [Advanced Structureing and Execition](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md).
+Exceptions are Teardowns explained in chapter [4 Advanced Structuring and Execution](chapter-04/00_overview.md#4-advanced-structuring-and-execution).
 
 **Atomic elements** are `FAIL` if they were tried to be executed but raised an exception.
 

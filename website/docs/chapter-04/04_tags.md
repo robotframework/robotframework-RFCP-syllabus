@@ -115,7 +115,7 @@ robot --exclude slow path/to/tests
 
 This command will execute all tests|tasks except those that have the `slow` tag.
 The excluded tests|tasks will not be executed or logged at all.
-Use `--skip` to not execute tests|tasks but include them in the logs as skipped. See [4.5.1 Skipping By Tags Selection (CLI)](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md#451-skipping-by-tags-selection-cli) for more information.
+Use `--skip` to not execute tests|tasks but include them in the logs as skipped. See [4.5.1 Skipping By Tags Selection (CLI)](chapter-04/05_skip.md#451-skipping-by-tags-selection-cli) for more information.
 
 
 ### 4.4.2.3 Combining Include and Exclude Options

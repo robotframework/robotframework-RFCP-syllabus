@@ -17,8 +17,8 @@ is indentation-based similar to the `*** Test Cases ***` section.
 The user keywords defined are unindented, while their body implementation is indented by multiple spaces.
 
 See these sections for more details about
-[2.2 Basic Suite File Syntax](../chapter-02/Chapter_2_Getting_Started.md#22-basic-suite-file-syntax)
-and [2.6 Writing Test|Task and Calling Keywords](../chapter-02/Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords).
+[2.2 Basic Suite File Syntax](chapter-02/02_suitefile_syntax.md#22-basic-suite-file-syntax)
+and [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md#26-writing-testtask-and-calling-keywords).
 
 This section can be part of suites or resource files.
 While keywords defined in suites can solely be used in the suite they are defined in,
@@ -36,7 +36,7 @@ Verify Valid Login
     Should Be Equal    ${name}    ${exp_full_name}
 ```
 
-As a reference for how defined keywords are documented, see [2.5 Keyword Interface and Documentation](../chapter-02/Chapter_2_Getting_Started.md#25-keyword-interface-and-documentation).
+As a reference for how defined keywords are documented, see [2.5 Keyword Interface and Documentation](chapter-02/05_keyword_interface.md#25-keyword-interface-and-documentation).
 
 
 
@@ -90,9 +90,9 @@ User keywords can have similar settings as test cases,
 and they have the same square bracket syntax separating them from keyword calls.
 All available settings are listed below and explained in this section or in sections linked below.
 
-- `[Documentation]` Used for setting user keyword documentation. (see [3.3.4 User Keyword Documentation](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#334-user-keyword-documentation))
-- `[Arguments]` Specifies user keyword arguments to hand over values to the keyword. (see [3.3.5 User Keyword Arguments](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#335-user-keyword-arguments))
-- `[Setup]`, `[Teardown]` Specify user keyword setup and teardown. (see [4.2 Teardowns (Suite, Test|Task, Keyword)](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md#42-teardowns-suite-testtask-keyword))
+- `[Documentation]` Used for setting user keyword documentation. (see [3.3.4 User Keyword Documentation](chapter-03/03_user_keyword.md#334-user-keyword-documentation))
+- `[Arguments]` Specifies user keyword arguments to hand over values to the keyword. (see [3.3.5 User Keyword Arguments](chapter-03/03_user_keyword.md#335-user-keyword-arguments))
+- `[Setup]`, `[Teardown]` Specify user keyword setup and teardown. (see [4.2 Teardowns (Suite, Test|Task, Keyword)](chapter-04/02_teardowns.md#42-teardowns-suite-testtask-keyword))
 - `[Tags]` (*) Sets tags for the keyword, which can be used for filtering in documentation and attribution for post-processing results.
 - `[Timeout]` (*) Sets the possible user keyword timeout.
 - `[Return]` (*) Deprecated.
@@ -152,11 +152,11 @@ Understand the purpose and syntax of the [Arguments] setting in User Keywords.
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
 
-See also Chapter 2 [2.5.2 Keyword Arguments](../chapter-02/Chapter_2_Getting_Started.md#252-keyword-arguments) for an introduction to argument kinds.
+See also Chapter 2 [2.5.2 Keyword Arguments](chapter-02/05_keyword_interface.md#252-keyword-arguments) for an introduction to argument kinds.
 
 Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of scalar variables.
 
-Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [2.5.2.8 Argument Types](../chapter-02/Chapter_2_Getting_Started.md#2528-argument-types) section.
+Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [2.5.2.8 Argument Types](chapter-02/05_keyword_interface.md#2528-argument-types) section.
 
 
 ### 3.3.5.1 Defining Mandatory Arguments

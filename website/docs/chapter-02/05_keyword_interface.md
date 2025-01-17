@@ -75,10 +75,10 @@ The latter two arguments are optional.
 
 The argument `arguments` is a "Variable Number of Positional Arguments" and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
-See [2.5.2.5 Variable Number of Positional Arguments](../chapter-02/Chapter_2_Getting_Started.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
+See [2.5.2.5 Variable Number of Positional Arguments](chapter-02/05_keyword_interface.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
 The argument `configuration` is a "Free Named Argument" and can only be set by names.
-See [2.5.2.7 Free Named Arguments](../chapter-02/Chapter_2_Getting_Started.md#2527-free-named-arguments) for more information about this kind of argument.
+See [2.5.2.7 Free Named Arguments](chapter-02/05_keyword_interface.md#2527-free-named-arguments) for more information about this kind of argument.
 
 
 ### 2.5.1.3 Example Keyword `Get Regexp Matches`
@@ -94,10 +94,10 @@ The last two arguments are optional.
 
 The argument `groups` is a "Variable Number of Positional Arguments" and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
-See [2.5.2.5 Variable Number of Positional Arguments](../chapter-02/Chapter_2_Getting_Started.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
+See [2.5.2.5 Variable Number of Positional Arguments](chapter-02/05_keyword_interface.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
 The argument `flags` is a "Named-Only Argument" and can only be set by name.
-See [2.5.2.6 Named-Only Arguments](../chapter-02/Chapter_2_Getting_Started.md#2526-named-only-arguments) for more information about this kind of argument.
+See [2.5.2.6 Named-Only Arguments](chapter-02/05_keyword_interface.md#2526-named-only-arguments) for more information about this kind of argument.
 
 
 ## 2.5.2 Keyword Arguments
@@ -119,7 +119,7 @@ Keyword arguments can be grouped into different argument kinds.
 On the one hand you can group them by their definition attributes and on the other hand by their usage kind.
 
 The relevant distinction of usage kinds is between using **Positional Arguments**, **Named Arguments**, or **Embedded Arguments**.
-How to use them is described in [2.6 Writing Test|Task and Calling Keywords](../chapter-02/Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords).
+How to use them is described in [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md#26-writing-testtask-and-calling-keywords).
 
 Another important information is if an argument is mandatory or optional.
 See the next two sections for more information about these two kinds of arguments.
@@ -195,7 +195,7 @@ i.e. the argument `msg` in the `Should Be Equal` keyword documentation has the d
 
 In that particular keyword these optional arguments can be used to activate some special features like ignoring the case of the compared strings or to provide a custom error message.
 
-Omitting some optional arguments but still using others is possible independent of their order by setting these arguments by their name. See [2.6 Writing Test|Task and Calling Keywords](../chapter-02/Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords).
+Omitting some optional arguments but still using others is possible independent of their order by setting these arguments by their name. See [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md#26-writing-testtask-and-calling-keywords).
 
 
 
@@ -277,7 +277,7 @@ A special case of optional arguments that can only be set by their position are 
 These are also referred to as `*args` or `*varargs` in Python.
 Some keywords need to collect a variable amount of values into one argument, because it is not possible to define the amount of values in advance.
 
-One example for this kind of keyword is [2.5.1.2 Example Keyword `Run Process`](../chapter-02/Chapter_2_Getting_Started.md#2512-example-keyword-run-process) from the Process library.
+One example for this kind of keyword is [2.5.1.2 Example Keyword `Run Process`](chapter-02/05_keyword_interface.md#2512-example-keyword-run-process) from the Process library.
 This keyword executes a `command` with variable amount of `arguments` and waits for the process to finish.
 Depending on the command to be executed different amount of arguments are needed for that command.
 
@@ -285,7 +285,7 @@ This variable argument is marked with a single asterisk `*` before the argument 
 
 When calling this keyword, the first positional argument is assigned to `command`, while all subsequent positional arguments are collected into the `arguments`. Because of this behavior, no additional positional arguments can be used after these "Variable Number of Positional Arguments". As a result, any arguments following these "Variable Number of Positional Arguments" must be named arguments, regardless of whether they are mandatory or optional with default.
 
-Also see [2.5.1.3 Example Keyword `Get Regexp Matches`](../chapter-02/Chapter_2_Getting_Started.md#2513-example-keyword-get-regexp-matches).
+Also see [2.5.1.3 Example Keyword `Get Regexp Matches`](chapter-02/05_keyword_interface.md#2513-example-keyword-get-regexp-matches).
 
 
 ### 2.5.2.6 Named-Only Arguments

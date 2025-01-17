@@ -43,7 +43,7 @@ To import a library into a suite or resource file the `Library` setting is used 
 The name of the library is case-sensitive and should be taken from the library's keyword documentation.
 By default, libraries in Robot Framework are implemented in Python and the name of the library is the name of the Python module that contains the library implementation.
 
-Alternatively, if a library is not in Python module search path, a library can be imported using the path to the Python module. See [2.4.3 Import Paths](../chapter-02/Chapter_2_Getting_Started.md#243-import-paths).
+Alternatively, if a library is not in Python module search path, a library can be imported using the path to the Python module. See [2.4.3 Import Paths](chapter-02/04_keyword_imports.md#243-import-paths).
 
 Be aware that the library [`BuiltIn`](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html) is always imported invisibly and does not need to be imported explicitly.
 
@@ -81,13 +81,13 @@ Use resource files to import new keywords.
 As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
 
 They share a similar structure and the same syntax as suite files, but they do not contain test cases or tasks.
-See [2.2 Basic Suite File Syntax](../chapter-02/Chapter_2_Getting_Started.md#22-basic-suite-file-syntax) for more information about the structure of suite files.
+See [2.2 Basic Suite File Syntax](chapter-02/02_suitefile_syntax.md#22-basic-suite-file-syntax) for more information about the structure of suite files.
 
 They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Same counts for variables that are defined and imported from other resource files.
 Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
 
 To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
-See [2.4.3 Import Paths](../chapter-02/Chapter_2_Getting_Started.md#243-import-paths) for more information about the path to the resource file.
+See [2.4.3 Import Paths](chapter-02/04_keyword_imports.md#243-import-paths) for more information about the path to the resource file.
 
 Resource files shall have the extension `.resource` to make it clear what they are.
 `.resource` and `.robot` extensions are also recognized by IDE extensions, supporting Robot Framework.
@@ -100,7 +100,7 @@ Resource    D:/keywords/central_keywords.resource
 ```
 
 See more about the structure of resource files in
-[3.1 Resource File Structure](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#31-resource-file-structure)
+[3.1 Resource File Structure](chapter-03/01_resource_file.md#31-resource-file-structure)
 and how keywords and variables are created in the sections following that.
 
 

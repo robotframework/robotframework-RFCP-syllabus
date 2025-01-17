@@ -189,7 +189,7 @@ if a specific character shall be interpreted as part of the value or as a contro
 
 Some examples are:
 - the `#` hash character that is used to start a comment as described above.
-- variables that are started by i.e. `${` (See [3.2 Variables](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#32-variables))
+- variables that are started by i.e. `${` (See [3.2 Variables](chapter-03/02_variables.md#32-variables))
 - multiple spaces that are considered as separators
 - equal sign `=` that is used to assign named arguments to keywords
 

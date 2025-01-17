@@ -62,9 +62,9 @@ This structure and mission ensure that Robot Framework continues to grow and ser
 
 ::::lo[Learning Objectives]
 
-:::K1[LO-1.5.2]
+:::K1[LO-1.5.3]
 
-List and recall the key objectives and organizational form of the Robot Framework Foundation
+Recall the official webpages for Robot Framework and its resources
 
 :::
 

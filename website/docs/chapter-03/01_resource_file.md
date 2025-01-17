@@ -3,7 +3,7 @@
 
 Resource Files in Robot Framework are used to store reusable keywords,
 variables, and organize imports of other resource files and libraries.
-See [2.4.2 Resource Files](../chapter-02/Chapter_2_Getting_Started.md#242-resource-files) for an introduction to Resource Files.
+See [2.4.2 Resource Files](chapter-02/04_keyword_imports.md#242-resource-files) for an introduction to Resource Files.
 
 Resource Files are typically used in many suites to share common keywords and variables across different tests|tasks.
 Therefore, they should be designed to be modular, reusable, and maintainable.
@@ -24,13 +24,13 @@ it is first searched relatively to
 the directory where the importing file is located.
 If the file is not found there, it is then searched from the
 directories in Python's module search path.
-See [2.4.3 Import Paths](../chapter-02/Chapter_2_Getting_Started.md#243-import-paths) for more details.
+See [2.4.3 Import Paths](chapter-02/04_keyword_imports.md#243-import-paths) for more details.
 
 
 
 ## 3.1.1 Sections in Resource Files
 
-See [2.1.2 Sections and Their Artifacts](../chapter-02/Chapter_2_Getting_Started.md#212-sections-and-their-artifacts) for an introduction to sections in suites.
+See [2.1.2 Sections and Their Artifacts](chapter-02/01_suitefile.md#212-sections-and-their-artifacts) for an introduction to sections in suites.
 
 Other than in suites, resource files do not allow the `*** Test Cases ***` or `*** Tasks ***` sections.
 
@@ -53,11 +53,11 @@ The allowed sections in recommended order are:
 
 - `*** Variables ***` to define variables.
 
-  See [3.2.2 `*** Variables ***` Section](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#322--variables--section) for more details about defining variables in resource files.
+  See [3.2.2 `*** Variables ***` Section](chapter-03/02_variables.md#322--variables--section) for more details about defining variables in resource files.
   Other than in suites these variables can be used outside this resource file, if it is imported in another file.
 - `*** Keywords ***` to define user keywords.
 
-  See [3.3.1 `*** Keywords ***` Section](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#331--keywords--section) for more details about defining keywords in resource files.
+  See [3.3.1 `*** Keywords ***` Section](chapter-03/03_user_keyword.md#331--keywords--section) for more details about defining keywords in resource files.
   Other than in suites these keywords can be used outside this resource file, if it is imported in another file.
 
 - `*** Comments ***` is used to store comments and is ignored and not parsed by Robot Framework. (same as in suites)

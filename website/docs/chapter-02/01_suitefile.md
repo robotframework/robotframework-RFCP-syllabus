@@ -130,19 +130,19 @@ In this section, the suite name, that is normally derived from the file name, ca
 
 Additional metadata can be defined by multiple `Metadata` entries, which can containd key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
 
-This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [4.1 Setups (Suite, Test|Task, Keyword)](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md#41-setups-suite-testtask-keyword) and
-[4.2 Teardowns (Suite, Test|Task, Keyword)](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md#42-teardowns-suite-testtask-keyword) for more information.
+This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [4.1 Setups (Suite, Test|Task, Keyword)](chapter-04/01_setups.md#41-setups-suite-testtask-keyword) and
+[4.2 Teardowns (Suite, Test|Task, Keyword)](chapter-04/02_teardowns.md#42-teardowns-suite-testtask-keyword) for more information.
 
 Additionally, some settings can define defaults for all tests|tasks in the suite, which can be extended or overwritten in the individual tests|tasks.
 Those settings are prefixed with either `Test` or `Task`, according to the type of suite and the following section type (`*** Test Cases ***` or `*** Tasks ***`), like `Test Timeout`, while the local setting is in square brackets and without the prefix like: `[Timeout]`.
 
 
-- `Test Setup`/`Task Setup` (locally: `[Setup]`) and `Test Teardown`/`Task Teardown` (locally `[Teardown]`) define which keywords are executed before and after each individual test|task. The local setting overrides the suite's default. See [4.1 Setups (Suite, Test|Task, Keyword)](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md#41-setups-suite-testtask-keyword) and
-[4.2 Teardowns (Suite, Test|Task, Keyword)](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md#42-teardowns-suite-testtask-keyword) for more information.
+- `Test Setup`/`Task Setup` (locally: `[Setup]`) and `Test Teardown`/`Task Teardown` (locally `[Teardown]`) define which keywords are executed before and after each individual test|task. The local setting overrides the suite's default. See [4.1 Setups (Suite, Test|Task, Keyword)](chapter-04/01_setups.md#41-setups-suite-testtask-keyword) and
+[4.2 Teardowns (Suite, Test|Task, Keyword)](chapter-04/02_teardowns.md#42-teardowns-suite-testtask-keyword) for more information.
 
 - `Test Timeout`/`Task Timeout` (locally `[Timeout]`) defines the maximum time a test|task is allowed to run before it is marked as failed. The local setting overrides the suite's default.
 
-- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks. The local setting appends or removes tags defined by the suite's default. See [4.4 Test|Task Tags and Filtering Execution](../chapter-04/Chapter_4_Advanced_Structuring_and_Execution.md#44-testtask-tags-and-filtering-execution) for more information.
+- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks. The local setting appends or removes tags defined by the suite's default. See [4.4 Test|Task Tags and Filtering Execution](chapter-04/04_tags.md#44-testtask-tags-and-filtering-execution) for more information.
 
 - `Test Template`/`Task Template` (locally `[Template]`) defines a template keyword that defines the test|task body and is typically used for Data-Driven Testing where each test has the same keywords but different argument data. The local setting overrides the suite's default.
 
@@ -168,7 +168,7 @@ This can either be a default value, that may be overwritten by globally defined 
 
 In some cases, these variables are also dynamically reassigned during the execution of the suite, but this is not recommended and should be avoided if possible, because this may lead to test|task runtime dependancies and errors caused by these side-effects that are hard to debug and find.
 
-See [3.2.2 `*** Variables ***` Section](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#322--variables--section) for more information about the `*** Variables ***` section.
+See [3.2.2 `*** Variables ***` Section](chapter-03/02_variables.md#322--variables--section) for more information about the `*** Variables ***` section.
 
 
 ### 2.1.2.3 `*** Test Cases ***` or `*** Tasks ***` Section
@@ -192,7 +192,7 @@ These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be app
 
 One kind of this section is mandatory in suite files but is not allowed in resource files.
 
-See [2.6 Writing Test|Task and Calling Keywords](../chapter-02/Chapter_2_Getting_Started.md#26-writing-testtask-and-calling-keywords) for more information about the `*** Test Cases ***` or `*** Tasks ***` section.
+See [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md#26-writing-testtask-and-calling-keywords) for more information about the `*** Test Cases ***` or `*** Tasks ***` section.
 
 <!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
 
@@ -222,7 +222,7 @@ and understandable by breaking down complex sequences into smaller, manageable p
 Defining keywords locally in this section enhances the maintainability of the tests|tasks within the suite,
 ensuring that even large and intricate suites remain well-structured and easy to manage.
 
-See [3.3.1 `*** Keywords ***` Section](../chapter-03/Chapter_3_Keyword_Design_Variables_Resources.md#331--keywords--section) for more information about the `*** Keywords ***` section.
+See [3.3.1 `*** Keywords ***` Section](chapter-03/03_user_keyword.md#331--keywords--section) for more information about the `*** Keywords ***` section.
 
 
 ### 2.1.2.5 `*** Comments ***` Section
