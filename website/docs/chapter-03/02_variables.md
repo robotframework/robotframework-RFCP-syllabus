@@ -79,7 +79,7 @@ When creating variables, different syntax is used to define the type of the vari
 but when accessing the variable, the scalar variable syntax with a dollar sign `$` as the prefix is used in most cases.
 More details about list-like and dictionary-like variables,
 and when to use `@` or `&` when accessing these variables,
-can be found in the [5.1 Advanced Variables](chapter-05/01_advanced_variables.md#51-advanced-variables) chapter.
+can be found in the [5.1 Advanced Variables](chapter-05/01_advanced_variables.md) chapter.
 
 
 
@@ -120,7 +120,7 @@ Variables created in this section:
 - have a **suite scope** in the suite created or imported to.
 
 Because two or more spaces are used to separate elements in a row,
-all values are stripped of leading and trailing spaces, identical to arguments of keyword calls (see [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md#26-writing-testtask-and-calling-keywords)). See [2.2.4 Escaping of Control Characters](chapter-02/02_suitefile_syntax.md#224-escaping-of-control-characters) to be able to define these spaces.
+all values are stripped of leading and trailing spaces, identical to arguments of keyword calls (see [2.2.4 Escaping of Control Characters](chapter-02/02_suitefile_syntax.md#224-escaping-of-control-characters) to be able to define these spaces.
 
 Variable values in Robot Framework can include other variables, and their values will be concatenated at runtime when the line is executed.
 This means that when a variable is used within another variable's value, the final value is resolved by replacing the variables with their actual content during execution.

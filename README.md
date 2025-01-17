@@ -1,20 +1,20 @@
 # Table of Contents
 
-- [`1 Introduction to Robot Framework`](chapter-01/00_overview.md#1-introduction-to-robot-framework)
-- [`1.1 Purpose / Use Cases`](chapter-01/01_purpose.md#11-purpose--use-cases)
+- [`1 Introduction to Robot Framework`](chapter-01/00_overview.md)
+- [`1.1 Purpose / Use Cases`](chapter-01/01_purpose.md)
 - LO-1.1 (K1) Recall the two main use cases of Robot Framework
 - [`1.1.1 Test Automation`](chapter-01/01_purpose.md#111-test-automation)
   - LO-1.1.1 (K1) recall the test levels Robot Framework is mostly used for
   - [`1.1.1.1 Synthetic Monitoring`](chapter-01/01_purpose.md#1111-synthetic-monitoring)
 - [`1.1.2 Robotic Process Automation (RPA)`](chapter-01/01_purpose.md#112-robotic-process-automation-rpa)
-- [`1.2 Architecture of Robot Framework`](chapter-01/02_architecture.md#12-architecture-of-robot-framework)
+- [`1.2 Architecture of Robot Framework`](chapter-01/02_architecture.md)
 - [`1.2.1 Robot Framework and the gTAA (Generic Test Automation Architecture)`](chapter-01/02_architecture.md#121-robot-framework-and-the-gtaa-generic-test-automation-architecture)
   - LO-1.2.1 (K1) Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework
 - [`1.2.2 What is Robot Framework & What It Is Not`](chapter-01/02_architecture.md#122-what-is-robot-framework--what-it-is-not)
   - LO-1.2.2 (K1) Recall what is part of Robot Framework and what is not
 - [`1.2.3 Technology & Prerequisites`](chapter-01/02_architecture.md#123-technology--prerequisites)
   - LO-1.2.3 (K1) Recall the technology Robot Framework is built on and the prerequisites for running it
-- [`1.3 Basic Syntax & Structure`](chapter-01/03_syntax.md#13-basic-syntax--structure)
+- [`1.3 Basic Syntax & Structure`](chapter-01/03_syntax.md)
 - LO-1.3 (K1) Recall the key attributes of the syntax that makes Robot Framework simple and human-readable
 - [`1.3.1 What are Test Cases / Tasks?`](chapter-01/03_syntax.md#131-what-are-test-cases--tasks)
 - [`1.3.2 Files & Directories`](chapter-01/03_syntax.md#132-files--directories)
@@ -22,7 +22,7 @@
   - LO-1.3.3 (K2) Explain the difference between User Keywords and Library Keywords
 - [`1.3.4 Resource Files & Libraries`](chapter-01/03_syntax.md#134-resource-files--libraries)
   - LO-1.3.4 (K1) Recall the difference between Resource Files and Libraries and their artefacts
-- [`1.4 Specification Styles`](chapter-01/04_styles.md#14-specification-styles)
+- [`1.4 Specification Styles`](chapter-01/04_styles.md)
 - LO-1.4 (K1) Recall the three specification styles of Robot Framework
 - [`1.4.1 Keyword-Driven Specification`](chapter-01/04_styles.md#141-keyword-driven-specification)
   - LO-1.4.1 (K2) Understand the basic concepts of Keyword-Driven Specification
@@ -32,31 +32,31 @@
   - LO-1.4.3 (K1) Recall the differences between Keyword-Driven and Behavior-Driven Specification
 - [`1.4.4 Data-Driven Specification`](chapter-01/04_styles.md#144-data-driven-specification)
   - LO-1.4.4 (K1) Recall the purpose of Data-Driven Specification
-- [`1.5 Organization and Licensing`](chapter-01/05_organization.md#15-organization-and-licensing)
+- [`1.5 Organization and Licensing`](chapter-01/05_organization.md)
 - [`1.5.1 Open Source License`](chapter-01/05_organization.md#151-open-source-license)
   - LO-1.5.1 (K1) Recall the type of open-source license under which Robot Framework is distributed
 - [`1.5.2 About the Robot Framework Foundation`](chapter-01/05_organization.md#152-about-the-robot-framework-foundation)
   - LO-1.5.2 (K1) List and recall the key objectives and organizational form of the Robot Framework Foundation
 - [`1.5.3 Robot Framework Webpages`](chapter-01/05_organization.md#153-robot-framework-webpages)
   - LO-1.5.3 (K1) Recall the official webpages for Robot Framework and its resources
-- [`2 Getting Started with Robot Framework`](chapter-02/00_overview.md#2-getting-started-with-robot-framework)
-- [`2.1 Suite File & Tree Structure`](chapter-02/01_suitefile.md#21-suite-file--tree-structure)
+- [`2 Getting Started with Robot Framework`](chapter-02/00_overview.md)
+- [`2.1 Suite File & Tree Structure`](chapter-02/01_suitefile.md)
 - LO-2.1 (K2) Understand which files and directories are considered suites and how they are structured in a suite tree.
 - [`2.1.1 Suite Files`](chapter-02/01_suitefile.md#211-suite-files)
   - LO-2.1.1 (K1) Recall the conditions and requirements for a file to be considered a Suite file
 - [`2.1.2 Sections and Their Artifacts`](chapter-02/01_suitefile.md#212-sections-and-their-artifacts)
   - LO-2.1.2 (K1) Recall the available sections in a suite file and their purpose.
-  - [`2.1.2.1 `*** Settings ***` Section`](chapter-02/01_suitefile.md#2121--settings--section)
+  - [`2.1.2.1 Introduction in `*** Settings ***` Section`](chapter-02/01_suitefile.md#2121-introduction-in--settings--section)
     - LO-2.1.2.1-1 (K1) Recall the available settings in a suite file.
     - LO-2.1.2.1-2 (K2) Understand the concepts of suite settings and how to define them.
-  - [`2.1.2.2 `*** Variables ***` Section`](chapter-02/01_suitefile.md#2122--variables--section)
+  - [`2.1.2.2 Introduction in `*** Variables ***` Section`](chapter-02/01_suitefile.md#2122-introduction-in--variables--section)
     - LO-2.1.2.2 (K1) Recall the purpose of the `*** Variables ***` section.
-  - [`2.1.2.3 `*** Test Cases ***` or `*** Tasks ***` Section`](chapter-02/01_suitefile.md#2123--test-cases--or--tasks--section)
+  - [`2.1.2.3 Introduction in `*** Test Cases ***` or `*** Tasks ***` Section`](chapter-02/01_suitefile.md#2123-introduction-in--test-cases--or--tasks--section)
     - LO-2.1.2.3 (K2) Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section.
-  - [`2.1.2.4 `*** Keywords ***` Section`](chapter-02/01_suitefile.md#2124--keywords--section)
+  - [`2.1.2.4 Introduction in `*** Keywords ***` Section`](chapter-02/01_suitefile.md#2124-introduction-in--keywords--section)
     - LO-2.1.2.4 (K2) Understand the purpose and limitations of the `*** Keywords ***` section.
-  - [`2.1.2.5 `*** Comments ***` Section`](chapter-02/01_suitefile.md#2125--comments--section)
-- [`2.2 Basic Suite File Syntax`](chapter-02/02_suitefile_syntax.md#22-basic-suite-file-syntax)
+  - [`2.1.2.5 Introduction in `*** Comments ***` Section`](chapter-02/01_suitefile.md#2125-introduction-in--comments--section)
+- [`2.2 Basic Suite File Syntax`](chapter-02/02_suitefile_syntax.md)
 - LO-2.2 (K2) Understand the basic syntax of test cases and tasks.
 - [`2.2.1 Separation and Indentation`](chapter-02/02_suitefile_syntax.md#221-separation-and-indentation)
   - LO-2.2.1 (K3) Understand and apply the mechanics of indentation and separation in Robot Framework.
@@ -68,7 +68,7 @@
   - LO-2.2.4 (K2) Understand how to escape control characters in Robot Framework.
 - [`2.2.5 Example Suite File`](chapter-02/02_suitefile_syntax.md#225-example-suite-file)
   - LO-2.2.5 (K2) Understand the structure of a basic suite file.
-- [`2.3 Executing Robot`](chapter-02/03_executing.md#23-executing-robot)
+- [`2.3 Executing Robot`](chapter-02/03_executing.md)
 - LO-2.3 (K1) Recall the three components of the Robot Framework CLI.
 - [`2.3.1 `robot` command & help`](chapter-02/03_executing.md#231-robot-command--help)
   - LO-2.3.1 (K2) Understand how to run the `robot` command and its basic usage.
@@ -82,7 +82,7 @@
     - LO-2.3.3.2 (K2) Understand when an element is marked as `FAIL`.
 - [`2.3.4 Logging possibilities (Log vs Console)`](chapter-02/03_executing.md#234-logging-possibilities-log-vs-console)
   - LO-2.3.4 (K2) Understand the difference between log messages and console output.
-- [`2.4 Keyword Imports`](chapter-02/04_keyword_imports.md#24-keyword-imports)
+- [`2.4 Keyword Imports`](chapter-02/04_keyword_imports.md)
 - [`2.4.1 Libraries`](chapter-02/04_keyword_imports.md#241-libraries)
   - LO-2.4.1-1 (K1) Recall the purpose of keyword libraries and how to import them.
   - LO-2.4.1-2 (K1) Recall the three types of libraries in Robot Framework.
@@ -91,7 +91,7 @@
   - LO-2.4.2-2 (K3) Use resource files to import new keywords.
 - [`2.4.3 Import Paths`](chapter-02/04_keyword_imports.md#243-import-paths)
   - LO-2.4.3 (K2) Understand the different types of paths that can be used to import libraries and resource files.
-- [`2.5 Keyword Interface and Documentation`](chapter-02/05_keyword_interface.md#25-keyword-interface-and-documentation)
+- [`2.5 Keyword Interface and Documentation`](chapter-02/05_keyword_interface.md)
 - LO-2.5 (K2) Understand the structure of keyword interfaces and how to interpret keyword documentation.
 - [`2.5.1 Documented Keyword Information`](chapter-02/05_keyword_interface.md#251-documented-keyword-information)
   - LO-2.5.1 (K1) Recall the information that can be found in a keyword documentation.
@@ -120,7 +120,7 @@
     - LO-2.5.2.9 (K2) Understand the concept of return type hints.
 - [`2.5.3 Keyword Documentation & Examples`](chapter-02/05_keyword_interface.md#253-keyword-documentation--examples)
   - LO-2.5.3 (K2) Understand how to read keyword documentation and how to interpret the examples.
-- [`2.6 Writing Test|Task and Calling Keywords`](chapter-02/06_writing_test.md#26-writing-testtask-and-calling-keywords)
+- [`2.6 Writing Test|Task and Calling Keywords`](chapter-02/06_writing_test.md)
 - LO-2.6 (K2) Understand how to call imported keywords and how to structure keyword calls.
 - [`2.6.1 Positional Arguments`](chapter-02/06_writing_test.md#261-positional-arguments)
   - LO-2.6.1 (K2) Understand the concept of how to set argument values positionally.
@@ -128,10 +128,10 @@
   - LO-2.6.2 (K2) Understand the concept of named arguments and how to set argument values by their name.
 - [`2.6.3 Embedded Arguments / Using Behavior-Driven Specification`](chapter-02/06_writing_test.md#263-embedded-arguments--using-behavior-driven-specification)
   - LO-2.6.3 (K1) Recall how to use embedded arguments.
-- [`3 Keyword Design, Variables, and Resource Files`](chapter-03/00_overview.md#3-keyword-design-variables-and-resource-files)
-- [`3.1 Resource File Structure`](chapter-03/01_resource_file.md#31-resource-file-structure)
+- [`3 Keyword Design, Variables, and Resource Files`](chapter-03/00_overview.md)
+- [`3.1 Resource File Structure`](chapter-03/01_resource_file.md)
 - [`3.1.1 Sections in Resource Files`](chapter-03/01_resource_file.md#311-sections-in-resource-files)
-- [`3.2 Variables`](chapter-03/02_variables.md#32-variables)
+- [`3.2 Variables`](chapter-03/02_variables.md)
 - LO-3.2-1 (K2) Understand how variables in Robot Framework are used to store and manage data
 - LO-3.2-2 (K1) Recall the relevant five different ways to create and assign variables
 - [`3.2.1 Variable Syntax and Access Types`](chapter-03/02_variables.md#321-variable-syntax-and-access-types)
@@ -156,7 +156,7 @@
   - LO-3.2.4 (K2) Understand how to create variables using the VAR statement
 - [`3.2.5 Variable Scope Introduction`](chapter-03/02_variables.md#325-variable-scope-introduction)
   - LO-3.2.5 (K2) Understand how `local` and `suite` scope variables are created
-- [`3.3 User Keyword Definition & Arguments`](chapter-03/03_user_keyword.md#33-user-keyword-definition--arguments)
+- [`3.3 User Keyword Definition & Arguments`](chapter-03/03_user_keyword.md)
 - [`3.3.1 `*** Keywords ***` Section`](chapter-03/03_user_keyword.md#331--keywords--section)
 - [`3.3.2 User Keyword Names`](chapter-03/03_user_keyword.md#332-user-keyword-names)
   - LO-3.3.2 (K1) Recall the rules how keyword names are matched.
@@ -172,7 +172,7 @@
   - [`3.3.5.2 Defining Optional Arguments`](chapter-03/03_user_keyword.md#3352-defining-optional-arguments)
     - LO-3.3.5.2-1 (K1) Recall how to define optional arguments in a user keyword.
     - LO-3.3.5.2-2 (K3) Define User Keywords with optional arguments.
-  - [`3.3.5.3 Embedded Arguments`](chapter-03/03_user_keyword.md#3353-embedded-arguments)
+  - [`3.3.5.3 Defining Embedded Arguments`](chapter-03/03_user_keyword.md#3353-defining-embedded-arguments)
     - LO-3.3.5.3-1 (K2) Describe how embedded arguments are replaced by actual values during keyword execution.
     - LO-3.3.5.3-2 (K2) Understand the role of embedded arguments in Behavior-Driven Development (BDD) style.
   - [`3.3.5.4 Other Argument Kinds`](chapter-03/03_user_keyword.md#3354-other-argument-kinds)
@@ -181,7 +181,7 @@
   - LO-3.3.6-2 (K3) Use the `RETURN` statement to return values from a user keyword and assign it to a variable.
 - [`3.3.7 Keyword Conventions`](chapter-03/03_user_keyword.md#337-keyword-conventions)
   - LO-3.3.7 (K1) Recall the naming conventions for user keywords.
-- [`3.4 Data-Driven Specification`](chapter-03/04_datadriven.md#34-data-driven-specification)
+- [`3.4 Using Data-Driven Specification`](chapter-03/04_datadriven.md)
 - LO-3.4 (K2) Understand the basic concept and syntax of Data-Driven Specification
 - [`3.4.1 Test|Task Templates`](chapter-03/04_datadriven.md#341-testtask-templates)
   - LO-3.4.1-1 (K2) Understand how to define and use test|task templates
@@ -190,7 +190,7 @@
     - LO-3.4.1.1 (K1) Recall the syntax and properties of multiple named test|task with one template
   - [`3.4.1.2 Named Test|Task With Multiple Data Rows:`](chapter-03/04_datadriven.md#3412-named-testtask-with-multiple-data-rows)
     - LO-3.4.1.2 (K1) Recall the syntax and properties of named test|task with multiple data rows
-- [`3.5 Advanced Importing of Keywords and Naming Conflicts`](chapter-03/05_advanced_importing.md#35-advanced-importing-of-keywords-and-naming-conflicts)
+- [`3.5 Advanced Importing of Keywords and Naming Conflicts`](chapter-03/05_advanced_importing.md)
 - LO-3.5 (K1) Recall that naming conflicts can arise from the import of multiple resource files.
 - [`3.5.1 Importing Hierarchies`](chapter-03/05_advanced_importing.md#351-importing-hierarchies)
   - LO-3.5.1 (K2) Understand how transitive imports of resource files and libraries work.
@@ -198,8 +198,8 @@
   - LO-3.5.2 (K3) Be able to configure a library import using arguments.
 - [`3.5.3 Naming Conflicts`](chapter-03/05_advanced_importing.md#353-naming-conflicts)
   - LO-3.5.3 (K2) Explain how naming conflicts can happen and how to mitigate them.
-- [`4 Advanced Structuring and Execution`](chapter-04/00_overview.md#4-advanced-structuring-and-execution)
-- [`4.1 Setups (Suite, Test|Task, Keyword)`](chapter-04/01_setups.md#41-setups-suite-testtask-keyword)
+- [`4 Advanced Structuring and Execution`](chapter-04/00_overview.md)
+- [`4.1 Setups (Suite, Test|Task, Keyword)`](chapter-04/01_setups.md)
 - LO-4.1-1 (K1) Recall the purpose and benefits of Setups in Robot Framework
 - LO-4.1-2 (K1) Recall the different levels where a Setup can be defined
 - [`4.1.1 Suite Setup`](chapter-04/01_setups.md#411-suite-setup)
@@ -210,7 +210,7 @@
   - LO-4.1.2-2 (K2) Understand when Test|Task Setup is executed and used
 - [`4.1.3 Keyword Setup`](chapter-04/01_setups.md#413-keyword-setup)
   - LO-4.1.3 (K1) Recall key characteristics and syntax of Keyword Setup
-- [`4.2 Teardowns (Suite, Test|Task, Keyword)`](chapter-04/02_teardowns.md#42-teardowns-suite-testtask-keyword)
+- [`4.2 Teardowns (Suite, Test|Task, Keyword)`](chapter-04/02_teardowns.md)
 - LO-4.2-1 (K2) Understand the different levels where and how Teardowns can be defined and when they are executed
 - LO-4.2-2 (K1) Recall the typical use cases for using Teardowns
 - [`4.2.1 Suite Teardown`](chapter-04/02_teardowns.md#421-suite-teardown)
@@ -221,7 +221,7 @@
   - LO-4.2.2-2 (K2) Understand when Test|Task Teardown is executed and used
 - [`4.2.3 Keyword Teardown`](chapter-04/02_teardowns.md#423-keyword-teardown)
   - LO-4.2.3 (K1) Recall key characteristics, benefits, and syntax of Keyword Teardown
-- [`4.3 Initialization Files`](chapter-04/03_init_files.md#43-initialization-files)
+- [`4.3 Initialization Files`](chapter-04/03_init_files.md)
 - LO-4.3 (K1) Recall how to define an Initialization Files and its purpose
 - [`4.3.1 Purpose of Initialization Files`](chapter-04/03_init_files.md#431-purpose-of-initialization-files)
 - [`4.3.2 Suite Setup and Suite Teardown of Initialization Files`](chapter-04/03_init_files.md#432-suite-setup-and-suite-teardown-of-initialization-files)
@@ -229,7 +229,7 @@
 - [`4.3.3 Allowed Sections in Initialization Files`](chapter-04/03_init_files.md#433-allowed-sections-in-initialization-files)
   - LO-4.3.3 (K1) Recall the allowed sections and their content in Initialization Files
 - [`4.3.4 Example of an Initialization File`](chapter-04/03_init_files.md#434-example-of-an-initialization-file)
-- [`4.4 Test|Task Tags and Filtering Execution`](chapter-04/04_tags.md#44-testtask-tags-and-filtering-execution)
+- [`4.4 Test|Task Tags and Filtering Execution`](chapter-04/04_tags.md)
 - LO-4.4 (K1) Recall the purpose of Test|Task Tags in Robot Framework
 - [`4.4.1 Assigning Tags to Tests|Tasks`](chapter-04/04_tags.md#441-assigning-tags-to-teststasks)
   - LO-4.4.1 (K1) Recall the syntax and different ways to assign tags to tests|tasks
@@ -240,15 +240,15 @@
   - [`4.4.2.3 Combining Include and Exclude Options`](chapter-04/04_tags.md#4423-combining-include-and-exclude-options)
   - [`4.4.2.4 Using Tag Patterns`](chapter-04/04_tags.md#4424-using-tag-patterns)
 - [`4.4.3 Reserved Tags`](chapter-04/04_tags.md#443-reserved-tags)
-- [`4.5 SKIP Test|Task Status`](chapter-04/05_skip.md#45-skip-testtask-status)
+- [`4.5 SKIP Test|Task Status`](chapter-04/05_skip.md)
 - LO-4.5-1 (K1) Recall the use case and purpose of skipping tests|tasks in Robot Framework
 - LO-4.5-2 (K1) Recall the different ways to skip tests|tasks in Robot Framework
 - [`4.5.1 Skipping By Tags Selection (CLI)`](chapter-04/05_skip.md#451-skipping-by-tags-selection-cli)
   - LO-4.5.1 (K1) Recall the differences between skip and exclude
 - [`4.5.2 Skipping Dynamically During Execution`](chapter-04/05_skip.md#452-skipping-dynamically-during-execution)
 - [`4.5.3 Automatically Skipping Failed Tests`](chapter-04/05_skip.md#453-automatically-skipping-failed-tests)
-- [`5 Exploring Advanced Constructs`](chapter-05/00_overview.md#5-exploring-advanced-constructs)
-- [`5.1 Advanced Variables`](chapter-05/01_advanced_variables.md#51-advanced-variables)
+- [`5 Exploring Advanced Constructs`](chapter-05/00_overview.md)
+- [`5.1 Advanced Variables`](chapter-05/01_advanced_variables.md)
 - [`5.1.1 Variable Priorities`](chapter-05/01_advanced_variables.md#511-variable-priorities)
   - LO-5.1.1 (K2) Understand the difference between statically defined and dynamically created variables in Robot Framework
   - [`5.1.1.1 Statically Defined or Imported Variables`](chapter-05/01_advanced_variables.md#5111-statically-defined-or-imported-variables)
@@ -278,7 +278,7 @@
     - LO-5.1.5.2 (K1) Recall that `&{dict}` unpacks to multiple key=value pairs when accessed
 - [`5.1.6 Built-In Variables`](chapter-05/01_advanced_variables.md#516-built-in-variables)
   - LO-5.1.6 (K1) Recall that Robot Framework provides access to execution information via Built-In variables
-- [`5.2 Control Structures`](chapter-05/02_control_structures.md#52-control-structures)
+- [`5.2 Control Structures`](chapter-05/02_control_structures.md)
 - [`5.2.1 IF Statements`](chapter-05/02_control_structures.md#521-if-statements)
   - LO-5.2.1 (K2) Understand the purpose and basic concept of IF-Statements
   - [`5.2.1.1 Basic IF Syntax`](chapter-05/02_control_structures.md#5211-basic-if-syntax)

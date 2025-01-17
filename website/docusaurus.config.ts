@@ -47,7 +47,7 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'syllabus.robotframework.org',
+        title: 'RFCP-Syllabus',
         logo: {
           alt: 'Robot Framework Logo',
           src: 'img/robot-framework.svg',
@@ -55,9 +55,39 @@ const config = {
         },
         items: [
           {
-            label: 'Syllabus',
+            label: 'Introduction',
             to: '/docs/overview',
-            position: 'right',
+            position: 'left',
+          },
+          {
+            label: 'Chapter 1',
+            to: '/docs/chapter-01/overview',
+            position: 'left',
+          },
+          {
+            label: 'Chapter 2',
+            to: '/docs/chapter-02/overview',
+            position: 'left',
+          },
+          {
+            label: 'Chapter 3',
+            to: '/docs/chapter-03/overview',
+            position: 'left',
+          },
+          {
+            label: 'Chapter 4',
+            to: '/docs/chapter-04/overview',
+            position: 'left',
+          },
+          {
+            label: 'Chapter 5',
+            to: '/docs/chapter-05/overview',
+            position: 'left',
+          },
+          {
+            label: 'LOs',
+            to: '/docs/learning_objectives',
+            position: 'left',
           },
           // {
           //   href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
@@ -90,27 +120,27 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Syllabus',
-                to: '/docs/overview',
-              },
-              // {
-              //   href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
-              //   label: 'User Guide',
-              // },
-              // {
-              //   href: 'https://robotframework.org/robotframework/#standard-libraries',
-              //   label: 'Standard Library',
-              // },
-              // {
-              //   href: 'https://robot-framework.readthedocs.io/en/stable/',
-              //   label: 'API Documentation',
-              // },
-            ],
-          },
+          // {
+          //   title: 'Docs',
+          //   items: [
+          //     {
+          //       label: 'Syllabus',
+          //       to: '/docs/overview',
+          //     },
+          //     // {
+          //     //   href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
+          //     //   label: 'User Guide',
+          //     // },
+          //     // {
+          //     //   href: 'https://robotframework.org/robotframework/#standard-libraries',
+          //     //   label: 'Standard Library',
+          //     // },
+          //     // {
+          //     //   href: 'https://robot-framework.readthedocs.io/en/stable/',
+          //     //   label: 'API Documentation',
+          //     // },
+          //   ],
+          // },
           // {
           //   title: 'More',
           //   items: [
@@ -121,7 +151,7 @@ const config = {
           //   ],
           // },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Robot Framework Certified Professional® Syllabus Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Robot Framework® Foundation - Robot Framework® Certified Professional Syllabus`,
       },
       prism: {
         theme: lightCodeTheme,

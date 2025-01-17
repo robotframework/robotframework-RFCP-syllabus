@@ -119,7 +119,7 @@ Keyword arguments can be grouped into different argument kinds.
 On the one hand you can group them by their definition attributes and on the other hand by their usage kind.
 
 The relevant distinction of usage kinds is between using **Positional Arguments**, **Named Arguments**, or **Embedded Arguments**.
-How to use them is described in [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md#26-writing-testtask-and-calling-keywords).
+How to use them is described in [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md).
 
 Another important information is if an argument is mandatory or optional.
 See the next two sections for more information about these two kinds of arguments.
@@ -195,7 +195,7 @@ i.e. the argument `msg` in the `Should Be Equal` keyword documentation has the d
 
 In that particular keyword these optional arguments can be used to activate some special features like ignoring the case of the compared strings or to provide a custom error message.
 
-Omitting some optional arguments but still using others is possible independent of their order by setting these arguments by their name. See [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md#26-writing-testtask-and-calling-keywords).
+Omitting some optional arguments but still using others is possible independent of their order by setting these arguments by their name. See [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md).
 
 
 

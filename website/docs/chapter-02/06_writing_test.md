@@ -157,10 +157,10 @@ Recall how to use embedded arguments.
 
 Embedded Arguments are mostly used in Behavior-Driven Development (BDD) using Robot Frameworks Behavior-Driven Specification style.
 
-Embedded Arguments are part of the keyword name as described in [3.3.5.3 Embedded Arguments](chapter-03/03_user_keyword.md#3353-embedded-arguments).
+Embedded Arguments are part of the keyword name as described in [2.5.2.3 Embedded Arguments](chapter-02/05_keyword_interface.md#2523-embedded-arguments).
 
 When calling keywords with embedded arguments, all characters that are at the position where the embedded argument is expected are used as the argument value.
 
-See the example in section [3.3.5.3 Embedded Arguments](chapter-03/03_user_keyword.md#3353-embedded-arguments).
+See the example in section [2.5.2.3 Embedded Arguments](chapter-02/05_keyword_interface.md#2523-embedded-arguments).
 
-See also [3.3.5.3 Embedded Arguments](chapter-03/03_user_keyword.md#3353-embedded-arguments) for more information about how to use embedded arguments.
+See also [2.5.2.3 Embedded Arguments](chapter-02/05_keyword_interface.md#2523-embedded-arguments) for more information about how to use embedded arguments.

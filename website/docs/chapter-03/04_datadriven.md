@@ -1,5 +1,5 @@
 
-# 3.4 Data-Driven Specification
+# 3.4 Using Data-Driven Specification
 
 ::::lo[Learning Objectives]
 

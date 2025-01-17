@@ -27,16 +27,16 @@ def update_heading_numbers_and_generate_toc(directory: Path):
         file_nr = int(match.group('file_idx'))
         file_title = match.group('file')
         file_name = f'{file_nr}_{file_title}.md'
-        with file.open("r", encoding="utf-8") as f:
-            lines = f.readlines()
+        with file.open("r", encoding="utf-8") as md_file:
+            lines = md_file.readlines()
             if chapter_nr not in chapters:
                 chapters[chapter_nr] = {}
             chapters[chapter_nr][file_name] = lines
 
         updated_lines = []
         numbering_stack = []
-        headings = []  # Store headings for this file
-        learning_objectives = []  # Store learning objectives for this file
+        headings = []
+        learning_objectives = []
         code_block = False
         learning_objectives_container_open = False
         learning_objective_open = False
@@ -98,23 +98,21 @@ def update_heading_numbers_and_generate_toc(directory: Path):
                         numbering_stack[current_level - 1] += 1
                         numbering_stack = numbering_stack[:current_level]
 
-                    # Generate the hierarchical numbering
                     numbering = f"{chapter_nr}.{file_nr}." + ".".join(map(str, numbering_stack))
-
-                    # Update the line with the new numbering
                     heading = f"{numbering} {title}"
                     updated_line = f"#{'#' * current_level} {heading}\n"
                 updated_lines.append(updated_line)
-                # Generate an anchor for this heading
                 anchor = re.sub(r'[^\w\- ]', '', heading).strip().replace(' ', '-').lower()
                 headings.append((numbering, title, anchor))
 
-                # Generate a link for the table of contents
+                if len(numbering) <= 3:
+                    toc_anchor = file_path
+                else:
+                    toc_anchor = f"{file_path}#{anchor}"
                 toc_entry = (
                     f"{'  ' * (current_level - 1)}- [`{numbering} {title}`]"
-                    f"({file_path}#{anchor})"
+                    f"({toc_anchor})"
                 )
-                # Add entry with a sort key for sorting later
                 current_chapter_number = list(map(int, numbering.split('.')))
                 toc_entries.append((current_chapter_number, toc_entry))
             elif learning_objective_open and line.strip() != "":
@@ -127,15 +125,13 @@ def update_heading_numbers_and_generate_toc(directory: Path):
                 if lo_id.split('-')[0] != current_chapter_string:
                     print(f"LO {lo_id} in {file_path}:{lineno + 1} does not match chapter {current_chapter_string}")
                 learning_objectives.append((lo_id, k_level, lo_content))
-                # Add learning objective to the table of contents
                 toc_entry = (
                     f"{'  ' * (current_level)}- LO-{lo_id} ({k_level}) {lo_content}"
                 )
                 toc_entries.append((current_chapter_number, toc_entry))
-                # updated_line = f"> LO-{lo_id} {lo_content} {k_level}\n"
-                updated_lines.append(line)  # Preserve non-heading lines
+                updated_lines.append(line)
             else:
-                updated_lines.append(line)  # Preserve non-heading lines
+                updated_lines.append(line)
 
         seen = set()
         dupl = [lo[0] for lo in learning_objectives if lo[0] in seen or seen.add(lo[0])]
@@ -144,67 +140,75 @@ def update_heading_numbers_and_generate_toc(directory: Path):
         catalog[file_path] = headings
         for heading in headings:
             heading_anchor = heading[2].lstrip("1234567890")
+            if heading_anchor in heading_catalog:
+                print(f"Duplicate anchor '{heading_anchor}' in '{file_path}' and '{heading_catalog[heading_anchor][0]}'")
             heading_catalog[heading_anchor] = (file_path, *heading)
 
-        # Write the updated content back to the file
-        with file.open("w", encoding="utf-8") as f:
-            f.writelines(updated_lines)
+        with file.open("w", encoding="utf-8") as md_file:
+            md_file.writelines(updated_lines)
 
         all_learning_objectives.extend(learning_objectives)
 
     sorted_lo = sorted(all_learning_objectives, key=lambda x: x[0])
 
-    with (directory / "LOs.csv").open("w", encoding="utf-8") as f:
-        writer = csv.writer(f)
+    with (directory / "LOs.csv").open("w", encoding="utf-8") as csv_file:
+        writer = csv.writer(csv_file)
         writer.writerow(["LO ID", "K Level", "Content", "Slide Number", "Done", "Notes"])
         writer.writerows([(f"LO-{lo_id}", f"({k_level})", lo_content, "", "", "") for lo_id, k_level, lo_content in sorted_lo])
 
     print(f"Total LOs: {len(sorted_lo)}")
-    # Sort the TOC entries by their numerical keys
     toc_entries.sort(key=lambda x: x[0])
 
-    # Write the table of contents to README.md
     readme_path = directory / "README.md"
     with readme_path.open("w", encoding="utf-8") as readme_file:
-        # readme_file.write(introduction)
         readme_file.write("# Table of Contents\n\n")
         for _, toc_entry in toc_entries:
             readme_file.write(toc_entry + "\n")
 
-    # Step 2: Resolve and update internal links
     for file in sorted(directory.glob("website/docs/**/*.md")):
         file_path = file.relative_to(Path('website/docs').resolve())
         match = chapter_file_pattern.fullmatch(file.as_posix())
         if not match:
             continue
-        with file.open("r", encoding="utf-8") as f:
-            lines = f.readlines()
+        with file.open("r", encoding="utf-8") as md_file:
+            lines = md_file.readlines()
 
         updated_lines = []
         for lineno, line in enumerate(lines):
             def replace_link(match):
                 description, link_file, anchor_name = match.groups()
-                link_file = link_file or file_path  # If no file is specified, use the current file
-                # Find the matching chapter and anchor
+                link_file = link_file or file_path
                 if anchor_name in heading_catalog:
                     file_path, numbering, title, anchor = heading_catalog[anchor_name]
                     if title.strip() == anchor_name.strip() or anchor.endswith(anchor_name):
-                        # Update the link with correct numbering and title
-                        new_anchor = f"#{anchor}"
-                        return f"[{numbering} {title}]({file_path}{new_anchor})"
-                # If no match, leave the link unchanged
+                        if len(numbering) <= 3:
+                            return f"[{numbering} {title}]({file_path})"
+                        return f"[{numbering} {title}]({file_path}#{anchor})"
                 print(f"Warning: Could not find anchor '{anchor_name}' in '{link_file}'."
                       "\n "
                       f"File: {link_file}:{lineno + 1}")
                 return match.group(0)
 
-            # Replace internal links in the line
             updated_line = re.sub(internal_link_pattern, replace_link, line)
             updated_lines.append(updated_line)
 
-        # Write the updated content back to the file
-        with file.open("w", encoding="utf-8") as f:
-            f.writelines(updated_lines)
+        with file.open("w", encoding="utf-8") as md_file:
+            md_file.writelines(updated_lines)
+
+    with Path("website", "docs", "learning_objectives.md").open("w", encoding="utf-8") as lo_file:
+        anchor = {}
+        for k, v in heading_catalog.items():
+            numbering = v[1]
+            if len(numbering) <= 3:
+                anchor[v[1]] = str(v[0])
+            else:
+                anchor[v[1]] = f'{v[0]}#{v[-1]}'
+        lo_file.write("# Learning Objectives\n")
+        lo_file.write(f'| ID | K-Level | Content |\n')
+        lo_file.write(f'| --- | --- | --- |\n')
+        for lo_id, k_level, lo_content in sorted_lo:
+            lo_file.write(f'| [LO-{lo_id}]({anchor.get(lo_id.split("-")[0])}) | {k_level} | {lo_content} |\n')
+
 
 
 if __name__ == "__main__":

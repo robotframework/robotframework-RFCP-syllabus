@@ -81,7 +81,7 @@ Use resource files to import new keywords.
 As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
 
 They share a similar structure and the same syntax as suite files, but they do not contain test cases or tasks.
-See [2.2 Basic Suite File Syntax](chapter-02/02_suitefile_syntax.md#22-basic-suite-file-syntax) for more information about the structure of suite files.
+See [2.2 Basic Suite File Syntax](chapter-02/02_suitefile_syntax.md) for more information about the structure of suite files.
 
 They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Same counts for variables that are defined and imported from other resource files.
 Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
@@ -100,7 +100,7 @@ Resource    D:/keywords/central_keywords.resource
 ```
 
 See more about the structure of resource files in
-[3.1 Resource File Structure](chapter-03/01_resource_file.md#31-resource-file-structure)
+[3.1 Resource File Structure](chapter-03/01_resource_file.md)
 and how keywords and variables are created in the sections following that.
 
 

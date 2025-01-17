@@ -27,9 +27,6 @@ Key attributes of the syntax that improves the before mentioned:
 - **Mostly case-insensitive**: Most elements like keyword or variable names are case insensitive.
 However, some syntax, like library imports is case-sensitive.
 
-<!-- > [!NOTE]
-> This syllabus does NOT cover other formats like Pipe-Separated ( | ) Format or Restructured Text or JSON! -->
-
 :::tip[Note]
 
 This syllabus does NOT cover other formats like Pipe-Separated ( | ) Format or Restructured Text or JSON!
@@ -54,7 +51,7 @@ Robot Framework organizes tests|tasks into **Suites**, which are either files or
 - `*.robot` files that do contain test cases or tasks are suites.
 - Each directory, starting from the top-level directory (the one executed by Robot Framework), and any sub-directories that contains a `*.robot` suite file, is considered a **Suite** as well.
 Suites can contain other suites, forming a hierarchical tree, which is by default alphabetically ordered.
-See [2.1 Suite File & Tree Structure](chapter-02/01_suitefile.md#21-suite-file--tree-structure) for more details.
+See [2.1 Suite File & Tree Structure](chapter-02/01_suitefile.md) for more details.
 
 This structure allows for logical grouping and organization of tests and tasks, which can scale as needed.
 
