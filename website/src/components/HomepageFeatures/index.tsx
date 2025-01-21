@@ -81,7 +81,7 @@ function Feature({title, description, link}: FeatureItem) {
   return (
       <Link to={link} className={clsx('homepage-card')}>
         <div className="card-content text--center padding-horiz--md">
-            <Heading as="h3">{title}</Heading>
+            <Heading as="h2">{title}</Heading>
           <p>{description}</p>
         </div>
       </Link>

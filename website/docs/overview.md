@@ -101,3 +101,30 @@ In addition to overseeing the exam itself, they maintain strict confidentiality 
 
 The exam provider is also responsible for storing and managing certification data.
 This includes tracking which participants have earned certifications, maintaining certification validity, and providing verification services if needed.
+
+
+# 0.7 Acknowledgment of Contributors
+
+The Robot Framework syllabus and the corresponding "Robot Framework Certified Professional®" (RFCP) certification would not have been possible without the efforts of its author and contributors. This chapter acknowledges their valuable contributions to the development of this syllabus.
+
+**The Author**
+
+The primary author of this syllabus is **René Rohner**.
+
+**Contributors**
+
+The following individuals have contributed to the development of this syllabus:
+
+**Alena Drebezgova, Alex Read, Christoph Singer, Elout van Leeuwen, Frank van der Kuur, Gerwin Laagland, Ilmari Salmela, Krzysztof Żminkowski, Lydia Peabody, Michael Biech, Miikka Solmela, Pekka Klärck, Pyry Hartman, Sami Pesonen, Simon Meggle, Tatu Kairi, and Tomáš Hák.**
+
+**Special Mentions**
+
+Special recognition is given to **Gerwin Laagland**, **Simon Meggle**, and **Frank van der Kuur**, whose thorough reviews and insightful suggestions greatly enhanced the clarity, structure, and overall quality of the syllabus.
+
+**Krzysztof Żminkowski**, and **Simon Meggle** contributed significantly to the creation of the exam by proposing thoughtful and challenging questions.
+
+**Sami Pesonen** laid the groundwork for this syllabus by assembling the initial collection of topics to be covered, forming the foundation upon which the syllabus was built.
+
+**Acknowledgment**
+
+The creation of the "Robot Framework Certified Professional®" syllabus stands as a testament to the dedication and generosity of its contributors. Most of the work has been done pro bono, reflecting a deep commitment to the principles of open-source collaboration and knowledge sharing. Each contributor—from those who meticulously reviewed and refined the content to those who laid its very foundation—has left a lasting impact. Their combined efforts have ensured that this document serves as a meaningful and accessible resource. We extend our heartfelt gratitude to everyone involved for their invaluable contributions.

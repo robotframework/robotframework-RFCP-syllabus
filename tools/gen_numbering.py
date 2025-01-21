@@ -207,7 +207,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
         lo_file.write(f'| ID | K-Level | Content |\n')
         lo_file.write(f'| --- | --- | --- |\n')
         for lo_id, k_level, lo_content in sorted_lo:
-            lo_file.write(f'| [LO-{lo_id}]({anchor.get(lo_id.split("-")[0])}) | {k_level} | {lo_content} |\n')
+            lo_file.write(f'| [`LO-{lo_id}`]({anchor.get(lo_id.split("-")[0])}) | {k_level} | {lo_content.replace('|', '\\|')} |\n')
 
 
 
