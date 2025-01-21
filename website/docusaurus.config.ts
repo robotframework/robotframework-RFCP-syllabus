@@ -159,6 +159,7 @@ const config = {
         additionalLanguages: ['robotframework', 'rust'],
       },
     }),
+  plugins: [require.resolve('docusaurus-lunr-search')],
 };
 
 module.exports = config;
