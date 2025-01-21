@@ -63,7 +63,7 @@ LO-3.2-2,(K1),Recall the relevant five different ways to create and assign varia
 LO-3.2.1-1,(K1),Recall the four syntactical access types to variables with their prefixes,,,
 LO-3.2.1-2,(K1),Recall the basic syntax of variables,,,
 LO-3.2.2-1,(K3),Create variables in the Variables section,,,
-LO-3.2.2-2,(K3),Use the correct variable prefixes for assigning and accessing variables.,,,
+LO-3.2.2-2,(K3),Use the correct variable prefixes for assigning and accessing variables,,,
 LO-3.2.2.1-1,(K3),Create and assign scalar variables,,,
 LO-3.2.2.1-2,(K2),Understand how multiple lines can be used to define scalar variables,,,
 LO-3.2.2.2,(K2),Understand how to access primitive data types,,,

@@ -1,9 +1,13 @@
-# 0 Course Overview
+---
+sidebar_position: 1
+---
+
+# Introduction
 
 
 
 
-## 0.1 About the Syllabus
+# 0.1 About the Syllabus
 This syllabus serves as the foundation for the "Robot Framework Certified Professional®" (RFCP) exam and training.
 Its purpose is to outline the structure and learning objectives of the training course,
 and it defines the knowledge a participant shall have to pass the exam.
@@ -19,7 +23,7 @@ but the specific teaching methods, order and pace may be adapted by the instruct
 
 
 
-## 0.2 About "Robot Framework Certified Professional®"
+# 0.2 About "Robot Framework Certified Professional®"
 The Robot Framework Certified Professional® (RFCP) certification represents the foundational level of expertise in Robot Framework. It provides participants with a strong understanding of the core principles, syntax, and basic control structures needed to develop effective automation scripts.
 
 While the RFCP includes an introduction to advanced features such as FOR-Loops and IF statements,
@@ -34,7 +38,7 @@ This certification does not require or teach domain-specific automation knowledg
 
 
 
-## 0.3 Business Outcomes
+# 0.3 Business Outcomes
 Upon completing this course, participants will achieve the following capabilities:
 
 - **Understand the architecture and mechanics of Robot Framework**: Gain a clear understanding of how Robot Framework operates, including its core components, execution flow, and interaction with external libraries.
@@ -56,7 +60,7 @@ Upon completing this course, participants will achieve the following capabilitie
 
 
 
-## 0.4 About Learning Objectives and Knowledge Levels
+# 0.4 About Learning Objectives and Knowledge Levels
 The learning objectives (LOs) are a critical component of this syllabus,
 as they define what participants are expected to know and be able to do by the end of the course.
 To ensure a clear understanding of these objectives, we apply Knowledge Levels (K-Levels) as a framework for assessing learning progress.
@@ -72,7 +76,7 @@ Throughout this syllabus, participants will progress through these knowledge lev
 
 
 
-## 0.5 About Professional Training Providers
+# 0.5 About Professional Training Providers
 
 Professional Training Providers are organizations officially accredited by the Robot Framework Foundation to offer certified training programs for a specific certification level.
 These partners shall deliver high-quality, structured courses designed to prepare candidates for the Robot Framework® Certified Professional (RFCP) exam and other future Robot Framework certifications.
@@ -86,7 +90,7 @@ Training can be exclusively pursued through these partners, but obtaining a cert
 
 
 
-## 0.6 About Exam Providers
+# 0.6 About Exam Providers
 
 Exam providers are independent organizations responsible for administering certification exams for the Robot Framework certification program.
 These providers manage the entire examination process, from scheduling and conducting the exams to handling participant data and maintaining certification records.

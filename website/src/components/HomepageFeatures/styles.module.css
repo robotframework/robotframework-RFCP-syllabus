@@ -1,0 +1,36 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+.homepage-card {
+  color: var(--ifm-color-content-primary);
+  display: flex;
+  gap: 10px;
+  padding: .75rem;
+  text-decoration: none;
+  --ifm-link-hover-decoration: none;
+  --ifm-link-hover-color: inherit;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition-property: background-color,color
+}
+
+.card-content .description,.menu__link {
+  color: var(--ifm-color-content-secondary)
+}
+
+.section-content {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3,minmax(0,1fr))
+}
