@@ -37,7 +37,8 @@ As mentioned before, Robot Framework uses an indentation-based and space-separat
 The clear recommendation for separators is to use **four spaces** or more to unambiguously make it visible
 to a potential reader where elements are separated or indented.
 
-A statement in Robot Framework is a logical line that contains specific data tokens which are separated by multiple spaces (separator token) from each other.
+A statement in Robot Framework is a logical line that contains specific data tokens, which are separated by multiple spaces (separator tokens) and typically end with a line break (end-of-line token).
+To create a statement spanning multiple lines, literal lines can be continued by adding `...` (three dots) and a separator token at the beginning of the next line, maintaining the same indentation level as the line being continued.
 
 **Example 1**: A keyword call is a statement that consists of a keyword name and its arguments, which are separated by two or more spaces from the keyword name and from each other.
 An optional assignment of the return value can be possible as well.
@@ -131,16 +132,39 @@ Empty lines are allowed and encouraged to structure data files and make them mor
 In the next example, the sections are visibly separated by two empty lines, and the tests are separated by one empty line.
 Empty lines are technically not relevant and are ignored while parsing the file.
 
-
-By default, each statement in a suite or resource file is terminated by a line break, so that in each literal line only one statement is possible.
-However, for better readability or in the case of documentation for adding line breaks, expressions can expand over multiple literal lines if they are continued with `...` (three dots) and a separator (multiple spaces) at the beginning of the next line, potentially being indented. See the suite documentation as an example.
-
-With this line continuation between two data tokens, the two literal lines are interpreted as one logical line and do result in one statement.
+By default, each statement is terminated by a line break, allowing only one statement per literal line.
+However, for better readability, or to add line breaks in documentation,
+statements can span multiple lines by using `...` (three dots) and a separator at the start of the next line with the same indentation level as the line being continued.
 
 A line continuation can only be performed where a separator is expected, like between a keyword name and its arguments or between two arguments or between a setting and its value(s).
 In the following example the two keyword calls are logically identical, even though the second one is split over three literal lines.
 
+In documentation settings, line breaks with continuation are interpreted as a line break character.
+In Robot Framework documentation syntax, a single line break is treated as a space after interpretation,
+whereas two consecutive line breaks are considered a paragraph break.
+This allows you to structure documentation in a more readable and organized manner.
+
 **Example**:
+
+```robotframework
+*** Settings ***
+Documentation     This is the first line of suite documentation.
+...
+...            This is the second line of suite documentation.
+Resource     keywords.resource
+
+
+*** Test Cases ***
+Test Case Name
+      [Documentation]    This is the first line of test documentation.
+      ...
+      ...                This is the second line of test documentation.
+      Keyword Call     argument one     argument two
+      Keyword Call
+      ...            argument one
+      ...            argument two
+      ${variable_assignment}     Keyword Getter Call
+```
 
 ## 2.2.3 In-line Comments
 

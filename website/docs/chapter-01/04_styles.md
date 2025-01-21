@@ -110,11 +110,11 @@ Recall the differences between Keyword-Driven and Behavior-Driven Specification
 The core difference between **Keyword-Driven** and **Behavior-Driven** styles lies in their focus:
 
 - **Keyword-Driven Style** emphasizes **what actions** need to be performed in a specific order, making it action-centric.
-It is an **imperative** style that can be compared to procedural programming.
-It is structured, clear, and optimized for scenarios where the steps are more technical
-or detailed and where the amount of keywords called within a test or tasks are more.
-Also is this style better for complex tasks or complex data
-due to a clear separation between the keyword names and its argument values.
+It is an **imperative** style, comparable to procedural programming.
+It is structured, clear, and well-suited for scenarios where the steps are more technical
+or detailed and involve a larger number of keyword calls within a test or task.
+Additionally, this style is better suited for complex tasks or handling complex data,
+as it enables a clear separation between keyword names and their argument values.
 
 - **Behavior-Driven Style** emphasizes **how the system behaves** from the user's point of view,
 using more natural language and focusing on expected outcomes.
@@ -166,6 +166,6 @@ Robot Framework offers a convenient feature for this approach through **Test Tem
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
 - **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
 
-See [1.4.4 Data-Driven Specification](chapter-01/04_styles.md#144-data-driven-specification) for more details and examples on Data-Driven Specification.
+See [3.4 Using Data-Driven Specification](chapter-03/04_datadriven.md) for more details and examples on Data-Driven Specification.
 
 

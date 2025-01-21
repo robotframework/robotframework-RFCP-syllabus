@@ -26,7 +26,7 @@ In Robot Framework, the test data is written using the defined syntax and contai
 
 - **Execution Layer**: In Robot Framework, the execution layer consists of the framework itself, including its core components and APIs.
 It parses and interprets the test data syntax to build an execution model.
-The execution is responsible for processing this execution model to execute the library keywords with their argument values, logging results, and generating reports.
+The execution layer is responsible for processing this execution model to execute the library keywords with their argument values, logging results, and generating reports.
 
 - **Adaptation Layer**: This layer provides the connection between Robot Framework and the system under test (SUT).
 In Robot Framework, this is where the keyword libraries, which contain code responsible for interacting with different technologies and interfaces,

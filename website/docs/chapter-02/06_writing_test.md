@@ -136,7 +136,7 @@ Example of escaping conflicting equal signs:
 ```robotframework
 *** Test Cases ***
 Test Escaping Equal Sign
-    Should Be Equal    second\=2   Second\=2    case_insensitive=True
+    Should Be Equal    second\=2   Second\=2    ignore_case=True
 ```
 
 The argument `first` does get the value `second=2` and the argument `second` does get the value `Second=2`.

@@ -61,9 +61,9 @@ Also spaces and underscores will be ignored when matching keyword names.
 So the keywords `Login To System`, and `log_into_system` are considered identical.
 
 To identify keywords that shall be executed, Robot Framework uses a matching algorithm that is case-insensitive and ignores spaces and underscores.
-If then a full match is found, that keyword is used.
-If no full match is found, the prefixes `Given`, `When`, `Then`, `And`, and `But` (case-insensitive), which are used in Behavior-Driven Specification style, are removed from the called keyword name to find a match.
-If still no match is found, Robot Framework tries to match the name with keywords that have embedded arguments.
+- If then a full match is found, that keyword is used.
+- If no full match is found, the prefixes `Given`, `When`, `Then`, `And`, and `But` (case-insensitive), which are used in Behavior-Driven Specification style, are removed from the called keyword name to find a match.
+- If still no match is found, Robot Framework tries to match the name with keywords that have embedded arguments.
 
 By default, if not explicitly defined by the library developers, all Library Keywords are named in **Title Case** with capital letters at the beginning of each word, and spaces between words.
 
@@ -115,7 +115,7 @@ Recall the significance of the first logical line and in keyword documentation f
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
-The first logical line, until the first empty row, is used as the *short documentation* of the keyword in the `log.html` test protocol..
+The first logical line, until the first empty row, is used as the *short documentation* of the keyword in the `log.html` test protocol.
 
 Proper documentation helps maintain clarity, especially in larger projects.
 It is a good practice to document what the keyword does,
@@ -123,13 +123,18 @@ any important notes regarding its usage,
 and additional information about the arguments it accepts if not self-explanatory.
 
 User keywords can be documented in the Robot Framework documentation format.
-This format allows for the use of wiki-like syntax to format the documentation text.
+
+:::tip[Important]
+
+The syntax of this format has similarities to Markdown, but is more limited and not compatible with Markdown!
+
+:::
 
 This format includes:
-- `*bold*`
-- `_italic_`
-- `_*bold italic*_`
-- ``` `code` ```
+- `*bold*` = **bold**
+- `_italic_` = _italic_
+- `_*bold italic*_` = **_bold italic_**
+- ``` `code` ``` = `code`
 - Tables
 - Lists
 - Links

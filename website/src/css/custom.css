@@ -526,3 +526,7 @@ div[class^='announcementBar_'] {
   );
   margin-top: calc(var(--ifm-h3-vertical-rhythm-top) * var(--ifm-leading));
 }
+
+code {
+  white-space: pre !important;
+}

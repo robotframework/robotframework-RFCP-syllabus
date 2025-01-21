@@ -50,7 +50,7 @@ Key objectives of the foundation include:
 
 - **Funding of Ecosystem Projects**: Whenever possible, the foundation finances open-source projects that are proposed by community members, aiming to support broader ecosystem development and innovation.
 
-As a non-profit, all funds are directed towards the development and promotion of the Robot Framework, ensuring that it remains accessible to all users without commercial restrictions.
+As a non-profit association, all funds are directed towards the development and promotion of the Robot Framework, ensuring that it remains accessible to all users without commercial restrictions.
 
 More information, including a list of foundation members, is available at **[robotframework.org/foundation](https://robotframework.org/foundation)**.
 

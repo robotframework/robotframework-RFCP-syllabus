@@ -130,7 +130,9 @@ When you need to execute the same keywords for each item in a list or sequence, 
       <keywords>
   END
   ```
+
   Since `<value1>    <value2>    ...    <valueN>` can be the same as an unpacked list like `@{values}`, this is the most common way to use the FOR loop.
+
   ```robotframework
   FOR    ${loop_variable}    IN    @{iterable_values}
       <keywords>
@@ -139,24 +141,24 @@ When you need to execute the same keywords for each item in a list or sequence, 
   ```
 
 - **Example**:
-  ```robotframework
-  *** Variables ***
-  @{fruits} =    apple    banana    cherry
+    ```robotframework
+    *** Variables ***
+    @{fruits} =    apple    banana    cherry
 
-  *** Test Cases ***
-  Process Fruit List
-      FOR    ${fruit}    IN    @{fruits}
-          Log    Processing ${fruit}
-      END
-  ```
-  This would essentially be the same as:
-  ```robotframework
-  *** Test Cases ***
-  Process Fruits separately
-      Log    Processing apple
-      Log    Processing banana
-      Log    Processing cherry
-  ```
+    *** Test Cases ***
+    Process Fruit List
+        FOR    ${fruit}    IN    @{fruits}
+            Log    Processing ${fruit}
+        END
+    ```
+    This would essentially be the same as:
+    ```robotframework
+    *** Test Cases ***
+    Process Fruits separately
+        Log    Processing apple
+        Log    Processing banana
+        Log    Processing cherry
+    ```
 
 
 

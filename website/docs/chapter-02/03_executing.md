@@ -14,8 +14,8 @@ Recall the three components of the Robot Framework CLI.
 Robot Framework comes with three executables when being installed which are designed to be used via the command-line interface (CLI).
 
 - `robot` is the main executable that is used to execute suites.
-- `rebot` is used to post-process execution results and generate reports. (covered in a later chapter)
-- `libdoc` is used to generate keyword documentation for libraries and resource files. (covered in a later chapter)
+- `rebot` (not part of this syllabus) is used to post-process execution results and generate reports.
+- `libdoc` (not part of this syllabus) is used to generate keyword documentation for libraries and resource files. See [2.5 Keyword Interface and Documentation](../chapter-02/05_keyword_interface.md)
 
 
 
@@ -113,15 +113,15 @@ Recall the four different status labels used by Robot Framework.
 
 Robot Framework uses different status labels to indicate the result of an execution:
 
-On Suite, Test Case and Task Level:
+On Suite, Test Case, Task and Keyword Level:
 - **`PASS`**: Indicates that the item was successfully executed without unexpected errors.
 - **`FAIL`**: Shows that the item encountered an error and did not pass.
-- **`SKIP`**: Indicates that the item was intentionally skipped, i.e. due to external factors like preconditions not being met.
+- **`SKIP`**: Indicates that the item was intentionally skipped, either by tagging or during execution, typically because some condition was not met.
 
 Additional Keyword Status:
 - **`NOT RUN`**: Refers to keywords that were not executed during execution, i.e. due to previous failure or conditions.
 
-`NOT RUN` and `SKIP` are explained in more detail in later chapters.
+`SKIP` is explained in more detail in later chapters.
 
 **Atomic elements** like Library Keywords or Robot Framework language statements do define their own status.
 

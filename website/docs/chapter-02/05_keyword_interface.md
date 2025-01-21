@@ -211,10 +211,11 @@ Recall the concept of keywords with embedded arguments used in Behavior-Driven S
 
 ::::
 
-Keywords can have arguments embedded into their names, which is used mostly for Behavior-Driven Specification (BDD).
-Embedded arguments are also mandatory and can only be set by their position in the keyword name.
+Keywords can include arguments embedded directly into their names, a feature primarily used for Behavior-Driven Development (BDD).
+Embedded arguments are mandatory and must be provided in the exact position defined within the keyword name.
 
-The keyword names do contain arguments in variable syntax with dollar-curly-braces (`${var_name}`) to indicate that they are not part of the keyword name but are arguments.
+Keyword names include arguments defined using the scalar variable syntax with dollar and curly braces (`${var_name}`).
+This syntax explicitly defines these as arguments, distinguishing them from the rest of the keyword name.
 
 Example keyword names are:
 - `"${url}" is open`
@@ -232,7 +233,7 @@ Foundation Page should be Accessible
     And the url should be https://robotframework.org/foundation
 ```
 The optional prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name including the embedded arguments.
-In the before given example the keywords are designed so that the arguments are surrounded by double quotes `"` for better visibility.
+In the before given example some keywords are designed so that the arguments are surrounded by double quotes `"` for better visibility.
 
 A mix of embedded arguments and "normal" arguments is possible to fully support BDD.
 In the keyword documentation the embedded arguments are written in variable syntax with dollar-curly-braces (`${var_name}`) to indicate that they are not part of the keyword name but are arguments.
