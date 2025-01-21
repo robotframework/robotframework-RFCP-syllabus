@@ -15,7 +15,7 @@ const FeatureList: FeatureItem[] = [
     title: '0. About the Syllabus',
     description: (
       <>
-        This chapter provides an overview of the Robot Framework Certified Professional® (RFCP) syllabus,
+        This chapter provides an overview of the Robot Framework® Certified Professional (RFCP®) syllabus,
         detailing the course structure, learning objectives, and the foundational knowledge required for certification.
       </>
     ),

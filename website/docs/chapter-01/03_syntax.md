@@ -33,6 +33,38 @@ This syllabus does NOT cover other formats like Pipe-Separated ( | ) Format or R
 
 :::
 
+Example of test cases with their keyword calls written in Robot Framework:
+
+```robotframework
+*** Settings ***
+Documentation     A test suite for valid login.
+...
+...               Keywords are imported from the resource file
+Resource          keywords.resource
+Suite Setup       Connect to Server
+Test Teardown     Logout User
+Suite Teardown    Disconnect
+
+
+*** Test Cases ***
+Access All Users With Admin Rights
+    [Documentation]    Tests if all users can be accessed with Admin User.
+    Login Admin
+    Check All Users
+
+Create User With Admin Rights
+    [Documentation]    Tests if a new users can be created with Admin User.
+    Login Admin
+    Create New User
+    ...    name=Peter Parker
+    ...    login=spider
+    ...    password=123spiderman321
+    ...    right=user
+    Verify User Details    spider    Peter Parker
+    Logout User
+    Login User    spider    123spiderman321
+```
+
 
 ## 1.3.1 What are Test Cases / Tasks?
 
@@ -95,7 +127,7 @@ This granular logging and detailed execution documentation is one of the key adv
 
 :::K1[LO-1.3.4]
 
-Recall the difference between Resource Files and Libraries and their artefacts
+Recall the difference between Resource Files and Libraries and their artifacts
 
 :::
 

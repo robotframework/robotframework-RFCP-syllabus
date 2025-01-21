@@ -4,7 +4,7 @@
 - [`1.1 Purpose / Use Cases`](chapter-01/01_purpose.md)
 - LO-1.1 (K1) Recall the two main use cases of Robot Framework
 - [`1.1.1 Test Automation`](chapter-01/01_purpose.md#111-test-automation)
-  - LO-1.1.1 (K1) recall the test levels Robot Framework is mostly used for
+  - LO-1.1.1 (K1) Recall the test levels Robot Framework is mostly used for
   - [`1.1.1.1 Synthetic Monitoring`](chapter-01/01_purpose.md#1111-synthetic-monitoring)
 - [`1.1.2 Robotic Process Automation (RPA)`](chapter-01/01_purpose.md#112-robotic-process-automation-rpa)
 - [`1.2 Architecture of Robot Framework`](chapter-01/02_architecture.md)
@@ -21,7 +21,7 @@
 - [`1.3.3 What are Keywords?`](chapter-01/03_syntax.md#133-what-are-keywords)
   - LO-1.3.3 (K2) Explain the difference between User Keywords and Library Keywords
 - [`1.3.4 Resource Files & Libraries`](chapter-01/03_syntax.md#134-resource-files--libraries)
-  - LO-1.3.4 (K1) Recall the difference between Resource Files and Libraries and their artefacts
+  - LO-1.3.4 (K1) Recall the difference between Resource Files and Libraries and their artifacts
 - [`1.4 Specification Styles`](chapter-01/04_styles.md)
 - LO-1.4 (K1) Recall the three specification styles of Robot Framework
 - [`1.4.1 Keyword-Driven Specification`](chapter-01/04_styles.md#141-keyword-driven-specification)

@@ -49,11 +49,15 @@ In **Keyword-Driven Specification**, automation steps are expressed through a se
 Keywords define the specific actions that must be executed in a particular order, similar to procedural programming.
 The emphasis is on the **actions performed by the automation/tester**.
 
-For example, in Robot Framework, a keyword-driven test might include steps like:
-- `Open Page   http://robotframework.org`
-- `Click Button    FOUNDATION`
-- `Verify Title    Foundation | Robot Framework`
-- `Verify Url      https://robotframework.org/foundation`
+For example, in Robot Framework, a Keyword-Driven test might look like:
+```robotframework
+*** Test Cases ***
+Verify Foundation Link
+    Open Page       http://robotframework.org
+    Click Button    FOUNDATION
+    Verify Title    Foundation | Robot Framework
+    Verify Url      https://robotframework.org/foundation
+```
 
 Verifications or assertions can be imperative, though they are often phrased as assertions, such as `Title Should Be    Foundation | Robot Framework`, adding flexibility to how outcomes are checked.
 
@@ -81,10 +85,15 @@ Understand the basic concepts of Behavior-Driven Specification
 This style often incorporates **embedded arguments** into the steps and uses natural language constructs like **Given, When, Then, And & But**.
 
 In Robot Framework, behavior-driven tests may look like:
-- `Given "robotframework.org" is open`
-- `When the user clicks the "FOUNDATION" button`
-- `Then the page title should be "Foundation | Robot Framework"`
-- `And the url should be "https://robotframework.org/foundation"`
+
+```robotframework
+*** Test Cases ***
+Opening Foundation Page
+    Given "robotframework.org" is open
+    When the user clicks the "FOUNDATION" button
+    Then the page title should be "Foundation | Robot Framework"
+    And the url should be "https://robotframework.org/foundation"
+```
 
 The prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name.
 A key difference between Robot Framework's behavior-driven style and BDD frameworks like **Cucumber** or most others is the ability in Robot Framework to use **multiple keyword layers**.

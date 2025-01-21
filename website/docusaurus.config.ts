@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Robot Framework Certified Professional® Syllabus',
-  tagline: 'The foundation for the "Robot Framework Certified Professional®" (RFCP) exam and training',
+  title: ' Syllabus of Robot Framework® Certified Professional',
+  tagline: 'The foundation for the "Robot Framework® Certified Professional" (RFCP®) exam and training',
   url: 'https://robotframework.org',
   baseUrl: '/robotframework-RFCP-syllabus/',
   onBrokenLinks: 'throw',
@@ -151,7 +151,7 @@ const config = {
           //   ],
           // },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Robot Framework® Foundation - Robot Framework® Certified Professional Syllabus`,
+        copyright: `Copyright © ${new Date().getFullYear()} Robot Framework® Foundation - Syllabus of Robot Framework® Certified Professional`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -159,6 +159,7 @@ const config = {
         additionalLanguages: ['robotframework', 'rust'],
       },
     }),
+  plugins: [require.resolve('docusaurus-lunr-search')],
 };
 
 module.exports = config;

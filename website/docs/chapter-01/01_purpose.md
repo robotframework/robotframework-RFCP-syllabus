@@ -23,7 +23,7 @@ Robot Framework can be extended through a vast array of third-party or custom ma
 
 :::K1[LO-1.1.1]
 
-recall the test levels Robot Framework is mostly used for
+Recall the test levels Robot Framework is mostly used for
 
 :::
 

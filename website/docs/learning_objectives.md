@@ -2,13 +2,13 @@
 | ID | K-Level | Content |
 | --- | --- | --- |
 | [`LO-1.1`](chapter-01/01_purpose.md) | K1 | Recall the two main use cases of Robot Framework |
-| [`LO-1.1.1`](chapter-01/01_purpose.md#111-test-automation) | K1 | recall the test levels Robot Framework is mostly used for |
+| [`LO-1.1.1`](chapter-01/01_purpose.md#111-test-automation) | K1 | Recall the test levels Robot Framework is mostly used for |
 | [`LO-1.2.1`](chapter-01/02_architecture.md#121-robot-framework-and-the-gtaa-generic-test-automation-architecture) | K1 | Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework |
 | [`LO-1.2.2`](chapter-01/02_architecture.md#122-what-is-robot-framework--what-it-is-not) | K1 | Recall what is part of Robot Framework and what is not |
 | [`LO-1.2.3`](chapter-01/02_architecture.md#123-technology--prerequisites) | K1 | Recall the technology Robot Framework is built on and the prerequisites for running it |
 | [`LO-1.3`](chapter-01/03_syntax.md) | K1 | Recall the key attributes of the syntax that makes Robot Framework simple and human-readable |
 | [`LO-1.3.3`](chapter-01/03_syntax.md#133-what-are-keywords) | K2 | Explain the difference between User Keywords and Library Keywords |
-| [`LO-1.3.4`](chapter-01/03_syntax.md#134-resource-files--libraries) | K1 | Recall the difference between Resource Files and Libraries and their artefacts |
+| [`LO-1.3.4`](chapter-01/03_syntax.md#134-resource-files--libraries) | K1 | Recall the difference between Resource Files and Libraries and their artifacts |
 | [`LO-1.4`](chapter-01/04_styles.md) | K1 | Recall the three specification styles of Robot Framework |
 | [`LO-1.4.1`](chapter-01/04_styles.md#141-keyword-driven-specification) | K2 | Understand the basic concepts of Keyword-Driven Specification |
 | [`LO-1.4.2`](chapter-01/04_styles.md#142-behavior-driven-specification) | K2 | Understand the basic concepts of Behavior-Driven Specification |

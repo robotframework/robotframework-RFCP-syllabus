@@ -8,11 +8,21 @@ sidebar_position: 1
 
 
 ## 0.1 About the Syllabus
-This syllabus serves as the foundation for the "Robot Framework® Certified Professional" (RFCP®) exam and training.
-Its purpose is to outline the structure and learning objectives of the training course,
-and it defines the knowledge a participant shall have to pass the exam.
+This syllabus serves as both a guidance document for participants and a requirement specification for Accredited Training Providers
+preparing candidates for the "Robot Framework® Certified Professional" (RFCP®) exam.
+It outlines the structure, learning objectives, and knowledge areas essential for certification.
 
-The syllabus is divided into sections that progress logically from basic concepts to more advanced topics of Robot Framework.
+This syllabus is not a training manual, tutorial, or comprehensive learning resource but instead defines the scope of knowledge
+that must be taught in a Robot Framework training and acquired by participants to meet the certification requirements.
+
+:::note
+
+For further explanation, complementary examples, and practical exercises beyond the scope of this syllabus,
+participants are encouraged to consult additional resources, such as the official documentation at [docs.robotframework.org](https://docs.robotframework.org/).
+
+:::
+
+The syllabus is divided into chapters that progress logically from basic concepts to more advanced topics of Robot Framework.
 
 The learning objectives (LOs) specified within this document are binding,
 meaning they define the specific knowledge and skills participants are expected to acquire during the course in order to pass the exam.
@@ -69,7 +79,7 @@ These levels are based on Bloom's Taxonomy of Educational Objectives. See [Bloom
 
 - **K2 (Understand)**: Comprehension of concepts. Participants should demonstrate an understanding of the principles behind Robot Framework, such as its mechanics, syntax and architecture.
 
-- **K3 (Apply)**: Practical application of knowledge. Participants are expected to be able to write and execute automation scripts, develop keywords, and interact with external libraries.
+- **K3 (Apply)**: Practical application of knowledge. Participants are expected to be able to write and execute automation scripts, develop keywords, interact with external libraries, and find errors in their automation scripts.
 
 Throughout this syllabus, participants will progress through these knowledge levels—from basic recall (K1) to understanding and explaining concepts (K2), and ultimately applying their knowledge to practical automation tasks (K3). This structured approach ensures participants gain a comprehensive and practical understanding of Robot Framework fundamentals and their application in real-world scenarios.
 
