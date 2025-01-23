@@ -16,7 +16,8 @@ These styles can be applied to all types of automation, including both testing a
 While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation.
 
 Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not mix them within the same body.
-One practical solution would be to define acceptance test cases that cover users' expectations in a declarative *Behavior-Driven Style*, while using keywords that are implemented in an imperative *Keyword-Driven style*. Further system level test cases, that are not covering acceptance criteria could be written in a *Keyword-Driven style*.
+One practical solution would be to define acceptance test cases that cover users' expectations in a declarative *Behavior-Driven Style*, while using keywords that are implemented in an imperative *Keyword-Driven style*.
+Further system level test cases, that are not covering acceptance criteria could be written in a *Keyword-Driven style*.
 
 The approach of both styles is different in that way,
 that the *Behavior-Driven Style* is a **declarative** specification,
