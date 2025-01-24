@@ -14,7 +14,7 @@ A typical test case or task is a sequence of keyword calls that are executed in 
 As learned before these keywords need to be imported into the suite or resource file before they can be used.
 When using keywords in a test|task or User Keyword, it is important to indent the keyword calls correctly.
 With the exception of returning values, which is described in Chapter 3,
-the name of the keywords is the first element of the keyword call followed by the arguments that are separated by two or more spaces.
+the name of the keyword is the first element of the keyword call followed by the arguments that are separated by two or more spaces.
 
 The following example shows different ways to call imported keywords in a test case based on the `Should Be Equal` keyword from the BuiltIn library.
 
