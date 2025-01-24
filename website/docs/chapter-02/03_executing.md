@@ -198,7 +198,7 @@ There are basically two kinds of logging information in Robot Framework.
 - **Console Output**: The console output is the output that is printed to the terminal where the `robot` command was executed. It is typically not persistent but can be already seen during execution.
 - **Log Messages**: Log messages are written to the `output.xml` and therefore also `log.html` file and are persistent. They are typically created by the Library Keywords that are executed and can be used to log information about the execution. Also Robot Framework itself does log information to the `output.xml` like assigned values of arguments or the return values of keywords.
 
-Log messages can be written with different levels of severity like i.e. `INFO`, `DEBUG`, `TRACE`, `WARN` or `ERROR`.
+Log messages can be written with different levels of severity (i.e. `INFO`, `DEBUG`, `TRACE`, `WARN` or `ERROR`).
 Which levels are written to the log can be controlled by the log level of an execution. Further information in later chapters.
 
 
