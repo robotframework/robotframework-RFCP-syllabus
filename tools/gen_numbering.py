@@ -163,6 +163,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
     with readme_path.open("w", encoding="utf-8") as readme_file:
         readme_file.write("# Table of Contents\n\n")
         for _, toc_entry in toc_entries:
+            toc_entry = toc_entry.replace("`](", "`](website/docs/")
             readme_file.write(toc_entry + "\n")
 
     for file in sorted(directory.glob("website/docs/**/*.md")):
