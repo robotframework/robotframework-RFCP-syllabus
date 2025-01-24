@@ -191,7 +191,7 @@ Default values are defined and represented in the docs by the equal sign `=` aft
 
 Also "Variable Number of Positional Arguments", represented with a single star (`*`) prefix, and "Free Named Arguments", represented with a double star (`**`) prefix are optional arguments.
 
-i.e. the argument `msg` in the `Should Be Equal` keyword documentation has the default value `None` and `ignore_case` has the default value `False`.
+E.g. the argument `msg` in the `Should Be Equal` keyword documentation has the default value `None` and `ignore_case` has the default value `False`.
 
 In that particular keyword these optional arguments can be used to activate some special features like ignoring the case of the compared strings or to provide a custom error message.
 
@@ -233,11 +233,11 @@ Foundation Page should be Accessible
     And the url should be https://robotframework.org/foundation
 ```
 The optional prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name including the embedded arguments.
-In the before given example some keywords are designed so that the arguments are surrounded by double quotes `"` for better visibility.
+In the example test case some keywords are designed so that the arguments are surrounded by double quotes (`"`) for better visibility.
 
 A mix of embedded arguments and "normal" arguments is possible to fully support BDD.
 In the keyword documentation the embedded arguments are written in variable syntax with dollar-curly-braces (`${var_name}`) to indicate that they are not part of the keyword name but are arguments.
-They can also be defined using regular expressions to allow for more complex argument structures, which is not part of that syllabus.
+They can also be defined using regular expressions to allow for more complex argument structures, which is not part of this syllabus.
 
 
 ### 2.5.2.4 Positional or Named Arguments
