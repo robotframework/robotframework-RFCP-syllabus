@@ -336,7 +336,7 @@ When calling this keyword all named arguments that are not explicitly defined as
 
 They are optional and can be omitted.
 
-With this configuration it is i.e. possible to redirect the output of the process to a file or to set the working directory of the process.
+With this configuration it is possible to e.g. redirect the output of the process to a file or to set the working directory of the process.
 
 Example redirecting stdout and stderr to a file:
 ```robotframework
