@@ -123,7 +123,7 @@ If a relative path is given, the path is resolved relative to the data file that
 If an **absolute path** is given, the resource file or library is searched for at the given path.
 
 If a **relative path** is given, the resource file or library is searched for relative to the data file that is importing it and then relative to the Python *module search path*.
-This *module search path* is define by the Python interpreter that executes Robot Framework and can be influenced by the environment variables `PYTHONPATH` or using the CLI-Argument `--pythonpath` when executing `robot`.
+This *module search path* is defined by the Python interpreter that executes Robot Framework and can be influenced by the environment variable `PYTHONPATH` or by using the CLI-Argument `--pythonpath` when executing `robot`.
 
 As **path separator** it is strongly recommended to always use forward slashes `/`, and even on Windows NOT use back-slashes `\`.
 This is due to the fact that back-slashes are used as escape characters in Robot Framework and can lead to issues when used in paths and forwards slashes are supported on all operating systems.
