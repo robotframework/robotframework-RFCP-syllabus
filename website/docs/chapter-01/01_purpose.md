@@ -60,6 +60,6 @@ Robot Framework allows users to automate most workflows using ready-made keyword
 Common use cases of RPA with Robot Framework include:
 
 - **Data extraction and manipulation**: Automating data transfers and processing between systems.
-- **Task/proces automation**: Automating tasks such as form submissions, clicks, and file operations across web or desktop applications.
+- **Task / Process automation**: Automating tasks such as form submissions, clicks, and file operations across web or desktop applications.
 
 
