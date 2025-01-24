@@ -124,7 +124,7 @@ How to use them is described in [2.6 Writing Test|Task and Calling Keywords](cha
 Another important information is if an argument is mandatory or optional.
 See the next two sections for more information about these two kinds of arguments.
 
-The most arguments can either be set by their position or by their name.
+Most arguments can either be set by their position or by their name.
 But there are some kinds of arguments that can only be set positional, like **Variable Number of Positional Arguments**, or only be set named, like **Named-Only Arguments** or **Free Named Arguments**.
 
 The order is as follows:
