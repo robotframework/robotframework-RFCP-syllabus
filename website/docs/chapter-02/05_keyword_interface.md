@@ -113,7 +113,7 @@ Understand the difference between argument kinds.
 ::::
 
 Most library keywords can be parameterized with arguments that are passed to the keyword when it is called to customize its behavior.
-As more business oriented keywords are as less arguments they typically have.
+The more business oriented keywords are the less arguments they typically have.
 
 Keyword arguments can be grouped into different argument kinds.
 On the one hand you can group them by their definition attributes and on the other hand by their usage kind.
