@@ -132,7 +132,7 @@ When choosing the location of resource files or libraries, it should be taken in
 Relative paths are portable as long as they are related to the data file that is importing using them, as long as that relative path is part of the project structure.
 
 However the most stable and recommended way is to use the **Python Path/module search path** to import them.
-That path needs to be defined when executing Robot Framework but can lead to more uniform and stable imports, because each suite or resource file can be use the same path to import the same resource file or library, independent of the location of the importing suite or resource file.
+That path needs to be defined when executing Robot Framework but can lead to more uniform and stable imports, because each suite or resource file can use the same path to import the same resource file or library, independent of the location of the importing suite or resource file.
 
 
 
