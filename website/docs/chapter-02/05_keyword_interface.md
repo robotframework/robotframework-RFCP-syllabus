@@ -410,7 +410,7 @@ Keywords may gather information and return these to the caller of that keyword t
 So, a keyword can `RETURN` values to the caller as functions do in programming languages.
 
 If the keyword implementation offers a type hint for the return value, this is documented in the keyword documentation.
-Similar to the argument types, return types optional and a more recent feature of Robot Framework and therefore not widely used, yet.
+Similar to the argument types, return types are optional and a more recent feature of Robot Framework and therefore not widely used, yet.
 
 It is important to know that keywords without a return type hint are often still returning values!
 This is typically documented in the *Documentation* part of the keyword documentation.
