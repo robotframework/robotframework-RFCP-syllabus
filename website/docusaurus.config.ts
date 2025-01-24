@@ -1,12 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer').themes.github;
+const lightCodeTheme = require('prism-react-renderer').themes.vsLight;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: ' Syllabus of Robot Framework® Certified Professional',
+  title: 'Syllabus of Robot Framework® Certified Professional',
   tagline: 'The foundation for the "Robot Framework® Certified Professional" (RFCP®) exam and training',
   url: 'https://robotframework.org',
   baseUrl: '/robotframework-RFCP-syllabus/',
@@ -156,7 +156,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['robotframework', 'rust'],
+        additionalLanguages: ['robotframework', 'python'],
       },
     }),
   plugins: [require.resolve('docusaurus-lunr-search')],

@@ -180,7 +180,10 @@ ${SEARCH_URL}     https://example.com/search
 ...               separator=
 ```
 
-`${SEARCH_URL}` will contain `https://example.com/search?query=robot+framework&page=1&filter=recent&lang=en&category=test-automation`.
+`${SEARCH_URL}` will contain:
+```
+https://example.com/search?query=robot+framework&page=1&filter=recent&lang=en&category=test-automation
+```
 
 
 ### 3.2.2.2 Primitive Data Types
@@ -337,8 +340,6 @@ which can be assigned to a scalar variable using the dollar-syntax `${variable_n
 ```robotframework
 *** Settings ***
 Library    OperatingSystem
-
-
 
 
 *** Test Cases ***

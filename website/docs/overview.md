@@ -132,7 +132,7 @@ The primary author of this syllabus is **René Rohner**.
 
 The following individuals have contributed to the development of this syllabus:
 
-**Alena Drebezgova, Alex Read, Christoph Singer, Elout van Leeuwen, Frank van der Kuur, Gerwin Laagland, Ilmari Salmela, Krzysztof Żminkowski, Lydia Peabody, Michael Biech, Miikka Solmela, Pekka Klärck, Pyry Hartman, Sami Pesonen, Simon Meggle, Tatu Kairi, and Tomáš Hák.**
+**Alena Drebezgova, Alex Read, Christoph Singer, Elout van Leeuwen, Frank van der Kuur, Gerwin Laagland, Ilmari Salmela, Jörg Irle, Krzysztof Żminkowski, Lydia Peabody, Michael Biech, Miikka Solmela, Pekka Klärck, Pyry Hartman, Sami Pesonen, Simon Meggle, Tatu Kairi, and Tomáš Hák.**
 
 **Special Mentions**
 

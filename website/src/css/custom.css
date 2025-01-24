@@ -55,6 +55,7 @@
   --ifm-alert-padding-vertical: 0.5rem;
   --ifm-alert-padding-horizontal: 0.5rem;
   --ifm-alert-border-radius: 0.25rem;
+  --ifm-font-family-monospace: "Courier Code";
 }
 
 html[data-theme='dark'] {
@@ -493,40 +494,67 @@ div[class^='announcementBar_'] {
   --ifm-tabs-color-active: var(--ifm-alert-foreground-color);
   --ifm-tabs-color-active-border: var(--ifm-alert-border-color);
   background-color: var(--ifm-alert-background-color);
-  border: var(--ifm-alert-border-width) solid var(--ifm-alert-border-color);
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-left: var(--ifm-alert-border-width) solid var(--ifm-alert-border-color);
   border-left-width: var(--ifm-alert-border-left-width);
-  border-radius: var(--ifm-alert-border-radius);
-  box-shadow: var(--ifm-alert-shadow);
+  border-radius: var(--ifm-code-border-radius) !important;  box-shadow: var(--ifm-alert-shadow);
   color: var(--ifm-alert-foreground-color);
   padding: var(--ifm-alert-padding-vertical) var(--ifm-alert-padding-horizontal);
 }
 
-.markdown h1:first-child {
-  --ifm-h1-font-size: 3rem;
 
-  margin-bottom: calc(
-    var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
+
+code {
+  background-color: var(--ifm-color-info-contrast-background) !important;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: var(--ifm-code-border-radius) !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+  font-size: var(--ifm-code-font-size);
+  padding: var(--ifm-code-padding-vertical) var(--ifm-code-padding-horizontal);
+  vertical-align: middle;
 }
 
-.markdown > h2 {
-  --ifm-h2-font-size: 2.5rem;
 
-  margin-bottom: calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2rem;
+
+  margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));
+}
+
+.markdown>h2 {
+  --ifm-h2-font-size: 1.75rem;
+
+  margin-bottom: calc(var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading));
   margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
 }
 
-.markdown > h3 {
-  --ifm-h3-font-size: 2rem;
+.markdown>h3 {
+  --ifm-h3-font-size: 1.5rem;
 
-  margin-bottom: calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
+  margin-bottom: calc(var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading));
   margin-top: calc(var(--ifm-h3-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 code {
   white-space: pre !important;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  font-family: var(--ifm-font-family-monospace);
+  letter-spacing: 0em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: OCRA;
+  letter-spacing: -0.11em;
 }
