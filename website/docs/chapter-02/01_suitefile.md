@@ -128,7 +128,7 @@ It allows you to import keywords from external libraries (`Library`) or resource
 
 In this section, the suite name, that is normally derived from the file name, can be redefined with the `Name` setting and its documentation can be defined with the `Documentation` setting.
 
-Additional metadata can be defined by multiple `Metadata` entries, which can containd key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
+Additional metadata can be defined by multiple `Metadata` entries, which can contain key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
 
 This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [4.1 Setups (Suite, Test|Task, Keyword)](chapter-04/01_setups.md) and
 [4.2 Teardowns (Suite, Test|Task, Keyword)](chapter-04/02_teardowns.md) for more information.
