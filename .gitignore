@@ -2,3 +2,7 @@
 folder
 __pycache__
 results
+
+.vscode
+.devcontainer
+
