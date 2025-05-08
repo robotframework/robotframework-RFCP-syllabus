@@ -2,9 +2,33 @@ import Quiz from '@site/src/components/Quiz';
 
 # Example exam
 
-<Quiz>
-# This is awesome!
-  
-- [x] True
-- [ ] False
+<Quiz question="
+# Is this formatted as sourcecode?
+
+```cpp
+const int answer = 42;
+```
+
+- [x] Yes
+- [ ] No
+
+# Is the syntaxhighlighting correct?
+
+```robotframework
+VAR    ${answer} = ${42}
+```
+
+- [x] Yes
+- [ ] No
+
+# What is the capital of France?
+- [ ] Berlin
+- [x] Paris
+- [ ] Rome
+
+# Is the sky blue?
+- [x] Yes
+- [ ] No
+
+">
 </Quiz>
