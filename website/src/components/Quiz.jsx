@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import 'quizdown'
+import 'quizdown/public/build/extensions/quizdownHighlight';
 
 export default function Quiz(props) {
 
@@ -11,7 +12,7 @@ export default function Quiz(props) {
       'shuffleAnswers': true
     }
 
-    quizdown.createApp(props.question, node, config);
+    quizdown.register(quizdownHighlight).createApp(props.question, node, config);
   };
 
   useEffect(() => {
