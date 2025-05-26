@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import 'quizdown'
+import hljsDefineRobot from '../robot';
 import 'quizdown/public/build/extensions/quizdownHighlight';
 
 export default function Quiz(props) {
@@ -12,11 +13,12 @@ export default function Quiz(props) {
       'shuffleAnswers': true
     }
 
+    console.log("quizdownHighlight.registerHljsLanguage");
+    quizdownHighlight.registerHljsLanguage("robot", hljsDefineRobot);
     quizdown.register(quizdownHighlight).createApp(props.question, node, config);
   };
 
   useEffect(() => {
-    console.log(props);
     startQuiz();
   });
 
