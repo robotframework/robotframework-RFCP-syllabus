@@ -23,7 +23,7 @@
     "docusaurus-lunr-search": "^3.6.0",
     "dompurify": "^3.3.0",
     "prism-react-renderer": "^2.4.1",
-    "quizdown": "../quizdown-0.6.0-2.tgz",
+    "quizdown-extended": "^0.6.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-markdown": "^10.1.0",
