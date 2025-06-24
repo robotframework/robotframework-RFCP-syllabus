@@ -204,7 +204,8 @@ Which levels are written to the log can be controlled by the log level of an exe
 
 
 ## Quiz
-<Quiz question="
+<Quiz name="Executing RF"
+question="
 # What command is used to start a testsuite?
 
 - [ ] rf /path/to/testsuite

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prebuild": "npm run generate:createQuizList",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "start-public": "docusaurus start --host 0.0.0.0",
@@ -13,7 +14,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "generate:createQuizList": "node src/components/Quiz/quizPrebuild.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.7.0",
@@ -22,10 +24,10 @@
     "clsx": "^2.0.0",
     "docusaurus-lunr-search": "^3.6.0",
     "prism-react-renderer": "^2.3.0",
-    "quizdown": "../quizdown-0.6.0-2.tgz",
-    "quizdown-extended": "^0.6.3",
+    "quizdown-extended": "0.6.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.7.0",
