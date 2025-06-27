@@ -49,12 +49,12 @@ Example:
     ▷ Keywords (No Suite)               |
       ◻︎ technical_keywords.resource     |
     ▶︎ Later_Suite_Directory             | Later Suite Directory
-      ◼︎ 01__FirstSuite.robot            | First Suite
-      ◼︎ 02__SecondSuite.robot           | Second Suite
-      ▶︎ 03__ThirdSuite                  | Third Suite
-        ◼︎ 01__FirstSubSuite.robot       | First Sub Suite
-        ◼︎ 02__SecondSubSuite.robot      | Second Sub Suite
-      ◼︎ 04__FourthSuite.robot           | Fourth Suite
+      ◼︎ 01__FirstSuite.robot            | FirstSuite
+      ◼︎ 02__SecondSuite.robot           | SecondSuite
+      ▶︎ 03__ThirdSuite                  | ThirdSuite
+        ◼︎ 01__FirstSubSuite.robot       | FirstSubSuite
+        ◼︎ 02__SecondSubSuite.robot      | SecondSubSuite
+      ◼︎ 04__FourthSuite.robot           | FourthSuite
 ```
 
 
