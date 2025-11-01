@@ -92,6 +92,11 @@ const config = {
             position: 'left',
           },
           {
+            label: 'Example Exam',
+            to: '/docs/example-exam',
+            position: 'left',
+          },
+          {
             label: 'LOs',
             to: '/docs/learning_objectives',
             position: 'left',
@@ -167,25 +172,7 @@ const config = {
       },
     }),
   plugins: [
-    async function quizRawLoaderPlugin() {
-      return {
-        name: 'quiz-raw-loader',
-        configureWebpack() {
-          return {
-            module: {
-              rules: [
-                {
-                  test: /\.(quiz|txt)$/,
-                  type: 'asset/source', // <-- built-in replacement for raw-loader
-                },
-              ],
-            },
-          };
-        },
-      };
-    },
     require.resolve('docusaurus-lunr-search')
-
   ],
 };
 
