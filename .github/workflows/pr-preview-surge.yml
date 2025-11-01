@@ -1,0 +1,84 @@
+name: PR Preview (Surge)
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  pull_request_target:
+    types: [closed]   # for optional teardown on close (see job at bottom)
+
+permissions:
+  contents: read
+
+env:
+  # Customize the base if you want (must be a valid, available Surge domain)
+  SURGE_DOMAIN_BASE: ${{ github.event.repository.name }}
+
+jobs:
+  preview:
+    if: github.event_name == 'pull_request'
+    name: Build & Deploy PR Preview
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./website
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+          cache-dependency-path: website/yarn.lock
+
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Install Surge CLI
+        run: npm i -g surge
+
+      - name: Compute preview domain
+        id: domain
+        run: |
+          dom="${{ env.SURGE_DOMAIN_BASE }}-pr-${{ github.event.number }}.surge.sh"
+          echo "domain=$dom" >> $GITHUB_OUTPUT
+
+      - name: Deploy to Surge
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          surge --project ./website/build \
+                --domain ${{ steps.domain.outputs.domain }} \
+                --token "$SURGE_TOKEN"
+
+      - name: Comment with preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const domain = '${{ steps.domain.outputs.domain }}'
+            const body = `🚀 Preview deployed to **https://${domain}**`
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            })
+
+  teardown:
+    # Optional: remove preview when PR is closed
+    if: github.event_name == 'pull_request_target' && github.event.action == 'closed'
+    name: Teardown Surge preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Surge CLI
+        run: npm i -g surge
+      - name: Teardown
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          dom="${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh"
+          surge teardown "$dom" --token "$SURGE_TOKEN" || true
