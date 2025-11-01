@@ -3,6 +3,71 @@ shuffleQuestions: false
 shuffleAnswers: false
 ---
 
+### In the given scenario which of the test cases logs only a single entry
+
+The following variables are given.
+
+__Read__ the keyword explaination carefully to understand the given scenario!
+
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+
+Here's a sentence with a footnote.
+
+
+
+#### Log Many
+
+**Arguments**
+
+`* messages`
+
+**Documentation**
+
+Logs the given messages as separate entries using the INFO level.
+
+Supports also logging list and dictionary variable items individually.
+
+```robot
+*** Variables ***
+@{user_names}    Alice    Bob    Charlie
+&{name_id_pairs}    Alice=001    Bob=002    Charlie=003
+```
+
+> LO-5.1.4.2 Recall that `@{list}` unpacks the values of a list variable when accessed
+
+- [ ] ```robot
+  *** Test Cases ***
+  Test A
+    Log Many    Alice    Bob    Charlie
+  ```
+  > 'Logs three entries: "Alice", "Bob", and "Charlie".'
+- [x] ```robot
+  *** Test Cases ***
+  Test B
+    Log Many    ${user_names}
+  ```
+    > This logs the string representation of the list.
+    >
+    > It logs: `['Alice', 'Bob', 'Charlie']`
+- [ ] ```robot
+  *** Test Cases ***
+  Test C
+    Log Many    @{user_names}
+  ```
+    > Logs three entries: `Alice`, `Bob`, and `Charlie`.
+- [ ] ```robot
+  *** Test Cases ***
+  Test D
+    Log Many    @{name_id_pairs}
+  ```
+    > Logs three entries: `Alice`, `Bob`, and `Charlie`
+    > this is a rare use case but if dictionaries are unpacked as list, it is a list of its keys.
+
+
+
 ### Question Title
 
 This is the **actual** Stem of the question
