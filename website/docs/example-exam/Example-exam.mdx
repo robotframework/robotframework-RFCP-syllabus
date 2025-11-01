@@ -1,35 +1,10 @@
+import Quiz from '@site/src/components/Quiz/Quiz';
+
 # Example exam
 
-<Quiz name="example1"
-question="
-# Is this formatted as sourcecode?
+<Quiz name="example1" src="exam.md"/>
 
-```python
-answer = 42
-if answer == 42:
-    print('hello world')
-```
 
-- [x] Yes
-- [ ] No
+# Example exam2
 
-# Is the syntaxhighlighting correct?
-
-```robot
-VAR    ${answer} = ${42}
-```
-
-- [x] Yes
-- [ ] No
-
-# What is the capital of France?
-- [ ] Berlin
-- [x] Paris
-- [ ] Rome
-
-# Is the sky blue?
-- [x] Yes
-- [ ] No
-
-">
-</Quiz>
+<Quiz name="example2" src="test.md"/>
