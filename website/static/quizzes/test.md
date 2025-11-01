@@ -7,10 +7,17 @@ shuffleAnswers: false
 
 This is the **actual** Stem of the question
 
-> 1. scheiße
-> 2. auch
+> `Hint`? Yes, This is the *hint*.
 >
-> `Hint`: This is the *hint*
+> 1. A list entry
+> 2. another one
+>
+> ```robot
+> *** Settings ***
+> Resource    imports.resource
+> Suite Setup    Start Database
+> Suite Teardown    Stop Database
+> ```
 
 1. [ ] Answer without rational
 1. [ ] WRONG Option
@@ -22,6 +29,20 @@ This is the **actual** Stem of the question
   >
   > and the third
 
+
+
+### Put the [days](https://en.wikipedia.org/wiki/Day) in order!
+
+Quizdown also renders formulas:
+
+
+> Monday is the *first* day of the week.
+
+1. Monday
+2. Tuesday
+3. Wednesday
+4. Friday
+5. Saturday
 
 
 ### LO-2.1.2 Recall the available sections in a suite file and their purpose. (K1)
@@ -56,7 +77,7 @@ Which of the following file contents of a file named `Suite.robot` is recognized
 
 
 
-- [ ] ```robot
+- [x] ```robot
   *** Settings ***
   Resource    imports.resource
 
@@ -77,7 +98,7 @@ Which of the following file contents of a file named `Suite.robot` is recognized
   ```
     > `*** Tests ***` is not the correct section header. `*** Test Cases ***` would be valid.
 
-- [X] ```robot
+- [ ] ```robot
   *** Settings ***
   Resource    imports.resource
 
