@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'OCRA';
-  src: url('/fonts/OCRA.woff') format('woff');
+  src: url('/fonts/OCRAEXT.woff') format('woff');
   font-display: swap;
 }
 
@@ -42,6 +42,7 @@
    https://blog.maximeheckel.com/posts/the-power-of-composition-with-css-variables/
     */
   --ifm-font-family-base: "Roboto";
+  --ifm-font-family-heading: "OCRA";
   --site-color-favorite-background: #f6fdfd;
   --site-color-tooltip: #fff;
   --site-color-tooltip-background: #353738;
@@ -63,6 +64,18 @@ html[data-theme='dark'] {
   --site-color-favorite-background: #1d1e1e;
   --site-color-checkbox-checked-bg: hsl(167deg 56% 73% / 10%);
   --docusaurus-highlighted-code-line-bg: rgb(66 66 66 / 35%);
+    --quizdown-color-primary: #00c0b5;
+  --quizdown-color-button: var(--ifm-table-stripe-background);
+  --quizdown-color-secondary: var(--ifm-footer-background-color);;
+  --quizdown-color-text: var(--ifm-font-color-base);
+  --quizdown-color-shadow: rgba(255, 255, 255, 0.01);
+  --quizdown-color-pass: #00aa66;
+  --quizdown-color-pass-bg: #00aa6610;
+  --quizdown-color-hint: #ff9800;
+  --quizdown-color-hint-bg: #ff980010;
+  --quizdown-color-fail: #e72323;
+  --quizdown-color-fail-bg: #e7232310;
+  --quizdown-color-code-bg: var(--ifm-color-info-contrast-background);
 }
 
 /*
@@ -73,6 +86,18 @@ html[data-theme='dark'] {
   --ifm-color-primary: #008682;
   --ifm-color-primary-darker: #006461;
   --ifm-color-primary-lighter: #00c0b5;
+  --quizdown-color-primary: #00c0b5;
+  --quizdown-color-secondary: var(--ifm-menu-color-background-active);
+  --quizdown-color-button: var(--ifm-menu-color-background-active);
+  --quizdown-color-text: var(--ifm-font-color-base);
+  --quizdown-color-shadow: rgba(0, 0, 0, 0.2);
+  --quizdown-color-pass: #00aa66;
+  --quizdown-color-pass-bg: #00aa6620;
+  --quizdown-color-hint: #ff9800;
+  --quizdown-color-hint-bg: #ff980020;
+  --quizdown-color-fail: #e72323;
+  --quizdown-color-fail-bg: #e7232320;
+  --quizdown-color-code-bg: var(--ifm-color-info-contrast-background);
 }
 
 /*
@@ -555,6 +580,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: OCRA;
+  font-family: var(--ifm-font-family-heading);
   letter-spacing: -0.11em;
 }

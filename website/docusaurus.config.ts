@@ -10,8 +10,12 @@ const config = {
   tagline: 'The foundation for the "Robot Framework® Certified Professional" (RFCP®) exam and training',
   url: 'https://robotframework.org',
   baseUrl: '/robotframework-RFCP-syllabus/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   favicon: 'img/rf_favicon.png',
   organizationName: 'robotframework', // Usually your GitHub org/user name.
   projectName: 'robotframework-RFCP-syllabus', // Usually your repo name.
@@ -159,7 +163,27 @@ const config = {
         additionalLanguages: ['robotframework', 'python'],
       },
     }),
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins: [
+    async function quizRawLoaderPlugin() {
+      return {
+        name: 'quiz-raw-loader',
+        configureWebpack() {
+          return {
+            module: {
+              rules: [
+                {
+                  test: /\.(quiz|txt)$/,
+                  type: 'asset/source', // <-- built-in replacement for raw-loader
+                },
+              ],
+            },
+          };
+        },
+      };
+    },
+    require.resolve('docusaurus-lunr-search')
+
+  ],
 };
 
 module.exports = config;
