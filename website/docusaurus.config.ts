@@ -10,10 +10,10 @@ const config = {
   tagline: 'The foundation for the "Robot Framework® Certified Professional" (RFCP®) exam and training',
   url: 'https://robotframework.org',
   baseUrl: '/robotframework-RFCP-syllabus/',
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownLinks: 'throw',
     },
   },
   favicon: 'img/rf_favicon.png',
