@@ -3,7 +3,6 @@ shuffleQuestions: false
 shuffleAnswers: false
 ---
 
-
 ### Which THREE of the following statements about Robot Framework are correct?
 
 > LO-1.1 Recall the two main Use-Cases of Robot Framework
