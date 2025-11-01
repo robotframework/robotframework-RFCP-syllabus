@@ -15,7 +15,7 @@ permissions:
 env:
   SURGE_DOMAIN_BASE: ${{ github.event.repository.name }}
   # Adjust if your Docusaurus baseUrl changes (no leading slash, no trailing slash)
-  BASE_PATH: robotframework-rfcp-syllabus
+  BASE_PATH: robotframework-RFCP-syllabus
 
 jobs:
   build:
