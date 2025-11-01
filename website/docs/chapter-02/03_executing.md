@@ -1,3 +1,4 @@
+import Quiz from '@site/src/components/Quiz/Quiz';
 
 # 2.3 Executing Robot
 
@@ -204,20 +205,4 @@ Which levels are written to the log can be controlled by the log level of an exe
 
 
 ## Quiz
-<Quiz name="Executing RF"
-question="
-# What command is used to start a testsuite?
-
-- [ ] rf /path/to/testsuite
-- [X] robot /path/to/testsuite
-- [ ] robotframework /path/to/testsuite
-
-# Which HTML-files are generated?
-
-- [x] log.html
-- [ ] result.html
-- [ ] executionReport.html
-- [X] report.html
-
-">
-</Quiz>
+<Quiz name="Executing RF"  src="test.md"/>

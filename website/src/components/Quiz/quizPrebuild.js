@@ -1,7 +1,6 @@
 // scripts/generateQuizComponentList.js
 const fs = require('fs');
 const path = require('path');
-const { randomUUID } = require('crypto');
 
 function getMarkdownFiles(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -17,7 +16,6 @@ function getMarkdownFiles(dir) {
   });
 }
 
-
 function extractComponentProps(content, componentName) {
   const tagRegex = new RegExp(`<${componentName}(\\s+[^>]*?)?>`, 'gi');
   const components = [];
@@ -27,10 +25,12 @@ function extractComponentProps(content, componentName) {
     const propsString = match[1] || '';
 
     const nameMatch = /name\s*=\s*["']([^"']+)["']/i.exec(propsString);
+    const srcMatch = /src\s*=\s*["']([^"']+)["']/i.exec(propsString);
 
     if (nameMatch) {
       components.push({
         name: nameMatch[1],
+        src: srcMatch ? srcMatch[1] : null,
       });
     }
   }
@@ -38,36 +38,30 @@ function extractComponentProps(content, componentName) {
   return components;
 }
 
-
 function findComponentUsage(rootDir, componentName) {
   const files = getMarkdownFiles(rootDir);
   const cwd = process.cwd();
 
   const results = [];
 
-
   for (const file of files) {
     const content = fs.readFileSync(file, 'utf-8');
     const matches = extractComponentProps(content, componentName);
 
-    // Remove file ending
     const pagePath = path.relative(cwd, file).split(".")[0];
-
-
     const pageParts = pagePath.split("/");
     const page = removeFollowingElementsInArray(pageParts);
 
     matches.forEach((match) => {
       let id = page.replace("docs/", "") + "#" + match.name.replace(" ", "+");
-
-      // Remove numbers followed by an underscore (e.g., '03_' becomes '')
       id = id.replace(/\b\d+_/g, "");
-
       id = id.toLowerCase();
+
       results.push({
         page: page,
         name: match.name,
         id: id,
+        src: match.src, // keep src if provided
       });
     });
   }
@@ -91,13 +85,13 @@ function organizeQuizzesByPage(components) {
 
     quizPages[pagePath].quizzes.push({
       id: component.id,
-      name: component.name
+      name: component.name,
+      src: component.src || null,
     });
   }
 
   return Object.values(quizPages);
 }
-
 
 function writeComponentListToFile(components, outputFilePath) {
   const date = new Date().toLocaleString();
@@ -115,6 +109,7 @@ export interface QuizPage {
 export interface QuizComponent {
   id: string | null;
   name: string;
+  src?: string | null;   // <-- new field
 }
 
 `;
@@ -124,8 +119,11 @@ export interface QuizComponent {
 
   const fullContent = header + content + '\n';
   fs.writeFileSync(outputFilePath, fullContent, 'utf-8');
-  console.log(`Generated ${outputFilePath} with ${quizPages.length} quiz pages and ${components.length} total quizzes.`);
+  console.log(
+    `Generated ${outputFilePath} with ${quizPages.length} quiz pages and ${components.length} total quizzes.`
+  );
 }
+
 
 function removeFollowingElementsInArray(arr) {
   let result = [];
