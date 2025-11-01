@@ -1,24 +1,25 @@
 name: PR Preview (Surge, gated by review)
 
 on:
-  # Use pull_request_target so secrets/env can be used after manual approval
   pull_request_target:
     types: [opened, reopened, synchronize, ready_for_review, edited, labeled]
-  # Optional: teardown on close
   pull_request:
-    types: [closed]
+    types: [closed]  # for teardown
 
+# Token perms needed for commenting + reading artifacts
 permissions:
   contents: read
-  pull-requests: read
-  issues: write    # to comment preview URL
+  issues: write
+  pull-requests: write
 
 env:
   SURGE_DOMAIN_BASE: ${{ github.event.repository.name }}
+  # Adjust if your Docusaurus baseUrl changes (no leading slash, no trailing slash)
+  BASE_PATH: robotframework-rfcp-syllabus
 
 jobs:
   build:
-    # Build untrusted code WITHOUT secrets
+    # Build untrusted PR code WITHOUT secrets
     if: github.event_name == 'pull_request_target' && github.event.pull_request.draft == false
     name: Build PR
     runs-on: ubuntu-latest
@@ -29,7 +30,6 @@ jobs:
       - name: Checkout PR head (read-only)
         uses: actions/checkout@v4
         with:
-          # IMPORTANT: check out the PR's HEAD repo/ref explicitly and disable credentials
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
           persist-credentials: false
@@ -57,15 +57,11 @@ jobs:
           retention-days: 5
 
   deploy:
-    # Will pause at Environment gate until a member approves
+    # Pauses at Environment gate until a member approves
     if: github.event_name == 'pull_request_target' && github.event.pull_request.draft == false
     name: Deploy Preview to Surge (requires approval)
     needs: build
     runs-on: ubuntu-latest
-
-    # 👇 Create an Environment named "preview" in repo settings.
-    # Add SURGE_TOKEN as an Environment secret there.
-    # Configure "Required reviewers" so a repo member must approve.
     environment:
       name: preview
       url: ${{ steps.deployed.outputs.preview_url }}
@@ -80,48 +76,54 @@ jobs:
       - name: Install Surge CLI
         run: npm i -g surge
 
-      - name: Compute preview domain
+      - name: Compute preview domain + path
         id: dom
         run: |
           echo "domain=${{ env.SURGE_DOMAIN_BASE }}-pr-${{ github.event.number }}.surge.sh" >> $GITHUB_OUTPUT
+          echo "path=/${{ env.BASE_PATH }}/" >> $GITHUB_OUTPUT
+
+      # Stage the Docusaurus output under the baseUrl path (so it serves at /<BASE_PATH>/)
+      - name: Stage site under base path
+        run: |
+          mkdir -p ./staging/${{ env.BASE_PATH }}
+          # Move entire built site into the subpath
+          shopt -s dotglob
+          mv ./build/* ./staging/${{ env.BASE_PATH }}/
+          # Optional: keep a root 200.html/404.html if you want nicer root errors
+          # but not required; we'll serve only from /<BASE_PATH>/
 
       - name: Deploy to Surge
         id: deployed
         env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}   # from the "preview" Environment
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}   # environment secret on "preview"
         run: |
-          surge --project ./build \
+          surge --project ./staging \
                 --domain ${{ steps.dom.outputs.domain }} \
                 --token "$SURGE_TOKEN"
-          echo "preview_url=https://${{ steps.dom.outputs.domain }}" >> $GITHUB_OUTPUT
+          echo "preview_url=https://${{ steps.dom.outputs.domain }}${{ steps.dom.outputs.path }}" >> $GITHUB_OUTPUT
 
+      # Comment using a purpose-built action (more robust than raw API for forked PRs)
       - name: Comment with preview URL
-        uses: actions/github-script@v7
+        uses: peter-evans/create-or-update-comment@v4
         with:
-          script: |
-            const url = '${{ steps.deployed.outputs.preview_url }}'
-            const body = `🚀 Preview deployed to **${url}**`
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body
-            })
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.number }}
+          body: |
+            🚀 Preview deployed to **${{ steps.deployed.outputs.preview_url }}**
 
   teardown:
-    # Optional: remove preview when the PR closes
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     name: Teardown Surge preview
     runs-on: ubuntu-latest
     steps:
       - name: Install Surge CLI
         run: npm i -g surge
-      - name: Compute preview domain
+      - name: Compute domain
         id: dom
         run: |
           echo "domain=${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh" >> $GITHUB_OUTPUT
       - name: Teardown
         env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}   # you can reuse the same Environment by adding environment: preview if you want review-gated teardown
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
           surge teardown "${{ steps.dom.outputs.domain }}" --token "$SURGE_TOKEN" || true
