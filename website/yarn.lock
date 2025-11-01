@@ -8038,10 +8038,10 @@ quick-lru@^5.1.1:
   resolved "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-quizdown-extended@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/quizdown-extended/-/quizdown-extended-1.1.1.tgz"
-  integrity sha512-hDlqwOnL6ko/IE9YyghwMg42SJpdjlWTKiSa5LgZwcolpRr+n0Klg89Wex56PKlSlg/kyVCVfhSONGiedkOX4g==
+quizdown-extended@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/quizdown-extended/-/quizdown-extended-1.2.1.tgz"
+  integrity sha512-DL8pV3wBMW7mOyVCqHZQ/AYPDhUeoekzBa7Yo1joFT0q3Gwv0nCDlw4xhiuTAlOs44Myk9Key4A+y9ap6IEHRQ==
   dependencies:
     "@shikijs/themes" "^3.14.0"
     auto-bind "^5.0.1"

@@ -71,82 +71,6 @@ shuffleAnswers: false
 - [x] Output files
 
 
-### Which TWO of the following statements are key characteristics of Test|Task|Teardown
-
-> LO-4.2.2-1 Recall key characteristics, benefits, and syntax of Test|Task Teardown
-
-- [x] When Test|Task Teardown fails, the test|task is marked as failed in reports and logs.
-- [ ] Test|Task Teardown runs only when the Test|Task passes.
-    > Runs always.
-- [x] All keywords within the Test|Task Teardown are executed, even when one of them fails.
-- [ ] Test|Task Teardown must be set separately for each test|task.
-    > Can be set glob
-
-
-
-### Which of the following statements describes the purpose of tags most accurately
-
-> LO-4.4 4.4 Recall the purpose of Test|Task Tags in Robot Framework
-
-1. [ ] Tags are case-sensitive labels used for grouping suites and tests|tasks.
-    > Tags are case-insensitive and only used for tests|tasks.
-1. [ ] Tags are assigned to suites to create statistical summary of the suite results.
-    > Assigned to tests|tasks.
-1. [x] "Tags offer a simple mechanism for classifying and controlling the execution of tests|tasks."
-1. [ ] "Only pre-defined tags, such as `smoke`, `regression`, and `critical` can be assigned to tests|tasks"
-    > Tags are free-form text labels.
-
-
-### In the given scenario which of the test cases logs only a single entry
-
-The following suite file is given.
-
-__Read__ the keyword explaination carefully to understand the given scenario!
-```
-Keyword explanation:
-
-Log Many: Logs the given messages as separate entries using the INFO level.
-```
-
-```robot
-*** Variables ***
-@{user_names}    Alice    Bob    Charlie
-&{name_id_pairs}    Alice=001    Bob=002    Charlie=003
-
-*** Test Cases ***
-Test A
-  Log Many    Alice    Bob    Charlie
-Test B
-  Log Many    ${user_names}
-Test C
-  Log Many    @{user_names}
-Test D
-  Log Many    @{name_id_pairs}
-```
-
-1. [ ] Test A
-    > 'Logs three entries: "Alice", "Bob", and "Charlie".'
-1. [x] Test B
-1. [ ] Test C
-    > 'Logs three entries: "Alice", "Bob", and "Charlie".'
-1. [ ] Test D
-    > 'Logs three entries: "Alice", "Bob", and "Charlie"
-      this is a rare use case but if unpacking is understood correctly
-      then the correct answer should be obvious.'
-
-### Which of the following statements describes the contents of built-in variable `${EXECDIR}`
-
-> LO-5.1.6 Recall that Robot Framework provides access to execution information via Built-In variables
-
-1. [ ] "It is an absolute path to the directory where the current suite or resource file is located."
-    > Description for `${CURDIR}`
-1. [x] It is an absolute path to the directory where test execution was started from.
-1. [ ] It is an absolute path to the directory where output files are written.
-    > Description for `${OUTPUT_DIR}`.
-1. [ ] It is an absolute path to the system temporary directory.
-    > Description for `${OUTPUT_DIR}`.
-
-
 ### Match the correct prefixes to different variable access types
 
 > LO-3.2.1-1 Recall the four syntactical access types to variables with their prefixes
@@ -164,3 +88,100 @@ Put the list below in the correct order to match the given prefixes
 2. Store values as a single entity
 3. Read access to an environment variable.
 4. Store key-value pairs in a dictionary structure.
+
+
+### Which TWO of the following statements are key characteristics of Test|Task|Teardown
+
+> LO-4.2.2-1 Recall key characteristics, benefits, and syntax of Test|Task Teardown
+
+- [x] When Test|Task Teardown fails, the test|task is marked as failed in reports and logs.
+- [ ] Test|Task Teardown runs only when the Test|Task passes.
+    > Runs always.
+- [x] All keywords within the Test|Task Teardown are executed, even when one of them fails.
+- [ ] Test|Task Teardown must be set separately for each test|task.
+    > Can be set glob
+
+
+
+### Which of the following statements describes the purpose of tags most accurately
+
+> LO-4.4 Recall the purpose of Test|Task Tags in Robot Framework
+
+1. [ ] Tags are case-sensitive labels used for grouping suites and tests|tasks.
+    > Tags are case-insensitive and only used for tests|tasks.
+1. [ ] Tags are assigned to suites to create statistical summary of the suite results.
+    > Assigned to tests|tasks.
+1. [x] "Tags offer a simple mechanism for classifying and controlling the execution of tests|tasks."
+1. [ ] "Only pre-defined tags, such as `smoke`, `regression`, and `critical` can be assigned to tests|tasks"
+    > Tags are free-form text labels.
+
+
+### In the given scenario which of the test cases logs only a single entry
+
+__Read__ the keyword explaination carefully to understand the given scenario!
+
+#### Log Many
+
+**Arguments**
+
+`* messages`
+
+**Documentation**
+
+```
+Logs the given messages as separate entries using the INFO level.
+
+Supports also logging list and dictionary variable items individually.
+```
+
+#### Variables
+
+The following Variables are available to each test case.
+
+```robot
+*** Variables ***
+@{user_names}    Alice    Bob    Charlie
+&{name_id_pairs}    Alice=001    Bob=002    Charlie=003
+```
+
+> LO-5.1.4.2 Recall that `@{list}` unpacks the values of a list variable when accessed
+
+- [ ] ```robot
+  *** Test Cases ***
+  Test A
+    Log Many    Alice    Bob    Charlie
+  ```
+  > 'Logs three entries: "Alice", "Bob", and "Charlie".'
+- [x] ```robot
+  *** Test Cases ***
+  Test B
+    Log Many    ${user_names}
+  ```
+    > This logs a single entry: the string representation of the list.
+    >
+    > It logs: `['Alice', 'Bob', 'Charlie']`
+- [ ] ```robot
+  *** Test Cases ***
+  Test C
+    Log Many    @{user_names}
+  ```
+    > Logs three entries: `Alice`, `Bob`, and `Charlie`.
+- [ ] ```robot
+  *** Test Cases ***
+  Test D
+    Log Many    @{name_id_pairs}
+  ```
+    > Logs three entries: `Alice`, `Bob`, and `Charlie`
+    > this is a rare use case but if dictionaries are unpacked as list, it is a list of its keys.
+
+### Which of the following statements describes the contents of built-in variable `${EXECDIR}`
+
+> LO-5.1.6 Recall that Robot Framework provides access to execution information via Built-In variables
+
+1. [ ] "It is an absolute path to the directory where the current suite or resource file is located."
+    > Description for `${CURDIR}`
+1. [x] It is an absolute path to the directory where test execution was started from.
+1. [ ] It is an absolute path to the directory where output files are written.
+    > Description for `${OUTPUT_DIR}`.
+1. [ ] It is an absolute path to the system temporary directory.
+    > Description for `${OUTPUT_DIR}`.

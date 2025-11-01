@@ -11,7 +11,6 @@ import type {WrapperProps} from '@docusaurus/types';
 type Props = WrapperProps<typeof AdmonitionType>;
 
 export default function AdmonitionWrapper(props: Props): ReactNode {
-  // console.log('AdmonitionWrapper', props);
   if (props.type === 'lo') {
     const newProps = {...props, type: 'info'};
     return (

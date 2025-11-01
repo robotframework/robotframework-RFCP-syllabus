@@ -156,11 +156,12 @@ export default function Quiz({ name, question, src }: QuizProps) {
       failBgColor: 'var(--quizdownColorFailBg)',
       codeBgColor: 'var(--quizdownColorCodeBg)',
 
-      locale: null,
+      locale: 'en',
       enableRetry: true,
 
       // NEW: Font configuration (requires updated quizdown files)
-      fontFamilyHeading: 'var(--ifm-font-family-heading)',
+      fontFamilyHeading: 'Roboto, sans-serif',
+      //'var(--ifm-font-family-heading)',
 
       // NEW: Custom styles to match Docusaurus
       customStyles: `
