@@ -1,15 +1,14 @@
-name: Test deployment
+name: Build and deploy Docusaurus
 
 on:
-  pull_request:
+  push:
     branches:
-      - docusaurus
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+      - main
+  workflow_dispatch:
 
 jobs:
-  test-deploy:
-    name: Test deployment
+  deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -20,10 +19,18 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: yarn
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Test build website
+      - name: Build website
         run: yarn build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./website/build
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          force_orphan: true
