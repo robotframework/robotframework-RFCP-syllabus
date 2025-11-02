@@ -24,7 +24,6 @@
     "@shikijs/langs": "^3.14.0",
     "@shikijs/themes": "^3.14.0",
     "clsx": "^2.1.1",
-    "docusaurus": "^1.14.7",
     "docusaurus-lunr-search": "^3.6.0",
     "dompurify": "^3.3.0",
     "prism-react-renderer": "^2.4.1",
