@@ -17,13 +17,13 @@ Recall the different ways to skip tests|tasks in Robot Framework
 
 ::::
 
-In addition to `PASS` and `FAIL`, Robot Framework introduces a `SKIP` status to indicate that a test|task was explicitly skipped **during** execution. The `SKIP` status is useful when certain tests|tasks should not be executed, for example, due to unfulfilled preconditions, unfinished test logic, or unsupported environments. Skipped tests|tasks appear in logs and reports, clearly marked as skipped.
+In addition to `PASS` and `FAIL`, Robot Framework introduces the `SKIP` status to indicate that a test|task was explicitly skipped **during** execution. The `SKIP` status is useful when certain tests|tasks should not be executed, for example, due to unfulfilled preconditions, incomplete test logic, or unsupported environments. Skipped tests|tasks appear in logs and reports, clearly marked as skipped.
 
 **Reasons to Use SKIP**
 
-- **Temporal Exclusion of Tests|Tasks**: To prevent failing tests|tasks for known issues to run until the issue is resolved.
-- **Conditional Execution**: Skip tests|tasks dynamically based on runtime conditions, e.g. if Suite Setup detected an issue.
-- **Unsupported Scenarios**: Mark tests|tasks as skipped in environments where they cannot run, but shall be in logs.
+- **Temporary Exclusion of Tests|Tasks**: To prevent tests|tasks with known issues from running until the issue is resolved.
+- **Conditional Execution**: To skip tests|tasks dynamically based on runtime conditions, e.g., if a Suite Setup detects an issue.
+- **Unsupported Scenarios**: To mark tests|tasks as skipped in environments where they cannot run, while still ensuring they are logged as such.
 
 
 ## 4.5.1 Skipping By Tags Selection (CLI)
@@ -42,9 +42,9 @@ Tests|tasks can be skipped with `--skip` by tags when executing Robot Framework,
 The difference between `--skip` and `--exclude` is that `--skip` will mark the tests|tasks as skipped in the report and log, while `--exclude` will not execute them at all.
 Therefore skip is better for documenting that a specific test|task was not executed for a specific reason.
 
-**Example**: If there is a defect in the System under Test (SUT) and a test|task has been written to reproduce the defect and tests its resolution, but the defect is not yet resolved, the test|task can be tagged with the defect-number and skipped until the defect should be resolved.
+**Example**: If there is a defect in the System under Test (SUT) and a test|task has been written to reproduce the defect and tests its resolution, but the defect is not yet resolved, the test|task can be tagged with the defect-number and skipped until the defect has been resolved.
 
-**Example**: Assuming there are different test environments and some tests can only be executed on specific environments, the tests can be tagged with the environment name and skipped on all other environments.
+**Example**: Assuming there are different test environments and some tests can only be executed in specific environments, the tests can be tagged with the environment name and skipped in all other environments.
 
 - **Command Line Option**: Use the `--skip` option to skip tests|tasks based on tags or tag patterns:
   ```shell

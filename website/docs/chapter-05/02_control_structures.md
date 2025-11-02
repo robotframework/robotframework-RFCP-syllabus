@@ -2,7 +2,7 @@
 # 5.2 Control Structures
 
 Robot Framework is a Turing-complete language and supports all common control structures, including IF-Statements, FOR-Loops, WHILE-Loops and more.
-While it is not expected that RCFPs can write complex control structures, they should understand their purpose.
+While it is not expected that RFCPs can write complex control structures, they should understand their purpose.
 
 In some cases, it is necessary to use control structures to handle different cases, iterate over a list of values, or execute an action until a condition is met.
 
@@ -19,7 +19,7 @@ Understand the purpose and basic concept of IF-Statements
 
 ::::
 
-The `IF/ELSE` syntax in Robot Framework is used to control the flow of test|task execution by allowing certain keywords to run only when specific conditions are met.
+The `IF` / `ELSE IF` / `ELSE` syntax in Robot Framework is used to control the flow of test|task execution by allowing certain keywords to run only when specific conditions are met.
 This is achieved by evaluating conditions written as Python expressions, enabling dynamic decision-making within your tests|tasks.
 
 The `IF` statement begins with the `IF` token and ends with an `END`, enclosing the keywords executed when the condition is true.
@@ -31,66 +31,66 @@ This structure enhances the flexibility and responsiveness of your tests|tasks, 
 
 When certain keywords should be executed only if a condition is met, the IF statement can be used.
 
-- **Structure**:
-  ```robotframework
-  IF    <condition>
-      <keywords>
-      <keywords>
-  END
-  ```
-- **Example**:
-  ```robotframework
-  *** Test Cases ***
-  Check Status
-      IF    '${status}' == 'SUCCESS'
-          Log    Operation was successful.
-      END
-  ```
-  - Executes the `Log` keyword if `${status}` is the string `SUCCESS`.
+```robotframework title="Structure"
+IF    <condition>
+    <keywords>
+    <keywords>
+END
+```
 
-## 5.2.2 IF/ELSE IF/ELSE Structure
+```robotframework title="Example"
+*** Test Cases ***
+Check Status
+    IF    $status == 'SUCCESS'
+        Log    Operation was successful.
+    END
+```
 
-To execute different alternative actions based on various conditions, use the IF/ELSE IF/ELSE structure.
+It executes the `Log` keyword if `${status}` is the string `SUCCESS`.
 
-- **Structure**:
-  ```robotframework
-  IF    <condition1>
-      <keywords if condition1 is true>
-  ELSE IF    <condition2>
-      <keywords if condition2 is true>
-  ELSE
-      <keywords if all conditions are false>
-  END
-  ```
-- **Example**:
-  ```robotframework
-  *** Test Cases ***
-  Evaluate Score
-      IF    ${score} >= 90
-          Log    Grade A
-      ELSE IF    ${score} >= 80
-          Log    Grade B
-      ELSE
-          Log    Grade C or below
-      END
-  ```
+## 5.2.2 IF/ELSE Structure
+
+To execute different alternative actions based on various conditions, use the IF/ELSE structure.
+
+```robot title="Structure"
+IF    <condition1>
+    <keywords if condition1 is true>
+ELSE IF    <condition2>
+    <keywords if condition2 is true>
+ELSE
+    <keywords if all conditions are false>
+END
+```
+
+```robotframework title="Example"
+*** Test Cases ***
+Evaluate Score
+    IF    $score >= 90
+        Log    Grade A
+    ELSE IF    $score >= 80
+        Log    Grade B
+    ELSE
+        Log    Grade C or below
+    END
+```
 
 ## 5.2.3 Inline IF Statement
 
 For single conditional keywords, the simplified inline IF statement can be used.
 
-- **Structure**:
-  ```robotframework
-  IF    <condition>    <keyword>    [arguments]
-  ```
-- **Example**:
-  ```robotframework
-  *** Test Cases ***
-  Quick Check
-      IF    ${user} == 'Admin'    Log    Admin access granted.
-  ```
-  - Executes the `Log` keyword if `${user}` equals `'Admin'`.
-  - No `END` is needed for inline IF.
+```robotframework title="Structure"
+IF    <condition>    <keyword>    [arguments]
+```
+
+```robotframework title="Example"
+*** Test Cases ***
+Quick Check
+    IF    $user == 'Admin'    Log    Admin access granted.
+```
+
+Executes the `Log` keyword if `${user}` equals to the string `'Admin'`.
+
+No `END` is needed for inline IF.
 
 ## 5.2.4 FOR Loops
 
@@ -123,43 +123,54 @@ The loop variable takes on each value in the sequence one at a time, executing t
 
 When you need to execute the same keywords for each item in a list or sequence, you can use the FOR-IN loop.
 
-- **Structure**:
-  ```robotframework
-  FOR    ${loop_variable}    IN    <value1>    <value2>    ...    <valueN>
-      <keywords>
-      <keywords>
-  END
-  ```
+```robotframework title="Structure"
+FOR    ${loop_variable}    IN    <value1>    <value2>    ...    <valueN>
+    <keywords>
+    <keywords>
+END
+```
 
-  Since `<value1>    <value2>    ...    <valueN>` can be the same as an unpacked list like `@{values}`, this is the most common way to use the FOR loop.
+Since `<value1>    <value2>    ...    <valueN>` can be the same as an unpacked list like `@{values}`, this is the most common way to use the FOR loop.
 
-  ```robotframework
-  FOR    ${loop_variable}    IN    @{iterable_values}
-      <keywords>
-      <keywords>
-  END
-  ```
+```robotframework title="Structure"
+FOR    ${loop_variable}    IN    @{iterable_values}
+    <keywords>
+    <keywords>
+END
+```
 
-- **Example**:
-    ```robotframework
-    *** Variables ***
-    @{fruits} =    apple    banana    cherry
+Examples:
 
-    *** Test Cases ***
-    Process Fruit List
-        FOR    ${fruit}    IN    @{fruits}
-            Log    Processing ${fruit}
-        END
-    ```
-    This would essentially be the same as:
-    ```robotframework
-    *** Test Cases ***
-    Process Fruits separately
-        Log    Processing apple
-        Log    Processing banana
-        Log    Processing cherry
-    ```
+```robotframework title="Example"
+*** Test Cases ***
+Process Fruit List
+    FOR    ${fruit}    IN    apple    banana    cherry
+        Log    Processing ${fruit}
+    END
+```
 
+This would essentially be the same as this:
+
+```robotframework title="Example"
+*** Variables ***
+@{fruits} =    apple    banana    cherry
+
+*** Test Cases ***
+Process Fruit List
+    FOR    ${fruit}    IN    @{fruits}
+        Log    Processing ${fruit}
+    END
+```
+
+Or this:
+
+```robotframework title="Example"
+*** Test Cases ***
+Process Fruits separately
+    Log    Processing apple
+    Log    Processing banana
+    Log    Processing cherry
+```
 
 
 ## 5.2.5 WHILE Loops
@@ -185,23 +196,22 @@ If the condition is true, the loop body is executed, and the condition is re-eva
 If the condition is false, the loop is exited, and execution continues with the next keyword after the `END`.
 The condition is similar to an IF statement, a Python expression that evaluates to a boolean value.
 
-- **Structure**:
-    ```robotframework
-    WHILE    <condition>
-        <keywords>
-        <keywords>
-    END
-    ```
-- **Example**:
-    ```robotframework
-    *** Test Cases ***
-    Scroll Down Until Element Visible
+```robotframework title="Structure"
+WHILE    <condition>
+    <keywords>
+    <keywords>
+END
+```
+
+```robotframework title="Example"
+*** Test Cases ***
+Scroll Down Until Element Visible
+    ${element_visible}    Get Element Visibility    <locator>
+    WHILE    not $element_visible
+        Scroll Down
         ${element_visible}    Get Element Visibility    <locator>
-        WHILE    not ${element_visible}
-            Scroll Down
-            ${element_visible}    Get Element Visibility    <locator>
-        END
-    ```
+    END
+```
 
 `WHILE` loops have a configurable iteration limit in Robot Framework.
 When the maximum number of iterations is reached, the loop exits with a failure, causing the test|task or keyword to fail.
@@ -235,7 +245,7 @@ Suppose we want to search for an element on a page and scroll down until it is v
 This time, we do not know the number of pages we can scroll, so we use the `WHILE` loop.
 However, we want the loop to iterate and `BREAK` once we have found the element.
 
-```robotframework
+```robotframework title="Example with BREAK"
 *** Test Cases ***
 Scroll Down Until Element Visible
     WHILE    True    # This would loop to the max iteration limit
@@ -252,22 +262,22 @@ In that case, combine `IF` and `CONTINUE` to control the loop flow.
 
 Example 2 `CONTINUE`:
 
-```robotframework
+```robotframework title="Example with CONTINUE"
 *** Settings ***
 Library     Collections
 
 
 *** Variables ***
-&{participant_1}    name=Alice      age=23
-&{participant_2}    name=Bob        age=42
-&{participant_3}    name=Charlie    age=33
-&{participant_4}    name=Pekka      age=44
-@{participants}     ${participant_1}    ${participant_2}    ${participant_3}    ${participant_4}
+&{PARTICIPANT_1}    name=Alice      age=23
+&{PARTICIPANT_2}    name=Bob        age=42
+&{PARTICIPANT_3}    name=Charlie    age=33
+&{PARTICIPANT_4}    name=Pekka      age=44
+@{PARTICIPANTS}     ${PARTICIPANT_1}    ${PARTICIPANT_2}    ${PARTICIPANT_3}    ${PARTICIPANT_4}
 
 
 *** Test Cases ***
 Find Older Participants
-    ${older_participants}    Get Older Participants    ${participants}    40
+    ${older_participants}    Get Older Participants    ${PARTICIPANTS}    40
     Should Be Equal    ${older_participants}[0][name]    Bob
     Should Be Equal    ${older_participants}[1][name]    Pekka
 

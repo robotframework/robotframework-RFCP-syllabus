@@ -90,7 +90,7 @@ Understand how to filter tests|tasks using the command-line interface of Robot F
 
 Tags can be used to select which tests|tasks are executed or skipped when running a suite. This is accomplished using command-line options when executing Robot Framework.
 
-When filtering for tests|tasks with a specific tag, you should always use the lowercase version of the tag because possible logical operators are case-sensitive and uppercase.
+While tags are case-insensitive you should always use the lowercase version of the tag when filtering for tests|tasks with logical operators because logical operators are case-sensitive and uppercase.
 `AND`, `OR`, and `NOT` are the logical operators that can be used to combine tags in the filtering, but **they are not part of this syllabus!**
 
 

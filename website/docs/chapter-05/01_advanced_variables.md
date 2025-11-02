@@ -36,6 +36,10 @@ In general, there are two types of variables regarding how they are created:
 
 Built-in variables cannot generally be sorted into one of these categories, as some are predefined globally while others are created during execution with a `SUITE` or `TEST` scope.
 
+Examples:
+- `${TEST_NAME}` is dynamically set during execution to the name of the currently running test case.
+- `${OUTPUT_DIR}` is statically defined before the execution and contains the directory where `output.xml`, `log.html` and `report.html` are written.
+- `${LOG_LEVEL}` is by default set statically via command line options or `INFO` as default, but can be changed, with the keyword `Set Log Level` during exection.
 
 ### 5.1.1.1 Statically Defined or Imported Variables
 
@@ -394,17 +398,17 @@ Example:
 &{participant_one}    name=Alice    age=23
 &{participant_two}    name=Bob      age=42
 
-*** Keywords ***
-Log Participant
-    [Arguments]    ${name}    ${age}
-    Log    ${name} is ${age} years old
-
 *** Test Cases ***
 Test Dictionary Variables
     Log Participant    John    33
     Log Participant    name=Pekka    age=44
     Log Participant    &{participant_one}
     Log Participant    &{participant_two}
+
+*** Keywords ***
+Log Participant
+    [Arguments]    ${name}    ${age}
+    Log    ${name} is ${age} years old
 ```
 
 Instead of calling the keyword `Log Participant` with two arguments, it is possible to use the unpacked dictionary variables `&{participant_one}` and `&{participant_two}` to call the keyword with two named arguments.
@@ -426,25 +430,25 @@ Recall that Robot Framework provides access to execution information via Built-I
 
 Robot Framework has a set of built-in variables that can be used in test cases, keywords, and other places. Some examples are:
 
-| Variable         | Description                                                                                                                                                    |
-|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Variable           | Description                                                                                                                                                    |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `${EMPTY}`         | An empty string.                                                                                                                                               |
 | `${SPACE}`         | A single space character.                                                                                                                                      |
-| `${CURDIR}`        | An absolute path to the directory where the current suite or resource file is located. This variable is case-sensitive.                                       |
+| `${CURDIR}`        | An absolute path to the directory where the current suite or resource file is located. This variable is case-sensitive.                                        |
 | `${EXECDIR}`       | An absolute path to the directory where test execution was started from.                                                                                       |
 | `${OUTPUT_DIR}`    | An absolute path to the directory where output files, like `output.xml`, `log.html`, and `report.html`, are written.                                           |
-| `${TEMPDIR}`       | An absolute path to the system temporary directory. In UNIX-like systems, this is typically /tmp, and in Windows, it is c:\Documents and Settings\<user>\Local Settings\Temp. |
+| `${TEMPDIR}`       | An absolute path to the system temporary directory. In UNIX-like systems, this is typically `/tmp`, and in Windows, it is `c:\Documents and Settings\<user>\Local Settings\Temp`. |
 
 Additionally, suite-related or test|task-related variables are available. These variables can have different values during test execution, and some are not available at all times. Altering the value of these variables does not affect the original values.
 
-| Variable              | Description                                    |
-|-----------------------|------------------------------------------------|
-| `${SUITE_NAME}`         | The name of the current suite.                 |
-| `${SUITE_SOURCE}`       | The path to the file where the current suite is defined. |
-| `${SUITE_DOCUMENTATION}` | The documentation of the current suite.       |
-| `${TEST_NAME}`          | The name of the current test.                  |
-| `${TEST_DOCUMENTATION}` | The documentation of the current test.         |
-| `${PREV_TEST_STATUS}`   | The status of the previous test.               |
+| Variable                 | Description                                    |
+|--------------------------|------------------------------------------------|
+| `${SUITE_NAME}`          | The name of the current suite.                 |
+| `${SUITE_SOURCE}`        | The path to the file where the current suite is defined. |
+| `${SUITE_DOCUMENTATION}` | The documentation of the current suite.        |
+| `${TEST_NAME}`           | The name of the current test.                  |
+| `${TEST_DOCUMENTATION}`  | The documentation of the current test.         |
+| `${PREV_TEST_STATUS}`    | The status of the previous test.               |
 
 These variables can be used in test cases, keywords, and other places to access information about the current test execution.
 
