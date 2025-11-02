@@ -66,14 +66,15 @@ Test Teardown    Close Page
 Invalid User Name                 invalid          ${VALID PASSWORD}
 Invalid Password                  ${VALID USER}    invalid
 Invalid User Name and Password    invalid          invalid
+Empty User Name and Password      ${EMPTY}         ${EMPTY}
+    [Tags]    Empty
 Empty User Name                   ${EMPTY}         ${VALID PASSWORD}
 Empty Password                    ${VALID USER}    ${EMPTY}
-Empty User Name and Password      ${EMPTY}         ${EMPTY}
 ```
 
 The advantage of this approach is that each test|task is executed separately with its own name and data set.
 Each test|task appears in the statistics and reports.
-Single tests|tasks can be filtered and re-executed or tagged.
+Single tests|tasks can be filtered and re-executed or tagged, like the test case `Empty User Name and Password`.
 
 It is possible to add header names to the data columns in the line of `*** Test Cases ***` or `*** Tasks ***` to describe the data columns to improve readability.
 

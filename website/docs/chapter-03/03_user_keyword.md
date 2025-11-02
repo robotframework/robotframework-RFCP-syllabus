@@ -56,7 +56,7 @@ The names of User Keywords should be descriptive and clear, reflecting the purpo
 Well-named keywords make tests more readable and easier to understand.
 Robot Framework supports Unicode and allows the use of special characters and even Emojis in keyword names.
 
-Keyword names are case-insensitive and can include spaces.
+Keyword names are case-insensitive and can include single spaces.
 Also spaces and underscores will be ignored when matching keyword names.
 So the keywords `Login To System`, and `log_into_system` are considered identical.
 
@@ -325,6 +325,9 @@ Embedded and normal arguments
     And the number of dogs should be    count=2
 
 *** Keywords ***
+the user is on the pet selection page
+    Open Pet Selection Page
+
 the number of ${animals} should be
     [Arguments]    ${count}
     ${current_count}    Get Animal Count    ${animals}
@@ -391,9 +394,26 @@ The `RETURN` statement is normally used at the end of a keyword definition,
 because it will end the keyword execution at that point and return to the caller.
 However, this behavior can be used to conditionally end a keyword execution early together with an `IF` or `TRY-EXCEPT` statement.
 
-The `RETURN` statement cannot return a value from a keyword call directly like in other programming languages.
-The return value must be stored in a variable first and then be returned by the `RETURN` statement.
 
+:::tip[Important]
+
+The `RETURN` statement of a keyword cannot return the returned value from a called keyword directly like in other programming languages.
+The return value must be stored in a variable first and then be returned by the `RETURN` statement.
+So the first keyword is **invalid** while the second **valid** is!
+
+```robot title="invalid"
+*** Keywords ***
+Get ISO Time
+    RETURN    Evaluate    datetime.datetime.now().isoformat()
+```
+
+```robot title="valid"
+*** Keywords ***
+Get ISO Time
+    ${time}    Evaluate    datetime.datetime.now().isoformat()
+    RETURN    ${time}
+```
+:::
 
 
 ## 3.3.7 Keyword Conventions
@@ -421,10 +441,10 @@ When defining User Keywords, it is recommended to follow conventions to ensure c
 These may be taken from community best practices or defined within the project team.
 
 Keyword Conventions should contain agreements on:
-- **Naming Case**: Which case shall be used? (i.e. `Title Case`, `camelCase`, `snake_case`, `kebab-case`, or `sentence case`, etc. ) (from a readability perspective, `Title Case` or `Sentence case` are recommended)
-- **Grammatical Form/Mood**: Which form shall be used for actions and verifications/assertions? (i.e. `Imperative` for both like `Click Button`, `Verify Text`. Or i.e. `Declarative`/`Indicative` for assertions like `Text Should Be`, `Element Should Be Visible`)
-- **Word/Character Count**: How man words or characters shall be used in a keyword name? (i.e. less than 7 words)
-- **Argument Count**: How many arguments shall a keyword have? (i.e. less than 5)
+- **Naming Case**: Which case shall be used? (e.g. `Title Case`, `camelCase`, `snake_case`, `kebab-case`, or `sentence case`, etc. ) (from a readability perspective, `Title Case` or `Sentence case` are recommended)
+- **Grammatical Form/Mood**: Which form shall be used for actions and verifications/assertions? (e.g. `Imperative` for both like `Click Button`, `Verify Text`. Or e.g. `Declarative`/`Indicative` for assertions like `Text Should Be`, `Element Should Be Visible`)
+- **Word/Character Count**: How many words or characters shall be used in a keyword name? (e.g. less than 7 words)
+- **Argument Count**: How many arguments shall a keyword have? (e.g. less than 5)
 - **Documentation**: How shall the documentation be structured and which information shall be included or is it required at all?
 
 

@@ -46,16 +46,16 @@
   - LO-2.1.1 (K1) Recall the conditions and requirements for a file to be considered a Suite file
 - [`2.1.2 Sections and Their Artifacts`](website/docs/chapter-02/01_suitefile.md#212-sections-and-their-artifacts)
   - LO-2.1.2 (K1) Recall the available sections in a suite file and their purpose.
-  - [`2.1.2.1 Introduction in `*** Settings ***` Section`](website/docs/chapter-02/01_suitefile.md#2121-introduction-in--settings--section)
+  - [`2.1.2.1 Introduction in `*** Settings ***` Section`](website/docs/chapter-02/01_suitefile.md#2121-introduction-to--settings--section)
     - LO-2.1.2.1-1 (K1) Recall the available settings in a suite file.
     - LO-2.1.2.1-2 (K2) Understand the concepts of suite settings and how to define them.
-  - [`2.1.2.2 Introduction in `*** Variables ***` Section`](website/docs/chapter-02/01_suitefile.md#2122-introduction-in--variables--section)
+  - [`2.1.2.2 Introduction in `*** Variables ***` Section`](website/docs/chapter-02/01_suitefile.md#2122-introduction-to--variables--section)
     - LO-2.1.2.2 (K1) Recall the purpose of the `*** Variables ***` section.
-  - [`2.1.2.3 Introduction in `*** Test Cases ***` or `*** Tasks ***` Section`](website/docs/chapter-02/01_suitefile.md#2123-introduction-in--test-cases--or--tasks--section)
+  - [`2.1.2.3 Introduction in `*** Test Cases ***` or `*** Tasks ***` Section`](website/docs/chapter-02/01_suitefile.md#2123-introduction-to--test-cases--or--tasks--section)
     - LO-2.1.2.3 (K2) Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section.
-  - [`2.1.2.4 Introduction in `*** Keywords ***` Section`](website/docs/chapter-02/01_suitefile.md#2124-introduction-in--keywords--section)
+  - [`2.1.2.4 Introduction in `*** Keywords ***` Section`](website/docs/chapter-02/01_suitefile.md#2124-introduction-to--keywords--section)
     - LO-2.1.2.4 (K2) Understand the purpose and limitations of the `*** Keywords ***` section.
-  - [`2.1.2.5 Introduction in `*** Comments ***` Section`](website/docs/chapter-02/01_suitefile.md#2125-introduction-in--comments--section)
+  - [`2.1.2.5 Introduction in `*** Comments ***` Section`](website/docs/chapter-02/01_suitefile.md#2125-introduction-to--comments--section)
 - [`2.2 Basic Suite File Syntax`](website/docs/chapter-02/02_suitefile_syntax.md)
 - LO-2.2 (K2) Understand the basic syntax of test cases and tasks.
 - [`2.2.1 Separation and Indentation`](website/docs/chapter-02/02_suitefile_syntax.md#221-separation-and-indentation)

@@ -20,11 +20,11 @@
 | [`LO-2.1`](chapter-02/01_suitefile.md) | K2 | Understand which files and directories are considered suites and how they are structured in a suite tree. |
 | [`LO-2.1.1`](chapter-02/01_suitefile.md#211-suite-files) | K1 | Recall the conditions and requirements for a file to be considered a Suite file |
 | [`LO-2.1.2`](chapter-02/01_suitefile.md#212-sections-and-their-artifacts) | K1 | Recall the available sections in a suite file and their purpose. |
-| [`LO-2.1.2.1-1`](chapter-02/01_suitefile.md#2121-introduction-in--settings--section) | K1 | Recall the available settings in a suite file. |
-| [`LO-2.1.2.1-2`](chapter-02/01_suitefile.md#2121-introduction-in--settings--section) | K2 | Understand the concepts of suite settings and how to define them. |
-| [`LO-2.1.2.2`](chapter-02/01_suitefile.md#2122-introduction-in--variables--section) | K1 | Recall the purpose of the `*** Variables ***` section. |
-| [`LO-2.1.2.3`](chapter-02/01_suitefile.md#2123-introduction-in--test-cases--or--tasks--section) | K2 | Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. |
-| [`LO-2.1.2.4`](chapter-02/01_suitefile.md#2124-introduction-in--keywords--section) | K2 | Understand the purpose and limitations of the `*** Keywords ***` section. |
+| [`LO-2.1.2.1-1`](chapter-02/01_suitefile.md#2121-introduction-to--settings--section) | K1 | Recall the available settings in a suite file. |
+| [`LO-2.1.2.1-2`](chapter-02/01_suitefile.md#2121-introduction-to--settings--section) | K2 | Understand the concepts of suite settings and how to define them. |
+| [`LO-2.1.2.2`](chapter-02/01_suitefile.md#2122-introduction-to--variables--section) | K1 | Recall the purpose of the `*** Variables ***` section. |
+| [`LO-2.1.2.3`](chapter-02/01_suitefile.md#2123-introduction-to--test-cases--or--tasks--section) | K2 | Understand the purpose of the `*** Test Cases ***` or `*** Tasks ***` section. |
+| [`LO-2.1.2.4`](chapter-02/01_suitefile.md#2124-introduction-to--keywords--section) | K2 | Understand the purpose and limitations of the `*** Keywords ***` section. |
 | [`LO-2.2`](chapter-02/02_suitefile_syntax.md) | K2 | Understand the basic syntax of test cases and tasks. |
 | [`LO-2.2.1`](chapter-02/02_suitefile_syntax.md#221-separation-and-indentation) | K3 | Understand and apply the mechanics of indentation and separation in Robot Framework. |
 | [`LO-2.2.2`](chapter-02/02_suitefile_syntax.md#222-line-breaks-continuation-and-empty-lines) | K3 | Be able to use line breaks and continuation in a statement. |

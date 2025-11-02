@@ -5,17 +5,17 @@ import K1Icon from '@site/static/img/K1.svg';
 import K2Icon from '@site/static/img/K2.svg';
 import K3Icon from '@site/static/img/K3.svg';
 
-import type AdmonitionType from   '@theme/Admonition';
+import type AdmonitionType from '@theme/Admonition';
 import type {WrapperProps} from '@docusaurus/types';
 
 type Props = WrapperProps<typeof AdmonitionType>;
 
 export default function AdmonitionWrapper(props: Props): ReactNode {
-  console.log('AdmonitionWrapper', props);
   if (props.type === 'lo') {
+    const newProps = {...props, type: 'info'};
     return (
       <>
-        <Admonition icon={<RFIcon />} {...props} />
+        <Admonition icon={<RFIcon />} {...newProps} />
       </>
     );
   }

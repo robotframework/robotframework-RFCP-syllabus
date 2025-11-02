@@ -17,6 +17,8 @@ Understand the basic syntax of test cases and tasks.
 
 ::::
 
+Suite files and resource files share the same syntax, however they differ in their capabilities.
+Resource files are explained in more detail in [2.4.2 Resource Files](04_keyword_imports.md#242-resource-files) [3.1 Resource File Structure](../chapter-03/01_resource_file.md).
 
 
 ## 2.2.1 Separation and Indentation
@@ -33,7 +35,7 @@ Understand and apply the mechanics of indentation and separation in Robot Framew
 
 As mentioned before, Robot Framework uses an indentation-based and space-separated syntax to structure keywords, test cases, and tasks.
 
-**Two or more spaces** are used to separate or indent statements in Robot Framework files, while a single space is a valid character in tokens (i.e. keyword names, argument values, variables, etc.).
+**Two or more spaces** are used to separate or indent statements in Robot Framework files, while a single space is a valid character in tokens (e.g. keyword names, argument values, variables, etc.).
 The clear recommendation for separators is to use **four spaces** or more to unambiguously make it visible
 to a potential reader where elements are separated or indented.
 
@@ -43,6 +45,17 @@ To create a statement spanning multiple lines, literal lines can be continued by
 **Example 1**: A keyword call is a statement that consists of a keyword name and its arguments, which are separated by two or more spaces from the keyword name and from each other.
 An optional assignment of the return value can be possible as well.
 The line comments starting with a hash `#` show the tokens in the statement.
+
+Plain example for better readability:
+```robotframework
+*** Test Cases ***
+Test Case Name
+      Keyword Call     argument one     argument two
+      Keyword Call
+      ...            argument one
+      ...            argument two
+      ${variable_assignment}     Keyword Getter Call
+```
 
 Example with tokens in comments:
 ```robotframework
@@ -60,17 +73,6 @@ Test Case Name
 # SEP | CONTINUATION | ARGUMENT | EOL
       ${variable_assignment}     Keyword Getter Call
 # SEP |     ASSIGNMENT     | SEP |     KEYWORD     | EOL
-```
-
-Plain example for better readability:
-```robotframework
-*** Test Cases ***
-Test Case Name
-      Keyword Call     argument one     argument two
-      Keyword Call
-      ...            argument one
-      ...            argument two
-      ${variable_assignment}     Keyword Getter Call
 ```
 
 In the example above, the test case `Test Case Name` contains three keyword calls.
@@ -94,14 +96,14 @@ Resource     keywords.resource
 
 
 All elements themselves in their section are written without any indentation.
-So settings in the `*** Settings ***` section, test cases in the `*** Test Cases ***` section,
+So, settings in the `*** Settings ***` section, test cases in the `*** Test Cases ***` section,
 and keywords in the `*** Keywords ***` section are written without any indentation.
-However, when defining tests|tasks and keywords, indentation is used to define their body, while their name is still un-indented.
-So after i.e. a test case name, all subsequent lines that are part of the test case body are indented by two or more spaces.
+However, when defining tests|tasks and keywords, indentation is used to define their body, while their name is still un-indented,
+e.g., after a test case name, all subsequent lines that are part of the test case body are indented by two or more spaces.
 
-That means that a body statement always starts with a separator token, followed by a data token, like i.e. variable or keyword as seen in the examples above.
+That means that a body statement always starts with a separator token, followed by a data token, like e.g. variable or keyword as seen in the examples above.
 
-The body ends when either a new un-indented test case name is defined
+The body ends when either a new un-indented element (e.g. test case or keyword) is defined
 or another section like `*** Keywords ***` starts
 or the end of the file is reached.
 
@@ -148,17 +150,17 @@ This allows you to structure documentation in a more readable and organized mann
 
 ```robotframework
 *** Settings ***
-Documentation     This is the first line of suite documentation.
+Documentation     This is the first paragraph of suite documentation.
 ...
-...            This is the second line of suite documentation.
+...            This is the second paragraph of suite documentation.
 Resource     keywords.resource
 
 
 *** Test Cases ***
 Test Case Name
-      [Documentation]    This is the first line of test documentation.
+      [Documentation]    This is the first paragraph of test documentation.
       ...
-      ...                This is the second line of test documentation.
+      ...                This is the second paragraph of test documentation.
       Keyword Call     argument one     argument two
       Keyword Call
       ...            argument one
@@ -181,17 +183,17 @@ Be able to add in-line comments to suites.
 In Robot Framework comments can be added to lines after the content
 by starting the comment with a separator (multiple spaces) and a hash `#`.
 The hash `#` is used to indicate that the rest of the line is a comment and is ignored by Robot Framework.
-Same works at the very start of a line, which makes the whole line a comment.
+The same works at the very start of a line, which makes the whole line a comment.
 
 Hashes in the middle of a value are considered normal characters and do not need to be escaped.
 
-If an argument value or any other thing shall start with a hash (`#`)
-and it is preceded by a separator (multiple spaces),
+If an argument value or any other token shall start with a hash (`#`)
+and is preceded by a separator (multiple spaces),
 the hash must be escaped by a backslash `\` like `Click Element By Css    \#element_id`.
 
 Block comments are not supported in Robot Framework,
 so each line that shall be a comment must be prefixed with a hash `#`.
-Alternatively the `*** Comments ***` section can be used to add multi-line comments to files.
+Alternatively, the `*** Comments ***` section can be used to add multi-line comments to files.
 
 
 
@@ -213,14 +215,14 @@ if a specific character shall be interpreted as part of the value or as a contro
 
 Some examples are:
 - the `#` hash character that is used to start a comment as described above.
-- variables that are started by i.e. `${` (See [3.2 Variables](chapter-03/02_variables.md))
+- variables that are started by e.g. `${` (See [3.2 Variables](chapter-03/02_variables.md))
 - multiple spaces that are considered as separators
 - equal sign `=` that is used to assign named arguments to keywords
 
 All those characters or character sequences that are interpreted as control characters can be escaped by a backslash `\`.
 This means that the character following the backslash is interpreted as a normal character and not as a control character.
 
-This leads to the fact that a backslash itself must be escaped by another backslash to be interpreted as a normal  backslash character. Therefore it is strongly recommended to use forward slashes `/` as path separators in paths also on windows environments and avoid backslashes `\` when ever possible.
+This leads to the fact that a backslash itself must be escaped by another backslash to be interpreted as a normal backslash character. Therefore it is strongly recommended to use forward slashes `/` as path separators in paths also on windows environments and avoid backslashes `\` whenever possible.
 
 Leading and trailing spaces in values are normally considered being part of the separator surrounding the values.
 If values shall contain leading or trailing spaces they must be either enclosed in backslashes `\` or replaced by the special variable `${SPACE}` that contains a single space character.
@@ -269,8 +271,8 @@ In the test case body, some keyword calls have arguments that are separated by t
 
 The following tests will be executed in the order they are defined in the suite file. First, the `Login User With Password` test case will be executed, followed by the `Denied Login With Wrong Password` test case.
 
-Example Suite File Content `robot_files/TestSuite.robot`:
-```robotframework
+Example Suite File Content:
+```robotframework title="robot_files/TestSuite.robot"
 *** Settings ***
 Documentation     A suite for valid and invalid login tests.
 ...

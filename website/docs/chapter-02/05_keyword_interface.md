@@ -13,7 +13,7 @@ Understand the structure of keyword interfaces and how to interpret keyword docu
 
 Library Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
 
-Robot Framework is capable of generating a **Keyword Documentation** files that contains a library- or resource-documentation, all keywords, their argument interfaces, and their documentation texts.
+Robot Framework is capable of generating **Keyword Documentation** files that contains a library- or resource-documentation, all keywords, their argument interfaces, and their documentation texts.
 This documentation file can be generated with the `libdoc` command and can be used to provide a reference for users who want to use the keywords.
 
 Basically all standard and external 3rd party libraries offer these Keyword Documentations as online available HTML pages.
@@ -70,7 +70,7 @@ All of them can be called positionally or by name.
 
 ![Run Process Keyword Documentation](/img/Run_Process_Docs.png)
 
-This keyword has one "Mandatory Arguments" `command` which can be called positionally or by name.
+This keyword has one :term[Mandatory Arguments]{tooltipMd="An **Argument** that must be set.<br/>See [Mandatory Args](../chapter-03/03_user_keyword.md)"} `command` which can be called positionally or by name.
 The latter two arguments are optional.
 
 The argument `arguments` is a "Variable Number of Positional Arguments" and can only be set by position.
@@ -125,7 +125,7 @@ Another important information is if an argument is mandatory or optional.
 See the next two sections for more information about these two kinds of arguments.
 
 Most arguments can either be set by their position or by their name.
-But there are some kinds of arguments that can only be set positional, like **Variable Number of Positional Arguments**, or only be set named, like **Named-Only Arguments** or **Free Named Arguments**.
+But there are some kinds of arguments that can only be set positionally, like **Variable Number of Positional Arguments**, or only be set named, like **Named-Only Arguments** or **Free Named Arguments**.
 
 The order is as follows:
 1. **Positional or Named Arguments** (can be mandatory or optional)
@@ -170,7 +170,7 @@ The second Test will fail, because the argument values are not equal.
 The third Test will fail before the keyword `Should Be Equal` is actually being executed, because the keyword expects at least two arguments.
 The Error Message would be: `Keyword 'BuiltIn.Should Be Equal' expected 2 to 8 arguments, got 1.`
 
-Two arguments are mandatory and additional six arguments are optional in the `Should Be Equal` keyword.
+Two arguments are mandatory and the additional six arguments are optional in the `Should Be Equal` keyword.
 
 
 ### 2.5.2.2 Optional Arguments
@@ -252,8 +252,9 @@ Recall how "Positional or Named Arguments" are marked in the documentation and t
 
 ::::
 
-Except of "Positional-Only Arguments", that are not part of this syllabus,
-all arguments that are positioned before "Variable Number of Positional Arguments", "Named-Only Arguments", or "Free Named Arguments" in the argument interface of keywords are "Positional or Named Arguments".
+Except for "Positional-Only Arguments", which are not part of this syllabus,
+all arguments that are positioned before "Variable Number of Positional Arguments", "Named-Only Arguments", or "Free Named Arguments" in the argument interface of a keyword are "Positional or Named Arguments".
+
 As their name states, they can be set either by their position or by their name, but not by both at the same time for one argument.
 If an argument shall be set by its position, all preceding arguments must be set by their position as well.
 
@@ -284,7 +285,10 @@ Depending on the command to be executed different amount of arguments are needed
 
 This variable argument is marked with a single asterisk `*` before the argument name in the keyword documentation.
 
-When calling this keyword, the first positional argument is assigned to `command`, while all subsequent positional arguments are collected into the `arguments`. Because of this behavior, no additional positional arguments can be used after these "Variable Number of Positional Arguments". As a result, any arguments following these "Variable Number of Positional Arguments" must be named arguments, regardless of whether they are mandatory or optional with default.
+When calling this keyword, the first positional argument is assigned to `command`, while all subsequent positional arguments are collected into `arguments`.
+Because of this behavior, no additional positional arguments can be used after these "Variable Number of Positional Arguments".
+As a result, any arguments following these "Variable Number of Positional Arguments" must be named arguments,
+regardless of whether they are mandatory or optional arguments with a default value.
 
 Also see [2.5.1.3 Example Keyword `Get Regexp Matches`](chapter-02/05_keyword_interface.md#2513-example-keyword-get-regexp-matches).
 
@@ -323,7 +327,7 @@ Recall how free named arguments are marked in documentation.
 
 ::::
 
-Another special case of "Named-Only Arguments" is "Free Named Arguments."
+Another special case of "Named-Only Arguments" are "Free Named Arguments."
 These arguments are similar to the "Variable Number of Positional Arguments" in that they can collect multiple values.
 However, instead of collecting positional values, they gather all named values that are not explicitly defined as argument names.
 In this case all values given to the keyword as arguments, that do contain an unescaped equal sign (`=`) are considered as named arguments.
@@ -359,21 +363,21 @@ Understand the concept of argument types and automatic type conversion.
 ::::
 
 Library Keywords may define the expected types of their argument values.
-Robot Framework specification is mostly done as a string-based language, therefore most statically defined argument values are strings.
+The Robot Framework specification is predominantly a string-based language, therefore most statically defined argument values are strings.
 However, the actual implementation of the keyword may expect a different type of argument, like an integer.
 
 If an argument type is defined and Robot Framework has a matching converter function available, that can convert the given type to the expected type, the conversion is tried automatically.
 If the conversion fails, the keyword call will fail with an error message before the actual keyword code is executed.
 Robot Framework brings some built-in converters for common types like integer, float, boolean, list, dictionary, etc.
-Library developers can also register their own converters for not-supported types.
+Library developers can also register their own converters for none-supported types.
 
 Defining types for arguments is nowadays the recommended way to let Robot Framework convert the given arguments to the expected type, however it is optional.
 
-Lets imagine a keyword that clicks on a specific coordinate on the screen, i.e. `Click On Coordinates`.
+Lets imagine a keyword that clicks on a specific coordinate on the screen, e.g. `Click On Coordinates`.
 This keyword would expect two integer arguments, one for the `x`-coordinate and one for the `y`-coordinate.
 
 That keyword can now claim that it expects two integer arguments by defining type hints for these arguments.
-Type hints are show in the keyword documentation at the argument after the optional default value.
+Type hints are shown in the keyword documentation at the arguments after the optional default value.
 
 Robot Framework in that case tries to convert the given string arguments to the integer type.
 
@@ -432,16 +436,16 @@ Understand how to read keyword documentation and how to interpret the examples.
 ::::
 
 Keyword documentation is an important part of the keyword implementation.
-Good keyword names that clearly communicate what a keyword is doing is even more important,
-but doing that should not give the impression that a descriptive documentation is not needed.
+Good keyword names that clearly communicate what a keyword does are even more important,
+but this should not give the impression that descriptive documentation is unnecessary.
 
 Documentation is sometimes lean and sometimes extensive, depending on the complexity of the keyword.
-The documentation should describe what the keyword does, how it should be used, and what the expected arguments are.
+The documentation should describe what the keyword does, how it should be used, and what the expected arguments and possible returned values are.
 Depending on the complexity it may also be useful to provide examples of how the keyword can be used.
 
-User Keywords do typically have less extensive documentation, because they are typically used in a more narrower context and can not be configured by arguments that much compared to library keywords of generic external libraries.
+User Keywords typically have less extensive documentation because they are used in a narrower context and cannot be configured with arguments as much as library keywords from generic external libraries.
 
-Examples in the documentation is commonly either written in table format or as code blocks.
+Examples in the documentation are commonly either written in table format or as code blocks.
 
 **Table Example of `Should Be Equal`**:
 | | | | | |

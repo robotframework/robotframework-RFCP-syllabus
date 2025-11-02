@@ -46,7 +46,7 @@ Robot Framework is typically not used for **component testing** nor **integratio
 
 ### 1.1.1.1 Synthetic Monitoring
 
-Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **Active Monitoring** or **Proactive Monitoring**, is a proactive approach that simulates user interactions with live systems at regular intervals. It detects performance issues or downtime early with the goal of to detect such failure before they affect actual users.
+Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **Active Monitoring** or **Proactive Monitoring**, is a proactive approach that simulates user interactions with live systems at regular intervals. It detects performance issues or downtime early with the goal of detecting such failure before they affect actual users.
 
 
 

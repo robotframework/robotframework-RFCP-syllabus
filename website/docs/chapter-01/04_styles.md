@@ -11,9 +11,8 @@ Recall the three specification styles of Robot Framework
 
 ::::
 
-Specification styles define how the automation process or test cases are structured, focusing on how actions and verifications are expressed.
-These styles can be applied to all types of automation, including both testing and robotic process automation (RPA).
-While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation.
+Specification styles define how tests or tasks are structured, focusing on how actions and verifications are described.
+While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation, such as RPA.
 
 Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not mix them within the same body.
 One practical solution would be to define acceptance test cases that cover users' expectations in a declarative *Behavior-Driven Style*, while using keywords that are implemented in an imperative *Keyword-Driven style*.
@@ -64,9 +63,8 @@ Verifications or assertions can be imperative, though they are often phrased as 
 The advantage of this style lies in its **clarity** and **structure**.
 It provides a straightforward representation of the task flow, making it easy to understand what actions will be executed.
 
-By separating the executed step/keyword and its arguments/data with spaces it improves the readability of tests or tasks.
+Separation of the executed step/keyword and its arguments/data with spaces improves the readability of tests or tasks.
 Flow and data can be parsed separately by the consumer.
-
 
 
 ## 1.4.2 Behavior-Driven Specification

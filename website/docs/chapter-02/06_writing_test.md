@@ -13,7 +13,7 @@ Understand how to call imported keywords and how to structure keyword calls.
 A typical test case or task is a sequence of keyword calls that are executed in a specific order.
 As learned before these keywords need to be imported into the suite or resource file before they can be used.
 When using keywords in a test|task or User Keyword, it is important to indent the keyword calls correctly.
-With the exception of returning values, which is described in Chapter 3,
+With the exception of returning values, which are described in Chapter 3,
 the name of the keyword is the first element of the keyword call followed by the arguments that are separated by two or more spaces.
 
 The following example shows different ways to call imported keywords in a test case based on the `Should Be Equal` keyword from the BuiltIn library.
@@ -29,15 +29,15 @@ Example:
 ```robotframework
 *** Test Cases ***
 Mandatory Positional Arguments
-    [Documentation]    Only mandatory arguments are use positional
+    [Documentation]    Only mandatory arguments are use positionally
     Should Be Equal    1    1
 
 Mixed Positional Arguments
-    [Documentation]    Mandatory and optional arguments are used positional.
+    [Documentation]    Mandatory and optional arguments are used positionally.
     ...
     ...    It is hard to figure out what the values are doing and which arguments are filled,
     ...    without looking into the keyword documentation.
-    ...    Even though the argument `values` is kept at its default value `True` it must be set if later arguments shall be set positional.
+    ...    Even though the argument `values` is kept at its default value `True` it must be set if later arguments shall be set positionally.
     Should Be Equal    hello    HELLO    Values are case-insensitive NOT equal    True    True
 
 All Named Arguments
@@ -94,7 +94,7 @@ Click on x and y
     Click On Coordinates    x=82    y=70
 ```
 
-Calling keywords that has a "Variable Number of Positional Arguments" does require to set all preceding arguments by their position if the "Variable Number of Positional Arguments" shall be set.
+Calling keywords that have a "Variable Number of Positional Arguments" does require to set all preceding arguments by their position if the "Variable Number of Positional Arguments" shall be set.
 
 Example:
 ```robotframework

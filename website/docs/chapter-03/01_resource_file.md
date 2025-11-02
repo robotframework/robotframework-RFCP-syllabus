@@ -32,7 +32,7 @@ See [2.4.3 Import Paths](chapter-02/04_keyword_imports.md#243-import-paths) for 
 
 See [2.1.2 Sections and Their Artifacts](chapter-02/01_suitefile.md#212-sections-and-their-artifacts) for an introduction to sections in suites.
 
-Other than in suites, resource files do not allow the `*** Test Cases ***` or `*** Tasks ***` sections.
+In difference to suite files, resource files do **not** allow the `*** Test Cases ***` or `*** Tasks ***` sections.
 
 The allowed sections in recommended order are:
 - `*** Settings ***` to import libraries and other resource files.

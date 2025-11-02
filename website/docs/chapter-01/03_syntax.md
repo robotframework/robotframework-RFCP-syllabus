@@ -53,7 +53,7 @@ Access All Users With Admin Rights
     Check All Users
 
 Create User With Admin Rights
-    [Documentation]    Tests if a new users can be created with Admin User.
+    [Documentation]    Tests if new users can be created with Admin User.
     Login Admin
     Create New User
     ...    name=Peter Parker
@@ -80,8 +80,8 @@ These keywords make the automation modular, maintainable, reusable, and readable
 
 Robot Framework organizes tests|tasks into **Suites**, which are either files or directories.
 
-- `*.robot` files that do contain test cases or tasks are suites.
-- Each directory, starting from the top-level directory (the one executed by Robot Framework), and any sub-directories that contains a `*.robot` suite file, is considered a **Suite** as well.
+- `*.robot` files that contain test cases or tasks are suites.
+- Each directory, starting from the top-level directory (the one executed by Robot Framework), and any sub-directory that contains a `*.robot` suite file, is considered a **Suite** as well.
 Suites can contain other suites, forming a hierarchical tree, which is by default alphabetically ordered.
 See [2.1 Suite File & Tree Structure](chapter-02/01_suitefile.md) for more details.
 
@@ -102,18 +102,30 @@ Explain the difference between User Keywords and Library Keywords
 ::::
 
 
-Tests or Tasks are structured using **Keywords**, which represent specific actions or sequences of actions to be performed.
+Tests or Tasks are constructed using **Keywords**, which represent specific actions or sequences of actions to be performed.
 
-**Keywords** in Robot Framework are according to the concepts used in Behavior-Driven Development (BDD) and Keyword-Driven Testing.
+**Keywords** in Robot Framework follow the concepts used in Behavior-Driven Development (BDD) and Keyword-Driven Testing.
 
 **Definition**: one or more words used as a reference to a specific set of actions intended to be performed during the execution of one or more tests or tasks.
 
 There are two types of keywords in Robot Framework:
 
-1. **User Keywords**: Written in Robot Framework syntax, they are mainly used for structuring tests|tasks. User keywords improve readability, understandability, maintainability and structure. These keywords do always call other keywords or commands within their body. That's why they are also called **higher-level keywords**. In other literature these kind of keywords are also called **Business Keywords** or **Composite Keywords**.
-2. **Library Keywords**: Typically written in Python, but may also be implemented in other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by RPA or execute specific actions like calculations or conversions. From the viewpoint of Robot Framework these keywords are not composed of other keywords and do form the lowest level of keywords. Therefore they are also referred to as **low-level keywords**. In other literature these kind of keywords are also called **Technical Keywords** or **Atomic Keywords**.
 
-A **User Keyword** consists of a **name**, optional **arguments**, and a **body** of keyword calls that may invoke other user keywords or library keywords or other statements like variable definitions or flow control.
+1. **User Keywords**: Written in Robot Framework syntax, they are mainly used as wrappers around sets of other keywords or to implement actions not readily available in existing library keywords. User Keywords improve readability, understandability, maintainability, and structure. These keywords always call other keywords or commands within their body, which is why they are also called **higher-level keywords**. In other literature, such keywords are also referred to as **Business Keywords** or **Composite Keywords**.<br/><br/>
+Example:
+```robot
+*** Keywords ***
+Login User
+    [Arguments]    ${login}    ${password}
+    Set Login Name    ${login}
+    Set Password    ${password}
+    Execute Login
+```
+
+2. **Library Keywords**: Typically written in Python, but they may also be implemented using other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by RPA, or execute specific actions such as calculations or conversions. From the viewpoint of Robot Framework, such keywords are not composed of other keywords and do form the lowest level of keywords. Therefore, they are also referred to as **low-level keywords**. In other literature, such keywords are also called **Technical Keywords** or **Atomic Keywords**.
+
+A **User Keyword** consists of a **name**, optional **arguments**, and a **body** of keyword calls that may invoke other user keywords, library keywords, or other statements such as variable definitions or flow control.
+
 
 During execution, each keyword call is logged, providing fine-grained detail in the execution logs.
 This includes all levels of keywords—from those called directly by a test or task to those nested within user keywords, all the way down to the execution of library keywords.
@@ -135,8 +147,8 @@ Recall the difference between Resource Files and Libraries and their artifacts
 
 While tests and tasks are organized into suites, **keywords** are organized into **Resource Files** and **Keyword Libraries**.
 
-- **Resource Files**: Contain **User Keywords**, and are also used to organize the importing of libraries and defining variables. These are considered to be part of the test|task data in the *Definition Layer*.
-- **Keyword Libraries**: Contain **Library Keywords**, which are typically implemented in Python or other technologies and except of the standard libraries are not part of Robot Framework itself and can be either custom-made or third-party libraries implemented by the Robot Framework community. These are considered to be part of the *Adaptation Layer*.
+- **Resource Files**: Contain **User Keywords** and are also used to organize the importing of libraries and the definition of variables. These are considered to be part of the test|task data in the *Definition Layer*.
+- **Keyword Libraries**: Contain **Library Keywords**, which are typically implemented in Python or other technologies and, except for the standard libraries, are not part of Robot Framework itself. They can be either custom-made or third-party libraries implemented by the Robot Framework community. These are considered to be part of the *Adaptation Layer*.
 
 Central resource files and libraries allow the separation of concerns, making the automation more modular and reusable across multiple suites, tests or tasks.
 

@@ -49,12 +49,12 @@ Example:
     ▷ Keywords (No Suite)               |
       ◻︎ technical_keywords.resource     |
     ▶︎ Later_Suite_Directory             | Later Suite Directory
-      ◼︎ 01__FirstSuite.robot            | First Suite
-      ◼︎ 02__SecondSuite.robot           | Second Suite
-      ▶︎ 03__ThirdSuite                  | Third Suite
-        ◼︎ 01__FirstSubSuite.robot       | First Sub Suite
-        ◼︎ 02__SecondSubSuite.robot      | Second Sub Suite
-      ◼︎ 04__FourthSuite.robot           | Fourth Suite
+      ◼︎ 01__First_Suite.robot           | First Suite
+      ◼︎ 02__Second_Suite.robot          | Second Suite
+      ▶︎ 03__Third_Suite                 | Third Suite
+        ◼︎ 01__First_Sub_Suite.robot     | First Sub Suite
+        ◼︎ 02__Second_Sub_Suite.robot    | Second Sub Suite
+      ◼︎ 04__Fourth_Suite.robot          | Fourth Suite
 ```
 
 
@@ -93,7 +93,7 @@ Recall the available sections in a suite file and their purpose.
 
 Robot Framework data files are defined in different sections.
 These sections are recognized by their header row.
-The format is `*** <Section Name> ***` with three asterisks before and after the section name and section names in *Title Case* separated by a space.
+The format is `*** <Section Name> ***` with three asterisks before and after the section name and section names in **Title Case** separated by a space.
 
 The following sections are recognized by Robot Framework and are recommended to be used in the order they are listed:
 - `*** Settings ***`
@@ -102,10 +102,10 @@ The following sections are recognized by Robot Framework and are recommended to 
 - `*** Keywords ***`
 - `*** Comments ***`
 
-The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are optional in suites and can be omitted if not needed.
+The sections `*** Settings ***`, `*** Variables ***`, `*** Keywords ***`, and `*** Comments ***` are optional in suite files and can be omitted if not needed.
 
 
-### 2.1.2.1 Introduction in `*** Settings ***` Section
+### 2.1.2.1 Introduction to `*** Settings ***` Section
 
 ::::lo[Learning Objectives]
 
@@ -123,12 +123,12 @@ Understand the concepts of suite settings and how to define them.
 
 ::::
 
-This section is used to configure various aspects of the test|task suite.
-It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files (Not part of this syllabus) that are needed for execution in the containing tests|tasks.
+The `*** Settings ***` section is used to configure various aspects of the test|task suite.
+It allows you to import keywords from external libraries (`Library`) or resource files (`Resource`), and import variables (`Variables`) from variable files (not part of this syllabus) that are needed for execution in the containing tests|tasks.
 
 In this section, the suite name, that is normally derived from the file name, can be redefined with the `Name` setting and its documentation can be defined with the `Documentation` setting.
 
-Additional metadata can be defined by multiple `Metadata` entries, which can containd key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
+Additional metadata can be defined by multiple `Metadata` entries, which can contain key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
 
 This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [4.1 Setups (Suite, Test|Task, Keyword)](chapter-04/01_setups.md) and
 [4.2 Teardowns (Suite, Test|Task, Keyword)](chapter-04/02_teardowns.md) for more information.
@@ -149,7 +149,7 @@ Those settings are prefixed with either `Test` or `Task`, according to the type 
 Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The local setting appends or removes tags defined by the suite's default.
 
 
-### 2.1.2.2 Introduction in `*** Variables ***` Section
+### 2.1.2.2 Introduction to `*** Variables ***` Section
 
 ::::lo[Learning Objectives]
 
@@ -164,14 +164,14 @@ Recall the purpose of the `*** Variables ***` section.
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
 The most common use case is to define these variables as constants that contain a static value during execution.
-This can either be a default value, that may be overwritten by globally defined variables via the Command Line Interface (CLI) or a constant value that is used on multiple places in the suite.
+This can either be a default value, that may be overwritten by globally defined variables via the Command Line Interface (CLI) or a constant value that is used in multiple places in the suite.
 
 In some cases, these variables are also dynamically reassigned during the execution of the suite, but this is not recommended and should be avoided if possible, because this may lead to test|task runtime dependancies and errors caused by these side-effects that are hard to debug and find.
 
 See [3.2.2 `*** Variables ***` Section](chapter-03/02_variables.md#322--variables--section) for more information about the `*** Variables ***` section.
 
 
-### 2.1.2.3 Introduction in `*** Test Cases ***` or `*** Tasks ***` Section
+### 2.1.2.3 Introduction to `*** Test Cases ***` or `*** Tasks ***` Section
 
 ::::lo[Learning Objectives]
 
@@ -187,16 +187,16 @@ This section defines the executable elements of a suite.
 Test cases and tasks are technically synonyms for each other.
 However, users have to choose one of the two modes of suite execution that Robot Framework offers.
 
-Each test case or task is structured using an indentation-based format. The first un-indented line specifies the name of the test|task, followed by indented lines containing **keyword calls** and their **arguments** and test|task-specific settings.
+Each test case or task is structured using an indentation-based format. The first un-indented line specifies the name of the test|task, followed by indented lines containing **keyword calls** and their possible **arguments** and test|task-specific settings.
 These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be applied to individual test cases or tasks to control their behavior or provide additional details.
 
-One kind of this section is mandatory in suite files but is not allowed in resource files.
+A suite file must contain either a `*** Test Cases ***` or a `*** Tasks ***` section, but not both. Resource files cannot contain either of them.
 
 See [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md) for more information about the `*** Test Cases ***` or `*** Tasks ***` section.
 
 <!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
 
-### 2.1.2.4 Introduction in `*** Keywords ***` Section
+### 2.1.2.4 Introduction to `*** Keywords ***` Section
 
 ::::lo[Learning Objectives]
 
@@ -225,7 +225,7 @@ ensuring that even large and intricate suites remain well-structured and easy to
 See [3.3.1 `*** Keywords ***` Section](chapter-03/03_user_keyword.md#331--keywords--section) for more information about the `*** Keywords ***` section.
 
 
-### 2.1.2.5 Introduction in `*** Comments ***` Section
+### 2.1.2.5 Introduction to `*** Comments ***` Section
 
 This section is used to add comments to the suite file or resource file.
 All content in this section is ignored by Robot Framework and is not executed or parsed.

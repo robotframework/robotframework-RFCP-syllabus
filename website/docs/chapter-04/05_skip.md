@@ -22,7 +22,7 @@ In addition to `PASS` and `FAIL`, Robot Framework introduces a `SKIP` status to 
 **Reasons to Use SKIP**
 
 - **Temporal Exclusion of Tests|Tasks**: To prevent failing tests|tasks for known issues to run until the issue is resolved.
-- **Conditional Execution**: Skip tests|tasks dynamically based on runtime conditions, i.e. if Suite Setup detected an issue.
+- **Conditional Execution**: Skip tests|tasks dynamically based on runtime conditions, e.g. if Suite Setup detected an issue.
 - **Unsupported Scenarios**: Mark tests|tasks as skipped in environments where they cannot run, but shall be in logs.
 
 

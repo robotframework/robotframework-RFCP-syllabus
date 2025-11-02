@@ -98,7 +98,7 @@ A **Test|Task Setup** is executed before a single test|task runs.
 It is used to prepare the specific conditions required for that test|task.
 
 You can define a default Test|Task Setup in the `*** Settings ***` section of the suite using the `Test Setup`|`Task Setup` setting.
-This setup will be applied to all tests|tasks within the suite unless overridden.
+This setup will be applied to all tests|tasks within the suite unless overridden and executed before each test|task.
 
 Individual tests|tasks can override the default setup by specifying their own `[Setup]` setting within the test|task.
 To disable the setup for a specific test|task, you can set `[Setup]    NONE`, which means that no setup will be executed for that test|task.

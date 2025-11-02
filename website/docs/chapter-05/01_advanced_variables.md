@@ -150,7 +150,7 @@ Recall how to define suite variables and where they can be accessed
   - Set during the execution of a suite using the `VAR` syntax with the `scope=SUITE` argument. (dynamic)
 - **Usage**: Useful for sharing data among tests/tasks within the same suite or configuring suite-specific settings or setting default values for global variables.
 
-Suite scope is not recursive; variables in a higher-level suite, i.e. defined in [4.3 Initialization Files](chapter-04/03_init_files.md), are not available in lower-level suites. Use resource files to share variables across suites.
+Suite scope is not recursive; variables in a higher-level suite, e.g. defined in [4.3 Initialization Files](chapter-04/03_init_files.md), are not available in lower-level suites. Use resource files to share variables across suites.
 
 Variables with a suite scope are generally statically defined or imported variables, but they can also be created dynamically during the execution of a suite. In this latter case, they have a higher priority than statically defined variables and can shadow or overwrite them.
 

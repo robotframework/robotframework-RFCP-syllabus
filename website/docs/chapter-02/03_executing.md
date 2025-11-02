@@ -38,17 +38,17 @@ At a basic level, you can run `robot` by providing the path to a suite file or s
 robot <path_to_root_suite>
 ```
 
-In case of the above given example where a single suite file named `TestSuite.robot` is stored in a directory `robot_files`, to execute the example test suite the following command is used, if the current working directory of the terminal is the directory containing the `robot_files` directory:
+In case of the [2.2.5 Example Suite File](../chapter-02/02_suitefile_syntax.md#225-example-suite-file) where a single suite file named `TestSuite.robot` is stored in a directory `robot_files`, to execute the example test suite the following command is used, if the current working directory of the terminal is the directory containing the `robot_files` directory:
 ```plaintext
 > robot robot_files
 ```
 
 This command starts the Robot Framework execution by first parsing all files in the given directory tree that have the extension `.robot`,
-then creating an execution model and then executing all suites and test cases in that model.
+then creates an execution model and finally, executes all suites with their test cases from that model.
 During execution, the results of each test case are printed to the console and at the end a summary is printed and reports are generated.
 
 Example Console Output:
-```plaintext
+```plaintext title="Console Output"
 > robot robot_files
 ==============================================================================
 Robot Files
@@ -119,7 +119,7 @@ On Suite, Test Case, Task and Keyword Level:
 - **`SKIP`**: Indicates that the item was intentionally skipped, either by tagging or during execution, typically because some condition was not met.
 
 Additional Keyword Status:
-- **`NOT RUN`**: Refers to keywords that were not executed during execution, i.e. due to previous failure or conditions.
+- **`NOT RUN`**: Refers to keywords that were not executed during execution, e.g. due to previous failure or conditions.
 
 `SKIP` is explained in more detail in later chapters.
 
@@ -145,7 +145,7 @@ This status is used if an element was executed successfully without any errors o
 **Atomic elements** are `PASS` if they were executed successfully without reporting an error by raising an exception.
 
 **Composite elements** are `PASS` if all their executed body elements are pass.
-In example for User Keywords this means that if all keywords or Robot Framework language statements that were directly called by that User Keyword were `PASS` the User Keyword itself is considered `PASS`.
+E.g. in case of User Keywords this means that if all keywords or Robot Framework language statements that were directly called by that User Keyword were `PASS` the User Keyword itself is considered `PASS`.
 
 Library Keywords like `Run Keyword And Expect Error`, from BuiltIn Library, do `PASS` if the keyword they are internally calling does raise an error with the expected message or type.
 
@@ -164,17 +164,17 @@ Understand when an element is marked as `FAIL`.
 
 ::::
 
-This status is used if an element was executed but encountered an error or exception that was not expected.
+This status is used if an element was executed but encountered an unexpected error or exception.
 
-A failure typically causes the subsequent keywords to be skipped.
-Exceptions are Teardowns explained in chapter [4 Advanced Structuring and Execution](chapter-04/00_overview.md).
+A failure typically causes the subsequent keywords not to be executed and to receive the status `NOT RUN`.
+Exceptions are teardowns, as explained in [Chapter 4: Advanced Structuring and Execution](chapter-04/00_overview.md).
 
 **Atomic elements** are `FAIL` if they were tried to be executed but raised an exception.
 
 **Composite elements** are `FAIL` if at least one of their executed direct body elements are `FAIL`.
 Therefore a failure typically distributes upwards through the hierarchy of elements until it reaches the root suite.
 
-A User Keywords is `FAIL` if one of its called Library Keywords is `FAIL`.
+A User Keyword is `FAIL` if one of its called Library Keywords is `FAIL`.
 A test|task is `FAIL` if one of its directly called Keywords is `FAIL`.
 A suite (file) is `FAIL` if one of its test|task is `FAIL` and
 a suite (directory) is `FAIL` if one of its suites (file) is `FAIL`.

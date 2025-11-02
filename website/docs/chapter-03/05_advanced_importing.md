@@ -103,8 +103,6 @@ Some libraries offer or need additional configuration to change their behavior o
 This is typically global behavior like internal timeouts, connection settings to systems, or plugins that should be used.
 
 If this is possible, the library documentation will have an `Importing` section directly before the list of keywords.
-It is strongly recommended to have all these possible arguments to the library itself defined with default values;
-however, that is not always possible.
 
 Library importing arguments are used in the same way as keyword calls with arguments.
 If possible, it is recommended to set the arguments as named arguments to make usage more readable and future-proof.

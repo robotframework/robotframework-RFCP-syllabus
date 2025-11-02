@@ -36,7 +36,7 @@ These keyword libraries enable interaction with different technologies and inter
 Editors/IDEs that offer support for Robot Framework's syntax are tools that support or integrate in these layers.
 When writing tests|tasks or keywords, the editor supports the definition layer.
 When executing or debugging tests|tasks, the editor supports the execution layer.
-When writing keywords in i.e. Python for keyword libraries, the editor supports the adaptation layer.
+When writing keywords in e.g. Python for keyword libraries, the editor supports the adaptation layer.
 Therefore also other additional extensions of Robot Framework can be categorized into these layers.
 
 <!-- TODO: add a graphic here -->

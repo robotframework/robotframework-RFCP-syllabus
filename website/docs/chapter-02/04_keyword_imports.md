@@ -6,7 +6,7 @@
 - Resource Files, which either again import libraries or other Resource Files or they specify User Keywords.  -->
 Robot Framework has a modular design that allows users to import keywords from external sources.
 Without importing external keywords into a suite, only the keywords from Robot Framework's BuiltIn library are available for use, due to them being imported automatically.
-Also the Robot Framework language statements itself are available for use without importing it.
+Also the Robot Framework language statements themselves are available for use without importing them.
 
 External keywords can be imported from either libraries or resource files.
 Both types of sources are using different syntax to import their keywords.
@@ -81,9 +81,9 @@ Use resource files to import new keywords.
 As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
 
 They share a similar structure and the same syntax as suite files, but they do not contain test cases or tasks.
-See [2.2 Basic Suite File Syntax](chapter-02/02_suitefile_syntax.md) for more information about the structure of suite files.
+See [2.2 Basic Suite File Syntax](chapter-02/02_suitefile_syntax.md) for more information about the structure of suite files and [3.1 Resource File Structure](../chapter-03/01_resource_file.md) for more details of their structure.
 
-They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. Same counts for variables that are defined and imported from other resource files.
+They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. The same applies for variables that are defined and imported from other resource files.
 Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
 
 To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
@@ -125,8 +125,8 @@ If an **absolute path** is given, the resource file or library is searched for a
 If a **relative path** is given, the resource file or library is searched for relative to the data file that is importing it and then relative to the Python *module search path*.
 This *module search path* is defined by the Python interpreter that executes Robot Framework and can be influenced by the environment variable `PYTHONPATH` or by using the CLI-Argument `--pythonpath` when executing `robot`.
 
-As **path separator** it is strongly recommended to always use forward slashes `/`, and even on Windows NOT use back-slashes `\`.
-This is due to the fact that back-slashes are used as escape characters in Robot Framework and can lead to issues when used in paths and forwards slashes are supported on all operating systems.
+For **path separators**, it is strongly recommended to always use forward slashes (`/`), and even on Windows, not to use backslashes (`\`).
+This is because backslashes are used as escape characters in Robot Framework, which can cause issues when used in paths. Forward slashes are supported on all operating systems when used in Robot Framework.
 
 When choosing the location of resource files or libraries, it should be taken into that consideration that absolute paths are typically not portable and therefore should be avoided.
 Relative paths are portable as long as they are related to the data file that is importing using them, as long as that relative path is part of the project structure.
