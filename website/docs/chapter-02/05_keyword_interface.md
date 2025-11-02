@@ -362,7 +362,7 @@ Understand the concept of argument types and automatic type conversion.
 
 ::::
 
-Library Keywords may define the expected types of their argument values.
+Keywords may define the expected types of their argument values.
 The Robot Framework specification is predominantly a string-based language, therefore most statically defined argument values are strings.
 However, the actual implementation of the keyword may expect a different type of argument, like an integer.
 

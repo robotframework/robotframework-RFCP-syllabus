@@ -161,7 +161,7 @@ See also Chapter 2 [2.5.2 Keyword Arguments](chapter-02/05_keyword_interface.md#
 
 Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of scalar variables.
 
-Unlike Library Keywords, User Keywords cannot define argument types like `string`, `number`, etc., as described in the [2.5.2.8 Argument Types](chapter-02/05_keyword_interface.md#2528-argument-types) section.
+Since Robot Framework 7.3 User Keywords can define argument types like `string`, `number`, etc., as described in the [2.5.2.8 Argument Types](chapter-02/05_keyword_interface.md#2528-argument-types) section.
 
 
 ### 3.3.5.1 Defining Mandatory Arguments
