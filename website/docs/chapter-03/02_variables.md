@@ -70,7 +70,7 @@ Robot Framework, implemented in Python, can work with any object stored in varia
 - **Scalar Variables**: Store values as a single entity and are represented by the dollar-syntax `${variable_name}`.
 - **List Variables**: Store multiple values in a list structure. They are created using the at-syntax `@{list_variable_name}`.
 - **Dictionary Variables**: Store key-value pairs in a dictionary structure. They are created using the ampersand-syntax `&{dictionary_variable_name}`.
-- **Environment Variables** (read-only): Read access to environment variables of the operating system unsing the percent-syntax `%{ENV_VAR_NAME}`.
+- **Environment Variables** (read-only): Read access to environment variables of the operating system using the percent-syntax `%{ENV_VAR_NAME}`.
 
 These different syntactical handling methods allow the users to also create and handle lists and dictionaries natively in Robot Framework.
 However, these prefixes just define the access type to the variable, and the actual data stored in the variable can be of any type, including strings, numbers, lists, dictionaries, or even objects.

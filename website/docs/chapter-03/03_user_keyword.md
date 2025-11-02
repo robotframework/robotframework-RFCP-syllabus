@@ -441,7 +441,7 @@ When defining User Keywords, it is recommended to follow conventions to ensure c
 These may be taken from community best practices or defined within the project team.
 
 Keyword Conventions should contain agreements on:
-- **Naming Case**: Which case shall be used? (e.g. `Title Case`, `camelCase`, `snake_case`, `kebab-case`, or `sentence case`, etc. ) (from a readability perspective, `Title Case` or `Sentence case` are recommended)
+- **Naming Case**: Which case shall be used? (e.g. `Title Case`, `camelCase`, `snake_case`, `kebab-case`, or `Sentence case`, etc. ) (from a readability perspective, `Title Case` or `Sentence case` are recommended)
 - **Grammatical Form/Mood**: Which form shall be used for actions and verifications/assertions? (e.g. `Imperative` for both like `Click Button`, `Verify Text`. Or e.g. `Declarative`/`Indicative` for assertions like `Text Should Be`, `Element Should Be Visible`)
 - **Word/Character Count**: How many words or characters shall be used in a keyword name? (e.g. less than 7 words)
 - **Argument Count**: How many arguments shall a keyword have? (e.g. less than 5)
