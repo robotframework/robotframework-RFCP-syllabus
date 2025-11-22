@@ -5,6 +5,8 @@ on:
     types: [opened, reopened, synchronize, ready_for_review, edited, labeled]
   pull_request:
     types: [closed]  # for teardown
+  push:
+    branches: [main]
 
 # Token perms needed for commenting + reading artifacts
 permissions:
@@ -19,8 +21,8 @@ env:
 
 jobs:
   build:
-    # Build untrusted PR code WITHOUT secrets
-    if: github.event_name == 'pull_request_target' && github.event.pull_request.draft == false
+    # Build PRs (without secrets) and main branch pushes
+    if: ${{ (github.event_name == 'pull_request_target' && github.event.pull_request.draft == false) || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
     name: Build PR
     runs-on: ubuntu-latest
     defaults:
@@ -28,11 +30,18 @@ jobs:
         working-directory: ./website
     steps:
       - name: Checkout PR head (read-only)
+        if: github.event_name == 'pull_request_target'
         uses: actions/checkout@v4
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
           persist-credentials: false
+          fetch-depth: 0
+
+      - name: Checkout main commit
+        if: github.event_name == 'push'
+        uses: actions/checkout@v4
+        with:
           fetch-depth: 0
 
       - name: Use Node.js
@@ -57,13 +66,13 @@ jobs:
           retention-days: 5
 
   deploy:
-    # Pauses at Environment gate until a member approves
-    if: github.event_name == 'pull_request_target' && github.event.pull_request.draft == false
-    name: Deploy Preview to Surge (requires approval)
+    # Deploy PR previews (with gate) and automatic main previews
+    if: ${{ (github.event_name == 'pull_request_target' && github.event.pull_request.draft == false) || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
+    name: Deploy Preview to Surge
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: preview
+      name: ${{ github.event_name == 'pull_request_target' && 'preview' || 'main-preview' }}
       url: ${{ steps.deployed.outputs.preview_url }}
 
     steps:
@@ -79,7 +88,12 @@ jobs:
       - name: Compute preview domain + path
         id: dom
         run: |
-          echo "domain=${{ env.SURGE_DOMAIN_BASE }}-pr-${{ github.event.number }}.surge.sh" >> $GITHUB_OUTPUT
+          if [ "${{ github.event_name }}" = "pull_request_target" ]; then
+            domain="${{ env.SURGE_DOMAIN_BASE }}-pr-${{ github.event.number }}.surge.sh"
+          else
+            domain="${{ env.SURGE_DOMAIN_BASE }}.surge.sh"
+          fi
+          echo "domain=$domain" >> $GITHUB_OUTPUT
           echo "path=/${{ env.BASE_PATH }}/" >> $GITHUB_OUTPUT
 
       # Stage the Docusaurus output under the baseUrl path (so it serves at /<BASE_PATH>/)
@@ -104,6 +118,7 @@ jobs:
 
       # Comment using a purpose-built action (more robust than raw API for forked PRs)
       - name: Comment with preview URL
+        if: github.event_name == 'pull_request_target'
         uses: peter-evans/create-or-update-comment@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
