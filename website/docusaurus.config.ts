@@ -13,7 +13,11 @@ const config = {
   url: 'https://robotframework.org',
   baseUrl: '/robotframework-RFCP-syllabus/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+  },
   favicon: 'img/rf_favicon.png',
   organizationName: 'robotframework', // Usually your GitHub org/user name.
   projectName: 'robotframework-RFCP-syllabus', // Usually your repo name.
@@ -31,7 +35,7 @@ const config = {
           routeBasePath: '/docs',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/robotframework/robotframework-RFCP-syllabus/edit/docusaurus/website',
+          // editUrl: 'https://github.com/robotframework/robotframework-RFCP-syllabus/edit/docusaurus/website',
           remarkPlugins: [remarkDirective, remarkTermDirective],
         },
         blog: false,
@@ -85,6 +89,11 @@ const config = {
           {
             label: 'Chapter 5',
             to: '/docs/chapter-05/overview',
+            position: 'left',
+          },
+          {
+            label: 'Example Exam',
+            to: '/docs/example-exam',
             position: 'left',
           },
           {
@@ -162,7 +171,9 @@ const config = {
         additionalLanguages: ['robotframework', 'python'],
       },
     }),
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins: [
+    require.resolve('docusaurus-lunr-search')
+  ],
 };
 
 module.exports = config;

@@ -1,4 +1,3 @@
-
 # 2.3 Executing Robot
 
 ::::lo[Learning Objectives]
@@ -200,7 +199,3 @@ There are basically two kinds of logging information in Robot Framework.
 
 Log messages can be written with different levels of severity (i.e. `INFO`, `DEBUG`, `TRACE`, `WARN` or `ERROR`).
 Which levels are written to the log can be controlled by the log level of an execution. Further information in later chapters.
-
-
-
-
