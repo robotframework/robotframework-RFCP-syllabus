@@ -48,14 +48,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: yarn
-          cache-dependency-path: website/yarn.lock
+          cache: npm
+          cache-dependency-path: website/package-lock.json
 
       - name: Install deps
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4

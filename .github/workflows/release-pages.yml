@@ -22,16 +22,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: yarn
-          cache-dependency-path: website/yarn.lock
+          cache: npm
+          cache-dependency-path: website/package-lock.json
 
       - name: Install dependencies
         working-directory: ./website
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Build website
         working-directory: ./website
-        run: yarn build
+        run: npm run build
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
