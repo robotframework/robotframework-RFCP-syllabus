@@ -35,7 +35,7 @@ const config = {
           routeBasePath: '/docs',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/robotframework/robotframework-RFCP-syllabus/edit/docusaurus/website',
+          // editUrl: 'https://github.com/robotframework/robotframework-RFCP-syllabus/edit/docusaurus/website',
           remarkPlugins: [remarkDirective, remarkTermDirective],
         },
         blog: false,
