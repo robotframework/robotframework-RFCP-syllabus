@@ -441,7 +441,7 @@ For more details on this topic, refer to the section on [5.1.2 Variable Scopes](
 
 
 
-## 3.2.5 Variable Scope Introduction
+## 3.2.6 Variable Scope Introduction
 
 ::::lo[Learning Objectives]
 

@@ -155,7 +155,7 @@
 - [`3.2.4 `VAR` Statement`](website/docs/chapter-03/02_variables.md#324-var-statement)
   - LO-3.2.4 (K2) Understand how to create variables using the VAR statement
 - [`3.2.5 Variable Scope Introduction`](website/docs/chapter-03/02_variables.md#325-variable-scope-introduction)
-  - LO-3.2.5 (K2) Understand how `local` and `suite` scope variables are created
+  - LO-3.2.6 (K2) Understand how `local` and `suite` scope variables are created
 - [`3.3 User Keyword Definition & Arguments`](website/docs/chapter-03/03_user_keyword.md)
 - [`3.3.1 `*** Keywords ***` Section`](website/docs/chapter-03/03_user_keyword.md#331--keywords--section)
 - [`3.3.2 User Keyword Names`](website/docs/chapter-03/03_user_keyword.md#332-user-keyword-names)
