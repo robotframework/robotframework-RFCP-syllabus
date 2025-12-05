@@ -306,7 +306,7 @@ Recall what properties "Named-Only Arguments" have and how they are documented.
 ::::
 
 All arguments that are defined after a :term[Variable Number of Positional Arguments] (`*varargs`) are :term[Named-Only Arguments]{term="Named-Only Argument"}.
-However it is also possible to create "Named-Only Arguments without a preceding :term[Variable Number of Positional Arguments].
+However it is also possible to create :term[Named-Only Arguments]{term="Named-Only Argument"} without a preceding :term[Variable Number of Positional Arguments].
 
 :term[Named-Only Arguments]{term="Named-Only Argument"} are marked with a "LABEL" sign `🏷` before the argument name in the keyword documentation.
 
