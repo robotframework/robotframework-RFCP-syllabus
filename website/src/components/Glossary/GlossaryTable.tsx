@@ -123,7 +123,7 @@ const GlossaryTable: React.FC = () => {
         window.scrollTo({ top, behavior: 'smooth' });
       }
     },
-    [aliasToCanonicalSlug]
+    []
   );
 
   useEffect(() => {
@@ -211,13 +211,24 @@ const GlossaryTable: React.FC = () => {
                   id={entry.slug}
                   className={clsx({ [styles.activeRow]: activeSlug === entry.slug })}
                   onClick={handleClick}
+                  tabIndex={0}
+                  role="button"
+                  onKeyDown={(event) => {
+                    if (
+                      (event.key === 'Enter' || event.key === ' ') &&
+                      event.target === event.currentTarget
+                    ) {
+                      event.preventDefault();
+                      handleClick();
+                    }
+                  }}
                 >
                   <td className={clsx(styles.termCell, styles.clickable)}>
                     <div className={styles.termName}>{entry.term}</div>
                   </td>
                   <td className={styles.definitionCell}>
                     {entry.isAlias ? (
-                        // Hyperlink to term in alias definition cell
+                      // Hyperlink to term in alias definition cell
                       <a
                         href={`#${entry.targetSlug}`}
                         className={styles.aliasLink}
@@ -245,7 +256,7 @@ const GlossaryTable: React.FC = () => {
                             const aliasSlug = slugify(alias);
                             const target = aliasToCanonicalSlug.get(aliasSlug) || aliasSlug;
                             return (
-                                // Link to alias term
+                              // Link to alias term
                               <a
                                 key={target}
                                 href={`#${aliasSlug}`}

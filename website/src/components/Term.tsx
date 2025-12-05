@@ -1,4 +1,6 @@
 import React from "react";
+import {createPortal} from "react-dom";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 // Optional raw HTML support (see notes below):
@@ -26,8 +28,17 @@ export default function Term({
   id,
   children,
 }: TermProps) {
+  const {siteConfig} = useDocusaurusContext();
+  const baseUrl = (siteConfig?.baseUrl || "/").replace(/\/$/, "");
+
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef<HTMLSpanElement>(null);
+  const [coords, setCoords] = React.useState<{top: number; left: number; width: number}>({
+    top: 0,
+    left: 0,
+    width: 0,
+  });
+  const [portalReady, setPortalReady] = React.useState(false);
 
   React.useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
@@ -36,6 +47,35 @@ export default function Term({
     document.addEventListener("click", onDocClick);
     return () => document.removeEventListener("click", onDocClick);
   }, []);
+
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    setPortalReady(true);
+  }, []);
+
+  const updatePosition = React.useCallback(() => {
+    if (!ref.current || typeof window === "undefined") return;
+    const rect = ref.current.getBoundingClientRect();
+    const scrollY = window.scrollY || window.pageYOffset;
+    const scrollX = window.scrollX || window.pageXOffset;
+    setCoords({
+      top: rect.top + scrollY + rect.height + 4,
+      left: rect.left + scrollX,
+      width: rect.width,
+    });
+  }, []);
+
+  React.useEffect(() => {
+    if (!open) return;
+    updatePosition();
+    const handler = () => updatePosition();
+    window.addEventListener("scroll", handler, true);
+    window.addEventListener("resize", handler);
+    return () => {
+      window.removeEventListener("scroll", handler, true);
+      window.removeEventListener("resize", handler);
+    };
+  }, [open, updatePosition]);
 
   const hasTooltip = Boolean(tooltipMd || tooltip || tooltipHtml || children);
 
@@ -57,9 +97,11 @@ export default function Term({
       }
       style={{
         position: "relative",
+        display: "inline-block",
         cursor: hasTooltip ? "help" : "default",
-        borderBottom: "1px solid currentcolor",
+        // borderBottom: "1px solid currentcolor",
         fontWeight: 600,
+        fontStyle: "italic",
         color: "var(--ifm-navbar-link-active-color)",
       }}
       aria-haspopup="dialog"
@@ -68,54 +110,65 @@ export default function Term({
       {/* Trigger text; for inline directives, this is the directive label */}
       {trigger ?? children}
 
-      {open && hasTooltip && (
-        <span
-          role="dialog"
-          style={{
-            position: "absolute",
-            left: "0%",
-            top: "100%",
-            transform: "translate(0, 4px)",
-            // maxWidth: 360,
-            fontWeight: 400,
-            color: "var(--ifm-font-color-base)",
-            padding: "8px 10px",
-            borderRadius: 8,
-            background: "var(--ifm-background-surface-color)",
-            border: "1px solid var(--ifm-color-emphasis-300)",
-            boxShadow: "0 8px 30px rgba(0,0,0,.15)",
-            zIndex: 20,
-            whiteSpace: "pre",
-          }}
-        >
-          {/* Priority: Markdown > plain text > HTML > children */}
-          {tooltipMdNormalized && (
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              // If you want to allow raw HTML inside Markdown, uncomment:
-              rehypePlugins={[rehypeRaw]}
-              // AND sanitize (strongly recommended):
-              components={{
-                p: (props) => <p {...props} />, // example: map elements if you like
+      {open && hasTooltip && portalReady
+        ? createPortal(
+            <div
+              role="dialog"
+              style={{
+                position: "absolute",
+                left: coords.left,
+                top: coords.top,
+                maxWidth: 420,
+                fontWeight: 400,
+                color: "var(--ifm-font-color-base)",
+                padding: "10px 12px",
+                borderRadius: 8,
+                background: "var(--ifm-background-surface-color)",
+                border: "1px solid var(--ifm-color-emphasis-300)",
+                boxShadow: "0 8px 30px rgba(0,0,0,.15)",
+                zIndex: 1000,
+                whiteSpace: "normal",
+                minWidth: coords.width,
               }}
             >
-              {tooltipMdNormalized}
-            </ReactMarkdown>
-          )}
+              {tooltipMdNormalized && (
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                  components={{
+                    p: ({node: _node, ...props}) => <div {...props} />,
+                    a: ({node: _node, href, ...props}) => {
+                      const resolvedHref = href && href.startsWith("/") ? `${baseUrl}${href}` : href;
+                      return <a {...props} href={resolvedHref} rel="noreferrer" target="_blank" style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.25rem",
+                        padding: "0.15rem 0.6rem",
+                        borderRadius: "999px",
+                        fontSize: "0.8rem",
+                        border: "1px solid var(--ifm-color-emphasis-300)",
+                        background: "var(--ifm-color-emphasis-100)",
+                        color: "var(--ifm-font-color-base)",
+                        textDecoration: "none"
+                        }} />;
+                    },
+                  }}
+                >
+                  {tooltipMdNormalized}
+                </ReactMarkdown>
+              )}
 
-          {!tooltipMdNormalized && tooltip && <span>{tooltip}</span>}
+              {!tooltipMdNormalized && tooltip && <span>{tooltip}</span>}
 
-          {!tooltipMdNormalized && !tooltip && tooltipHtml && (
-            // If you allow tooltipHtml, consider sanitizing:
-            <span
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(tooltipHtml) }}
-            />
-            // <span dangerouslySetInnerHTML={{ __html: tooltipHtml }} />
-          )}
+              {!tooltipMdNormalized && !tooltip && tooltipHtml && (
+                <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(tooltipHtml) }} />
+              )}
 
-          {!tooltipMdNormalized && !tooltip && !tooltipHtml && children && <>{children}</>}
-        </span>
-      )}
+              {!tooltipMdNormalized && !tooltip && !tooltipHtml && children && <>{children}</>}
+            </div>,
+            document.body
+          )
+        : null}
     </span>
   );
 }

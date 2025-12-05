@@ -76,7 +76,7 @@ Understand the concept of how to set argument values positionally.
 ::::
 
 When calling keywords, arguments can often be set positionally in the order they are defined in the keyword documentation.
-An exception to this are "Named-Only Arguments" and "Free Named Arguments" that can only be set by their name.
+An exception to this are :term[Named-Only Arguments]{term="Named-Only Argument"} and :term[Free Named Arguments]{term="Free Named Argument"} that can only be set by their name.
 
 However, only using positional values can lead to poor readability as you can see in the previous example: `Mixed Positional Arguments`
 Some keywords do not have an obvious order of arguments.
@@ -100,7 +100,7 @@ Click on x and y
     Click On Coordinates    x=82    y=70
 ```
 
-Calling keywords that have a "Variable Number of Positional Arguments" does require to set all preceding arguments by their position if the "Variable Number of Positional Arguments" shall be set.
+Calling keywords that have a :term[Variable Number of Positional Arguments] does require to set all preceding arguments by their position if the :term[Variable Number of Positional Arguments] shall be set.
 
 Example:
 ```robotframework
@@ -134,7 +134,7 @@ Also setting one optional argument but leaving the others at their default value
 Named arguments are set by their name followed by an equal sign `=` and the value of the argument.
 All named arguments must be set after the positional arguments are set but can be set in any order.
 
-Equal signs are valid argument values and could therefore be misinterpreted as named arguments, if the text before the equal sign is an existing argument name or if "Free Named Arguments" are available at the called keyword.
+Equal signs are valid argument values and could therefore be misinterpreted as named arguments, if the text before the equal sign is an existing argument name or if :term[Free Named Arguments]{term="Free Named Argument"} are available at the called keyword.
 To prevent that, an equal sign in argument values can be escaped by a backslash `\`.
 
 Example of escaping conflicting equal signs:
