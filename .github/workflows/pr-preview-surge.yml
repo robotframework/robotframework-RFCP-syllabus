@@ -1,268 +1,153 @@
-import csv
-import difflib
-import io
-import re
-import sys
-from pathlib import Path
+name: PR Preview (Surge, gated by review)
 
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review, edited, labeled]
+  pull_request:
+    types: [closed]  # for teardown
+  push:
+    branches: [main]
 
-line_break = '\n'
+# Token perms needed for commenting + reading artifacts
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
 
+env:
+  SURGE_DOMAIN_BASE: ${{ github.event.repository.name }}
+  # Adjust if your Docusaurus baseUrl changes (no leading slash, no trailing slash)
+  BASE_PATH: robotframework-RFCP-syllabus
 
-def write_if_changed(path: Path, content: str, *, original_content=None, encoding: str = "utf-8", label: str | None = None) -> bool:
-    if original_content is None:
-        if path.exists():
-            original_content = path.read_text(encoding=encoding)
-        else:
-            original_content = ""
-    old_content = original_content
-    if old_content == content:
-        return False
-    display_label = str(label or path)
-    old_lines = old_content.splitlines(keepends=True)
-    new_lines = content.splitlines(keepends=True)
-    diff = difflib.unified_diff(
-        old_lines,
-        new_lines,
-        fromfile=f"a/{display_label}",
-        tofile=f"b/{display_label}",
-    )
-    diff_output = "".join(diff)
-    if diff_output:
-        print(diff_output, end="" if diff_output.endswith("\n") else "\n")
-    path.write_text(content, encoding=encoding)
-    return True
+jobs:
+  build:
+    # Build PRs (without secrets) and main branch pushes
+    if: ${{ (github.event_name == 'pull_request_target' && github.event.pull_request.draft == false) || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
+    name: Build PR
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./website
+    steps:
+      - name: Checkout PR head (read-only)
+        if: github.event_name == 'pull_request_target'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: false
+          fetch-depth: 0
 
+      - name: Checkout main commit
+        if: github.event_name == 'push'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-def update_heading_numbers_and_generate_toc(directory: Path):
-    chapter_file_pattern = re.compile(r".*/docs/chapter-(?P<chapter>\d+)/(?P<file_idx>\d+)_(?P<file>.*?)\.md")
-    heading_pattern = re.compile(r"^(?P<level>#+)\s*(?P<number>\d+(?:\.\d+)*)?\s*(?P<name>.*)")
-    internal_link_pattern = re.compile(r"\[([^\[\]]*?)\]\((?!https?:\/\/)(.*?)?#(?:\d\.?)*(-?.*?)\)")
-    lo_pattern = re.compile(r":::(?P<k_level>K[123])\[LO-(?P<id>[X\d\.-]+)\] *\n?")  #:::K2[LO-2.1]
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    catalog = {}
-    heading_catalog = {}
-    toc_entries = []
-    all_learning_objectives = []
-    Path().as_posix()
-    chapters = {}
-    modified_paths = set()
+      - name: Check numbering and links
+        run: python tools/gen_numbering.py
+        working-directory: .
 
-    def rel_label(path: Path) -> str:
-        try:
-            return str(path.relative_to(directory))
-        except ValueError:
-            return str(path)
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
 
-    for file in sorted(directory.glob("website/docs/**/*.md")):
-        file_path = file.relative_to(Path('website/docs').resolve())
-        match = chapter_file_pattern.fullmatch(file.as_posix())
-        if not match:
-            continue
+      - name: Install deps
+        run: npm ci
 
-        chapter_nr = int(match.group('chapter'))
-        numbering_stack = [chapter_nr]
-        file_nr = int(match.group('file_idx'))
-        file_title = match.group('file')
-        file_name = f'{file_nr}_{file_title}.md'
-        with file.open("r", encoding="utf-8") as md_file:
-            lines = md_file.readlines()
-            if chapter_nr not in chapters:
-                chapters[chapter_nr] = {}
-            chapters[chapter_nr][file_name] = lines
+      - name: Build
+        run: npm run build
 
-        updated_lines = []
-        numbering_stack = []
-        headings = []
-        learning_objectives = []
-        code_block = False
-        learning_objectives_container_open = False
-        learning_objective_open = False
-        current_chapter_number = []
-        current_level = 0
-        current_learning_objective_number = ''
-        current_learning_objective_k_level = ''
-        for lineno, line in enumerate(lines):
-            if line.strip().startswith("```") and not code_block:
-                code_block = True
-                updated_lines.append(line)
-                continue
-            if code_block:
-                if line.strip() == "```":
-                    code_block = False
-                updated_lines.append(line)
-                continue
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-build
+          path: website/build
+          if-no-files-found: error
+          retention-days: 5
 
-            if line.strip() == "::::lo[Learning Objectives]":
-                learning_objectives_container_open = True
-                updated_lines.append(line)
-                continue
+  deploy:
+    # Deploy PR previews (with gate) and automatic main previews
+    if: ${{ (github.event_name == 'pull_request_target' && github.event.pull_request.draft == false) || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
+    name: Deploy Preview to Surge
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event_name == 'pull_request_target' && 'preview' || 'main-preview' }}
+      url: ${{ steps.deployed.outputs.preview_url }}
 
-            if (lo_match := lo_pattern.match(line)) and learning_objectives_container_open:
-                learning_objective_open = True
-                updated_lines.append(line)
-                current_learning_objective_number = lo_match.group('id')
-                current_learning_objective_k_level = lo_match.group('k_level')
-                continue
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-build
+          path: ./build
 
+      - name: Install Surge CLI
+        run: npm i -g surge
 
-            if learning_objectives_container_open and  learning_objective_open and line.strip() == ":::":
-                learning_objective_open = False
-                updated_lines.append(line)
-                continue
+      - name: Compute preview domain + path
+        id: dom
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request_target" ]; then
+            domain="${{ env.SURGE_DOMAIN_BASE }}-pr-${{ github.event.number }}.surge.sh"
+          else
+            domain="${{ env.SURGE_DOMAIN_BASE }}.surge.sh"
+          fi
+          echo "domain=$domain" >> $GITHUB_OUTPUT
+          echo "path=/${{ env.BASE_PATH }}/" >> $GITHUB_OUTPUT
 
-            if learning_objectives_container_open and line.strip() == "::::":
-                learning_objectives_container_open = False
-                updated_lines.append(line)
-                continue
+      # Stage the Docusaurus output under the baseUrl path (so it serves at /<BASE_PATH>/)
+      - name: Stage site under base path
+        run: |
+          mkdir -p ./staging/${{ env.BASE_PATH }}
+          # Move entire built site into the subpath
+          shopt -s dotglob
+          mv ./build/* ./staging/${{ env.BASE_PATH }}/
+          # Optional: keep a root 200.html/404.html if you want nicer root errors
+          # but not required; we'll serve only from /<BASE_PATH>/
 
+      - name: Deploy to Surge
+        id: deployed
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}   # environment secret on "preview"
+        run: |
+          surge --project ./staging \
+                --domain ${{ steps.dom.outputs.domain }} \
+                --token "$SURGE_TOKEN"
+          echo "preview_url=https://${{ steps.dom.outputs.domain }}${{ steps.dom.outputs.path }}" >> $GITHUB_OUTPUT
 
-            heading_match = heading_pattern.match(line)
-            if heading_match:
-                current_level = len(heading_match.group('level')) - 1
-                title = heading_match.group('name').strip()
+      # Comment using a purpose-built action (more robust than raw API for forked PRs)
+      - name: Comment with preview URL
+        if: github.event_name == 'pull_request_target'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.number }}
+          body: |
+            🚀 Preview deployed to **${{ steps.deployed.outputs.preview_url }}**
 
-                if current_level == 0:
-                    if file.name == "00_overview.md":
-                        numbering = f"{chapter_nr}"
-                    else:
-                        numbering = f"{chapter_nr}.{file_nr}"
-                    heading = f"{numbering} {title}"
-                    updated_line = f"# {numbering} {title}{line_break}"
-                else:
-                    if len(numbering_stack) < current_level:
-                        numbering_stack.append(1)
-                    else:
-                        numbering_stack[current_level - 1] += 1
-                        numbering_stack = numbering_stack[:current_level]
-
-                    numbering = f"{chapter_nr}.{file_nr}." + ".".join(map(str, numbering_stack))
-                    heading = f"{numbering} {title}"
-                    updated_line = f"#{'#' * current_level} {heading}{line_break}"
-                updated_lines.append(updated_line)
-                anchor = re.sub(r'[^\w\- ]', '', heading).strip().replace(' ', '-').lower()
-                headings.append((numbering, title, anchor))
-
-                if len(numbering) <= 3:
-                    toc_anchor = file_path
-                else:
-                    toc_anchor = f"{file_path}#{anchor}"
-                toc_entry = (
-                    f"{'  ' * (current_level - 1)}- [`{numbering} {title}`]"
-                    f"({toc_anchor})"
-                )
-                current_chapter_number = list(map(int, numbering.split('.')))
-                toc_entries.append((current_chapter_number, toc_entry))
-            elif learning_objective_open and line.strip() != "":
-                lo_id = current_learning_objective_number
-                lo_content = line.strip()
-                k_level = current_learning_objective_k_level
-                current_chapter_string = ".".join(map(str, current_chapter_number))
-                if lo_id == 'XX':
-                    lo_id = current_chapter_string
-                if lo_id.split('-')[0] != current_chapter_string:
-                    print(f"LO {lo_id} in {file_path}:{lineno + 1} does not match chapter {current_chapter_string}")
-                learning_objectives.append((lo_id, k_level, lo_content))
-                toc_entry = (
-                    f"{'  ' * (current_level)}- LO-{lo_id} ({k_level}) {lo_content}"
-                )
-                toc_entries.append((current_chapter_number, toc_entry))
-                updated_lines.append(line)
-            else:
-                updated_lines.append(line)
-
-        seen = set()
-        dupl = [lo[0] for lo in learning_objectives if lo[0] in seen or seen.add(lo[0])]
-        if dupl:
-            print(f"Duplicate LOs in {file_path}: {dupl}")
-        catalog[file_path] = headings
-        for heading in headings:
-            heading_anchor = heading[2].lstrip("1234567890")
-            if heading_anchor in heading_catalog:
-                print(f"Duplicate anchor '{heading_anchor}' in '{file_path}' and '{heading_catalog[heading_anchor][0]}'")
-            heading_catalog[heading_anchor] = (file_path, *heading)
-
-        original_content = "".join(lines)
-        updated_content = "".join(updated_lines)
-        if write_if_changed(file, updated_content, original_content=original_content, label=rel_label(file)):
-            modified_paths.add(file.resolve())
-
-        all_learning_objectives.extend(learning_objectives)
-
-    sorted_lo = sorted(all_learning_objectives, key=lambda x: x[0])
-
-    lo_csv_buffer = io.StringIO()
-    writer = csv.writer(lo_csv_buffer)
-    writer.writerow(["LO ID", "K Level", "Content", "Slide Number", "Done", "Notes"])
-    writer.writerows([(f"LO-{lo_id}", f"({k_level})", lo_content, "", "", "") for lo_id, k_level, lo_content in sorted_lo])
-    lo_csv_content = lo_csv_buffer.getvalue().replace("\r\n", "\n")
-    lo_csv_buffer.close()
-    lo_csv_path = directory / "LOs.csv"
-    if write_if_changed(lo_csv_path, lo_csv_content, label=rel_label(lo_csv_path)):
-        modified_paths.add(lo_csv_path.resolve())
-
-    print(f"Total LOs: {len(sorted_lo)}")
-    toc_entries.sort(key=lambda x: x[0])
-
-    readme_path = directory / "README.md"
-    readme_lines = ["# Table of Contents\n\n"]
-    for _, toc_entry in toc_entries:
-        toc_entry = toc_entry.replace("`](", "`](website/docs/")
-        readme_lines.append(toc_entry + "\n")
-    readme_content = "".join(readme_lines)
-    if write_if_changed(readme_path, readme_content, label=rel_label(readme_path)):
-        modified_paths.add(readme_path.resolve())
-
-    for file in sorted(directory.glob("website/docs/**/*.md")):
-        docs_path = file.relative_to(Path('website/docs').resolve())
-        match = chapter_file_pattern.fullmatch(file.as_posix())
-        if not match:
-            continue
-        with file.open("r", encoding="utf-8") as md_file:
-            lines = md_file.readlines()
-
-        updated_lines = []
-        for lineno, line in enumerate(lines):
-            def replace_link(match):
-                description, link_file, anchor_name = match.groups()
-                link_file = link_file or docs_path
-                if anchor_name in heading_catalog:
-                    file_path, numbering, title, anchor = heading_catalog[anchor_name]
-                    if title.strip() == anchor_name.strip() or anchor.endswith(anchor_name):
-                        if len(numbering) <= 3:
-                            return f"[{numbering} {title}]({file_path})"
-                        return f"[{numbering} {title}]({file_path}#{anchor})"
-                print(f"Warning: Could not find anchor '{anchor_name}' in '{link_file}'."
-                      "\n "
-                      f"File: {link_file}:{lineno + 1}")
-                return match.group(0)
-
-            updated_line = re.sub(internal_link_pattern, replace_link, line)
-            updated_lines.append(updated_line)
-
-        original_content = "".join(lines)
-        updated_content = "".join(updated_lines)
-        if write_if_changed(file, updated_content, original_content=original_content, label=rel_label(file)):
-            modified_paths.add(file.resolve())
-
-    learning_objectives_path = directory / "website" / "docs" / "learning_objectives.md"
-    anchor = {}
-    for k, v in heading_catalog.items():
-        numbering = v[1]
-        if len(numbering) <= 3:
-            anchor[v[1]] = str(v[0])
-        else:
-            anchor[v[1]] = f'{v[0]}#{v[-1]}'
-    lo_md_lines = ["# Learning Objectives\n", '| ID | K-Level | Content |\n', '| --- | --- | --- |\n']
-    for lo_id, k_level, lo_content in sorted_lo:
-        lo_md_lines.append(f'| [`LO-{lo_id}`]({anchor.get(lo_id.split("-")[0])}) | {k_level} | {lo_content.replace("|", "\\|")} |{line_break}')
-    lo_md_content = "".join(lo_md_lines)
-    if write_if_changed(learning_objectives_path, lo_md_content, label=rel_label(learning_objectives_path)):
-        modified_paths.add(learning_objectives_path.resolve())
-
-    return len(modified_paths)
-
-
-if __name__ == "__main__":
-    fix_count = update_heading_numbers_and_generate_toc(Path.cwd())
-    sys.exit(1 if fix_count > 0 else 0)
+  teardown:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    name: Teardown Surge preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Surge CLI
+        run: npm i -g surge
+      - name: Compute domain
+        id: dom
+        run: |
+          echo "domain=${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh" >> $GITHUB_OUTPUT
+      - name: Teardown
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          surge teardown "${{ steps.dom.outputs.domain }}" --token "$SURGE_TOKEN" || true
