@@ -6,6 +6,9 @@ import sys
 from pathlib import Path
 
 
+line_break = '\n'
+
+
 def write_if_changed(path: Path, content: str, *, original_content=None, encoding: str = "utf-8", label: str | None = None) -> bool:
     if original_content is None:
         if path.exists():
@@ -125,7 +128,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
                     else:
                         numbering = f"{chapter_nr}.{file_nr}"
                     heading = f"{numbering} {title}"
-                    updated_line = f"# {numbering} {title}\n"
+                    updated_line = f"# {numbering} {title}{line_break}"
                 else:
                     if len(numbering_stack) < current_level:
                         numbering_stack.append(1)
@@ -135,7 +138,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
 
                     numbering = f"{chapter_nr}.{file_nr}." + ".".join(map(str, numbering_stack))
                     heading = f"{numbering} {title}"
-                    updated_line = f"#{'#' * current_level} {heading}\n"
+                    updated_line = f"#{'#' * current_level} {heading}{line_break}"
                 updated_lines.append(updated_line)
                 anchor = re.sub(r'[^\w\- ]', '', heading).strip().replace(' ', '-').lower()
                 headings.append((numbering, title, anchor))
@@ -252,7 +255,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
             anchor[v[1]] = f'{v[0]}#{v[-1]}'
     lo_md_lines = ["# Learning Objectives\n", '| ID | K-Level | Content |\n', '| --- | --- | --- |\n']
     for lo_id, k_level, lo_content in sorted_lo:
-        lo_md_lines.append(f'| [`LO-{lo_id}`]({anchor.get(lo_id.split("-")[0])}) | {k_level} | {lo_content.replace("|", "\\|")} |\n')
+        lo_md_lines.append(f'| [`LO-{lo_id}`]({anchor.get(lo_id.split("-")[0])}) | {k_level} | {lo_content.replace("|", "\\|")} |{line_break}')
     lo_md_content = "".join(lo_md_lines)
     if write_if_changed(learning_objectives_path, lo_md_content, label=rel_label(learning_objectives_path)):
         modified_paths.add(learning_objectives_path.resolve())
