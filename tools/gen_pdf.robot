@@ -5,6 +5,8 @@ Library     Process
 
 *** Variables ***
 @{EXCLUDE_FROM_PDF}    Example Questions
+${BROWSER}    chromium
+${HEADLESS}    ${True}
 
 
 *** Test Cases ***
@@ -22,7 +24,11 @@ Build Docusaurus
     Process.Start Process    npm    run    serve    alias=docusaurus    cwd=website
 
 Open Syllabus
-    New Browser    chromium    headless=False
+    IF   $BROWSER.lower() in ['chrome', 'msedge']
+        New Browser    chromium    channel=${BROWSER}    headless=${HEADLESS}
+    ELSE
+        New Browser    chromium    headless=${HEADLESS}
+    END
     New Page    http://localhost:3000/robotframework-RFCP-syllabus/docs/overview
     ${dark}    Get Element States
     ...    button[aria-label="Switch between dark and light mode (currently dark mode)"]

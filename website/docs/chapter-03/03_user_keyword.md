@@ -95,7 +95,7 @@ All available settings are listed below and explained in this section or in sect
 - `[Setup]`, `[Teardown]` Specify user keyword setup and teardown. (see [4.2 Teardowns (Suite, Test|Task, Keyword)](chapter-04/02_teardowns.md))
 - `[Tags]` (*) Sets tags for the keyword, which can be used for filtering in documentation and attribution for post-processing results.
 - `[Timeout]` (*) Sets the possible user keyword timeout.
-- `[Return]` (*) Deprecated.
+- `[Return]` (*) Deprecated. Use the `RETURN` statement instead. (see [3.3.6 RETURN Statement](chapter-03/03_user_keyword.md#336-return-statement))
 
 (*) The application of these settings are not part of this syllabus.
 
@@ -190,7 +190,8 @@ Example that defines a keyword with two arguments:
 Verify File Contains
     [Documentation]    Verifies that a file contains a specific text.
     ...
-    ...    The keyword opens the file specified by the file path and checks if it contains the expected content.
+    ...    The keyword opens the file specified by the file path
+    ...    and checks if it contains the expected content.
     [Arguments]    ${file_path}    ${expected_content}
     ${server_log} =    Get File    ${file_path}
     Should Contain    ${server_log}    ${expected_content}

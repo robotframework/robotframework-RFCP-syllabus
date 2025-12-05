@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: gen-numbering
+        name: Ensure numbering, TOC, and links are in sync
+        entry: python tools/gen_numbering.py
+        language: system
+        pass_filenames: false
+        always_run: true

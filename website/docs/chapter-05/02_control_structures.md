@@ -285,11 +285,16 @@ Find Older Participants
 *** Keywords ***
 Get Older Participants
     [Arguments]    ${participants}    ${minimum_age}
-    VAR    @{older_participants}                                     # Creates an empty list
-    FOR    ${participant}    IN    @{participants}                   # Iterates over all participants
-        IF    ${participant.age} < ${minimum_age}    CONTINUE        # Skips the remaining part of the loop if age is below the minimum
-        Log    Participant ${participant.name} is older than 40      # Logs participant name if age is above the minimum
-        Append To List    ${older_participants}    ${participant}    # BuiltIn keyword to append a value to a list
+    VAR    @{older_participants}
+    # ^ Creates an empty list
+    FOR    ${participant}    IN    @{participants}
+    # ^ Iterates over all participants
+        IF    ${participant.age} < ${minimum_age}    CONTINUE
+        # ^ Skips the remaining part of the loop if age is below the minimum
+        Log    Participant ${participant.name} is older than 40
+        # ^ Logs participant name if age is above the minimum
+        Append To List    ${older_participants}    ${participant}
+        # ^ BuiltIn keyword to append a value to a list
     END
     RETURN    ${older_participants}
 ```

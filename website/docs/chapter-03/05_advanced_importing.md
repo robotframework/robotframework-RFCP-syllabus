@@ -111,7 +111,8 @@ These arguments follow the Library path or name, separated by multiple spaces.
 Example with the [Telnet library](https://robotframework.org/robotframework/latest/libraries/Telnet.html#Importing):
 ```robotframework
 *** Settings ***
-Library    Telnet    newline=LF    encoding=ISO-8859-1   # set newline and encoding using named arguments
+Library    Telnet    newline=LF    encoding=ISO-8859-1
+# ^ set newline and encoding using named arguments
 ```
 
 Another example that cannot be used without configuration is the Remote library.
@@ -159,7 +160,7 @@ Keywords like `Open Connection`, `Login`, `Read`, `Close Connection`, and many m
 
 These conflicts cannot be resolved by Robot Framework if they are coming from the same kind of source, like two libraries.
 The error message will be like this:
-```plaintext
+```plaintext nolint
 Multiple keywords with name 'Open Connection' found. Give the full name of the keyword you want to use:
     SSHLibrary.Open Connection
     Telnet.Open Connection

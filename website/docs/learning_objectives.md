@@ -110,7 +110,7 @@
 | [`LO-4.2.2-1`](chapter-04/02_teardowns.md#422-testtask-teardown) | K1 | Recall key characteristics, benefits, and syntax of Test\|Task Teardown |
 | [`LO-4.2.2-2`](chapter-04/02_teardowns.md#422-testtask-teardown) | K2 | Understand when Test\|Task Teardown is executed and used |
 | [`LO-4.2.3`](chapter-04/02_teardowns.md#423-keyword-teardown) | K1 | Recall key characteristics, benefits, and syntax of Keyword Teardown |
-| [`LO-4.3`](chapter-04/03_init_files.md) | K1 | Recall how to define an Initialization Files and its purpose |
+| [`LO-4.3`](chapter-04/03_init_files.md) | K1 | Recall how to define Initialization Files and its purpose |
 | [`LO-4.3.2`](chapter-04/03_init_files.md#432-suite-setup-and-suite-teardown-of-initialization-files) | K2 | Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests\|tasks |
 | [`LO-4.3.3`](chapter-04/03_init_files.md#433-allowed-sections-in-initialization-files) | K1 | Recall the allowed sections and their content in Initialization Files |
 | [`LO-4.4`](chapter-04/04_tags.md) | K1 | Recall the purpose of Test\|Task Tags in Robot Framework |

@@ -5,6 +5,8 @@ const lightCodeTheme = require('prism-react-renderer').themes.vsLight;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 import remarkDirective from "remark-directive";
 import remarkTermDirective from "./src/remark/remark-term-directive.js";
+import codeMaxLineLength from './src/remark/remark-code-max-line-length.js';
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -36,7 +38,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // editUrl: 'https://github.com/robotframework/robotframework-RFCP-syllabus/edit/docusaurus/website',
-          remarkPlugins: [remarkDirective, remarkTermDirective],
+          remarkPlugins: [remarkDirective, remarkTermDirective, [codeMaxLineLength, { max: 100 }]],
         },
         blog: false,
         theme: {
