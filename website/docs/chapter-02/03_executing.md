@@ -14,7 +14,7 @@ Robot Framework comes with three executables when being installed which are desi
 
 - `robot` is the main executable that is used to execute suites.
 - `rebot` (not part of this syllabus) is used to post-process execution results and generate reports.
-- `libdoc` (not part of this syllabus) is used to generate keyword documentation for libraries and resource files. See [2.5 Keyword Interface and Documentation](../chapter-02/05_keyword_interface.md)
+- `libdoc` (not part of this syllabus) is used to generate keyword documentation for libraries and resource files. See [2.5 Keyword Interface and Documentation](chapter-02/05_keyword_interface.md)
 
 
 
@@ -37,7 +37,7 @@ At a basic level, you can run `robot` by providing the path to a suite file or s
 robot <path_to_root_suite>
 ```
 
-In case of the [2.2.5 Example Suite File](../chapter-02/02_suitefile_syntax.md#225-example-suite-file) where a single suite file named `TestSuite.robot` is stored in a directory `robot_files`, to execute the example test suite the following command is used, if the current working directory of the terminal is the directory containing the `robot_files` directory:
+In case of the [2.2.5 Example Suite File](chapter-02/02_suitefile_syntax.md#225-example-suite-file) where a single suite file named `TestSuite.robot` is stored in a directory `robot_files`, to execute the example test suite the following command is used, if the current working directory of the terminal is the directory containing the `robot_files` directory:
 ```plaintext
 > robot robot_files
 ```

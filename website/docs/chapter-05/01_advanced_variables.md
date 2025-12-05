@@ -331,9 +331,9 @@ Example:
 
 *** Test Cases ***
 Test List Variables
-    Log Many    Alice    Bob    Charlie        # Logs three entries:    "Alice", "Bob", and "Charlie"
-    Log Many    @{participants}                # Logs three entries:    "Alice", "Bob", and "Charlie"
-    Log Many    ${participants}                # Logs only one entry:   "['Alice', 'Bob', 'Charlie']"
+    Log Many    Alice    Bob    Charlie    # Logs three entries:    "Alice", "Bob", and "Charlie"
+    Log Many    @{participants}            # Logs three entries:    "Alice", "Bob", and "Charlie"
+    Log Many    ${participants}            # Logs only one entry:   "['Alice', 'Bob', 'Charlie']"
 ```
 
 In the first two cases, the keyword `Log Many` is called with three arguments; in the last case, it is called with only one argument, which is a list of three values.
@@ -367,8 +367,8 @@ Example:
 ```robotframework
 *** Test Cases ***
 Test Dictionary Variables
-    &{participant}    Get Participant    number=4    # returns a dictionary with keys "name" and "age"
-    ${trainer}        Get Trainer        number=1    # returns a dictionary with keys "name" and "age"
+    &{participant}   Get Participant   number=4   # returns a dictionary with keys "name" and "age"
+    ${trainer}       Get Trainer       number=1   # returns a dictionary with keys "name" and "age"
 ```
 
 In the following example, the first assignment to `&{participant}` causes an automatic conversion to a Robot Framework Dictionary, also known as DotDict. These special dictionary types can be accessed using dot-access like `${participant.name}` or `${participant.age}`, instead of the usual dictionary access like `${trainer}[name]` or `${trainer}[age]`.

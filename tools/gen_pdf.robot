@@ -22,7 +22,7 @@ Build Docusaurus
     Process.Start Process    npm    run    serve    alias=docusaurus    cwd=website
 
 Open Syllabus
-    New Browser    chromium    headless=False
+    New Browser    chromium    headless=True
     New Page    http://localhost:3000/robotframework-RFCP-syllabus/docs/overview
     ${dark}    Get Element States
     ...    button[aria-label="Switch between dark and light mode (currently dark mode)"]

@@ -37,22 +37,28 @@ Mixed Positional Arguments
     ...
     ...    It is hard to figure out what the values are doing and which arguments are filled,
     ...    without looking into the keyword documentation.
-    ...    Even though the argument `values` is kept at its default value `True` it must be set if later arguments shall be set positionally.
+    ...    Even though the argument `values` is kept at its default value `True`,
+    ...    it must be set if later arguments shall be set positionally.
     Should Be Equal    hello    HELLO    Values are case-insensitive NOT equal    True    True
 
 All Named Arguments
     [Documentation]    Arguments are used named.
     ...
-    ...    It is clear what the values are doing and which arguments are filled and order is not relevant.
+    ...    It is clear what the values are doing and which arguments are filled
+    ...    and order is not relevant.
     ...    The argument `values` can be omitted and the order can be mixed
-    Should Be Equal    first=hello    second=HELLO    ignore_case=True    msg=Values are case-insensitive NOT equal
+    Should Be Equal    first=hello    second=HELLO
+    ...    ignore_case=True    msg=Values are case-insensitive NOT equal
 
 Mixed Named and Positional Arguments
     [Documentation]    Arguments are used named and positional.
     ...
-    ...    The positional arguments must be in order, but the subsequent named arguments may be in an arbitrary order.
-    ...    The first arg has the string value `" hello  spaces "` and the second arg has the string value `"HELLO  SPACE"`.
-    Should Be Equal    \ hello \ spaces \    HELLO \ SPACE   ignore_case=True    strip_spaces=True    msg=Values are case-insensitive NOT equal
+    ...    The positional arguments must be in order,
+    ...    but the subsequent named arguments may be in an arbitrary order.
+    ...    The first arg has the string value `" hello  spaces "`
+    ...    and the second arg has the string value `"HELLO  SPACE"`.
+    Should Be Equal    \ hello \ spaces \    HELLO \ SPACE
+    ...    ignore_case=True    strip_spaces=True    msg=Values are case-insensitive NOT equal
 ```
 
 

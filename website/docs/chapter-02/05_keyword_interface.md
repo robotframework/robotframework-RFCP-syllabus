@@ -70,7 +70,7 @@ All of them can be called positionally or by name.
 
 ![Run Process Keyword Documentation](/img/Run_Process_Docs.png)
 
-This keyword has one :term[Mandatory Arguments]{tooltipMd="An **Argument** that must be set.<br/>See [Mandatory Args](../chapter-03/03_user_keyword.md)"} `command` which can be called positionally or by name.
+This keyword has one :term[Mandatory Arguments]{tooltipMd="An **Argument** that must be set.<br/>See [Mandatory Args](chapter-03/03_user_keyword.md)"} `command` which can be called positionally or by name.
 The latter two arguments are optional.
 
 The argument `arguments` is a "Variable Number of Positional Arguments" and can only be set by position.
@@ -346,7 +346,7 @@ Example redirecting stdout and stderr to a file:
 ```robotframework
 *** Test Cases ***
 Send 5 IPv4 Pings On Windows
-    Run Process    ping    -n    5    -4    localhost    stdout=ping_output.txt    stderr=ping_error.txt
+    Run Process   ping   -n   5   -4   localhost   stdout=ping_output.txt   stderr=ping_error.txt
 ```
 
 
