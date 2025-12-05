@@ -13,10 +13,7 @@ Thanks for helping us improve the RFCP syllabus! The notes below explain how to 
    python bootstrap.py
    ```
    The script upgrades `pip`, installs `pre-commit`, and asks whether you want to pull in the optional PDF toolchain (Robot Framework + Browser batteries from `requirements.txt`, plus Chromium via `rfbrowser install chromium`). Answer "y" only if you plan to regenerate the PDF. Regardless of that choice, the script installs the pre-commit hook and then runs `npm install` inside `website/` so Docusaurus has its dependencies.
-2. Activate the freshly created virtual environment so local commands use the same interpreters as the hooks:
-   - macOS/Linux: `source .venv/bin/activate`
-   - Windows (PowerShell): `.venv\Scripts\Activate.ps1`
-3. Start Docusaurus in development mode while you edit:
+2. Start Docusaurus in development mode while you edit:
    ```bash
    cd website  # if not already there
    npm run start
@@ -28,10 +25,16 @@ Thanks for helping us improve the RFCP syllabus! The notes below explain how to 
 - Docusaurus validates internal links during builds. Run `npm run build` before submitting a PR to catch broken anchors or missing pages early.
 
 ## 4. Generating the syllabus PDF
-To rebuild the certification PDF from the Robot Framework assets, run the Robot Framework suite from the repo root:
-```bash
-robot -d results tools/gen_pdf.robot
-```
+To rebuild the syllabus PDF from the Robot Framework assets, run the Robot Framework suite from the repo root:
+
+1. Activate the created virtual environment so local commands use the same interpreters as the hooks:
+   - macOS/Linux: `source .venv/bin/activate`
+   - Windows (PowerShell): `.venv\Scripts\Activate.ps1`
+
+2. Run the suite to generate the PDF:
+    ```bash
+    robot -d results tools/gen_pdf.robot
+    ```
 The PDF and execution logs land inside `results/`.
 
 Following the steps above keeps your local environment consistent with CI and ensures contributions land cleanly. Happy writing!
