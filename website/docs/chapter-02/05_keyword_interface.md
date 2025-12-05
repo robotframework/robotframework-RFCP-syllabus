@@ -70,7 +70,7 @@ All of them can be called positionally or by name.
 
 ![Run Process Keyword Documentation](/img/Run_Process_Docs.png)
 
-This keyword has one Mandatory Arguments `command` which can be called positionally or by name.
+This keyword has one Mandatory Argument `command` which can be called positionally or by name.
 The latter two arguments are optional.
 
 The argument `arguments` is a :term[Variable Number of Positional Arguments] and can only be set by position.

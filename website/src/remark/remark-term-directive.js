@@ -26,7 +26,7 @@ export default function remarkTermDirective() {
   (glossary || []).forEach((entry) => {
     const key = normalizeKey(entry.term);
     glossaryByKey.set(key, entry);
-    (entry.aliasses || []).forEach((alias) => {
+    (entry.aliases || []).forEach((alias) => {
       glossaryByKey.set(normalizeKey(alias), entry);
     });
   });

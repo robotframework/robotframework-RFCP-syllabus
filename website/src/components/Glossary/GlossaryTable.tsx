@@ -8,7 +8,7 @@ import styles from './GlossaryTable.module.css';
 
 export type GlossaryItem = {
   term: string;
-  aliasses: string[];
+  aliases: string[];
   abbreviation: string;
   definition: string;
 };
@@ -56,13 +56,13 @@ const GlossaryTable: React.FC = () => {
         isAlias: false,
         slug,
         targetSlug: slug,
-        aliases: item.aliasses || [],
+        aliases: item.aliases || [],
       };
     });
 
     const aliasEntries: DisplayEntry[] = glossaryItems.flatMap((item) => {
       const canonicalSlug = slugify(item.term);
-      return (item.aliasses || [])
+      return (item.aliases || [])
         .filter((alias) => !termSet.has(alias))
         .map((alias) => ({
           term: alias,
