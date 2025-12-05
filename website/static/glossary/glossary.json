@@ -93,7 +93,7 @@
 		"term": "End-to-End Test",
 		"aliasses": [],
 		"abbreviation": "",
-		"definition": "Tests that verifies complete workflows across all relevant components, subsystems and interfaces to ensure that real-world user flows behave as expected."
+		"definition": "Tests that verify complete workflows across all relevant components, subsystems and interfaces to ensure that real-world user flows behave as expected."
 	},
 	{
 		"term": "Execution Artifacts",
