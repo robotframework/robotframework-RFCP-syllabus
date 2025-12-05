@@ -1,6 +1,34 @@
 import csv
-from pathlib import Path
+import difflib
+import io
 import re
+import sys
+from pathlib import Path
+
+
+def write_if_changed(path: Path, content: str, *, original_content=None, encoding: str = "utf-8", label: str | None = None) -> bool:
+    if original_content is None:
+        if path.exists():
+            original_content = path.read_text(encoding=encoding)
+        else:
+            original_content = ""
+    old_content = original_content
+    if old_content == content:
+        return False
+    display_label = str(label or path)
+    old_lines = old_content.splitlines(keepends=True)
+    new_lines = content.splitlines(keepends=True)
+    diff = difflib.unified_diff(
+        old_lines,
+        new_lines,
+        fromfile=f"a/{display_label}",
+        tofile=f"b/{display_label}",
+    )
+    diff_output = "".join(diff)
+    if diff_output:
+        print(diff_output, end="" if diff_output.endswith("\n") else "\n")
+    path.write_text(content, encoding=encoding)
+    return True
 
 
 def update_heading_numbers_and_generate_toc(directory: Path):
@@ -15,6 +43,13 @@ def update_heading_numbers_and_generate_toc(directory: Path):
     all_learning_objectives = []
     Path().as_posix()
     chapters = {}
+    modified_paths = set()
+
+    def rel_label(path: Path) -> str:
+        try:
+            return str(path.relative_to(directory))
+        except ValueError:
+            return str(path)
 
     for file in sorted(directory.glob("website/docs/**/*.md")):
         file_path = file.relative_to(Path('website/docs').resolve())
@@ -144,30 +179,39 @@ def update_heading_numbers_and_generate_toc(directory: Path):
                 print(f"Duplicate anchor '{heading_anchor}' in '{file_path}' and '{heading_catalog[heading_anchor][0]}'")
             heading_catalog[heading_anchor] = (file_path, *heading)
 
-        with file.open("w", encoding="utf-8") as md_file:
-            md_file.writelines(updated_lines)
+        original_content = "".join(lines)
+        updated_content = "".join(updated_lines)
+        if write_if_changed(file, updated_content, original_content=original_content, label=rel_label(file)):
+            modified_paths.add(file.resolve())
 
         all_learning_objectives.extend(learning_objectives)
 
     sorted_lo = sorted(all_learning_objectives, key=lambda x: x[0])
 
-    with (directory / "LOs.csv").open("w", encoding="utf-8") as csv_file:
-        writer = csv.writer(csv_file)
-        writer.writerow(["LO ID", "K Level", "Content", "Slide Number", "Done", "Notes"])
-        writer.writerows([(f"LO-{lo_id}", f"({k_level})", lo_content, "", "", "") for lo_id, k_level, lo_content in sorted_lo])
+    lo_csv_buffer = io.StringIO()
+    writer = csv.writer(lo_csv_buffer)
+    writer.writerow(["LO ID", "K Level", "Content", "Slide Number", "Done", "Notes"])
+    writer.writerows([(f"LO-{lo_id}", f"({k_level})", lo_content, "", "", "") for lo_id, k_level, lo_content in sorted_lo])
+    lo_csv_content = lo_csv_buffer.getvalue().replace("\r\n", "\n")
+    lo_csv_buffer.close()
+    lo_csv_path = directory / "LOs.csv"
+    if write_if_changed(lo_csv_path, lo_csv_content, label=rel_label(lo_csv_path)):
+        modified_paths.add(lo_csv_path.resolve())
 
     print(f"Total LOs: {len(sorted_lo)}")
     toc_entries.sort(key=lambda x: x[0])
 
     readme_path = directory / "README.md"
-    with readme_path.open("w", encoding="utf-8") as readme_file:
-        readme_file.write("# Table of Contents\n\n")
-        for _, toc_entry in toc_entries:
-            toc_entry = toc_entry.replace("`](", "`](website/docs/")
-            readme_file.write(toc_entry + "\n")
+    readme_lines = ["# Table of Contents\n\n"]
+    for _, toc_entry in toc_entries:
+        toc_entry = toc_entry.replace("`](", "`](website/docs/")
+        readme_lines.append(toc_entry + "\n")
+    readme_content = "".join(readme_lines)
+    if write_if_changed(readme_path, readme_content, label=rel_label(readme_path)):
+        modified_paths.add(readme_path.resolve())
 
     for file in sorted(directory.glob("website/docs/**/*.md")):
-        file_path = file.relative_to(Path('website/docs').resolve())
+        docs_path = file.relative_to(Path('website/docs').resolve())
         match = chapter_file_pattern.fullmatch(file.as_posix())
         if not match:
             continue
@@ -178,7 +222,7 @@ def update_heading_numbers_and_generate_toc(directory: Path):
         for lineno, line in enumerate(lines):
             def replace_link(match):
                 description, link_file, anchor_name = match.groups()
-                link_file = link_file or file_path
+                link_file = link_file or docs_path
                 if anchor_name in heading_catalog:
                     file_path, numbering, title, anchor = heading_catalog[anchor_name]
                     if title.strip() == anchor_name.strip() or anchor.endswith(anchor_name):
@@ -193,24 +237,29 @@ def update_heading_numbers_and_generate_toc(directory: Path):
             updated_line = re.sub(internal_link_pattern, replace_link, line)
             updated_lines.append(updated_line)
 
-        with file.open("w", encoding="utf-8") as md_file:
-            md_file.writelines(updated_lines)
+        original_content = "".join(lines)
+        updated_content = "".join(updated_lines)
+        if write_if_changed(file, updated_content, original_content=original_content, label=rel_label(file)):
+            modified_paths.add(file.resolve())
 
-    with Path("website", "docs", "learning_objectives.md").open("w", encoding="utf-8") as lo_file:
-        anchor = {}
-        for k, v in heading_catalog.items():
-            numbering = v[1]
-            if len(numbering) <= 3:
-                anchor[v[1]] = str(v[0])
-            else:
-                anchor[v[1]] = f'{v[0]}#{v[-1]}'
-        lo_file.write("# Learning Objectives\n")
-        lo_file.write(f'| ID | K-Level | Content |\n')
-        lo_file.write(f'| --- | --- | --- |\n')
-        for lo_id, k_level, lo_content in sorted_lo:
-            lo_file.write(f'| [`LO-{lo_id}`]({anchor.get(lo_id.split("-")[0])}) | {k_level} | {lo_content.replace('|', '\\|')} |\n')
+    learning_objectives_path = directory / "website" / "docs" / "learning_objectives.md"
+    anchor = {}
+    for k, v in heading_catalog.items():
+        numbering = v[1]
+        if len(numbering) <= 3:
+            anchor[v[1]] = str(v[0])
+        else:
+            anchor[v[1]] = f'{v[0]}#{v[-1]}'
+    lo_md_lines = ["# Learning Objectives\n", '| ID | K-Level | Content |\n', '| --- | --- | --- |\n']
+    for lo_id, k_level, lo_content in sorted_lo:
+        lo_md_lines.append(f'| [`LO-{lo_id}`]({anchor.get(lo_id.split("-")[0])}) | {k_level} | {lo_content.replace("|", "\\|")} |\n')
+    lo_md_content = "".join(lo_md_lines)
+    if write_if_changed(learning_objectives_path, lo_md_content, label=rel_label(learning_objectives_path)):
+        modified_paths.add(learning_objectives_path.resolve())
 
+    return len(modified_paths)
 
 
 if __name__ == "__main__":
-    update_heading_numbers_and_generate_toc(Path.cwd())
+    fix_count = update_heading_numbers_and_generate_toc(Path.cwd())
+    sys.exit(1 if fix_count > 0 else 0)
