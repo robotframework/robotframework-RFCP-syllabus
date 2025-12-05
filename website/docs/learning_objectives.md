@@ -73,7 +73,7 @@
 | [`LO-3.2.2.4`](chapter-03/02_variables.md#3224-dictionary-variable-definition) | K2 | Understand how to set and access data in dict variables |
 | [`LO-3.2.3`](chapter-03/02_variables.md#323-return-values-from-keywords) | K3 | Be able to assign return values from keywords to variables |
 | [`LO-3.2.4`](chapter-03/02_variables.md#324-var-statement) | K2 | Understand how to create variables using the VAR statement |
-| [`LO-3.2.6`](None) | K2 | Understand how `local` and `suite` scope variables are created |
+| [`LO-3.2.5`](chapter-03/02_variables.md#325-variable-scope-introduction) | K2 | Understand how `local` and `suite` scope variables are created |
 | [`LO-3.3.2`](chapter-03/03_user_keyword.md#332-user-keyword-names) | K1 | Recall the rules how keyword names are matched. |
 | [`LO-3.3.3`](chapter-03/03_user_keyword.md#333-user-keyword-settings) | K1 | Recall all available settings and their purpose for User Keywords |
 | [`LO-3.3.4`](chapter-03/03_user_keyword.md#334-user-keyword-documentation) | K1 | Recall the significance of the first logical line and in keyword documentation for the log file. |
