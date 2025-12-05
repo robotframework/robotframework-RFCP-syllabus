@@ -21,7 +21,7 @@ Thanks for helping us improve the RFCP syllabus! The notes below explain how to 
 
 ## 3. Quality checks before committing
 - `pre-commit` automatically runs `python tools/gen_numbering.py` on every commit. If headings, learning-objective numbering, or internal links change the hook updates the files, prints a diff, and blocks the commit until you stage the fixes.
-- All fenced code blocks must stay within 100 characters per line. Use `python tools/check_codeblock_line_length.py` (or let CI run it) to verify.
+- All fenced code blocks must stay within 100 characters per line. Run `npm run build` in the `website/` directory to check code block line lengths (or let CI run it).
 - Docusaurus validates internal links during builds. Run `npm run build` before submitting a PR to catch broken anchors or missing pages early.
 
 ## 4. Generating the syllabus PDF

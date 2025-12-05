@@ -33,9 +33,10 @@ class Colors:
     END = "\033[0m"
     # cancel SGR codes if we don't write to a terminal
     if not __import__("sys").stdout.isatty():
-        for _ in dir():
-            if isinstance(_, str) and _[0] != "_":
-                locals()[_] = ""
+        for attr in dir():
+            if not attr.startswith("_"):
+                if isinstance(getattr(__class__, attr), str):
+                    setattr(__class__, attr, "")
     elif __import__("platform").system() == "Windows":
         kernel32 = __import__("ctypes").windll.kernel32
         kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)

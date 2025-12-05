@@ -25,9 +25,9 @@ Build Docusaurus
 
 Open Syllabus
     IF   $BROWSER.lower() in ['chrome', 'msedge']
-        New Browser    chromium    headless=${HEADLESS}
-    ELSE
         New Browser    chromium    channel=${BROWSER}    headless=${HEADLESS}
+    ELSE
+        New Browser    chromium    headless=${HEADLESS}
     END
     New Page    http://localhost:3000/robotframework-RFCP-syllabus/docs/overview
     ${dark}    Get Element States
