@@ -7,6 +7,8 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import DOMPurify from "dompurify";
 
+import styles from "./Term.module.css";
+
 type TermProps = {
   /** Text that appears inline in your document (the trigger/label) */
   trigger?: string;          // used by container form; fine to keep even if you only use inline
@@ -95,15 +97,7 @@ export default function Term({
           ? setOpen((v) => !v)
           : null
       }
-      style={{
-        position: "relative",
-        display: "inline-block",
-        cursor: hasTooltip ? "help" : "default",
-        // borderBottom: "1px solid currentcolor",
-        fontWeight: 600,
-        fontStyle: "italic",
-        color: "var(--ifm-navbar-link-active-color)",
-      }}
+      className={styles.termTrigger}
       aria-haspopup="dialog"
       aria-expanded={open}
     >
@@ -114,20 +108,10 @@ export default function Term({
         ? createPortal(
             <div
               role="dialog"
+              className={styles.termTooltip}
               style={{
-                position: "absolute",
                 left: coords.left,
                 top: coords.top,
-                maxWidth: 420,
-                fontWeight: 400,
-                color: "var(--ifm-font-color-base)",
-                padding: "10px 12px",
-                borderRadius: 8,
-                background: "var(--ifm-background-surface-color)",
-                border: "1px solid var(--ifm-color-emphasis-300)",
-                boxShadow: "0 8px 30px rgba(0,0,0,.15)",
-                zIndex: 1000,
-                whiteSpace: "normal",
                 minWidth: coords.width,
               }}
             >
@@ -139,18 +123,15 @@ export default function Term({
                     p: ({node: _node, ...props}) => <div {...props} />,
                     a: ({node: _node, href, ...props}) => {
                       const resolvedHref = href && href.startsWith("/") ? `${baseUrl}${href}` : href;
-                      return <a {...props} href={resolvedHref} rel="noreferrer" target="_blank" style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.25rem",
-                        padding: "0.15rem 0.6rem",
-                        borderRadius: "999px",
-                        fontSize: "0.8rem",
-                        border: "1px solid var(--ifm-color-emphasis-300)",
-                        background: "var(--ifm-color-emphasis-100)",
-                        color: "var(--ifm-font-color-base)",
-                        textDecoration: "none"
-                        }} />;
+                      return (
+                        <a
+                          {...props}
+                          href={resolvedHref}
+                          rel="noreferrer"
+                          target="_blank"
+                          className={styles.termTooltipLink}
+                        />
+                      );
                     },
                   }}
                 >

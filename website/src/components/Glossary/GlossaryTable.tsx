@@ -213,6 +213,7 @@ const GlossaryTable: React.FC = () => {
                   onClick={handleClick}
                   tabIndex={0}
                   role="button"
+                  aria-label={`View details for ${entry.term}`}
                   onKeyDown={(event) => {
                     if (
                       (event.key === 'Enter' || event.key === ' ') &&
