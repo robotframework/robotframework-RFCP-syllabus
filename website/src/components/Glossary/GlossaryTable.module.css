@@ -39,13 +39,6 @@
   table-layout: fixed;
 }
 
-.termCol {
-  width: 28%;
-}
-
-.definitionCol {
-  width: 72%;
-}
 
 th,
 td {
@@ -91,11 +84,7 @@ tbody tr {
   width: 100%;
 }
 
-.emptyState {
-  text-align: center;
-  padding: 1rem;
-  color: var(--ifm-color-emphasis-700);
-}
+
 
 .definitionText > :first-child {
   margin-top: 0;
