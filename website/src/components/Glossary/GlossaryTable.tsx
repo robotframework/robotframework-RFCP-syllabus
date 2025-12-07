@@ -17,6 +17,7 @@ export type DisplayEntry = {
   term: string;
   abbreviation: string;
   definition: string;
+  definitionHtml: string;
   canonicalTerm: string;
   isAlias: boolean;
   slug: string;
@@ -30,17 +31,15 @@ const slugify = (text: string): string =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-+|-+$)/g, '');
 
-const sanitizeMarkdown = (markdown: string, purify: typeof DOMPurify | null): string => {
+const sanitizeMarkdown = (markdown: string): string => {
   const html = marked.parse(markdown || '', { async: false }) as string;
-  return purify ? purify.sanitize(html) : html;
+  return typeof window !== 'undefined' ? DOMPurify.sanitize(html) : html;
 };
 
 const GlossaryTable: React.FC = () => {
   const [termQuery, setTermQuery] = useState('');
   const [textQuery, setTextQuery] = useState('');
   const [activeSlug, setActiveSlug] = useState('');
-
-  const purify = useMemo(() => (typeof window === 'undefined' ? null : DOMPurify), []);
 
   const { entries, aliasToCanonicalSlug } = useMemo(() => {
     const glossaryItems = glossaryData as GlossaryItem[];
@@ -52,6 +51,7 @@ const GlossaryTable: React.FC = () => {
         term: item.term,
         abbreviation: item.abbreviation,
         definition: item.definition,
+        definitionHtml: sanitizeMarkdown(item.definition),
         canonicalTerm: item.term,
         isAlias: false,
         slug,
@@ -68,6 +68,7 @@ const GlossaryTable: React.FC = () => {
           term: alias,
           abbreviation: '',
           definition: `See ${item.term}`,
+          definitionHtml: '', // Alias entries don't need HTML since they use a link
           canonicalTerm: item.term,
           isAlias: true,
           slug: slugify(alias),
@@ -202,7 +203,6 @@ const GlossaryTable: React.FC = () => {
           </thead>
           <tbody>
             {filteredEntries.map((entry) => {
-              const definitionHtml = sanitizeMarkdown(entry.definition, purify);
               const handleClick = () => focusEntry(entry.targetSlug, entry.canonicalTerm);
 
               return (
@@ -245,7 +245,7 @@ const GlossaryTable: React.FC = () => {
                       <>
                         <div
                           className={styles.definitionText}
-                          dangerouslySetInnerHTML={{ __html: definitionHtml }}
+                          dangerouslySetInnerHTML={{ __html: entry.definitionHtml }}
                         />
                         <div className={styles.pillRow}>
                           {entry.abbreviation ? (
