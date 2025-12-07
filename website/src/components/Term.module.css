@@ -2,7 +2,7 @@
   position: relative;
   cursor: help;
   background: var(--ifm-background-surface-color);
-  border: 0.1rem solid var(--ifm-color-emphasis-300) !important;
+  border: 0.1rem solid var(--ifm-color-emphasis-200) !important;
   border-radius: var(--ifm-code-border-radius) !important;
   padding: 0 var(--ifm-code-padding-horizontal);
   vertical-align: middle;
