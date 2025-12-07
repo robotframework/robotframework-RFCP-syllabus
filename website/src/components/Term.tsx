@@ -122,7 +122,10 @@ export default function Term({
                   components={{
                     p: ({node: _node, ...props}) => <div {...props} />,
                     a: ({node: _node, href, ...props}) => {
-                      const resolvedHref = href && href.startsWith("/") ? `${baseUrl}${href}` : href;
+                      const resolvedHref =
+                        href && href.startsWith("/") && !href.startsWith(baseUrl)
+                          ? `${baseUrl}${href}`
+                          : href;
                       return (
                         <a
                           {...props}
