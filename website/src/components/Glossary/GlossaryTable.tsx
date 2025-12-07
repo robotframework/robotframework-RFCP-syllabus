@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Fuse from 'fuse.js';
 import clsx from 'clsx';
 import { marked } from 'marked';
@@ -31,29 +31,34 @@ const slugify = (text: string): string =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-+|-+$)/g, '');
 
-const sanitizeMarkdown = (markdown: string, purify: typeof DOMPurify | null): string => {
-  const html = marked.parse(markdown || '', { async: false }) as string;
-  return purify ? purify.sanitize(html) : html;
-};
-
 const GlossaryTable: React.FC = () => {
   const [termQuery, setTermQuery] = useState('');
   const [textQuery, setTextQuery] = useState('');
   const [activeSlug, setActiveSlug] = useState('');
+  const [entries, setEntries] = useState<DisplayEntry[]>([]);
+  const [aliasToCanonicalSlug, setAliasToCanonicalSlug] = useState<Map<string, string>>(new Map());
+  const purifyRef = useRef<typeof DOMPurify | null>(null);
+  const [purifyReady, setPurifyReady] = useState(false);
 
-  const purify = useMemo(() => (typeof window === 'undefined' ? null : DOMPurify), []);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      purifyRef.current = DOMPurify;
+      setPurifyReady(true);
+    }
+  }, []);
 
-  const { entries, aliasToCanonicalSlug } = useMemo(() => {
+  useEffect(() => {
     const glossaryItems = glossaryData as GlossaryItem[];
     const termSet = new Set(glossaryItems.map((item) => item.term));
 
     const canonicalEntries: DisplayEntry[] = glossaryItems.map((item) => {
       const slug = slugify(item.term);
+      const html = marked.parse(item.definition || '', { async: false }) as string;
       return {
         term: item.term,
         abbreviation: item.abbreviation,
         definition: item.definition,
-        definitionHtml: sanitizeMarkdown(item.definition, purify),
+        definitionHtml: html,
         canonicalTerm: item.term,
         isAlias: false,
         slug,
@@ -70,7 +75,7 @@ const GlossaryTable: React.FC = () => {
           term: alias,
           abbreviation: '',
           definition: `See ${item.term}`,
-          definitionHtml: '', // Alias entries don't need HTML since they use a link
+          definitionHtml: '',
           canonicalTerm: item.term,
           isAlias: true,
           slug: slugify(alias),
@@ -84,8 +89,19 @@ const GlossaryTable: React.FC = () => {
     aliasEntries.forEach((entry) => aliasMap.set(entry.slug, entry.targetSlug));
 
     const combined = [...canonicalEntries, ...aliasEntries].sort((a, b) => a.term.localeCompare(b.term));
-    return { entries: combined, aliasToCanonicalSlug: aliasMap };
-  }, [purify]);
+    setEntries(combined);
+    setAliasToCanonicalSlug(aliasMap);
+  }, []);
+
+  useEffect(() => {
+    if (!purifyReady || !purifyRef.current) return;
+    setEntries((prev) =>
+      prev.map((entry) => {
+        if (entry.isAlias || !entry.definitionHtml) return entry;
+        return { ...entry, definitionHtml: purifyRef.current!.sanitize(entry.definitionHtml) };
+      })
+    );
+  }, [purifyReady]);
 
   const fuse = useMemo(
     () =>
