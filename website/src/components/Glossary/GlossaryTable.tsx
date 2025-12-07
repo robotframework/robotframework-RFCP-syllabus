@@ -54,11 +54,15 @@ const GlossaryTable: React.FC = () => {
     const canonicalEntries: DisplayEntry[] = glossaryItems.map((item) => {
       const slug = slugify(item.term);
       const html = marked.parse(item.definition || '', { async: false }) as string;
+      const sanitizedHtml =
+        typeof window !== 'undefined' && purifyRef.current
+          ? purifyRef.current.sanitize(html)
+          : html;
       return {
         term: item.term,
         abbreviation: item.abbreviation,
         definition: item.definition,
-        definitionHtml: html,
+        definitionHtml: sanitizedHtml,
         canonicalTerm: item.term,
         isAlias: false,
         slug,
