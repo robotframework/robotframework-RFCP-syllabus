@@ -17,6 +17,7 @@ export type DisplayEntry = {
   term: string;
   abbreviation: string;
   definition: string;
+  definitionHtml: string;
   canonicalTerm: string;
   isAlias: boolean;
   slug: string;
@@ -52,6 +53,7 @@ const GlossaryTable: React.FC = () => {
         term: item.term,
         abbreviation: item.abbreviation,
         definition: item.definition,
+        definitionHtml: sanitizeMarkdown(item.definition, purify),
         canonicalTerm: item.term,
         isAlias: false,
         slug,
@@ -68,6 +70,7 @@ const GlossaryTable: React.FC = () => {
           term: alias,
           abbreviation: '',
           definition: `See ${item.term}`,
+          definitionHtml: '', // Alias entries don't need HTML since they use a link
           canonicalTerm: item.term,
           isAlias: true,
           slug: slugify(alias),
@@ -82,7 +85,7 @@ const GlossaryTable: React.FC = () => {
 
     const combined = [...canonicalEntries, ...aliasEntries].sort((a, b) => a.term.localeCompare(b.term));
     return { entries: combined, aliasToCanonicalSlug: aliasMap };
-  }, []);
+  }, [purify]);
 
   const fuse = useMemo(
     () =>
@@ -202,7 +205,6 @@ const GlossaryTable: React.FC = () => {
           </thead>
           <tbody>
             {filteredEntries.map((entry) => {
-              const definitionHtml = sanitizeMarkdown(entry.definition, purify);
               const handleClick = () => focusEntry(entry.targetSlug, entry.canonicalTerm);
 
               return (
@@ -245,7 +247,7 @@ const GlossaryTable: React.FC = () => {
                       <>
                         <div
                           className={styles.definitionText}
-                          dangerouslySetInnerHTML={{ __html: definitionHtml }}
+                          dangerouslySetInnerHTML={{ __html: entry.definitionHtml }}
                         />
                         <div className={styles.pillRow}>
                           {entry.abbreviation ? (
