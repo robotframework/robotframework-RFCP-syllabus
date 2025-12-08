@@ -157,7 +157,7 @@ Understand the purpose and syntax of the [Arguments] setting in User Keywords.
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
 
-See also Chapter 2 [2.5.2 Keyword Arguments](chapter-02/05_keyword_interface.md#252-keyword-arguments) for an introduction to argument kinds.
+See also [2.5.2 Keyword Arguments](chapter-02/05_keyword_interface.md#252-keyword-arguments) for an introduction to argument kinds.
 
 Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of scalar variables.
 
