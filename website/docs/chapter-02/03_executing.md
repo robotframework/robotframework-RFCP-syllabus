@@ -94,7 +94,7 @@ After executing a suite, Robot Framework, by default, generates three output fil
 `log.html` and `report.html` are generated based on the information stored in `output.xml`.
 
 A unique feature of Robot Framework is, that it logs each keyword call and its arguments with its log outputs and timestamps, so that it is possible to have a very detailed view of the execution flow and the data that was used during the execution.
-In case of a failure it is possible to see the exact keyword call that failed and the arguments that were used, which can be very helpful for debugging or reporting. Furthermore you also get all passed keywords and even the non-executed keywords to protocol the whole execution flow.
+In case of a failure it is possible to see the exact keyword call that failed and the arguments that were used, which can be very helpful for debugging or reporting. Furthermore, you also get all passed keywords and even the non‑executed keywords, allowing you to trace the whole execution flow.
 
 
 
