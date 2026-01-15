@@ -129,7 +129,7 @@ For **path separators**, it is strongly recommended to always use forward slashe
 This is because backslashes are used as escape characters in Robot Framework, which can cause issues when used in paths. Forward slashes are supported on all operating systems when used in Robot Framework.
 
 When choosing the location of resource files or libraries, it should be taken into consideration that absolute paths are typically not portable and therefore should be avoided.
-Relative paths are portable as long as they are related to the data file that is importing using them, as long as that relative path is part of the project structure.
+Relative paths are portable as long as they are defined relative to the importing data file and point to locations within the project structure.
 
 However the most stable and recommended way is to use the **Python Path/module search path** to import them.
 That path needs to be defined when executing Robot Framework but can lead to more uniform and stable imports, because each suite or resource file can use the same path to import the same resource file or library, independent of the location of the importing suite or resource file.
