@@ -157,7 +157,7 @@ Understand the purpose and syntax of the [Arguments] setting in User Keywords.
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
 
-See also Chapter 2 [2.5.2 Keyword Arguments](chapter-02/05_keyword_interface.md#252-keyword-arguments) for an introduction to argument kinds.
+See also [2.5.2 Keyword Arguments](chapter-02/05_keyword_interface.md#252-keyword-arguments) for an introduction to argument kinds.
 
 Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of scalar variables.
 
@@ -400,7 +400,7 @@ However, this behavior can be used to conditionally end a keyword execution earl
 
 The `RETURN` statement of a keyword cannot return the returned value from a called keyword directly like in other programming languages.
 The return value must be stored in a variable first and then be returned by the `RETURN` statement.
-So the first keyword is **invalid** while the second **valid** is!
+So the first keyword is **invalid** while the second is **valid**!
 
 ```robot title="invalid"
 *** Keywords ***
