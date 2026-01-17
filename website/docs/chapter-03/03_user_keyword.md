@@ -350,8 +350,8 @@ the user ${action}
 
 ### 3.3.5.4 Other Argument Kinds
 
-Other argument kinds like **Named-Only Arguments**, **Free Named Arguments**, or
-**Variable Number of Positional Arguments** should be known,
+Other argument kinds like :term[Named-Only Arguments]{term="Named-Only Argument"}, :term[Free Named Arguments]{term="Free Named Argument"}, or
+:term[Variable Number of Positional Arguments] should be known,
 but their definition and usage are not part of this syllabus.
 
 

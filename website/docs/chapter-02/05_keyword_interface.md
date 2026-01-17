@@ -70,14 +70,14 @@ All of them can be called positionally or by name.
 
 ![Run Process Keyword Documentation](/img/Run_Process_Docs.png)
 
-This keyword has one :term[Mandatory Arguments]{tooltipMd="An **Argument** that must be set.<br/>See [Mandatory Args](chapter-03/03_user_keyword.md)"} `command` which can be called positionally or by name.
+This keyword has one Mandatory Argument `command` which can be called positionally or by name.
 The latter two arguments are optional.
 
-The argument `arguments` is a "Variable Number of Positional Arguments" and can only be set by position.
+The argument `arguments` is a :term[Variable Number of Positional Arguments] and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
 See [2.5.2.5 Variable Number of Positional Arguments](chapter-02/05_keyword_interface.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
-The argument `configuration` is a "Free Named Argument" and can only be set by names.
+The argument `configuration` is a :term[Free Named Argument] and can only be set by names.
 See [2.5.2.7 Free Named Arguments](chapter-02/05_keyword_interface.md#2527-free-named-arguments) for more information about this kind of argument.
 
 
@@ -92,11 +92,11 @@ See [2.5.2.7 Free Named Arguments](chapter-02/05_keyword_interface.md#2527-free-
 This keyword has 2 "Mandatory Arguments" that can be called positionally or by name.
 The last two arguments are optional.
 
-The argument `groups` is a "Variable Number of Positional Arguments" and can only be set by position.
+The argument `groups` is a :term[Variable Number of Positional Arguments] and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
 See [2.5.2.5 Variable Number of Positional Arguments](chapter-02/05_keyword_interface.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
-The argument `flags` is a "Named-Only Argument" and can only be set by name.
+The argument `flags` is a :term[Named-Only Argument] and can only be set by name.
 See [2.5.2.6 Named-Only Arguments](chapter-02/05_keyword_interface.md#2526-named-only-arguments) for more information about this kind of argument.
 
 
@@ -118,20 +118,20 @@ The more business oriented keywords are the less arguments they typically have.
 Keyword arguments can be grouped into different argument kinds.
 On the one hand you can group them by their definition attributes and on the other hand by their usage kind.
 
-The relevant distinction of usage kinds is between using **Positional Arguments**, **Named Arguments**, or **Embedded Arguments**.
+The relevant distinction of usage kinds is between using :term[Positional Arguments]{term="Positional Argument"}, :term[Named Arguments]{term="Named Argument"}, or :term[Embedded Arguments]{term="Embedded Argument"}.
 How to use them is described in [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md).
 
 Another important information is if an argument is mandatory or optional.
 See the next two sections for more information about these two kinds of arguments.
 
 Most arguments can either be set by their position or by their name.
-But there are some kinds of arguments that can only be set positionally, like **Variable Number of Positional Arguments**, or only be set named, like **Named-Only Arguments** or **Free Named Arguments**.
+But there are some kinds of arguments that can only be set positionally, like :term[Variable Number of Positional Arguments], or only be set named, like :term[Named-Only Arguments]{term="Named-Only Argument"} or :term[Free Named Arguments]{term="Free Named Argument"}.
 
 The order is as follows:
-1. **Positional or Named Arguments** (can be mandatory or optional)
-2. **Variable Number of Positional Arguments** (optional)
-3. **Named-Only Arguments** (can be mandatory or optional)
-4. **Free Named Arguments** (optional)
+1. :term[Positional or Named Arguments]{term="Positional or Named Argument"} (can be mandatory or optional)
+2. :term[Variable Number of Positional Arguments] (optional)
+3. :term[Named-Only Arguments]{term="Named-Only Argument"} (can be mandatory or optional)
+4. :term[Free Named Arguments]{term="Free Named Argument"} (optional)
 
 ### 2.5.2.1 Mandatory Arguments
 
@@ -189,7 +189,7 @@ Arguments that have a default value can be omitted when the keyword is called, c
 These arguments are listed after the mandatory arguments in the argument interface.
 Default values are defined and represented in the docs by the equal sign `=` after the argument name and a value after that.
 
-Also "Variable Number of Positional Arguments", represented with a single star (`*`) prefix, and "Free Named Arguments", represented with a double star (`**`) prefix are optional arguments.
+Also :term[Variable Number of Positional Arguments], represented with a single star (`*`) prefix, and :term[Free Named Arguments]{term="Free Named Argument"}, represented with a double star (`**`) prefix are optional arguments.
 
 E.g. the argument `msg` in the `Should Be Equal` keyword documentation has the default value `None` and `ignore_case` has the default value `False`.
 
@@ -233,7 +233,7 @@ Foundation Page should be Accessible
     And the url should be https://robotframework.org/foundation
 ```
 The optional prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name including the embedded arguments.
-In the example test case some keywords are designed so that the arguments are surrounded by double quotes (`"`) for better visibility.
+In the example :term[test case] some keywords are designed so that the arguments are surrounded by double quotes (`"`) for better visibility.
 
 A mix of embedded arguments and "normal" arguments is possible to fully support BDD.
 In the keyword documentation the embedded arguments are written in variable syntax with dollar-curly-braces (`${var_name}`) to indicate that they are not part of the keyword name but are arguments.
@@ -253,7 +253,7 @@ Recall how "Positional or Named Arguments" are marked in the documentation and t
 ::::
 
 Except for "Positional-Only Arguments", which are not part of this syllabus,
-all arguments that are positioned before "Variable Number of Positional Arguments", "Named-Only Arguments", or "Free Named Arguments" in the argument interface of a keyword are "Positional or Named Arguments".
+all arguments that are positioned before :term[Variable Number of Positional Arguments], :term[Named-Only Arguments]{term="Named-Only Argument"}, or :term[Free Named Arguments]{term="Free Named Argument"} in the argument interface of a keyword are :term[Positional or Named Arguments]{term="Positional or Named Argument"}.
 
 As their name states, they can be set either by their position or by their name, but not by both at the same time for one argument.
 If an argument shall be set by its position, all preceding arguments must be set by their position as well.
@@ -275,7 +275,7 @@ Recall how "Variable Number of Positional Arguments" are marked in the documenta
 
 ::::
 
-A special case of optional arguments that can only be set by their position are "Variable Number of Positional Arguments".
+A special case of optional arguments that can only be set by their position are :term[Variable Number of Positional Arguments].
 These are also referred to as `*args` or `*varargs` in Python.
 Some keywords need to collect a variable amount of values into one argument, because it is not possible to define the amount of values in advance.
 
@@ -286,8 +286,8 @@ Depending on the command to be executed different amount of arguments are needed
 This variable argument is marked with a single asterisk `*` before the argument name in the keyword documentation.
 
 When calling this keyword, the first positional argument is assigned to `command`, while all subsequent positional arguments are collected into `arguments`.
-Because of this behavior, no additional positional arguments can be used after these "Variable Number of Positional Arguments".
-As a result, any arguments following these "Variable Number of Positional Arguments" must be named arguments,
+Because of this behavior, no additional positional arguments can be used after these :term[Variable Number of Positional Arguments].
+As a result, any arguments following these :term[Variable Number of Positional Arguments] must be named arguments,
 regardless of whether they are mandatory or optional arguments with a default value.
 
 Also see [2.5.1.3 Example Keyword `Get Regexp Matches`](chapter-02/05_keyword_interface.md#2513-example-keyword-get-regexp-matches).
@@ -305,15 +305,15 @@ Recall what properties "Named-Only Arguments" have and how they are documented.
 
 ::::
 
-All arguments that are defined after a "Variable Number of Positional Arguments" (`*varargs`) are "Named-Only Arguments".
-However it is also possible to create "Named-Only Arguments without a preceding "Variable Number of Positional Arguments".
+All arguments that are defined after a :term[Variable Number of Positional Arguments] (`*varargs`) are :term[Named-Only Arguments]{term="Named-Only Argument"}.
+However it is also possible to create :term[Named-Only Arguments]{term="Named-Only Argument"} without a preceding :term[Variable Number of Positional Arguments].
 
-"Named-Only Arguments" are marked with a "LABEL" sign `🏷` before the argument name in the keyword documentation.
+:term[Named-Only Arguments]{term="Named-Only Argument"} are marked with a "LABEL" sign `🏷` before the argument name in the keyword documentation.
 
-Those arguments can not be set positionally. All positional values would be consumed by the "Variable Number of Positional Arguments".
+Those arguments can not be set positionally. All positional values would be consumed by the :term[Variable Number of Positional Arguments].
 So they must be called by their name followed by an equal sign `=` and the value of the argument.
 
-"Named-Only Arguments" can be mandatory or optional with a default value.
+:term[Named-Only Arguments]{term="Named-Only Argument"} can be mandatory or optional with a default value.
 
 ### 2.5.2.7 Free Named Arguments
 
@@ -321,14 +321,14 @@ So they must be called by their name followed by an equal sign `=` and the value
 
 :::K1[LO-2.5.2.7]
 
-Recall how free named arguments are marked in documentation.
+Recall how "Free Named Arguments" are marked in documentation.
 
 :::
 
 ::::
 
-Another special case of "Named-Only Arguments" are "Free Named Arguments."
-These arguments are similar to the "Variable Number of Positional Arguments" in that they can collect multiple values.
+Another special case of :term[Named-Only Arguments]{term="Named-Only Argument"} are :term[Free Named Arguments]{term="Free Named Argument"}.
+These arguments are similar to the :term[Variable Number of Positional Arguments] in that they can collect multiple values.
 However, instead of collecting positional values, they gather all named values that are not explicitly defined as argument names.
 In this case all values given to the keyword as arguments, that do contain an unescaped equal sign (`=`) are considered as named arguments.
 
