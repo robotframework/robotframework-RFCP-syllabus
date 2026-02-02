@@ -47,7 +47,7 @@ The allowed sections in recommended order are:
 
   Additional settings are:
   - `Keyword Tags` to set tags for all keywords in the resource file.
-    defining and using Keyword tags is not part of this syllabus.
+    defining and using [Keyword](../glossary#keyword) tags is not part of this syllabus.
 
   Other settings available in suites are not available in resource files.
 
@@ -61,6 +61,7 @@ The allowed sections in recommended order are:
   Other than in suites these keywords can be used outside this resource file, if it is imported in another file.
 
 - `*** Comments ***` is used to store comments and is ignored and not parsed by Robot Framework. (same as in suites)
+
 
 
 

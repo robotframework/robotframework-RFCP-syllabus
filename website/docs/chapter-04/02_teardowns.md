@@ -44,13 +44,13 @@ reducing dependencies between tests|tasks and improving the reliability of your 
 
 :::K1[LO-4.2.1-1]
 
-Recall key characteristics, benefits, and syntax of Suite Teardown
+Recall key characteristics, benefits, and syntax of [Suite Teardown](../glossary#suite-teardown)
 
 :::
 
 :::K2[LO-4.2.1-2]
 
-Understand when Suite Teardown is executed and used
+Understand when [Suite](../glossary#suite) Teardown is executed and used
 
 :::
 
@@ -63,7 +63,7 @@ The Suite Teardown is executed regardless of the outcome of the tests|tasks with
 **Key characteristics of Suite Teardown:**
 - Suite Teardown is a single keyword call with potential argument values.
 - Executed after all tests|tasks and child suites have completed.
-- Runs even if the Suite Setup fails or any test|task within the suite fails.
+- Runs even if the [Suite Setup](../glossary#suite-setup) fails or any test|task within the suite fails.
 - If the Suite Teardown fails, all tests|tasks in the suite are marked as failed in reports and logs.
 - All keywords within the Suite Teardown are executed, even if one of them fails, ensuring all cleanup actions are attempted.
 
@@ -86,13 +86,13 @@ Suite Teardown    Close All Resources   force=True
 
 :::K1[LO-4.2.2-1]
 
-Recall key characteristics, benefits, and syntax of Test|Task Teardown
+Recall key characteristics, benefits, and syntax of Test|[Task](../glossary#task) Teardown
 
 :::
 
 :::K2[LO-4.2.2-2]
 
-Understand when Test|Task Teardown is executed and used
+Understand when Test|[Task Teardown](../glossary#test-teardown) is executed and used
 
 :::
 
@@ -113,7 +113,7 @@ It is recommended to define the local `[Teardown]` setting as the last line of t
 **Key characteristics of Test|Task Teardown:**
 - Test|Task Teardown is a single keyword call with potential argument values.
 - Executed after the test|task has been executed, regardless of its status.
-- Runs even if the Test|Task Setup fails.
+- Runs even if the Test|[Task Setup](../glossary#test-setup) fails.
 - If the Test|Task Teardown fails, the test|task is marked as failed in reports and logs.
 - All keywords within the Test|Task Teardown are executed, even if one of them fails.
 - Can be set globally for all tests|tasks in a suite and overridden locally.
@@ -158,7 +158,7 @@ No Teardown Test
 
 :::K1[LO-4.2.3]
 
-Recall key characteristics, benefits, and syntax of Keyword Teardown
+Recall key characteristics, benefits, and syntax of [Keyword](../glossary#keyword) Teardown
 
 :::
 
@@ -190,6 +190,7 @@ Process Data
     Process the Data
     [Teardown]    Close Data Connection
 ```
+
 
 
 

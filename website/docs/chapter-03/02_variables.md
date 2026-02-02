@@ -60,7 +60,7 @@ Variables in Robot Framework are defined by three attributes:
 - **Delimiter**: `{}` to enclose the variable name.
 - **Variable Name**: The string that addresses the variable. i.e. just the `variable_name` or more advanced access ways.
 
-Variable names are case-insensitive and as keywords, containing single spaces and underscores are ignored when matching variable names.
+[Variable](../glossary#variable) names are case-insensitive and as keywords, containing single spaces and underscores are ignored when matching variable names.
 Robot Framework supports Unicode and allows the use of special characters and even Emojis in variable names.
 
 In case these prefixes followed by a curly brace opening (`${`) should be used as characters in a normal string and not as a variable,
@@ -464,6 +464,7 @@ In Robot Framework, variables have different scopes, which define where they can
   That means that they can be accessed inside a keyword, called from a test|task of that suite even, if this variable is not created as part of the argument interface of that keyword.
 
 Examples and more details on variable scope, such as `TEST` and `GLOBAL` scope can be found in the [5.1.2 Variable Scopes](chapter-05/01_advanced_variables.md#512-variable-scopes) section.
+
 
 
 

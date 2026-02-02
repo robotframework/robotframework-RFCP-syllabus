@@ -56,18 +56,18 @@ The names of User Keywords should be descriptive and clear, reflecting the purpo
 Well-named keywords make tests more readable and easier to understand.
 Robot Framework supports Unicode and allows the use of special characters and even Emojis in keyword names.
 
-Keyword names are case-insensitive and can include single spaces.
+[Keyword](../glossary#keyword) names are case-insensitive and can include single spaces.
 Also spaces and underscores will be ignored when matching keyword names.
 So the keywords `Login To System`, and `log_into_system` are considered identical.
 
 To identify keywords that shall be executed, Robot Framework uses a matching algorithm that is case-insensitive and ignores spaces and underscores.
 - If then a full match is found, that keyword is used.
-- If no full match is found, the prefixes `Given`, `When`, `Then`, `And`, and `But` (case-insensitive), which are used in Behavior-Driven Specification style, are removed from the called keyword name to find a match.
+- If no full match is found, the prefixes `Given`, `When`, `Then`, `And`, and `But` (case-insensitive), which are used in [Behavior-Driven Specification](../glossary#behavior-driven-specification) style, are removed from the called keyword name to find a match.
 - If still no match is found, Robot Framework tries to match the name with keywords that have embedded arguments.
 
-By default, if not explicitly defined by the library developers, all Library Keywords are named in **Title Case** with capital letters at the beginning of each word, and spaces between words.
+By default, if not explicitly defined by the library developers, all [Library](../glossary#keyword-library) Keywords are named in **Title Case** with capital letters at the beginning of each word, and spaces between words.
 
-Project may choose a different naming convention for User Keywords, but it is recommended to be consistent across the project for User Keyword names.
+Project may choose a different naming convention for User Keywords, but it is recommended to be consistent across the project for [User Keyword](../glossary#user-keyword) names.
 
 They are defined without indentation, and the subsequent lines until the next unindented line are considered the body of the keyword.
 The following topics explain how to structure the body of a keyword.
@@ -266,7 +266,7 @@ Describe how embedded arguments are replaced by actual values during keyword exe
 
 :::K2[LO-3.3.5.3-2]
 
-Understand the role of embedded arguments in Behavior-Driven Development (BDD) style.
+Understand the role of embedded arguments in [Behavior-Driven Development](../glossary#behavior-driven-development) (BDD) style.
 
 :::
 
@@ -350,7 +350,7 @@ the user ${action}
 
 ### 3.3.5.4 Other Argument Kinds
 
-Other argument kinds like :term[Named-Only Arguments]{term="Named-Only Argument"}, :term[Free Named Arguments]{term="Free Named Argument"}, or
+Other argument kinds like :term[Named-Only Arguments]{term="[Named-Only Argument](../glossary#named-only-argument)"}, :term[Free Named Arguments]{term="[Free Named Argument](../glossary#free-named-argument)"}, or
 :term[Variable Number of Positional Arguments] should be known,
 but their definition and usage are not part of this syllabus.
 
@@ -447,6 +447,7 @@ Keyword Conventions should contain agreements on:
 - **Word/Character Count**: How many words or characters shall be used in a keyword name? (e.g. less than 7 words)
 - **Argument Count**: How many arguments shall a keyword have? (e.g. less than 5)
 - **Documentation**: How shall the documentation be structured and which information shall be included or is it required at all?
+
 
 
 

@@ -22,7 +22,7 @@ In addition to `PASS` and `FAIL`, Robot Framework introduces the `SKIP` status t
 **Reasons to Use SKIP**
 
 - **Temporary Exclusion of Tests|Tasks**: To prevent tests|tasks with known issues from running until the issue is resolved.
-- **Conditional Execution**: To skip tests|tasks dynamically based on runtime conditions, e.g., if a Suite Setup detects an issue.
+- **Conditional Execution**: To skip tests|tasks dynamically based on runtime conditions, e.g., if a [Suite Setup](../glossary#suite-setup) detects an issue.
 - **Unsupported Scenarios**: To mark tests|tasks as skipped in environments where they cannot run, while still ensuring they are logged as such.
 
 
@@ -59,7 +59,7 @@ Therefore skip is better for documenting that a specific test|task was not execu
 Tests|tasks can be skipped dynamically within their execution with the `Skip` keyword based on runtime conditions.
 
 The `Skip` keyword does stop the execution of a test|task and mark it as skipped with a custom message.
-If a Test|Task Teardown exists, it will be executed.
+If a Test|[Task](../glossary#task) Teardown exists, it will be executed.
 
 
 ## 4.5.3 Automatically Skipping Failed Tests
@@ -72,4 +72,5 @@ Tests|tasks can be automatically marked as skipped if they fail:
   ```
 
 - **Reserved Tag `robot:skip-on-failure`**: Tag tests|tasks to skip automatically on failure.
+
 

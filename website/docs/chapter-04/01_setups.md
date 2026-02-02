@@ -21,7 +21,7 @@ Recall the different levels where a Setup can be defined
 Setups in Robot Framework are used to prepare the environment or system for execution or to verify that the requirements/preconditions needed for execution are met.
 They can be defined at the suite, test|task, or keyword level and are executed before the respective scope begins execution.
 
-A **Setup** is a single keyword with potential argument values that is called before all other keywords; or before tests|tasks in Suite Setup.
+A **Setup** is a single keyword with potential argument values that is called before all other keywords; or before tests|tasks in [Suite Setup](../glossary#suite-setup).
 
 Examples of typical use cases for Setups are:
 - Establishing connections to databases or services.
@@ -38,7 +38,7 @@ Examples of typical use cases for Setups are:
 
 :::K1[LO-4.1.1-1]
 
-Recall key characteristics, benefits, and syntax of Suite Setup
+Recall key characteristics, benefits, and syntax of [Suite](../glossary#suite) Setup
 
 :::
 
@@ -82,13 +82,13 @@ Suite Setup    Initialize Environment   dataset=Config_C3
 
 :::K1[LO-4.1.2-1]
 
-Recall key characteristics, benefits, and syntax of Test Setup
+Recall key characteristics, benefits, and syntax of [Test Setup](../glossary#test-setup)
 
 :::
 
 :::K2[LO-4.1.2-2]
 
-Understand when Test|Task Setup is executed and used
+Understand when Test|[Task](../glossary#task) Setup is executed and used
 
 :::
 
@@ -97,7 +97,7 @@ Understand when Test|Task Setup is executed and used
 A **Test|Task Setup** is executed before a single test|task runs.
 It is used to prepare the specific conditions required for that test|task.
 
-You can define a default Test|Task Setup in the `*** Settings ***` section of the suite using the `Test Setup`|`Task Setup` setting.
+You can define a default Test|[Task Setup](../glossary#test-setup) in the `*** Settings ***` section of the suite using the `Test Setup`|`Task Setup` setting.
 This setup will be applied to all tests|tasks within the suite unless overridden and executed before each test|task.
 
 Individual tests|tasks can override the default setup by specifying their own `[Setup]` setting within the test|task.
@@ -146,7 +146,7 @@ No Setup Test
 
 :::K1[LO-4.1.3]
 
-Recall key characteristics and syntax of Keyword Setup
+Recall key characteristics and syntax of [Keyword](../glossary#keyword) Setup
 
 :::
 
@@ -174,6 +174,7 @@ Process Data
     [Setup]    Open Data Connection
     Process the Data
 ```
+
 
 
 
