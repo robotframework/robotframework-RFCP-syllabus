@@ -12,11 +12,11 @@ Recall the three specification styles of Robot Framework
 ::::
 
 Specification styles define how tests or tasks are structured, focusing on how actions and verifications are described.
-While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation, such as RPA.
+While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation, such as [RPA](../glossary#robotic-process-automation).
 
 Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not mix them within the same body.
-One practical solution would be to define acceptance test cases that cover users' expectations in a declarative *Behavior-Driven Style*, while using keywords that are implemented in an imperative *Keyword-Driven style*.
-Further system level :term[test cases]{term="Test Case"}, that are not covering acceptance criteria could be written in a *Keyword-Driven style*.
+One practical solution would be to define acceptance test cases that cover users' expectations in a declarative *Behavior-Driven Style*, while using keywords that are implemented in an imperative *[Keyword](../glossary#keyword)-Driven style*.
+Further system level :term[test cases]{term="[Test Case](../glossary#test-case)"}, that are not covering acceptance criteria could be written in a *[Keyword](../glossary#keyword)-Driven style*.
 
 The approach of both styles is different in that way,
 that the *Behavior-Driven Style* is a **declarative** specification,
@@ -38,7 +38,7 @@ with the other two styles, to define the data that is used in the automation.
 
 :::K2[LO-1.4.1]
 
-Understand the basic concepts of Keyword-Driven Specification
+Understand the basic concepts of [Keyword-Driven Specification](../glossary#keyword-driven-specification)
 
 :::
 
@@ -73,7 +73,7 @@ Flow and data can be parsed separately by the consumer.
 
 :::K2[LO-1.4.2]
 
-Understand the basic concepts of Behavior-Driven Specification
+Understand the basic concepts of [Behavior-Driven Specification](../glossary#behavior-driven-specification)
 
 :::
 
@@ -94,8 +94,8 @@ Opening Foundation Page
 ```
 
 The prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name.
-A key difference between Robot Framework's behavior-driven style and BDD frameworks like **Cucumber** or most others is the ability in Robot Framework to use **multiple keyword layers**.
-In other BDD frameworks the code that implements a sentence like `Given "robotframework.org" is open.` is referred to as a step definition.
+A key difference between Robot Framework's behavior-driven style and [BDD](../glossary#behavior-driven-development) frameworks like **Cucumber** or most others is the ability in Robot Framework to use **multiple keyword layers**.
+In other [BDD](../glossary#behavior-driven-development) frameworks the code that implements a sentence like `Given "robotframework.org" is open.` is referred to as a step definition.
 Step definitions are written in a programming language (typically Java, JavaScript, Ruby, or Python) and map natural language steps from a Gherkin feature file to code.
 Therefore there are no multiple layers of keywords that can be logged into execution protocols.
 Robot Framework allows you to create **user keywords** that can further call other user or library keywords, providing greater flexibility, modularity and much more detailed logging.
@@ -108,7 +108,7 @@ Robot Framework allows you to create **user keywords** that can further call oth
 
 :::K1[LO-1.4.3]
 
-Recall the differences between Keyword-Driven and Behavior-Driven Specification
+Recall the differences between Keyword-Driven and [Behavior-Driven Specification](../glossary#behavior-driven-specification)
 
 :::
 
@@ -141,7 +141,7 @@ Both styles can be applied within Robot Framework, offering flexibility dependin
 
 :::K1[LO-1.4.4]
 
-Recall the purpose of Data-Driven Specification
+Recall the purpose of [Data-Driven Specification](../glossary#data-driven-specification)
 
 :::
 
@@ -155,7 +155,7 @@ While in **Robotic Process Automation (RPA)**, the data
 used in an automation workflow is typically acquired dynamically from an external source,
 in testing, the data is specifically chosen to cover different scenarios or cases.
 Therefore, this method of defining data combinations
-statically in the suite files is normally not applicable to RPA.
+statically in the suite files is normally not applicable to [RPA](../glossary#robotic-process-automation).
 
 The purpose of **Data-Driven Testing** is to automate the same sequence of actions
 or scenario with different sets of input and/or expected output data.
@@ -173,6 +173,8 @@ Robot Framework offers a convenient feature for this approach through **Test Tem
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
 - **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
 
-See [3.4 Using Data-Driven Specification](chapter-03/04_datadriven.md) for more details and examples on Data-Driven Specification.
+See [3.4 Using Data-Driven Specification](chapter-03/04_datadriven.md) for more details and examples on [Data-Driven Specification](../glossary#data-driven-specification).
+
+
 
 

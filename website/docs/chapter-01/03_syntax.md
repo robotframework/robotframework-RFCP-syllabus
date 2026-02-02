@@ -69,7 +69,7 @@ Create User With Admin Rights
 ## 1.3.1 What are Test Cases / Tasks?
 
 In Robot Framework, **Test Cases** (**Tests**) or **Tasks** are executable entities that serve a specific purpose and are organized into suites.
-A **Test** is synonymous with a **Test Case**, while **Task**, technically being the same, is used in RPA mode, where the automation is not focused on testing but on automating business processes.
+A **Test** is synonymous with a **Test Case**, while **Task**, technically being the same, is used in [RPA](../glossary#robotic-process-automation) mode, where the automation is not focused on testing but on automating business processes.
 
 Tests or Tasks have a body made up of **keyword calls** and Robot Framework statements like **IF** or **VAR**, which represent the actions or steps executed during the test or task execution.
 These keywords make the automation modular, maintainable, reusable, and readable.
@@ -95,7 +95,7 @@ This structure allows for logical grouping and organization of tests and tasks, 
 
 :::K2[LO-1.3.3]
 
-Explain the difference between User Keywords and Library Keywords
+Explain the difference between User Keywords and [Library](../glossary#keyword-library) Keywords
 
 :::
 
@@ -104,7 +104,7 @@ Explain the difference between User Keywords and Library Keywords
 
 Tests or Tasks are constructed using **Keywords**, which represent specific actions or sequences of actions to be performed.
 
-**Keywords** in Robot Framework follow the concepts used in Behavior-Driven Development (BDD) and Keyword-Driven Testing.
+**Keywords** in Robot Framework follow the concepts used in [Behavior-Driven Development](../glossary#behavior-driven-development) (BDD) and [Keyword](../glossary#keyword)-Driven Testing.
 
 **Definition**: one or more words used as a reference to a specific set of actions intended to be performed during the execution of one or more tests or tasks.
 
@@ -122,7 +122,7 @@ Login User
     Execute Login
 ```
 
-2. **Library Keywords**: Typically written in Python, but they may also be implemented using other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by RPA, or execute specific actions such as calculations or conversions. From the viewpoint of Robot Framework, such keywords are not composed of other keywords and do form the lowest level of keywords. Therefore, they are also referred to as **low-level keywords**. In other literature, such keywords are also called **Technical Keywords** or **Atomic Keywords**.
+2. **Library Keywords**: Typically written in Python, but they may also be implemented using other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by [RPA](../glossary#robotic-process-automation), or execute specific actions such as calculations or conversions. From the viewpoint of Robot Framework, such keywords are not composed of other keywords and do form the lowest level of keywords. Therefore, they are also referred to as **low-level keywords**. In other literature, such keywords are also called **Technical Keywords** or **Atomic Keywords**.
 
 A **User Keyword** consists of a **name**, optional **arguments**, and a **body** of keyword calls that may invoke other user keywords, library keywords, or other statements such as variable definitions or flow control.
 
@@ -147,12 +147,14 @@ Recall the difference between Resource Files and Libraries and their artifacts
 
 While tests and tasks are organized into suites, **keywords** are organized into **Resource Files** and **Keyword Libraries**.
 
-- **Resource Files**: Contain **User Keywords** and are also used to organize the importing of libraries and the definition of variables. These are considered to be part of the test|task data in the *Definition Layer*.
-- **Keyword Libraries**: Contain **Library Keywords**, which are typically implemented in Python or other technologies and, except for the standard libraries, are not part of Robot Framework itself. They can be either custom-made or third-party libraries implemented by the Robot Framework community. These are considered to be part of the *Adaptation Layer*.
+- **Resource Files**: Contain **User Keywords** and are also used to organize the importing of libraries and the definition of variables. These are considered to be part of the test|task data in the *[Definition Layer](../glossary#definition-layer)*.
+- **Keyword Libraries**: Contain **Library Keywords**, which are typically implemented in Python or other technologies and, except for the standard libraries, are not part of Robot Framework itself. They can be either custom-made or third-party libraries implemented by the Robot Framework community. These are considered to be part of the *[Adaptation Layer](../glossary#adaptation-layer)*.
 
 Central resource files and libraries allow the separation of concerns, making the automation more modular and reusable across multiple suites, tests or tasks.
 
 The concepts of organizing are fundamental to working with Robot Framework and contribute to its flexibility and scalability in both test automation and RPA.
+
+
 
 
 

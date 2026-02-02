@@ -11,14 +11,14 @@ Understand the structure of keyword interfaces and how to interpret keyword docu
 
 ::::
 
-Library Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
+[Library](../glossary#keyword-library) Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
 
 Robot Framework is capable of generating **Keyword Documentation** files that contains a library- or resource-documentation, all keywords, their argument interfaces, and their documentation texts.
 This documentation file can be generated with the `libdoc` command and can be used to provide a reference for users who want to use the keywords.
 
-Basically all standard and external 3rd party libraries offer these Keyword Documentations as online available HTML pages.
+Basically all standard and external 3rd party libraries offer these [Keyword](../glossary#keyword) Documentations as online available HTML pages.
 
-Robot Framework offers the Keyword Documentation of its Standard Libraries at https://robotframework.org/robotframework .
+Robot Framework offers the [Keyword](../glossary#keyword) Documentation of its Standard Libraries at https://robotframework.org/robotframework .
 
 <!-- Keywords from Libraries and Resources can be called and can be documented either as HTML or in IDEs with Robot Support. -->
 
@@ -70,7 +70,7 @@ All of them can be called positionally or by name.
 
 ![Run Process Keyword Documentation](/img/Run_Process_Docs.png)
 
-This keyword has one Mandatory Argument `command` which can be called positionally or by name.
+This keyword has one [Mandatory Argument](../glossary#mandatory-argument) `command` which can be called positionally or by name.
 The latter two arguments are optional.
 
 The argument `arguments` is a :term[Variable Number of Positional Arguments] and can only be set by position.
@@ -118,20 +118,20 @@ The more business oriented keywords are the less arguments they typically have.
 Keyword arguments can be grouped into different argument kinds.
 On the one hand you can group them by their definition attributes and on the other hand by their usage kind.
 
-The relevant distinction of usage kinds is between using :term[Positional Arguments]{term="Positional Argument"}, :term[Named Arguments]{term="Named Argument"}, or :term[Embedded Arguments]{term="Embedded Argument"}.
+The relevant distinction of usage kinds is between using :term[Positional Arguments]{term="[Positional Argument](../glossary#positional-argument)"}, :term[Named Arguments]{term="[Named Argument](../glossary#named-argument)"}, or :term[Embedded Arguments]{term="[Embedded Argument](../glossary#embedded-argument)"}.
 How to use them is described in [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md).
 
 Another important information is if an argument is mandatory or optional.
 See the next two sections for more information about these two kinds of arguments.
 
 Most arguments can either be set by their position or by their name.
-But there are some kinds of arguments that can only be set positionally, like :term[Variable Number of Positional Arguments], or only be set named, like :term[Named-Only Arguments]{term="Named-Only Argument"} or :term[Free Named Arguments]{term="Free Named Argument"}.
+But there are some kinds of arguments that can only be set positionally, like :term[Variable Number of Positional Arguments], or only be set named, like :term[Named-Only Arguments]{term="[Named-Only Argument](../glossary#named-only-argument)"} or :term[Free Named Arguments]{term="[Free Named Argument](../glossary#free-named-argument)"}.
 
 The order is as follows:
-1. :term[Positional or Named Arguments]{term="Positional or Named Argument"} (can be mandatory or optional)
+1. :term[Positional or Named Arguments]{term="[Positional or Named Argument](../glossary#positional-or-named-argument)"} (can be mandatory or optional)
 2. :term[Variable Number of Positional Arguments] (optional)
-3. :term[Named-Only Arguments]{term="Named-Only Argument"} (can be mandatory or optional)
-4. :term[Free Named Arguments]{term="Free Named Argument"} (optional)
+3. :term[Named-Only Arguments]{term="Named-Only [Argument](../glossary#argument)"} (can be mandatory or optional)
+4. :term[Free Named Arguments]{term="[Free Named Argument](../glossary#free-named-argument)"} (optional)
 
 ### 2.5.2.1 Mandatory Arguments
 
@@ -189,7 +189,7 @@ Arguments that have a default value can be omitted when the keyword is called, c
 These arguments are listed after the mandatory arguments in the argument interface.
 Default values are defined and represented in the docs by the equal sign `=` after the argument name and a value after that.
 
-Also :term[Variable Number of Positional Arguments], represented with a single star (`*`) prefix, and :term[Free Named Arguments]{term="Free Named Argument"}, represented with a double star (`**`) prefix are optional arguments.
+Also :term[Variable Number of Positional Arguments], represented with a single star (`*`) prefix, and :term[Free Named Arguments]{term="Free [Named Argument](../glossary#named-argument)"}, represented with a double star (`**`) prefix are optional arguments.
 
 E.g. the argument `msg` in the `Should Be Equal` keyword documentation has the default value `None` and `ignore_case` has the default value `False`.
 
@@ -205,13 +205,13 @@ Omitting some optional arguments but still using others is possible independent 
 
 :::K1[LO-2.5.2.3]
 
-Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented.
+Recall the concept of keywords with embedded arguments used in [Behavior-Driven Specification](../glossary#behavior-driven-specification) and how they are documented.
 
 :::
 
 ::::
 
-Keywords can include arguments embedded directly into their names, a feature primarily used for Behavior-Driven Development (BDD).
+Keywords can include arguments embedded directly into their names, a feature primarily used for [Behavior-Driven Development](../glossary#behavior-driven-development) (BDD).
 Embedded arguments are mandatory and must be provided in the exact position defined within the keyword name.
 
 Keyword names include arguments defined using the scalar variable syntax with dollar and curly braces (`${var_name}`).
@@ -223,7 +223,7 @@ Example keyword names are:
 - `the page title should be ${exp_title}`
 - `the url should be ${exp_url}`
 
-Example Test Case:
+Example [Test Case](../glossary#test-case):
 ```robotframework
 *** Test Cases ***
 Foundation Page should be Accessible
@@ -235,7 +235,7 @@ Foundation Page should be Accessible
 The optional prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name including the embedded arguments.
 In the example :term[test case] some keywords are designed so that the arguments are surrounded by double quotes (`"`) for better visibility.
 
-A mix of embedded arguments and "normal" arguments is possible to fully support BDD.
+A mix of embedded arguments and "normal" arguments is possible to fully support [BDD](../glossary#behavior-driven-development).
 In the keyword documentation the embedded arguments are written in variable syntax with dollar-curly-braces (`${var_name}`) to indicate that they are not part of the keyword name but are arguments.
 They can also be defined using regular expressions to allow for more complex argument structures, which is not part of this syllabus.
 
@@ -253,7 +253,7 @@ Recall how "Positional or Named Arguments" are marked in the documentation and t
 ::::
 
 Except for "Positional-Only Arguments", which are not part of this syllabus,
-all arguments that are positioned before :term[Variable Number of Positional Arguments], :term[Named-Only Arguments]{term="Named-Only Argument"}, or :term[Free Named Arguments]{term="Free Named Argument"} in the argument interface of a keyword are :term[Positional or Named Arguments]{term="Positional or Named Argument"}.
+all arguments that are positioned before :term[Variable Number of Positional Arguments], :term[Named-Only Arguments]{term="[Named-Only Argument](../glossary#named-only-argument)"}, or :term[Free Named Arguments]{term="Free Named [Argument](../glossary#argument)"} in the argument interface of a keyword are :term[Positional or Named Arguments]{term="[Positional or Named Argument](../glossary#positional-or-named-argument)"}.
 
 As their name states, they can be set either by their position or by their name, but not by both at the same time for one argument.
 If an argument shall be set by its position, all preceding arguments must be set by their position as well.
@@ -269,7 +269,7 @@ They are not specially marked in the keyword documentation with any prefix, beca
 
 :::K1[LO-2.5.2.5]
 
-Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case.
+Recall how "[Variable Number of Positional Arguments](../glossary#variable-number-of-positional-arguments)" are marked in the documentation and their use case.
 
 :::
 
@@ -369,7 +369,7 @@ However, the actual implementation of the keyword may expect a different type of
 If an argument type is defined and Robot Framework has a matching converter function available, that can convert the given type to the expected type, the conversion is tried automatically.
 If the conversion fails, the keyword call will fail with an error message before the actual keyword code is executed.
 Robot Framework brings some built-in converters for common types like integer, float, boolean, list, dictionary, etc.
-Library developers can also register their own converters for none-supported types.
+[Library](../glossary#keyword-library) developers can also register their own converters for none-supported types.
 
 Defining types for arguments is nowadays the recommended way to let Robot Framework convert the given arguments to the expected type, however it is optional.
 
@@ -462,6 +462,8 @@ Should Be Equal    ${x}    expected    Custom error message
 Should Be Equal    ${x}    expected    Custom message    values=False
 Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 ```
+
+
 
 
 

@@ -4,7 +4,7 @@
 
 :::K1[LO-2.3]
 
-Recall the three components of the Robot Framework CLI.
+Recall the three components of the [Robot Framework CLI](../glossary#command-line-interface).
 
 :::
 
@@ -112,19 +112,19 @@ Recall the four different status labels used by Robot Framework.
 
 Robot Framework uses different status labels to indicate the result of an execution:
 
-On Suite, Test Case, Task and Keyword Level:
+On [Suite](../glossary#suite), [Test Case](../glossary#test-case), [Task](../glossary#task) and [Keyword](../glossary#keyword) Level:
 - **`PASS`**: Indicates that the item was successfully executed without unexpected errors.
 - **`FAIL`**: Shows that the item encountered an error and did not pass.
 - **`SKIP`**: Indicates that the item was intentionally skipped, either by tagging or during execution, typically because some condition was not met.
 
-Additional Keyword Status:
+Additional [Keyword](../glossary#keyword) Status:
 - **`NOT RUN`**: Refers to keywords that were not executed during execution, e.g. due to previous failure or conditions.
 
 `SKIP` is explained in more detail in later chapters.
 
-**Atomic elements** like Library Keywords or Robot Framework language statements do define their own status.
+**Atomic elements** like [Library](../glossary#keyword-library) Keywords or Robot Framework language statements do define their own status.
 
-**Composite elements** like suites (composed of tests|tasks), tests|tasks (composed of keywords) and User Keywords (composed of Library Keywords and Robot Framework statements) do define their status based on the status of their child elements.
+**Composite elements** like suites (composed of tests|tasks), tests|tasks (composed of keywords) and User Keywords (composed of [Library](../glossary#keyword-library) Keywords and Robot Framework statements) do define their status based on the status of their child elements.
 
 
 ### 2.3.3.1 PASS
@@ -144,7 +144,7 @@ This status is used if an element was executed successfully without any errors o
 **Atomic elements** are `PASS` if they were executed successfully without reporting an error by raising an exception.
 
 **Composite elements** are `PASS` if all their executed body elements are pass.
-E.g. in case of User Keywords this means that if all keywords or Robot Framework language statements that were directly called by that User Keyword were `PASS` the User Keyword itself is considered `PASS`.
+E.g. in case of User Keywords this means that if all keywords or Robot Framework language statements that were directly called by that [User Keyword](../glossary#user-keyword) were `PASS` the [User Keyword](../glossary#user-keyword) itself is considered `PASS`.
 
 Library Keywords like `Run Keyword And Expect Error`, from BuiltIn Library, do `PASS` if the keyword they are internally calling does raise an error with the expected message or type.
 
@@ -199,3 +199,5 @@ There are basically two kinds of logging information in Robot Framework.
 
 Log messages can be written with different levels of severity (i.e. `INFO`, `DEBUG`, `TRACE`, `WARN` or `ERROR`).
 Which levels are written to the log can be controlled by the log level of an execution. Further information in later chapters.
+
+

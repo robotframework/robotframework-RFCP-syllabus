@@ -19,7 +19,7 @@ If the path to a single file is given as **Root Suite** directly to Robot Framew
 
 If a directory path is given, starting at this location, Robot Framework will parse all `*.robot` files and directories within this path.
 Robot Framework analyzes all containing files and determines if they contain test cases or tasks. If they do, they are considered **Suite Files** or **Low-Level Suites**.
-All directories that either directly or indirectly contain a Suite File are considered **Suites Directories** or **Higher-Level Suites**.
+All directories that either directly or indirectly contain a [Suite](../glossary#suite) File are considered **Suites Directories** or **Higher-Level Suites**.
 
 The ordering of suites during execution is, by default, defined by their name and hierarchy.
 All files and directories, which are suites in one directory, are considered on the same level and are executed in case-insensitive alphabetical order.
@@ -65,7 +65,7 @@ Example:
 
 :::K1[LO-2.1.1]
 
-Recall the conditions and requirements for a file to be considered a Suite file
+Recall the conditions and requirements for a file to be considered a [Suite](../glossary#suite) file
 
 :::
 
@@ -75,7 +75,7 @@ Robot Framework parses files with the extension `.robot` and searches for test c
 
 A parsed file that contains at least one test case or task is called a **Suite File**.
 
-A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*** Tasks ***` (in Task Suites), but it CANNOT contain both types simultaneously.
+A Suite File **either** contains `*** Test Cases ***` (in Test Suites) **or** `*** Tasks ***` (in [Task](../glossary#task) Suites), but it CANNOT contain both types simultaneously.
 
 
 
@@ -164,7 +164,7 @@ Recall the purpose of the `*** Variables ***` section.
 This section is used to define suite variables that are used in the suite or its tests|tasks or inside their keywords.
 
 The most common use case is to define these variables as constants that contain a static value during execution.
-This can either be a default value, that may be overwritten by globally defined variables via the Command Line Interface (CLI) or a constant value that is used in multiple places in the suite.
+This can either be a default value, that may be overwritten by globally defined variables via the [Command Line Interface](../glossary#command-line-interface) (CLI) or a constant value that is used in multiple places in the suite.
 
 In some cases, these variables are also dynamically reassigned during the execution of the suite, but this is not recommended and should be avoided if possible, because this may lead to test|task runtime dependancies and errors caused by these side-effects that are hard to debug and find.
 
@@ -194,7 +194,7 @@ A suite file must contain either a `*** Test Cases ***` or a `*** Tasks ***` sec
 
 See [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md) for more information about the `*** Test Cases ***` or `*** Tasks ***` section.
 
-<!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
+<!-- TODO maybe more references to [Test Setup](../glossary#test-setup)/Teardown or Documentation? -->
 
 ### 2.1.2.4 Introduction to `*** Keywords ***` Section
 
@@ -229,6 +229,8 @@ See [3.3.1 `*** Keywords ***` Section](chapter-03/03_user_keyword.md#331--keywor
 
 This section is used to add comments to the suite file or resource file.
 All content in this section is ignored by Robot Framework and is not executed or parsed.
+
+
 
 
 

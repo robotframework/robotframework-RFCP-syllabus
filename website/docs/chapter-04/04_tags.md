@@ -5,7 +5,7 @@
 
 :::K1[LO-4.4]
 
-Recall the purpose of Test|Task Tags in Robot Framework
+Recall the purpose of Test|[Task](../glossary#task) Tags in Robot Framework
 
 :::
 
@@ -34,7 +34,7 @@ Recall the syntax and different ways to assign tags to tests|tasks
 
 Tags can be assigned to tests|tasks in several ways:
 
-1. **At the Suite Level** using the `Test Tags` setting in the `*** Settings ***` section or in an initialization file (`__init__.robot`).
+1. **At the [Suite](../glossary#suite) Level** using the `Test Tags` setting in the `*** Settings ***` section or in an initialization file (`__init__.robot`).
    This assigns tags to all tests|tasks within the suite:
 
     ```robotframework
@@ -44,7 +44,7 @@ Tags can be assigned to tests|tasks in several ways:
 
     This will assign the tags `smoke` and `regression` to all tests|tasks in the suite.
 
-2. **At the Test|Task Level** using the `[Tags]` setting within individual tests|tasks. These tags are added in addition to any suite-level tags:
+2. **At the Test|[Task](../glossary#task) Level** using the `[Tags]` setting within individual tests|tasks. These tags are added in addition to any suite-level tags:
 
     ```robotframework
     *** Test Cases ***
@@ -70,7 +70,7 @@ Tags can be assigned to tests|tasks in several ways:
 
     This test|task will have a tag `environment:production`.
 
-4. **By Keyword `Set Tags` or `Remove Tags`** to dynamically assign or remove tags during test|task execution:
+4. **By [Keyword](../glossary#keyword) `Set Tags` or `Remove Tags`** to dynamically assign or remove tags during test|task execution:
 
     See [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Set%20Tags) library documentation for more information.
 
@@ -158,6 +158,8 @@ Using own tags with this prefix may lead to unexpected behavior in test executio
 
 - `robot:exclude`: Marks tests|tasks that should be excluded from execution similar to `--exclude`.
 - `robot:skip`: Marks tests|tasks that should be skipped during execution similar to `--skip`.
+
+
 
 
 

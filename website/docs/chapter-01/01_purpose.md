@@ -52,14 +52,16 @@ Beyond traditional test levels, **Synthetic Monitoring**, also referred to as **
 
 ## 1.1.2 Robotic Process Automation (RPA)
 
-Robotic Process Automation (RPA) uses software bots to perform tasks and interactions normally performed by humans, without requiring changes to the underlying applications.
+[Robotic Process Automation](../glossary#robotic-process-automation) (RPA) uses software bots to perform tasks and interactions normally performed by humans, without requiring changes to the underlying applications.
 
-Robot Framework, with its keyword-driven approach, vast ecosystem of libraries, simplicity, and scalability, is widely adopted for RPA tasks.
+Robot Framework, with its keyword-driven approach, vast ecosystem of libraries, simplicity, and scalability, is widely adopted for [RPA](../glossary#robotic-process-automation) tasks.
 Robot Framework allows users to automate most workflows using ready-made keyword libraries that provide a wide range of functionalities. These libraries can be combined and reused in user-defined keywords, making automation simple and efficient. For custom functionalities or more complex tasks, Robot Framework also offers the flexibility to create custom keyword libraries using Python, enabling advanced use cases and seamless integration with unique systems.
 
-Common use cases of RPA with Robot Framework include:
+Common use cases of [RPA](../glossary#robotic-process-automation) with Robot Framework include:
 
 - **Data extraction and manipulation**: Automating data transfers and processing between systems.
 - **Task / Process automation**: Automating tasks such as form submissions, clicks, and file operations across web or desktop applications.
+
+
 
 

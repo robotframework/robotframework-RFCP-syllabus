@@ -1,6 +1,6 @@
 # 1.2 Architecture of Robot Framework
 
-Robot Framework is an open-source automation framework that allows you to build automation scripts for testing and RPA (Robotic Process Automation).
+Robot Framework is an open-source automation framework that allows you to build automation scripts for testing and [RPA](../glossary#robotic-process-automation) (Robotic Process Automation).
 It focuses on providing a keyword-driven or behavior-driven approach, making the automation easy to understand and maintain.
 However, it is not a full-stack solution that encompasses all layers of automation.
 Instead, it provides a flexible platform where different tools, libraries, and integrations handle specific tasks to implement a flexible automation solution.
@@ -13,7 +13,7 @@ Instead, it provides a flexible platform where different tools, libraries, and i
 
 :::K1[LO-1.2.1]
 
-Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework
+Recall the layers of the [Generic Test Automation Architecture](../glossary#generic-test-automation-architecture) (gTAA) and their corresponding components in Robot Framework
 
 :::
 
@@ -65,7 +65,7 @@ It includes:
 
 However, Robot Framework **does not** include:
 
-- Keyword libraries to control systems under test/RPA.
+- [Keyword](../glossary#keyword) libraries to control systems under test/[RPA](../glossary#robotic-process-automation).
 
   Such as:
   - Web front-end automation libraries.
@@ -99,6 +99,8 @@ Robot Framework is built on **Python** but is adaptable to other languages and t
 To run Robot Framework, an [officially supported version](https://devguide.python.org/versions/) of the **Python interpreter** is required on the machine executing the tests|tasks.
 Typically, Robot Framework and its libraries are installed via the "package installer for Python" (`pip`) from [PyPi.org](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
 Robot Framework itself does not have any external dependencies, but additional third party tools or keyword libraries may require additional installations.
+
+
 
 
 
