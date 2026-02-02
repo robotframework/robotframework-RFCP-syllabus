@@ -52,7 +52,7 @@
 | [`LO-2.5.2.4`](chapter-02/05_keyword_interface.md#2524-positional-or-named-arguments) | K1 | Recall how "Positional or Named Arguments" are marked in the documentation and their use case. |
 | [`LO-2.5.2.5`](chapter-02/05_keyword_interface.md#2525-variable-number-of-positional-arguments) | K1 | Recall how "Variable Number of Positional Arguments" are marked in the documentation and their use case. |
 | [`LO-2.5.2.6`](chapter-02/05_keyword_interface.md#2526-named-only-arguments) | K1 | Recall what properties "Named-Only Arguments" have and how they are documented. |
-| [`LO-2.5.2.7`](chapter-02/05_keyword_interface.md#2527-free-named-arguments) | K1 | Recall how free named arguments are marked in documentation. |
+| [`LO-2.5.2.7`](chapter-02/05_keyword_interface.md#2527-free-named-arguments) | K1 | Recall how "Free Named Arguments" are marked in documentation. |
 | [`LO-2.5.2.8`](chapter-02/05_keyword_interface.md#2528-argument-types) | K2 | Understand the concept of argument types and automatic type conversion. |
 | [`LO-2.5.2.9`](chapter-02/05_keyword_interface.md#2529-return-types) | K2 | Understand the concept of return type hints. |
 | [`LO-2.5.3`](chapter-02/05_keyword_interface.md#253-keyword-documentation--examples) | K2 | Understand how to read keyword documentation and how to interpret the examples. |
