@@ -12,7 +12,7 @@
 | [`LO-1.4`](chapter-01/04_styles.md) | K1 | Recall the three specification styles of Robot Framework |
 | [`LO-1.4.1`](chapter-01/04_styles.md#141-keyword-driven-specification) | K2 | Understand the basic concepts of [Keyword-Driven Specification](./glossary#keyword-driven-specification) |
 | [`LO-1.4.2`](chapter-01/04_styles.md#142-behavior-driven-specification) | K2 | Understand the basic concepts of [Behavior-Driven Specification](./glossary#behavior-driven-specification) |
-| [`LO-1.4.3`](chapter-01/04_styles.md#143-comparing-keyword-driven-and-behavior-driven-specification) | K1 | Recall the differences between [Keyword](./glossary#keyword)-Driven and Behavior-Driven Specification |
+| [`LO-1.4.3`](chapter-01/04_styles.md#143-comparing-keyword-driven-and-behavior-driven-specification) | K1 | Recall the differences between [Keyword](./glossary#keyword)-Driven and [Behavior-Driven Specification](./glossary#behavior-driven-specification) |
 | [`LO-1.4.4`](chapter-01/04_styles.md#144-data-driven-specification) | K1 | Recall the purpose of [Data-Driven Specification](./glossary#data-driven-specification) |
 | [`LO-1.5.1`](chapter-01/05_organization.md#151-open-source-license) | K1 | Recall the type of open-source license under which Robot Framework is distributed |
 | [`LO-1.5.2`](chapter-01/05_organization.md#152-about-the-robot-framework-foundation) | K1 | List and recall the key objectives and organizational form of the [Robot Framework Foundation](./glossary#robot-framework-foundation) |
@@ -87,7 +87,7 @@
 | [`LO-3.3.6-1`](chapter-03/03_user_keyword.md#336-return-statement) | K2 | Understand how the `RETURN` statement passes data between different keywords. |
 | [`LO-3.3.6-2`](chapter-03/03_user_keyword.md#336-return-statement) | K3 | Use the `RETURN` statement to return values from a user keyword and assign it to a variable. |
 | [`LO-3.3.7`](chapter-03/03_user_keyword.md#337-keyword-conventions) | K1 | Recall the naming conventions for user keywords. |
-| [`LO-3.4`](chapter-03/04_datadriven.md) | K2 | Understand the basic concept and syntax of Data-Driven Specification |
+| [`LO-3.4`](chapter-03/04_datadriven.md) | K2 | Understand the basic concept and syntax of [Data-Driven Specification](./glossary#data-driven-specification) |
 | [`LO-3.4.1-1`](chapter-03/04_datadriven.md#341-testtask-templates) | K2 | Understand how to define and use test\|task templates |
 | [`LO-3.4.1-2`](chapter-03/04_datadriven.md#341-testtask-templates) | K1 | Recall the differences between the two different approaches to define Data-Driven Specification |
 | [`LO-3.4.1.1`](chapter-03/04_datadriven.md#3411-multiple-named-testtask-with-one-template) | K1 | Recall the syntax and properties of multiple named test\|task with one template |
@@ -99,19 +99,19 @@
 | [`LO-4.1-1`](chapter-04/01_setups.md) | K1 | Recall the purpose and benefits of Setups in Robot Framework |
 | [`LO-4.1-2`](chapter-04/01_setups.md) | K1 | Recall the different levels where a Setup can be defined |
 | [`LO-4.1.1-1`](chapter-04/01_setups.md#411-suite-setup) | K1 | Recall key characteristics, benefits, and syntax of [Suite Setup](./glossary#suite-setup) |
-| [`LO-4.1.1-2`](chapter-04/01_setups.md#411-suite-setup) | K2 | Understand when Suite Setup is executed and used |
+| [`LO-4.1.1-2`](chapter-04/01_setups.md#411-suite-setup) | K2 | Understand when [Suite Setup](./glossary#suite-setup) is executed and used |
 | [`LO-4.1.2-1`](chapter-04/01_setups.md#412-testtask-setup) | K1 | Recall key characteristics, benefits, and syntax of [Test Setup](./glossary#test-setup) |
 | [`LO-4.1.2-2`](chapter-04/01_setups.md#412-testtask-setup) | K2 | Understand when Test\|[Task](./glossary#task) Setup is executed and used |
-| [`LO-4.1.3`](chapter-04/01_setups.md#413-keyword-setup) | K1 | Recall key characteristics and syntax of Keyword Setup |
+| [`LO-4.1.3`](chapter-04/01_setups.md#413-keyword-setup) | K1 | Recall key characteristics and syntax of [Keyword](./glossary#keyword) Setup |
 | [`LO-4.2-1`](chapter-04/02_teardowns.md) | K2 | Understand the different levels where and how Teardowns can be defined and when they are executed |
 | [`LO-4.2-2`](chapter-04/02_teardowns.md) | K1 | Recall the typical use cases for using Teardowns |
 | [`LO-4.2.1-1`](chapter-04/02_teardowns.md#421-suite-teardown) | K1 | Recall key characteristics, benefits, and syntax of [Suite Teardown](./glossary#suite-teardown) |
-| [`LO-4.2.1-2`](chapter-04/02_teardowns.md#421-suite-teardown) | K2 | Understand when Suite Teardown is executed and used |
+| [`LO-4.2.1-2`](chapter-04/02_teardowns.md#421-suite-teardown) | K2 | Understand when [Suite Teardown](./glossary#suite-teardown) is executed and used |
 | [`LO-4.2.2-1`](chapter-04/02_teardowns.md#422-testtask-teardown) | K1 | Recall key characteristics, benefits, and syntax of Test\|[Task Teardown](./glossary#test-teardown) |
-| [`LO-4.2.2-2`](chapter-04/02_teardowns.md#422-testtask-teardown) | K2 | Understand when Test\|Task Teardown is executed and used |
+| [`LO-4.2.2-2`](chapter-04/02_teardowns.md#422-testtask-teardown) | K2 | Understand when Test\|[Task](./glossary#task) Teardown is executed and used |
 | [`LO-4.2.3`](chapter-04/02_teardowns.md#423-keyword-teardown) | K1 | Recall key characteristics, benefits, and syntax of Keyword Teardown |
 | [`LO-4.3`](chapter-04/03_init_files.md) | K1 | Recall how to define Initialization Files and its purpose |
-| [`LO-4.3.2`](chapter-04/03_init_files.md#432-suite-setup-and-suite-teardown-of-initialization-files) | K2 | Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests\|tasks |
+| [`LO-4.3.2`](chapter-04/03_init_files.md#432-suite-setup-and-suite-teardown-of-initialization-files) | K2 | Understand the execution order of [Suite](./glossary#suite) Setup and [Suite](./glossary#suite) Teardown in Initialization Files and their sub-suites and tests\|tasks |
 | [`LO-4.3.3`](chapter-04/03_init_files.md#433-allowed-sections-in-initialization-files) | K1 | Recall the allowed sections and their content in Initialization Files |
 | [`LO-4.4`](chapter-04/04_tags.md) | K1 | Recall the purpose of Test\|Task Tags in Robot Framework |
 | [`LO-4.4.1`](chapter-04/04_tags.md#441-assigning-tags-to-teststasks) | K1 | Recall the syntax and different ways to assign tags to tests\|tasks |
@@ -136,4 +136,5 @@
 | [`LO-5.2.4`](chapter-05/02_control_structures.md#524-for-loops) | K2 | Understand the purpose and basic concept of FOR Loops |
 | [`LO-5.2.5`](chapter-05/02_control_structures.md#525-while-loops) | K2 | Understand the purpose and basic concept of WHILE Loops |
 | [`LO-5.2.6`](chapter-05/02_control_structures.md#526-break-and-continue) | K2 | Understand the purpose and basic concept of the BREAK and CONTINUE statements |
+
 

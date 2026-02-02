@@ -58,9 +58,9 @@ Understand when [Suite](../glossary#suite) Teardown is executed and used
 
 A **Suite Teardown** is executed after all tests|tasks and all child suites in a suite have been executed.
 
-The Suite Teardown is executed regardless of the outcome of the tests|tasks within the suite, even if the suite setup fails.
+The [Suite Teardown](../glossary#suite-teardown) is executed regardless of the outcome of the tests|tasks within the suite, even if the suite setup fails.
 
-**Key characteristics of Suite Teardown:**
+**Key characteristics of [Suite](../glossary#suite) Teardown:**
 - Suite Teardown is a single keyword call with potential argument values.
 - Executed after all tests|tasks and child suites have completed.
 - Runs even if the [Suite Setup](../glossary#suite-setup) fails or any test|task within the suite fails.
@@ -98,11 +98,11 @@ Understand when Test|[Task Teardown](../glossary#test-teardown) is executed and 
 
 ::::
 
-A **Test|Task Teardown** is executed after a single test|task body has been executed.
+A **Test|[Task](../glossary#task) Teardown** is executed after a single test|task body has been executed.
 It is used for cleaning up actions specific to that test|task.
-The Test|Task Teardown is executed regardless of the test|task's outcome, even if the test|task's setup fails.
+The [Test|Task Teardown](../glossary#test-teardown) is executed regardless of the test|task's outcome, even if the test|task's setup fails.
 
-In Robot Framework, you can define a default Test|Task Teardown in the `*** Settings ***` section of the suite using the `Test Teardown`|`Task Teardown` setting.
+In Robot Framework, you can define a default Test|[Task Teardown](../glossary#test-teardown) in the `*** Settings ***` section of the suite using the `Test Teardown`|`Task Teardown` setting.
 This default teardown will be applied to all tests|tasks within the suite unless overridden.
 
 Individual tests|tasks can override the default teardown by specifying their own `[Teardown]` setting within the test|task.
@@ -170,7 +170,7 @@ ensuring that any resources used within the keyword are properly released indepe
 
 For better readability, it should be written as the last line of a keyword.
 
-**Key characteristics of Keyword Teardown:**
+**Key characteristics of [Keyword](../glossary#keyword) Teardown:**
 - Keyword Teardown is a single keyword call with potential argument values.
 - Executed after the keyword body has been executed, regardless of its status.
 - Runs even if the keyword's setup fails.
@@ -190,6 +190,7 @@ Process Data
     Process the Data
     [Teardown]    Close Data Connection
 ```
+
 
 
 

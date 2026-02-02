@@ -106,7 +106,7 @@ If this is possible, the library documentation will have an `Importing` section 
 
 [Library](../glossary#keyword-library) importing arguments are used in the same way as keyword calls with arguments.
 If possible, it is recommended to set the arguments as named arguments to make usage more readable and future-proof.
-These arguments follow the Library path or name, separated by multiple spaces.
+These arguments follow the [Library](../glossary#keyword-library) path or name, separated by multiple spaces.
 
 Example with the [Telnet library](https://robotframework.org/robotframework/latest/libraries/Telnet.html#Importing):
 ```robotframework
@@ -193,5 +193,6 @@ Using Remote Libraries
     EmbeddedAPI.Close Contact   15
     DeviceAPI.Verify Contact    15    1
 ```
+
 
 

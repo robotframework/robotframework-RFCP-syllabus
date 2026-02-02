@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """
-Glossary Linker for Robot Framework RFCP Syllabus (TRULY FINAL VERSION v3)
+Glossary Linker for Robot Framework RFCP Syllabus (v4 - Test|Task Support)
 
 This script automatically adds links to glossary terms throughout the documentation.
 
-CRITICAL FIXES:
+NEW in v4:
+- Handles Test|Task notation (e.g., "Test|Task Setup" → links to "Test Setup")
+
+FEATURES:
 - Uses relative paths for Docusaurus compatibility  
 - Excludes YAML frontmatter (---...---)
 - Excludes markdown headings (# ... ## ... ### ...)
 - Only links terms in actual body content/paragraphs
+- Supports Test|Task notation as approved by committee
 
 This prevents glossary links from appearing in:
 - Sidebar navigation (generated from headings)
@@ -105,6 +109,31 @@ class GlossaryLinker:
             glossary_url = self._get_relative_path(current_file)
         else:
             glossary_url = '/docs/glossary'
+        
+        # ===================================================================
+        # NEW: Handle Test|Task notation
+        # Committee approved: Test|Task something → links to Test something
+        # ===================================================================
+        test_task_mappings = [
+            ('Test|Task Setup', 'Test Setup'),
+            ('Test|Task Teardown', 'Test Teardown'),
+            ('Test|Task Timeout', 'Test Timeout'),
+            ('Test|Task Template', 'Test Template'),
+            ('Test|Task Tag', 'Test Tag'),
+        ]
+        
+        for notation, target_term in test_task_mappings:
+            if target_term in self.glossary_terms:
+                slug = self.glossary_terms[target_term]
+                escaped = self._escape_for_regex(notation)
+                # Pattern: match "Test|Task Something" as a whole phrase
+                pattern = rf'(?<!\[)(?<!`)(?<!]\()(?<!\*\*)\b({escaped})\b(?!`|\]|\)|\*\*)(?!\()'
+                replacement = f'[{notation}]({glossary_url}#{slug})'
+                patterns.append((pattern, replacement, 'test-task-notation'))
+        
+        # ===================================================================
+        # Regular term patterns (existing logic)
+        # ===================================================================
         
         # Sort terms by length (longest first) to match longer terms before shorter ones
         sorted_terms = sorted(self.glossary_terms.keys(), key=len, reverse=True)
@@ -342,6 +371,9 @@ GLOSSARY_DATA = [
     {'term': 'Suite Teardown', 'definition': 'Keyword executed after tests in a suite.', 'abbreviation': '', 'aliases': []},
     {'term': 'Test Setup', 'definition': 'Keyword executed before a test.', 'abbreviation': '', 'aliases': ['Task Setup']},
     {'term': 'Test Teardown', 'definition': 'Keyword executed after a test.', 'abbreviation': '', 'aliases': ['Task Teardown']},
+    {'term': 'Test Tag', 'definition': 'Label for categorization.', 'abbreviation': '', 'aliases': ['Task Tag']},
+    {'term': 'Test Template', 'definition': 'Setting for test template.', 'abbreviation': '', 'aliases': ['Task Template']},
+    {'term': 'Test Timeout', 'definition': 'Maximum execution time.', 'abbreviation': '', 'aliases': ['Task Timeout']},
     {'term': 'Keyword-Driven Specification', 'definition': 'Style using keyword call sequences.', 'abbreviation': '', 'aliases': []},
     {'term': 'Behavior-Driven Specification', 'definition': 'Style describing user perspective behavior.', 'abbreviation': '', 'aliases': []},
     {'term': 'Data-Driven Specification', 'definition': 'Style with varying input data.', 'abbreviation': '', 'aliases': []},
@@ -371,9 +403,6 @@ GLOSSARY_DATA = [
     {'term': 'Robot Framework® Certified Professional', 'definition': 'Foundational certification level.', 'abbreviation': 'RFCP', 'aliases': []},
     {'term': 'Robotic Process Automation', 'definition': 'Automation of business processes.', 'abbreviation': 'RPA', 'aliases': []},
     {'term': 'Behavior-Driven Development', 'definition': 'Development approach with business language.', 'abbreviation': 'BDD', 'aliases': []},
-    {'term': 'Test Tag', 'definition': 'Label for categorization.', 'abbreviation': '', 'aliases': ['Task Tag']},
-    {'term': 'Test Template', 'definition': 'Setting for test template.', 'abbreviation': '', 'aliases': ['Task Template']},
-    {'term': 'Test Timeout', 'definition': 'Maximum execution time.', 'abbreviation': '', 'aliases': ['Task Timeout']},
     {'term': 'Standard Library', 'definition': 'Library shipped with Robot Framework.', 'abbreviation': '', 'aliases': []},
 ]
 
@@ -382,7 +411,7 @@ def main():
     """Main function."""
     import argparse
     
-    parser = argparse.ArgumentParser(description='Add glossary links to RFCP Syllabus')
+    parser = argparse.ArgumentParser(description='Add glossary links to RFCP Syllabus (with Test|Task support)')
     parser.add_argument('docs_path', help='Path to docs directory')
     parser.add_argument('--dry-run', action='store_true', help='Preview changes')
     parser.add_argument('--use-absolute-paths', action='store_true', help='Use absolute paths')
@@ -397,6 +426,7 @@ def main():
     print(f"Processing: {args.docs_path}")
     print(f"Dry run: {args.dry_run}")
     print(f"Relative paths: {use_relative}")
+    print(f"Test|Task notation: ENABLED")
     print()
     
     stats = linker.process_all_markdown_files(dry_run=args.dry_run)
@@ -421,6 +451,8 @@ def main():
                 print(f"  Terms: {file_stats['terms_linked']}")
                 for change in file_stats['changes'][:3]:
                     print(f"    - {change['term']}: {change['occurrences']}x")
+                    if change['type'] == 'test-task-notation':
+                        print(f"      (Test|Task notation)")
     
     if args.output:
         with open(args.output, 'w') as f:

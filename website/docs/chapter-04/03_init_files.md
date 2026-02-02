@@ -46,7 +46,7 @@ Understand the execution order of [Suite Setup](../glossary#suite-setup) and [Su
 As previously explained, **Suite Setup** and **Suite Teardown** are used to prepare and clean up the environment before and after a suite's execution.
 Initialization files provide a centralized place to define these setups and teardowns for all sub-suites and their tests|tasks within a directory structure.
 Thus, it is possible to define one [Suite](../glossary#suite) Setup that is executed at the very start of the execution before any other [Suite](../glossary#suite) Setup, Test|[Task](../glossary#task) Setup, and Test|[Task](../glossary#task) is executed.
-The Suite Teardown of an initialization file is executed after all sub-suites in the directory and their tests|tasks have been completed.
+The [Suite Teardown](../glossary#suite-teardown) of an initialization file is executed after all sub-suites in the directory and their tests|tasks have been completed.
 
 
 
@@ -84,7 +84,7 @@ The following sections are allowed in initialization files:
 
 - **`*** Keywords ***` Section (optional)**:
 
-  Define keywords that are available to the initialization file for Suite Setup, Suite Teardown, [Test Setup](../glossary#test-setup), or [Test Teardown](../glossary#test-teardown).
+  Define keywords that are available to the initialization file for [Suite Setup](../glossary#suite-setup), Suite Teardown, [Test Setup](../glossary#test-setup), or [Test Teardown](../glossary#test-teardown).
 
 - **`*** Comments ***` Section (optional)**:
 
@@ -121,6 +121,7 @@ Cleanup Environment
     Reset Database
     Stop Server
 ```
+
 
 
 

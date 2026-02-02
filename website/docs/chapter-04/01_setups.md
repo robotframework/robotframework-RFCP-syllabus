@@ -44,7 +44,7 @@ Recall key characteristics, benefits, and syntax of [Suite](../glossary#suite) S
 
 :::K2[LO-4.1.1-2]
 
-Understand when Suite Setup is executed and used
+Understand when [Suite Setup](../glossary#suite-setup) is executed and used
 
 :::
 
@@ -54,7 +54,7 @@ A **Suite Setup** is executed before any tests|tasks or child suites within the 
 It is used to prepare the environment or perform actions that need to occur before the entire suite runs.
 Since it is only executed once before all tests|tasks or child suites, it can save time, rather than executing the action for each test|task individually.
 
-**Key characteristics of Suite Setup:**
+**Key characteristics of [Suite](../glossary#suite) Setup:**
 - Suite Setup is a single keyword call with potential argument values.
 - Executed before any tests|tasks and child suites in the suite.
 - If the Suite Setup fails, all tests|tasks in the suite and its child suites are marked as failed, and they are not executed.
@@ -94,7 +94,7 @@ Understand when Test|[Task](../glossary#task) Setup is executed and used
 
 ::::
 
-A **Test|Task Setup** is executed before a single test|task runs.
+A **Test|[Task](../glossary#task) Setup** is executed before a single test|task runs.
 It is used to prepare the specific conditions required for that test|task.
 
 You can define a default Test|[Task Setup](../glossary#test-setup) in the `*** Settings ***` section of the suite using the `Test Setup`|`Task Setup` setting.
@@ -103,8 +103,8 @@ This setup will be applied to all tests|tasks within the suite unless overridden
 Individual tests|tasks can override the default setup by specifying their own `[Setup]` setting within the test|task.
 To disable the setup for a specific test|task, you can set `[Setup]    NONE`, which means that no setup will be executed for that test|task.
 
-**Key characteristics of Test|Task Setup:**
-- Test|Task Setup is a single keyword call with potential argument values.
+**Key characteristics of [Test|Task Setup](../glossary#test-setup):**
+- Test|[Task Setup](../glossary#test-setup) is a single keyword call with potential argument values.
 - Executed before the test|task starts.
 - If the Test|Task Setup fails, the test|task is marked as failed, and its body, including its main keywords, is not executed.
 - Can be set globally for all tests|tasks in a suite and overridden locally.
@@ -155,7 +155,7 @@ Recall key characteristics and syntax of [Keyword](../glossary#keyword) Setup
 A **Keyword Setup** is executed before the body of a user keyword is executed.
 It allows for preparation steps specific to that keyword or ensures that the keyword's requirements are met before execution.
 
-**Key characteristics of Keyword Setup:**
+**Key characteristics of [Keyword](../glossary#keyword) Setup:**
 - Keyword Setup is a single keyword call with potential argument values.
 - Executed before the keyword's body.
 - If the Keyword Setup fails, the keyword's body is not executed.
@@ -174,6 +174,7 @@ Process Data
     [Setup]    Open Data Connection
     Process the Data
 ```
+
 
 
 

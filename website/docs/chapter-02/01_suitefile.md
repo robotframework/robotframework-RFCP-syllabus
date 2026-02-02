@@ -65,7 +65,7 @@ Example:
 
 :::K1[LO-2.1.1]
 
-Recall the conditions and requirements for a file to be considered a Suite file
+Recall the conditions and requirements for a file to be considered a [Suite](../glossary#suite) file
 
 :::
 
@@ -229,6 +229,7 @@ See [3.3.1 `*** Keywords ***` Section](chapter-03/03_user_keyword.md#331--keywor
 
 This section is used to add comments to the suite file or resource file.
 All content in this section is ignored by Robot Framework and is not executed or parsed.
+
 
 
 

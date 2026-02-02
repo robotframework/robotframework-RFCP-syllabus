@@ -122,7 +122,7 @@ Variables created in this section:
 Because two or more spaces are used to separate elements in a row,
 all values are stripped of leading and trailing spaces, identical to arguments of keyword calls (see [2.2.4 Escaping of Control Characters](chapter-02/02_suitefile_syntax.md#224-escaping-of-control-characters) to be able to define these spaces.
 
-Variable values in Robot Framework can include other variables, and their values will be concatenated at runtime when the line is executed.
+[Variable](../glossary#variable) values in Robot Framework can include other variables, and their values will be concatenated at runtime when the line is executed.
 This means that when a variable is used within another variable's value, the final value is resolved by replacing the variables with their actual content during execution.
 
 Variables defined in the `*** Variables ***` section are recommended to be named in uppercase to distinguish them from local variables defined in test cases or keywords.
@@ -464,6 +464,7 @@ In Robot Framework, variables have different scopes, which define where they can
   That means that they can be accessed inside a keyword, called from a test|task of that suite even, if this variable is not created as part of the argument interface of that keyword.
 
 Examples and more details on variable scope, such as `TEST` and `GLOBAL` scope can be found in the [5.1.2 Variable Scopes](chapter-05/01_advanced_variables.md#512-variable-scopes) section.
+
 
 
 

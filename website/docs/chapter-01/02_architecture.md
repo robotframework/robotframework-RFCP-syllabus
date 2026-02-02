@@ -65,7 +65,7 @@ It includes:
 
 However, Robot Framework **does not** include:
 
-- [Keyword](../glossary#keyword) libraries to control systems under test/RPA.
+- [Keyword](../glossary#keyword) libraries to control systems under test/[RPA](../glossary#robotic-process-automation).
 
   Such as:
   - Web front-end automation libraries.
@@ -99,6 +99,7 @@ Robot Framework is built on **Python** but is adaptable to other languages and t
 To run Robot Framework, an [officially supported version](https://devguide.python.org/versions/) of the **Python interpreter** is required on the machine executing the tests|tasks.
 Typically, Robot Framework and its libraries are installed via the "package installer for Python" (`pip`) from [PyPi.org](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
 Robot Framework itself does not have any external dependencies, but additional third party tools or keyword libraries may require additional installations.
+
 
 
 

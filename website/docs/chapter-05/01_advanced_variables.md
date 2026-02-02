@@ -163,7 +163,7 @@ If a variable is defined in the `*** Variables ***` section of a suite file and 
 If a global variable is defined using the command line, and a suite-level variable with the same name is dynamically defined, the suite variable now shadows the global variable and has higher priority as long as the suite is in scope. Once the suite is finished or a sub-suite is executed, the global variable returns to scope with higher priority.
 
 **Recommendation**:
-Suite variables should be defined using uppercase letters, like `${SUITE_VARIABLE}`, to distinguish them from local variables. These variables should be defined in the `*** Variables ***` section of the suite file, even if they are dynamically overwritten during execution, so they are visible in the editor or IDE and can be used for auto-completion and static code analysis.
+[Suite](../glossary#suite) variables should be defined using uppercase letters, like `${SUITE_VARIABLE}`, to distinguish them from local variables. These variables should be defined in the `*** Variables ***` section of the suite file, even if they are dynamically overwritten during execution, so they are visible in the editor or IDE and can be used for auto-completion and static code analysis.
 
 ### 5.1.2.3 . Test|Task Scope
 
@@ -187,7 +187,7 @@ They can only be created dynamically, so they have higher priority than suite or
 Once a test|task is finished, the variables are no longer available. If they have shadowed a suite or global variable, that variable returns to scope.
 
 **Recommendation**:
-Test|Task variables should be used only when there is a clear need to share data across multiple keywords within a single test|task and when this is known by all team members.
+Test|[Task](../glossary#task) variables should be used only when there is a clear need to share data across multiple keywords within a single test|task and when this is known by all team members.
 Otherwise, it is better to use local variables. Editor and IDE support for these variables is limited, so they should be used with caution.
 
 
@@ -441,7 +441,7 @@ Robot Framework has a set of built-in variables that can be used in test cases, 
 
 Additionally, suite-related or test|task-related variables are available. These variables can have different values during test execution, and some are not available at all times. Altering the value of these variables does not affect the original values.
 
-| Variable                 | Description                                    |
+| [Variable](../glossary#variable)                 | Description                                    |
 |--------------------------|------------------------------------------------|
 | `${SUITE_NAME}`          | The name of the current suite.                 |
 | `${SUITE_SOURCE}`        | The path to the file where the current suite is defined. |
@@ -451,6 +451,7 @@ Additionally, suite-related or test|task-related variables are available. These 
 | `${PREV_TEST_STATUS}`    | The status of the previous test.               |
 
 These variables can be used in test cases, keywords, and other places to access information about the current test execution.
+
 
 
 

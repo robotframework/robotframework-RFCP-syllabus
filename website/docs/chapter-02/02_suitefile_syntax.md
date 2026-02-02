@@ -271,7 +271,7 @@ In the test case body, some keyword calls have arguments that are separated by t
 
 The following tests will be executed in the order they are defined in the suite file. First, the `Login User With Password` test case will be executed, followed by the `Denied Login With Wrong Password` test case.
 
-Example Suite File Content:
+Example [Suite](../glossary#suite) File Content:
 ```robotframework title="robot_files/TestSuite.robot"
 *** Settings ***
 Documentation     A suite for valid and invalid login tests.
@@ -297,6 +297,7 @@ Denied Login With Wrong Password
     Verify Unauthorized Access
     Close Server Connection
 ```
+
 
 
 

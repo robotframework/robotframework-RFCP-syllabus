@@ -122,7 +122,7 @@ Login User
     Execute Login
 ```
 
-2. **Library Keywords**: Typically written in Python, but they may also be implemented using other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by RPA, or execute specific actions such as calculations or conversions. From the viewpoint of Robot Framework, such keywords are not composed of other keywords and do form the lowest level of keywords. Therefore, they are also referred to as **low-level keywords**. In other literature, such keywords are also called **Technical Keywords** or **Atomic Keywords**.
+2. **Library Keywords**: Typically written in Python, but they may also be implemented using other technologies. These keywords typically interact with the system under test (SUT) or the system to be controlled by [RPA](../glossary#robotic-process-automation), or execute specific actions such as calculations or conversions. From the viewpoint of Robot Framework, such keywords are not composed of other keywords and do form the lowest level of keywords. Therefore, they are also referred to as **low-level keywords**. In other literature, such keywords are also called **Technical Keywords** or **Atomic Keywords**.
 
 A **User Keyword** consists of a **name**, optional **arguments**, and a **body** of keyword calls that may invoke other user keywords, library keywords, or other statements such as variable definitions or flow control.
 
@@ -153,6 +153,7 @@ While tests and tasks are organized into suites, **keywords** are organized into
 Central resource files and libraries allow the separation of concerns, making the automation more modular and reusable across multiple suites, tests or tasks.
 
 The concepts of organizing are fundamental to working with Robot Framework and contribute to its flexibility and scalability in both test automation and RPA.
+
 
 
 

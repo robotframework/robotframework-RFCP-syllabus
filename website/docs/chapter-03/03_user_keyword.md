@@ -374,7 +374,7 @@ Use the `RETURN` statement to return values from a user keyword and assign it to
 
 ::::
 
-The `RETURN` statement (case-sensitive) in Robot Framework is used to return values from a User Keyword
+The `RETURN` statement (case-sensitive) in Robot Framework is used to return values from a [User Keyword](../glossary#user-keyword)
 to be used in further test steps or stored in variables.
 This allows test execution to pass data between different keywords.
 
@@ -441,12 +441,13 @@ Recall the naming conventions for user keywords.
 When defining User Keywords, it is recommended to follow conventions to ensure consistency and readability across the project.
 These may be taken from community best practices or defined within the project team.
 
-Keyword Conventions should contain agreements on:
+[Keyword](../glossary#keyword) Conventions should contain agreements on:
 - **Naming Case**: Which case shall be used? (e.g. `Title Case`, `camelCase`, `snake_case`, `kebab-case`, or `Sentence case`, etc. ) (from a readability perspective, `Title Case` or `Sentence case` are recommended)
 - **Grammatical Form/Mood**: Which form shall be used for actions and verifications/assertions? (e.g. `Imperative` for both like `Click Button`, `Verify Text`. Or e.g. `Declarative`/`Indicative` for assertions like `Text Should Be`, `Element Should Be Visible`)
 - **Word/Character Count**: How many words or characters shall be used in a keyword name? (e.g. less than 7 words)
 - **Argument Count**: How many arguments shall a keyword have? (e.g. less than 5)
 - **Documentation**: How shall the documentation be structured and which information shall be included or is it required at all?
+
 
 
 

@@ -18,7 +18,7 @@ This documentation file can be generated with the `libdoc` command and can be us
 
 Basically all standard and external 3rd party libraries offer these [Keyword](../glossary#keyword) Documentations as online available HTML pages.
 
-Robot Framework offers the Keyword Documentation of its Standard Libraries at https://robotframework.org/robotframework .
+Robot Framework offers the [Keyword](../glossary#keyword) Documentation of its Standard Libraries at https://robotframework.org/robotframework .
 
 <!-- Keywords from Libraries and Resources can be called and can be documented either as HTML or in IDEs with Robot Support. -->
 
@@ -131,7 +131,7 @@ The order is as follows:
 1. :term[Positional or Named Arguments]{term="[Positional or Named Argument](../glossary#positional-or-named-argument)"} (can be mandatory or optional)
 2. :term[Variable Number of Positional Arguments] (optional)
 3. :term[Named-Only Arguments]{term="Named-Only [Argument](../glossary#argument)"} (can be mandatory or optional)
-4. :term[Free Named Arguments]{term="Free Named Argument"} (optional)
+4. :term[Free Named Arguments]{term="[Free Named Argument](../glossary#free-named-argument)"} (optional)
 
 ### 2.5.2.1 Mandatory Arguments
 
@@ -189,7 +189,7 @@ Arguments that have a default value can be omitted when the keyword is called, c
 These arguments are listed after the mandatory arguments in the argument interface.
 Default values are defined and represented in the docs by the equal sign `=` after the argument name and a value after that.
 
-Also :term[Variable Number of Positional Arguments], represented with a single star (`*`) prefix, and :term[Free Named Arguments]{term="Free Named Argument"}, represented with a double star (`**`) prefix are optional arguments.
+Also :term[Variable Number of Positional Arguments], represented with a single star (`*`) prefix, and :term[Free Named Arguments]{term="Free [Named Argument](../glossary#named-argument)"}, represented with a double star (`**`) prefix are optional arguments.
 
 E.g. the argument `msg` in the `Should Be Equal` keyword documentation has the default value `None` and `ignore_case` has the default value `False`.
 
@@ -253,7 +253,7 @@ Recall how "Positional or Named Arguments" are marked in the documentation and t
 ::::
 
 Except for "Positional-Only Arguments", which are not part of this syllabus,
-all arguments that are positioned before :term[Variable Number of Positional Arguments], :term[Named-Only Arguments]{term="Named-Only Argument"}, or :term[Free Named Arguments]{term="Free Named Argument"} in the argument interface of a keyword are :term[Positional or Named Arguments]{term="Positional or Named Argument"}.
+all arguments that are positioned before :term[Variable Number of Positional Arguments], :term[Named-Only Arguments]{term="[Named-Only Argument](../glossary#named-only-argument)"}, or :term[Free Named Arguments]{term="Free Named [Argument](../glossary#argument)"} in the argument interface of a keyword are :term[Positional or Named Arguments]{term="[Positional or Named Argument](../glossary#positional-or-named-argument)"}.
 
 As their name states, they can be set either by their position or by their name, but not by both at the same time for one argument.
 If an argument shall be set by its position, all preceding arguments must be set by their position as well.
@@ -369,7 +369,7 @@ However, the actual implementation of the keyword may expect a different type of
 If an argument type is defined and Robot Framework has a matching converter function available, that can convert the given type to the expected type, the conversion is tried automatically.
 If the conversion fails, the keyword call will fail with an error message before the actual keyword code is executed.
 Robot Framework brings some built-in converters for common types like integer, float, boolean, list, dictionary, etc.
-Library developers can also register their own converters for none-supported types.
+[Library](../glossary#keyword-library) developers can also register their own converters for none-supported types.
 
 Defining types for arguments is nowadays the recommended way to let Robot Framework convert the given arguments to the expected type, however it is optional.
 
@@ -462,6 +462,7 @@ Should Be Equal    ${x}    expected    Custom error message
 Should Be Equal    ${x}    expected    Custom message    values=False
 Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 ```
+
 
 
 
