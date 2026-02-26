@@ -5,7 +5,7 @@
 
 :::K2[LO-3.4]
 
-Understand the basic concept and syntax of Data-Driven Specification
+Understand the basic concept and syntax of [Data-Driven Specification](../glossary#data-driven-specification)
 
 :::
 
@@ -124,6 +124,7 @@ However, this approach has also its drawbacks:
   If there is a setup and teardown needed for each data row, a keyword setup or teardown is needed.
 - The test|task name is not unique for each data row, which can make it harder to understand the failing data row in the logs.
 - Filtering and re-execution of some or single data rows is not possible.
+
 
 
 

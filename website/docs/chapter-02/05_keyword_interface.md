@@ -11,12 +11,12 @@ Understand the structure of keyword interfaces and how to interpret keyword docu
 
 ::::
 
-Library Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
+[Library](../glossary#keyword-library) Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
 
 Robot Framework is capable of generating **Keyword Documentation** files that contains a library- or resource-documentation, all keywords, their argument interfaces, and their documentation texts.
 This documentation file can be generated with the `libdoc` command and can be used to provide a reference for users who want to use the keywords.
 
-Basically all standard and external 3rd party libraries offer these Keyword Documentations as online available HTML pages.
+Basically all standard and external 3rd party libraries offer these [Keyword](../glossary#keyword) Documentations as online available HTML pages.
 
 Robot Framework offers the Keyword Documentation of its Standard Libraries at https://robotframework.org/robotframework .
 
@@ -73,11 +73,11 @@ All of them can be called positionally or by name.
 This keyword has one :term[Mandatory Arguments]{tooltipMd="An **Argument** that must be set.<br/>See [Mandatory Args](chapter-03/03_user_keyword.md)"} `command` which can be called positionally or by name.
 The latter two arguments are optional.
 
-The argument `arguments` is a "Variable Number of Positional Arguments" and can only be set by position.
+The argument `arguments` is a "[Variable Number of Positional Arguments](../glossary#variable-number-of-positional-arguments)" and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
 See [2.5.2.5 Variable Number of Positional Arguments](chapter-02/05_keyword_interface.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
-The argument `configuration` is a "Free Named Argument" and can only be set by names.
+The argument `configuration` is a "[Free Named Argument](../glossary#free-named-argument)" and can only be set by names.
 See [2.5.2.7 Free Named Arguments](chapter-02/05_keyword_interface.md#2527-free-named-arguments) for more information about this kind of argument.
 
 
@@ -92,11 +92,11 @@ See [2.5.2.7 Free Named Arguments](chapter-02/05_keyword_interface.md#2527-free-
 This keyword has 2 "Mandatory Arguments" that can be called positionally or by name.
 The last two arguments are optional.
 
-The argument `groups` is a "Variable Number of Positional Arguments" and can only be set by position.
+The argument `groups` is a "[Variable](../glossary#variable) Number of Positional Arguments" and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
 See [2.5.2.5 Variable Number of Positional Arguments](chapter-02/05_keyword_interface.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
-The argument `flags` is a "Named-Only Argument" and can only be set by name.
+The argument `flags` is a "[Named-Only Argument](../glossary#named-only-argument)" and can only be set by name.
 See [2.5.2.6 Named-Only Arguments](chapter-02/05_keyword_interface.md#2526-named-only-arguments) for more information about this kind of argument.
 
 
@@ -205,13 +205,13 @@ Omitting some optional arguments but still using others is possible independent 
 
 :::K1[LO-2.5.2.3]
 
-Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented.
+Recall the concept of keywords with embedded arguments used in [Behavior-Driven Specification](../glossary#behavior-driven-specification) and how they are documented.
 
 :::
 
 ::::
 
-Keywords can include arguments embedded directly into their names, a feature primarily used for Behavior-Driven Development (BDD).
+Keywords can include arguments embedded directly into their names, a feature primarily used for [Behavior-Driven Development](../glossary#behavior-driven-development) (BDD).
 Embedded arguments are mandatory and must be provided in the exact position defined within the keyword name.
 
 Keyword names include arguments defined using the scalar variable syntax with dollar and curly braces (`${var_name}`).
@@ -223,7 +223,7 @@ Example keyword names are:
 - `the page title should be ${exp_title}`
 - `the url should be ${exp_url}`
 
-Example Test Case:
+Example [Test Case](../glossary#test-case):
 ```robotframework
 *** Test Cases ***
 Foundation Page should be Accessible
@@ -235,7 +235,7 @@ Foundation Page should be Accessible
 The optional prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name including the embedded arguments.
 In the example test case some keywords are designed so that the arguments are surrounded by double quotes (`"`) for better visibility.
 
-A mix of embedded arguments and "normal" arguments is possible to fully support BDD.
+A mix of embedded arguments and "normal" arguments is possible to fully support [BDD](../glossary#behavior-driven-development).
 In the keyword documentation the embedded arguments are written in variable syntax with dollar-curly-braces (`${var_name}`) to indicate that they are not part of the keyword name but are arguments.
 They can also be defined using regular expressions to allow for more complex argument structures, which is not part of this syllabus.
 
@@ -462,6 +462,7 @@ Should Be Equal    ${x}    expected    Custom error message
 Should Be Equal    ${x}    expected    Custom message    values=False
 Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 ```
+
 
 
 

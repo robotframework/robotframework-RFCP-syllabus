@@ -17,7 +17,7 @@ Understand the basic syntax of test cases and tasks.
 
 ::::
 
-Suite files and resource files share the same syntax, however they differ in their capabilities.
+[Suite](../glossary#suite) files and resource files share the same syntax, however they differ in their capabilities.
 Resource files are explained in more detail in [2.4.2 Resource Files](chapter-02/04_keyword_imports.md#242-resource-files) [3.1 Resource File Structure](chapter-03/01_resource_file.md).
 
 
@@ -297,6 +297,7 @@ Denied Login With Wrong Password
     Verify Unauthorized Access
     Close Server Connection
 ```
+
 
 
 

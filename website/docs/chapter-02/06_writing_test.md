@@ -12,7 +12,7 @@ Understand how to call imported keywords and how to structure keyword calls.
 
 A typical test case or task is a sequence of keyword calls that are executed in a specific order.
 As learned before these keywords need to be imported into the suite or resource file before they can be used.
-When using keywords in a test|task or User Keyword, it is important to indent the keyword calls correctly.
+When using keywords in a test|task or [User Keyword](../glossary#user-keyword), it is important to indent the keyword calls correctly.
 With the exception of returning values, which are described in Chapter 3,
 the name of the keyword is the first element of the keyword call followed by the arguments that are separated by two or more spaces.
 
@@ -21,7 +21,7 @@ The following example shows different ways to call imported keywords in a test c
 The keyword name should be written as defined in the keyword documentation and may have single spaces or other special characters in it.
 After the keyword name the arguments are set.
 All arguments are separated by multiple spaces from the keyword name and from each other and can also include single spaces.
-Argument values are stripped from leading and trailing spaces, but spaces within the argument value are preserved.
+[Argument](../glossary#argument) values are stripped from leading and trailing spaces, but spaces within the argument value are preserved.
 
 If an argument shall contain more than one consecutive spaces or start or end with spaces, the spaces must be escaped by a backslash `\` to prevent them from being interpreted as a part of a "multi-space-separator".
 
@@ -100,7 +100,7 @@ Click on x and y
     Click On Coordinates    x=82    y=70
 ```
 
-Calling keywords that have a "Variable Number of Positional Arguments" does require to set all preceding arguments by their position if the "Variable Number of Positional Arguments" shall be set.
+Calling keywords that have a "[Variable Number of Positional Arguments](../glossary#variable-number-of-positional-arguments)" does require to set all preceding arguments by their position if the "[Variable Number of Positional Arguments](../glossary#variable-number-of-positional-arguments)" shall be set.
 
 Example:
 ```robotframework
@@ -128,7 +128,7 @@ Understand the concept of named arguments and how to set argument values by thei
 
 ::::
 
-Keyword Calls with non-obvious arguments should use named argument calls if possible.
+[Keyword](../glossary#keyword) Calls with non-obvious arguments should use named argument calls if possible.
 Also setting one optional argument but leaving the others at their default value is an indication to use named arguments.
 
 Named arguments are set by their name followed by an equal sign `=` and the value of the argument.
@@ -161,7 +161,7 @@ Recall how to use embedded arguments.
 
 ::::
 
-Embedded Arguments are mostly used in Behavior-Driven Development (BDD) using Robot Frameworks Behavior-Driven Specification style.
+Embedded Arguments are mostly used in [Behavior-Driven Development](../glossary#behavior-driven-development) (BDD) using Robot Frameworks [Behavior-Driven Specification](../glossary#behavior-driven-specification) style.
 
 Embedded Arguments are part of the keyword name as described in [2.5.2.3 Embedded Arguments](chapter-02/05_keyword_interface.md#2523-embedded-arguments).
 

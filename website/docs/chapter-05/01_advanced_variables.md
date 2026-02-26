@@ -6,7 +6,7 @@ Robot Framework also offers multiple ways to create different kinds of values an
 However, the built-in language support is limited to the basic [3.2.2.2 Primitive Data Types](chapter-03/02_variables.md#3222-primitive-data-types), [3.2.2.3 List Variable Definition](chapter-03/02_variables.md#3223-list-variable-definition), and [3.2.2.4 Dictionary Variable Definition](chapter-03/02_variables.md#3224-dictionary-variable-definition).
 
 
-This chapter provides more advanced knowledge about the different variable scopes, lists, dictionaries, their syntax, and some background on the most important Built-In Variables.
+This chapter provides more advanced knowledge about the different variable scopes, lists, dictionaries, their syntax, and some background on the most important [Built-In Variables](../glossary#built-in-variables).
 
 Understanding the **priority** and **scope** of variables in Robot Framework is crucial for effective test automation.
 Variables can be defined in multiple places and ways, and their availability and precedence depend on where and how they are created.
@@ -154,7 +154,7 @@ Recall how to define suite variables and where they can be accessed
   - Set during the execution of a suite using the `VAR` syntax with the `scope=SUITE` argument. (dynamic)
 - **Usage**: Useful for sharing data among tests/tasks within the same suite or configuring suite-specific settings or setting default values for global variables.
 
-Suite scope is not recursive; variables in a higher-level suite, e.g. defined in [4.3 Initialization Files](chapter-04/03_init_files.md), are not available in lower-level suites. Use resource files to share variables across suites.
+[Suite](../glossary#suite) scope is not recursive; variables in a higher-level suite, e.g. defined in [4.3 Initialization Files](chapter-04/03_init_files.md), are not available in lower-level suites. Use resource files to share variables across suites.
 
 Variables with a suite scope are generally statically defined or imported variables, but they can also be created dynamically during the execution of a suite. In this latter case, they have a higher priority than statically defined variables and can shadow or overwrite them.
 
@@ -182,7 +182,7 @@ Recall how to define test|task variables and where they can be accessed
   - Created during test execution using the `VAR` syntax with the `scope=TEST` or `scope=TASK` argument. (dynamic)
 - **Usage**: Appropriate for data that is specific to a single test|task.
 
-Test|Task variables cannot be created in suite setup or teardown, nor can they be imported. Test|Task scope variables are not available in other tests|tasks, even within the same suite.
+Test|[Task](../glossary#task) variables cannot be created in suite setup or teardown, nor can they be imported. Test|[Task](../glossary#task) scope variables are not available in other tests|tasks, even within the same suite.
 They can only be created dynamically, so they have higher priority than suite or global variables while in scope.
 Once a test|task is finished, the variables are no longer available. If they have shadowed a suite or global variable, that variable returns to scope.
 
@@ -207,7 +207,7 @@ Recall how to define local variables and where they can be accessed
 - **Creation**:
   - Variables assigned by keyword return values.
   - Variables defined using the `VAR` syntax (optional: with `scope=LOCAL`) within a keyword or test|task.
-  - Keyword arguments.
+  - [Keyword](../glossary#keyword) arguments.
 - **Usage**: Commonly used to temporarily store data and pass it to other keywords.
 
 Local variables are the most commonly used variables in Robot Framework and have the fewest side effects. They should be preferred over other variable scopes unless there is an explicit need to share data across scope boundaries.
@@ -430,7 +430,7 @@ Recall that Robot Framework provides access to execution information via Built-I
 
 Robot Framework has a set of built-in variables that can be used in test cases, keywords, and other places. Some examples are:
 
-| Variable           | Description                                                                                                                                                    |
+| [Variable](../glossary#variable)           | Description                                                                                                                                                    |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `${EMPTY}`         | An empty string.                                                                                                                                               |
 | `${SPACE}`         | A single space character.                                                                                                                                      |
@@ -451,6 +451,7 @@ Additionally, suite-related or test|task-related variables are available. These 
 | `${PREV_TEST_STATUS}`    | The status of the previous test.               |
 
 These variables can be used in test cases, keywords, and other places to access information about the current test execution.
+
 
 
 

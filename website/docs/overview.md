@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ## 0.1 About the Syllabus
 This syllabus serves as both a guidance document for participants and a requirement specification for Accredited Training Providers
-preparing candidates for the "Robot Framework® Certified Professional" (RFCP®) exam.
+preparing candidates for the "[Robot Framework® Certified Professional](./glossary#robot-framework-certified-professional)" ([RFCP](./glossary#robot-framework-certified-professional)®) exam.
 It outlines the structure, learning objectives, and knowledge areas essential for certification.
 
 This syllabus is not a training manual, tutorial, or comprehensive learning resource but instead defines the scope of knowledge
@@ -87,7 +87,7 @@ Throughout this syllabus, participants will progress through these knowledge lev
 
 ## 0.5 About Accredited Training Providers
 
-Accredited Training Providers are organizations officially accredited by the Robot Framework Foundation to offer certified training programs for a specific certification level.
+Accredited Training Providers are organizations officially accredited by the [Robot Framework Foundation](./glossary#robot-framework-foundation) to offer certified training programs for a specific certification level.
 These partners shall deliver high-quality, structured courses designed to prepare candidates for the Robot Framework® Certified Professional (RFCP®) exam and other future Robot Framework certifications.
 
 All training providers are members of the Robot Framework Foundation,

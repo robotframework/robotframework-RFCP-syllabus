@@ -30,7 +30,7 @@ This licensing structure encourages broad usage and contribution while maintaini
 
 :::K1[LO-1.5.2]
 
-List and recall the key objectives and organizational form of the Robot Framework Foundation
+List and recall the key objectives and organizational form of the [Robot Framework Foundation](../glossary#robot-framework-foundation)
 
 :::
 
@@ -46,7 +46,7 @@ Key objectives of the foundation include:
 
 - **Platform Maintenance**: The foundation is responsible for maintaining key infrastructure, such as the official website, GitHub repositories, and community platforms. These resources are crucial to sustaining a healthy ecosystem and fostering collaboration among users and contributors.
 
-- **Community Support and Events**: The foundation plays a central role in organizing **RoboCon**, the annual Robot Framework User Conference, which brings together users, developers, and contributors to share knowledge and insights. Additionally, it helps to disseminate knowledge about test automation and RPA through community events and documentation efforts.
+- **Community Support and Events**: The foundation plays a central role in organizing **RoboCon**, the annual Robot Framework User Conference, which brings together users, developers, and contributors to share knowledge and insights. Additionally, it helps to disseminate knowledge about test automation and [RPA](../glossary#robotic-process-automation) through community events and documentation efforts.
 
 - **Funding of Ecosystem Projects**: Whenever possible, the foundation finances open-source projects that are proposed by community members, aiming to support broader ecosystem development and innovation.
 
@@ -75,3 +75,4 @@ These include:
 
 - **[robotframework.org](https://robotframework.org/)**: The main page providing an overview, documentation, and access to resources.
 - **[github.com/robotframework](https://github.com/robotframework)**: The official repository for the framework's source code and other components.
+
