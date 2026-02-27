@@ -5,7 +5,7 @@
 
 :::K2[LO-3.4]
 
-Understand the basic concept and syntax of [Data-Driven Specification](../glossary#data-driven-specification)
+Understand the basic concept and syntax of Data-Driven Specification
 
 :::
 

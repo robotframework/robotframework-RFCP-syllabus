@@ -5,7 +5,7 @@
 
 :::K1[LO-4.4]
 
-Recall the purpose of Test|[Task](../glossary#task) Tags in Robot Framework
+Recall the purpose of Test|Task Tags in Robot Framework
 
 :::
 
@@ -44,7 +44,7 @@ Tags can be assigned to tests|tasks in several ways:
 
     This will assign the tags `smoke` and `regression` to all tests|tasks in the suite.
 
-2. **At the Test|Task Level** using the `[Tags]` setting within individual tests|tasks. These tags are added in addition to any suite-level tags:
+2. **At the Test|[Task](../glossary#task) Level** using the `[Tags]` setting within individual tests|tasks. These tags are added in addition to any suite-level tags:
 
     ```robotframework
     *** Test Cases ***

@@ -30,7 +30,7 @@ This licensing structure encourages broad usage and contribution while maintaini
 
 :::K1[LO-1.5.2]
 
-List and recall the key objectives and organizational form of the [Robot Framework Foundation](../glossary#robot-framework-foundation)
+List and recall the key objectives and organizational form of the Robot Framework Foundation
 
 :::
 

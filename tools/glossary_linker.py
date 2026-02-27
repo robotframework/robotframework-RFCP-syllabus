@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-Glossary Linker for Robot Framework RFCP Syllabus (v4 - Test|Task Support)
+Glossary Linker for Robot Framework RFCP Syllabus (v5 - LO Block Exclusion)
 
 This script automatically adds links to glossary terms throughout the documentation.
 
-NEW in v4:
-- Handles Test|Task notation (e.g., "Test|Task Setup" → links to "Test Setup")
-- Excludes learning_objectives.md (used for auto-generating LO numbers)
+NEW in v5:
+- Excludes content inside LO blocks (:::Kx[LO-x.x.x] ... :::)
+- LO blocks are extracted verbatim for numbering generation
 
 FEATURES:
 - Uses relative paths for Docusaurus compatibility  
 - Excludes YAML frontmatter (---...---)
 - Excludes markdown headings (# ... ## ... ### ...)
+- Excludes LO content blocks (:::Kx[LO-*] ... :::)
 - Only links terms in actual body content/paragraphs
 - Supports Test|Task notation as approved by committee
 
@@ -19,7 +20,7 @@ This prevents glossary links from appearing in:
 - Sidebar navigation (generated from headings)
 - Previous/Next navigation (uses page titles)
 - Table of contents
-- Learning objectives numbering system
+- Learning objective content blocks (used for numbering generation)
 """
 
 import re
@@ -190,8 +191,8 @@ class GlossaryLinker:
             processed_sections = []
             
             for section_type, section_content in sections:
-                if section_type in ['code', 'heading']:
-                    # DON'T modify code blocks or headings
+                if section_type in ['code', 'heading', 'lo_block']:
+                    # DON'T modify code blocks, headings, or LO blocks
                     processed_sections.append(section_content)
                 else:
                     # Apply patterns to text sections only
@@ -230,11 +231,11 @@ class GlossaryLinker:
     
     def _split_content_sections(self, content: str) -> List[Tuple[str, str]]:
         """
-        Split content into headings, code blocks, and text sections.
+        Split content into headings, code blocks, LO blocks, and text sections.
         
         Returns:
             List of tuples: (section_type, content)
-            where section_type is 'heading', 'code', or 'text'
+            where section_type is 'heading', 'code', 'lo_block', or 'text'
         """
         sections = []
         lines = content.split('\n')
@@ -248,6 +249,22 @@ class GlossaryLinker:
                 # This is a heading - don't link terms here
                 sections.append(('heading', line + '\n'))
                 i += 1
+                continue
+            
+            # Check for LO block start (:::Kx[LO-...)
+            # Pattern matches: :::K1[LO-1.2.3], :::K2[LO-4.5.6-1], etc.
+            if line.strip().startswith(':::') and 'LO-' in line:
+                # Collect entire LO block
+                lo_block = [line]
+                i += 1
+                while i < len(lines):
+                    lo_block.append(lines[i])
+                    # LO blocks end with ::: on its own line
+                    if lines[i].strip() == ':::':
+                        i += 1
+                        break
+                    i += 1
+                sections.append(('lo_block', '\n'.join(lo_block) + '\n'))
                 continue
             
             # Check for code block start
@@ -330,10 +347,6 @@ class GlossaryLinker:
         for md_file in markdown_files:
             # Skip the glossary file itself
             if 'glossary' in md_file.name.lower():
-                continue
-            
-            # Skip learning_objectives.md (used for auto-generating LO numbers)
-            if 'learning_objectives' in md_file.name.lower():
                 continue
             
             overall_stats['total_files'] += 1
@@ -433,7 +446,8 @@ def main():
     print(f"Dry run: {args.dry_run}")
     print(f"Relative paths: {use_relative}")
     print(f"Test|Task notation: ENABLED")
-    print(f"Excluded files: glossary.md, learning_objectives.md")
+    print(f"LO block exclusion: ENABLED")
+    print(f"Excluded files: glossary.md")
     print()
     
     stats = linker.process_all_markdown_files(dry_run=args.dry_run)

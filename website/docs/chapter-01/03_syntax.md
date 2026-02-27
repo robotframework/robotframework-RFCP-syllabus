@@ -95,7 +95,7 @@ This structure allows for logical grouping and organization of tests and tasks, 
 
 :::K2[LO-1.3.3]
 
-Explain the difference between User Keywords and [Library](../glossary#keyword-library) Keywords
+Explain the difference between User Keywords and Library Keywords
 
 :::
 

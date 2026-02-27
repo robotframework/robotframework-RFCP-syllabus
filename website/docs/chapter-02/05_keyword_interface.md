@@ -205,7 +205,7 @@ Omitting some optional arguments but still using others is possible independent 
 
 :::K1[LO-2.5.2.3]
 
-Recall the concept of keywords with embedded arguments used in [Behavior-Driven Specification](../glossary#behavior-driven-specification) and how they are documented.
+Recall the concept of keywords with embedded arguments used in Behavior-Driven Specification and how they are documented.
 
 :::
 

@@ -4,7 +4,7 @@
 
 :::K1[LO-2.3]
 
-Recall the three components of the [Robot Framework CLI](../glossary#command-line-interface).
+Recall the three components of the Robot Framework CLI.
 
 :::
 

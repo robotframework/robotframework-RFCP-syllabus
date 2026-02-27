@@ -266,7 +266,7 @@ Describe how embedded arguments are replaced by actual values during keyword exe
 
 :::K2[LO-3.3.5.3-2]
 
-Understand the role of embedded arguments in [Behavior-Driven Development](../glossary#behavior-driven-development) (BDD) style.
+Understand the role of embedded arguments in Behavior-Driven Development (BDD) style.
 
 :::
 

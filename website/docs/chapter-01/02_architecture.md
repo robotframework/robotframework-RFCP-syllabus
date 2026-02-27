@@ -13,7 +13,7 @@ Instead, it provides a flexible platform where different tools, libraries, and i
 
 :::K1[LO-1.2.1]
 
-Recall the layers of the [Generic Test Automation Architecture](../glossary#generic-test-automation-architecture) (gTAA) and their corresponding components in Robot Framework
+Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework
 
 :::
 

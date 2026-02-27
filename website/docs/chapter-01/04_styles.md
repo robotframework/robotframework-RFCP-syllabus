@@ -38,7 +38,7 @@ with the other two styles, to define the data that is used in the automation.
 
 :::K2[LO-1.4.1]
 
-Understand the basic concepts of [Keyword-Driven Specification](../glossary#keyword-driven-specification)
+Understand the basic concepts of Keyword-Driven Specification
 
 :::
 
@@ -73,7 +73,7 @@ Flow and data can be parsed separately by the consumer.
 
 :::K2[LO-1.4.2]
 
-Understand the basic concepts of [Behavior-Driven Specification](../glossary#behavior-driven-specification)
+Understand the basic concepts of Behavior-Driven Specification
 
 :::
 
@@ -141,7 +141,7 @@ Both styles can be applied within Robot Framework, offering flexibility dependin
 
 :::K1[LO-1.4.4]
 
-Recall the purpose of [Data-Driven Specification](../glossary#data-driven-specification)
+Recall the purpose of Data-Driven Specification
 
 :::
 
@@ -173,7 +173,7 @@ Robot Framework offers a convenient feature for this approach through **Test Tem
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
 - **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
 
-See [3.4 Using Data-Driven Specification](chapter-03/04_datadriven.md) for more details and examples on Data-Driven Specification.
+See [3.4 Using Data-Driven Specification](chapter-03/04_datadriven.md) for more details and examples on [Data-Driven Specification](../glossary#data-driven-specification).
 
 
 
