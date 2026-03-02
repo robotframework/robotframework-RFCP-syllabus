@@ -62,22 +62,22 @@ This keyword has 2 "Mandatory Arguments" and 6 "Optional Arguments".
 All of them can be called positionally or by name.
 
 
-### 2.5.1.2 Example Keyword `Run Process`
+### 2.5.1.2 Example Keyword `Set To Dictionary`
 
-[Documentation of `Run Process` from `Process` library](https://robotframework.org/robotframework/latest/libraries/Process.html#Run%20Process)
+[Documentation of `Set To Dictionary` from `Collections` library](https://robotframework.org/robotframework/latest/libraries/Collections.html#Set%20To%20Dictionary)
 
-`Run Process` is part of the Process library and is documented as follows:
+`Set To Dictionary` is part of the Collections library and is documented as follows:
 
-![Run Process Keyword Documentation](/img/Run_Process_Docs.png)
+![Set To Dictionary Keyword Documentation](/img/Set_To_Dictionary_part_1.png)
 
-This keyword has one :term[Mandatory Arguments]{tooltipMd="An **Argument** that must be set.<br/>See [Mandatory Args](chapter-03/03_user_keyword.md)"} `command` which can be called positionally or by name.
-The latter two arguments are optional.
+This keyword has one :term[Mandatory Arguments]{tooltipMd="An **Argument** that must be set.<br/>See [Mandatory Args](chapter-03/user_keyword#3351-defining-mandatory-arguments)"} `dictionary` which can be called positionally or by name.
+The latter two arguments are optional and can be used depending on the style of defining keys and values the user likes most.
 
-The argument `arguments` is a "Variable Number of Positional Arguments" and can only be set by position.
+The argument `key_value_pairs` is a "Variable Number of Positional Arguments" and can only be set by position.
 Therefore, if it shall be set, all preceding arguments must be set by position as well.
 See [2.5.2.5 Variable Number of Positional Arguments](chapter-02/05_keyword_interface.md#2525-variable-number-of-positional-arguments) for more information about this kind of argument.
 
-The argument `configuration` is a "Free Named Argument" and can only be set by names.
+The argument `items` is a "Free Named Argument" and can only be set by names.
 See [2.5.2.7 Free Named Arguments](chapter-02/05_keyword_interface.md#2527-free-named-arguments) for more information about this kind of argument.
 
 
@@ -279,16 +279,24 @@ A special case of optional arguments that can only be set by their position are 
 These are also referred to as `*args` or `*varargs` in Python.
 Some keywords need to collect a variable amount of values into one argument, because it is not possible to define the amount of values in advance.
 
-One example for this kind of keyword is [2.5.1.2 Example Keyword `Run Process`](chapter-02/05_keyword_interface.md#2512-example-keyword-run-process) from the Process library.
-This keyword executes a `command` with variable amount of `arguments` and waits for the process to finish.
-Depending on the command to be executed different amount of arguments are needed for that command.
+One example for this kind of keyword is [2.5.1.2 Example Keyword `Set To Dictionary`](chapter-02/05_keyword_interface.md#2512-example-keyword-set-to-dictionary) from the Collections library.
+This keyword adds key and values to a `dictionary` with variable amount of `key_value_pairs`.
+Depending on the number of keys and values, different amount of arguments are needed.
 
-This variable argument is marked with a single asterisk `*` before the argument name in the keyword documentation.
+This key_value_pairs argument is marked with a single asterisk `*` before the argument name in the keyword documentation.
 
-When calling this keyword, the first positional argument is assigned to `command`, while all subsequent positional arguments are collected into `arguments`.
+When calling this keyword, the first positional argument is assigned to `dictionary`, while all subsequent positional arguments are collected into `key_value_pairs`.
 Because of this behavior, no additional positional arguments can be used after these "Variable Number of Positional Arguments".
 As a result, any arguments following these "Variable Number of Positional Arguments" must be named arguments,
 regardless of whether they are mandatory or optional arguments with a default value.
+
+Example adding items to a dictionary using the `key_value_pairs` argument:
+```robotframework
+*** Test Cases ***
+Dictionary Handling
+    VAR   &{mydict}
+    Set To Dictionary   ${mydict}   key1    value1   key2    value2
+```
 
 Also see [2.5.1.3 Example Keyword `Get Regexp Matches`](chapter-02/05_keyword_interface.md#2513-example-keyword-get-regexp-matches).
 
@@ -334,19 +342,20 @@ In this case all values given to the keyword as arguments, that do contain an un
 
 Free named arguments are marked with two asterisks `**` before the argument name in the keyword documentation.
 
-The example of the `Run Process` keyword also has a free named argument `** configuration`.
+The example of the `Set To Dictionary` keyword also has a free named argument `** items`.
 
-When calling this keyword all named arguments that are not explicitly defined as argument names are collected into the `configuration` argument and will be available as a dictionary in the keyword implementation.
+When calling this keyword all named arguments that are not explicitly defined as argument names are collected into the `key_value_pairs` argument and will be available as a dictionary in the keyword implementation.
 
 They are optional and can be omitted.
 
-With this configuration it is possible to e.g. redirect the output of the process to a file or to set the working directory of the process.
+Using this `items` argument the key/value pairs can be given with an equal sign, like key=value.
 
-Example redirecting stdout and stderr to a file:
+Example adding items to a dictionary using the `items` argument:
 ```robotframework
 *** Test Cases ***
-Send 5 IPv4 Pings On Windows
-    Run Process   ping   -n   5   -4   localhost   stdout=ping_output.txt   stderr=ping_error.txt
+Dictionary Handling
+    VAR   &{mydict}
+    Set To Dictionary   ${mydict}   key1=value1   key2=value2
 ```
 
 
