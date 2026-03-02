@@ -344,7 +344,7 @@ Free named arguments are marked with two asterisks `**` before the argument name
 
 The example of the `Set To Dictionary` keyword also has a free named argument `** items`.
 
-When calling this keyword all named arguments that are not explicitly defined as argument names are collected into the `key_value_pairs` argument and will be available as a dictionary in the keyword implementation.
+When calling this keyword all named arguments that are not explicitly defined as argument names are collected into the `items` argument and will be available as a dictionary in the keyword implementation.
 
 They are optional and can be omitted.
 
