@@ -6,9 +6,10 @@ import K2Icon from '@site/static/img/K2.svg';
 import K3Icon from '@site/static/img/K3.svg';
 
 import type AdmonitionType from '@theme/Admonition';
+import type {AdmonitionProps} from '@theme/Admonition';
 import type {WrapperProps} from '@docusaurus/types';
 
-type Props = WrapperProps<typeof AdmonitionType>;
+type Props = WrapperProps<typeof AdmonitionType> & AdmonitionProps;
 
 export default function AdmonitionWrapper(props: Props): ReactNode {
   if (props.type === 'lo') {

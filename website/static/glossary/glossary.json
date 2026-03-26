@@ -1,0 +1,476 @@
+[
+	{
+		"term": "Acceptance Testing",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Validation that a system satisfies agreed business requirements and is ready for deployment or release."
+	},
+	{
+		"term": "Adaptation Layer",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Layer in the Generic Test Automation Architecture (gTAA) that connects Robot Framework to the System Under Test or other automated systems via keyword libraries."
+	},
+	{
+		"term": "Atomic Element",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Execution element without child steps whose status depends solely on its own execution result."
+	},
+	{
+		"term": "Automation Script",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Robot Framework suite, test, task, or keyword collection that automates a defined workflow or behavior."
+	},
+	{
+		"term": "Argument",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Value supplied to a keyword call as positional, named, or embedded input to configure its behavior."
+	},
+	{
+		"term": "Argument Interface",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Ordered specification of a keyword’s arguments, including kinds (for example positional-or-named, named-only, variable positional, free named, embedded), names, default values, and optional type hints."
+	},
+	{
+		"term": "Behavior-Driven Development",
+		"aliases": [],
+		"abbreviation": "BDD",
+		"definition": "Development approach that describes system behavior in business-readable language, often using Given/When/Then phrasing."
+	},
+	{
+		"term": "Behavior-Driven Specification",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Declarative Robot Framework style where tests|tasks describe system behavior from the user perspective using natural-language-like steps with embedded arguments and optional Given/When/Then/And/But prefixes."
+	},
+	{
+		"term": "Built-In Variables",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Variables provided by Robot Framework that expose execution-related information such as paths, timestamps, and status without explicit definition."
+	},
+	{
+		"term": "Command Line Interface",
+		"aliases": ["Robot Framework CLI"],
+		"abbreviation": "CLI",
+		"definition": "Interface used to run Robot Framework from the command line (for example with the `robot` command), configure execution options, and pass arguments or variables."
+	},
+	{
+		"term": "Composite Element",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Execution element composed of child elements (for example suites with tests|tasks, tests|tasks with keywords, or user keywords with child steps) whose status is derived from its children."
+	},
+	{
+		"term": "Control Structure",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Statement such as `IF`, `FOR`, `WHILE`, `BREAK`, or `CONTINUE` that controls execution flow inside a test, task, or keyword."
+	},
+	{
+		"term": "Data-Driven Specification",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Specification style where the same logic or test flow is executed multiple times with varying input or expected output data, often implemented with test|task templates."
+	},
+	{
+		"term": "Definition Layer",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Layer in the Generic Test Automation Architecture (gTAA) containing test data such as suites, tests, tasks, resource files, keywords, and variables written in Robot Framework syntax."
+	},
+	{
+		"term": "Embedded Argument",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Argument kind defined directly in a keyword name using `${}` syntax whose value must appear in that position in calls, often used in behavior-driven steps."
+	},
+	{
+		"term": "End-to-End Test",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Test that verifies a complete workflow across all relevant components, subsystems, and interfaces to ensure real-world user flows behave as expected."
+	},
+	{
+		"term": "Execution Artifacts",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Files produced by Robot Framework execution—such as `output.xml`, `log.html`, and `report.html`—that document what was executed and with which results."
+	},
+	{
+		"term": "Execution Layer",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Layer in the Generic Test Automation Architecture (gTAA) comprising Robot Framework’s parser, execution engine, logging, and reporting components that interpret test data and run keywords."
+	},
+	{
+		"term": "Execution Model",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Internal representation created after parsing suites, tests, tasks, and keywords that the execution engine uses to perform automation."
+	},
+	{
+		"term": "Fail Status",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Execution status indicating that an element (such as a keyword, test, task, or suite) did not meet its expected outcome or raised an error during execution."
+	},
+	{
+		"term": "FOR Loop",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Control structure used to iterate over items in a list or other iterable and execute a body of keywords for each item."
+	},
+	{
+		"term": "Free Named Argument",
+		"aliases": ["**kwargs"],
+		"abbreviation": "kwargs",
+		"definition": "Catch-all named argument kind in a keyword specification, marked with **, that gathers all named values not explicitly defined elsewhere into a dictionary."
+	},
+	{
+		"term": "Generic Test Automation Architecture",
+		"aliases": ["gTAA"],
+		"abbreviation": "gTAA",
+		"definition": "Layered reference architecture for test automation that separates definition, execution, and adaptation layers and describes Robot Framework’s role in an automation solution."
+	},
+	{
+		"term": "Given / When / Then / And / But",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Conventional prefixes in behavior-driven specification style that Robot Framework can ignore when matching keywords if the remaining part of the name matches a keyword."
+	},
+	{
+		"term": "Global Variable",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Variable with global scope that can be accessed from all suites and keywords in a Robot Framework execution."
+	},
+	{
+		"term": "Higher-Level Suite (Suite Directory)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Directory treated as a suite because it directly or indirectly contains at least one suite file, grouping lower-level suites into a suite tree."
+	},
+	{
+		"term": "Initialization File (__init__.robot)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Suite file located in a directory that configures that directory as a suite and defines suite-level settings, variables, setups, and teardowns for contained suites."
+	},
+	{
+		"term": "Inline Comment",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Comment at the beginning or end of a line in a Robot Framework file, separated by at least two spaces and starting with # so that it is ignored by the interpreter."
+	},
+	{
+		"term": "Inline IF",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Compact single-line IF statement (`IF  <condition>  <keyword>  [args]`) used to execute one keyword conditionally without an END."
+	},
+	{
+		"term": "K-Level (Knowledge Level)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Categorization of learning objectives based on Bloom’s Taxonomy: K1 (Remember), K2 (Understand), and K3 (Apply), indicating expected depth of knowledge."
+	},
+	{
+		"term": "Keyword",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Named reusable action or sequence of actions in Robot Framework callable from tests, tasks, or other keywords that may accept arguments and return values."
+	},
+	{
+		"term": "Keyword Interface",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Documented information of a keyword—including name, arguments with kinds and types, return values, documentation, and examples—as exposed by HTML documentation or IDEs."
+	},
+	{
+		"term": "Keyword-Driven Specification",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Imperative Robot Framework style where tests|tasks are written as sequences of keyword calls with arguments, focusing on executed actions and their order."
+	},
+	{
+		"term": "Keyword Library",
+		"aliases": ["Library"],
+		"abbreviation": "",
+		"definition": "Collection of library keywords implemented typically in Python (or other languages) that Robot Framework imports to interact with external systems, perform computations, or provide utility functions."
+	},
+	{
+		"term": "List Variable",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Robot Framework variable of list type accessed with the `@{}` syntax that holds an ordered collection of values and can be unpacked when passed to keywords."
+	},
+	{
+		"term": "Local Variable",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Variable whose scope is limited to a single keyword, test, or task execution and is not visible outside that body."
+	},
+	{
+		"term": "Log File (log.html)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Detailed HTML execution log (log.html) generated by Robot Framework that shows keyword-level execution steps, arguments, messages, and statuses."
+	},
+	{
+		"term": "Mandatory Argument",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Argument kind in a keyword specification without a default value that must be provided in calls and that precedes optional arguments."
+	},
+	{
+		"term": "Metadata (Suite Metadata)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Key–value information defined with the Metadata setting in a suite to document attributes such as author, version, or related requirements."
+	},
+	{
+		"term": "Named-Only Argument",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Argument kind in a keyword specification that must be provided by name (never positionally), typically defined after a Variable Number of Positional Arguments or explicitly marked, and that can be mandatory or optional."
+	},
+	{
+		"term": "Named Argument",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Argument value provided in a keyword call using an explicit name=value pair."
+	},
+	{
+		"term": "Output File (output.xml)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Machine-readable execution result file (output.xml) produced by Robot Framework that contains the full execution tree, messages, and statistics in XML format."
+	},
+	{
+		"term": "Optional Argument",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Argument kind in a keyword specification that may be omitted because it has a default value or is a catch-all (such as Variable Number of Positional Arguments marked with * or Free Named Arguments marked with **)."
+	},
+	{
+		"term": "Pass Status",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Execution status indicating that an element (such as a keyword, test, task, or suite) executed successfully and met its expectations."
+	},
+	{
+		"term": "Positional Argument",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Argument value provided in a keyword call solely by its position in the argument list without naming it explicitly."
+	},
+	{
+		"term": "Positional or Named Argument",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Argument kind in a keyword specification that can be set either by position or by name (but not both for the same value) and that may be mandatory or optional."
+	},
+	{
+		"term": "Report File (report.html)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "High-level HTML summary (report.html) of a Robot Framework execution that focuses on statistics and overall pass/fail status of suites and tests|tasks."
+	},
+	{
+		"term": "Resource File",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "File (commonly with extension .resource or .robot) that contains user keywords and variables and is imported by suites to share and reuse these artifacts."
+	},
+	{
+		"term": "Return Statement (RETURN)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Statement used in user keywords to return one or more values that can be assigned to variables in the calling context."
+	},
+	{
+		"term": "Return Type Hint",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Documented indication of the type of value a keyword returns, helping users understand how to use the returned data."
+	},
+	{
+		"term": "Robotic Process Automation",
+		"aliases": ["RPA"],
+		"abbreviation": "RPA",
+		"definition": "Automation of business processes or tasks normally performed by humans, often across multiple systems, without necessarily focusing on testing."
+	},
+	{
+		"term": "Robot Framework Foundation",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Non-profit association (Robot Framework ry) that stewards the development, ecosystem, governance, and promotion of Robot Framework and its community."
+	},
+	{
+		"term": "Robot Framework® Certified Professional",
+		"aliases": ["RFCP"],
+		"abbreviation": "RFCP",
+		"definition": "Foundational certification level for Robot Framework that validates understanding of core concepts, syntax, and basic control structures."
+	},
+	{
+		"term": "Root Suite",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Top-level suite in a Robot Framework execution determined by the initial directory or file path passed to the `robot` command."
+	},
+	{
+		"term": "Scalar Access Syntax (${})",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Standard variable access form in Robot Framework used to read values regardless of whether the underlying variable was defined as scalar, list-like, or dictionary-like."
+	},
+	{
+		"term": "Scalar Variable",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Robot Framework variable accessed with the `${}` syntax that holds a single value of any supported data type."
+	},
+	{
+		"term": "Skip Status",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Execution status indicating that an element (such as a test or task) was intentionally not executed, for example due to selection options or an explicit skip."
+	},
+	{
+		"term": "Standard Library (Robot Framework)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Library shipped with Robot Framework itself providing generic functionality such as operating system interaction, string manipulation, or process handling."
+	},
+	{
+		"term": "Suite (Test Suite / Task Suite)",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Collection of tests or tasks (optionally with local keywords and variables) defined in a .robot file or directory that is executed as a unit by Robot Framework."
+	},
+	{
+		"term": "Suite File",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": ".robot file that contains at least one test case or task and is therefore treated by Robot Framework as an executable suite."
+	},
+	{
+		"term": "Suite Setup",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Keyword executed once before any tests|tasks in a suite are run, typically used to prepare common preconditions."
+	},
+	{
+		"term": "Suite Teardown",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Keyword executed once after all tests|tasks in a suite have run, typically used to clean up shared resources."
+	},
+	{
+		"term": "Suite Variable",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Variable whose scope covers all tests|tasks and keywords within a specific suite but is not visible outside that suite."
+	},
+	{
+		"term": "Synthetic Monitoring",
+		"aliases": ["Active Monitoring"],
+		"abbreviation": "",
+		"definition": "Proactive monitoring that runs automated scripts (often using tools like Robot Framework) at regular intervals against live systems to detect issues before real users are affected."
+	},
+	{
+		"term": "Task",
+		"aliases": ["Test Case"],
+		"abbreviation": "",
+		"definition": "Executable entity in Robot Framework similar to a test case but used for non-testing automation such as RPA workflows, defined in a `*** Tasks ***` section."
+	},
+	{
+		"term": "Test Setup",
+		"aliases": ["Task Setup"],
+		"abbreviation": "",
+		"definition": "Keyword executed before an individual test or task starts to prepare preconditions specific to that test|task."
+	},
+	{
+		"term": "Test Teardown",
+		"aliases": ["Task Teardown"],
+		"abbreviation": "",
+		"definition": "Keyword executed after an individual test or task finishes to clean up resources specific to that test|task."
+	},
+	{
+		"term": "Test Template",
+		"aliases": ["Task Template"],
+		"abbreviation": "",
+		"definition": "Setting that defines a keyword used as a template for multiple tests|tasks, where each row of data calls the template keyword with different arguments."
+	},
+	{
+		"term": "Test Case",
+		"aliases": ["Task"],
+		"abbreviation": "Test",
+		"definition": "Executable specification in Robot Framework that verifies some aspect of system behavior and is defined in a `*** Test Cases ***` section."
+	},
+	{
+		"term": "Test Data",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Collection of suites, tests, tasks, resource files, keywords, and variables that define what Robot Framework executes."
+	},
+	{
+		"term": "Test Level",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Classification of testing focus (such as unit, component, integration, system, system integration, acceptance, or end-to-end) describing scope and granularity of tests."
+	},
+	{
+		"term": "Test Tag",
+		"aliases": ["Task Tag"],
+		"abbreviation": "",
+		"definition": "Label assigned to tests or tasks via the Tags setting to categorize them and enable filtering, selection, and reporting."
+	},
+	{
+		"term": "Test Timeout",
+		"aliases": ["Task Timeout"],
+		"abbreviation": "",
+		"definition": "Maximum allowed execution time for a keyword, test, or task after which Robot Framework marks the element as failed due to timeout."
+	},
+	{
+		"term": "User Keyword",
+		"aliases": ["Composite Keyword"],
+		"abbreviation": "",
+		"definition": "Keyword defined in Robot Framework syntax (typically in suites or resource files) composed of calls to other keywords and statements, often describing higher-level or business-oriented actions."
+	},
+	{
+		"term": "Variable Number of Positional Arguments",
+		"aliases": ["*varargs", "*args"],
+		"abbreviation": "",
+		"definition": "Optional argument kind in a keyword specification, marked with a single *, that collects all remaining positional values; once present, any subsequent parameters must be provided as named arguments."
+	},
+	{
+		"term": "Variable",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Named reference to a value or collection of values in Robot Framework used to store data and pass it between keywords, tests, and tasks."
+	},
+	{
+		"term": "Variable File",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "File (often a Python module or other supported format) that provides variables which can be imported into suites using the Variables setting."
+	},
+	{
+		"term": "Variable Scope",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Visibility and lifetime of a variable (such as global, suite, test|task, or local) during a Robot Framework execution."
+	},
+	{
+		"term": "WHILE Loop",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Control structure in Robot Framework that repeatedly executes a block of keywords as long as a given condition evaluates to true."
+	}
+]

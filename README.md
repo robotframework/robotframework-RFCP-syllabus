@@ -113,7 +113,7 @@
   - [`2.5.2.6 Named-Only Arguments`](website/docs/chapter-02/05_keyword_interface.md#2526-named-only-arguments)
     - LO-2.5.2.6 (K1) Recall what properties "Named-Only Arguments" have and how they are documented.
   - [`2.5.2.7 Free Named Arguments`](website/docs/chapter-02/05_keyword_interface.md#2527-free-named-arguments)
-    - LO-2.5.2.7 (K1) Recall how free named arguments are marked in documentation.
+    - LO-2.5.2.7 (K1) Recall how "Free Named Arguments" are marked in documentation.
   - [`2.5.2.8 Argument Types`](website/docs/chapter-02/05_keyword_interface.md#2528-argument-types)
     - LO-2.5.2.8 (K2) Understand the concept of argument types and automatic type conversion.
   - [`2.5.2.9 Return Types`](website/docs/chapter-02/05_keyword_interface.md#2529-return-types)

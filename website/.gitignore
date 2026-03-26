@@ -8,6 +8,16 @@
 .docusaurus
 .cache-loader
 
+# Build artifacts - TypeScript compiled JS files from TS sources
+docusaurus.config.js
+sidebars.js
+/src/components/**/*.js
+/src/pages/**/*.js
+/src/theme/**/*.js
+# Keep these JS files that are source files, not build artifacts:
+!/src/components/Quiz/quizPrebuild.js
+!/src/remark/*.js
+
 # Misc
 .DS_Store
 .env.local
