@@ -400,7 +400,7 @@ However, this behavior can be used to conditionally end a keyword execution earl
 
 The `RETURN` statement of a keyword cannot return the returned value from a called keyword directly like in other programming languages.
 The return value must be stored in a variable first and then be returned by the `RETURN` statement.
-So the first keyword is **invalid** while the second **valid** is!
+So the first keyword is **invalid** while the second is **valid**!
 
 ```robot title="invalid"
 *** Keywords ***

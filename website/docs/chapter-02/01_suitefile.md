@@ -166,7 +166,7 @@ This section is used to define suite variables that are used in the suite or its
 The most common use case is to define these variables as constants that contain a static value during execution.
 This can either be a default value, that may be overwritten by globally defined variables via the Command Line Interface (CLI) or a constant value that is used in multiple places in the suite.
 
-In some cases, these variables are also dynamically reassigned during the execution of the suite, but this is not recommended and should be avoided if possible, because this may lead to test|task runtime dependancies and errors caused by these side-effects that are hard to debug and find.
+In some cases, these variables are also dynamically reassigned during the execution of the suite, but this is not recommended and should be avoided if possible, because this may lead to test|task runtime dependencies and errors caused by these side-effects that are hard to debug and find.
 
 See [3.2.2 `*** Variables ***` Section](chapter-03/02_variables.md#322--variables--section) for more information about the `*** Variables ***` section.
 
