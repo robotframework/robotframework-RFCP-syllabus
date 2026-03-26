@@ -70,7 +70,7 @@ All of them can be called positionally or by name.
 
 ![Set To Dictionary Keyword Documentation](/img/Set_To_Dictionary_part_1.png)
 
-This keyword has one :term[Mandatory Argument] `dictionary` which can be called positionally or by name. See [Mandatory Args](../chapter-03/user_keyword).
+This keyword has one :term[Mandatory Argument] `dictionary` which can be called positionally or by name. See [Mandatory Args](chapter-03/03_user_keyword).
 The latter two arguments are optional and can be used depending on the style of defining keys and values the user likes most.
 
 The argument `key_value_pairs` is a :term[Variable Number of Positional Arguments] and can only be set by position.
