@@ -420,13 +420,14 @@ Get ISO Time
 ## 3.3.7 Keyword Conventions
 
 
-<!--
-TODO:
+
+{/* TODO:
 
 Should we have that  chapter???
 Opinions?
 And if, is this want we want to ask the participants to know?
--->
+*/}
+
 
 ::::lo[Learning Objectives]
 

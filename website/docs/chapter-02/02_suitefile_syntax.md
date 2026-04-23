@@ -1,11 +1,8 @@
 
 # 2.2 Basic Suite File Syntax
 
-<!--
-TODO:
-I think this section needs a bit more structure and we should introduce the concept of "settings" like [Documentation] already here and reference to Chapter 4.
+{/* TODO: I think this section needs a bit more structure and we should introduce the concept of "settings" like [Documentation] already here and reference to Chapter 4.*/}
 
- -->
 
 ::::lo[Learning Objectives]
 

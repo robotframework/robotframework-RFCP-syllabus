@@ -39,7 +39,7 @@ When executing or debugging tests|tasks, the editor supports the execution layer
 When writing keywords in e.g. Python for keyword libraries, the editor supports the adaptation layer.
 Therefore also other additional extensions of Robot Framework can be categorized into these layers.
 
-<!-- TODO: add a graphic here -->
+{/* TODO: add a graphic here */}
 
 ## 1.2.2 What is Robot Framework & What It Is Not
 

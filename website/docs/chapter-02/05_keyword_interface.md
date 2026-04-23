@@ -20,7 +20,7 @@ Basically all standard and external 3rd party libraries offer these Keyword Docu
 
 Robot Framework offers the Keyword Documentation of its Standard Libraries at https://robotframework.org/robotframework .
 
-<!-- Keywords from Libraries and Resources can be called and can be documented either as HTML or in IDEs with Robot Support. -->
+{/* TODO: Keywords from Libraries and Resources can be called and can be documented either as HTML or in IDEs with Robot Support. */}
 
 
 
@@ -406,7 +406,7 @@ The error message would be: `ValueError: Argument 'y' got value 'Not_A_Number' t
 
 The advantage of using type hints is that the user get more information about what kind of values are expected and the keyword implementation can be simpler, because it can rely on the arguments being of the expected type.
 
-<!-- Just to understand that they are there and that they may document how values are handled or which are allowed. -->
+{/* TODO: Just to understand that they are there and that they may document how values are handled or which are allowed. */}
 
 
 ### 2.5.2.9 Return Types
@@ -430,7 +430,7 @@ Similar to the argument types, return types are optional and a more recent featu
 It is important to know that keywords without a return type hint are often still returning values!
 This is typically documented in the *Documentation* part of the keyword documentation.
 
-<!-- Keywords may gather information and return these to the caller of that keyword. A Documented Return Value may be present but often it is just written in the docs, due to new feature -->
+{/* TODO: Keywords may gather information and return these to the caller of that keyword. A Documented Return Value may be present but often it is just written in the docs, due to new feature */}
 
 
 

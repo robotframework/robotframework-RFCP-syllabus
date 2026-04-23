@@ -194,7 +194,7 @@ A suite file must contain either a `*** Test Cases ***` or a `*** Tasks ***` sec
 
 See [2.6 Writing Test|Task and Calling Keywords](chapter-02/06_writing_test.md) for more information about the `*** Test Cases ***` or `*** Tasks ***` section.
 
-<!-- TODO maybe more references to Test Setup/Teardown or Documentation? -->
+{/* TODO maybe more references to Test Setup/Teardown or Documentation? */}
 
 ### 2.1.2.4 Introduction to `*** Keywords ***` Section
 

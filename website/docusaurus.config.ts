@@ -21,6 +21,10 @@ const config = {
     },
   },
   favicon: 'img/rf_favicon.png',
+  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  future: {
+    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+  },
   organizationName: 'robotframework', // Usually your GitHub org/user name.
   projectName: 'robotframework-RFCP-syllabus', // Usually your repo name.
   trailingSlash: false,
@@ -103,67 +107,11 @@ const config = {
             to: '/docs/learning_objectives',
             position: 'left',
           },
-          // {
-          //   href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
-          //   label: 'User Guide',
-          //   position: 'right',
-          // },
-          // {
-          //   href: 'https://robotframework.org/robotframework/#standard-libraries',
-          //   label: 'Standard Library',
-          //   position: 'right',
-          // },
-          // {
-          //   href: 'https://robot-framework.readthedocs.io/en/stable/',
-          //   label: 'API Documentation',
-          //   position: 'right',
-          // },
-
-          // {
-          //   href: 'https://slack.robotframework.org/',
-          //   label: 'Slack',
-          //   position: 'right',
-          // },
-          // {
-          //   href: 'https://github.com/robotframework/robotframework-RFCP-syllabus',
-          //   label: 'GitHub',
-          //   position: 'right',
-          // },
         ],
       },
       footer: {
         style: 'dark',
         links: [
-          // {
-          //   title: 'Docs',
-          //   items: [
-          //     {
-          //       label: 'Syllabus',
-          //       to: '/docs/overview',
-          //     },
-          //     // {
-          //     //   href: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html',
-          //     //   label: 'User Guide',
-          //     // },
-          //     // {
-          //     //   href: 'https://robotframework.org/robotframework/#standard-libraries',
-          //     //   label: 'Standard Library',
-          //     // },
-          //     // {
-          //     //   href: 'https://robot-framework.readthedocs.io/en/stable/',
-          //     //   label: 'API Documentation',
-          //     // },
-          //   ],
-          // },
-          // {
-          //   title: 'More',
-          //   items: [
-          //     {
-          //       label: 'GitHub',
-          //       href: 'https://github.com/robotframework/robotframework-RFCP-syllabus',
-          //     },
-          //   ],
-          // },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Robot Framework® Foundation - Syllabus of Robot Framework® Certified Professional`,
       },

@@ -1,9 +1,10 @@
 
 # 2.4 Keyword Imports
 
-<!-- To use Keywords that are not part of BuiltIn, which is always imported invisibly, you must import keywords into the current scope. Basically Two different sources of keywords.
+{/* TODO: To use Keywords that are not part of BuiltIn, which is always imported invisibly, you must import keywords into the current scope. Basically Two different sources of keywords.
 - Libraries, which contains low-level keywords actually implementing functionality, typically in Python.
-- Resource Files, which either again import libraries or other Resource Files or they specify User Keywords.  -->
+- Resource Files, which either again import libraries or other Resource Files or they specify User Keywords.  */}
+
 Robot Framework has a modular design that allows users to import keywords from external sources.
 Without importing external keywords into a suite, only the keywords from Robot Framework's BuiltIn library are available for use, due to them being imported automatically.
 Also the Robot Framework language statements themselves are available for use without importing them.
@@ -37,7 +38,7 @@ From a user perspective there are three different kinds of libraries:
 - **Custom Libraries**: These libraries are developed by the users themselves to solve specific problems or to encapsulate more complex functionality.
 
 Further more detailed information about the different types of libraries and are described in later chapters.
-<!-- TODO: Do we fulfill this promise? -->
+{/* TODO: Do we fulfill this promise? */}
 
 To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library as long as they are located in the Python module search path, which automatically happens if they are installed via `pip`.
 The name of the library is case-sensitive and should be taken from the library's keyword documentation.

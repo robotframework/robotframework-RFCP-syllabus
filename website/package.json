@@ -18,8 +18,9 @@
     "generate:createQuizList": "node src/components/Quiz/quizPrebuild.js"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
+    "@docusaurus/core": "^3.10.0",
+    "@docusaurus/preset-classic": "^3.10.0",
+    "@docusaurus/faster": "^3.10.0",
     "@mdx-js/react": "^3.1.1",
     "@shikijs/langs": "^3.14.0",
     "@shikijs/themes": "^3.14.0",
@@ -38,9 +39,9 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/tsconfig": "3.9.2",
-    "@docusaurus/types": "3.9.2",
+    "@docusaurus/module-type-aliases": "^3.10.0",
+    "@docusaurus/tsconfig": "^3.10.0",
+    "@docusaurus/types": "^3.10.0",
     "remark-directive": "^4.0.0",
     "typescript": "~5.9.3"
   },
@@ -58,5 +59,9 @@
   },
   "engines": {
     "node": ">=18.0"
+  },
+  "overrides": {
+    "esbuild": "^0.25.12",
+    "serialize-javascript": "^7.0.5"
   }
 }
