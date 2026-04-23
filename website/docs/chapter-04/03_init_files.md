@@ -68,7 +68,7 @@ The following sections are allowed in initialization files:
 - **`*** Settings ***` Section (required)**:
   - `Name`: Set a custom name for the suite directory.
   - `Documentation`: Provide documentation for the suite.
-  - `Metadata`: Add metadata to the suite.
+  - `Metadata`: Add suite metadata.
   - `Suite Setup`: Define a keyword to be executed before any tests|tasks or child suites.
   - `Suite Teardown`: Define a keyword to be executed after all tests|tasks and child suites have completed.
   - `Test Setup`|`Task Setup`: Set a default setup keyword for all tests|tasks in the suite (can be overridden in lower-level suites or tests|tasks).

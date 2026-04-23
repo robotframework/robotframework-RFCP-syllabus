@@ -12,7 +12,7 @@ Recall the purpose of Test|Task Tags in Robot Framework
 ::::
 
 In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|tasks.
-Tags are free-form text labels that can be assigned to tests|tasks to provide metadata, enable flexible test selection, and organize test results.
+Tags are free-form text labels that can be assigned to tests|tasks to provide meta information, enable flexible test selection, and organize test results.
 
 Tags are also used to create a statistical summary of the test|task results in the execution protocols.
 
