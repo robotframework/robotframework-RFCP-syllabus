@@ -54,7 +54,7 @@ Recall the syntax and properties of multiple named test|task with one template
 
 ::::
 
-The following example has six different test|task, each with a different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
+The following example has six different tests|tasks, each with a different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
 
 ```robotframework
 *** Settings ***

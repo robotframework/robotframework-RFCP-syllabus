@@ -255,7 +255,7 @@
 		"term": "Output File",
 		"aliases": ["output.xml"],
 		"abbreviation": "",
-		"definition": "Primary machine-readable execution result file (e.g.`output.xml`) produced by Robot Framework that stores the full execution tree, messages, and statistics and serves as the source for generating log and report files."
+		"definition": "Primary machine-readable execution result file (e.g. `output.xml`) produced by Robot Framework that stores the full execution tree, messages, and statistics and serves as the source for generating log and report files."
 	},
 	{
 		"term": "Optional Argument",
