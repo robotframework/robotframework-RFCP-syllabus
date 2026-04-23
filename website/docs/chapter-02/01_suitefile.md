@@ -19,7 +19,7 @@ If the path to a single file is given as **Root Suite** directly to Robot Framew
 
 If a directory path is given, starting at this location, Robot Framework will parse all `*.robot` files and directories within this path.
 Robot Framework analyzes all containing files and determines if they contain test cases or tasks. If they do, they are considered **Suite Files** or **Low-Level Suites**.
-All directories that either directly or indirectly contain a Suite File are considered **Suites Directories** or **Higher-Level Suites**.
+All directories that either directly or indirectly contain a Suite File are considered **Suite Directories** or **Higher-Level Suites**.
 
 The ordering of suites during execution is, by default, defined by their name and hierarchy.
 All files and directories, which are suites in one directory, are considered on the same level and are executed in case-insensitive alphabetical order.

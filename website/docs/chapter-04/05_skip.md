@@ -42,7 +42,7 @@ Tests|tasks can be skipped with `--skip` by tags when executing Robot Framework,
 The difference between `--skip` and `--exclude` is that `--skip` will mark the tests|tasks as skipped in the report and log, while `--exclude` will not execute them at all.
 Therefore skip is better for documenting that a specific test|task was not executed for a specific reason.
 
-**Example**: If there is a defect in the System under Test (SUT) and a test|task has been written to reproduce the defect and tests its resolution, but the defect is not yet resolved, the test|task can be tagged with the defect-number and skipped until the defect has been resolved.
+**Example**: If there is a defect in the System under Test (SUT) and a test|task has been written to reproduce the defect and test its resolution, but the defect is not yet resolved, the test|task can be tagged with the defect-number and skipped until the defect has been resolved.
 
 **Example**: Assuming there are different test environments and some tests can only be executed in specific environments, the tests can be tagged with the environment name and skipped in all other environments.
 

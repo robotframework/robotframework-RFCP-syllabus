@@ -20,7 +20,7 @@ is given as an argument to the setting.
 The extension for resource files shall be `.resource`.
 
 Unless the resource file is given as an absolute path,
-it is first searched relatively to
+it is first searched relative to
 the directory where the importing file is located.
 If the file is not found there, it is then searched from the
 directories in Python's module search path.
@@ -47,7 +47,7 @@ The allowed sections in recommended order are:
 
   Additional settings are:
   - `Keyword Tags` to set tags for all keywords in the resource file.
-    defining and using Keyword tags is not part of this syllabus.
+    Defining and using Keyword tags is not part of this syllabus.
 
   Other settings available in suites are not available in resource files.
 

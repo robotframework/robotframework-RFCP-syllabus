@@ -39,7 +39,7 @@ Built-in variables cannot generally be sorted into one of these categories, as s
 Examples:
 - `${TEST_NAME}` is dynamically set during execution to the name of the currently running test case.
 - `${OUTPUT_DIR}` is statically defined before the execution and contains the directory where `output.xml`, `log.html` and `report.html` are written.
-- `${LOG_LEVEL}` is by default set statically via command line options or `INFO` as default, but can be changed, with the keyword `Set Log Level` during exection.
+- `${LOG_LEVEL}` is by default set statically via command line options or `INFO` as default, but can be changed, with the keyword `Set Log Level` during execution.
 
 ### 5.1.1.1 Statically Defined or Imported Variables
 

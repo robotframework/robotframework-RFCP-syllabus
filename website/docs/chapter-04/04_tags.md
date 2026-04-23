@@ -154,7 +154,7 @@ Examples:
 ## 4.4.3 Reserved Tags
 
 Tags starting with `robot:` are reserved for internal use by Robot Framework and should not be used in user-defined tags.
-Using own tags with this prefix may lead to unexpected behavior in test execution and reporting.
+Using your own tags with this prefix may lead to unexpected behavior in test execution and reporting.
 
 - `robot:exclude`: Marks tests|tasks that should be excluded from execution similar to `--exclude`.
 - `robot:skip`: Marks tests|tasks that should be skipped during execution similar to `--skip`.

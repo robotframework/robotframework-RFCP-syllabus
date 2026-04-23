@@ -54,7 +54,7 @@ Recall the syntax and properties of multiple named test|task with one template
 
 ::::
 
-The following example has six different test|task, each with different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
+The following example has six different test|task, each with a different name and different data sets, all using the `Login With Invalid Credentials Should Fail` keyword template.
 
 ```robotframework
 *** Settings ***
@@ -116,7 +116,7 @@ Valid Logins
 
 If one data row fails, this template execution is marked FAIL and the test|task is marked FAIL, but **the other data rows are still executed**.
 
-This approach creates only a single tests|tasks for multiple data rows in the logs and reports, which can be beneficial statistically.
+This approach creates only a single test|task for multiple data rows in the logs and reports, which can be beneficial statistically.
 
 However, this approach has also its drawbacks:
 

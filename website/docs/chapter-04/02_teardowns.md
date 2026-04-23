@@ -24,7 +24,7 @@ To prevent such issues, Robot Framework provides the **Teardown** functionality,
 As mentioned before, a failure resulting in a keyword with the status `FAIL` will cause Robot Framework not to execute all subsequent keywords of the current test|task.
 These not-executed keywords will receive the status `NOT RUN`.
 
-A **Teardown** is a single keyword call with potential argument values that is executed after the child suites, test|tasks, and keywords have completed execution, regardless of the outcome, even if previously executed elements have failed.
+A **Teardown** is a single keyword call with potential argument values that is executed after the child suites, tests|tasks, and keywords have completed execution, regardless of the outcome, even if previously executed elements have failed.
 It ensures that necessary cleanup actions are performed, maintaining the integrity of the environment for subsequent executions.
 
 **Typical use cases for Teardowns include:**

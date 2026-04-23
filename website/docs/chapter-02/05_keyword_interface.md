@@ -13,7 +13,7 @@ Understand the structure of keyword interfaces and how to interpret keyword docu
 
 Library Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
 
-Robot Framework is capable of generating **Keyword Documentation** files that contains a library- or resource-documentation, all keywords, their argument interfaces, and their documentation texts.
+Robot Framework is capable of generating **Keyword Documentation** files that contain a library- or resource-documentation, all keywords, their argument interfaces, and their documentation texts.
 This documentation file can be generated with the `libdoc` command and can be used to provide a reference for users who want to use the keywords.
 
 Basically all standard and external 3rd party libraries offer these Keyword Documentations as online available HTML pages.
@@ -36,7 +36,7 @@ Recall the information that can be found in a keyword documentation.
 
 ::::
 
-The Keyword Documentation is structured so, that it contains first the library or resource documentation, followed by a list of all keywords that are available in that library or resource file.
+The Keyword Documentation is structured so that it contains first the library or resource documentation, followed by a list of all keywords that are available in that library or resource file.
 
 Each library or resource documentation can contain the following information sections for keywords:
 - **Name**: The name of the keyword as it is called.
@@ -114,7 +114,7 @@ Understand the difference between argument kinds.
 ::::
 
 Most library keywords can be parameterized with arguments that are passed to the keyword when it is called to customize its behavior.
-The more business oriented keywords are the less arguments they typically have.
+The more business oriented keywords are the fewer arguments they typically have.
 
 Keyword arguments can be grouped into different argument kinds.
 On the one hand you can group them by their definition attributes and on the other hand by their usage kind.
@@ -281,8 +281,8 @@ These are also referred to as `*args` or `*varargs` in Python.
 Some keywords need to collect a variable amount of values into one argument, because it is not possible to define the amount of values in advance.
 
 One example for this kind of keyword is [2.5.1.2 Example Keyword `Set To Dictionary`](chapter-02/05_keyword_interface.md#2512-example-keyword-set-to-dictionary) from the Collections library.
-This keyword adds key and values to a `dictionary` with variable amount of `key_value_pairs`.
-Depending on the number of keys and values, different amount of arguments are needed.
+This keyword adds key and values to a `dictionary` with a variable amount of `key_value_pairs`.
+Depending on the number of keys and values, a different amount of arguments is needed.
 
 This key_value_pairs argument is marked with a single asterisk `*` before the argument name in the keyword documentation.
 
@@ -380,11 +380,11 @@ However, the actual implementation of the keyword may expect a different type of
 If an argument type is defined and Robot Framework has a matching converter function available, that can convert the given type to the expected type, the conversion is tried automatically.
 If the conversion fails, the keyword call will fail with an error message before the actual keyword code is executed.
 Robot Framework brings some built-in converters for common types like integer, float, boolean, list, dictionary, etc.
-Library developers can also register their own converters for none-supported types.
+Library developers can also register their own converters for non-supported types.
 
 Defining types for arguments is nowadays the recommended way to let Robot Framework convert the given arguments to the expected type, however it is optional.
 
-Lets imagine a keyword that clicks on a specific coordinate on the screen, e.g. `Click On Coordinates`.
+Let's imagine a keyword that clicks on a specific coordinate on the screen, e.g. `Click On Coordinates`.
 This keyword would expect two integer arguments, one for the `x`-coordinate and one for the `y`-coordinate.
 
 That keyword can now claim that it expects two integer arguments by defining type hints for these arguments.
@@ -404,7 +404,7 @@ In the first call the keyword will be called with the integer values `10` and `2
 The second keyword call will fail, because the second argument is not a number and cannot be converted to an integer.
 The error message would be: `ValueError: Argument 'y' got value 'Not_A_Number' that cannot be converted to integer.`
 
-The advantage of using type hints is that the user get more information about what kind of values are expected and the keyword implementation can be simpler, because it can rely on the arguments being of the expected type.
+The advantage of using type hints is that the user gets more information about what kind of values are expected and the keyword implementation can be simpler, because it can rely on the arguments being of the expected type.
 
 {/* TODO: Just to understand that they are there and that they may document how values are handled or which are allowed. */}
 

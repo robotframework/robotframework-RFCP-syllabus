@@ -34,17 +34,17 @@ Recall the three types of libraries in Robot Framework.
 
 From a user perspective there are three different kinds of libraries:
 - **Robot Framework Standard Libraries**: These are libraries that are shipped with Robot Framework and are available without any additional installation. See documentation of [ext: Robot Framework Standard Libraries](https://robotframework.org/robotframework/#standard-libraries) for more information.
-- **3rd Party Libraries** / **External Libraries**: These are libraries have been developed and maintained by community members and have to be installed/downloaded separately.
+- **3rd Party Libraries** / **External Libraries**: These are libraries that have been developed and maintained by community members and have to be installed/downloaded separately.
 - **Custom Libraries**: These libraries are developed by the users themselves to solve specific problems or to encapsulate more complex functionality.
 
-Further more detailed information about the different types of libraries and are described in later chapters.
+Further more detailed information about the different types of libraries is described in later chapters.
 {/* TODO: Do we fulfill this promise? */}
 
-To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library as long as they are located in the Python module search path, which automatically happens if they are installed via `pip`.
+To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library as long as it is located in the Python module search path, which automatically happens if it is installed via `pip`.
 The name of the library is case-sensitive and should be taken from the library's keyword documentation.
 By default, libraries in Robot Framework are implemented in Python and the name of the library is the name of the Python module that contains the library implementation.
 
-Alternatively, if a library is not in Python module search path, a library can be imported using the path to the Python module. See [2.4.3 Import Paths](chapter-02/04_keyword_imports.md#243-import-paths).
+Alternatively, if a library is not in the Python module search path, a library can be imported using the path to the Python module. See [2.4.3 Import Paths](chapter-02/04_keyword_imports.md#243-import-paths).
 
 Be aware that the library [`BuiltIn`](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html) is always imported invisibly and does not need to be imported explicitly.
 

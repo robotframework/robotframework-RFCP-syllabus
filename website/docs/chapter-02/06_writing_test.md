@@ -23,13 +23,13 @@ After the keyword name the arguments are set.
 All arguments are separated by multiple spaces from the keyword name and from each other and can also include single spaces.
 Argument values are stripped from leading and trailing spaces, but spaces within the argument value are preserved.
 
-If an argument shall contain more than one consecutive spaces or start or end with spaces, the spaces must be escaped by a backslash `\` to prevent them from being interpreted as a part of a "multi-space-separator".
+If an argument shall contain more than one consecutive space or start or end with spaces, the spaces must be escaped by a backslash `\` to prevent them from being interpreted as a part of a "multi-space-separator".
 
 Example:
 ```robotframework
 *** Test Cases ***
 Mandatory Positional Arguments
-    [Documentation]    Only mandatory arguments are use positionally
+    [Documentation]    Only mandatory arguments are used positionally
     Should Be Equal    1    1
 
 Mixed Positional Arguments
@@ -83,7 +83,7 @@ Some keywords do not have an obvious order of arguments.
 In these cases, calling keywords with named arguments can lead to better readability and understanding of the keyword call.
 
 Using arguments positionally is very handy for arguments that are obvious and easy to understand.
-In the early login example the following keyword calls exists:
+In the early login example the following keyword call exists:
 ```robotframework
 *** Test Cases ***
 Login User With Password
@@ -100,7 +100,7 @@ Click on x and y
     Click On Coordinates    x=82    y=70
 ```
 
-Calling keywords that have a :term[Variable Number of Positional Arguments] does require to set all preceding arguments by their position if the :term[Variable Number of Positional Arguments] shall be set.
+Calling keywords that have a :term[Variable Number of Positional Arguments] does require setting all preceding arguments by their position if the :term[Variable Number of Positional Arguments] shall be set.
 
 Example:
 ```robotframework
@@ -161,7 +161,7 @@ Recall how to use embedded arguments.
 
 ::::
 
-Embedded Arguments are mostly used in Behavior-Driven Development (BDD) using Robot Frameworks Behavior-Driven Specification style.
+Embedded Arguments are mostly used in Behavior-Driven Development (BDD) using Robot Framework's Behavior-Driven Specification style.
 
 Embedded Arguments are part of the keyword name as described in [2.5.2.3 Embedded Arguments](chapter-02/05_keyword_interface.md#2523-embedded-arguments).
 

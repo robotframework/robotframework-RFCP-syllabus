@@ -15,7 +15,7 @@ Robot Framework is a script-based interpreter for files that contain textual spe
 These files are typically organized into directories.
 The syntax of Robot Framework is designed to be simple and human-readable, allowing for quick learning and ease of use.
 
-Key attributes of the syntax that improves the before mentioned:
+Key attributes of the syntax that improve the before mentioned:
 
 - **Space-separated syntax**: Robot Framework uses two or more spaces as the primary separator (although one space is allowed as a character).
   A use of **FOUR (4)** spaces is recommended to ensure clarity and readability of the specification.
@@ -25,7 +25,7 @@ Key attributes of the syntax that improves the before mentioned:
 - **String first**: Unquoted strings are considered as strings, while variables need special syntax.
 - **Single spaces are valid**: Single spaces are valid as a character in most elements and values without quotation.
 - **Mostly case-insensitive**: Most elements like keyword or variable names are case insensitive.
-However, some syntax, like library imports is case-sensitive.
+However, some syntax, like library imports, is case-sensitive.
 
 :::tip[Note]
 

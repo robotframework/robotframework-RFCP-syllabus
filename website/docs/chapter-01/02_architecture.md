@@ -58,7 +58,7 @@ Robot Framework itself focuses primarily on **test|task execution**.
 It includes:
 
 - A parser to read test|task data and build an execution model.
-- An execution engine to process model and execute the keywords.
+- An execution engine to process the model and execute the keywords.
 - A result generation mechanism to provide logs and reports.
 - A collection of generic standard libraries to process and handle data or interact with files and processes.
 - Defined APIs for extensions and customizations.

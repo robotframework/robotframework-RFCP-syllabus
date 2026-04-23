@@ -5,7 +5,7 @@
 
 :::K1[LO-4.3]
 
-Recall how to define Initialization Files and its purpose
+Recall how to define Initialization Files and their purpose
 
 :::
 

@@ -16,16 +16,16 @@ While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)**
 
 Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not mix them within the same body.
 One practical solution would be to define acceptance test cases that cover users' expectations in a declarative *Behavior-Driven Style*, while using keywords that are implemented in an imperative *Keyword-Driven style*.
-Further system level :term[test cases]{term="Test Case"}, that are not covering acceptance criteria could be written in a *Keyword-Driven style*.
+Further system level :term[test cases]{term="Test Case"}, that are not covering acceptance criteria, could be written in a *Keyword-Driven style*.
 
 The approach of both styles is different in that way,
 that the *Behavior-Driven Style* is a **declarative** specification,
-where the script describe/declare what the system should do or how it should behave,
+where the script describes/declares what the system should do or how it should behave,
 while the *Keyword-Driven Style* is an **imperative** specification,
 where the script specifies what the automation should do to control the system.
 
 
-Beside these two different specification approaches how to write/formulate
+Besides these two different specification approaches how to write/formulate
 your automation script and their step sequences,
 there is also a third specification method, **Data-Driven Specification** that can be combined
 with the other two styles, to define the data that is used in the automation.

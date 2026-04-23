@@ -163,7 +163,7 @@
 - [`3.3.3 User Keyword Settings`](website/docs/chapter-03/03_user_keyword.md#333-user-keyword-settings)
   - LO-3.3.3 (K1) Recall all available settings and their purpose for User Keywords
 - [`3.3.4 User Keyword Documentation`](website/docs/chapter-03/03_user_keyword.md#334-user-keyword-documentation)
-  - LO-3.3.4 (K1) Recall the significance of the first logical line and in keyword documentation for the log file.
+  - LO-3.3.4 (K1) Recall the significance of the first logical line in keyword documentation for the log file.
 - [`3.3.5 User Keyword Arguments`](website/docs/chapter-03/03_user_keyword.md#335-user-keyword-arguments)
   - LO-3.3.5 (K2) Understand the purpose and syntax of the [Arguments] setting in User Keywords.
   - [`3.3.5.1 Defining Mandatory Arguments`](website/docs/chapter-03/03_user_keyword.md#3351-defining-mandatory-arguments)
@@ -222,7 +222,7 @@
 - [`4.2.3 Keyword Teardown`](website/docs/chapter-04/02_teardowns.md#423-keyword-teardown)
   - LO-4.2.3 (K1) Recall key characteristics, benefits, and syntax of Keyword Teardown
 - [`4.3 Initialization Files`](website/docs/chapter-04/03_init_files.md)
-- LO-4.3 (K1) Recall how to define Initialization Files and its purpose
+- LO-4.3 (K1) Recall how to define Initialization Files and their purpose
 - [`4.3.1 Purpose of Initialization Files`](website/docs/chapter-04/03_init_files.md#431-purpose-of-initialization-files)
 - [`4.3.2 Suite Setup and Suite Teardown of Initialization Files`](website/docs/chapter-04/03_init_files.md#432-suite-setup-and-suite-teardown-of-initialization-files)
   - LO-4.3.2 (K2) Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests|tasks

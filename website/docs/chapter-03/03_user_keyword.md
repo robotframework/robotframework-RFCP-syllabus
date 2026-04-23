@@ -67,7 +67,7 @@ To identify keywords that shall be executed, Robot Framework uses a matching alg
 
 By default, if not explicitly defined by the library developers, all Library Keywords are named in **Title Case** with capital letters at the beginning of each word, and spaces between words.
 
-Project may choose a different naming convention for User Keywords, but it is recommended to be consistent across the project for User Keyword names.
+Projects may choose a different naming convention for User Keywords, but it is recommended to be consistent across the project for User Keyword names.
 
 They are defined without indentation, and the subsequent lines until the next unindented line are considered the body of the keyword.
 The following topics explain how to structure the body of a keyword.
@@ -97,7 +97,7 @@ All available settings are listed below and explained in this section or in sect
 - `[Timeout]` (*) Sets the possible user keyword timeout.
 - `[Return]` (*) Deprecated. Use the `RETURN` statement instead. (see [3.3.6 RETURN Statement](chapter-03/03_user_keyword.md#336-return-statement))
 
-(*) The application of these settings are not part of this syllabus.
+(*) The application of these settings is not part of this syllabus.
 
 
 
@@ -107,7 +107,7 @@ All available settings are listed below and explained in this section or in sect
 
 :::K1[LO-3.3.4]
 
-Recall the significance of the first logical line and in keyword documentation for the log file.
+Recall the significance of the first logical line in keyword documentation for the log file.
 
 :::
 
@@ -425,7 +425,7 @@ Get ISO Time
 
 Should we have that  chapter???
 Opinions?
-And if, is this want we want to ask the participants to know?
+And if, is this what we want to ask the participants to know?
 */}
 
 

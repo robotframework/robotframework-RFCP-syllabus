@@ -88,7 +88,7 @@ Quick Check
     IF    $user == 'Admin'    Log    Admin access granted.
 ```
 
-Executes the `Log` keyword if `${user}` equals to the string `'Admin'`.
+Executes the `Log` keyword if `${user}` equals the string `'Admin'`.
 
 No `END` is needed for inline IF.
 

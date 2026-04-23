@@ -76,7 +76,7 @@
 | [`LO-3.2.5`](chapter-03/02_variables.md#325-variable-scope-introduction) | K2 | Understand how `local` and `suite` scope variables are created |
 | [`LO-3.3.2`](chapter-03/03_user_keyword.md#332-user-keyword-names) | K1 | Recall the rules how keyword names are matched. |
 | [`LO-3.3.3`](chapter-03/03_user_keyword.md#333-user-keyword-settings) | K1 | Recall all available settings and their purpose for User Keywords |
-| [`LO-3.3.4`](chapter-03/03_user_keyword.md#334-user-keyword-documentation) | K1 | Recall the significance of the first logical line and in keyword documentation for the log file. |
+| [`LO-3.3.4`](chapter-03/03_user_keyword.md#334-user-keyword-documentation) | K1 | Recall the significance of the first logical line in keyword documentation for the log file. |
 | [`LO-3.3.5`](chapter-03/03_user_keyword.md#335-user-keyword-arguments) | K2 | Understand the purpose and syntax of the [Arguments] setting in User Keywords. |
 | [`LO-3.3.5.1-1`](chapter-03/03_user_keyword.md#3351-defining-mandatory-arguments) | K1 | Recall what makes an argument mandatory in a user keyword. |
 | [`LO-3.3.5.1-2`](chapter-03/03_user_keyword.md#3351-defining-mandatory-arguments) | K3 | Define User Keywords with mandatory arguments. |
@@ -110,7 +110,7 @@
 | [`LO-4.2.2-1`](chapter-04/02_teardowns.md#422-testtask-teardown) | K1 | Recall key characteristics, benefits, and syntax of Test\|Task Teardown |
 | [`LO-4.2.2-2`](chapter-04/02_teardowns.md#422-testtask-teardown) | K2 | Understand when Test\|Task Teardown is executed and used |
 | [`LO-4.2.3`](chapter-04/02_teardowns.md#423-keyword-teardown) | K1 | Recall key characteristics, benefits, and syntax of Keyword Teardown |
-| [`LO-4.3`](chapter-04/03_init_files.md) | K1 | Recall how to define Initialization Files and its purpose |
+| [`LO-4.3`](chapter-04/03_init_files.md) | K1 | Recall how to define Initialization Files and their purpose |
 | [`LO-4.3.2`](chapter-04/03_init_files.md#432-suite-setup-and-suite-teardown-of-initialization-files) | K2 | Understand the execution order of Suite Setup and Suite Teardown in Initialization Files and their sub-suites and tests\|tasks |
 | [`LO-4.3.3`](chapter-04/03_init_files.md#433-allowed-sections-in-initialization-files) | K1 | Recall the allowed sections and their content in Initialization Files |
 | [`LO-4.4`](chapter-04/04_tags.md) | K1 | Recall the purpose of Test\|Task Tags in Robot Framework |

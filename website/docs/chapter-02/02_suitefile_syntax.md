@@ -15,7 +15,7 @@ Understand the basic syntax of test cases and tasks.
 ::::
 
 Suite files and resource files share the same syntax, however they differ in their capabilities.
-Resource files are explained in more detail in [2.4.2 Resource Files](chapter-02/04_keyword_imports.md#242-resource-files) [3.1 Resource File Structure](chapter-03/01_resource_file.md).
+Resource files are explained in more detail in [2.4.2 Resource Files](chapter-02/04_keyword_imports.md#242-resource-files) and [3.1 Resource File Structure](chapter-03/01_resource_file.md).
 
 
 ## 2.2.1 Separation and Indentation
@@ -219,9 +219,9 @@ Some examples are:
 All those characters or character sequences that are interpreted as control characters can be escaped by a backslash `\`.
 This means that the character following the backslash is interpreted as a normal character and not as a control character.
 
-This leads to the fact that a backslash itself must be escaped by another backslash to be interpreted as a normal backslash character. Therefore it is strongly recommended to use forward slashes `/` as path separators in paths also on windows environments and avoid backslashes `\` whenever possible.
+This leads to the fact that a backslash itself must be escaped by another backslash to be interpreted as a normal backslash character. Therefore it is strongly recommended to use forward slashes `/` as path separators in paths also on Windows environments and avoid backslashes `\` whenever possible.
 
-Leading and trailing spaces in values are normally considered being part of the separator surrounding the values.
+Leading and trailing spaces in values are normally considered to be part of the separator surrounding the values.
 If values shall contain leading or trailing spaces they must be either enclosed in backslashes `\` or replaced by the special variable `${SPACE}` that contains a single space character.
 
 Example:

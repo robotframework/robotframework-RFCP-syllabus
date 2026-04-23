@@ -32,7 +32,7 @@ Understand how to run the `robot` command and its basic usage.
 
 The `robot` command is used to run a Robot Framework execution, which will execute suites and their containing tests|tasks.
 
-At a basic level, you can run `robot` by providing the path to a suite file or suite directory containing suite files as last argument.
+At a basic level, you can run `robot` by providing the path to a suite file or suite directory containing suite files as the last argument.
 ```plaintext
 robot <path_to_root_suite>
 ```
@@ -93,7 +93,7 @@ After executing a suite, Robot Framework, by default, generates three output fil
 
 `log.html` and `report.html` are generated based on the information stored in `output.xml`.
 
-A unique feature of Robot Framework is, that it logs each keyword call and its arguments with its log outputs and timestamps, so that it is possible to have a very detailed view of the execution flow and the data that was used during the execution.
+A unique feature of Robot Framework is that it logs each keyword call and its arguments with its log outputs and timestamps, so that it is possible to have a very detailed view of the execution flow and the data that was used during the execution.
 In case of a failure it is possible to see the exact keyword call that failed and the arguments that were used, which can be very helpful for debugging or reporting. Furthermore, you also get all passed keywords and even the non‑executed keywords, allowing you to trace the whole execution flow.
 
 
@@ -143,7 +143,7 @@ This status is used if an element was executed successfully without any errors o
 
 **Atomic elements** are `PASS` if they were executed successfully without reporting an error by raising an exception.
 
-**Composite elements** are `PASS` if all their executed body elements are pass.
+**Composite elements** are `PASS` if all their executed body elements are `PASS`.
 E.g. in case of User Keywords this means that if all keywords or Robot Framework language statements that were directly called by that User Keyword were `PASS` the User Keyword itself is considered `PASS`.
 
 Library Keywords like `Run Keyword And Expect Error`, from BuiltIn Library, do `PASS` if the keyword they are internally calling does raise an error with the expected message or type.
@@ -170,12 +170,12 @@ Exceptions are teardowns, as explained in [Chapter 4: Advanced Structuring and E
 
 **Atomic elements** are `FAIL` if they were tried to be executed but raised an exception.
 
-**Composite elements** are `FAIL` if at least one of their executed direct body elements are `FAIL`.
+**Composite elements** are `FAIL` if at least one of their executed direct body elements is `FAIL`.
 Therefore a failure typically distributes upwards through the hierarchy of elements until it reaches the root suite.
 
 A User Keyword is `FAIL` if one of its called Library Keywords is `FAIL`.
 A test|task is `FAIL` if one of its directly called Keywords is `FAIL`.
-A suite (file) is `FAIL` if one of its test|task is `FAIL` and
+A suite (file) is `FAIL` if one of its tests|tasks is `FAIL` and
 a suite (directory) is `FAIL` if one of its suites (file) is `FAIL`.
 
 
