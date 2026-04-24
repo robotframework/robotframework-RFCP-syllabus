@@ -1,9 +1,8 @@
-
 # 2.4 Keyword Imports
 
-{/* TODO: To use Keywords that are not part of BuiltIn, which is always imported invisibly, you must import keywords into the current scope. Basically Two different sources of keywords.
+{/* TODO: To use Keywords that are not part of BuiltIn, which is always imported invisibly, you must import :term[keywords]{term="Keyword"} into the current scope. Basically Two different sources of :term[keywords]{term="Keyword"}.
 - Libraries, which contains low-level keywords actually implementing functionality, typically in Python.
-- Resource Files, which either again import libraries or other Resource Files or they specify User Keywords.  */}
+- :term[Resource Files]{term="Resource File"}, which either again import libraries or other :term[Resource Files]{term="Resource File"} or they specify :term[User Keywords]{term="User Keyword"}.  */}
 
 Robot Framework has a modular design that allows users to import keywords from external sources.
 Without importing external keywords into a suite, only the keywords from Robot Framework's BuiltIn library are available for use, due to them being imported automatically.
@@ -37,8 +36,11 @@ From a user perspective there are three different kinds of libraries:
 - **3rd Party Libraries** / **External Libraries**: These are libraries that have been developed and maintained by community members and have to be installed/downloaded separately.
 - **Custom Libraries**: These libraries are developed by the users themselves to solve specific problems or to encapsulate more complex functionality.
 
-To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library as long as it is located in the Python module search path, which automatically happens if it is installed via `pip`.
-The name of the library is case-sensitive and should be taken from the library's keyword documentation.
+Further more detailed information about the different types of libraries and are described in later chapters.
+{/* TODO: Do we fulfill this promise? */}
+
+To import a library into a suite or :term[resource file]{term="Resource File"} the `Library` setting is used in the `*** Settings ***` section followed by the name of the library as long as they are located in the Python module search path, which automatically happens if they are installed via `pip`.
+The name of the library is case-sensitive and should be taken from the library's :term[keyword]{term="Keyword"} documentation.
 By default, libraries in Robot Framework are implemented in Python and the name of the library is the name of the Python module that contains the library implementation.
 
 Alternatively, if a library is not in the Python module search path, a library can be imported using the path to the Python module. See [2.4.3 Import Paths](chapter-02/04_keyword_imports.md#243-import-paths).
@@ -53,8 +55,8 @@ Library    Browser
 Library    DatabaseLibrary
 ```
 
-Once a library is imported, all keywords from that library are available for use in that suite or resource file.
-Which keywords are available can be seen in the keyword documentation of the library or may be visible in the IDE by code completion, depending on the IDE extension being used.
+Once a library is imported, all keywords from that library are available for use in that suite or :term[resource file]{term="Resource File"}.
+Which keywords are available can be seen in the :term[keyword]{term="Keyword"} documentation of the library or may be visible in the IDE by code completion, depending on the IDE extension being used.
 
 
 
@@ -76,12 +78,12 @@ Use resource files to import new keywords.
 
 ::::
 
-As mentioned before resource files are used to organize and store keywords and variables that are used in multiple suites.
+As mentioned before resource files are used to organize and store keywords and :term[variables]{term="Variable"} that are used in multiple suites.
 
-They share a similar structure and the same syntax as suite files, but they do not contain test cases or tasks.
-See [2.2 Basic Suite File Syntax](chapter-02/02_suitefile_syntax.md) for more information about the structure of suite files and [3.1 Resource File Structure](chapter-03/01_resource_file.md) for more details of their structure.
+They share a similar structure and the same syntax as :term[suite files]{term="Suite File"}, but they do not contain :term[test cases]{term="Test Case"} or :term[tasks]{term="Task"}.
+See [2.2 Basic Suite File Syntax](chapter-02/02_suitefile_syntax.md) for more information about the structure of :term[suite files]{term="Suite File"} and [3.1 Resource File Structure](chapter-03/01_resource_file.md) for more details of their structure.
 
-They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. The same applies for variables that are defined and imported from other resource files.
+They can contain other keyword imports, which cause the keywords from the imported libraries or resource files to be available in the suites where the resource file is imported. The same applies for :term[variables]{term="Variable"} that are defined and imported from other resource files.
 Therefore keywords from a library that have been imported in a resource file are also available in the suite that imports that resource file.
 
 To import a resource file into a suite or resource file the `Resource` setting is used in the `*** Settings ***` section followed by the path to the resource file.
@@ -98,8 +100,7 @@ Resource    D:/keywords/central_keywords.resource
 ```
 
 See more about the structure of resource files in
-[3.1 Resource File Structure](chapter-03/01_resource_file.md)
-and how keywords and variables are created in the sections following that.
+[3.1 Resource File Structure](chapter-03/01_resource_file.md)and how keywords and variables are created in the sections following that.
 
 
 
@@ -121,7 +122,7 @@ If a relative path is given, the path is resolved relative to the data file that
 If an **absolute path** is given, the resource file or library is searched for at the given path.
 
 If a **relative path** is given, the resource file or library is searched for relative to the data file that is importing it and then relative to the Python *module search path*.
-This *module search path* is defined by the Python interpreter that executes Robot Framework and can be influenced by the environment variable `PYTHONPATH` or by using the CLI-Argument `--pythonpath` when executing `robot`.
+This *module search path* is defined by the Python interpreter that executes Robot Framework and can be influenced by the environment :term[variable]{term="Variable"} `PYTHONPATH` or by using the :term[CLI]{term="Command Line Interface"}-:term[Argument]{term="Argument"} `--pythonpath` when executing `robot`.
 
 For **path separators**, it is strongly recommended to always use forward slashes (`/`), and even on Windows, not to use backslashes (`\`).
 This is because backslashes are used as escape characters in Robot Framework, which can cause issues when used in paths. Forward slashes are supported on all operating systems when used in Robot Framework.
@@ -131,6 +132,10 @@ Relative paths are portable as long as they are defined relative to the importin
 
 However the most stable and recommended way is to use the **Python Path/module search path** to import them.
 That path needs to be defined when executing Robot Framework but can lead to more uniform and stable imports, because each suite or resource file can use the same path to import the same resource file or library, independent of the location of the importing suite or resource file.
+
+
+
+
 
 
 

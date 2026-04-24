@@ -1,9 +1,9 @@
 # 1.2 Architecture of Robot Framework
 
-Robot Framework is an open-source automation framework that allows you to build automation scripts for testing and RPA (Robotic Process Automation).
-It focuses on providing a keyword-driven or behavior-driven approach, making the automation easy to understand and maintain.
+Robot Framework is an open-source automation framework that allows you to build :term[automation scripts]{term="Automation Script"} for testing and :term[RPA]{term="Robotic Process Automation"} (Robotic Process Automation).
+It focuses on providing a :term[keyword]{term="Keyword"}-driven or behavior-driven approach, making the automation easy to understand and maintain.
 However, it is not a full-stack solution that encompasses all layers of automation.
-Instead, it provides a flexible platform where different tools, libraries, and integrations handle specific tasks to implement a flexible automation solution.
+Instead, it provides a flexible platform where different tools, libraries, and integrations handle specific :term[tasks]{term="Task"} to implement a flexible automation solution.
 
 
 
@@ -19,24 +19,24 @@ Recall the layers of the Generic Test Automation Architecture (gTAA) and their c
 
 ::::
 
-The **Generic Test Automation Architecture (gTAA)** described in the ISTQB "Certified Tester Advanced Level Test Automation Engineering" offers a structured approach to test automation, dividing it into different layers for a clear separation of concerns:
+The **Generic Test Automation Architecture (gTAA)** described in the ISTQB "Certified Tester Advanced Level :term[Test]{term="Test Case"} Automation Engineering" offers a structured approach to :term[test]{term="Test Case"} automation, dividing it into different layers for a clear separation of concerns:
 
-- **Definition Layer**: This layer contains the "Test Data" (test cases, tasks, resource files which include user keywords and variables).
-In Robot Framework, the test data is written using the defined syntax and contains keyword calls and argument values that make the test case or task definitions structured in suites.
+- **Definition Layer**: This layer contains the ":term[Test Data]{term="Test Data"}" (:term[test cases]{term="Test Case"}, :term[tasks]{term="Task"}, :term[resource files]{term="Resource File"} which include :term[user keywords]{term="User Keyword"} and variables).
+In Robot Framework, the :term[test data]{term="Test Data"} is written using the defined syntax and contains :term[keyword]{term="Keyword"} calls and :term[argument]{term="Argument"} values that make the :term[test case]{term="Test Case"} or :term[task]{term="Task"} definitions structured in suites.
 
-- **Execution Layer**: In Robot Framework, the execution layer consists of the framework itself, including its core components and APIs.
-It parses and interprets the test data syntax to build an execution model.
-The execution layer is responsible for processing this execution model to execute the library keywords with their argument values, logging results, and generating reports.
+- **Execution Layer**: In Robot Framework, the :term[execution layer]{term="Execution Layer"} consists of the framework itself, including its core components and APIs.
+It parses and interprets the test data syntax to build an :term[execution model]{term="Execution Model"}.
+The :term[execution layer]{term="Execution Layer"} is responsible for processing this :term[execution model]{term="Execution Model"} to execute the library :term[keywords]{term="Keyword"} with their :term[argument]{term="Argument"} values, logging results, and generating reports.
 
 - **Adaptation Layer**: This layer provides the connection between Robot Framework and the system under test (SUT).
-In Robot Framework, this is where the keyword libraries, which contain code responsible for interacting with different technologies and interfaces,
+In Robot Framework, this is where the :term[keyword libraries]{term="Keyword Library"}, which contain code responsible for interacting with different technologies and interfaces,
 such as those for UI, API, database interactions, or others, are located.
-These keyword libraries enable interaction with different technologies and interfaces, ensuring the automation is flexible and adaptable to various environments.
+These :term[keyword libraries]{term="Keyword Library"} enable interaction with different technologies and interfaces, ensuring the automation is flexible and adaptable to various environments.
 
 Editors/IDEs that offer support for Robot Framework's syntax are tools that support or integrate in these layers.
-When writing tests|tasks or keywords, the editor supports the definition layer.
+When writing tests|tasks or :term[keywords]{term="Keyword"}, the editor supports the :term[definition layer]{term="Definition Layer"}.
 When executing or debugging tests|tasks, the editor supports the execution layer.
-When writing keywords in e.g. Python for keyword libraries, the editor supports the adaptation layer.
+When writing keywords in e.g. Python for keyword libraries, the editor supports the :term[adaptation layer]{term="Adaptation Layer"}.
 Therefore also other additional extensions of Robot Framework can be categorized into these layers.
 
 {/* TODO: add a graphic here */}
@@ -54,7 +54,7 @@ Recall what is part of Robot Framework and what is not
 ::::
 
 
-Robot Framework itself focuses primarily on **test|task execution**.
+Robot Framework itself focuses primarily on **test|:term[task]{term="Task"} execution**.
 It includes:
 
 - A parser to read test|task data and build an execution model.
@@ -65,7 +65,7 @@ It includes:
 
 However, Robot Framework **does not** include:
 
-- Keyword libraries to control systems under test/RPA.
+- Keyword libraries to control systems under test/:term[RPA]{term="Robotic Process Automation"}.
 
   Such as:
   - Web front-end automation libraries.
@@ -99,6 +99,10 @@ Robot Framework is built on **Python** but is adaptable to other languages and t
 To run Robot Framework, an [officially supported version](https://devguide.python.org/versions/) of the **Python interpreter** is required on the machine executing the tests|tasks.
 Typically, Robot Framework and its libraries are installed via the "package installer for Python" (`pip`) from [PyPI](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
 Robot Framework itself does not have any external dependencies, but additional third party tools or keyword libraries may require additional installations.
+
+
+
+
 
 
 
