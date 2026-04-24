@@ -18,6 +18,22 @@ jobs:
           ref: ${{ github.event.release.tag_name }}
           fetch-depth: 0
 
+      - name: Verify matching versioned docs exist
+        shell: bash
+        run: |
+          RELEASE_TAG="${{ github.event.release.tag_name }}"
+          DOCS_DIR="website/versioned_docs/${RELEASE_TAG}"
+
+          if [[ ! -d "${DOCS_DIR}" ]]; then
+            echo "::error::Missing docs snapshot for release tag '${RELEASE_TAG}'."
+            echo "Expected directory: ${DOCS_DIR}"
+            echo "Available directories in website/versioned_docs:"
+            ls -1 website/versioned_docs || true
+            exit 1
+          fi
+
+          echo "Found matching docs directory: ${DOCS_DIR}"
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
