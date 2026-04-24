@@ -156,7 +156,7 @@
 		"definition": "Variable with global scope that can be accessed from all suites and keywords in a Robot Framework execution."
 	},
 	{
-		"term": "IF statement",
+		"term": "IF Statement",
 		"aliases": ["IF/ELSE"],
 		"abbreviation": "IF",
 		"definition": "Control structure in Robot Framework used to execute one block of statements when a condition is true and optionally alternative blocks with `ELSE IF` or `ELSE` when it is not."
