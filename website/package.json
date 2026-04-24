@@ -8,6 +8,8 @@
     "start": "docusaurus start",
     "start-public": "docusaurus start --host 0.0.0.0",
     "build": "docusaurus build",
+    "build:preview": "DOCS_BUILD_MODE=preview npm run build",
+    "build:production": "DOCS_BUILD_MODE=production npm run build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

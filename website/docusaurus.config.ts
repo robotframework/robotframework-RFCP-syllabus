@@ -7,6 +7,16 @@ import remarkDirective from "remark-directive";
 import remarkTermDirective from "./src/remark/remark-term-directive.js";
 import codeMaxLineLength from './src/remark/remark-code-max-line-length.js';
 
+const rawDocsBuildMode = process.env.DOCS_BUILD_MODE ?? 'preview';
+
+if (!['preview', 'production'].includes(rawDocsBuildMode)) {
+  throw new Error(
+    `Invalid DOCS_BUILD_MODE: "${rawDocsBuildMode}". Expected "preview" or "production".`,
+  );
+}
+
+const includeCurrentVersion = rawDocsBuildMode === 'preview';
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -34,6 +44,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          includeCurrentVersion,
           admonitions: {
             keywords: ['lo', 'K1', 'K2', 'K3', 'note', 'tip', 'info', 'warning', 'danger'],
             extendDefaults: true,
@@ -106,6 +117,12 @@ const config = {
             label: 'LOs',
             to: '/docs/learning_objectives',
             position: 'left',
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            docsPluginId: 'default',
+            dropdownActiveClassDisabled: true,
           },
         ],
       },
