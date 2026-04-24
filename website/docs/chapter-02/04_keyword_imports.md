@@ -37,9 +37,6 @@ From a user perspective there are three different kinds of libraries:
 - **3rd Party Libraries** / **External Libraries**: These are libraries that have been developed and maintained by community members and have to be installed/downloaded separately.
 - **Custom Libraries**: These libraries are developed by the users themselves to solve specific problems or to encapsulate more complex functionality.
 
-Further more detailed information about the different types of libraries is described in later chapters.
-{/* TODO: Do we fulfill this promise? */}
-
 To import a library into a suite or resource file the `Library` setting is used in the `*** Settings ***` section followed by the name of the library as long as it is located in the Python module search path, which automatically happens if it is installed via `pip`.
 The name of the library is case-sensitive and should be taken from the library's keyword documentation.
 By default, libraries in Robot Framework are implemented in Python and the name of the library is the name of the Python module that contains the library implementation.
