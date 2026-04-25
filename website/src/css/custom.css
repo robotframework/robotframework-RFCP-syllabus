@@ -583,3 +583,8 @@ h6 {
   font-family: var(--ifm-font-family-heading);
   letter-spacing: -0.11em;
 }
+
+/* Hide the per-page version badge; the navbar version dropdown is sufficient */
+.theme-doc-version-badge {
+  display: none;
+}
