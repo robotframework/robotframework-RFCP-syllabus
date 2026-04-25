@@ -231,7 +231,7 @@
 		"term": "Mandatory Argument",
 		"aliases": [],
 		"abbreviation": "",
-		"definition": "Argument kind in a keyword specification without a default value that must be provided in calls and that precedes optional arguments."
+		"definition": "Argument kind in a keyword specification without a default value that must be provided in calls and that precedes optional arguments. See [Defining Mandatory Arguments](/docs/chapter-03/user_keyword#3351-defining-mandatory-arguments)."
 	},
 	{
 		"term": "Suite Metadata",
