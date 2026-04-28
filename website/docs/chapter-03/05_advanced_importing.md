@@ -50,7 +50,7 @@ The respective files could look like this:
 ```robotframework
 *** Settings ***
 Library    A
-Library    Operating System
+Library    OperatingSystem
 ```
 
 **tech_keywordsB.resource:**
