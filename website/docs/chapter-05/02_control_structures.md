@@ -294,7 +294,7 @@ Get Older Participants
         Log    Participant ${participant.name} is older than 40
         # ^ Logs participant name if age is above the minimum
         Append To List    ${older_participants}    ${participant}
-        # ^ BuiltIn keyword to append a value to a list
+        # ^ Collections keyword to append a value to a list
     END
     RETURN    ${older_participants}
 ```
