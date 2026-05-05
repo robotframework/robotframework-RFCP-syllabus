@@ -97,7 +97,7 @@ Recall the technology Robot Framework is built on and the prerequisites for runn
 
 Robot Framework is built on **Python** but is adaptable to other languages and technologies through external libraries.
 To run Robot Framework, an [officially supported version](https://devguide.python.org/versions/) of the **Python interpreter** is required on the machine executing the tests|tasks.
-Typically, Robot Framework and its libraries are installed via the "package installer for Python" (`pip`) from [PyPi.org](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
+Typically, Robot Framework and its libraries are installed via the "package installer for Python" (`pip`) from [PyPI](https://pypi.org/project/robotframework/), allowing for straightforward installation and setup.
 Robot Framework itself does not have any external dependencies, but additional third party tools or keyword libraries may require additional installations.
 
 

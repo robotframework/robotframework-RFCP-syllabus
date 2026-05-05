@@ -38,7 +38,7 @@ Understand how transitive imports of resource files and libraries work.
 Let's assume the following libraries and resource files shall be used:
 - **Library**    `A`
 - **Library**    `B`
-- **Library**    `Operating System`
+- **Library**    `OperatingSystem`
 - **Resource**    `tech_keywordsA.resource`
 - **Resource**    `tech_keywordsB.resource`
 - **Resource**    `variables.resource`
@@ -50,7 +50,7 @@ The respective files could look like this:
 ```robotframework
 *** Settings ***
 Library    A
-Library    Operating System
+Library    OperatingSystem
 ```
 
 **tech_keywordsB.resource:**
