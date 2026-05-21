@@ -8,6 +8,8 @@
     "start": "docusaurus start",
     "start-public": "docusaurus start --host 0.0.0.0",
     "build": "docusaurus build",
+    "build:preview": "DOCS_BUILD_MODE=preview npm run build",
+    "build:production": "DOCS_BUILD_MODE=production npm run build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -18,9 +20,9 @@
     "generate:createQuizList": "node src/components/Quiz/quizPrebuild.js"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.10.0",
-    "@docusaurus/preset-classic": "^3.10.0",
-    "@docusaurus/faster": "^3.10.0",
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/faster": "^3.10.1",
+    "@docusaurus/preset-classic": "^3.10.1",
     "@mdx-js/react": "^3.1.1",
     "@shikijs/langs": "^3.14.0",
     "@shikijs/themes": "^3.14.0",
@@ -39,9 +41,9 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.10.0",
-    "@docusaurus/tsconfig": "^3.10.0",
-    "@docusaurus/types": "^3.10.0",
+    "@docusaurus/module-type-aliases": "^3.10.1",
+    "@docusaurus/tsconfig": "^3.10.1",
+    "@docusaurus/types": "^3.10.1",
     "remark-directive": "^4.0.0",
     "typescript": "~5.9.3"
   },

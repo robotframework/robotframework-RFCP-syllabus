@@ -8,6 +8,13 @@ export default function codeMaxLineLength(options = {}) {
   const max = options.max ?? 100;
 
   return (tree, file) => {
+    const sourcePath = file.path ?? file.history?.[0] ?? '';
+
+    // Versioned docs are snapshots and should not fail on current lint rules.
+    if (/(^|[\\/])versioned_docs([\\/]|$)/.test(sourcePath)) {
+      return;
+    }
+
     visit(tree, 'code', (node) => {
       // Optional: allow opt-out with "nolint" in code block meta:
       // ```js nolint

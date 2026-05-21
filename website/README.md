@@ -30,6 +30,20 @@ $ npm run build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+Build modes:
+
+```
+$ npm run build:preview
+```
+
+Builds docs with both released versions and `next` content.
+
+```
+$ npm run build:production
+```
+
+Builds docs with released versions only (hides `next`).
+
 ### Deployment
 
 Using SSH:
