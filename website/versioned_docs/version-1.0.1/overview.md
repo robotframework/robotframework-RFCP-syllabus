@@ -115,7 +115,7 @@ This includes tracking which participants have earned certifications, maintainin
 
 Our current exclusive exam provider is the [Global Association for Software Quality](https://www.gasq.org/en/home.html).
 
-Global Association for Software Quality , abbreviated GASQ,
+Global Association for Software Quality, abbreviated GASQ,
 is an international exam provider and a leading association in the software quality industry.
 GASQ was founded by experts from Europe, Asia and America as an independent,
 international non-profit association aiming to advocate and promote software quality in research, teaching and industry.
