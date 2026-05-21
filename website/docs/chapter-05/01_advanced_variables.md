@@ -436,7 +436,7 @@ Robot Framework has a set of built-in variables that can be used in test cases, 
 | `${SPACE}`         | A single space character.                                                                                                                                      |
 | `${CURDIR}`        | An absolute path to the directory where the current suite or resource file is located. This variable is case-sensitive.                                        |
 | `${EXECDIR}`       | An absolute path to the directory where test execution was started from.                                                                                       |
-| `${OUTPUT_DIR}`    | An absolute path to the directory where output files, like `output.xml`, `log.html`, and `report.html`, are written.                                           |
+| `${OUTPUT_DIR}`    | An absolute path to the directory where execution artifacts, like `output.xml`, `log.html`, and `report.html`, are written.                                           |
 | `${TEMPDIR}`       | An absolute path to the system temporary directory. In UNIX-like systems, this is typically `/tmp`, and in Windows, it is `c:\Documents and Settings\<user>\Local Settings\Temp`. |
 
 Additionally, suite-related or test|task-related variables are available. These variables can have different values during test execution, and some are not available at all times. Altering the value of these variables does not affect the original values.
