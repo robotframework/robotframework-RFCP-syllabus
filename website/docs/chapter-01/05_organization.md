@@ -1,4 +1,3 @@
-
 # 1.5 Organization and Licensing
 
 ## 1.5.1 Open Source License
@@ -36,7 +35,7 @@ List and recall the key objectives and organizational form of the Robot Framewor
 
 ::::
 
-The **Robot Framework Foundation** (officially known as **Robot Framework ry**) is a non-profit association based in Helsinki, Finland, dedicated to promoting the use, development, and maintenance of the open-source Robot Framework. The foundation ensures that Robot Framework remains freely available and viable for both test automation and robotic process automation (RPA) in the future.
+The **Robot Framework Foundation** (officially known as **Robot Framework ry**) is a non-profit association based in Helsinki, Finland, dedicated to promoting the use, development, and maintenance of the open-source Robot Framework. The foundation ensures that Robot Framework remains freely available and viable for both :term[test]{term="Test Case"} automation and :term[robotic process automation]{term="Robotic Process Automation"} (RPA) in the future.
 
 Key objectives of the foundation include:
 
@@ -46,7 +45,7 @@ Key objectives of the foundation include:
 
 - **Platform Maintenance**: The foundation is responsible for maintaining key infrastructure, such as the official website, GitHub repositories, and community platforms. These resources are crucial to sustaining a healthy ecosystem and fostering collaboration among users and contributors.
 
-- **Community Support and Events**: The foundation plays a central role in organizing **RoboCon**, the annual Robot Framework User Conference, which brings together users, developers, and contributors to share knowledge and insights. Additionally, it helps to disseminate knowledge about test automation and RPA through community events and documentation efforts.
+- **Community Support and Events**: The foundation plays a central role in organizing **RoboCon**, the annual Robot Framework User Conference, which brings together users, developers, and contributors to share knowledge and insights. Additionally, it helps to disseminate knowledge about :term[test]{term="Test Case"} automation and :term[RPA]{term="Robotic Process Automation"} through community events and documentation efforts.
 
 - **Funding of Ecosystem Projects**: Whenever possible, the foundation finances open-source projects that are proposed by community members, aiming to support broader ecosystem development and innovation.
 
@@ -75,3 +74,7 @@ These include:
 
 - **[robotframework.org](https://robotframework.org/)**: The main page providing an overview, documentation, and access to resources.
 - **[github.com/robotframework](https://github.com/robotframework)**: The official repository for the framework's source code and other components.
+
+
+
+

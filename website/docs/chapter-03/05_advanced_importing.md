@@ -1,4 +1,3 @@
-
 # 3.5 Advanced Importing of Keywords and Naming Conflicts
 
 ::::lo[Learning Objectives]
@@ -11,15 +10,15 @@ Recall that naming conflicts can arise from the import of multiple resource file
 
 ::::
 
-As stated before, it is possible to organize imports and available keywords in Robot Framework by using Resource Files.
-By default, all keywords or variables created or imported in a resource file are available to those suites and files that are importing that higher-level resource file.
+As stated before, it is possible to organize imports and available :term[keywords]{term="Keyword"} in Robot Framework by using :term[Resource Files]{term="Resource File"}.
+By default, all :term[keywords]{term="Keyword"} or :term[variables]{term="Variable"} created or imported in a :term[resource file]{term="Resource File"} are available to those suites and files that are importing that higher-level :term[resource file]{term="Resource File"}.
 
 This can lead to complex import hierarchies or the importing of libraries multiple times, which should be avoided.
 
-Due to this mechanism, the number of keywords available to a suite can be quite large, and naming conflicts, especially with keywords from third-party keyword libraries, can occur. These conflicts need to be resolved.
+Due to this mechanism, the number of keywords available to a suite can be quite large, and naming conflicts, especially with keywords from third-party :term[keyword libraries]{term="Keyword Library"}, can occur. These conflicts need to be resolved.
 
 
-Some keyword libraries have the option to be configured to change their behavior, which may also change the available keywords they offer.
+Some :term[keyword]{term="Keyword"} libraries have the option to be configured to change their behavior, which may also change the available keywords they offer.
 
 
 
@@ -35,16 +34,8 @@ Understand how transitive imports of resource files and libraries work.
 
 ::::
 
-Let's assume the following libraries and resource files shall be used:
-- **Library**    `A`
-- **Library**    `B`
-- **Library**    `OperatingSystem`
-- **Resource**    `tech_keywordsA.resource`
-- **Resource**    `tech_keywordsB.resource`
-- **Resource**    `variables.resource`
-- **Resource**    `functional_keywords.resource`
-
-The respective files could look like this:
+Let's assume the following libraries and :term[resource files]{term="Resource File"} shall be used:
+- **Library**    `A`- **Library**    `B`- **Library**    `Operating System`- **Resource**    `tech_keywordsA.resource`- **Resource**    `tech_keywordsB.resource`- **Resource**    `variables.resource`- **Resource**    `functional_keywords.resource`The respective files could look like this:
 
 **tech_keywordsA.resource:**
 ```robotframework
@@ -73,8 +64,8 @@ Resource    tech_keywordsB.resource
 Resource    functional_keywords.resource
 ```
 
-In this case, the suite `suite.robot` has access to all keywords from all keyword libraries, as well as all variables and user keywords from all resource files.
-With this transitive importing it is possible to organize user keywords and imports of libraries in a hierarchical way.
+In this case, the suite `suite.robot` has access to all keywords from all :term[keyword libraries]{term="Keyword Library"}, as well as all :term[variables]{term="Variable"} and :term[user keywords]{term="User Keyword"} from all resource files.
+With this transitive importing it is possible to organize :term[user keywords]{term="User Keyword"} and imports of libraries in a hierarchical way.
 
 It shall be avoided to create circular imports, where `A.resource` imports `B.resource` and `B.resource` imports `A.resource`.
 
@@ -104,8 +95,8 @@ This is typically global behavior like internal timeouts, connection settings to
 
 If this is possible, the library documentation will have an `Importing` section directly before the list of keywords.
 
-Library importing arguments are used in the same way as keyword calls with arguments.
-If possible, it is recommended to set the arguments as named arguments to make usage more readable and future-proof.
+Library importing :term[arguments]{term="Argument"} are used in the same way as :term[keyword]{term="Keyword"} calls with :term[arguments]{term="Argument"}.
+If possible, it is recommended to set the arguments as :term[named arguments]{term="Named Argument"} to make usage more readable and future-proof.
 These arguments follow the Library path or name, separated by multiple spaces.
 
 Example with the [Telnet library](https://robotframework.org/robotframework/latest/libraries/Telnet.html#Importing):
@@ -117,8 +108,7 @@ Library    Telnet    newline=LF    encoding=ISO-8859-1
 
 Another example that cannot be used without configuration is the Remote library.
 Remote libraries are libraries that are connected remotely via a network connection.
-So the actual library is running as a server, and the library `Remote`
-is connecting as a client and connects the keywords of the server to Robot Framework.
+So the actual library is running as a server, and the library `Remote`is connecting as a client and connects the keywords of the server to Robot Framework.
 Therefore, it needs the server's address and port to connect to.
 Because there may be more than one Remote Library, we need to define the used library name as well.
 ```robotframework
@@ -146,14 +136,13 @@ Explain how naming conflicts can happen and how to mitigate them.
 ::::
 
 Naming conflicts can occur when two or more keywords have the same name.
-If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate user keyword name.
+If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate :term[user keyword]{term="User Keyword"} name.
 
 Project teams may not have this influence over imported third-party libraries that have the same keyword names.
 Due to the fact that keywords from library and resource files are imported in the scope of the importing suite, it may be unavoidable to have naming conflicts.
 
 One example of these kinds of conflicts is the two libraries
-[`Telnet`](https://robotframework.org/robotframework/latest/libraries/Telnet.html)
-and [`SSHLibrary`](https://marketsquare.github.io/SSHLibrary/SSHLibrary.html),
+[`Telnet`](https://robotframework.org/robotframework/latest/libraries/Telnet.html)and [`SSHLibrary`](https://marketsquare.github.io/SSHLibrary/SSHLibrary.html),
 which at the current time both have multiple keywords with the same name.
 This is because they both work with network connections and have similar functionality.
 Keywords like `Open Connection`, `Login`, `Read`, `Close Connection`, and many more are common.
@@ -193,4 +182,8 @@ Using Remote Libraries
     EmbeddedAPI.Close Contact   15
     DeviceAPI.Verify Contact    15    1
 ```
+
+
+
+
 

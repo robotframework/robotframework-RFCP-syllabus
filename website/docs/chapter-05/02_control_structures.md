@@ -1,8 +1,7 @@
-
 # 5.2 Control Structures
 
-Robot Framework is a Turing-complete language and supports all common control structures, including IF-Statements, FOR-Loops, WHILE-Loops and more.
-While it is not expected that RFCPs can write complex control structures, they should understand their purpose.
+Robot Framework is a Turing-complete language and supports all common :term[control structures]{term="Control Structure"}, including IF-Statements, FOR-Loops, WHILE-Loops and more.
+While it is not expected that RFCPs can write complex :term[control structures]{term="Control Structure"}, they should understand their purpose.
 
 In some cases, it is necessary to use control structures to handle different cases, iterate over a list of values, or execute an action until a condition is met.
 
@@ -19,12 +18,12 @@ Understand the purpose and basic concept of IF-Statements
 
 ::::
 
-The `IF` / `ELSE IF` / `ELSE` syntax in Robot Framework is used to control the flow of test|task execution by allowing certain keywords to run only when specific conditions are met.
-This is achieved by evaluating conditions written as Python expressions, enabling dynamic decision-making within your tests|tasks.
+The `IF` / `ELSE IF` / `ELSE` syntax in Robot Framework is used to control the flow of :term[test]{term="Test Case"}|:term[task]{term="Task"} execution by allowing certain :term[keywords]{term="Keyword"} to run only when specific conditions are met.
+This is achieved by evaluating conditions written as Python expressions, enabling dynamic decision-making within your tests|:term[tasks]{term="Task"}.
 
-The `IF` statement begins with the `IF` token and ends with an `END`, enclosing the keywords executed when the condition is true.
+The `IF` statement begins with the `IF` token and ends with an `END`, enclosing the :term[keywords]{term="Keyword"} executed when the condition is true.
 An optional `ELSE` or `ELSE IF` can specify alternative actions when the initial condition is false.
-This structure enhances the flexibility and responsiveness of your tests|tasks, allowing them to adapt based on variables and outcomes encountered during execution.
+This structure enhances the flexibility and responsiveness of your tests|:term[tasks]{term="Task"}, allowing them to adapt based on :term[variables]{term="Variable"} and outcomes encountered during execution.
 
 
 ### 5.2.1.1 Basic IF Syntax
@@ -46,7 +45,7 @@ Check Status
     END
 ```
 
-It executes the `Log` keyword if `${status}` is the string `SUCCESS`.
+It executes the `Log` :term[keyword]{term="Keyword"} if `${status}` is the string `SUCCESS`.
 
 ## 5.2.2 IF/ELSE Structure
 
@@ -76,7 +75,7 @@ Evaluate Score
 
 ## 5.2.3 Inline IF Statement
 
-For single conditional keywords, the simplified inline IF statement can be used.
+For single conditional keywords, the simplified :term[inline IF]{term="Inline IF"} statement can be used.
 
 ```robotframework title="Structure"
 IF    <condition>    <keyword>    [arguments]
@@ -88,9 +87,9 @@ Quick Check
     IF    $user == 'Admin'    Log    Admin access granted.
 ```
 
-Executes the `Log` keyword if `${user}` equals the string `'Admin'`.
+Executes the `Log` :term[keyword]{term="Keyword"} if `${user}` equals to the string `'Admin'`.
 
-No `END` is needed for inline IF.
+No `END` is needed for :term[inline IF]{term="Inline IF"}.
 
 ## 5.2.4 FOR Loops
 
@@ -107,7 +106,7 @@ Understand the purpose and basic concept of FOR Loops
 The `FOR` loop in Robot Framework repeats a set of keywords multiple times, iterating over a sequence of values.
 This allows you to perform the same actions for different items without duplicating code, enhancing the efficiency and readability of your keyword logic.
 
-Robot Framework has four types of FOR loops; this chapter focuses on the basic `FOR-IN` loop.
+Robot Framework has four types of :term[FOR loops]{term="FOR Loop"}; this chapter focuses on the basic `FOR-IN` loop.
 - `FOR-IN` is used to iterate over a list of values.
 
 The other types are `FOR-IN-RANGE`, `FOR-IN-ENUMERATE`, and `FOR-IN-ZIP`, which are more advanced and less commonly required.
@@ -115,7 +114,7 @@ The other types are `FOR-IN-RANGE`, `FOR-IN-ENUMERATE`, and `FOR-IN-ZIP`, which 
 - `FOR-IN-ENUMERATE` iterates over a list of values and their indexes.
 - `FOR-IN-ZIP` iterates over multiple lists simultaneously.
 
-The `FOR` loop begins with the `FOR` token, followed by a loop variable, the `IN` token, and the iterable variable or list of values.
+The `FOR` loop begins with the `FOR` token, followed by a loop :term[variable]{term="Variable"}, the `IN` token, and the iterable :term[variable]{term="Variable"} or list of values.
 The loop variable takes on each value in the sequence one at a time, executing the enclosed keywords for each value.
 
 
@@ -130,7 +129,7 @@ FOR    ${loop_variable}    IN    <value1>    <value2>    ...    <valueN>
 END
 ```
 
-Since `<value1>    <value2>    ...    <valueN>` can be the same as an unpacked list like `@{values}`, this is the most common way to use the FOR loop.
+Since `<value1>    <value2>    ...    <valueN>` can be the same as an unpacked list like `@{values}`, this is the most common way to use the :term[FOR loop]{term="FOR Loop"}.
 
 ```robotframework title="Structure"
 FOR    ${loop_variable}    IN    @{iterable_values}
@@ -214,7 +213,7 @@ Scroll Down Until Element Visible
 ```
 
 `WHILE` loops have a configurable iteration limit in Robot Framework.
-When the maximum number of iterations is reached, the loop exits with a failure, causing the test|task or keyword to fail.
+When the maximum number of iterations is reached, the loop exits with a failure, causing the :term[test]{term="Test Case"}|:term[task]{term="Task"} or keyword to fail.
 This prevents infinite loops and ensures that tests|tasks do not hang indefinitely.
 
 
@@ -298,3 +297,8 @@ Get Older Participants
     END
     RETURN    ${older_participants}
 ```
+
+
+
+
+

@@ -1,4 +1,3 @@
-
 # 3.4 Using Data-Driven Specification
 
 ::::lo[Learning Objectives]
@@ -11,7 +10,7 @@ Understand the basic concept and syntax of Data-Driven Specification
 
 ::::
 
-The **Data-Driven Specification** style in Robot Framework separates test|task logic from data, enabling tests|tasks to be executed with multiple data sets efficiently. This approach involves using a single higher-level keyword to represent the entire workflow, while the test data is defined as rows of input and expected output values.
+The **Data-Driven Specification** style in Robot Framework separates :term[test]{term="Test Case"}|:term[task]{term="Task"} logic from data, enabling tests|:term[tasks]{term="Task"} to be executed with multiple data sets efficiently. This approach involves using a single higher-level :term[keyword]{term="Keyword"} to represent the entire workflow, while the :term[test data]{term="Test Data"} is defined as rows of input and expected output values.
 
 ## 3.4.1 Test|Task Templates
 
@@ -31,10 +30,10 @@ Recall the differences between the two different approaches to define Data-Drive
 
 ::::
 
-For each test|task, a template keyword can be defined that contains the workflow logic.
+For each :term[test]{term="Test Case"}|:term[task]{term="Task"}, a template :term[keyword]{term="Keyword"} can be defined that contains the workflow logic.
 
 At the suite level, the `Test Template` or `Task Template` setting can be used to specify that keyword.
-All tests|tasks in the suite will reuse this keyword for execution with different data sets.
+All tests|:term[tasks]{term="Task"} in the suite will reuse this keyword for execution with different data sets.
 
 Alternatively, the `[Template]` setting can be used at the test|task level.
 The tests|tasks would not have any other keyword calls but would instead define the data rows to be passed to the template keyword.
@@ -74,7 +73,7 @@ Empty Password                    ${VALID USER}    ${EMPTY}
 
 The advantage of this approach is that each test|task is executed separately with its own name and data set.
 Each test|task appears in the statistics and reports.
-Single tests|tasks can be filtered and re-executed or tagged, like the test case `Empty User Name and Password`.
+Single tests|tasks can be filtered and re-executed or tagged, like the :term[test case]{term="Test Case"} `Empty User Name and Password`.
 
 It is possible to add header names to the data columns in the line of `*** Test Cases ***` or `*** Tasks ***` to describe the data columns to improve readability.
 
@@ -94,7 +93,7 @@ Recall the syntax and properties of named test|task with multiple data rows
 A slightly different approach is to define multiple data rows for a single test|task.
 
 This is still possible with a single template defined in the `*** Settings ***` section, but in this case it would also make sense to define the template locally for each test|task with the `[Template]` setting.
-With this approach, it is possible to define different scenarios in the same suite file, which can be useful for testing different aspects of the same functionality.
+With this approach, it is possible to define different scenarios in the same :term[suite file]{term="Suite File"}, which can be useful for testing different aspects of the same functionality.
 
 ```robotframework
 *** Test Cases ***
@@ -120,10 +119,14 @@ This approach creates only a single test|task for multiple data rows in the logs
 
 However, this approach has also its drawbacks:
 
-- Test|task setup and teardown are executed only once for all data rows of one test|task.
+- :term[Test|task setup]{term="Test|Task Setup"} and teardown are executed only once for all data rows of one test|task.
   If there is a setup and teardown needed for each data row, a keyword setup or teardown is needed.
 - The test|task name is not unique for each data row, which can make it harder to understand the failing data row in the logs.
 - Filtering and re-execution of some or single data rows is not possible.
+
+
+
+
 
 
 
