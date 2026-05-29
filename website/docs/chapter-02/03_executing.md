@@ -171,7 +171,7 @@ Exceptions are teardowns, as explained in [Chapter 4: Advanced Structuring and E
 **Atomic elements** are `FAIL` if they were tried to be executed but raised an exception.
 
 **Composite elements** are `FAIL` if at least one of their executed direct body elements is `FAIL`.
-Therefore a failure typically distributes upwards through the hierarchy of elements until it reaches the root suite.
+Therefore a failure typically distributes upward through the hierarchy of elements until it reaches the root suite.
 
 A User Keyword is `FAIL` if one of its called Library Keywords is `FAIL`.
 A test|task is `FAIL` if one of its directly called Keywords is `FAIL`.
