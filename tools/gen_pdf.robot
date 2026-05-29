@@ -5,7 +5,7 @@ Library     Process
 
 
 *** Variables ***
-@{EXCLUDE_FROM_PDF}    Example Questions    Download Syllabus PDF
+@{EXCLUDE_FROM_PDF}    Example Exam    Download Syllabus PDF
 ${BROWSER}    chromium
 ${HEADLESS}    ${True}
 
