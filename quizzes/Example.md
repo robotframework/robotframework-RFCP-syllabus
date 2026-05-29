@@ -116,7 +116,7 @@ _(Use Drag&Drop to match)_
 
 1. [ ] Tags are case-sensitive labels used for grouping suites and tests|tasks.
     > Tags are case-insensitive and only used for tests|tasks or keywords.
-1. [ ] Tags are assigned to suites to create statistical summary of the suite results.
+1. [ ] Tags are assigned to suites to create a statistical summary of the suite results.
     > Tags are assigned to tests|tasks, not to suites, even though a default can be configured in the suite setting, which result in automatic tagging of all tests|tasks within that suite.
 1. [x] Tags offer a simple mechanism for classifying and controlling the execution of tests|tasks.
 1. [ ] Only pre-defined tags, such as `smoke`, `regression`, and `critical` can be assigned to tests|tasks
@@ -125,7 +125,7 @@ _(Use Drag&Drop to match)_
 
 ### In the given scenario which of the test cases logs only a single entry
 
-_Read_ the keyword explaination carefully to understand the given scenario!
+_Read_ the keyword explanation carefully to understand the given scenario!
 
 ## _Keyword:_ Log Many
 
