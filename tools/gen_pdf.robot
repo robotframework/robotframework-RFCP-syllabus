@@ -1,10 +1,11 @@
 *** Settings ***
 Library     Browser
+Library     Collections
 Library     Process
 
 
 *** Variables ***
-@{EXCLUDE_FROM_PDF}    Example Questions
+@{EXCLUDE_FROM_PDF}    Example Questions    Download Syllabus PDF
 ${BROWSER}    chromium
 ${HEADLESS}    ${True}
 
@@ -20,7 +21,7 @@ Gen Syllabus
 
 *** Keywords ***
 Build Docusaurus
-    Process.Run Process    npm    run    build    cwd=website
+    Process.Run Process    npm    run    build:production    cwd=website
     Process.Start Process    npm    run    serve    alias=docusaurus    cwd=website
 
 Open Syllabus
@@ -46,24 +47,27 @@ Expand Menues
 
 Generate Syllabus.pdf
     ${pages}    Get Elements    .theme-doc-sidebar-item-link
-    ${writer}    Evaluate    pypdf.PdfWriter()
+    VAR    ${syllabus_version}    ${{json.load(open('website/versions.json'))[0]}}
+    VAR    @{pdf_files}
     FOR    ${page}    IN    @{pages}
+        ${title}    Get Text    ${page}
+        IF    $title in $EXCLUDE_FROM_PDF    CONTINUE
         Click    ${page}
-        ${title}    Get Title
-        IF    $title.split('|', 1)[0].strip() in $EXCLUDE_FROM_PDF    CONTINUE
         Scroll To    vertical=bottom    behavior=smooth
         sleep    1s
         ${title}    Get Title    then    value.split("|")[0]
         ${file}    Save Page As Pdf
         ...    pdfs/${title.replace('/', '_').strip()}.pdf
-        ...    displayHeaderFooter=True
+        # ...    displayHeaderFooter=False
         ...    format=A4
         ...    outline=True
-        ...    margin={'top': '20px', 'right': '20px', 'bottom': '20px', 'left': '20px'}
+        ...    margin={'top': '20px', 'right': '60px', 'bottom': '80px', 'left': '20px'}
         ...    printBackground=True
         ...    tagged=True
         ...    scale=0.8
+        ${url}    Get Url
         Log To Console    ${file}
-        Evaluate    $writer.append($file)
+        Append To List    ${pdf_files}    ${{($file, $url)}}
     END
-    Evaluate    $writer.write("Syllabus.pdf")
+    Evaluate    __import__('sys').path.insert(0, 'tools')
+    Evaluate    __import__('pdf_postprocess').postprocess($pdf_files, "website/static/pdfs/RFCP-Syllabus-${syllabus_version}.pdf")

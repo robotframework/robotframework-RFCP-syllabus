@@ -1,2 +1,4 @@
 robotframework-browser-batteries
 pypdf
+reportlab
+fonttools

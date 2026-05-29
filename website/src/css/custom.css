@@ -588,3 +588,41 @@ h6 {
 .theme-doc-version-badge {
   display: none;
 }
+
+@media print {
+  nav {
+    display: none !important;
+  }
+
+  footer {
+    display: none !important;
+  }
+
+  .theme-doc-sidebar-container {
+    display: none !important;
+  }
+
+  .pagination-nav {
+    display: none !important;
+  }
+
+  .markdown h1 {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .markdown h1:first-of-type {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  pre,
+  code,
+  .alert,
+  .theme-admonition,
+  .theme-code-block,
+  .tabs-container {
+    break-inside: avoid;
+    page-break-inside: avoid; /* older browser fallback */
+  }
+}

@@ -1,3 +1,8 @@
 {
-  "label": "Chapter 1"
+    "label": "1 Introduction to Robot Framework",
+    "position": 2,
+    "link": {
+        "type": "doc",
+        "id": "chapter-01/overview"
+    }
 }

@@ -2,11 +2,15 @@ import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
+import versions from '../../versions.json';
+
+const currentVersion = versions[0];
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -27,11 +31,12 @@ function HomepageHeader() {
           </p>
         </div>
           <div className={styles.buttons}>
-            <Link
+            <a
               className="button button--secondary button--lg"
-              href="https://raw.githubusercontent.com/robotframework/robotframework-RFCP-syllabus/main/Syllabus.pdf">
-              Download the Syllabus PDF
-            </Link>
+              href={useBaseUrl(`/pdfs/RFCP-Syllabus-${currentVersion}.pdf`)}
+              download>
+              Download the Syllabus PDF ({currentVersion})
+            </a>
           </div>
       </div>
     </header>

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prebuild": "npm run generate:createQuizList",
+    "prebuild": "node scripts/patch-versioned-sidebars.js && npm run generate:createQuizList",
+    "postbuild": "node scripts/patch-versioned-sidebars.js restore",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "start-public": "docusaurus start --host 0.0.0.0",
