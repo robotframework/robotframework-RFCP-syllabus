@@ -11,10 +11,10 @@ Recall the purpose of Test|Task Tags in Robot Framework
 
 ::::
 
-In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|tasks.
-Tags are free-form text labels that can be assigned to tests|tasks to provide meta information, enable flexible test selection, and organize test results.
+In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|:term[tasks]{term="Task"}.
+Tags are free-form text labels that can be assigned to tests|tasks to provide metadata, enable flexible test selection, and organize :term[test]{term="Test Case"} results.
 
-Tags are also used to create a statistical summary of the test|task results in the execution protocols.
+Tags are also used to create a statistical summary of the test|:term[task]{term="Task"} results in the execution protocols.
 
 **Important Note**: Tags are case-insensitive in Robot Framework, but the first appearance of a tag in a test|task is used as the tag name in reports and logs in its current case.
 
@@ -70,7 +70,7 @@ Tags can be assigned to tests|tasks in several ways:
 
     This test|task will have a tag `environment:production`.
 
-4. **By Keyword `Set Tags` or `Remove Tags`** to dynamically assign or remove tags during test|task execution:
+4. **By :term[Keyword]{term="Keyword"} `Set Tags` or `Remove Tags`** to dynamically assign or remove tags during test|task execution:
 
     See [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Set%20Tags) library documentation for more information.
 
@@ -154,10 +154,11 @@ Examples:
 ## 4.4.3 Reserved Tags
 
 Tags starting with `robot:` are reserved for internal use by Robot Framework and should not be used in user-defined tags.
-Using your own tags with this prefix may lead to unexpected behavior in test execution and reporting.
+Using own tags with this prefix may lead to unexpected behavior in test execution and reporting.
 
 - `robot:exclude`: Marks tests|tasks that should be excluded from execution similar to `--exclude`.
 - `robot:skip`: Marks tests|tasks that should be skipped during execution similar to `--skip`.
+
 
 
 

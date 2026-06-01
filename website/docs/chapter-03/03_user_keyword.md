@@ -1,18 +1,18 @@
 
 # 3.3 User Keyword Definition & Arguments
 
-User Keywords in Robot Framework allow users to create their own
-keywords by combining existing keywords into reusable higher-level actions.
+:term[User Keywords]{term="User Keyword"} in Robot Framework allow users to create their own
+keywords by combining existing :term[keywords]{term="Keyword"} into reusable higher-level actions.
 They help improve readability, maintainability, and modularity in
 automation by abstracting complex sequences into named actions.
-User Keywords are defined syntactically very similarly to tests|tasks
-and are defined in the `*** Keywords ***` section of a suite file or resource file.
+User Keywords are defined syntactically very similarly to tests|:term[tasks]{term="Task"}
+and are defined in the `*** Keywords ***` section of a :term[suite file]{term="Suite File"} or :term[resource file]{term="Resource File"}.
 
 
 
 ## 3.3.1 `*** Keywords ***` Section
 
-The `*** Keywords ***` section of suite and resource files
+The `*** Keywords ***` section of suite and :term[resource files]{term="Resource File"}
 is indentation-based similar to the `*** Test Cases ***` section.
 The user keywords defined are unindented, while their body implementation is indented by multiple spaces.
 
@@ -24,7 +24,7 @@ This section can be part of suites or resource files.
 While keywords defined in suites can solely be used in the suite they are defined in,
 keywords defined in resource files can be used in any suite that imports these resource files.
 
-Example definition of a user keyword:
+Example definition of a :term[user keyword]{term="User Keyword"}:
 
 ```robotframework
 *** Keywords ***
@@ -52,7 +52,7 @@ Recall the rules how keyword names are matched.
 
 ::::
 
-The names of User Keywords should be descriptive and clear, reflecting the purpose of the keyword.
+The names of User Keywords should be descriptive and clear, reflecting the purpose of the :term[keyword]{term="Keyword"}.
 Well-named keywords make tests more readable and easier to understand.
 Robot Framework supports Unicode and allows the use of special characters and even Emojis in keyword names.
 
@@ -61,13 +61,13 @@ Also spaces and underscores will be ignored when matching keyword names.
 So the keywords `Login To System`, and `log_into_system` are considered identical.
 
 To identify keywords that shall be executed, Robot Framework uses a matching algorithm that is case-insensitive and ignores spaces and underscores.
-- The prefixes Given, When, Then, And, and But (case-insensitive), which are used in Behavior-Driven Specification style, are removed from the called keyword name to find a match.
-- If no match is found, Robot Framework tries to match the name with keywords that have embedded arguments.
+- The prefixes Given, When, Then, And, and But (case-insensitive), which are used in :term[Behavior-Driven Specification]{term="Behavior-Driven Specification"} style, are removed from the called keyword name to find a match.
+- If no match is found, Robot Framework tries to match the name with keywords that have :term[embedded arguments]{term="Embedded Argument"}.
 - If still no match is found, a full match (including possible Given, When, Then, And and But) is tried.
 
 By default, if not explicitly defined by the library developers, all Library Keywords are named in **Title Case** with capital letters at the beginning of each word, and spaces between words.
 
-Projects may choose a different naming convention for User Keywords, but it is recommended to be consistent across the project for User Keyword names.
+Project may choose a different naming convention for User Keywords, but it is recommended to be consistent across the project for User Keyword names.
 
 They are defined without indentation, and the subsequent lines until the next unindented line are considered the body of the keyword.
 The following topics explain how to structure the body of a keyword.
@@ -86,18 +86,18 @@ Recall all available settings and their purpose for User Keywords
 
 ::::
 
-User keywords can have similar settings as test cases,
+User keywords can have similar settings as :term[test cases]{term="Test Case"},
 and they have the same square bracket syntax separating them from keyword calls.
 All available settings are listed below and explained in this section or in sections linked below.
 
 - `[Documentation]` Used for setting user keyword documentation. (see [3.3.4 User Keyword Documentation](chapter-03/03_user_keyword.md#334-user-keyword-documentation))
-- `[Arguments]` Specifies user keyword arguments to hand over values to the keyword. (see [3.3.5 User Keyword Arguments](chapter-03/03_user_keyword.md#335-user-keyword-arguments))
+- `[Arguments]` Specifies user keyword :term[arguments]{term="Argument"} to hand over values to the keyword. (see [3.3.5 User Keyword Arguments](chapter-03/03_user_keyword.md#335-user-keyword-arguments))
 - `[Setup]`, `[Teardown]` Specify user keyword setup and teardown. (see [4.2 Teardowns (Suite, Test|Task, Keyword)](chapter-04/02_teardowns.md))
 - `[Tags]` (*) Sets tags for the keyword, which can be used for filtering in documentation and attribution for post-processing results.
 - `[Timeout]` (*) Sets the possible user keyword timeout.
 - `[Return]` (*) Deprecated. Use the `RETURN` statement instead. (see [3.3.6 RETURN Statement](chapter-03/03_user_keyword.md#336-return-statement))
 
-(*) The application of these settings is not part of this syllabus.
+(*) The application of these settings are not part of this syllabus.
 
 
 
@@ -107,7 +107,7 @@ All available settings are listed below and explained in this section or in sect
 
 :::K1[LO-3.3.4]
 
-Recall the significance of the first logical line in keyword documentation for the log file.
+Recall the significance of the first logical line and in keyword documentation for the log file.
 
 :::
 
@@ -115,7 +115,7 @@ Recall the significance of the first logical line in keyword documentation for t
 
 Each keyword can have a `[Documentation]` setting to provide a description of the keyword's purpose and usage.
 
-The first logical line, until the first empty row, is used as the *short documentation* of the keyword in the `log.html` test protocol.
+The first logical line, until the first empty row, is used as the *short documentation* of the keyword in the `log.html` :term[test]{term="Test Case"} protocol.
 
 Proper documentation helps maintain clarity, especially in larger projects.
 It is a good practice to document what the keyword does,
@@ -157,9 +157,9 @@ Understand the purpose and syntax of the [Arguments] setting in User Keywords.
 User Keywords can accept arguments, which make them more dynamic and reusable in various contexts.
 The `[Arguments]` setting is used to define the arguments a user keyword expects.
 
-See also [2.5.2 Keyword Arguments](chapter-02/05_keyword_interface.md#252-keyword-arguments) for an introduction to argument kinds.
+See also [2.5.2 Keyword Arguments](chapter-02/05_keyword_interface.md#252-keyword-arguments) for an introduction to :term[argument]{term="Argument"} kinds.
 
-Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of scalar variables.
+Arguments are defined by `[Arguments]` followed by the argument names separated by multiple spaces in the syntax of :term[scalar variables]{term="Scalar Variable"}.
 
 Since Robot Framework 7.3 User Keywords can define argument types like `string`, `number`, etc., as described in the [2.5.2.8 Argument Types](chapter-02/05_keyword_interface.md#2528-argument-types) section.
 
@@ -182,7 +182,7 @@ Define User Keywords with mandatory arguments.
 
 ::::
 
-Arguments defined as scalar variable (`${arg}`) without a default value are mandatory and must be provided when calling the keyword.
+Arguments defined as :term[scalar variable]{term="Scalar Variable"} (`${arg}`) without a default value are mandatory and must be provided when calling the keyword.
 
 Example that defines a keyword with two arguments:
 ```robotframework
@@ -197,9 +197,9 @@ Verify File Contains
     Should Contain    ${server_log}    ${expected_content}
 ```
 
-All variables defined in the `[Arguments]` are local to the keyword body and do not exist outside of the keyword.
+All :term[variables]{term="Variable"} defined in the `[Arguments]` are local to the keyword body and do not exist outside of the keyword.
 
-This keyword may be called in a test case like this:
+This keyword may be called in a :term[test case]{term="Test Case"} like this:
 ```robotframework
 *** Test Cases ***
 Check Server Log
@@ -227,8 +227,8 @@ Define User Keywords with optional arguments.
 
 ::::
 
-Optional arguments are defined by assigning default values to them in the `[Arguments]` setting.
-All optional arguments must be defined after all mandatory arguments.
+:term[Optional arguments]{term="Optional Argument"} are defined by assigning default values to them in the `[Arguments]` setting.
+All optional arguments must be defined after all :term[mandatory arguments]{term="Mandatory Argument"}.
 
 Default values are assigned using an equal sign (`=`),
 followed by the default value without any spaces, such as `${ignore_case}=True`,
@@ -380,7 +380,7 @@ This allows test execution to pass data between different keywords.
 
 It can return one or more values.
 If more than one value is returned, they can either be assigned
-to multiple variables or stored as a list in a single variable.
+to multiple variables or stored as a list in a single :term[variable]{term="Variable"}.
 
 Example:
 ```robotframework
@@ -425,7 +425,7 @@ Get ISO Time
 
 Should we have that  chapter???
 Opinions?
-And if, is this what we want to ask the participants to know?
+And if, is this want we want to ask the participants to know?
 */}
 
 
@@ -448,6 +448,7 @@ Keyword Conventions should contain agreements on:
 - **Word/Character Count**: How many words or characters shall be used in a keyword name? (e.g. less than 7 words)
 - **Argument Count**: How many arguments shall a keyword have? (e.g. less than 5)
 - **Documentation**: How shall the documentation be structured and which information shall be included or is it required at all?
+
 
 
 

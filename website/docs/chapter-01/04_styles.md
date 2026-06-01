@@ -11,22 +11,22 @@ Recall the three specification styles of Robot Framework
 
 ::::
 
-Specification styles define how tests or tasks are structured, focusing on how actions and verifications are described.
-While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation, such as RPA.
+Specification styles define how tests or :term[tasks]{term="Task"} are structured, focusing on how actions and verifications are described.
+While **Keyword-Driven Testing (KDT)** and **Behavior-Driven Development (BDD)** are commonly associated with testing, the principles behind these styles are adaptable to other forms of automation, such as :term[RPA]{term="Robotic Process Automation"}.
 
-Both styles can be mixed, even within the same test or task, but it is strongly recommended to have separate styles for separate purposes and not mix them within the same body.
-One practical solution would be to define acceptance test cases that cover users' expectations in a declarative *Behavior-Driven Style*, while using keywords that are implemented in an imperative *Keyword-Driven style*.
-Further system level :term[test cases]{term="Test Case"}, that are not covering acceptance criteria, could be written in a *Keyword-Driven style*.
+Both styles can be mixed, even within the same :term[test]{term="Test Case"} or :term[task]{term="Task"}, but it is strongly recommended to have separate styles for separate purposes and not mix them within the same body.
+One practical solution would be to define acceptance :term[test cases]{term="Test Case"} that cover users' expectations in a declarative *Behavior-Driven Style*, while using :term[keywords]{term="Keyword"} that are implemented in an imperative *:term[Keyword]{term="Keyword"}-Driven style*.
+Further system level :term[test cases]{term="Test Case"}, that are not covering acceptance criteria could be written in a *Keyword-Driven style*.
 
 The approach of both styles is different in that way,
 that the *Behavior-Driven Style* is a **declarative** specification,
-where the script describes/declares what the system should do or how it should behave,
+where the script describe/declare what the system should do or how it should behave,
 while the *Keyword-Driven Style* is an **imperative** specification,
 where the script specifies what the automation should do to control the system.
 
 
-Besides these two different specification approaches how to write/formulate
-your automation script and their step sequences,
+Beside these two different specification approaches how to write/formulate
+your :term[automation script]{term="Automation Script"} and their step sequences,
 there is also a third specification method, **Data-Driven Specification** that can be combined
 with the other two styles, to define the data that is used in the automation.
 
@@ -63,7 +63,7 @@ Verifications or assertions can be imperative, though they are often phrased as 
 The advantage of this style lies in its **clarity** and **structure**.
 It provides a straightforward representation of the task flow, making it easy to understand what actions will be executed.
 
-Separation of the executed step/keyword and its arguments/data with spaces improves the readability of tests or tasks.
+Separation of the executed step/keyword and its :term[arguments]{term="Argument"}/data with spaces improves the readability of tests or tasks.
 Flow and data can be parsed separately by the consumer.
 
 
@@ -94,7 +94,7 @@ Opening Foundation Page
 ```
 
 The prefixes `Given`, `When`, `Then`, `And` and `But` are basically ignored by Robot Framework if a keyword is found matching the rest of the name.
-A key difference between Robot Framework's behavior-driven style and BDD frameworks like **Cucumber** or most others is the ability in Robot Framework to use **multiple keyword layers**.
+A key difference between Robot Framework's behavior-driven style and :term[BDD]{term="Behavior-Driven Development"} frameworks like **Cucumber** or most others is the ability in Robot Framework to use **multiple keyword layers**.
 In other BDD frameworks the code that implements a sentence like `Given "robotframework.org" is open.` is referred to as a step definition.
 Step definitions are written in a programming language (typically Java, JavaScript, Ruby, or Python) and map natural language steps from a Gherkin feature file to code.
 Therefore there are no multiple layers of keywords that can be logged into execution protocols.
@@ -121,7 +121,7 @@ It is an **imperative** style, comparable to procedural programming.
 It is structured, clear, and well-suited for scenarios where the steps are more technical
 or detailed and involve a larger number of keyword calls within a test or task.
 Additionally, this style is better suited for complex tasks or handling complex data,
-as it enables a clear separation between keyword names and their argument values.
+as it enables a clear separation between keyword names and their :term[argument]{term="Argument"} values.
 
 - **Behavior-Driven Style** emphasizes **how the system behaves** from the user's point of view,
 using more natural language and focusing on expected outcomes.
@@ -148,19 +148,19 @@ Recall the purpose of Data-Driven Specification
 ::::
 
 **Data-Driven Specification** originates from **Data-Driven Testing**
-and is a method where the test data and expected results are
+and is a method where the :term[test data]{term="Test Data"} and expected results are
 separated from the test script that controls the flow.
 
 While in **Robotic Process Automation (RPA)**, the data
 used in an automation workflow is typically acquired dynamically from an external source,
 in testing, the data is specifically chosen to cover different scenarios or cases.
 Therefore, this method of defining data combinations
-statically in the suite files is normally not applicable to RPA.
+statically in the :term[suite files]{term="Suite File"} is normally not applicable to RPA.
 
 The purpose of **Data-Driven Testing** is to automate the same sequence of actions
 or scenario with different sets of input and/or expected output data.
 
-In this style, a single user keyword, which contains the whole test logic or sequence of actions,
+In this style, a single :term[user keyword]{term="User Keyword"}, which contains the whole test logic or sequence of actions,
 is executed with multiple data variations,
 making it highly effective for repetitive tests,
 where the logic stays the same but the data changes,
@@ -173,6 +173,7 @@ Robot Framework offers a convenient feature for this approach through **Test Tem
 - **Clarity**: Keeps the test logic separate from the data, making it easier to manage large data sets.
 - **Scalability**: Suitable for scenarios where the same functionality needs to be tested under various conditions, such as verifying form inputs or performing calculations with different values.
 
-See [3.4 Using Data-Driven Specification](chapter-03/04_datadriven.md) for more details and examples on Data-Driven Specification.
+See [3.4 Using Data-Driven Specification](chapter-03/04_datadriven.md) for more details and examples on :term[Data-Driven Specification]{term="Data-Driven Specification"}.
+
 
 

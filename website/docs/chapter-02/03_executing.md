@@ -14,7 +14,7 @@ Robot Framework comes with three executables when being installed which are desi
 
 - `robot` is the main executable that is used to execute suites.
 - `rebot` (not part of this syllabus) is used to post-process execution results and generate reports.
-- `libdoc` (not part of this syllabus) is used to generate keyword documentation for libraries and resource files. See [2.5 Keyword Interface and Documentation](chapter-02/05_keyword_interface.md)
+- `libdoc` (not part of this syllabus) is used to generate :term[keyword]{term="Keyword"} documentation for libraries and :term[resource files]{term="Resource File"}. See [2.5 Keyword Interface and Documentation](chapter-02/05_keyword_interface.md)
 
 
 
@@ -30,21 +30,21 @@ Understand how to run the `robot` command and its basic usage.
 
 ::::
 
-The `robot` command is used to run a Robot Framework execution, which will execute suites and their containing tests|tasks.
+The `robot` command is used to run a Robot Framework execution, which will execute suites and their containing tests|:term[tasks]{term="Task"}.
 
-At a basic level, you can run `robot` by providing the path to a suite file or suite directory containing suite files as the last argument.
+At a basic level, you can run `robot` by providing the path to a :term[suite file]{term="Suite File"} or suite directory containing :term[suite files]{term="Suite File"} as last :term[argument]{term="Argument"}.
 ```plaintext
 robot <path_to_root_suite>
 ```
 
-In case of the [2.2.5 Example Suite File](chapter-02/02_suitefile_syntax.md#225-example-suite-file) where a single suite file named `TestSuite.robot` is stored in a directory `robot_files`, to execute the example test suite the following command is used, if the current working directory of the terminal is the directory containing the `robot_files` directory:
+In case of the [2.2.5 Example Suite File](chapter-02/02_suitefile_syntax.md#225-example-suite-file) where a single suite file named `TestSuite.robot` is stored in a directory `robot_files`, to execute the example :term[test]{term="Test Case"} suite the following command is used, if the current working directory of the terminal is the directory containing the `robot_files` directory:
 ```plaintext
 > robot robot_files
 ```
 
 This command starts the Robot Framework execution by first parsing all files in the given directory tree that have the extension `.robot`,
-then creates an execution model and finally, executes all suites with their test cases from that model.
-During execution, the results of each test case are printed to the console and at the end a summary is printed and reports are generated.
+then creates an :term[execution model]{term="Execution Model"} and finally, executes all suites with their :term[test cases]{term="Test Case"} from that model.
+During execution, the results of each :term[test case]{term="Test Case"} are printed to the console and at the end a summary is printed and reports are generated.
 
 Example Console Output:
 ```plaintext title="Console Output"
@@ -69,7 +69,7 @@ Log:     /path/to/log.html
 Report:  /path/to/report.html
 ```
 
-The `robot` command can optionally be configured with additional options to control the execution behavior, such as setting output formats, specifying specific tests to run, or controlling logging levels and many more. These options are named arguments that are passed to the `robot` command BEFORE the path to the suite file or directory. To learn more about these options, you can use the help of the `robot` command like: `robot --help`.
+The `robot` command can optionally be configured with additional options to control the execution behavior, such as setting output formats, specifying specific tests to run, or controlling logging levels and many more. These options are :term[named arguments]{term="Named Argument"} that are passed to the `robot` command BEFORE the path to the suite file or directory. To learn more about these options, you can use the help of the `robot` command like: `robot --help`.
 
 
 
@@ -93,8 +93,8 @@ After executing a suite, Robot Framework, by default, generates three files in t
 
 `log.html` and `report.html` are generated based on the information stored in `output.xml`.
 
-A unique feature of Robot Framework is that it logs each keyword call and its arguments with its log outputs and timestamps, so that it is possible to have a very detailed view of the execution flow and the data that was used during the execution.
-In case of a failure it is possible to see the exact keyword call that failed and the arguments that were used, which can be very helpful for debugging or reporting. Furthermore, you also get all passed keywords and even the non‑executed keywords, allowing you to trace the whole execution flow.
+A unique feature of Robot Framework is, that it logs each keyword call and its :term[arguments]{term="Argument"} with its log outputs and timestamps, so that it is possible to have a very detailed view of the execution flow and the data that was used during the execution.
+In case of a failure it is possible to see the exact keyword call that failed and the arguments that were used, which can be very helpful for debugging or reporting. Furthermore, you also get all passed keywords and even the non‑executed :term[keywords]{term="Keyword"}, allowing you to trace the whole execution flow.
 
 
 
@@ -112,7 +112,7 @@ Recall the four different status labels used by Robot Framework.
 
 Robot Framework uses different status labels to indicate the result of an execution:
 
-On Suite, Test Case, Task and Keyword Level:
+On Suite, Test Case, :term[Task]{term="Task"} and Keyword Level:
 - **`PASS`**: Indicates that the item was successfully executed without unexpected errors.
 - **`FAIL`**: Shows that the item encountered an error and did not pass.
 - **`SKIP`**: Indicates that the item was intentionally skipped, either by tagging or during execution, typically because some condition was not met.
@@ -124,7 +124,7 @@ Additional Keyword Status:
 
 **Atomic elements** like Library Keywords or Robot Framework language statements do define their own status.
 
-**Composite elements** like suites (composed of tests|tasks), tests|tasks (composed of keywords) and User Keywords (composed of Library Keywords and Robot Framework statements) do define their status based on the status of their child elements.
+**Composite elements** like suites (composed of tests|tasks), tests|tasks (composed of keywords) and :term[User Keywords]{term="User Keyword"} (composed of Library Keywords and Robot Framework statements) do define their status based on the status of their child elements.
 
 
 ### 2.3.3.1 PASS
@@ -143,12 +143,12 @@ This status is used if an element was executed successfully without any errors o
 
 **Atomic elements** are `PASS` if they were executed successfully without reporting an error by raising an exception.
 
-**Composite elements** are `PASS` if all their executed body elements are `PASS`.
-E.g. in case of User Keywords this means that if all keywords or Robot Framework language statements that were directly called by that User Keyword were `PASS` the User Keyword itself is considered `PASS`.
+**Composite elements** are `PASS` if all their executed body elements are pass.
+E.g. in case of User Keywords this means that if all keywords or Robot Framework language statements that were directly called by that :term[User Keyword]{term="User Keyword"} were `PASS` the User Keyword itself is considered `PASS`.
 
 Library Keywords like `Run Keyword And Expect Error`, from BuiltIn Library, do `PASS` if the keyword they are internally calling does raise an error with the expected message or type.
 
-That means that a composite element like suite, test|task or User Keyword may be `PASS` even if some of its deeper child elements are `FAIL`.
+That means that a :term[composite element]{term="Composite Element"} like suite, test|task or User Keyword may be `PASS` even if some of its deeper child elements are `FAIL`.
 
 
 ### 2.3.3.2 FAIL
@@ -171,11 +171,11 @@ Exceptions are teardowns, as explained in [Chapter 4: Advanced Structuring and E
 **Atomic elements** are `FAIL` if they were tried to be executed but raised an exception.
 
 **Composite elements** are `FAIL` if at least one of their executed direct body elements is `FAIL`.
-Therefore a failure typically distributes upward through the hierarchy of elements until it reaches the root suite.
+Therefore a failure typically distributes upward through the hierarchy of elements until it reaches the :term[root suite]{term="Root Suite"}.
 
 A User Keyword is `FAIL` if one of its called Library Keywords is `FAIL`.
 A test|task is `FAIL` if one of its directly called Keywords is `FAIL`.
-A suite (file) is `FAIL` if one of its tests|tasks is `FAIL` and
+A suite (file) is `FAIL` if one of its test|task is `FAIL` and
 a suite (directory) is `FAIL` if one of its suites (file) is `FAIL`.
 
 
@@ -199,3 +199,4 @@ There are basically two kinds of logging information in Robot Framework.
 
 Log messages can be written with different levels of severity (i.e. `INFO`, `DEBUG`, `TRACE`, `WARN` or `ERROR`).
 Which levels are written to the log can be controlled by the log level of an execution. Further information in later chapters.
+

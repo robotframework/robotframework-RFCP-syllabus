@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ## 0.1 About the Syllabus
 This syllabus serves as both a guidance document for participants and a requirement specification for Accredited Training Providers
-preparing candidates for the "Robot Framework® Certified Professional" (RFCP®) exam.
+preparing candidates for the ":term[Robot Framework® Certified Professional]{term="Robot Framework® Certified Professional"}" (:term[RFCP]{term="Robot Framework® Certified Professional"}®) exam.
 It outlines the structure, learning objectives, and knowledge areas essential for certification.
 
 This syllabus is not a training manual, tutorial, or comprehensive learning resource but instead defines the scope of knowledge
@@ -34,13 +34,13 @@ but the specific teaching methods, order and pace may be adapted by the instruct
 
 
 ## 0.2 About "Robot Framework® Certified Professional"
-The Robot Framework® Certified Professional (RFCP®) certification represents the foundational level of expertise in Robot Framework. It provides participants with a strong understanding of the core principles, syntax, and basic control structures needed to develop effective automation scripts.
+The Robot Framework® Certified Professional (RFCP®) certification represents the foundational level of expertise in Robot Framework. It provides participants with a strong understanding of the core principles, syntax, and basic :term[control structures]{term="Control Structure"} needed to develop effective :term[automation scripts]{term="Automation Script"}.
 
 While the RFCP® includes an introduction to advanced features such as FOR-Loops and IF statements,
 the focus is primarily on awareness rather than in-depth mastery,
 leaving detailed exploration of these topics to the more advanced future certification levels.
 
-RFCP® concentrates on essential concepts such as keyword-driven automation, script execution, and integrating external libraries.
+RFCP® concentrates on essential concepts such as :term[keyword]{term="Keyword"}-driven automation, script execution, and integrating external libraries.
 It is designed for those seeking proficiency in Robot Framework’s core functionalities while gaining an overview of its broader capabilities.
 This certification does not require or teach domain-specific automation knowledge, such as web, API, or database automation.
 
@@ -54,9 +54,9 @@ Upon completing this course, participants will achieve the following capabilitie
 
 - **Develop and maintain stable automation scripts**: Learn how to create automation scripts that are robust, easy to maintain, and adaptable to different scenarios.
 
-- **Develop user keywords and build keyword repositories for reuse**: Understand how to create reusable keywords and build keyword repositories to improve efficiency and maintainability in automation projects.
+- **Develop :term[user keywords]{term="User Keyword"} and build keyword repositories for reuse**: Understand how to create reusable :term[keywords]{term="Keyword"} and build keyword repositories to improve efficiency and maintainability in automation projects.
 
-- **Write documentation**: Learn best practices for documenting keywords, suites and tests or tasks to ensure clarity and ease of use for future script maintenance or collaboration.
+- **Write documentation**: Learn best practices for documenting keywords, suites and tests or :term[tasks]{term="Task"} to ensure clarity and ease of use for future script maintenance or collaboration.
 
 - **Integrate external automation libraries**: Leverage external libraries to enable Robot Framework® to interact with a wide range of technologies, such as APIs, user interfaces (Web, Mobile, others), databases, and many more.
 
@@ -87,7 +87,7 @@ Throughout this syllabus, participants will progress through these knowledge lev
 
 ## 0.5 About Accredited Training Providers
 
-Accredited Training Providers are organizations officially accredited by the Robot Framework Foundation to offer certified training programs for a specific certification level.
+Accredited Training Providers are organizations officially accredited by the :term[Robot Framework Foundation]{term="Robot Framework Foundation"} to offer certified training programs for a specific certification level.
 These partners shall deliver high-quality, structured courses designed to prepare candidates for the Robot Framework® Certified Professional (RFCP®) exam and other future Robot Framework certifications.
 
 All training providers are members of the Robot Framework Foundation,
@@ -115,7 +115,7 @@ This includes tracking which participants have earned certifications, maintainin
 
 Our current exclusive exam provider is the [Global Association for Software Quality](https://www.gasq.org/en/home.html).
 
-Global Association for Software Quality, abbreviated GASQ,
+Global Association for Software Quality , abbreviated GASQ,
 is an international exam provider and a leading association in the software quality industry.
 GASQ was founded by experts from Europe, Asia and America as an independent,
 international non-profit association aiming to advocate and promote software quality in research, teaching and industry.

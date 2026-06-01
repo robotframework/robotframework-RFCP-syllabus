@@ -11,15 +11,15 @@ Recall that naming conflicts can arise from the import of multiple resource file
 
 ::::
 
-As stated before, it is possible to organize imports and available keywords in Robot Framework by using Resource Files.
-By default, all keywords or variables created or imported in a resource file are available to those suites and files that are importing that higher-level resource file.
+As stated before, it is possible to organize imports and available :term[keywords]{term="Keyword"} in Robot Framework by using :term[Resource Files]{term="Resource File"}.
+By default, all keywords or :term[variables]{term="Variable"} created or imported in a resource file are available to those suites and files that are importing that higher-level :term[resource file]{term="Resource File"}.
 
 This can lead to complex import hierarchies or the importing of libraries multiple times, which should be avoided.
 
-Due to this mechanism, the number of keywords available to a suite can be quite large, and naming conflicts, especially with keywords from third-party keyword libraries, can occur. These conflicts need to be resolved.
+Due to this mechanism, the number of keywords available to a suite can be quite large, and naming conflicts, especially with keywords from third-party :term[keyword libraries]{term="Keyword Library"}, can occur. These conflicts need to be resolved.
 
 
-Some keyword libraries have the option to be configured to change their behavior, which may also change the available keywords they offer.
+Some :term[keyword]{term="Keyword"} libraries have the option to be configured to change their behavior, which may also change the available keywords they offer.
 
 
 
@@ -38,7 +38,7 @@ Understand how transitive imports of resource files and libraries work.
 Let's assume the following libraries and resource files shall be used:
 - **Library**    `A`
 - **Library**    `B`
-- **Library**    `OperatingSystem`
+- **Library**    `Operating System`
 - **Resource**    `tech_keywordsA.resource`
 - **Resource**    `tech_keywordsB.resource`
 - **Resource**    `variables.resource`
@@ -50,7 +50,7 @@ The respective files could look like this:
 ```robotframework
 *** Settings ***
 Library    A
-Library    OperatingSystem
+Library    Operating System
 ```
 
 **tech_keywordsB.resource:**
@@ -73,7 +73,7 @@ Resource    tech_keywordsB.resource
 Resource    functional_keywords.resource
 ```
 
-In this case, the suite `suite.robot` has access to all keywords from all keyword libraries, as well as all variables and user keywords from all resource files.
+In this case, the suite `suite.robot` has access to all keywords from all keyword libraries, as well as all variables and :term[user keywords]{term="User Keyword"} from all resource files.
 With this transitive importing it is possible to organize user keywords and imports of libraries in a hierarchical way.
 
 It shall be avoided to create circular imports, where `A.resource` imports `B.resource` and `B.resource` imports `A.resource`.
@@ -104,8 +104,8 @@ This is typically global behavior like internal timeouts, connection settings to
 
 If this is possible, the library documentation will have an `Importing` section directly before the list of keywords.
 
-Library importing arguments are used in the same way as keyword calls with arguments.
-If possible, it is recommended to set the arguments as named arguments to make usage more readable and future-proof.
+Library importing arguments are used in the same way as keyword calls with :term[arguments]{term="Argument"}.
+If possible, it is recommended to set the arguments as :term[named arguments]{term="Named Argument"} to make usage more readable and future-proof.
 These arguments follow the Library path or name, separated by multiple spaces.
 
 Example with the [Telnet library](https://robotframework.org/robotframework/latest/libraries/Telnet.html#Importing):
@@ -146,7 +146,7 @@ Explain how naming conflicts can happen and how to mitigate them.
 ::::
 
 Naming conflicts can occur when two or more keywords have the same name.
-If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate user keyword name.
+If a proper IDE is used, that can be detected, and users can be warned after they have created a duplicate :term[user keyword]{term="User Keyword"} name.
 
 Project teams may not have this influence over imported third-party libraries that have the same keyword names.
 Due to the fact that keywords from library and resource files are imported in the scope of the importing suite, it may be unavoidable to have naming conflicts.
@@ -193,4 +193,5 @@ Using Remote Libraries
     EmbeddedAPI.Close Contact   15
     DeviceAPI.Verify Contact    15    1
 ```
+
 

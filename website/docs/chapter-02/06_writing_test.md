@@ -10,26 +10,26 @@ Understand how to call imported keywords and how to structure keyword calls.
 
 ::::
 
-A typical test case or task is a sequence of keyword calls that are executed in a specific order.
-As learned before these keywords need to be imported into the suite or resource file before they can be used.
-When using keywords in a test|task or User Keyword, it is important to indent the keyword calls correctly.
+A typical :term[test case]{term="Test Case"} or :term[task]{term="Task"} is a sequence of :term[keyword]{term="Keyword"} calls that are executed in a specific order.
+As learned before these :term[keywords]{term="Keyword"} need to be imported into the suite or :term[resource file]{term="Resource File"} before they can be used.
+When using keywords in a :term[test]{term="Test Case"}|task or :term[User Keyword]{term="User Keyword"}, it is important to indent the keyword calls correctly.
 With the exception of returning values, which are described in Chapter 3,
-the name of the keyword is the first element of the keyword call followed by the arguments that are separated by two or more spaces.
+the name of the keyword is the first element of the keyword call followed by the :term[arguments]{term="Argument"} that are separated by two or more spaces.
 
 The following example shows different ways to call imported keywords in a test case based on the `Should Be Equal` keyword from the BuiltIn library.
 
 The keyword name should be written as defined in the keyword documentation and may have single spaces or other special characters in it.
 After the keyword name the arguments are set.
 All arguments are separated by multiple spaces from the keyword name and from each other and can also include single spaces.
-Argument values are stripped from leading and trailing spaces, but spaces within the argument value are preserved.
+Argument values are stripped from leading and trailing spaces, but spaces within the :term[argument]{term="Argument"} value are preserved.
 
-If an argument shall contain more than one consecutive space or start or end with spaces, the spaces must be escaped by a backslash `\` to prevent them from being interpreted as a part of a "multi-space-separator".
+If an argument shall contain more than one consecutive spaces or start or end with spaces, the spaces must be escaped by a backslash `\` to prevent them from being interpreted as a part of a "multi-space-separator".
 
 Example:
 ```robotframework
 *** Test Cases ***
 Mandatory Positional Arguments
-    [Documentation]    Only mandatory arguments are used positionally
+    [Documentation]    Only mandatory arguments are use positionally
     Should Be Equal    1    1
 
 Mixed Positional Arguments
@@ -80,10 +80,10 @@ An exception to this are :term[Named-Only Arguments]{term="Named-Only Argument"}
 
 However, only using positional values can lead to poor readability as you can see in the previous example: `Mixed Positional Arguments`
 Some keywords do not have an obvious order of arguments.
-In these cases, calling keywords with named arguments can lead to better readability and understanding of the keyword call.
+In these cases, calling keywords with :term[named arguments]{term="Named Argument"} can lead to better readability and understanding of the keyword call.
 
 Using arguments positionally is very handy for arguments that are obvious and easy to understand.
-In the early login example the following keyword call exists:
+In the early login example the following keyword calls exists:
 ```robotframework
 *** Test Cases ***
 Login User With Password
@@ -100,7 +100,7 @@ Click on x and y
     Click On Coordinates    x=82    y=70
 ```
 
-Calling keywords that have a :term[Variable Number of Positional Arguments] does require setting all preceding arguments by their position if the :term[Variable Number of Positional Arguments] shall be set.
+Calling keywords that have a :term[Variable Number of Positional Arguments] does require to set all preceding arguments by their position if the :term[Variable Number of Positional Arguments] shall be set.
 
 Example:
 ```robotframework
@@ -128,11 +128,11 @@ Understand the concept of named arguments and how to set argument values by thei
 
 ::::
 
-Keyword Calls with non-obvious arguments should use named argument calls if possible.
-Also setting one optional argument but leaving the others at their default value is an indication to use named arguments.
+Keyword Calls with non-obvious arguments should use :term[named argument]{term="Named Argument"} calls if possible.
+Also setting one :term[optional argument]{term="Optional Argument"} but leaving the others at their default value is an indication to use named arguments.
 
 Named arguments are set by their name followed by an equal sign `=` and the value of the argument.
-All named arguments must be set after the positional arguments are set but can be set in any order.
+All named arguments must be set after the :term[positional arguments]{term="Positional Argument"} are set but can be set in any order.
 
 Equal signs are valid argument values and could therefore be misinterpreted as named arguments, if the text before the equal sign is an existing argument name or if :term[Free Named Arguments]{term="Free Named Argument"} are available at the called keyword.
 To prevent that, an equal sign in argument values can be escaped by a backslash `\`.
@@ -161,11 +161,11 @@ Recall how to use embedded arguments.
 
 ::::
 
-Embedded Arguments are mostly used in Behavior-Driven Development (BDD) using Robot Framework's Behavior-Driven Specification style.
+:term[Embedded Arguments]{term="Embedded Argument"} are mostly used in :term[Behavior-Driven Development]{term="Behavior-Driven Development"} (BDD) using Robot Frameworks :term[Behavior-Driven Specification]{term="Behavior-Driven Specification"} style.
 
 Embedded Arguments are part of the keyword name as described in [2.5.2.3 Embedded Arguments](chapter-02/05_keyword_interface.md#2523-embedded-arguments).
 
-When calling keywords with embedded arguments, all characters that are at the position where the embedded argument is expected are used as the argument value.
+When calling keywords with embedded arguments, all characters that are at the position where the :term[embedded argument]{term="Embedded Argument"} is expected are used as the argument value.
 
 See the example in section [2.5.2.3 Embedded Arguments](chapter-02/05_keyword_interface.md#2523-embedded-arguments).
 

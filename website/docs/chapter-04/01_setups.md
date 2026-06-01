@@ -19,13 +19,13 @@ Recall the different levels where a Setup can be defined
 
 
 Setups in Robot Framework are used to prepare the environment or system for execution or to verify that the requirements/preconditions needed for execution are met.
-They can be defined at the suite, test|task, or keyword level and are executed before the respective scope begins execution.
+They can be defined at the suite, :term[test]{term="Test Case"}|:term[task]{term="Task"}, or :term[keyword]{term="Keyword"} level and are executed before the respective scope begins execution.
 
-A **Setup** is a single keyword with potential argument values that is called before all other keywords; or before tests|tasks in Suite Setup.
+A **Setup** is a single keyword with potential :term[argument]{term="Argument"} values that is called before all other :term[keywords]{term="Keyword"}; or before tests|:term[tasks]{term="Task"} in :term[Suite Setup]{term="Suite Setup"}.
 
 Examples of typical use cases for Setups are:
 - Establishing connections to databases or services.
-- Initializing test data or configurations.
+- Initializing :term[test data]{term="Test Data"} or configurations.
 - Setting the system under test to a known state.
 - Logging into applications or systems.
 - Navigating to the feature under test.
@@ -97,7 +97,7 @@ Understand when Test|Task Setup is executed and used
 A **Test|Task Setup** is executed before a single test|task runs.
 It is used to prepare the specific conditions required for that test|task.
 
-You can define a default Test|Task Setup in the `*** Settings ***` section of the suite using the `Test Setup`|`Task Setup` setting.
+You can define a default :term[Test|Task Setup]{term="Test|Task Setup"} in the `*** Settings ***` section of the suite using the `Test Setup`|`Task Setup` setting.
 This setup will be applied to all tests|tasks within the suite unless overridden and executed before each test|task.
 
 Individual tests|tasks can override the default setup by specifying their own `[Setup]` setting within the test|task.
@@ -115,7 +115,7 @@ To disable the setup for a specific test|task, you can set `[Setup]    NONE`, wh
 - Executing preparation steps to navigate to the automated task or feature under test.
 - Distinguishing phases of a test|task in *setup* (aka *preparation* or *precondition checking*), *steps*, and *teardown* (aka *clean up* or *postconditions*).
 
-Example of defining a default Test|Task Setup in the suite settings and overriding it on a test case:
+Example of defining a default Test|Task Setup in the suite settings and overriding it on a :term[test case]{term="Test Case"}:
 
 ```robotframework
 *** Settings ***
@@ -152,7 +152,7 @@ Recall key characteristics and syntax of Keyword Setup
 
 ::::
 
-A **Keyword Setup** is executed before the body of a user keyword is executed.
+A **Keyword Setup** is executed before the body of a :term[user keyword]{term="User Keyword"} is executed.
 It allows for preparation steps specific to that keyword or ensures that the keyword's requirements are met before execution.
 
 **Key characteristics of Keyword Setup:**
@@ -163,7 +163,7 @@ It allows for preparation steps specific to that keyword or ensures that the key
 
 **Typical use cases:**
 - Opening connections or files needed by the keyword.
-- Initializing variables or data structures.
+- Initializing :term[variables]{term="Variable"} or data structures.
 - Ensuring preconditions specific to the keyword are met.
 
 Example of defining a Keyword Setup:
@@ -174,6 +174,7 @@ Process Data
     [Setup]    Open Data Connection
     Process the Data
 ```
+
 
 
 
