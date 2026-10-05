@@ -12,9 +12,12 @@ Recall the purpose of Test|Task Tags in Robot Framework
 ::::
 
 In Robot Framework, **tags** offer a simple yet powerful mechanism for classifying and controlling the execution of tests|tasks.
-Tags are free-form text labels that can be assigned to tests|tasks to provide meta information, enable flexible test selection, and organize test results.
+Tags are free-form text labels that can be assigned to tests|tasks to group them, enable flexible test selection, and organize test results.
 
 Tags are also used to create a statistical summary of the test|task results in the execution protocols.
+
+If named descriptive information shall be stored for a test|task, such as an issue ID, an author, or a requirement reference, metadata is usually a better fit than tags.
+Tags are primarily intended for grouping, filtering, and reporting, while metadata stores explicit key-value information.
 
 **Important Note**: Tags are case-insensitive in Robot Framework, but the first appearance of a tag in a test|task is used as the tag name in reports and logs in its current case.
 
@@ -92,6 +95,7 @@ Tags can be used to select which tests|tasks are executed or skipped when runnin
 
 While tags are case-insensitive you should always use the lowercase version of the tag when filtering for tests|tasks with logical operators because logical operators are case-sensitive and uppercase.
 `AND`, `OR`, and `NOT` are the logical operators that can be used to combine tags in the filtering, but **they are not part of this syllabus!**
+In Robot Framework 7.5, deprecated compact forms like `XORY` and using `&` as a Boolean operator should not be used or taught.
 
 
 ### 4.4.2.1 Including Tests|Tasks by Tags
@@ -158,7 +162,6 @@ Using your own tags with this prefix may lead to unexpected behavior in test exe
 
 - `robot:exclude`: Marks tests|tasks that should be excluded from execution similar to `--exclude`.
 - `robot:skip`: Marks tests|tasks that should be skipped during execution similar to `--skip`.
-
 
 
 

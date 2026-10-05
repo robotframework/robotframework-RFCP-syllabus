@@ -142,9 +142,12 @@ Those settings are prefixed with either `Test` or `Task`, according to the type 
 
 - `Test Timeout`/`Task Timeout` (locally `[Timeout]`) defines the maximum time a test|task is allowed to run before it is marked as failed. The local setting overrides the suite's default.
 
-- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to filter tests|tasks for execution or for attributing information to the tests|tasks. The local setting appends or removes tags defined by the suite's default. See [4.4 Test|Task Tags and Filtering Execution](chapter-04/04_tags.md) for more information.
+- `Test Tags`/`Task Tags` (locally `[Tags]`) define tags that are assigned to tests|tasks in the suite and can be used to group them, filter their execution, and create result statistics. The local setting appends or removes tags defined by the suite's default. See [4.4 Test|Task Tags and Filtering Execution](chapter-04/04_tags.md) for more information.
 
 - `Test Template`/`Task Template` (locally `[Template]`) defines a template keyword that defines the test|task body and is typically used for Data-Driven Testing where each test has the same keywords but different argument data. The local setting overrides the suite's default.
+
+Individual tests|tasks can also define their own `[Metadata]` setting with named key-value pairs such as an issue ID, author, or requirement reference.
+Unlike tags, metadata is meant for descriptive information with explicit names and values and is not used for test|task selection.
 
 Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The local setting appends or removes tags defined by the suite's default.
 
@@ -188,7 +191,7 @@ Test cases and tasks are technically synonyms for each other.
 However, users have to choose one of the two modes of suite execution that Robot Framework offers.
 
 Each test case or task is structured using an indentation-based format. The first un-indented line specifies the name of the test|task, followed by indented lines containing **keyword calls** and their possible **arguments** and test|task-specific settings.
-These optional settings like `[Setup]`, `[Teardown]`, and `[Timeout]` can be applied to individual test cases or tasks to control their behavior or provide additional details.
+These optional settings like `[Setup]`, `[Teardown]`, `[Timeout]`, `[Tags]`, and `[Metadata]` can be applied to individual test cases or tasks to control their behavior or provide additional details.
 
 A suite file must contain either a `*** Test Cases ***` or a `*** Tasks ***` section, but not both. Resource files cannot contain either of them.
 
@@ -229,7 +232,6 @@ See [3.3.1 `*** Keywords ***` Section](chapter-03/03_user_keyword.md#331--keywor
 
 This section is used to add comments to the suite file or resource file.
 All content in this section is ignored by Robot Framework and is not executed or parsed.
-
 
 
 
