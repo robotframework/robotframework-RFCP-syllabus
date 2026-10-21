@@ -444,12 +444,6 @@
 		"definition": "Classification of testing focus (e.g. unit, component, integration, system, system integration, acceptance, or end-to-end) describing scope and granularity of tests."
 	},
 	{
-		"term": "Test Metadata",
-		"aliases": [],
-		"abbreviation": "",
-		"definition": "Key–value information defined with the `[Metadata]` setting in a test to document attributes such as an issue ID, author, or requirement reference."
-	},
-	{
 		"term": "Test Tag",
 		"aliases": ["Task Tag"],
 		"abbreviation": "",
