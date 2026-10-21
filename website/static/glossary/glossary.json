@@ -240,6 +240,12 @@
 		"definition": "Key–value information defined with the `Metadata` setting in a suite to document attributes such as author, version, or related requirements."
 	},
 	{
+		"term": "Test Metadata",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Key–value information defined with the `[Metadata]` setting in a test|task to document attributes such as an issue ID, author, or related requirements."
+	},
+	{
 		"term": "Named-Only Argument",
 		"aliases": [],
 		"abbreviation": "",
