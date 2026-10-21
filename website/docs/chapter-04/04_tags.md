@@ -95,7 +95,6 @@ Tags can be used to select which tests|tasks are executed or skipped when runnin
 
 While tags are case-insensitive you should always use the lowercase version of the tag when filtering for tests|tasks with logical operators because logical operators are case-sensitive and uppercase.
 `AND`, `OR`, and `NOT` are the logical operators that can be used to combine tags in the filtering, but **they are not part of this syllabus!**
-In Robot Framework 7.5, deprecated compact forms like `XORY` and using `&` as a Boolean operator should not be used or taught.
 
 
 ### 4.4.2.1 Including Tests|Tasks by Tags
