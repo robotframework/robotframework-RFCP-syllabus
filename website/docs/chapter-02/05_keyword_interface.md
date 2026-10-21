@@ -17,7 +17,6 @@ Robot Framework is capable of generating **Keyword Documentation** files that co
 This documentation can be generated with the `libdoc` command and can be used to provide a reference for users who want to use the keywords.
 
 Basically all standard and external 3rd party libraries offer these Keyword Documentations as online available pages.
-Depending on the tool usage and output format, the documentation may be viewed for example as HTML or generated in other formats.
 
 Robot Framework offers the Keyword Documentation of its Standard Libraries at https://robotframework.org/robotframework .
 
