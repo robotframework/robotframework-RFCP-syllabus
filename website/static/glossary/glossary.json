@@ -240,6 +240,12 @@
 		"definition": "Key–value information defined with the `Metadata` setting in a suite to document attributes such as author, version, or related requirements."
 	},
 	{
+		"term": "Test Metadata",
+		"aliases": [],
+		"abbreviation": "",
+		"definition": "Information associated with an individual test to describe attributes such as its purpose, owner, or related requirements."
+	},
+	{
 		"term": "Named-Only Argument",
 		"aliases": [],
 		"abbreviation": "",
