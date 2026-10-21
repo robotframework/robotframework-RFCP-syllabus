@@ -456,7 +456,6 @@ but this should not give the impression that descriptive documentation is unnece
 Documentation is sometimes lean and sometimes extensive, depending on the complexity of the keyword.
 The documentation should describe what the keyword does, how it should be used, and what the expected arguments and possible returned values are.
 Depending on the complexity it may also be useful to provide examples of how the keyword can be used.
-The exact visual layout can differ between Robot Framework versions and Libdoc output formats, but the same core information should still be identifiable.
 
 User Keywords typically have less extensive documentation because they are used in a narrower context and cannot be configured with arguments as much as library keywords from generic external libraries.
 
