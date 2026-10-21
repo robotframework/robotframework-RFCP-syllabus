@@ -16,7 +16,7 @@ Tags are free-form text labels that can be assigned to tests|tasks to group them
 
 Tags are also used to create a statistical summary of the test|task results in the execution protocols.
 
-If named descriptive information shall be stored for a test|task, such as an issue ID, an author, or a requirement reference, metadata is usually a better fit than tags.
+If named descriptive information shall be stored for a test|task, such as an issue ID, an author, or a requirement reference, :term[test|task metadata]{term="Test Metadata"} is usually a better fit than tags.
 Tags are primarily intended for grouping, filtering, and reporting, while metadata stores explicit key-value information.
 
 **Important Note**: Tags are case-insensitive in Robot Framework, but the first appearance of a tag in a test|task is used as the tag name in reports and logs in its current case.

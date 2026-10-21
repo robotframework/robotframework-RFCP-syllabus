@@ -243,7 +243,7 @@
 		"term": "Test Metadata",
 		"aliases": [],
 		"abbreviation": "",
-		"definition": "Information associated with an individual test to describe attributes such as its purpose, owner, or related requirements."
+		"definition": "Key–value information defined with the `[Metadata]` setting in a test|task to document attributes such as an issue ID, author, or related requirements."
 	},
 	{
 		"term": "Named-Only Argument",

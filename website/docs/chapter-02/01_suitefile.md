@@ -128,7 +128,7 @@ It allows you to import keywords from external libraries (`Library`) or resource
 
 In this section, the suite name, that is normally derived from the file name, can be redefined with the `Name` setting and its documentation can be defined with the `Documentation` setting.
 
-Additional suite metadata can be defined by multiple `Metadata` entries, which can contain key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
+Additional :term[suite metadata]{term="Suite Metadata"} can be defined by multiple `Metadata` entries, which can contain key-value pairs that can be used to store additional information about the suite, like the author, the version, or related requirements of the suite.
 
 This section can also define keywords called for execution flow control, such as `Suite Setup` and `Suite Teardown`, which are executed before and after the suite's tests run. See [4.1 Setups (Suite, Test|Task, Keyword)](chapter-04/01_setups.md) and
 [4.2 Teardowns (Suite, Test|Task, Keyword)](chapter-04/02_teardowns.md) for more information.
@@ -146,7 +146,7 @@ Those settings are prefixed with either `Test` or `Task`, according to the type 
 
 - `Test Template`/`Task Template` (locally `[Template]`) defines a template keyword that defines the test|task body and is typically used for Data-Driven Testing where each test has the same keywords but different argument data. The local setting overrides the suite's default.
 
-Individual tests|tasks can also define their own `[Metadata]` setting with named key-value pairs such as an issue ID, author, or requirement reference.
+Individual tests|tasks can also define their own :term[test|task metadata]{term="Test Metadata"} using the `[Metadata]` setting with named key-value pairs such as an issue ID, author, or requirement reference.
 Unlike tags, metadata is meant for descriptive information with explicit names and values and is not used for test|task selection.
 
 Similar to test|task tags, also keyword tags can be defined in the `*** Settings ***` section with the `Keyword Tags` (locally `[Tags]`) setting, which can be used to set keyword tags to the keywords. The local setting appends or removes tags defined by the suite's default.
