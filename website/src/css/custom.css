@@ -626,3 +626,10 @@ h6 {
     page-break-inside: avoid; /* older browser fallback */
   }
 }
+
+.named-only-argument-icon {
+  width: 1.25em;
+  height: 0.8em;
+  vertical-align: -0.1em;
+  fill: currentColor;
+}
