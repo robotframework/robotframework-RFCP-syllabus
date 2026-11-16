@@ -1,4 +1,6 @@
 
+import NamedOnlyIcon from '@site/static/img/libdoc-icons/named-only.svg';
+
 # 2.5 Keyword Interface and Documentation
 
 ::::lo[Learning Objectives]
@@ -14,9 +16,9 @@ Understand the structure of keyword interfaces and how to interpret keyword docu
 Library Keywords and User Keywords that are defined in a resource file should have a documentation text that describes what the keyword does and how it should be used.
 
 Robot Framework is capable of generating **Keyword Documentation** files that contain a library- or resource-documentation, all keywords, their argument interfaces, and their documentation texts.
-This documentation file can be generated with the `libdoc` command and can be used to provide a reference for users who want to use the keywords.
+This documentation can be generated with the `libdoc` command and can be used to provide a reference for users who want to use the keywords.
 
-Basically all standard and external 3rd party libraries offer these Keyword Documentations as online available HTML pages.
+Basically all standard and external 3rd party libraries offer these Keyword Documentations as online available pages.
 
 Robot Framework offers the Keyword Documentation of its Standard Libraries at https://robotframework.org/robotframework .
 
@@ -44,6 +46,7 @@ Each library or resource documentation can contain the following information sec
 - **Return Type** (opt.): The type of the return value of the keyword.
 - (*) **Tags** (opt.): The tags that are assigned to the keyword to categorize keywords.
 - **Documentation** (opt.): The documentation text that describes what the keyword does and how it should be used.
+- **Additional structured details in the documentation** (opt.): Depending on the library and Robot Framework version, the documentation may also contain formatted examples, more detailed argument descriptions, return value notes, and possible exception information.
 
 (*) Understanding keyword tags is not part of the syllabus.
 
@@ -318,7 +321,7 @@ Recall what properties "Named-Only Arguments" have and how they are documented.
 All arguments that are defined after a :term[Variable Number of Positional Arguments] (`*varargs`) are :term[Named-Only Arguments]{term="Named-Only Argument"}.
 However it is also possible to create :term[Named-Only Arguments]{term="Named-Only Argument"} without a preceding :term[Variable Number of Positional Arguments].
 
-:term[Named-Only Arguments]{term="Named-Only Argument"} are marked with a "LABEL" sign `🏷` before the argument name in the keyword documentation.
+:term[Named-Only Arguments]{term="Named-Only Argument"} are marked with a "LABEL" sign <NamedOnlyIcon role="img" aria-label="Named-only argument marker" className="named-only-argument-icon" /> before the argument name in the keyword documentation.
 
 Those arguments can not be set positionally. All positional values would be consumed by the :term[Variable Number of Positional Arguments].
 So they must be called by their name followed by an equal sign `=` and the value of the argument.
@@ -473,7 +476,5 @@ Should Be Equal    ${x}    expected    Custom error message
 Should Be Equal    ${x}    expected    Custom message    values=False
 Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 ```
-
-
 
 

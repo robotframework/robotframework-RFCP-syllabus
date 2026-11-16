@@ -1,4 +1,6 @@
 
+import NamedOnlyIcon from '@site/static/img/libdoc-icons/named-only.svg';
+
 # 2.5 Keyword Interface and Documentation
 
 ::::lo[Learning Objectives]
@@ -308,7 +310,7 @@ Recall what properties "Named-Only Arguments" have and how they are documented.
 All arguments that are defined after a "Variable Number of Positional Arguments" (`*varargs`) are "Named-Only Arguments".
 However it is also possible to create "Named-Only Arguments without a preceding "Variable Number of Positional Arguments".
 
-"Named-Only Arguments" are marked with a "LABEL" sign `🏷` before the argument name in the keyword documentation.
+"Named-Only Arguments" are marked with a "LABEL" sign <NamedOnlyIcon role="img" aria-label="Named-only argument marker" className="named-only-argument-icon" /> before the argument name in the keyword documentation.
 
 Those arguments can not be set positionally. All positional values would be consumed by the "Variable Number of Positional Arguments".
 So they must be called by their name followed by an equal sign `=` and the value of the argument.
@@ -462,7 +464,6 @@ Should Be Equal    ${x}    expected    Custom error message
 Should Be Equal    ${x}    expected    Custom message    values=False
 Should Be Equal    ${x}    expected    ignore_case=True    formatter=repr
 ```
-
 
 
 
