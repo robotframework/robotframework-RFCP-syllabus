@@ -191,7 +191,17 @@ Test cases and tasks are technically synonyms for each other.
 However, users have to choose one of the two modes of suite execution that Robot Framework offers.
 
 Each test case or task is structured using an indentation-based format. The first un-indented line specifies the name of the test|task, followed by indented lines containing **keyword calls** and their possible **arguments** and test|task-specific settings.
-The available local settings are `[Documentation]`, `[Tags]`, `[Metadata]`, `[Setup]`, `[Teardown]`, `[Template]`, and `[Timeout]`. They can be applied to individual test cases or tasks to control their behavior or provide additional details.
+The following local settings can be used for each test case or task:
+
+| Setting | Description |
+| --- | --- |
+| `[Documentation]` | Specifies test|task documentation. |
+| `[Metadata]` | Sets free test|task metadata. |
+| `[Tags]` | Specifies test|task tags. |
+| `[Setup]` | Specifies a test|task setup. |
+| `[Teardown]` | Specifies a test|task teardown. |
+| `[Template]` | Specifies a template keyword. |
+| `[Timeout]` | Specifies a test|task timeout. |
 
 A suite file must contain either a `*** Test Cases ***` or a `*** Tasks ***` section, but not both. Resource files cannot contain either of them.
 
