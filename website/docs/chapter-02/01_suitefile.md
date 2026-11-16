@@ -195,13 +195,13 @@ The following local settings can be used for each test case or task:
 
 | Setting | Description |
 | --- | --- |
-| `[Documentation]` | Specifies test|task documentation. |
-| `[Metadata]` | Sets free test|task metadata. |
-| `[Tags]` | Specifies test|task tags. |
-| `[Setup]` | Specifies a test|task setup. |
-| `[Teardown]` | Specifies a test|task teardown. |
+| `[Documentation]` | Specifies test\|task documentation. |
+| `[Metadata]` | Sets free test\|task metadata. |
+| `[Tags]` | Specifies test\|task tags. |
+| `[Setup]` | Specifies a test\|task setup. |
+| `[Teardown]` | Specifies a test\|task teardown. |
 | `[Template]` | Specifies a template keyword. |
-| `[Timeout]` | Specifies a test|task timeout. |
+| `[Timeout]` | Specifies a test\|task timeout. |
 
 A suite file must contain either a `*** Test Cases ***` or a `*** Tasks ***` section, but not both. Resource files cannot contain either of them.
 
